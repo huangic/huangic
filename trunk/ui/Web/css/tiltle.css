@@ -21,11 +21,11 @@
 }
 #SiteName {
 	position: absolute;
-	top: 8px;
-	left: 188px;
+	top: 20px;
+	left: 75px;
 	display: block;
-	font: italic bold 22px ¼Ð·¢Åé;
-	color: #D0B2B3;
+	font: italic bold 22px ï¿½Ð·ï¿½ï¿½ï¿½;
+	color: #000000;
 	text-decoration: none;
 	filter:Shadow(Direction=65,color='#DD6600')
 }
@@ -34,7 +34,7 @@
 	top: 8px;
 	left: 150px;
 	display: block;
-	font: italic bold 22px ¼Ð·¢Åé;
+	font: italic bold 22px ï¿½Ð·ï¿½ï¿½ï¿½;
 	color: #B05213;
 	text-decoration: none;
 }
