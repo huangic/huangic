@@ -1,11 +1,2 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-JDBC
-
-
-= Details =
-
-driver就是附件解開的jar檔案, driver class name 是 weblogic.jdbc.db2.DB2Driver 
+driver class name 是 weblogic.jdbc.db2.DB2Driver 
 connection url 是  jdbc:bea:db2://IP:50000;DatabaseName=db_alias 
