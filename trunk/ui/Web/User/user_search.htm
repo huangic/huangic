@@ -1,0 +1,56 @@
+
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../css/form.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../css/setstyle.css">
+<script src="js/noRightButton.js" language="javascript">&nbsp;</script>
+		<script language="javascript" src="../js/DeptTree2.js">
+                            var test = '';
+                        </script><script language="javascript" src="../js/SS_Popup.js">
+                            var test = '';
+                        </script><script src="../js/mootools.js" language="javascript">&nbsp;</script>
+</head>
+
+<body>
+<div id="FuncName">
+<h1>系統管理∕使用者</h1>
+<div id="Nav">
+<a href="AddShowForm.do?formType=gipadmin/xmlspec/UserAdd.xml" target="">新增使用者</a>
+						&nbsp;
+					</div>
+</div>
+<div id="FormName">
+							【使用者查詢】
+						</div>
+<form method="post" id="Form1" action="query.do" name="queryForm">
+
+<INPUT name="CalendarTarget" TYPE="hidden"><input type="hidden" name="usersubmit" id="usersubmit" value="1"><input type="hidden" name="listspec" id="listspec" value="UserManageList.xml"><input type="hidden" name="queryspec" id="queryspec" value="UserQuery.xml"><input type="hidden" name="gipdsd" id="gipdsd" value=""><input type="hidden" name="ictunit" id="ictunit" value=""><input type="hidden" name="ctNodeId" id="ctNodeId" value="">
+<table>
+<tr>
+<td class="Label">使用帳號</td><td><input type="text" name="q_userId" id="q_userId"></td>
+</tr>
+<tr>
+<td class="Label">權限群組</td><td><select name="q_ugrpId"><option value="">請選擇</option><option value="basic">基本群組</option><option value="FCU00Base">逢甲大學基本群組</option><option value="FCU01dEdit">逢甲單位資料管理</option><option value="FrontUser">網站會員</option><option value="gEdit">資料上稿</option><option value="HTSD">HT系統開發</option><option value="SysAdm">系統管理</option></select></td>
+
+</tr>
+<tr>
+<td class="Label">姓名</td><td><input type="text" name="q_userName" id="q_userName"></td>
+</tr>
+<tr>
+<td class="Label">單位</td><td><select name="q_deptId"><option value="">請選擇</option><option value="0">逢甲大學</option><option value="001">教學單位</option><option value="00101">CB-商學院</option><option value="0010101">商學院</option><option value="0010102">會計學系</option><option value="0010103">國際貿易學系</option><option value="0010104">財稅學系</option><option value="0010105">合作經濟學系</option><option value="0010106">統計學系</option><option value="0010107">經濟學系</option><option value="0010108">統計與精算研究所</option><option value="0010109">電子商務研究中心</option><option value="0010110">統計調查研究中心</option><option value="0010111">商學進修學士班</option><option value="0010112">財經法律研究所</option><option value="0010113">商學博士學位學程</option><option value="0010114">公司治理研究中心</option><option value="0010115">應用統計研究所</option><option value="0010116">企業法律諮詢研究中心</option><option value="0010117">社會事業經營管理研究中心</option><option value="0010118">科技管理研究所</option><option value="0010119">創業教育發展中心</option><option value="0010120">國際經營管理碩士學位學程</option><option value="0010121">兩岸稅務研究中心</option><option value="0010122">國際企業管理學士學位學程(英語專班)</option><option value="0010123">行銷學系</option><option value="0010124">企業管理學系</option><option value="0010125">電子商務碩士在職專班</option><option value="00102">CD-建設學院</option><option value="0010201">建設學院</option><option value="0010202">室內與景觀設計進修學士班</option><option value="0010203">環境資訊科技碩士學位學程</option><option value="0010204">景觀與遊憩碩士學位學程</option><option value="0010205">城鄉發展研究中心</option><option value="0010206">車輛行車事故鑑定研究中心</option><option value="0010207">土木工程學系營建工程及不動產物業管理進修學士班</option><option value="0010208">區域環境資源與產業發展研究中心</option><option value="0010209">先進交通管理研究中心</option><option value="0010210">測量教學研究中心</option><option value="0010211">建築研究設計中心</option><option value="0010212">土木工程學系</option><option value="0010213">水利工程與資源保育學系</option><option value="0010214">建築學系</option><option value="0010215">都市計畫與空間資訊學系</option><option value="0010216">土木及水利工程博士學位學程</option><option value="0010217">營建及防災研究中心</option><option value="0010218">運輸科技與管理學系</option><option value="0010219">土地管理學系</option><option value="0010220">地理資訊系統研究中心</option><option value="00103">CE-工學院</option><option value="0010301">工學院</option><option value="0010302">機械與電腦輔助工程學系</option><option value="0010303">纖維與複合材料學系</option><option value="0010304">工業工程與系統管理學系</option><option value="0010305">化學工程學系</option><option value="0010306">航太與系統工程學系</option><option value="0010307">機械與航空工程博士學位學程</option><option value="0010308">能源與資源研究中心</option><option value="0010309">電聲碩士學位學程</option><option value="0010310">實習工場</option><option value="0010311">綠色能源科技碩士學位學程(籌備)</option><option value="00104">CF-金融學院</option><option value="0010401">財務金融學系</option><option value="0010402">風險管理與保險學系</option><option value="0010403">金融學院</option><option value="001040301">COF</option><option value="0010404">金融博士學位學程(籌備)</option><option value="00105">CH-人文社會學院</option><option value="0010501">人文社會學院</option><option value="0010502">師資培育中心</option><option value="0010503">外語教學中心</option><option value="0010504">外國語文學系</option><option value="0010505">歷史與文物管理研究所</option><option value="0010506">公共政策研究所</option><option value="0010507">庶民文化研究中心</option><option value="0010508">唐代研究中心</option><option value="0010509">公共政策研究中心</option><option value="0010510">中國文學系</option><option value="0010511">藝術中心</option><option value="00106">CI-資訊電機學院</option><option value="0010601">資訊工程學系</option><option value="0010602">電子工程學系</option><option value="0010603">電機工程學系</option><option value="0010604">自動控制工程學系</option><option value="0010605">資訊電機學院</option><option value="0010606">資電研究中心</option><option value="0010607">通訊工程學系</option><option value="0010608">電機與通訊工程博士學位學程</option><option value="0010609">器材中心</option><option value="0010610">資電學院不分系榮譽班</option><option value="0010611">資訊電機工程碩士在職專班</option><option value="0010612">嵌入式系統發展研究中心</option><option value="0010613">生物資訊研究中心</option><option value="0010614">產業研發碩士專班</option><option value="0010615">資通安全研究中心</option><option value="0010616">積體電路電磁相容研究發展中心</option><option value="0010617">生醫資訊暨生醫工程碩士學位學程</option><option value="00107">CS-理學院</option><option value="0010701">理學院</option><option value="0010702">應用數學系</option><option value="0010703">環境工程與科學學系</option><option value="0010704">材料科學與工程學系</option><option value="0010705">光電學系</option><option value="0010706">材料研究中心</option><option value="0010707">環境與安全衛生教育暨研究中心</option><option value="0010708">微積分教學中心</option><option value="0010709">物理教學研究中心</option><option value="00108">MB-經營管理學院</option><option value="0010801">經營管理碩士在職專班</option><option value="00109">設計系</option><option value="002">行政單位</option><option value="00201">LB-圖書館</option><option value="0020101">圖書館</option><option value="0020102">技術服務組</option><option value="0020103">參考服務組</option><option value="0020104">典藏流通組</option><option value="0020105">資訊加值組</option><option value="00202">AA-教務處</option><option value="0020201">教務處</option><option value="0020202">註冊課務組</option><option value="0020203">招生組</option><option value="0020204">教師教學成長中心</option><option value="0020205">教學品保中心</option><option value="00203">AC-會計室</option><option value="0020301">會計室</option><option value="0020302">會計組</option><option value="0020303">預算與稽核組</option><option value="00204">AL-校友聯絡暨就業輔導室</option><option value="0020401">校友聯絡暨就業輔導室</option><option value="00205">BT-董事會</option><option value="0020501">董事會</option><option value="00206">EC-推廣教育處</option><option value="0020601">推廣教育處</option><option value="0020602">專案企劃組</option><option value="0020603">行政服務組</option><option value="0020604">區域推廣組</option><option value="0020605">技藝認證中心</option><option value="0020606">企業研訓中心</option><option value="00207">GA-總務處</option><option value="0020701">營繕組</option><option value="0020702">總務處</option><option value="0020703">事務組</option><option value="0020704">保管組</option><option value="0020705">出納組</option><option value="0020706">安全衛生組</option><option value="0020707">採購組</option><option value="00208">IA-國際事務處</option><option value="0020801">海外青年技術訓練班</option><option value="0020802">國際事務處</option><option value="0020803">國際學生事務辦公室</option><option value="0020804">大陸事務辦公室</option><option value="0020805">國際合作事務辦公室</option><option value="00209">IC-資訊處</option><option value="0020901">資訊處</option><option value="0020902">資源管理中心</option><option value="0020903">系統發展組</option><option value="0020904">系統維運組</option><option value="0020905">資訊技術服務中心</option><option value="00210">MT-軍訓室</option><option value="0021001">軍訓室</option><option value="00211">PB-公共關係室</option><option value="0021101">公共關係室</option><option value="00212">PE-人事室</option><option value="0021201">人事室</option><option value="00213">PH-體育事務處</option><option value="0021301">體育事務處</option><option value="0021302">活動企劃組</option><option value="0021303">場館管理組</option><option value="0021304">體育場館營運中心</option><option value="00214">PR-校長室</option><option value="0021401">校長室</option><option value="00215">RA-研究發展處</option><option value="0021501">研究發展處</option><option value="0021502">校務企劃組</option><option value="0021503">研究推動組</option><option value="0021504">分析評量組</option><option value="0021505">共同貴重儀器中心</option><option value="0021506">技術授權中心</option><option value="0021507">創新育成中心</option><option value="0021508">奈米科技研究中心</option><option value="0021509">產學合作與技術營運辦公室(籌備)</option><option value="0021510">海峽兩岸科技研究中心</option><option value="00216">SA-學生事務處</option><option value="0021601">學生事務處</option><option value="0021602">課外活動組</option><option value="0021603">生活輔導組</option><option value="0021604">諮商輔導中心</option><option value="0021605">領導知能與服務學習中心</option><option value="0021606">住宿服務中心</option><option value="00217">SE-秘書室</option><option value="0021701">秘書室</option><option value="0021702">法律顧問室</option><option value="0021703">校史檔案室</option><option value="00218">TL-教學資源中心</option><option value="0021801">教學資源中心</option><option value="0021802">教學發展組</option><option value="0021803">數位教材發展組</option><option value="0021804">教學科技組</option><option value="00219">TO-中科辦公室</option><option value="0021901">中科辦公室</option><option value="00220">VA-性別平等教育委員會</option><option value="0022001">性別平等教育委員會</option><option value="00221">VB-環保暨安全衛生委員會</option><option value="0022101">環保暨安全衛生委員會</option><option value="00222">VC-人力發展規劃審議小組</option><option value="0022201">人力發展規劃及審議小組</option><option value="00223">VD-學生申訴評議委員會</option><option value="0022301">學生申訴評議委員會</option><option value="00224">VE-校安災害通報處理中心</option><option value="0022401">校園安全暨災害防救通報處理中心</option><option value="00225">PO-計畫辦公室</option><option value="0022501">計畫辦公室</option><option value="0022502">e三五教學卓越計畫辦公室</option><option value="0022503">中區區域教學資源中心</option><option value="003">通用上稿單位</option><option value="004">特殊網站單位</option><option value="00401">文藝季</option><option value="00402">校慶</option><option value="00403">畢業典禮</option></select></td>
+
+</tr>
+</table>
+<input class="cbutton" value="送出" type="submit" onclick="">&nbsp;
+							<input class="cbutton" value="清除重填" type="reset">
+</form>
+<div id="Explain">
+<h1>說明</h1>
+		
+</div>
+</body>
+</html>
+
