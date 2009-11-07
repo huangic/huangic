@@ -43,11 +43,11 @@ function fPopUpCalendarDlgBase(ctrlobj,ctrlobj1,typenum,typeName,event)
 	
 	if(path.charAt(0)=='/') path = path.substring(1,path.length);
 	path = path.substring(0,path.indexOf('/'));
-	
+	//alert(path);
 	if( path != 'gipadmin')
-		path = '/'+path+'/gipadmin/js/'+typeName+'/CalendarDlg.htm';
+		path = '../js/'+typeName+'/CalendarDlg.htm';
 	else
-		path = '/gipadmin/js/'+typeName+'/CalendarDlg.htm';
+		path = '/js/'+typeName+'/CalendarDlg.htm';
 	
 	retval = window.showModalDialog(path, "", "dialogWidth:197px; dialogHeight:210px; dialogLeft:"+showx+"px; dialogTop:"+showy+"px; status:no; directories:yes;scrollbars:no;Resizable=no; "  );
 	

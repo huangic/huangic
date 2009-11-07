@@ -1,186 +1,90 @@
-
-
-<html>
+<html lang="zh-TW">
 <head>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link type="text/css" rel="stylesheet" href="../css/list.css">
-<link type="text/css" rel="stylesheet" href="../css/layout.css">
-<link type="text/css" rel="stylesheet" href="../css/setstyle.css">
-<script language="javascript">
-						   function goFp(){
-						     if(document.getElementById("list_fp")!=null){
-						       list_fp.submit();
-						     }
-						   }
-						</script><script src="js/noRightButton.js" language="javascript">&nbsp;</script><script src="js/mootools.js" language="javascript">&nbsp;</script>
-<script type="text/javascript">
-function Edit() {
-  var radiochk;
-  
-  var ids = $('reg').getElements('input[name=ugrpID]');
-  for(i=0; i <= ids.length-1; i++){              
-    if(ids[i].checked){         
-      radiochk="YES" ;
-      self.location = "UpdateShowForm.do?formType=gipadmin/xmlspec/UserGroupEdit.xml" + ids[i].value;
-      break;
-    }          
-  }   
+<title>系統管理∕使用者</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link type="text/css" rel="stylesheet" href="../css/form.css" />
+<link type="text/css" rel="stylesheet" href="../css/layout.css" />
+<script src="../js/noRightButton.js" language="javascript">&nbsp;</script>
+<script src="../js/upload.js" language="javascript">&nbsp;</script>
+<script src="../js/mootools.js" language="javascript">&nbsp;</script>
+<script src="../js/globals.js" type="text/javascript">&nbsp;</script>
 
-  if(radiochk!="YES"){                   
-    alert("尚未選定!!");
-  }else{ 
-     //reg.action="EditGroup.asp";
-     //reg.submit;
-    }          
-}  
+<script src="../js/tabpanel1_class.js" type="text/javascript">&nbsp;</script>
+<script src="../js/widgets_class.js" type="text/javascript">&nbsp;</script>
 
-function REdit() {
-  var radiochk;
-  var ids = $('reg').getElements('input[name=ugrpID]');
-  for(i=0; i <= ids.length-1; i++){                  
-    if(ids[i].checked){     
-      radiochk="YES";
-      break ;
-    } 
-  }     
+<script src="../js/buttonCheck.js" language="javascript">&nbsp;</script>
+<script src="../js/SS_Popup.js">&nbsp;</script>
 
-  if(radiochk!="YES"){         
-    alert("尚未選定!!");
-  }else{                 
-     reg.action="APGroup/UgrpApTreeList.jsp?1=1" + ids[i].value;
-     reg.submit();
-  }    
-}   
 
-</script>
-		</head>
-
+</head>
 <body>
 <div id="FuncName">
-<h1>系統管理∕權限群組</h1>
-<div id="Nav">
-<a href="AddShowForm.do?formType=gipadmin/xmlspec/UserGroupAdd.xml" target="">新增</a><a href="query.do?queryspec=UserGroupQuery.xml&listspec=UserGroupList.xml" target="">重設查詢</a>
-						&nbsp;
-					</div>
+<h1>檔案上傳∕早療系統</h1>
+<div id="Nav"><a title="回前頁"
+	href="Javascript:window.history.back();">回前頁</A></div>
 </div>
-<div id="FormName">
-							【權限群組查詢結果】
-							<br>
+<div id="FormName">【發展遲緩兒早期療育個案管理 - 上傳界面 】</div>
+<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
+	id="Form1" action="#">
+<table cellspacing="0">
+	<tr>
+		<td class="Label" align="right">個案基本資料表
+		(檔名:TB_OPENCASE_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
+	<tr>
+		<td class="Label" align="right">個案初訪表1
+		(檔名:TB_CASEBASICDATA1_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
+	<tr>
+		<td class="Label" align="right">個案初訪表2
+		(檔名:TB_CASEBASICDATA2_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
 
-</div>
-<div id="Page">
-<form name="list" action="/FCUAdmin/gipadmin/list.do">
-<input type="hidden" name="listspec" value="UserGroupList.xml"><input type="hidden" name="kpsn" value="1">
-  
-    共
-    <em>7</em>
-    筆資料，每頁顯示
-    <select onchange="javascript:this.form.target='_self';this.form.submit()" name="pageSize"><option value="10">10</option><option value="15">15</option><option value="30">30</option><option value="50">50</option><option value="300">300</option></select>
-    筆，目前在第
-    <select onchange="javascript:this.form.target='_self';this.form.submit()" name="curPage">
-    <script language="javascript">
-						var totPage = 1;
-						
-						
-							if (totPage==0){
-								document.write("<option value=0 selected>0</option>");
-							}else{
-								for (xi=1;xi<=totPage;xi++){
-									document.write("<option value=" +xi + ">" + xi + "</option>");
-								}
-							}
-						
-						</script></select>
+	<tr>
+		<td class="Label" align="right">個案初訪表3
+		(檔名:TB_CASEBASICDATA3_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
+	<tr>
+		<td class="Label" align="right">個案安置記錄表
+		(檔名:TB_CASESERVEPLACE_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
+	<tr>
+		<td class="Label" align="right">個案療育記錄表
+		(檔名:TB_CASECARE_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
 
-    頁
-    <script language="javascript">
-    list.pageSize.value = 15;
-    list.curPage.value = 1;
-    </script>
-</form>
-<form target="_blank" name="list_fp" action="/FCUAdmin/gipadmin/list.do">
-<input type="hidden" name="listspec" value="UserGroupList.xml"><input type="hidden" name="kpsn" value="1"><input name="pageSize" type="hidden"><input name="curPage" type="hidden"><input value="PatternList_fp" name="xslName" type="hidden">
-</form>
-<script language="javascript">
-    list_fp.pageSize.value = 15;
-    list_fp.curPage.value = 1;
-    </script>
-</div>
-<form name="reg" id="reg" method="post" action="">
-<input class="cbutton" type="button" onClick="Edit()" value="編修群組"><input class="cbutton" type="button" onClick="REdit()" value="編修權限">
-		<input type="hidden" name="ugrpID"/>   			
-   	    <table id="ListTable">
-<tbody>
+	<tr>
+		<td class="Label" align="right">個案轉銜轉介報告表
+		(檔名:TB_CASETRANSDATA_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
+	<tr>
+		<td class="Label" align="right">個案結案表
+		(檔名:TB_CASECLOSED_YYYYMMDD.TXT)</td>
+		<td class="whitetablebg"><input class="InputText" type="file"></input></td>
+	</tr>
 
-<tr>
-<th>選擇</th><th>群組ID</th><th>群組名稱</th><th>是否公開</th><th>說明</th>
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=basic">&nbsp;
-								</td><td>basic&nbsp;
-								</td><td>基本群組&nbsp;
-								</td><td>是&nbsp;
 
-								</td><td>&nbsp;
-								</td>
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=FCU00Base">&nbsp;
-								</td><td>FCU00Base&nbsp;
-								</td><td>逢甲大學基本群組&nbsp;
-								</td><td>是&nbsp;
-								</td><td>逢甲大學基本群組(僅個人資料編輯)&nbsp;
 
-								</td>
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=FCU01dEdit">&nbsp;
-								</td><td>FCU01dEdit&nbsp;
-								</td><td>逢甲單位資料管理&nbsp;
-								</td><td>是&nbsp;
-								</td><td>逢甲單位資料管理&nbsp;
 
-								</td>
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=FrontUser">&nbsp;
-								</td><td>FrontUser&nbsp;
-								</td><td>網站會員&nbsp;
-								</td><td>是&nbsp;
-								</td><td>網站會員&nbsp;
-
-								</td>
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=gEdit">&nbsp;
-								</td><td>gEdit&nbsp;
-								</td><td>資料上稿&nbsp;
-								</td><td>是&nbsp;
-								</td><td>&nbsp;
-								</td>
-
-</tr>
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=HTSD">&nbsp;
-								</td><td>HTSD&nbsp;
-								</td><td>HT系統開發&nbsp;
-								</td><td>是&nbsp;
-								</td><td>&nbsp;
-								</td>
-</tr>
-
-<tr>
-<td><input name="ugrpID" type="radio" value="&pk=ugrpId&pkvalue=SysAdm">&nbsp;
-								</td><td>SysAdm&nbsp;
-								</td><td>系統管理&nbsp;
-								</td><td>是&nbsp;
-								</td><td>&nbsp;
-								</td>
-</tr>
-</tbody>
 
 </table>
-</form>
+
+
+<input class="cbutton" value="存檔" type="submit"><input
+	value="清除重填" class="cbutton" type="reset"></form>
+<div id="Explain">
+<h1>說明</h1>
+<ul>
+	<li><span class="Must">*</span>為必要欄位</li>
+</ul>
+</div>
 </body>
 </html>
 
