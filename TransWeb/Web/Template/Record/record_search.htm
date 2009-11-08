@@ -1,0 +1,98 @@
+
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../css/form.css">
+<link type="text/css" rel="stylesheet" href="../css/layout.css">
+<link type="text/css" rel="stylesheet" href="../css/setstyle.css">
+<script src="js/noRightButton.js" language="javascript">&nbsp;</script>
+<script language="javascript" src="../js/DeptTree2.js">
+                            var test = '';
+</script>
+<script language="javascript" src="../js/SS_Popup.js">
+                            var test = '';
+</script>
+<script src="../js/mootools.js" language="javascript">&nbsp;</script>
+</head>
+
+<body>
+<div id="FuncName">
+<h1>記錄查詢/轉檔記錄</h1>
+<div id="Nav"></div>
+</div>
+<div id="FormName">【轉檔記錄查詢】</div>
+<form method="post" id="Form1" action="record.htm" name="queryForm">
+
+<table>
+	<tr>
+		<td class="Label">使用帳號</td>
+		<td><input type="text" name="q_userId" id="q_userId"></td>
+	</tr>
+
+	<tr>
+		<td class="Label">角色</td>
+		<td><select name="q_ugrpId">
+			<option value="">系統管理員</option>
+			<option value="basic">兒童局人員</option>
+			<option value="FCU00Base">一般使用者</option>
+
+		</select></td>
+
+	</tr>
+
+	<tr>
+		<td class="Label">系統</td>
+		<td><select name="q_ugrpId">
+			<option value="">不指定</option>
+			<option value="basic">早療系統</option>
+			<option value="FCU00Base">寄養系統</option>
+		</select></td>
+
+	</tr>
+	<tr>
+		<td class="Label">上傳日期</td>
+		<td><input type="text" readonly="readonly" size="10" class=""
+		name="pcShowq_xpostDate_S" id="pcShowq_xpostDate_S"><a
+		onclick="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_S'),$('q_xpostDate_S'),0,event)"
+		onKeypress="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_S'),$('q_xpostDate_S'),0,event)"><img
+		align="absmiddle" border="0" name="BTN_date"
+		src="../images/icon_cal.gif" width="22" height="17"
+		alt="請選擇上傳日" title="請選擇上傳日"></a> ～ <input type="text"
+		readonly="readonly" size="10" class="" name="pcShowq_xpostDate_E"
+		id="pcShowq_xpostDate_E"><a
+		onclick="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_E'),$('q_xpostDate_E'),0,event)"><img
+		align="absmiddle" border="0" name="BTN_date"
+		src="../images/icon_cal.gif" width="22" height="17"
+		alt="請選擇上傳日" title="請選擇上傳日"></a></td>
+
+	</tr>
+
+<tr>
+		<td class="Label">狀態</td>
+		<td align="left" class="n">      <input type="checkbox"  value="checkbox" name="checkbox2"/>
+      待處理
+      <input type="checkbox"  value="checkbox" name="checkbox3"/>
+      轉入成功 
+      <input type="checkbox" value="checkbox" name="checkbox4"/>
+      轉入失敗
+      <input type="checkbox" value="checkbox" name="checkbox4"/>
+      取消轉入</td>
+
+	</tr>
+	
+
+
+
+
+
+</table>
+<input class="cbutton" value="送出" type="submit" onclick="">&nbsp;
+<input class="cbutton" value="清除重填" type="reset"></form>
+<div id="Explain">
+<h1>說明</h1>
+
+</div>
+</body>
+</html>
+
