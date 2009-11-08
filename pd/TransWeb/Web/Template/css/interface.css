@@ -1,0 +1,231 @@
+/*	
+	經濟部國貿局Intranet - All Rights Reserved.
+	
+	Produicted By 凌網科技 HyWeb Tech. Co., Ltd.2003.
+	http://www.hyweb.com.tw　
+	HyWeb CSS Style(writed by m10/Brad Kuo)
+		
+/* 捲軸設定 */
+
+
+BODY
+{
+	font-size: 12px;
+	font-family: "Arial", "Helvetica", "sans-serif";
+	SCROLLBAR-FACE-COLOR: #DFE7EB; SCROLLBAR-HIGHLIGHT-COLOR: #eeeeee; SCROLLBAR-SHADOW-COLOR: #9EB5CC; SCROLLBAR-3DLIGHT-COLOR: #9EB5CC; SCROLLBAR-ARROW-COLOR: #cccccc; SCROLLBAR-TRACK-COLOR: #9EB5CC; SCROLLBAR-DARKSHADOW-COLOR: #cccccc
+
+}
+
+/* 文字字級格式 */
+table 
+{
+	font-size: 12px;
+	font-family: "Arial", "Helvetica", "sans-serif";
+	
+}
+
+.button      {
+	background-color: #F2F2F2;
+	border: 1 ridge #ADB5BD;
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	padding-right: 5px;
+	padding-left: 5px;
+	cursor: hand;
+	font-size: 12px;
+}
+.InputBox  { font-size: 10pt; color: #003366; background-color: #FFFFFF; 
+               border: 1 inset #C0C0C0 ; font-family: Verdana;}
+
+.InputSelect 
+{	font-size: 11px;
+	font-family: "Arial", "Helvetica", "sans-serif";
+	letter-spacing:1px;
+	color: #CA7D03;}
+
+
+
+
+/* 藍色版css文字版面格式開始 */
+
+/* 000頁面上方標題右方延伸背景設定 */
+
+.PageTitleImage01{height: 24px;}
+.PageTitleImage02{height: 24px;}
+.PageTitleImage03{height: 24px;}
+.PageTitleImage04{height: 24px;}
+.PageTitleImage05{height: 24px;}
+.PageTitleImage06{height: 24px;}
+.PageTitleImage07{height: 24px;}
+.PageTitleImage08{height: 24px;}
+.PageTitleImage09{height: 24px;}
+
+
+
+/* 001頁面上方標題右方延伸背景設定 */
+
+.PageTitleBG{
+	background-image: url(../images/title_bg.gif);
+	background-repeat: repeat-x;
+}
+
+/* 002頁面外框表格以及標題列的背景設定 */
+
+.TableBorder{
+	padding: 5px;
+	border: 1px solid AFC2C8;
+	margin-top: 1px;
+}
+
+.TitleList {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 11pt;
+	font-weight: bold;
+	color: 646C74;
+	padding: 3px 3px 3px 5px;
+	letter-spacing: 1pt;
+	background-color: E8E8E8;}
+	
+.TitleListCorner{background-color: E8E8E8;}
+	
+.TableMargin {
+	margin-top: 1px;
+}
+
+.TableUnderLine{
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.TableTopLine{
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+}
+
+
+/* 003內容設定 */
+
+.WelcomeInfo {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 16px;
+	color: 0D61C0;
+}
+.CalendarDate {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	font-weight: bold;
+	color: 000000;
+	padding: 5px 3px 0px;
+}
+.CalendarEveryDay {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: ffffff;
+	padding: 2px;
+	background-color: 8099B3;
+	cursor: hand;
+}
+.CalendarToDay {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #ffffff;
+	padding: 2px;
+	background-color: #BDBDF6;
+	cursor: hand;
+}
+.CalendarHoliDay {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #a7520d;
+	padding: 2px;
+	background-color: #E8B5BA;
+	cursor: hand;
+}
+.CalendarTitle {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 11pt;
+	font-weight: bold;
+	color: ffffff;}
+.CalendarTime {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: 4574A1;
+	padding: 3px;
+}
+.CalendarMonth {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 18pt;
+	font-weight: bold;
+	color: 4574A1;
+	padding-top: 3px;
+	padding-right: 3px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+
+.TimeNumber {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: A7520D;
+	
+}
+
+
+/* 004內容表格設定 */
+
+.ConTableBorderBg{
+	
+	font-size: 10pt;
+	padding: 2px;
+	border: 1px solid #CED7E2;
+	background-color: #ECF0F4;
+	font-weight: bold;
+}
+
+.ConTableBorder{
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	padding: 2px;
+	border: 1px solid #CED7E2;}
+	
+.ConTitle {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 14px;
+	font-weight: bold;
+	color: A7520D;	
+	letter-spacing: 1pt;padding: 3px 3px 3px 3px;}
+
+.ConTableBorderBgLight{
+	
+	font-size: 10pt;
+	padding: 2px;
+	border: 1px solid #CED7E2;
+	background-color: #ECF0F4;
+	}
+
+.ConUserGuide{
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	padding: 8px;
+	border: 1px solid #CED7E2;
+	margin-top: 5px;
+	color: 993300;
+}
+
+
+
+/* 一般內文 Selectors Style */
+a.:active {  font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; line-height: 130%; font-size: 10pt; color: #003399; text-decoration: none}
+a.:link { font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; line-height: 130%; font-size: 10pt; color: #003399; text-decoration: none}
+a.:visited { font-family: "Verdana", "Arial", "Helvetica", "sans-serif";line-height: 130%; font-size: 10pt; color: #003399;text-decoration: none}
+a.:hover     { font-family: Verdana, Arial, Helvetica, sans-serif;line-height: 130%; font-size: 10pt; color: 
+               #B57A14; text-decoration: underline }
+
+			   
+/* 標題文次項選項右側同一列selector,ex 前一頁,後一頁,新增,修改 */
+
+a.TitleMoreOver:active {  font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; line-height: 130%;font-weight: bold; font-size: 10pt; color: #B57A14; text-decoration: none}
+a.TitleMoreOver:link { font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; line-height: 130%;font-weight: bold; font-size: 10pt; color: #B57A14; text-decoration: none}
+a.TitleMoreOver:visited { font-family: "Verdana", "Arial", "Helvetica", "sans-serif";line-height: 130%;font-weight: bold; font-size: 10pt; color: #B57A14;text-decoration: none}
+a.TitleMoreOver:hover     { font-family: Verdana, Arial, Helvetica, sans-serif;line-height: 130%;font-weight: bold; font-size: 10pt; color: 
+               #A7520D; text-decoration: underline }
