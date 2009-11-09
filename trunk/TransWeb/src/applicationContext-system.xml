@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="springUtil" class="idv.trans.util.SpringUtil">
+    
+    </bean> 
+    
+    
+    
+    <bean id="systemVarBean" name="系統變數" class="idv.trans.service.system.SystemVar"> 
+       <property name="userLevel">
+           <map>
+				<entry key="系統管理員"><value>1</value></entry>
+				<entry key="兒童局人員"><value>2</value></entry>
+				<entry key="一般使用者"><value>3</value></entry>
+			</map>
+       </property>
+     <property name="systemPermission">
+           <map>
+				<entry key="早療系統"><value>1</value></entry>
+				<entry key="寄養系統"><value>2</value></entry>
+				
+			</map>
+       </property>
+    
+    </bean>
+
+
+
+
+	<bean id="functionBean" class="idv.trans.service.system.Functions">
+		<property name="permission">
+			<map>
+				<entry key="系統管理">
+					<list>
+						<ref bean="userAddBean"/>
+						<ref bean="userSearchBean"/>
+						<ref bean="userPwdChangeBean"/>
+					</list>
+				</entry>
+				<entry key="檔案上傳">
+					<list>
+						<ref bean="upload01Bean"/>
+						<ref bean="upload02Bean"/>
+						
+					</list>
+				</entry>
+				<entry key="紀錄查詢">
+					<list>
+						<ref bean="recordSearchBean"/>
+						
+					</list>
+				</entry>
+				
+				<entry key="下載區">
+					<list>
+						<ref bean="downloadBean"/>
+						
+					</list>
+				</entry>
+				
+				
+				
+			</map>
+		</property>
+	</bean>
+
+    <bean id="userAddBean" name="新增帳號" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>新增帳號</value></property>
+		<property name="functionURL"><value>Admin/user_add.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+					</list>
+				
+		</property>
+	</bean>
+	
+	<bean id="userSearchBean" name="帳號查詢" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>帳號查詢</value></property>
+		<property name="functionURL"><value>Admin/user_search.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+					</list>
+				
+		</property>
+	</bean>
+    
+    <bean id="userPwdChangeBean" name="修改密碼" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>修改密碼</value></property>
+		<property name="functionURL"><value>Admin/user_pwd_change.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				
+		</property>
+	</bean>
+
+
+     <bean id="upload01Bean" name="早療系統" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>早療系統</value></property>
+		<property name="functionURL"><value>Upload/upload.do</value></property>
+		<property name="permissionID"><value>1</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				
+		</property>
+	</bean>
+	<bean id="upload02Bean" name="寄養系統" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>寄養系統</value></property>
+		<property name="functionURL"><value>Upload/upload.do</value></property>
+		<property name="permissionID"><value>2</value></property>
+		
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				
+		</property>
+	</bean> 
+	 
+	 
+	 <bean id="recordSearchBean" name="轉檔紀錄查詢" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>轉檔紀錄查詢</value></property>
+		<property name="functionURL"><value>Record/record_search.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				
+		</property>
+	</bean> 
+	 
+	 <bean id="downloadBean" name="下載區" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>下載區</value></property>
+		<property name="functionURL"><value>Download/download.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
+						<value>3</value>
+					</list>
+				
+		</property>
+	</bean> 
+
+
+
+
+</beans>

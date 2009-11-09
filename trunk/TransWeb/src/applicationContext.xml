@@ -13,7 +13,8 @@
 	<import resource="classpath:applicationContext-filter.xml"/>
     <import resource="classpath:applicationContext-util.xml"/>
 	<import resource="classpath:applicationContext-Perf4j.xml"/>
-	<import resource="classpath:applicationContext-struts2-helloWorld.xml"/>
+	
+	<import resource="classpath:applicationContext-system.xml"/>
 <!--	
 	<import resource="classpath:applicationContext-Infouser.xml"/>
 	
