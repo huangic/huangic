@@ -22,8 +22,21 @@
 
 
 	<package name="idv.trans.struts.login" extends="struts-default">
-		<action name="login" class="idv.trans.struts.action.Login" method="execute">
-			<result name="SUCCESS">Template/default.htm</result>
+		<action name="index" class="idv.trans.struts.action.Login" method="index">
+			<result name="SUCCESS">Template/index.jsp</result>
 		</action>
+		
+		<action name="login" class="idv.trans.struts.action.Login" method="execute">
+			<result name="SUCCESS">Template/default.jsp</result>
+			<result name="ERROR">Template/index.jsp</result>
+		</action>
+		<action name="logout" class="idv.trans.struts.action.Login" method="logout">
+			<result name="SUCCESS">Template/index.jsp</result>
+		</action>
+		
+		<action name="topmenu" class="idv.trans.struts.action.Login" method="topmenu">
+			<result name="SUCCESS">Template/topmenu.jsp</result>
+		</action>
+		
 	</package>
 </struts>
