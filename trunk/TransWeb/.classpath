@@ -87,5 +87,10 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/junit.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring-jdbc.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring-orm.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/com.bea.core.weblogic.workmanager_1.4.0.0.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/wlbase.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/wldb2.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/wlutil.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Web App Libraries"/>
 	<classpathentry kind="output" path="Web/WEB-INF/classes"/>
 </classpath>
