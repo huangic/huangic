@@ -10,12 +10,12 @@
 
 
 	<bean id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.sybase.jdbc3.jdbc.SybDriver">
+		<property name="driverClassName" value="weblogic.jdbc.db2.DB2Driver">
 		</property>
-		<property name="url" value="jdbc:sybase:Tds:140.134.4.22:4100/misdb?useUnicode=true&amp;charset=cp950">
+		<property name="url" value="jdbc:bea:db2://localhost;DatabaseName=TRANS">
 		</property>
-		<property name="username" value="fcucobweb"></property>
-		<property name="password" value="g7j3kp"></property>
+		<property name="username" value="MYNE"></property>
+		<property name="password" value="ok1234"></property>
 	</bean>
 
 	<bean id="baseSessionFactory"
@@ -25,7 +25,7 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">com.hyweb.hibernate.dialect.SybaseDialect
+				<prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect
 				</prop>
 				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider
 				</prop>
@@ -39,7 +39,7 @@
 	    
 		<property name="mappingLocations">
 			<list>
-				<value>classpath:com/hyweb/hibernate/mapping/fcu/*.hbm.xml</value>
+				<value>classpath:idv/trans/model/*.hbm.xml</value>
 			</list>
 		</property>
 		
@@ -106,23 +106,9 @@
 
 -->
     <!-- 給ORMapping Util用的 -->
-    
-    
-    <bean id="HibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-
-   </bean>
    
 
-		<bean id="ORMapperUtil" class="com.hyweb.bridge.hibernate.ORMapperUtil">
-
-			<property name="hibernateTemplate">
-				<ref bean="HibernateTemplate" />
-			</property>
-
-		</bean>
+	
     
      <!-- 給ORMapping Util用的 -->
 
