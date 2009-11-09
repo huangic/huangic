@@ -23,7 +23,7 @@
 
 
 
-	<logger name="idv.huangic" level="DEBUG" />
+	<logger name="idv" level="DEBUG" />
 
 	<root level="INFO">
 		<appender-ref ref="stdout" />
