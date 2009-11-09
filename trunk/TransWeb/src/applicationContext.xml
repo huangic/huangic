@@ -11,7 +11,7 @@
 	
 	
 	<import resource="classpath:applicationContext-filter.xml"/>
-    <import resource="classpath:applicationContext-util.xml"/>
+    
 	<import resource="classpath:applicationContext-Perf4j.xml"/>
 	
 	<import resource="classpath:applicationContext-system.xml"/>
@@ -24,4 +24,9 @@
 	<import resource="classpath:applicationContext-Quartz.xml"/>
 	
 -->
-</beans>
+	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO">
+		<property name="sessionFactory">
+			<ref bean="baseSessionFactory" />
+		</property>
+	</bean>
+	</beans>

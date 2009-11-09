@@ -1,0 +1,22 @@
+#
+#Mon Nov 09 21:13:00 CST 2009
+genBasicCompId=false
+sessionFactoryName=idv.trans.model.HibernateSessionFactory
+profile=
+daoSFId=baseSessionFactory
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=src/applicationContext.xml
+useJavaTypes=true
+keyGenerator=sequence
+libInstallFolder=<no jars/zips in selected libraries>
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/TransWeb/src/applicationContext-DB.xml
+createConfigFile=false
+addLibs2Classpath=true
