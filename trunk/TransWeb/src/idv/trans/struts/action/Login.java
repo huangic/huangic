@@ -1,0 +1,79 @@
+package idv.trans.struts.action;
+
+import idv.trans.model.Message;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+
+public class Login extends ActionSupport {
+    
+	String account;
+	String passwd;
+	
+	Message message;
+	
+	
+	public String getAccount() {
+		return account;
+	}
+
+
+	public void setAccount(String account) {
+		this.account = account;
+	}
+
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public String topmenu(){
+		
+		return "SUCCESS";
+	}
+	
+	
+	public String index(){
+		return "SUCCESS";
+	}
+	
+	
+    public String logout(){
+    	//幹掉SESSION 然後回到INDEX;
+    	
+    	
+    	return "SUCCESS";
+    }
+
+	public String execute(){
+    	//ActionContext.getContext().getSession().put("msg", "Hello World from Session!");
+    	 
+    	HttpServletRequest request = ServletActionContext.getRequest();
+    	HttpServletResponse response = ServletActionContext.getResponse();
+    	HttpSession session = request.getSession();
+
+    	//登入
+    	
+    	
+    	
+    	if(account.equals("system")){
+    		
+    		
+    		return "SUCCESS";
+    		
+    	}else{
+    	   	return "SUCCESS";
+    	}
+    }
+}
