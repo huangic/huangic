@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF8"
+	pageEncoding="UTF8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +19,7 @@
 	 歡迎 系統管理員 登入
 	</div>
 
-	<a href="index.htm" class="Logout" target="_parent">登出</a>
+	<a href="logout.do" class="Logout" target="_parent">登出</a>
 </div>
 </body>
 </html>
