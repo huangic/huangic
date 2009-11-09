@@ -46,7 +46,8 @@ create table fileInfo
 --==============================================================
 create table userInfo
 (
-   userId             VARCHAR(20)            not null,
+   userId             INT                    not null,
+   account            VARCHAR(30),
    password           VARCHAR(50),
    userName           VARCHAR(20),
    uid                VARCHAR(20),
