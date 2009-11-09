@@ -20,14 +20,24 @@
 
 <struts>
 	
+	<include file="struts/struts_login.xml"/>
+	<include file="struts/struts_function.xml"/>
+	
+	<!-- 
+	
+	
 	<constant name="struts.objectFactory" value="spring" />
     <constant name="struts.devMode" value="true" />
+    -->
 
-
-
+     <!-- 
 	<package name="default" extends="struts-default">
-		<action name="Hello" class="helloWorld" method="index">
+		<action name="Hello" class="helloWorld" method="execute">
 			<result name="SUCCESS">Template/Success.jsp</result>
 		</action>
 	</package>
+	-->
+	
+	
+	
 </struts>
