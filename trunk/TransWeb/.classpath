@@ -85,5 +85,7 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/xstream-1.2.2.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/xwork-core-2.1.6.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/junit.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring-jdbc.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring-orm.jar"/>
 	<classpathentry kind="output" path="Web/WEB-INF/classes"/>
 </classpath>
