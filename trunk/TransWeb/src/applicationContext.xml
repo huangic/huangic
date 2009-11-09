@@ -29,4 +29,13 @@
 			<ref bean="baseSessionFactory" />
 		</property>
 	</bean>
-	</beans>
+	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO">
+		<property name="sessionFactory">
+			<ref bean="baseSessionFactory" />
+		</property>
+	</bean>
+	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO">
+		<property name="sessionFactory">
+			<ref bean="baseSessionFactory" />
+		</property>
+	</bean></beans>
