@@ -9,7 +9,7 @@
 	
 	
 	
-	
+	<import resource="classpath:applicationContext-DB.xml"/>
 	<import resource="classpath:applicationContext-filter.xml"/>
     
 	<import resource="classpath:applicationContext-Perf4j.xml"/>
