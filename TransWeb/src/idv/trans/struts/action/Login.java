@@ -18,7 +18,30 @@ public class Login extends ActionSupport {
 	
 	Message message;
 	
+	String UserName;
 	
+	
+	
+	public Message getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
+
+
+	public String getUserName() {
+		return UserName;
+	}
+
+
+	public void setUserName(String userName) {
+		UserName = userName;
+	}
+
+
 	public String getAccount() {
 		return account;
 	}
