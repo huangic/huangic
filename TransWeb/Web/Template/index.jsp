@@ -1,8 +1,11 @@
-<%@ page language="java" import="java.util.*" pageEncoding="BIG5"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Åwªïµn¤J¤º¬F³¡¨àµ£§½¸ê°TÂàÀÉ¥­¥xºŞ²z¨t²Î</title>
+<title>æ­¡è¿ç™»å…¥å…§æ”¿éƒ¨å…’ç«¥å±€è³‡è¨Šè½‰æª”å¹³å°ç®¡ç†ç³»çµ±</title>
 <script>
   
   function Strreplace(strObj)
@@ -15,7 +18,7 @@
   {
 	 if(  xForm.account.value=='' )
      {
-        alert("½Ğ¿é¤J±b¸¹!!");   
+        alert("è«‹è¼¸å…¥å¸³è™Ÿ!!");   
         xForm.account.focus();      
         return false;
      }
@@ -68,12 +71,27 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 -->
 </script>
 
+
+
+
+
 <script language="javascript" src="js/noRightButton.js"></script>
 </head>
 
 <body>
-<form  name="xForm" onsubmit="return fnOk()" method="post" action="login.do">
+        
+        <s:if test="message != null">
+            <script language="JavaScript" type="text/JavaScript">
+             alert('<c:out value="${message.errorMessage}"/>');
+			</script>
+        </s:if>
+
+
+
+
 <div align="center">
+<s:form action="login"  name="xForm" onsubmit="return fnOk()" method="post" >
+
   <table cellspacing="0" cellpadding="0" border="0">
     <tbody><tr> 
       <td colspan="3"><img height="222" width="780" src="images/login-1.jpg"/></td>
@@ -83,19 +101,19 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
       <td bgcolor="#fffde3">
         <table border="0" width="100%">
           <tbody><tr> 
-            <td align="right" width="17%"><font size="2" color="#ff6633">±b¸¹</font></td>
+            <td align="right" width="17%"><font size="2" color="#ff6633">å¸³è™Ÿ</font></td>
             <td width="49%"> 
                 <input type="text" maxlength="20" onblur="javascript:this.value=this.value.toUpperCase();" size="20" style="border: 1px solid rgb(255, 168, 0); background-color: rgb(255, 255, 255); font-family: Arial;" id="machine_no" name="account"/>
             </td>
             <td width="34%"></td>
           </tr>
           <tr> 
-            <td align="right" width="17%"><font size="2" color="#ff6633">±K½X</font></td>
+            <td align="right" width="17%"><font size="2" color="#ff6633">å¯†ç¢¼</font></td>
             <td width="49%">
               <input type="password" maxlength="20" size="20" style="border: 1px solid rgb(255, 168, 0); background-color: rgb(255, 255, 255); font-family: Arial;" onkeydown="fnEnter();" id="machine_no" name="passwd"/>
             </td>
             <td width="34%">
-              <div align="center"><input style="width:63px;background-color:transparent;background-image: url(images/login-i.gif)" type="submit" value="" title="µn¤J" /></div>
+              <div align="center"><input style="width:63px;background-color:transparent;background-image: url(images/login-i.gif)" type="submit" value="" title="ç™»å…¥" /></div>
             </td>
           </tr>
           <tr> 
@@ -111,9 +129,9 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
       <td><img height="158" width="173" src="images/login-5.jpg"/></td>
     </tr>
   </tbody></table>
-  
+  </s:form>
 </div>
-</form>
+
 
 </body>
 </html>

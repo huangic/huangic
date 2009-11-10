@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF8"
-	pageEncoding="UTF8"%>
-<%@taglib uri="/struts-tags" prefix="s"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +17,7 @@
 	<div ><img src="images/logo.png" alt="內政部兒童局資訊轉檔平台"></div>
 	<div id="SiteName" >內政部兒童局資訊轉檔平台</div>
 	<div id="LogInfo" >
-	 歡迎 系統管理員 登入
+	  登入者:<c:out value="${sessionScope.UserInfo.userInfo.username}"/>(<c:out value="${sessionScope.UserInfo.userInfo.account}"/>)　　單位:<c:out value="${sessionScope.UserInfo.userInfo.dept}"/> (<c:out value="${sessionScope.UserInfo.userRoleName}"/>)
 	</div>
 
 	<a href="logout.do" class="Logout" target="_parent">登出</a>
