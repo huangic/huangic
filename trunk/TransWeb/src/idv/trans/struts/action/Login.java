@@ -1,6 +1,9 @@
 package idv.trans.struts.action;
 
 import idv.trans.model.Message;
+import idv.trans.model.SessionUserInfo;
+import idv.trans.service.index.LoginService;
+import idv.trans.util.SpringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +19,7 @@ public class Login extends ActionSupport {
 	String account;
 	String passwd;
 	
-	Message message;
+	Message message=null;
 	
 	String UserName;
 	
@@ -60,7 +63,7 @@ public class Login extends ActionSupport {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-
+   
 	public String topmenu(){
 		
 		return "SUCCESS";
@@ -71,14 +74,19 @@ public class Login extends ActionSupport {
 		return "SUCCESS";
 	}
 	
-	
+	//登出
     public String logout(){
     	//幹掉SESSION 然後回到INDEX;
+    	HttpServletRequest request = ServletActionContext.getRequest();
+    	HttpServletResponse response = ServletActionContext.getResponse();
+    	HttpSession session = request.getSession();
+    	
+    	session.removeAttribute("userInfo");
     	
     	
     	return "SUCCESS";
     }
-
+    //登入
 	public String execute(){
     	//ActionContext.getContext().getSession().put("msg", "Hello World from Session!");
     	 
@@ -87,16 +95,28 @@ public class Login extends ActionSupport {
     	HttpSession session = request.getSession();
 
     	//登入
+    		LoginService service=(LoginService)SpringUtil.getBean("LoginService");
+    		//拿一下User的資料
+    		SessionUserInfo user=service.login(this.account, this.passwd);
+    		
+    		if(user!=null){
+    			
+    			
+    			
+    			session.setAttribute("UserInfo", user);
+    			return "SUCCESS";
+    		}else{
+    			this.message=new Message();
+    			
+    			message.setErrorMessage("帳號/密碼錯誤");
+    			
+    			
+    			return "ERROR";
+    		}
+    		
     	
     	
     	
-    	if(account.equals("system")){
-    		
-    		
-    		return "SUCCESS";
-    		
-    	}else{
-    	   	return "SUCCESS";
-    	}
+    	
     }
 }

@@ -1,26 +1,26 @@
 package idv.trans.model;
 
 public class Message implements Cloneable {
-   private String ErrorMessage;
-   private String ErrorCode;
-   private String SystemMessage;
+   private String errorMessage;
+   private String errorCode;
+   private String systemMessage;
 public String getErrorMessage() {
-	return ErrorMessage;
+	return errorMessage;
 }
 public void setErrorMessage(String errorMessage) {
-	ErrorMessage = errorMessage;
+	this.errorMessage = errorMessage;
 }
 public String getErrorCode() {
-	return ErrorCode;
+	return errorCode;
 }
 public void setErrorCode(String errorCode) {
-	ErrorCode = errorCode;
+	this.errorCode = errorCode;
 }
 public String getSystemMessage() {
-	return SystemMessage;
+	return systemMessage;
 }
 public void setSystemMessage(String systemMessage) {
-	SystemMessage = systemMessage;
+	this.systemMessage = systemMessage;
 }
    
    

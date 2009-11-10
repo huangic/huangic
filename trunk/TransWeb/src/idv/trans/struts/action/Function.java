@@ -1,5 +1,7 @@
 package idv.trans.struts.action;
 
+import idv.trans.model.SessionUserInfo;
+import idv.trans.model.Userinfo;
 import idv.trans.service.system.Functions;
 import idv.trans.util.SpringUtil;
 
@@ -15,9 +17,9 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Function extends ActionSupport {
-   
-	private HashMap permissionMap=null;
-	
+
+	private HashMap permissionMap = null;
+
 	public HashMap getPermissionMap() {
 		return permissionMap;
 	}
@@ -26,28 +28,26 @@ public class Function extends ActionSupport {
 		this.permissionMap = permissionMap;
 	}
 
-	public String execute(){
-    	//讀USER SESSION 產生左側功能
-		
-		
-    	 
-    	HttpServletRequest request = ServletActionContext.getRequest();
-    	HttpServletResponse response = ServletActionContext.getResponse();
-    	HttpSession session = request.getSession();
+	public String execute() {
+		// 讀USER SESSION 產生左側功能
 
-    	LinkedHashMap permissionMap=(LinkedHashMap) ((Functions)SpringUtil.getBean("functionBean")).getPermission("3", "");
-    	
-    	
-    	this.setPermissionMap(permissionMap);
-    	
-    	
-    	return "SUCCESS";
-    	
-    }
-	
-	
-	
-	
-	
-	
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpSession session = request.getSession();
+
+		SessionUserInfo sessionUserInfo = (SessionUserInfo) session
+				.getAttribute("UserInfo");
+
+		Userinfo user = sessionUserInfo.getUserInfo();
+
+		LinkedHashMap permissionMap = (LinkedHashMap) ((Functions) SpringUtil
+				.getBean("functionBean")).getPermission(String.valueOf(user
+				.getRole()), String.valueOf(user.getPriority()));
+
+		this.setPermissionMap(permissionMap);
+
+		return "SUCCESS";
+
+	}
+
 }

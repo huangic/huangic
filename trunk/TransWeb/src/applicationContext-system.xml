@@ -12,15 +12,15 @@
     <bean id="systemVarBean" name="系統變數" class="idv.trans.service.system.SystemVar"> 
        <property name="userLevel">
            <map>
-				<entry key="系統管理員"><value>1</value></entry>
-				<entry key="兒童局人員"><value>2</value></entry>
-				<entry key="一般使用者"><value>3</value></entry>
+				<entry key="1"><value>系統管理員</value></entry>
+				<entry key="2"><value>兒童局人員</value></entry>
+				<entry key="3"><value>一般使用者</value></entry>
 			</map>
        </property>
      <property name="systemPermission">
            <map>
-				<entry key="早療系統"><value>1</value></entry>
-				<entry key="寄養系統"><value>2</value></entry>
+				<entry key="1"><value>早療系統</value></entry>
+				<entry key="2"><value>寄養系統</value></entry>
 				
 			</map>
        </property>
@@ -111,8 +111,6 @@
 		<property name="permissionID"><value>1</value></property>
 		<property name="userLevel">
 					<list>
-						<value>1</value>
-						<value>2</value>
 						<value>3</value>
 					</list>
 				
@@ -125,8 +123,6 @@
 		
 		<property name="userLevel">
 					<list>
-						<value>1</value>
-						<value>2</value>
 						<value>3</value>
 					</list>
 				
