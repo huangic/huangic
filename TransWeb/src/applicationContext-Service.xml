@@ -4,14 +4,27 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	  
 		
+		
+		
+		
 	<bean id="LoginService" class="idv.trans.service.index.LoginService">
 	</bean>
 	<bean id="DownloadService" class="idv.trans.service.download.DownloadService">
 	</bean>
 	<bean id="UploadService" class="idv.trans.service.upload.UploadService">
 	</bean>
-	  <!--使用者項目	  -->
-	<bean id="UserService" class="idv.trans.service.admin.UserService"/>
+	
+	<bean id="UserService" class="idv.trans.service.admin.UserService">
+	</bean>
+	
+	  <!--使用者項目	  
+	<bean id="UserService" parent="normalServiceTemplate">
+	   <property name="target">
+	     <bean id="UserServiceImp" class="idv.trans.service.admin.UserService"></bean>
+	   </property>
+	</bean>
+	-->
+	
 		
 	
 	

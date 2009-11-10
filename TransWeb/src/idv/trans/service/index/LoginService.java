@@ -38,7 +38,7 @@ public class LoginService {
 		
 		
 		}catch(Exception ex){
-			ex.printStackTrace();
+			//ex.printStackTrace();
 		}
 		
 		return sessionUser;

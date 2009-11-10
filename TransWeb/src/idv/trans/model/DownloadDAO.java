@@ -19,7 +19,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author MyEclipse Persistence Tools
  */
 
-public class DownloadDAO extends HibernateDaoSupport {
+public class DownloadDAO extends BaseDao {
 	private static final Log log = LogFactory.getLog(DownloadDAO.class);
 	// property constants
 	public static final String NAME = "name";

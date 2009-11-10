@@ -115,7 +115,7 @@ public class User {
 		return userRole;
 	}
 
-	public String Save(){
+	public String save(){
 		UserService service=(UserService)SpringUtil.getBean("UserService");
 		try{
 		service.insertUser(this);

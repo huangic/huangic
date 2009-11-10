@@ -25,7 +25,9 @@
 		<action name="user_add" class="idv.trans.struts.action.User" method="addForm">
 			<result name="SUCCESS">/Template/Admin/user_add.jsp</result>
 		</action>
-		
+		<action name="user_add_save" class="idv.trans.struts.action.User" method="save">
+			<result name="SUCCESS">/Template/Admin/user_add.jsp</result>
+		</action>
 		
 		
 	</package>
