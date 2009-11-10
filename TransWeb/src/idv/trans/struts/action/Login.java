@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -80,6 +81,8 @@ public class Login extends ActionSupport {
     	HttpServletRequest request = ServletActionContext.getRequest();
     	HttpServletResponse response = ServletActionContext.getResponse();
     	HttpSession session = request.getSession();
+    	
+    	   	
     	
     	session.removeAttribute("userInfo");
     	
