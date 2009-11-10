@@ -1,21 +1,23 @@
-#
-#Mon Nov 09 21:42:10 CST 2009
-genBasicCompId=false
+#MyEclipse Hibernate Properties
+#Tue Nov 10 10:05:12 CST 2009
 sessionFactoryName=idv.trans.model.HibernateSessionFactory
+genBasicCompId=false
 profile=
 daoSFId=baseSessionFactory
 version=3.2
 jndiPath=
 detectM2M=false
 reStrategyClass=
+detectO2O=false
 springDaoFile=src/applicationContext.xml
 useJavaTypes=true
 keyGenerator=sequence
 libInstallFolder=<no jars/zips in selected libraries>
 addLibs2Project=true
 genVersionTag=false
-sessionFactoryId=
+sessionFactoryId=baseSessionFactory
 basePersistenceClass=
+genAnnotations=false
 reSettingsFile=
 configFile=/TransWeb/src/applicationContext-DB.xml
 createConfigFile=false

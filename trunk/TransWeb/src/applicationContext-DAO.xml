@@ -3,30 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	  
-		
 	
-	 
-	
-	
-	
-	<import resource="classpath:applicationContext-DB.xml"/>
-	<import resource="classpath:applicationContext-DAO.xml"/>
-	<import resource="classpath:applicationContext-Service.xml"/>
-	<import resource="classpath:applicationContext-filter.xml"/>
-    
-	
-	
-	<import resource="classpath:applicationContext-system.xml"/>
-<!--	
-	<import resource="classpath:applicationContext-Perf4j.xml"/>
-	<import resource="classpath:applicationContext-Infouser.xml"/>
-	
-	
-	<import resource="classpath:applicationContext-Sendmail.xml"/>
-		
-	<import resource="classpath:applicationContext-Quartz.xml"/>
-	
--->
 	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO">
 		<property name="sessionFactory">
 			<ref bean="baseSessionFactory" />
