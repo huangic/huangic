@@ -28,6 +28,15 @@
 		<action name="user_add_save" class="idv.trans.struts.action.User" method="save">
 			<result name="SUCCESS">/Template/Admin/user_add.jsp</result>
 		</action>
+		<action name="user_search" class="idv.trans.struts.action.User" method="toSearch">
+			<result name="SUCCESS">/Template/Admin/user_search.jsp</result>
+		</action>
+		<action name="user_search_result" class="idv.trans.struts.action.User" method="search">
+			<result name="SUCCESS">/Template/Admin/user_list.jsp</result>
+		</action>
+		<action name="user_edit" class="idv.trans.struts.action.User" method="edit">
+			<result name="SUCCESS">/Template/Admin/user_add.jsp</result>
+		</action>
 		
 		
 	</package>

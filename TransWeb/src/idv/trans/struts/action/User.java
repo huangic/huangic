@@ -1,122 +1,81 @@
 package idv.trans.struts.action;
 
 import idv.trans.model.Message;
+import idv.trans.model.Userinfo;
 import idv.trans.service.admin.UserService;
-import idv.trans.service.system.SystemVar;
 import idv.trans.util.SpringUtil;
 
-import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class User {
-    
-	private String account;
+	UserService service=(UserService)SpringUtil.getBean("UserService");
 	
-	private Message message=null;
-	
-	private String dept;
+	private  List<Userinfo> users;
 
-	private String email;
 
-	private String note;
-
-	private String password;
+   private Message message=null;
 
 
 
 	private LinkedHashMap permissionRole;
 	//權限MAP
-	
-	private Short priority;
-	
-	private Date pwdexpiredate;
-	private Short role;
-	private Short status;
-	private String tel;
-	private String uid;
-	private Integer userid;
-	private String username;
+
+
+
+private Userinfo userinfo;
+
+
 	//角色MAP
 	private LinkedHashMap userRole;
-	public void init(){
-		UserService service=(UserService)SpringUtil.getBean("UserService");
-		
-		service.init(this);
-		
-		
-	
-	}
 	
 	public String addForm(){
 		//初始化
-		init();		
+		service.init(this);	
 		return "SUCCESS";
 		
 	}
-	public String getAccount() {
-		return account;
-	}
-	public String getDept() {
-		return dept;
-	}
-	public String getEmail() {
-		return email;
-	}
-	
-	
-	
-	
-	
-	public String getNote() {
-		return note;
+
+	public String edit(){
+		service.init(this);
+		
+		try{
+		service.findUser(this, this.getUserinfo().getUserid());
+		return "SUCCESS";
+		}catch(Exception ex){
+			
+		return "ERROR";
+		}
 	}
 
-	public String getPassword() {
-		return password;
+	public Message getMessage() {
+		return message;
 	}
 
+	
+	
 	public LinkedHashMap getPermissionRole() {
 		return permissionRole;
 	}
 
-	public Short getPriority() {
-		return priority;
+	
+	
+	public Userinfo getUserinfo() {
+		return userinfo;
 	}
+	
+	
 
-	public Date getPwdexpiredate() {
-		return pwdexpiredate;
-	}
-
-	public Short getRole() {
-		return role;
-	}
-
-	public Short getStatus() {
-		return status;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public String getUid() {
-		return uid;
-	}
-
-	public Integer getUserid() {
-		return userid;
-	}
-
-	public String getUsername() {
-		return username;
-	}
 
 	public LinkedHashMap getUserRole() {
 		return userRole;
 	}
-
+	
+	
+	public List<Userinfo> getUsers() {
+	return this.users;
+}
 	public String save(){
-		UserService service=(UserService)SpringUtil.getBean("UserService");
 		try{
 		service.insertUser(this);
 		return "SUCCESS";
@@ -127,69 +86,66 @@ public class User {
 		
 		
 	}
-
-	public void setAccount(String account) {
-		this.account = account;
+	
+	public String search(){
+		//將條件送到SERVICE
+		
+		try{
+		service.findAllUsers(this);
+		return "SUCCESS";
+		}catch(Exception ex){
+			
+		return "ERROR";
+		}
 	}
+	
+	
+	
+	
+	
+	
+	
 
-	public void setDept(String dept) {
-		this.dept = dept;
-	}
+	
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+	
 
-	public void setPassword(String password) {
-		this.password = password;
+	
+
+	public void setMessage(Message message) {
+		this.message = message;
 	}
 
 	public void setPermissionRole(LinkedHashMap permissionRole) {
 		this.permissionRole = permissionRole;
 	}
 
-	public void setPriority(Short priority) {
-		this.priority = priority;
+	public void setUserinfo(Userinfo userinfo) {
+		this.userinfo = userinfo;
 	}
+	
+	
+	
 
-	public void setPwdexpiredate(Date pwdexpiredate) {
-		this.pwdexpiredate = pwdexpiredate;
-	}
-
-	public void setRole(Short role) {
-		this.role = role;
-	}
-
-	public void setStatus(Short status) {
-		this.status = status;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-
-	public void setUserid(Integer userid) {
-		this.userid = userid;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 	
 	public void setUserRole(LinkedHashMap userRole) {
 		this.userRole = userRole;
 	}
-	public String Update(){
-		return "";
+	
+	
+	public void setUsers(List<Userinfo> users) {
+		this.users = users;
+	}
+	
+	public String toSearch(){
 		
+		
+		service.init(this);
+		
+		return "SUCCESS";
 	}
 	
 }
