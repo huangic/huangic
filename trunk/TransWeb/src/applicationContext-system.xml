@@ -3,13 +3,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <bean id="springUtil" class="idv.trans.util.SpringUtil">
+    <bean id="SpringUtil" class="idv.trans.util.SpringUtil">
     
     </bean> 
     
     
     
-    <bean id="systemVarBean" name="系統變數" class="idv.trans.service.system.SystemVar"> 
+    <bean id="SystemVar" name="系統變數" class="idv.trans.service.system.SystemVar"> 
        <property name="userLevel">
            <map>
 				<entry key="1"><value>系統管理員</value></entry>
