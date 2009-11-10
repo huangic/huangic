@@ -21,7 +21,7 @@
 <struts>
 
 
-	<package name="idv.trans.struts.function" extends="struts-default">
+	<package name="idv.trans.struts.function" extends="default">
 		<action name="function" class="idv.trans.struts.action.Function" method="execute">
 			<result name="SUCCESS">Template/function.jsp</result>
 		</action>

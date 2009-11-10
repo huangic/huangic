@@ -30,7 +30,7 @@ public class Function extends ActionSupport {
 
 	public String execute() {
 		// 讀USER SESSION 產生左側功能
-
+        try{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
@@ -47,7 +47,9 @@ public class Function extends ActionSupport {
 		this.setPermissionMap(permissionMap);
 
 		return "SUCCESS";
-
+        }catch(Exception ex){
+        	return "login";
+        }
 	}
 
 }

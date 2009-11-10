@@ -20,14 +20,20 @@
 	text-decoration: underline;
 }
 #SiteName {
-	position: absolute;
-	top: 20px;
-	left: 75px;
-	display: block;
-	font: bold 22px �з���;
-	color: #B05213;
-	text-decoration: none;
-	filter:Shadow(Direction=65,color='#DD6600')
+	font:none;
+color:#227700;
+display:block;
+font-size:30px;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+left:60px;
+line-height:normal;
+position:absolute;
+text-decoration:none;
+top:10px;
 }
 #SiteName2 {
 	position: absolute;

@@ -89,7 +89,7 @@ public class Login extends ActionSupport {
     //登入
 	public String execute(){
     	//ActionContext.getContext().getSession().put("msg", "Hello World from Session!");
-    	 
+    	try{ 
     	HttpServletRequest request = ServletActionContext.getRequest();
     	HttpServletResponse response = ServletActionContext.getResponse();
     	HttpSession session = request.getSession();
@@ -114,7 +114,15 @@ public class Login extends ActionSupport {
     			return "ERROR";
     		}
     		
-    	
+    	}catch(Exception ex){
+    		ex.printStackTrace();
+    		
+    		this.message=new Message();
+			
+			message.setErrorMessage("資料庫異常請稍後再試");
+    		
+    	   return "ERROR";
+    	}
     	
     	
     	
