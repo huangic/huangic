@@ -25,6 +25,11 @@
 			</map>
        </property>
     
+     <property name="uploadPath"><value>c:/test/upload</value></property>
+     <property name="downloadPath"><value>c:/test/download</value></property>
+     <property name="backupPath"><value>c:/test/backup</value></property>
+    
+    
     </bean>
 
 
