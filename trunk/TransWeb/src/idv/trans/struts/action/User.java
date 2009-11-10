@@ -1,12 +1,19 @@
 package idv.trans.struts.action;
 
 import idv.trans.model.Message;
+import idv.trans.model.SessionUserInfo;
 import idv.trans.model.Userinfo;
 import idv.trans.service.admin.UserService;
 import idv.trans.util.SpringUtil;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 
 public class User {
 	UserService service=(UserService)SpringUtil.getBean("UserService");
@@ -31,16 +38,21 @@ private Userinfo userinfo;
 	
 	public String addForm(){
 		//初始化
-		service.init(this);	
+		
+		
+		
+		init();
 		return "SUCCESS";
 		
 	}
 
 	public String edit(){
-		service.init(this);
+		init();
 		
 		try{
-		service.findUser(this, this.getUserinfo().getUserid());
+		
+		//FIND USER by pk
+			service.findUser(this, this.getUserinfo().getUserid());
 		return "SUCCESS";
 		}catch(Exception ex){
 			
@@ -143,9 +155,20 @@ private Userinfo userinfo;
 	public String toSearch(){
 		
 		
-		service.init(this);
+		init();
 		
 		return "SUCCESS";
+	}
+	
+	private void init(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+    	HttpServletResponse response = ServletActionContext.getResponse();
+    	HttpSession session = request.getSession();
+    	SessionUserInfo userInfo=(SessionUserInfo) session.getAttribute("UserInfo");
+    	
+    	service.init(this, userInfo.getUserInfo().getRole(), userInfo.getUserInfo().getPriority());
+    	
+    	
 	}
 	
 }
