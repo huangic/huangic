@@ -17,11 +17,11 @@
 	<body>
 		<div id="xFunction" style="display: block;">
 			<s:iterator value="permissionMap.keySet()" id="id">
-				<a title="<s:property value="id"/>" href="#" class="Cat1"><s:property value="id"/></a>
+				<a title="<s:property  escape="false" value="id"/>" href="#" class="Cat1"><s:property escape="false" value="id"/></a>
 				<div class="Cat2">
 					<s:iterator value="permissionMap.get(#id)" id="list">
 					
-					<a title="#" href="<s:property value="functionURL"/>" target="mainFrame"><s:property value="functionName"/>
+					<a title="#" href="<s:property escape="false" value="functionURL"/>" target="mainFrame"><s:property escape="false" value="functionName"/>
 					</a>
                       </s:iterator>
 				

@@ -1,11 +1,11 @@
 package idv.trans.service.system;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class SystemVar{
 
-	HashMap userLevel;
-	HashMap systemPermission;
+	LinkedHashMap userLevel;
+	LinkedHashMap systemPermission;
 	String uploadPath="";
 	String downloadPath="";
 	String backupPath="";
@@ -29,16 +29,16 @@ public class SystemVar{
 	public void setBackupPath(String backupPath) {
 		this.backupPath = backupPath;
 	}
-	public HashMap getUserLevel() {
+	public LinkedHashMap getUserLevel() {
 		return userLevel;
 	}
-	public void setUserLevel(HashMap userLevel) {
+	public void setUserLevel(LinkedHashMap userLevel) {
 		this.userLevel = userLevel;
 	}
-	public HashMap getSystemPermission() {
+	public LinkedHashMap getSystemPermission() {
 		return systemPermission;
 	}
-	public void setSystemPermission(HashMap systemPermission) {
-		systemPermission = systemPermission;
+	public void setSystemPermission(LinkedHashMap systemPermission) {
+		this.systemPermission = systemPermission;
 	}
 }
