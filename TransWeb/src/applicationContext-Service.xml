@@ -5,7 +5,8 @@
 	  
 		
 	<bean id="LoginService" class="idv.trans.service.index.LoginService">
-		
+	</bean>
+	<bean id="DownloadService" class="idv.trans.service.download.DownloadService">
 	</bean>
 	 
 	

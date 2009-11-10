@@ -19,26 +19,16 @@
     "http://struts.apache.org/dtds/struts-2.1.7.dtd">
 
 <struts>
-	
-	<include file="struts/struts_login.xml"/>
-	<include file="struts/struts_function.xml"/>
-	<include file="struts/struts_download.xml"/>
-	
-	<!-- 
-	
-	
-	<constant name="struts.objectFactory" value="spring" />
-    <constant name="struts.devMode" value="true" />
-    -->
 
-     <!-- 
-	<package name="default" extends="struts-default">
-		<action name="Hello" class="helloWorld" method="execute">
-			<result name="SUCCESS">Template/Success.jsp</result>
+
+	<package name="idv.trans.struts.download" extends="struts-default">
+		<action name="download" class="idv.trans.struts.action.Download" method="download">
+			<result name="SUCCESS">Template/default.jsp</result>
+		</action>
+		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
+			<result name="SUCCESS">Template/default.jsp</result>
 		</action>
 	</package>
-	-->
-	
 	
 	
 </struts>
