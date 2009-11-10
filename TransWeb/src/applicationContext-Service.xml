@@ -8,6 +8,8 @@
 	</bean>
 	<bean id="DownloadService" class="idv.trans.service.download.DownloadService">
 	</bean>
+	<bean id="UploadService" class="idv.trans.service.upload.UploadService">
+	</bean>
 	 
 	
 	
