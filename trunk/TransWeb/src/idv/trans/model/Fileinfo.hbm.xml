@@ -8,7 +8,7 @@
     <class name="idv.trans.model.Fileinfo" table="FILEINFO" schema="MYNE" catalog="TRANS">
         <id name="fileid" type="java.lang.Long">
             <column name="FILEID" />
-            <generator class="sequence" />
+            <generator class="identity" />
         </id>
         <property name="userid" type="java.lang.String">
             <column name="USERID" length="20" />
