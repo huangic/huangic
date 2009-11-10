@@ -90,8 +90,8 @@
 	</head>
 	<body>
 		<div id="FuncName">
-			<h1>
-				系統管理∕使用者
+			<h1> 
+				in系統管理∕使用者 
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>
@@ -102,14 +102,20 @@
 		</div>
 		<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
 			id="Form1" action="user_add_save.do">
+			<s:hidden name="userinfo.userid"/>
+			
+			
 			<table cellspacing="0">
+				
+				
+				
 				<tr>
 					<td class="Label" align="right">
 						<span class="Must">*</span>使用帳號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_userId" name="account"
-							size="10">
+						<input class="InputText" type="text" id="htx_userId" name="userinfo.account"
+							size="10" value="<c:out value='${userinfo.account}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -118,7 +124,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_userName"
-							name="username" size="20">
+							name="userinfo.username" size="20"  value="<c:out value='${userinfo.username}'/>">
 					</td>
 
 				</tr>
@@ -128,7 +134,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_password"
-							name="password" size="20">
+							name="userinfo.password" size="20" >
 					</td>
 				</tr>
 				<tr>
@@ -146,8 +152,8 @@
 						身分證字號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" id="htx_tdataCat" name="uid"
-							type="text" />
+						<input class="InputText" id="htx_tdataCat" name="userinfo.uid"
+							type="text" value="<c:out value='${userinfo.uid}'/>" />
 					</td>
 				</tr>
 				<tr>
@@ -155,8 +161,8 @@
 						<span class="Must">*</span>單位名稱
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_dept" name="dept"
-							size="30">
+						<input class="InputText" type="text" id="htx_dept" name="userinfo.dept"
+							size="30" value="<c:out value='${userinfo.dept}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -164,8 +170,8 @@
 						電子信箱
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_email" name="email"
-							size="50">
+						<input class="InputText" type="text" id="htx_email" name="userinfo.email"
+							size="50" value="<c:out value='${userinfo.email}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -174,7 +180,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_telephone"
-							name="tel" size="30">
+							name="userinfo.tel" size="30" value="<c:out value='${userinfo.tel}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -182,7 +188,7 @@
 						<span class="Must">*</span>角色
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="role">
+						<select id="htx_tdataCat" name="userinfo.role">
 							
 							<s:iterator value="userRole.keySet()" id="id">
 							    <option value='<s:property  escape="false" value="id"/>'>
@@ -202,7 +208,7 @@
 						<span class="Must">*</span>系統權限
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="priority">
+						<select id="htx_tdataCat" name="userinfo.priority">
 							<option value="0">
 								不指定
 							</option>
@@ -222,7 +228,7 @@
 						<span class="Must">*</span>啟用/停用
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="status">
+						<select id="htx_tdataCat" name="userinfo.status">
 							<option value="1">
 								啟用
 							</option>
@@ -238,8 +244,7 @@
 						備註
 					</td>
 					<td class="whitetablebg">
-						<textarea class="InputText"  name=note
-							cols="50" rows="5"></textarea>
+						<textarea class="InputText"  name="userinfo.note" cols="50" rows="5"></textarea>
 					</td>
 				</tr>
 

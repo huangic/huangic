@@ -94,5 +94,6 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/wlutil.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/commons-pool-1.5.3.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/displaytag-1.2.jar"/>
 	<classpathentry kind="output" path="Web/WEB-INF/classes"/>
 </classpath>
