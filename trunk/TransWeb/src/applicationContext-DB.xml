@@ -52,7 +52,7 @@
 			</list>
 		</property>
 	-->
-<!--
+
 	<bean id="baseTranactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory">
@@ -60,30 +60,26 @@
 		</property>
 	</bean>
 
-	<bean id="baseDao" abstract="true" class="com.hyweb.base.BaseDao">
+	<bean id="baseDao" abstract="true" class="idv.trans.model.BaseDao">
 		<property name="sessionFactory">
 			<ref bean="baseSessionFactory" />
 		</property>
 	</bean>
 
-	<bean id="baseServiceTarget" abstract="true" class="com.hyweb.base.BaseService"></bean>
+
+
+	<bean id="baseServiceTarget" abstract="true" class="idv.trans.service.BaseService"></bean>
+	
 	<bean id="baseService" abstract="true"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" />
 
-    
-    
-	<bean id="normalDaoTemplate" abstract="true" parent="baseDao">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
-
+   
      
-	<bean id="normalServiceTargetTemplate" abstract="true"
-		parent="baseServiceTarget" />
--->
+	
+	
+	
 	<!-- 交易用的Service TEMPLATE -->
-	<!--
+	
 	<bean id="normalServiceTemplate" abstract="true" parent="baseService">
 		<property name="transactionManager">
 			<ref bean="baseTranactionManager" />
@@ -92,7 +88,7 @@
 			<props>
 				<prop key="*">PROPAGATION_REQUIRED,readOnly
 				</prop>
-				<prop key="add*">PROPAGATION_REQUIRED,-Exception
+				<prop key="insert*">PROPAGATION_REQUIRED,-Exception
 				</prop>
 				<prop key="save*">PROPAGATION_REQUIRED,-Exception
 				</prop>
@@ -104,7 +100,7 @@
 		</property>
 	</bean>
 
--->
+
     <!-- 給ORMapping Util用的 -->
    
 

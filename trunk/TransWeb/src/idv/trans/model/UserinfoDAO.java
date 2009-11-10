@@ -20,7 +20,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author MyEclipse Persistence Tools
  */
 
-public class UserinfoDAO extends HibernateDaoSupport {
+public class UserinfoDAO extends BaseDao {
 	private static final Log log = LogFactory.getLog(UserinfoDAO.class);
 	// property constants
 	public static final String ACCOUNT = "account";

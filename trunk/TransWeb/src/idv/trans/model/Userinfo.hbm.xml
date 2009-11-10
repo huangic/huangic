@@ -8,7 +8,7 @@
     <class name="idv.trans.model.Userinfo" table="USERINFO" schema="MYNE" catalog="TRANS">
         <id name="userid" type="java.lang.Integer">
             <column name="USERID" />
-            <generator class="sequence" />
+            <generator class="identity"/>
         </id>
         <property name="account" type="java.lang.String">
             <column name="ACCOUNT" length="30" />
