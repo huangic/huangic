@@ -29,7 +29,7 @@ public class LoginService {
 		
 		sessionUser.setUserInfo(user);
 		
-		SystemVar var=(SystemVar)SpringUtil.getBean("systemVarBean");
+		SystemVar var=(SystemVar)SpringUtil.getBean("SystemVar");
 		  String RoleName=(String)var.getUserLevel().get(String.valueOf(user.getRole()));
 		
 		
