@@ -25,9 +25,33 @@
 		<action name="download" class="idv.trans.struts.action.Download" method="download">
 			<result name="SUCCESS">Template/default.jsp</result>
 		</action>
+		<!-- 
 		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
 			<result name="SUCCESS">Template/default.jsp</result>
 		</action>
+		 
+		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/bmp,image/x-png,image/gif,image/pjpeg</param>
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+            <param name="savePath">c:\upload</param>
+            <result>/succ.jsp</result>
+            <result name="input">/uploadTest.htm</result> 
+        </action> 
+        -->
+        
+		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2097152000</param>
+            </interceptor-ref>
+    		<interceptor-ref name="basicStack"/>
+    		
+			<result name="SUCCESS">Template/default.jsp</result>
+		</action>
+        
+        
 	</package>
 	
 	
