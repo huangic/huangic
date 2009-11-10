@@ -6,6 +6,7 @@ import idv.trans.service.system.SystemVar;
 import idv.trans.struts.action.User;
 import idv.trans.util.SpringUtil;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -44,16 +45,36 @@ public class UserService {
 	}
 
 	public void insertUser(User user) {
-		// 檢查一下帳號跟身分證吧
-
+		//如果沒有ID那就檢查
+		Userinfo newUser = user.getUserinfo();
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+		
+		if(newUser.getUserid()==null){
+		   
+		// 檢查一下帳號跟身分證吧
+        
+		
 		//
 		// 如果沒問題~那就資料建一建寫入吧
-
-		Userinfo newUser = user.getUserinfo();
-
-		dao.save(newUser);
-
+			dao.save(newUser);
+		  }else{
+			  //UPDATE
+			  Userinfo oldUser=dao.findById(newUser.getUserid()); 
+			  //把值COPY一下
+			  if(newUser.getPassword().equals("")){
+				  newUser.setPassword(oldUser.getPassword()); 
+			  }else{
+				  newUser.setPwdexpiredate(new Date());		  
+			  }
+			  
+			  
+			  dao.attachDirty(newUser);
+			  
+		  }
+		
+        
+		  
+        
 	}
 
 	public void findUser(User user, Integer id) throws Exception {
@@ -84,5 +105,8 @@ public class UserService {
 
 		user.setUsers(users);
 	}
+	
+	
+	
 
 }
