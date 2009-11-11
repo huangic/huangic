@@ -29,6 +29,8 @@ public class User {
 	//權限MAP
 
 
+	
+	
 
 private Userinfo userinfo;
 
@@ -88,12 +90,21 @@ private Userinfo userinfo;
 	return this.users;
 }
 	public String save(){
+		init();
 		try{
+		
 		service.insertUser(this);
-		return "SUCCESS";
+		
+		//存檔後轉條列業
+		return "LIST";
+		
 		}catch(Exception ex){
 			
-		return "ERROR";
+			this.message=new Message();
+			this.message.setErrorMessage(ex.getMessage());
+			
+			
+		return "ADD_ERROR";
 		}
 		
 		

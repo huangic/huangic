@@ -1,21 +1,24 @@
-<html lang="zh-TW">
-<head>
-<title>系統管理∕使用者</title>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<link type="text/css" rel="stylesheet" href="../css/form.css" />
-<link type="text/css" rel="stylesheet" href="../css/layout.css" />
-<script src="../js/noRightButton.js" language="javascript">&nbsp;</script>
-<script src="../js/upload.js" language="javascript">&nbsp;</script>
-<script src="../js/mootools.js" language="javascript">&nbsp;</script>
-<script src="../js/globals.js" type="text/javascript">&nbsp;</script>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
-<script src="../js/tabpanel1_class.js" type="text/javascript">&nbsp;</script>
-<script src="../js/widgets_class.js" type="text/javascript">&nbsp;</script>
+<html>
+	<head>
+		<title>系統管理∕使用者</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link type="text/css" rel="stylesheet" href="../css/form.css" />
+		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
+		<script src="../js/upload.js" language="javascript">&nbsp;</script>
+		<script src="../js/mootools.js" language="javascript">&nbsp;</script>
+		<script src="../js/globals.js" type="text/javascript">&nbsp;</script>
 
-<script src="../js/buttonCheck.js" language="javascript">&nbsp;</script>
-<script src="../js/SS_Popup.js">&nbsp;</script>
+		<script src="../js/tabpanel1_class.js" type="text/javascript">&nbsp;</script>
+		<script src="../js/widgets_class.js" type="text/javascript">&nbsp;</script>
 
-<script language="javascript">
+		<script src="../js/buttonCheck.js" language="javascript">&nbsp;</script>
+		<script src="../js/SS_Popup.js">&nbsp;</script>
+
+		<script language="javascript">
 			//檢查各欄位內容
 			function checkOnSubmit(){
 				
@@ -57,19 +60,19 @@
   				return false;
   			}
   		
-                var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
-                if(document.Form1.password.value!=''){
-                  if(document.Form1.password.value.length<8  ||  document.Form1.password.value.length>16){
-                    alert("密碼請設定八碼以上,十六碼以下");
-                    return false;
-                  }
-                  else if(!myRegEnpassword.test(document.Form1.password.value)){
-                    alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
-                    return false;
-                  }
-                }	  		
+                //var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
+                //if(document.Form1.password.value!=''){
+               //   if(document.Form1.password.value.length<8  ||  document.Form1.password.value.length>16){
+               //     alert("密碼請設定八碼以上,十六碼以下");
+               //     return false;
+               //   }
+               //   else if(!myRegEnpassword.test(document.Form1.password.value)){
+                //    alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
+               //    return false;
+                //  }
+               // }	  		
 	  		
-  			if( $('htx_deptId').value == '' ){
+  			if( $('htx_dept').value == '' ){
   				alert('請輸入 單位');
   				return false;
   			}
@@ -80,177 +83,214 @@
   				return false;
   			}
   		
-  			if( $('htx_email').value == '' ){
-  				alert('請輸入 電子信箱');
-  				return false;
-  			}
-  		
-  			if($('htx_email').value != null &&  
-			  	$('htx_email').value.length  >50 ){
-  				alert('電子信箱長度不能超過50');
-  				return false;
-  			}
-  		
-  			if($('htx_telephone').value != null &&  
-			  	$('htx_telephone').value.length  >30 ){
-  				alert('聯絡電話長度不能超過30');
-  				return false;
-  			}
-  		
-  			if($('htx_jobName').value != null &&  
-			  	$('htx_jobName').value.length  >30 ){
-  				alert('職稱長度不能超過30');
-  				return false;
-  			}
-  		
-  			if( $('htx_ugrpId').value == '' ){
-  				alert('請輸入 權限群組');
-  				return false;
-  			}
-  		
-  			if($('htx_ugrpId').value != null &&  
-			  	$('htx_ugrpId').value.length  >200 ){
-  				alert('權限群組長度不能超過200');
-  				return false;
-  			}
-  		
-  			if($('htx_ugrpName').value != null &&  
-			  	$('htx_ugrpName').value.length  >500 ){
-  				alert('權限群組名稱長度不能超過500');
-  				return false;
-  			}
-  		
-  			if($('htx_uploadPath').value != null &&  
-			  	$('htx_uploadPath').value.length  >50 ){
-  				alert('檔案上傳路徑長度不能超過50');
-  				return false;
-  			}
-  		
-  			if($('htx_lastIp').value != null &&  
-			  	$('htx_lastIp').value.length  >20 ){
-  				alert('最近登錄IP長度不能超過20');
-  				return false;
-  			}
-  		 
+  
 			}
 		</script>
 
-</head>
-<body>
-<div id="FuncName">
-<h1>系統管理∕使用者</h1>
-<div id="Nav"><a title="回前頁"
-	href="Javascript:window.history.back();">回前頁</A></div>
-</div>
-<div id="FormName">【修改使用者】</div>
-<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
-	id="Form1" action="#">
-<table cellspacing="0">
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>使用帳號</td>
-		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_userId" name="userId" size="10" readonly="readonly" value="system"/></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>使用者名稱</td>
-		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_userName" name="userName" size="20"></td>
-
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>密碼</td>
-		<td class="whitetablebg"><input class="InputText" type="password"
-			id="htx_password" name="password" size="20"></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span> 確認密碼
-		</td>
-		<td class="whitetablebg"><input class="InputText" type="password"
-			id="htx_checkpassword" name="checkpassword" size="20"></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"></td>
-		<td class="whitetablebg"><input type="hidden" id="htx_userType"
-			name="userType"></td>
-	</tr>
-	<tr>
-
-		<td class="Label" align="right">身分證字號</td>
-		<td class="whitetablebg"><select id="htx_tdataCat"
-			name="tdataCat">
-			<option value="">請選擇</option>
-			<option value="01">類別1</option>
-			<option value="02">類別2</option>
-			<option value="03">類別3</option>
-		</select></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>單位名稱</td>
-		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_dept" name="dept" size="30"></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>電子信箱</td>
-		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_email" name="email" size="50"></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>聯絡電話</td>
-		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_telephone" name="telephone" size="30"></td>
-	</tr>
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>角色</td>
-		<td class="whitetablebg"><select id="htx_tdataCat"
-			name="tdataCat">
-			<option value="01">系統管理員</option>
-			<option value="02">兒童局人員</option>
-			<option value="03">一般使用者</option>
-		</select></td>
-	</tr>
-	<tr>
-
-		<td class="Label" align="right"><span class="Must">*</span>系統權限</td>
-		<td class="whitetablebg"><select id="htx_tdataCat"
-			name="tdataCat">
-			<option value="">不指定</option>
-			<option value="01">早療系統</option>
-			<option value="02">寄養</option>
-		</select></td>
-	</tr>
+	</head>
+	<body>
+		<s:if test="message != null">
+			<script language="JavaScript" type="text/JavaScript">
+             alert('<c:out value="${message.errorMessage}"/>');
+			</script>
+		</s:if>
 
 
-	<tr>
-		<td class="Label" align="right"><span class="Must">*</span>啟用/停用</td>
-		<td class="whitetablebg"><select id="htx_tdataCat"
-			name="tdataCat">
-			<option value="01">啟用</option>
-			<option value="02">停用</option>
-		</select></td>
-	</tr>
 
-	<tr>
-		<td class="Label" align="right">備註</td>
-		<td class="whitetablebg"><textarea class="InputText"
-			id="htx_telephone" name="telephone" cols="50" rows="5"></textarea></td>
-	</tr>
-
-	
-</table>
+		<div id="FuncName">
+			<h1>
+				系統管理∕使用者
+			</h1>
+			<div id="Nav">
+				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>
+			</div>
+		</div>
+		<div id="FormName">
+			【修改使用者】
+		</div>
+		<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
+			id="Form1" action="user_add_save.do">
+			<s:hidden name="userinfo.userid" />
 
 
-<input name="formType" type="hidden"
-	value="/gipadmin/xmlspec/UserAdd.xml" /> <input name="table"
-	type="hidden" value="InfoUser" /> <input name="nextUrl" type="hidden"
-	value="User/UserSetNode.jsp?userId=&ctuserset=ctuserset" /> <input
-	class="cbutton" value="新增存檔" type="submit"><input value="清除重填"
-	class="cbutton" type="reset"></form>
-<div id="Explain">
-<h1>說明</h1>
-<ul>
-	<li><span class="Must">*</span>為必要欄位</li>
-</ul>
-</div>
-</body>
+			<table cellspacing="0">
+
+
+
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>使用帳號
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="text" id="htx_userId"
+							name="userinfo.account" size="10"
+							value="<c:out value='${userinfo.account}'/>">
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>使用者名稱
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="text" id="htx_userName"
+							name="userinfo.username" size="20"
+							value="<c:out value='${userinfo.username}'/>">
+					</td>
+
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>密碼
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="password" id="htx_password"
+							name="userinfo.password" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span> 確認密碼
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="password" id="htx_checkpassword"
+							name="checkpassword" size="20">
+					</td>
+				</tr>
+				<tr>
+
+					<td class="Label" align="right">
+						身分證字號
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" id="htx_tdataCat" name="userinfo.uid"
+							type="text" value="<c:out value='${userinfo.uid}'/>" />
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>單位名稱
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="text" id="htx_dept"
+							name="userinfo.dept" size="30"
+							value="<c:out value='${userinfo.dept}'/>">
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						電子信箱
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="text" id="htx_email"
+							name="userinfo.email" size="50"
+							value="<c:out value='${userinfo.email}'/>">
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						聯絡電話
+					</td>
+					<td class="whitetablebg">
+						<input class="InputText" type="text" id="htx_telephone"
+							name="userinfo.tel" size="30"
+							value="<c:out value='${userinfo.tel}'/>">
+					</td>
+				</tr>
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>角色
+					</td>
+					<td class="whitetablebg">
+						<select id="htx_tdataCat" name="#session.UserInfo.userinfo.role">
+
+							<s:iterator value="userRole.keySet()" id="id">
+								<option value='<s:property  escape="false" value="id"/>'
+									<s:if test="userinfo.role== #id">
+								selected
+								</s:if>>
+									<s:property escape="false" value="userRole.get(#id)" />
+								</option>
+								</option>
+
+
+							</s:iterator>
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+
+					<td class="Label" align="right">
+						<span class="Must">*</span>系統權限
+					</td>
+					<td class="whitetablebg">
+						<select id="htx_tdataCat" name="userinfo.priority">
+							<s:if test="#session.UserInfo.userInfo..priority== 1">
+							<option value="">
+								不指定
+							</option>
+							</s:if>
+							
+							
+							<s:iterator value="permissionRole.keySet()" id="id">
+								<option value='<s:property  escape="false" value="id"/>'
+									<s:if test="userinfo.priority== #id">
+								selected
+								</s:if>>
+									<s:property escape="false" value="permissionRole.get(#id)" />
+								</option>
+								</option>
+							</s:iterator>
+						</select>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td class="Label" align="right">
+						<span class="Must">*</span>啟用/停用
+					</td>
+					<td class="whitetablebg">
+						<select id="htx_tdataCat" name="userinfo.status">
+							<option value="1">
+								啟用
+							</option>
+							<option value="2">
+								停用
+							</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="Label" align="right">
+						備註
+					</td>
+					<td class="whitetablebg">
+						<textarea class="InputText" name="userinfo.note" cols="50"
+							rows="5"></textarea>
+					</td>
+				</tr>
+
+
+			</table>
+
+
+
+
+			<input class="cbutton" value="新增存檔" type="submit">
+			<input value="清除重填" class="cbutton" type="reset">
+		</form>
+		<div id="Explain">
+			<h1>
+				說明
+			</h1>
+			<ul>
+				<li>
+					<span class="Must">*</span>為必要欄位
+				</li>
+			</ul>
+		</div>
+	</body>
 </html>
 

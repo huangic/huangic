@@ -89,9 +89,17 @@
 
 	</head>
 	<body>
+		<s:if test="message != null">
+			<script language="JavaScript" type="text/JavaScript">
+             alert('<c:out value="${message.errorMessage}"/>');
+			</script>
+		</s:if>
+
+
+
 		<div id="FuncName">
-			<h1> 
-				in系統管理∕使用者 
+			<h1>
+				系統管理∕使用者
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>
@@ -102,20 +110,21 @@
 		</div>
 		<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
 			id="Form1" action="user_add_save.do">
-			<s:hidden name="userinfo.userid"/>
-			
-			
+			<s:hidden name="userinfo.userid" />
+
+
 			<table cellspacing="0">
-				
-				
-				
+
+
+
 				<tr>
 					<td class="Label" align="right">
 						<span class="Must">*</span>使用帳號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_userId" name="userinfo.account"
-							size="10" value="<c:out value='${userinfo.account}'/>">
+						<input class="InputText" type="text" id="htx_userId"
+							name="userinfo.account" size="10"
+							value="<c:out value='${userinfo.account}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -124,7 +133,8 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_userName"
-							name="userinfo.username" size="20"  value="<c:out value='${userinfo.username}'/>">
+							name="userinfo.username" size="20"
+							value="<c:out value='${userinfo.username}'/>">
 					</td>
 
 				</tr>
@@ -134,7 +144,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_password"
-							name="userinfo.password" size="20" >
+							name="userinfo.password" size="20">
 					</td>
 				</tr>
 				<tr>
@@ -161,8 +171,9 @@
 						<span class="Must">*</span>單位名稱
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_dept" name="userinfo.dept"
-							size="30" value="<c:out value='${userinfo.dept}'/>">
+						<input class="InputText" type="text" id="htx_dept"
+							name="userinfo.dept" size="30"
+							value="<c:out value='${userinfo.dept}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -170,8 +181,9 @@
 						電子信箱
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_email" name="userinfo.email"
-							size="50" value="<c:out value='${userinfo.email}'/>">
+						<input class="InputText" type="text" id="htx_email"
+							name="userinfo.email" size="50"
+							value="<c:out value='${userinfo.email}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -180,7 +192,8 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_telephone"
-							name="userinfo.tel" size="30" value="<c:out value='${userinfo.tel}'/>">
+							name="userinfo.tel" size="30"
+							value="<c:out value='${userinfo.tel}'/>">
 					</td>
 				</tr>
 				<tr>
@@ -188,17 +201,17 @@
 						<span class="Must">*</span>角色
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="userinfo.role">
-							
+						<select id="htx_tdataCat" name="userInfo.role">
+
 							<s:iterator value="userRole.keySet()" id="id">
-							    <option value='<s:property  escape="false" value="id"/>'>
-								<s:property  escape="false" value="userRole.get(#id)"/>
+								<option value='<s:property  escape="false" value="id"/>'>
+									<s:property escape="false" value="userRole.get(#id)" />
 								</option>
-							</option>
-							
-							
+								</option>
+
+
 							</s:iterator>
-							
+
 						</select>
 					</td>
 				</tr>
@@ -209,14 +222,16 @@
 					</td>
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
-							<option value="0">
+							<s:if test="#session.UserInfo.userInfo.role== 1">
+							<option value="">
 								不指定
 							</option>
+							</s:if>
 							<s:iterator value="permissionRole.keySet()" id="id">
-							    <option value='<s:property  escape="false" value="id"/>'>
-								<s:property  escape="false" value="permissionRole.get(#id)"/>
+								<option value='<s:property  escape="false" value="id"/>'>
+									<s:property escape="false" value="permissionRole.get(#id)" />
 								</option>
-							</option>
+								</option>
 							</s:iterator>
 						</select>
 					</td>
@@ -244,7 +259,8 @@
 						備註
 					</td>
 					<td class="whitetablebg">
-						<textarea class="InputText"  name="userinfo.note" cols="50" rows="5"></textarea>
+						<textarea class="InputText" name="userinfo.note" cols="50"
+							rows="5"></textarea>
 					</td>
 				</tr>
 
@@ -252,8 +268,8 @@
 			</table>
 
 
-			
-			
+
+
 			<input class="cbutton" value="新增存檔" type="submit">
 			<input value="清除重填" class="cbutton" type="reset">
 		</form>

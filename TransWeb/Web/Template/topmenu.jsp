@@ -15,7 +15,7 @@
 <div id="Title" style="">
 
 	<div ><img src="images/logo.png" alt="內政部兒童局資訊轉檔平台"></div>
-	<div id="SiteName" >內政部兒童局資訊轉檔平台</div>
+	<div id="SiteName" >內政部兒童局　資訊轉檔平台</div>
 	<div id="LogInfo" >
 	  登入者:<c:out value="${sessionScope.UserInfo.userInfo.username}"/>(<c:out value="${sessionScope.UserInfo.userInfo.account}"/>)　　單位:<c:out value="${sessionScope.UserInfo.userInfo.dept}"/> (<c:out value="${sessionScope.UserInfo.userRoleName}"/>)
 	</div>
