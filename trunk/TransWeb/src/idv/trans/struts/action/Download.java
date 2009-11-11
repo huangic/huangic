@@ -121,12 +121,6 @@ public class Download extends ActionSupport {
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
 	}
-	public String getFileCaption() {
-		return fileCaption;
-	}
-	public void setFileCaption(String fileCaption) {
-		this.fileCaption = fileCaption;
-	}	
 	public List<idv.trans.model.Download> getDownloads() {
 		return downloads;
 	}	
