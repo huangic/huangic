@@ -112,6 +112,7 @@ public class UserService {
 		// 查詢條件
 		DetachedCriteria criteria = DetachedCriteria.forClass(Userinfo.class);
 
+		try{ 
 		// 使用者帳號
 		if (!user.getUserinfo().getAccount().equals("")) {
 			criteria.add(Restrictions.eq("account", user.getUserinfo()
@@ -141,7 +142,10 @@ public class UserService {
 					.getPriority()));
 
 		}
-
+		}catch(Exception ex){
+			//查詢條件的問題
+			
+		}
 		// 從USER去設定
 
 		List<Userinfo> users = (List<Userinfo>) (dao.getHibernateTemplate()
