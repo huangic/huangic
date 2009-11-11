@@ -41,7 +41,13 @@
 	<tr>
 		<td class="Label">角色</td>
 		<td><select name="userinfo.role">
-		   <option value="">不指定</option>
+		  <s:if test="#session.UserInfo.userInfo.role == 1">
+							<option value="">
+								不指定
+							</option>
+							</s:if>
+		   
+		   
 							<s:iterator value="userRole.keySet()" id="id">
 							    <option value='<s:property  escape="false" value="id"/>'>
 								<s:property  escape="false" value="userRole.get(#id)"/>
@@ -58,7 +64,13 @@
 	<tr>
 		<td class="Label">系統權限</td>
 		<td><select name="userinfo.priority">
-			<option value="">不指定</option>
+			
+			<s:if test="#session.UserInfo.userInfo.role== 1">
+							<option value="">
+								不指定
+							</option>
+							</s:if>
+			
 			<s:iterator value="permissionRole.keySet()" id="id">
 							    <option value='<s:property  escape="false" value="id"/>'>
 								<s:property  escape="false" value="permissionRole.get(#id)"/>

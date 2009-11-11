@@ -24,57 +24,66 @@ public class UserService {
 
 			user.setUserRole(var.getUserLevel());
 			user.setPermissionRole(var.getSystemPermission());
-		}else{
-			LinkedHashMap roles=(LinkedHashMap)var.getUserLevel().clone();
-			LinkedHashMap old_prioritys=(LinkedHashMap)var.getSystemPermission().clone();
-			
-			LinkedHashMap prioritys=(LinkedHashMap)var.getSystemPermission().clone();
+		} else {
+			LinkedHashMap roles = (LinkedHashMap) var.getUserLevel().clone();
+			LinkedHashMap old_prioritys = (LinkedHashMap) var
+					.getSystemPermission().clone();
+
+			LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
+					.clone();
 			roles.remove("1");
 			roles.remove("2");
-			
-			for(Iterator i=(Iterator) old_prioritys.keySet().iterator();i.hasNext();){
-				String key=(String)i.next();
-				if(!key.equals(priority.toString())){
+
+			for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
+					.hasNext();) {
+				String key = (String) i.next();
+				if (!key.equals(priority.toString())) {
 					prioritys.remove(key);
 				}
 			}
-			
+
 			user.setUserRole(roles);
 			user.setPermissionRole(prioritys);
 		}
 	}
 
-	public void insertUser(User user) {
-		//如果沒有ID那就檢查
+	public void insertUser(User user) throws Exception {
+		// 如果沒有ID那就檢查
 		Userinfo newUser = user.getUserinfo();
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
-		
-		if(newUser.getUserid()==null){
-		   
-		// 檢查一下帳號跟身分證吧
-        
-		
-		//
-		// 如果沒問題~那就資料建一建寫入吧
+
+		if (newUser.getUserid() == null) {
+
+			// 檢查一下帳號跟身分證吧
+			if (dao.findByAccount(user.getUserinfo().getAccount()).size() > 0) {
+				throw new Exception("帳號重覆");
+			}
+			;
+
+			if (!user.getUserinfo().getUid().equals("")) {
+
+				if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
+					throw new Exception("身分證字號重覆");
+				}
+				;
+			}
+			//
+			// 如果沒問題~那就資料建一建寫入吧
 			dao.save(newUser);
-		  }else{
-			  //UPDATE
-			  Userinfo oldUser=dao.findById(newUser.getUserid()); 
-			  //把值COPY一下
-			  if(newUser.getPassword().equals("")){
-				  newUser.setPassword(oldUser.getPassword()); 
-			  }else{
-				  newUser.setPwdexpiredate(new Date());		  
-			  }
-			  
-			  
-			  dao.attachDirty(newUser);
-			  
-		  }
-		
-        
-		  
-        
+		} else {
+			// UPDATE
+			Userinfo oldUser = dao.findById(newUser.getUserid());
+			// 把值COPY一下
+			if (newUser.getPassword().equals("")) {
+				newUser.setPassword(oldUser.getPassword());
+			} else {
+				newUser.setPwdexpiredate(new Date());
+			}
+
+			dao.attachDirty(newUser);
+
+		}
+
 	}
 
 	public void findUser(User user, Integer id) throws Exception {
@@ -105,8 +114,5 @@ public class UserService {
 
 		user.setUsers(users);
 	}
-	
-	
-	
 
 }
