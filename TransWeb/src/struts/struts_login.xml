@@ -29,6 +29,7 @@
 		<action name="login" class="idv.trans.struts.action.Login" method="execute">
 			<result name="SUCCESS">Template/default.jsp</result>
 			<result name="ERROR">Template/index.jsp</result>
+			<result name="CHANGE_PWD" type="redirect">Admin/user_pwd_change.do</result>
 		</action>
 		<action name="logout" class="idv.trans.struts.action.Login" method="logout">
 			<result name="SUCCESS">Template/index.jsp</result>

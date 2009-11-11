@@ -10,12 +10,14 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map.Entry;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 
 public class UserService {
-
+	
+	
 	public void init(User user, Short role, Short priority) {
 
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
@@ -48,9 +50,11 @@ public class UserService {
 	}
 
 	public void insertUser(User user) throws Exception {
+		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+
+		
 		// 如果沒有ID那就檢查
 		Userinfo newUser = user.getUserinfo();
-		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
 		if (newUser.getUserid() == null) {
 
@@ -76,6 +80,7 @@ public class UserService {
 			// 把值COPY一下
 			if (newUser.getPassword().equals("")) {
 				newUser.setPassword(oldUser.getPassword());
+				newUser.setPwdexpiredate(oldUser.getPwdexpiredate());
 			} else {
 				newUser.setPwdexpiredate(new Date());
 			}
@@ -88,6 +93,8 @@ public class UserService {
 
 	public void findUser(User user, Integer id) throws Exception {
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+
+		
 		Userinfo userinfo = dao.findById(id);
 
 		if (userinfo == null) {
@@ -99,20 +106,74 @@ public class UserService {
 	}
 
 	public void findAllUsers(User user) {
+		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
 		// 設定條件
-
 		// 查詢條件
 		DetachedCriteria criteria = DetachedCriteria.forClass(Userinfo.class);
 
-		// 從USER去設定
+		// 使用者帳號
+		if (!user.getUserinfo().getAccount().equals("")) {
+			criteria.add(Restrictions.eq("account", user.getUserinfo()
+					.getAccount()));
 
-		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+		}
+
+		// 使用者名稱
+		if (!user.getUserinfo().getUsername().equals("")) {
+			criteria.add(Restrictions.like("username", user.getUserinfo()
+					.getUsername()));
+
+		}
+
+		// 角色
+		if (user.getUserinfo().getRole() != null) {
+
+			criteria.add(Restrictions.eq("role", user.getUserinfo().getRole()));
+
+		}
+
+		// 權限
+
+		if (user.getUserinfo().getPriority() != null) {
+
+			criteria.add(Restrictions.eq("priority", user.getUserinfo()
+					.getPriority()));
+
+		}
+
+		// 從USER去設定
 
 		List<Userinfo> users = (List<Userinfo>) (dao.getHibernateTemplate()
 				.findByCriteria(criteria));
 
 		user.setUsers(users);
+	}
+
+	public void changePassword(User user) throws Exception {
+		// 更新一下密碼
+		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+
+		Userinfo olduser = dao.findById(user.getUserinfo().getUserid());
+
+		try {
+			if (olduser.getPassword().equals(user.getOldPassword())) {
+                //存檔
+				olduser.setPassword(user.getUserinfo().getPassword());
+				
+				//過期日+100天
+				Date expire=DateUtils.addDays(new Date(), 100);
+				
+				 olduser.setPwdexpiredate(expire);
+				
+				dao.attachDirty(olduser);
+			}else{
+				throw new Exception("密碼錯誤");
+			}
+		} catch (Exception ex) {
+            throw new Exception("密碼錯誤");
+		}
+
 	}
 
 }
