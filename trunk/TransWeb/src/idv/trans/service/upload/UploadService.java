@@ -29,7 +29,7 @@ public class UploadService {
 		
 			SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 			
-			String saveDirectory = systemVar.getDownloadPath()+"/";
+			String saveDirectory = systemVar.getRealDir()+systemVar.getDownloadPath()+"/";
 			
 			logger.debug("copy to "+saveDirectory+uploadFileName);
 			String fullFileName = saveDirectory+uploadFileName;
@@ -49,7 +49,7 @@ public class UploadService {
 		
 		SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 		
-		String saveDirectory = systemVar.getUploadPath()+"/";
+		String saveDirectory = systemVar.getRealDir()+systemVar.getUploadPath()+"/";
 		
 		logger.debug("copy to "+saveDirectory+uploadFileName);
 		String fullFileName = saveDirectory+uploadFileName;

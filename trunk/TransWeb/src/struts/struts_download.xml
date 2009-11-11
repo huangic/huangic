@@ -43,6 +43,9 @@
         </action> 
         -->
         
+        <action name="uploadFileForm" class="idv.trans.struts.action.Download" method="showUploadFileForm">
+			<result name="SUCCESS">/Template/Download/uploadFileForm.jsp</result>
+		</action>
 		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
 			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">20971520</param>
