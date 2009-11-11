@@ -9,6 +9,7 @@ public class SystemVar{
 	String uploadPath="";
 	String downloadPath="";
 	String backupPath="";
+	String realDir="";
 	
 	
 	public String getUploadPath() {
@@ -41,4 +42,11 @@ public class SystemVar{
 	public void setSystemPermission(LinkedHashMap systemPermission) {
 		this.systemPermission = systemPermission;
 	}
+	public String getRealDir() {
+		return realDir;
+	}
+	public void setRealDir(String realDir) {
+		this.realDir = realDir;
+	}
+	
 }

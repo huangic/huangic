@@ -3,6 +3,7 @@ package idv.trans.struts.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.management.relation.Role;
@@ -22,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 public class Download extends ActionSupport {
 	
@@ -32,8 +34,19 @@ public class Download extends ActionSupport {
 	private File upload;//The actual file
     private String uploadContentType; //The content type of the file
     private String uploadFileName; //The uploaded file name
-    private String fileCaption;//The caption of the file entered by user
-
+    
+    private String name;
+    private String filename;
+    private String filepath;
+    private short priority; 
+    
+    private LinkedHashMap permissionRole;
+    
+    //	initial
+	private void init() {
+		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
+		permissionRole = var.getSystemPermission();
+	}
 
     //list download files
 	public String download() {
@@ -47,15 +60,8 @@ public class Download extends ActionSupport {
 			
 			DownloadService service = (DownloadService) SpringUtil.getBean("DownloadService");
 			
-			if(sessionUserInfo.getUserInfo().getRole()==(short)1){
-				logger.debug("Role 1 list all files.");
-				downloads = service.listAll();
-				
-			}else{
-				short priority = sessionUserInfo.getUserInfo().getPriority();
-				logger.debug("Role "+priority+" list files.");
-				downloads = service.listByPriority(priority);
-			}
+			service.list(sessionUserInfo.getUserInfo());
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "ERROR";
@@ -64,12 +70,20 @@ public class Download extends ActionSupport {
 		return "SUCCESS";
 	}
 	
+	//show upload file form
+	public String showUploadFileForm() {
+		init();
+		return "SUCCESS";
+	}
+	
+	
 	//上傳下載區檔案
 	public String uploadFile() {
+		UploadService uService = (UploadService) SpringUtil.getBean("UploadService");
+		DownloadService dService = (DownloadService) SpringUtil.getBean("DownloadService");
+		
 		try {
-			
-			UploadService service = (UploadService) SpringUtil.getBean("UploadService");
-			service.uploadFile(uploadFileName, upload);
+			uService.uploadFile(uploadFileName, upload);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,8 +91,15 @@ public class Download extends ActionSupport {
 
 			return "ERROR";
 		}
+		
+		//結果儲存至db
+		dService.save(this);
+		
+		
 		return "SUCCESS";
 	}
+	
+	
 	
 	
 	
@@ -112,4 +133,35 @@ public class Download extends ActionSupport {
 	public void setDownloads(List<idv.trans.model.Download> downloads) {
 		this.downloads = downloads;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+	public short getPriority() {
+		return priority;
+	}
+	public void setPriority(short priority) {
+		this.priority = priority;
+	}
+	public LinkedHashMap getPermissionRole() {
+		return permissionRole;
+	}
+	public void setPermissionRole(LinkedHashMap permissionRole) {
+		this.permissionRole = permissionRole;
+	}
+	
 }
