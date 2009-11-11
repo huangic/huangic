@@ -128,9 +128,13 @@ public class Login extends ActionSupport {
     			//判斷修改密碼
     			Date today=(new Date());
     			
+    			try{
     			if(today.after(user.getUserInfo().getPwdexpiredate())){
     				return "CHANGE_PWD";
     				
+    			}
+    			}catch(Exception ex){
+    				return "CHANGE_PWD";
     			}
     			//密碼過期就轉跳密碼頁//
     			

@@ -17,6 +17,9 @@
 	<bean id="UserService" class="idv.trans.service.admin.UserService">
 	</bean>
 	
+	<bean id="RecordService" class="idv.trans.service.record.RecordService">
+	</bean>
+	
 	  <!--使用者項目	  
 	<bean id="UserService" parent="normalServiceTemplate">
 	   <property name="target">
