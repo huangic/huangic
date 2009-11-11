@@ -21,9 +21,10 @@
 <struts>
 
 
-	<package name="idv.trans.struts.download" extends="struts-default">
+	<package name="idv.trans.struts.download" namespace="/Download" extends="struts-default">
 		<action name="download" class="idv.trans.struts.action.Download" method="download">
-			<result name="SUCCESS">Template/default.jsp</result>
+			<result name="SUCCESS">/Template/Download/download.jsp</result>
+			<result name="ERROR">/Template/index.jsp</result>
 		</action>
 		<!-- 
 		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
@@ -48,7 +49,7 @@
             </interceptor-ref>
     		<interceptor-ref name="basicStack"/>
     		
-			<result name="SUCCESS">Template/default.jsp</result>
+			<result name="SUCCESS">/Template/Download/download.jsp</result>
 		</action>
         
         

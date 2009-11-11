@@ -61,8 +61,8 @@
 				
 				<entry key="下載區">
 					<list>
+						<ref bean="uploadFileBean"/>
 						<ref bean="downloadBean"/>
-						
 					</list>
 				</entry>
 				
@@ -143,6 +143,18 @@
 						<value>1</value>
 						<value>2</value>
 						<value>3</value>
+					</list>
+				
+		</property>
+	</bean> 
+	 
+	 <bean id="uploadFileBean" name="檔案上傳" class="idv.trans.service.system.Permission">
+		<property name="functionName"><value>檔案上傳</value></property>
+		<property name="functionURL"><value>Download/uploadFile.do</value></property>
+		<property name="userLevel">
+					<list>
+						<value>1</value>
+						<value>2</value>
 					</list>
 				
 		</property>
