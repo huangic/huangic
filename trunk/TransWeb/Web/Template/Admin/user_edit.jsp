@@ -252,7 +252,7 @@
 								</s:if>>
 									<s:property escape="false" value="userRole.get(#id)" />
 								</option>
-								</option>
+								
 
 
 							</s:iterator>
@@ -267,7 +267,7 @@
 					</td>
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
-							<s:if test="#session.UserInfo.userInfo..priority== 1">
+							<s:if test="#session.UserInfo.userInfo.priority== 1">
 								<option value="">
 									不指定
 								</option>
