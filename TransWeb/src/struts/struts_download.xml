@@ -44,7 +44,7 @@
         
 		<action name="uploadFile" class="idv.trans.struts.action.Download" method="uploadFile">
 			<interceptor-ref name="fileUpload">
-                <param name="maximumSize">2097152000</param>
+                <param name="maximumSize">20971520</param>
             </interceptor-ref>
     		<interceptor-ref name="basicStack"/>
     		
