@@ -4,6 +4,15 @@ public class Message implements Cloneable {
    private String errorMessage;
    private String errorCode;
    private String systemMessage;
+   
+ public Message(){
+	 
+ }  
+   
+public Message(String errorMessage){
+	this.errorMessage=errorMessage;
+}
+   
 public String getErrorMessage() {
 	return errorMessage;
 }

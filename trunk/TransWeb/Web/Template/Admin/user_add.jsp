@@ -123,6 +123,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_userId"
+							onblur="javascript:this.value=this.value.toUpperCase();"
 							name="userinfo.account" size="10"
 							value="<c:out value='${userinfo.account}'/>">
 					</td>

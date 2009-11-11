@@ -19,10 +19,7 @@
 			//檢查各欄位內容
 			function checkOnSubmit(){
 				
-  			if( $('htx_userId').value == '' ){
-  				alert('請輸入 使用帳號');
-  				return false;
-  			}
+  			
   		
   			if($('htx_userId').value != null &&  
 			  	$('htx_userId').value.length  >10 ){
@@ -149,7 +146,7 @@
 	<tr>
 		<td class="Label" align="right"><span class="Must">*</span>使用帳號</td>
 		<td class="whitetablebg"><input class="InputText" type="text"
-			id="htx_userId" name="userId" size="10" readonly="readonly" value="system" disabled="disable"/></td>
+			id="htx_userId" name="userId" size="10" value="system" disabled="disable"/></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right"><span class="Must">*</span>使用者名稱</td>

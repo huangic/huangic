@@ -22,10 +22,10 @@
 			//檢查各欄位內容
 			function checkOnSubmit(){
 				
-  			if( $('htx_userId').value == '' ){
-  				alert('請輸入 使用帳號');
-  				return false;
-  			}
+  			//if( $('htx_userId').value == '' ){
+  			//	alert('請輸入 使用帳號');
+  			//	return false;
+  			//}
   		
   			if($('htx_userId').value != null &&  
 			  	$('htx_userId').value.length  >10 ){
@@ -44,10 +44,10 @@
   				return false;
   			}
   		
-  			if( $('htx_password').value == '' ){
-  				alert('請輸入 密碼');
-  				return false;
-  			}
+  			//if( $('htx_password').value == '' ){
+  			//	alert('請輸入 密碼');
+  			//	return false;
+  			//}
   		
   			if($('htx_password').value != null &&  
 			  	$('htx_password').value.length  >50 ){
@@ -122,20 +122,42 @@
 						<span class="Must">*</span>使用帳號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_userId"
-							name="userinfo.account" size="10"
-							value="<c:out value='${userinfo.account}'/>">
+						<input class="InputText" type="text" id="htx_userId" size="10"
+							value="<c:out value='${userinfo.account}'/>" disabled="disable" />
+
+						<s:hidden name="userinfo.account" />
 					</td>
 				</tr>
 				<tr>
 					<td class="Label" align="right">
 						<span class="Must">*</span>使用者名稱
 					</td>
-					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_userName"
+                   <td class="whitetablebg">
+					<s:if test="#session.UserInfo.userInfo.role==1">
+                         <input class="InputText" type="text" id="htx_userName"
 							name="userinfo.username" size="20"
 							value="<c:out value='${userinfo.username}'/>">
+					</s:if>
+					<s:else>
+                         <input class="InputText" type="text" id="htx_userName"
+							 size="20"
+							value="<c:out value='${userinfo.username}'/>"
+							
+							disabled="disable"
+							/>
+                         <s:hidden name="userinfo.username" />
+                         
+                         
+                         
+					</s:else>
 					</td>
+
+					
+						
+					
+
+
+
 
 				</tr>
 				<tr>
@@ -162,8 +184,28 @@
 						身分證字號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" id="htx_tdataCat" name="userinfo.uid"
+						
+						
+						
+						
+					   
+					<s:if test="#session.UserInfo.userInfo.role==1">
+                        <input class="InputText" id="htx_tdataCat" name="userinfo.uid"
 							type="text" value="<c:out value='${userinfo.uid}'/>" />
+					
+					</s:if>
+					<s:else>
+                         <input class="InputText" id="htx_tdataCat" 
+							type="text" value="<c:out value='${userinfo.uid}'/>" disabled="disableed"/>
+					
+                         <s:hidden name="userinfo.uid" />
+                         
+                         
+                         
+					</s:else>
+					
+					
+					
 					</td>
 				</tr>
 				<tr>
@@ -201,7 +243,7 @@
 						<span class="Must">*</span>角色
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="#session.UserInfo.userinfo.role">
+						<select id="htx_tdataCat" name="userinfo.role">
 
 							<s:iterator value="userRole.keySet()" id="id">
 								<option value='<s:property  escape="false" value="id"/>'
@@ -226,12 +268,12 @@
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
 							<s:if test="#session.UserInfo.userInfo..priority== 1">
-							<option value="">
-								不指定
-							</option>
+								<option value="">
+									不指定
+								</option>
 							</s:if>
-							
-							
+
+
 							<s:iterator value="permissionRole.keySet()" id="id">
 								<option value='<s:property  escape="false" value="id"/>'
 									<s:if test="userinfo.priority== #id">
@@ -252,10 +294,16 @@
 					</td>
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.status">
-							<option value="1">
+							<option value="1"
+								<s:if test="userinfo.status==1">
+								selected
+								</s:if>>
 								啟用
 							</option>
-							<option value="2">
+							<option value="2"
+								<s:if test="userinfo.status== 2">
+								selected
+								</s:if>>
 								停用
 							</option>
 						</select>

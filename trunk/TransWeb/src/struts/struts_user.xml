@@ -39,6 +39,14 @@
 		<action name="user_edit" class="idv.trans.struts.action.User" method="edit">
 			<result name="SUCCESS">/Template/Admin/user_edit.jsp</result>
 		</action>
+		<action name="user_pwd_change" class="idv.trans.struts.action.User" method="changePwd">
+			<result name="SUCCESS">/Template/Admin/user_pwd_change.jsp</result>
+		</action>
+		
+		<action name="user_pwd_save" class="idv.trans.struts.action.User" method="changePwdSave">
+			<result name="SUCCESS" >/Template/Admin/user_pwd_change.jsp</result>
+			<result name="ERROR" >/Template/Admin/user_pwd_change.jsp</result>
+		</action>
 		
 		
 	</package>

@@ -5,13 +5,14 @@ import idv.trans.model.SessionUserInfo;
 import idv.trans.service.index.LoginService;
 import idv.trans.util.SpringUtil;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -102,11 +103,38 @@ public class Login extends ActionSupport {
     		//拿一下User的資料
     		SessionUserInfo user=service.login(this.account, this.passwd);
     		
+    		
+    		
+    		
+    		
     		if(user!=null){
+    			
+    			
+    			//判斷停權
+        		if(user.getUserInfo().getStatus().toString().equals("2")){
+        			this.message=new Message();
+        			
+        			message.setErrorMessage("您沒有登入權限，請洽管理員");
+        			
+        			
+        			return "ERROR"; 
+        			
+        		}
+        		
     			
     			
     			
     			session.setAttribute("UserInfo", user);
+    			//判斷修改密碼
+    			Date today=(new Date());
+    			
+    			if(today.after(user.getUserInfo().getPwdexpiredate())){
+    				return "CHANGE_PWD";
+    				
+    			}
+    			//密碼過期就轉跳密碼頁//
+    			
+    			
     			return "SUCCESS";
     		}else{
     			this.message=new Message();
