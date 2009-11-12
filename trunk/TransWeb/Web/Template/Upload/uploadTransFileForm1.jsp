@@ -23,11 +23,45 @@
 		<script language="javascript">
 			//檢查各欄位內容
 			function checkOnSubmit(){
+				var n = new Array(10);
+				var reg = new Array(10);
 				
-	  			if( $('htx_upload').value == '' ){
-	  				alert('請選擇上傳檔案');
-	  				return false;
-	  			}
+				
+				n[1] = '個案基本資料表 (檔名:TB_OPENCASE_YYYYMMDD.TXT)';
+				reg[1] = /.*TB_OPENCASE_\d{8}.[tT][xX][tT]/;
+				n[2] = '個案初訪表1 (檔名:TB_CASEBASICDATA1_YYYYMMDD.TXT)';
+				reg[2] = /.*TB_CASEBASICDATA1_\d{8}.[tT][xX][tT]/;
+				n[3] = '個案初訪表2 (檔名:TB_CASEBASICDATA2_YYYYMMDD.TXT)';
+				reg[3] = /.*TB_CASEBASICDATA2_\d{8}.[tT][xX][tT]/;
+				n[4] = '個案初訪表3 (檔名:TB_CASEBASICDATA3_YYYYMMDD.TXT)';
+				reg[4] = /.*TB_CASEBASICDATA3_\d{8}.[tT][xX][tT]/;
+				n[5] = '個案安置記錄表 (檔名:TB_CASESERVEPLACE_YYYYMMDD.TXT)';
+				reg[5] = /.*TB_CASESERVEPLACE_\d{8}.[tT][xX][tT]/;
+				n[6] = '個案療育記錄表 (檔名:TB_CASECARE_YYYYMMDD.TXT)';
+				reg[6] = /.*TB_CASECARE_\d{8}.[tT][xX][tT]/;
+				n[7] = '個案轉銜轉介報告表 (檔名:TB_CASETRANSDATA_YYYYMMDD.TXT)';
+				reg[7] = /.*TB_CASETRANSDATA_\d{8}.[tT][xX][tT]/;
+				n[8] = '個案結案表 (檔名:TB_CASECLOSED_YYYYMMDD.TXT)';
+				reg[8] = /.*TB_CASECLOSED_\d{8}.[tT][xX][tT]/;
+				//n[9] = '';
+				//reg[9] = /.*TB_OPENCASE_\d{8}.[tT][xX][tT]/;
+				
+				var items = 8;
+				var emptyCount = 0;
+				for(var i=1;i<=items;i++){
+					if($('up'+i).value == ''){
+						emptyCount++;
+					}
+		  			if($('up'+i).value != '' && !$('up'+i).value.match(reg[i]) ){
+	  					alert('【'+n[i]+'】檔案格式錯誤');
+	  					return false;
+	  				}
+  				}
+  				
+  				if(emptyCount == items){
+  					alert('請選擇檔案上傳');
+  				}
+  				
   		
   
 			}
