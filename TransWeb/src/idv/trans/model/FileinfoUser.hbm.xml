@@ -47,6 +47,8 @@
   <property generated="never" lazy="false" name="logfilename" type="java.lang.String">
    <column length="50" name="LOGFILENAME"/>
   </property>
-  <many-to-one class="idv.trans.model.Userinfo" name="UploadUser"/>
+  <many-to-one class="idv.trans.model.Userinfo" name="uploaduser" fetch="select" insert="false" update="false">
+  <column name="userid"></column>
+</many-to-one>  
  </class>
 </hibernate-mapping>

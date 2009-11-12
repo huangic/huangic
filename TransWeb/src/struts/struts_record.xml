@@ -20,26 +20,15 @@
 
 <struts>
 
-	<include file="struts/struts_login.xml" />
-	<include file="struts/struts_function.xml" />
-	<include file="struts/struts_download.xml" />
-	<include file="struts/struts_user.xml" />
-	<include file="struts/struts_record.xml" />
-	<!--
 
-
-		<constant name="struts.objectFactory" value="spring" /> <constant
-		name="struts.devMode" value="true" />
-	-->
-
-
-	<package name="default" extends="struts-default">
-		<global-results>
-			<result name="login" type="redirect">index.htm</result>
-		</global-results>
+	<package name="idv.trans.struts.record"  namespace="/Record"  extends="struts-default">
+		<action name="record_search" class="idv.trans.struts.action.Record" method="toSearch">
+			<result name="SUCCESS">/Template/Record/record_search.jsp</result>
+		</action>
+		<action name="record_search_result" class="idv.trans.struts.action.Record" method="toSearch">
+			<result name="SUCCESS">/Template/Record/record.jsp</result>
+		</action>
+		
+		
 	</package>
-
-
-
-
 </struts>

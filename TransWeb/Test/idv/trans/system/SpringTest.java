@@ -11,10 +11,8 @@ public class SpringTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		String[] ConfigureXML = { "classpath:applicationContext-system.xml",
-				//"classpath:applicationContext-DAO.xml",
-				//"classpath:applicationContext-DB.xml",
-				"classpath:applicationContext-Service.xml"};
+		String[] ConfigureXML = { "classpath:applicationContext-Test.xml"
+				};
 
 		context = new FileSystemXmlApplicationContext(
 				ConfigureXML);
@@ -25,20 +23,5 @@ public class SpringTest extends TestCase {
 		super.tearDown();
 	}
 
-	public void testSpringInit() {
-
-	}
-
-	public void testSpringJar() {
-
-		// SpringA s=(SpringA)context.getBean("springA");
-
-		// System.out.println(s.getName());
-
-	}
-
-	public void testSpec() {
-
-	}
-
+	
 }
