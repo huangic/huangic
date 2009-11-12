@@ -32,7 +32,11 @@
 		<action name="uploadTransFileSave" class="idv.trans.struts.action.Upload" method="uploadTransFileSave">
 			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">209715200</param>
+                <param name="allowedTypes">
+                	text/plain  
+                </param>  
             </interceptor-ref>
+            
     		<interceptor-ref name="basicStack"/>
     		
 			<result name="SUCCESS_1">uploadTransFileForm1.do</result>
