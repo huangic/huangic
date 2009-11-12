@@ -88,13 +88,33 @@ public class User {
 		init();
 		try {
 
-			service.insertUser(this);
+			String result=service.insertUser(this);
 
+			
+			if(result.equals("ADD_SUCCESS")){
 			// 存檔後轉條列業
 			this.message = new Message("新增成功");
 			this.userinfo=null;
 			
-			return "LIST";
+			}else{
+			  
+				HttpServletRequest request = ServletActionContext.getRequest();
+				HttpServletResponse response = ServletActionContext.getResponse();
+				HttpSession session = request.getSession();
+		    	
+				//把這次的查詢條件放在SESSION 讓以後的作業直接回來
+				User old=(User)session.getAttribute("userSearch");
+		    	
+		    	
+		    	//把舊的條件丟給SEARCH
+		    	
+		    	this.users=service.findAllUsers(old);	
+				
+				
+				
+			}
+			return result;
+			
 
 		} catch (Exception ex) {
 
@@ -110,7 +130,17 @@ public class User {
 		// 將條件送到SERVICE
 
 		try {
-			service.findAllUsers(this);
+			this.users=service.findAllUsers(this);
+			
+			//條件放SESSION
+			HttpServletRequest request = ServletActionContext.getRequest();
+			HttpServletResponse response = ServletActionContext.getResponse();
+			HttpSession session = request.getSession();
+	    	
+			//把這次的查詢條件放在SESSION 讓以後的作業直接回來
+			session.setAttribute("userSearch", this);
+			
+			
 			return "SUCCESS";
 		} catch (Exception ex) {
 			ex.printStackTrace();

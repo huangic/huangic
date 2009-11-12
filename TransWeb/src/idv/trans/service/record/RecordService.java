@@ -92,6 +92,18 @@ public class RecordService {
 						.getStartDate(), record.getEndDate()));
 
 			}
+			
+			//狀態
+			List<Short> status=record.getStatus();
+			
+			
+			//for(int i=0,size=(status.size());i<size;i++) {
+				
+				
+				criteria.add(Restrictions.in("status", status));
+
+			//}
+			
 
 		} catch (Exception ex) {
 			// 查詢條件的問題

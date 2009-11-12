@@ -19,27 +19,35 @@ import org.hibernate.criterion.Restrictions;
 
 public class UserService {
 
-	public void init(Object bean, Short role, Short priority) throws IllegalAccessException, InvocationTargetException {
+	public void init(Object bean, Short role, Short priority)
+			throws IllegalAccessException, InvocationTargetException {
 
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
+        
+		if (priority == null || priority == Short.valueOf("0")) {
+			BeanUtils.setProperty(bean, "permissionRole", var.getSystemPermission());
+		} else {
+			LinkedHashMap old_prioritys = (LinkedHashMap) var
+					.getSystemPermission().clone();
 
-		LinkedHashMap old_prioritys = (LinkedHashMap) var.getSystemPermission()
-				.clone();
+			LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
+					.clone();
 
-		LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
-				.clone();
-
-		for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
-				.hasNext();) {
-			String key = (String) i.next();
-			if (!key.equals(priority.toString())) {
-				prioritys.remove(key);
+			for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
+					.hasNext();) {
+				String key = (String) i.next();
+				if (!key.equals(priority.toString())) {
+					prioritys.remove(key);
+				}
 			}
+			
+			BeanUtils.setProperty(bean, "permissionRole", prioritys);	
 		}
-
+		
+		
 		if (role.toString().equals("1")) {
 
-			//user.setUserRole(var.getUserLevel());
+			// user.setUserRole(var.getUserLevel());
 			BeanUtils.setProperty(bean, "userRole", var.getUserLevel());
 
 		} else {
@@ -47,17 +55,17 @@ public class UserService {
 			roles.remove("1");
 			roles.remove("2");
 
-			//user.setUserRole(roles);
-			
+			// user.setUserRole(roles);
+
 			BeanUtils.setProperty(bean, "userRole", roles);
-			
-		
+
 		}
-		BeanUtils.setProperty(bean, "permissionRole", prioritys);
-		//user.setPermissionRole(prioritys);
+
+		
+		// user.setPermissionRole(prioritys);
 	}
 
-	public void insertUser(User user) throws Exception {
+	public String insertUser(User user) throws Exception {
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
 		// 如果沒有ID那就檢查
@@ -81,6 +89,9 @@ public class UserService {
 			//
 			// 如果沒問題~那就資料建一建寫入吧
 			dao.save(newUser);
+			
+			return "ADD_SUCCESS";
+			
 		} else {
 			// UPDATE
 			Userinfo oldUser = dao.findById(newUser.getUserid());
@@ -93,7 +104,7 @@ public class UserService {
 			}
 
 			dao.attachDirty(newUser);
-
+			return "UPDATE_SUCCESS";
 		}
 
 	}
@@ -111,7 +122,7 @@ public class UserService {
 
 	}
 
-	public void findAllUsers(User user) {
+	public List<Userinfo> findAllUsers(User user) {
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
 		// 設定條件
@@ -158,7 +169,7 @@ public class UserService {
 		List<Userinfo> users = (List<Userinfo>) (dao.getHibernateTemplate()
 				.findByCriteria(criteria));
 
-		user.setUsers(users);
+		return users;
 	}
 
 	public void changePassword(User user) throws Exception {
@@ -172,8 +183,8 @@ public class UserService {
 				// 存檔
 				olduser.setPassword(user.getUserinfo().getPassword());
 
-				// 過期日+100天
-				Date expire = DateUtils.addDays(new Date(), 100);
+				// 過期日+60天
+				Date expire = DateUtils.addDays(new Date(), 60);
 
 				olduser.setPwdexpiredate(expire);
 
