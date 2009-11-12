@@ -20,6 +20,19 @@
 <script src="../js/SS_Popup.js">&nbsp;</script>
 
 
+		<script language="javascript">
+			//檢查各欄位內容
+			function checkOnSubmit(){
+				
+	  			if( $('htx_upload').value == '' ){
+	  				alert('請選擇上傳檔案');
+	  				return false;
+	  			}
+  		
+  
+			}
+		</script>
+
 </head>
 <body>
 <div id="FuncName">
@@ -34,44 +47,44 @@
 	<tr>
 		<td class="Label" align="right">個案基本資料表
 		(檔名:TB_OPENCASE_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up1"></input></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right">個案初訪表1
 		(檔名:TB_CASEBASICDATA1_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up2"></input></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right">個案初訪表2
 		(檔名:TB_CASEBASICDATA2_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up3"></input></td>
 	</tr>
 
 	<tr>
 		<td class="Label" align="right">個案初訪表3
 		(檔名:TB_CASEBASICDATA3_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up4"></input></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right">個案安置記錄表
 		(檔名:TB_CASESERVEPLACE_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up5"></input></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right">個案療育記錄表
 		(檔名:TB_CASECARE_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up6"></input></td>
 	</tr>
 
 	<tr>
 		<td class="Label" align="right">個案轉銜轉介報告表
 		(檔名:TB_CASETRANSDATA_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up7"></input></td>
 	</tr>
 	<tr>
 		<td class="Label" align="right">個案結案表
 		(檔名:TB_CASECLOSED_YYYYMMDD.TXT)</td>
-		<td class="whitetablebg"><input class="InputText" type="file" name="upload"></input></td>
+		<td class="whitetablebg"><input class="InputText" type="file" name="upload" id="up8"></input></td>
 	</tr>
 
 
