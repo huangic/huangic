@@ -44,20 +44,12 @@ public class Download extends ActionSupport {
     
     private LinkedHashMap permissionRole;
     
-    private String test;
-    public String getTest() {
-		return test;
-	}
-    public void setTest(String test) {
-		this.test = test;
-	}
     
     
     //	initial
 	private void init() {
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
 		permissionRole = var.getSystemPermission();
-		test="test";
 	}
 
     //list download files

@@ -113,8 +113,8 @@
 
      <bean id="upload01Bean" name="早療系統" class="idv.trans.service.system.Permission">
 		<property name="functionName"><value>早療系統</value></property>
-		<property name="functionURL"><value>Upload/upload.do</value></property>
-		<property name="permissionID"><value>1</value></property>
+		<property name="functionURL"><value>Upload/uploadTransFileForm1.do</value></property>
+		<!-- <property name="permissionID"><value>1</value></property> -->
 		<property name="userLevel">
 					<list>
 						<value>3</value>
@@ -124,8 +124,8 @@
 	</bean>
 	<bean id="upload02Bean" name="寄養系統" class="idv.trans.service.system.Permission">
 		<property name="functionName"><value>寄養系統</value></property>
-		<property name="functionURL"><value>Upload/upload.do</value></property>
-		<property name="permissionID"><value>2</value></property>
+		<property name="functionURL"><value>Upload/uploadTransFileForm2.do</value></property>
+		<!-- <property name="permissionID"><value>2</value></property>  -->
 		
 		<property name="userLevel">
 					<list>
