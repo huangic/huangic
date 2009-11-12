@@ -30,7 +30,7 @@
 			<br>
 
 		</div>
-		<div id="Page">
+		
 
 			<display:table name="users" pagesize="30" id="ListTable"
 				requestURI="user_search_result.do">
@@ -53,134 +53,7 @@
 
 
 
-			<form name="list" action="#">
-				 共 <em>7</em> 筆資料，
-	第 <a href="#">1</a> <a href="#">2</a>
-					<a href="#">3</a> 頁
-			</form>
-		</div>
-		<form name="reg" id="reg" method="post" action="">
-			<table id="ListTable">
-				<tbody>
-
-					<tr>
-						<th>
-							帳號
-						</th>
-						<th>
-							姓名
-						</th>
-						<th>
-							單位
-						</th>
-						<th>
-							編輯
-						</th>
-
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							system
-						</td>
-						<td>
-							系統管理員
-						</td>
-						<td>
-							系統管理
-						</td>
-						<td>
-							<a href="user_edit.htm">編輯</a>
-						</td>
-					</tr>
-
-				</tbody>
-
-			</table>
-		</form>
+		
 	</body>
 </html>
 

@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html>
 	<head>
@@ -9,8 +9,8 @@
 		<link type="text/css" rel="stylesheet" href="../css/form.css">
 		<link type="text/css" rel="stylesheet" href="../css/layout.css">
 		<link type="text/css" rel="stylesheet" href="../css/setstyle.css">
-		
-		
+
+
 		<script language="javascript" src="../js/SS_Popup.js">
                             var test = '';
 </script>
@@ -18,6 +18,47 @@
 	</head>
 
 	<body>
+
+
+
+
+
+		<script language="javascript">
+			//檢查各欄位內容
+			function checkOnSubmit(){
+				
+  			var obj=document.getElementsByName("status");
+           	var len = obj.length;
+       		
+       		//alert(len);
+       		 var checked = false;
+
+       		 for (i = 0; i < len; i++)
+       		 {
+           		 if (obj[i].checked == true)
+           		 {
+              	  checked = true;
+             	   break;
+          	 	 }
+       		 }
+            
+            //alert(checked);
+  		
+  		     if(!checked){
+  		      alert("請最少選擇一種狀態");
+  		       return false;
+  		      }
+  
+			}
+		</script>
+
+
+
+
+
+
+
+
 		<div id="FuncName">
 			<h1>
 				記錄查詢/轉檔記錄
@@ -27,7 +68,7 @@
 		<div id="FormName">
 			【轉檔記錄查詢】
 		</div>
-		<form method="post" id="Form1" action="record.do" name="queryForm">
+		<form method="post"  onSubmit="return checkOnSubmit()" id="Form1" action="record.do" name="queryForm">
 
 			<table>
 				<s:if test="#session.UserInfo.userInfo.role!= 3">
@@ -64,7 +105,7 @@
 							<select id="htx_tdataCat" name="role">
 
 								<s:if test="#session.UserInfo.userInfo.role== 1">
-									<option >
+									<option>
 										不指定
 									</option>
 								</s:if>
@@ -95,8 +136,9 @@
 						</td>
 						<td>
 							<select id="htx_tdataCat" name="priority">
-								<s:if test="#session.UserInfo.userInfo.role== 1&& #session.UserInfo.userInfo.priority==0">
-									<option >
+								<s:if
+									test="#session.UserInfo.userInfo.role== 1&& #session.UserInfo.userInfo.priority==0">
+									<option>
 										不指定
 									</option>
 								</s:if>
@@ -141,20 +183,20 @@
 						狀態
 					</td>
 					<td align="left" class="n">
-						<input type="checkbox" checked="checked" value="1" name="status" />
+						<input  type="checkbox" checked="checked" value="1" name="status" />
 						待處理
-						<input type="checkbox" checked="checked" value="2" name="status" />
+						<input  type="checkbox" checked="checked" value="2" name="status" />
 						轉入成功
-						<input type="checkbox" checked="checked" value="3" name="status" />
+						<input  type="checkbox" checked="checked" value="3" name="status" />
 						轉入失敗
-						<input type="checkbox" checked="checked" value="4" name="status" />
+						<input  type="checkbox" checked="checked" value="4" name="status" />
 						取消轉入
 					</td>
-                    
+
 				</tr>
-				
-				
-			
+
+
+
 
 
 

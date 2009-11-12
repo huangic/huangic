@@ -27,7 +27,9 @@
 		</action>
 		<action name="user_add_save" class="idv.trans.struts.action.User" method="save">
 			<result name="EDIT_ERROR">/Template/Admin/user_edit.jsp</result>
-			<result name="LIST">/Template/Admin/user_add.jsp</result>
+			<result name="UPDATE_SUCCESS">/Template/Admin/user_add.jsp</result>
+			<result name="ADD_SUCCESS">/Template/Admin/user_add.jsp</result>
+			
 			<result name="ADD_ERROR">/Template/Admin/user_add.jsp</result>
 		</action>
 		<action name="user_search" class="idv.trans.struts.action.User" method="toSearch">
