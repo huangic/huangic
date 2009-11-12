@@ -60,11 +60,7 @@
 		</property>
 	</bean>
 
-	<bean id="baseDao" abstract="true" class="idv.trans.model.BaseDao">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
+	
 
 
 

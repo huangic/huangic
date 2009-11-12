@@ -25,7 +25,7 @@ public class FileinfoUser  implements java.io.Serializable {
      private Integer errornum;
      private String logpath;
      private String logfilename;
-     private Userinfo UploadUser;
+     private Userinfo uploaduser;
 
 
     // Constructors
@@ -36,7 +36,7 @@ public class FileinfoUser  implements java.io.Serializable {
 
     
     /** full constructor */
-    public FileinfoUser(String userid, String filename, String newfilename, String filepath, Date uploaddate, Date transdate, Short status, Integer allnum, Integer successnum, Integer errornum, String logpath, String logfilename, Userinfo UploadUser) {
+    public FileinfoUser(String userid, String filename, String newfilename, String filepath, Date uploaddate, Date transdate, Short status, Integer allnum, Integer successnum, Integer errornum, String logpath, String logfilename, Userinfo uploaduser) {
         this.userid = userid;
         this.filename = filename;
         this.newfilename = newfilename;
@@ -49,7 +49,7 @@ public class FileinfoUser  implements java.io.Serializable {
         this.errornum = errornum;
         this.logpath = logpath;
         this.logfilename = logfilename;
-        this.UploadUser = UploadUser;
+        this.uploaduser = uploaduser;
     }
 
    
@@ -159,12 +159,12 @@ public class FileinfoUser  implements java.io.Serializable {
         this.logfilename = logfilename;
     }
 
-    public Userinfo getUploadUser() {
-        return this.UploadUser;
+    public Userinfo getUploaduser() {
+        return this.uploaduser;
     }
     
-    public void setUploadUser(Userinfo UploadUser) {
-        this.UploadUser = UploadUser;
+    public void setUploaduser(Userinfo uploaduser) {
+        this.uploaduser = uploaduser;
     }
    
 
