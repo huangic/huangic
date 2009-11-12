@@ -56,7 +56,7 @@ public class DownloadService {
 		SystemVar systemVar = (SystemVar)SpringUtil.getBean("SystemVar");
 		Download download = new Download();
 		download.setName(downloadAct.getName());
-		download.setFilename(downloadAct.getUploadFileName());
+		download.setFilename(downloadAct.getFilename());
 		download.setFilepath(systemVar.getDownloadPath());
 		download.setPriority(downloadAct.getPriority());
 		dao.save(download);

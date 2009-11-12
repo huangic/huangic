@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>系統管理∕使用者</title>
+		<title>下載區∕檔案上傳</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link type="text/css" rel="stylesheet" href="../css/form.css" />
 		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
@@ -18,7 +18,7 @@
 		<script src="../js/buttonCheck.js" language="javascript">&nbsp;</script>
 		<script src="../js/SS_Popup.js">&nbsp;</script>
 
-		<script language="javascript"><%--
+		<script language="javascript">
 			//檢查各欄位內容
 			function checkOnSubmit(){
 				
@@ -30,7 +30,6 @@
   				alert('請輸入 檔案名稱');
   				return false;
   			}
-  			
   			if($('htx_name').value != null &&  
 			  	$('htx_deptId').value.length  >50 ){
   				alert('檔案名稱長度不能超過50');
@@ -39,7 +38,7 @@
   		
   
 			}
-		--%></script>
+			</script>
 
 	</head>
 	<body>
@@ -53,14 +52,14 @@
 
 		<div id="FuncName">
 			<h1>
-				系統管理∕使用者
+				下載區∕檔案上傳
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>
 			</div>
 		</div>
 		<div id="FormName">
-			【新增使用者】
+			【新增檔案】
 		</div>
 		<form onSubmit="return checkOnSubmit()" name="reg" id="Form1"
 			action="uploadFile.do" method="POST" enctype="multipart/form-data">

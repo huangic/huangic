@@ -52,7 +52,7 @@
             </interceptor-ref>
     		<interceptor-ref name="basicStack"/>
     		
-			<result name="SUCCESS">/Template/Download/download.jsp</result>
+			<result name="SUCCESS">uploadFileForm.do</result>
 		</action>
         
         

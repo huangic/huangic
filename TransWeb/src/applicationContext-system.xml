@@ -25,8 +25,8 @@
 			</map>
        </property>
     
-     <property name="uploadPath"><value>/files/upload</value></property>
-     <property name="downloadPath"><value>/files/download</value></property>
+     <property name="uploadPath"><value>files/upload/</value></property>
+     <property name="downloadPath"><value>files/download/</value></property>
      <property name="backupPath"><value>c:/test/backup</value></property>
      <property name="realDir"><value>D:\work\WorkProject\MyEclipse_workspace\.metadata\.plugins\com.genuitec.eclipse.easie.tomcat.myeclipse\tomcat\webapps\TransWeb</value></property>
     

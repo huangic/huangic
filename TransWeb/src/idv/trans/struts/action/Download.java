@@ -3,6 +3,8 @@ package idv.trans.struts.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -42,15 +44,25 @@ public class Download extends ActionSupport {
     
     private LinkedHashMap permissionRole;
     
+    private String test;
+    public String getTest() {
+		return test;
+	}
+    public void setTest(String test) {
+		this.test = test;
+	}
+    
+    
     //	initial
 	private void init() {
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
 		permissionRole = var.getSystemPermission();
+		test="test";
 	}
 
     //list download files
 	public String download() {
-		
+		init();
 		try{
 			HttpServletRequest request = ServletActionContext.getRequest();
 			HttpServletResponse response = ServletActionContext.getResponse();
@@ -60,7 +72,7 @@ public class Download extends ActionSupport {
 			
 			DownloadService service = (DownloadService) SpringUtil.getBean("DownloadService");
 			
-			service.list(sessionUserInfo.getUserInfo());
+			downloads = service.list(sessionUserInfo.getUserInfo());
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -83,7 +95,9 @@ public class Download extends ActionSupport {
 		DownloadService dService = (DownloadService) SpringUtil.getBean("DownloadService");
 		
 		try {
-			uService.uploadFile(uploadFileName, upload);
+			//賦予新檔名
+			filename = uService.getNewFileName(uploadFileName);
+			uService.uploadFile(filename, upload);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

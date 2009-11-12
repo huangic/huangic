@@ -1,6 +1,8 @@
 package idv.trans.service.upload;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class UploadService {
 		
 			SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 			
-			String saveDirectory = systemVar.getRealDir()+systemVar.getDownloadPath()+"/";
+			String saveDirectory = systemVar.getRealDir()+systemVar.getDownloadPath();
 			
 			logger.debug("copy to "+saveDirectory+uploadFileName);
 			String fullFileName = saveDirectory+uploadFileName;
@@ -49,7 +51,7 @@ public class UploadService {
 		
 		SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 		
-		String saveDirectory = systemVar.getRealDir()+systemVar.getUploadPath()+"/";
+		String saveDirectory = systemVar.getRealDir()+systemVar.getUploadPath();
 		
 		logger.debug("copy to "+saveDirectory+uploadFileName);
 		String fullFileName = saveDirectory+uploadFileName;
@@ -58,5 +60,16 @@ public class UploadService {
 
 		FileUtils.copyFile(uploadFile, theFile);
 		
+	}
+	
+	public String getNewFileName(String fileName) {
+		
+		String extFileName = fileName.substring(fileName.lastIndexOf("."));
+		
+		return "f"+getDateIndex()+extFileName;
+	}
+	
+	public String getDateIndex() {
+		return new SimpleDateFormat("yywwHHmmss").format(new Date());
 	}
 }
