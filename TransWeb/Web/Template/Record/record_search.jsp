@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <html>
 	<head>
@@ -26,7 +27,7 @@
 		<div id="FormName">
 			【轉檔記錄查詢】
 		</div>
-		<form method="post" id="Form1" action="record.htm" name="queryForm">
+		<form method="post" id="Form1" action="record.do" name="queryForm">
 
 			<table>
 				<s:if test="#session.UserInfo.userInfo.role!= 3">
@@ -63,7 +64,7 @@
 							<select id="htx_tdataCat" name="role">
 
 								<s:if test="#session.UserInfo.userInfo.role== 1">
-									<option value="">
+									<option >
 										不指定
 									</option>
 								</s:if>
@@ -93,9 +94,9 @@
 							系統
 						</td>
 						<td>
-							<select id="htx_tdataCat" name="userinfo.priority">
-								<s:if test="#session.UserInfo.userInfo.role== 1">
-									<option value="">
+							<select id="htx_tdataCat" name="priority">
+								<s:if test="#session.UserInfo.userInfo.role== 1&& #session.UserInfo.userInfo.priority==0">
+									<option >
 										不指定
 									</option>
 								</s:if>
@@ -117,7 +118,7 @@
 					</td>
 					<td>
 						<input type="text" readonly="readonly" size="10" class=""
-							name="pcShowq_xpostDate_S" id="pcShowq_xpostDate_S">
+							name="startDate" id="pcShowq_xpostDate_S">
 						<a
 							onclick="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_S'),$('q_xpostDate_S'),0,event)"
 							onKeypress="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_S'),$('q_xpostDate_S'),0,event)"><img
@@ -125,7 +126,7 @@
 								src="../images/icon_cal.gif" width="22" height="17" alt="請選擇上傳日"
 								title="請選擇上傳日"> </a> ～
 						<input type="text" readonly="readonly" size="10" class=""
-							name="pcShowq_xpostDate_E" id="pcShowq_xpostDate_E">
+							name="endDate" id="pcShowq_xpostDate_E">
 						<a
 							onclick="fPopUpCalendarDlgFormat($('pcShowq_xpostDate_E'),$('q_xpostDate_E'),0,event)"><img
 								align="absmiddle" border="0" name="BTN_date"
@@ -149,10 +150,11 @@
 						<input type="checkbox" checked="checked" value="4" name="status" />
 						取消轉入
 					</td>
-
+                    
 				</tr>
-
-
+				
+				
+			
 
 
 

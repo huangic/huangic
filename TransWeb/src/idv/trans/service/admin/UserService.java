@@ -6,53 +6,60 @@ import idv.trans.service.system.SystemVar;
 import idv.trans.struts.action.User;
 import idv.trans.util.SpringUtil;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 
 public class UserService {
-	
-	
-	public void init(User user, Short role, Short priority) {
+
+	public void init(Object bean, Short role, Short priority) throws IllegalAccessException, InvocationTargetException {
 
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
 
+		LinkedHashMap old_prioritys = (LinkedHashMap) var.getSystemPermission()
+				.clone();
+
+		LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
+				.clone();
+
+		for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
+				.hasNext();) {
+			String key = (String) i.next();
+			if (!key.equals(priority.toString())) {
+				prioritys.remove(key);
+			}
+		}
+
 		if (role.toString().equals("1")) {
 
-			user.setUserRole(var.getUserLevel());
-			user.setPermissionRole(var.getSystemPermission());
+			//user.setUserRole(var.getUserLevel());
+			BeanUtils.setProperty(bean, "userRole", var.getUserLevel());
+
 		} else {
 			LinkedHashMap roles = (LinkedHashMap) var.getUserLevel().clone();
-			LinkedHashMap old_prioritys = (LinkedHashMap) var
-					.getSystemPermission().clone();
-
-			LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
-					.clone();
 			roles.remove("1");
 			roles.remove("2");
 
-			for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
-					.hasNext();) {
-				String key = (String) i.next();
-				if (!key.equals(priority.toString())) {
-					prioritys.remove(key);
-				}
-			}
-
-			user.setUserRole(roles);
-			user.setPermissionRole(prioritys);
+			//user.setUserRole(roles);
+			
+			BeanUtils.setProperty(bean, "userRole", roles);
+			
+		
 		}
+		BeanUtils.setProperty(bean, "permissionRole", prioritys);
+		//user.setPermissionRole(prioritys);
 	}
 
 	public void insertUser(User user) throws Exception {
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
-		
 		// 如果沒有ID那就檢查
 		Userinfo newUser = user.getUserinfo();
 
@@ -94,7 +101,6 @@ public class UserService {
 	public void findUser(User user, Integer id) throws Exception {
 		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
 
-		
 		Userinfo userinfo = dao.findById(id);
 
 		if (userinfo == null) {
@@ -112,39 +118,40 @@ public class UserService {
 		// 查詢條件
 		DetachedCriteria criteria = DetachedCriteria.forClass(Userinfo.class);
 
-		try{ 
-		// 使用者帳號
-		if (!user.getUserinfo().getAccount().equals("")) {
-			criteria.add(Restrictions.eq("account", user.getUserinfo()
-					.getAccount()));
+		try {
+			// 使用者帳號
+			if (!user.getUserinfo().getAccount().equals("")) {
+				criteria.add(Restrictions.eq("account", user.getUserinfo()
+						.getAccount()));
 
-		}
+			}
 
-		// 使用者名稱
-		if (!user.getUserinfo().getUsername().equals("")) {
-			criteria.add(Restrictions.like("username", user.getUserinfo()
-					.getUsername()));
+			// 使用者名稱
+			if (!user.getUserinfo().getUsername().equals("")) {
+				criteria.add(Restrictions.like("username", user.getUserinfo()
+						.getUsername()));
 
-		}
+			}
 
-		// 角色
-		if (user.getUserinfo().getRole() != null) {
+			// 角色
+			if (user.getUserinfo().getRole() != null) {
 
-			criteria.add(Restrictions.eq("role", user.getUserinfo().getRole()));
+				criteria.add(Restrictions.eq("role", user.getUserinfo()
+						.getRole()));
 
-		}
+			}
 
-		// 權限
+			// 權限
 
-		if (user.getUserinfo().getPriority() != null) {
+			if (user.getUserinfo().getPriority() != null) {
 
-			criteria.add(Restrictions.eq("priority", user.getUserinfo()
-					.getPriority()));
+				criteria.add(Restrictions.eq("priority", user.getUserinfo()
+						.getPriority()));
 
-		}
-		}catch(Exception ex){
-			//查詢條件的問題
-			
+			}
+		} catch (Exception ex) {
+			// 查詢條件的問題
+
 		}
 		// 從USER去設定
 
@@ -162,20 +169,20 @@ public class UserService {
 
 		try {
 			if (olduser.getPassword().equals(user.getOldPassword())) {
-                //存檔
+				// 存檔
 				olduser.setPassword(user.getUserinfo().getPassword());
-				
-				//過期日+100天
-				Date expire=DateUtils.addDays(new Date(), 100);
-				
-				 olduser.setPwdexpiredate(expire);
-				
+
+				// 過期日+100天
+				Date expire = DateUtils.addDays(new Date(), 100);
+
+				olduser.setPwdexpiredate(expire);
+
 				dao.attachDirty(olduser);
-			}else{
+			} else {
 				throw new Exception("密碼錯誤");
 			}
 		} catch (Exception ex) {
-            throw new Exception("密碼錯誤");
+			throw new Exception("密碼錯誤");
 		}
 
 	}

@@ -223,7 +223,7 @@
 					</td>
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
-							<s:if test="#session.UserInfo.userInfo.role== 1">
+							<s:if test="#session.UserInfo.userInfo.role== 1&&#session.UserInfo.userInfo.priority== 0 ">
 							<option value="">
 								不指定
 							</option>
