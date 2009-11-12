@@ -23,7 +23,7 @@
 	   
 	
 	 
-		<frame name="mainFrame" marginwidth="10" marginheight="11" src="#" />
+		<frame name="mainFrame" marginwidth="10" marginheight="11" src="Record/record_search.do" />
 	
 	
 	</frameset>

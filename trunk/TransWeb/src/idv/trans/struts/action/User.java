@@ -91,6 +91,9 @@ public class User {
 			service.insertUser(this);
 
 			// 存檔後轉條列業
+			this.message = new Message("新增成功");
+			this.userinfo=null;
+			
 			return "LIST";
 
 		} catch (Exception ex) {
@@ -149,9 +152,12 @@ public class User {
 		SessionUserInfo userInfo = (SessionUserInfo) session
 				.getAttribute("UserInfo");
 
+		try{
 		service.init(this, userInfo.getUserInfo().getRole(), userInfo
 				.getUserInfo().getPriority());
-
+		}catch(Exception ex){
+			
+		}
 	}
 
 	

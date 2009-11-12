@@ -31,10 +31,12 @@ public class LoginService {
 		
 		SystemVar var=(SystemVar)SpringUtil.getBean("SystemVar");
 		  String RoleName=(String)var.getUserLevel().get(String.valueOf(user.getRole()));
-		
+		  String PriorityName=(String)var.getSystemPermission().get(String.valueOf(user.getPriority()));
+			
 		
 		
 		sessionUser.setUserRoleName(RoleName);
+		sessionUser.setPriorityName(PriorityName);
 		
 		
 		}catch(Exception ex){
