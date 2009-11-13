@@ -96,6 +96,13 @@
 
 </head>
 <body>
+		<s:if test="message != null">
+			<script language="JavaScript" type="text/JavaScript">
+             alert('<c:out value="${message.errorMessage}"/>');
+			</script>
+		</s:if>
+		
+		
 <div id="FuncName">
 <h1>檔案上傳∕寄養系統</h1>
 <div id="Nav"><a title="回前頁"
