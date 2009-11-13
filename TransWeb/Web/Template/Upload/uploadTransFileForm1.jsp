@@ -69,6 +69,12 @@
 
 </head>
 <body>
+		<s:if test="message != null">
+			<script language="JavaScript" type="text/JavaScript">
+             alert('<c:out value="${message.errorMessage}"/>');
+			</script>
+		</s:if>
+
 <div id="FuncName">
 <h1>檔案上傳∕早療系統</h1>
 <div id="Nav"><a title="回前頁"
@@ -76,7 +82,7 @@
 </div>
 <div id="FormName">【發展遲緩兒早期療育個案管理 - 上傳界面 】</div>
 <form onSubmit="return checkOnSubmit()" name="reg" method="POST"
-	id="Form1" action="#" enctype="multipart/form-data">
+	id="Form1" action="uploadTransFileSave.do" enctype="multipart/form-data">
 <table cellspacing="0">
 	<tr>
 		<td class="Label" align="right">1.通報單(檔名：TB_OPENCASE_YYYYMMDD.TXT)</td>

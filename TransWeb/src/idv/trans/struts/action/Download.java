@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import idv.trans.model.Message;
 import idv.trans.model.SessionUserInfo;
 import idv.trans.service.download.DownloadService;
 import idv.trans.service.system.SystemVar;
@@ -44,7 +45,7 @@ public class Download extends ActionSupport {
     
     private LinkedHashMap permissionRole;
     
-    
+    private Message message;
     
     //	initial
 	private void init() {
@@ -92,16 +93,29 @@ public class Download extends ActionSupport {
 			uService.uploadFile(filename, upload);
 			
 		} catch (Exception e) {
+			message = new Message("檔案上傳失敗，請重新上傳");
+			logger.debug("Upload TransFile error");
+			logger.debug(e.getMessage());
+			
 			e.printStackTrace();
-			addActionError(e.getMessage());
-
 			return "ERROR";
 		}
 		
 		//結果儲存至db
-		dService.save(this);
+		try{
+			dService.save(this);
+		}catch (Exception e) {
+			message = new Message("資料庫寫入錯誤，請重新上傳");
+			logger.debug("inert to DB error");
+			logger.debug(e.getMessage());
+			
+			e.printStackTrace();
+			return "ERROR";
+		}
 		
 		
+		
+		message = new Message("新增成功");
 		return "SUCCESS";
 	}
 	
@@ -162,6 +176,12 @@ public class Download extends ActionSupport {
 	}
 	public void setPermissionRole(LinkedHashMap permissionRole) {
 		this.permissionRole = permissionRole;
+	}
+	public Message getMessage() {
+		return message;
+	}
+	public void setMessage(Message message) {
+		this.message = message;
 	}
 	
 }

@@ -1,7 +1,9 @@
 package idv.trans.struts.action;
 
 import idv.trans.model.Fileinfo;
+import idv.trans.model.Message;
 import idv.trans.model.SessionUserInfo;
+import idv.trans.model.Userinfo;
 import idv.trans.service.upload.UploadService;
 import idv.trans.util.SpringUtil;
 
@@ -33,10 +35,19 @@ public class Upload extends ActionSupport {
 	// 封装多个上传文件名的属性
 	private List<String> uploadFileName = new ArrayList<String>();
 	
+	private Message message;
+	
 	//show form
 	public String showUploadTransFileForm() {
-		logger.debug("show upload trans form");
-		return "SUCCESS";
+		
+		
+		if(getUserPriority().equals(new Short("1"))){
+			logger.debug("show upload trans form 1");
+			return "SUCCESS_1";
+		}else {
+			logger.debug("show upload trans form 2");
+			return "SUCCESS_2";
+		}
 	}
 	
 	//儲存
@@ -59,27 +70,61 @@ public class Upload extends ActionSupport {
 				uService.uploadTransFile(uploadFileName.get(i), upload.get(i),userAccount);
 				
 			} catch (Exception e) {
+				message = new Message("檔案上傳失敗，請重新上傳");
+				logger.debug("Upload TransFile error");
+				logger.debug(e.getMessage());
+				
 				e.printStackTrace();
-				addActionError(e.getMessage());
-
-				return "ERROR";
+				if(getUserPriority().equals(new Short("1"))){
+					return "ERROR_1";
+				}else {
+					return "ERROR_2";
+				}
 			}
 			
 			//資料寫至資料庫內
 			try{
 				logger.debug("第"+i+"個檔案，寫至資料庫");
 				uService.save(i,this,sessionUserInfo.getUserInfo());
+				
+				message = new Message("新增成功");
+				logger.debug("inert to DB successfully");
+				
+				
 			}catch (Exception e) {
+				message = new Message("資料庫寫入錯誤，請重新上傳");
+				logger.debug("inert to DB error");
+				logger.debug(e.getMessage());
 				e.printStackTrace();
-				return "ERROR";
+				
+				if(getUserPriority().equals(new Short("1"))){
+					return "ERROR_1";
+				}else {
+					return "ERROR_2";
+				}
 			}
 		}
 		
 		
-		return "SUCCESS_1";
+		//返回
+		if(getUserPriority().equals(new Short("1"))){
+			logger.debug("show upload trans form 1");
+			return "SUCCESS_1";
+		}else {
+			logger.debug("show upload trans form 2");
+			return "SUCCESS_2";
+		}
 	}
 	
-	
+	public Short getUserPriority(){		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		
+		SessionUserInfo sessionUserInfo = (SessionUserInfo) session.getAttribute("UserInfo");
+		Userinfo user = sessionUserInfo.getUserInfo();
+		
+		return user.getPriority();
+	}
 	
 	
 
@@ -105,6 +150,14 @@ public class Upload extends ActionSupport {
 
 	public void setUploadFileName(List<String> uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+	
+	public Message getMessage() {
+		return message;
+	}
+	
+	public void setMessage(Message message) {
+		this.message = message;
 	}
 	
 }

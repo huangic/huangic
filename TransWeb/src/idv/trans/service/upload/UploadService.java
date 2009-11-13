@@ -45,10 +45,10 @@ public class UploadService {
 			File theFile = new File(fullFileName);
 
 			FileUtils.copyFile(uploadFile, theFile);
-
+			
 			
 	}
-	
+	 
 	
 	/*
 	 * 上傳檔案至轉檔區
@@ -81,7 +81,7 @@ public class UploadService {
 		List<Fileinfo> list = dao.findByFilename(uploadFileName);
 		if(list.size()>0){
 			Fileinfo oldFileinfo = list.get(0);	
-			oldFileinfo.setUserid(user.getUserid()+"");
+			oldFileinfo.setUserid(user.getUserid());
 			oldFileinfo.setFilepath(saveDirectory);
 			oldFileinfo.setStatus(new Short("1"));
 			oldFileinfo.setUploaddate(new Date());
@@ -90,7 +90,7 @@ public class UploadService {
 		}else {
 			Fileinfo newFileinfo = new Fileinfo();
 			
-			newFileinfo.setUserid(user.getUserid()+"");
+			newFileinfo.setUserid(user.getUserid());
 			newFileinfo.setFilename(uploadFileName);
 			newFileinfo.setNewfilename(uploadFileName);
 			newFileinfo.setFilepath(saveDirectory);

@@ -23,12 +23,11 @@
 
 	<package name="idv.trans.struts.upload" namespace="/Upload" extends="struts-default">
 	
-        <action name="uploadTransFileForm1" class="idv.trans.struts.action.Upload" method="showUploadTransFileForm">
-			<result name="SUCCESS">/Template/Upload/uploadTransFileForm1.jsp</result>
+        <action name="uploadTransFileForm" class="idv.trans.struts.action.Upload" method="showUploadTransFileForm">
+			<result name="SUCCESS_1">/Template/Upload/uploadTransFileForm1.jsp</result>
+			<result name="SUCCESS_2">/Template/Upload/uploadTransFileForm2.jsp</result>
 		</action>
-		<action name="uploadTransFileForm2" class="idv.trans.struts.action.Upload" method="showUploadTransFileForm">
-			<result name="SUCCESS">/Template/Upload/uploadTransFileForm2.jsp</result>
-		</action>
+		
 		<action name="uploadTransFileSave" class="idv.trans.struts.action.Upload" method="uploadTransFileSave">
 			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">209715200</param>
@@ -38,9 +37,10 @@
             </interceptor-ref>
             
     		<interceptor-ref name="basicStack"/>
-    		
-			<result name="SUCCESS_1">uploadTransFileForm1.do</result>
-			<result name="SUCCESS_2">uploadTransFileForm2.do</result>
+			<result name="SUCCESS_1">/Template/Upload/uploadTransFileForm1.jsp</result>
+			<result name="SUCCESS_2">/Template/Upload/uploadTransFileForm2.jsp</result>
+			<result name="ERROR_1">/Template/Upload/uploadTransFileForm1.jsp</result>
+			<result name="ERROR_2">/Template/Upload/uploadTransFileForm2.jsp</result>
 		</action>
         
         
