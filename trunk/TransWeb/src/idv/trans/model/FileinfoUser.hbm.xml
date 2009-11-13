@@ -11,7 +11,7 @@
    <column name="FILEID"/>
    <generator class="identity"/>
   </id>
-  <property generated="never" lazy="false" name="userid" type="java.lang.String">
+  <property generated="never" lazy="false" name="userid" type="java.lang.Long">
    <column length="20" name="USERID"/>
   </property>
   <property generated="never" lazy="false" name="filename" type="java.lang.String">
