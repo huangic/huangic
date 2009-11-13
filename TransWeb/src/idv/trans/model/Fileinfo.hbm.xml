@@ -10,8 +10,8 @@
             <column name="FILEID" />
             <generator class="identity" />
         </id>
-        <property name="userid" type="java.lang.String">
-            <column name="USERID" length="20" />
+        <property name="userid" type="java.lang.Long">
+            <column name="USERID" />
         </property>
         <property name="filename" type="java.lang.String">
             <column name="FILENAME" length="50" />

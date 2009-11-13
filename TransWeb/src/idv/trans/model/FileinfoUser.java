@@ -13,7 +13,7 @@ public class FileinfoUser  implements java.io.Serializable {
     // Fields    
 
      private Long fileid;
-     private String userid;
+     private Long userid;
      private String filename;
      private String newfilename;
      private String filepath;
@@ -36,7 +36,7 @@ public class FileinfoUser  implements java.io.Serializable {
 
     
     /** full constructor */
-    public FileinfoUser(String userid, String filename, String newfilename, String filepath, Date uploaddate, Date transdate, Short status, Integer allnum, Integer successnum, Integer errornum, String logpath, String logfilename, Userinfo uploaduser) {
+    public FileinfoUser(Long userid, String filename, String newfilename, String filepath, Date uploaddate, Date transdate, Short status, Integer allnum, Integer successnum, Integer errornum, String logpath, String logfilename, Userinfo uploaduser) {
         this.userid = userid;
         this.filename = filename;
         this.newfilename = newfilename;
@@ -63,11 +63,11 @@ public class FileinfoUser  implements java.io.Serializable {
         this.fileid = fileid;
     }
 
-    public String getUserid() {
+    public Long getUserid() {
         return this.userid;
     }
     
-    public void setUserid(String userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
