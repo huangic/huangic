@@ -10,7 +10,7 @@
             <column name="FILEID" />
             <generator class="identity" />
         </id>
-        <property name="userid" type="java.lang.Long">
+        <property name="userid" type="java.lang.Integer">
             <column name="USERID" />
         </property>
         <property name="filename" type="java.lang.String">
