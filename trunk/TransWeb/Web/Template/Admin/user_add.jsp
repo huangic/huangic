@@ -48,10 +48,16 @@
   				alert('請輸入 密碼');
   				return false;
   			}
+  			
+  			if( $('htx_uid').value == '' ){
+  				alert('請輸入身分證字號');
+  				return false;
+  			}
+  			
   		
   			if($('htx_password').value != null &&  
-			  	$('htx_password').value.length  >50 ){
-  				alert('密碼長度不能超過50');
+			  	$('htx_password').value.length  >20 ){
+  				alert('密碼長度不能超過20');
   				return false;
   			}
   		
@@ -60,17 +66,22 @@
   				return false;
   			}
   		
-                //var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
-                //if(document.Form1.password.value!=''){
-               //   if(document.Form1.password.value.length<8  ||  document.Form1.password.value.length>16){
-               //     alert("密碼請設定八碼以上,十六碼以下");
-               //     return false;
-               //   }
-               //   else if(!myRegEnpassword.test(document.Form1.password.value)){
-                //    alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
-               //    return false;
-                //  }
-               // }	  		
+                var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
+              
+                var pwd=$('htx_password').value
+                 
+                if(pwd!=''){
+                  if(pwd.length<8  ||  pwd.length>16){
+                    alert("密碼請設定八碼以上,十六碼以下");
+                    return false;
+                  }
+                  else if(!myRegEnpassword.test(pwd)){
+                   alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
+                   return false;
+                 }
+                 
+                 
+               }	  		
 	  		
   			if( $('htx_dept').value == '' ){
   				alert('請輸入 單位');
@@ -160,10 +171,10 @@
 				<tr>
 
 					<td class="Label" align="right">
-						身分證字號
+						<span class="Must">*</span>身分證字號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" id="htx_tdataCat" name="userinfo.uid"
+						<input class="InputText" id="htx_uid" name="userinfo.uid"
 							type="text" value="<c:out value='${userinfo.uid}'/>" />
 					</td>
 				</tr>

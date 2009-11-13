@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -88,8 +89,10 @@ public class RecordService {
 
 			// 日期區間
 			if (record.getStartDate() != null && record.getEndDate() != null) {
+				Date endDate=DateUtils.addDays(record.getEndDate(), 1);
+				
 				criteria.add(Restrictions.between("uploaddate", record
-						.getStartDate(), record.getEndDate()));
+						.getStartDate(), endDate));
 
 			}
 			
