@@ -39,7 +39,7 @@ function cbar(st){st.style.backgroundColor='';}
 				
 				</display:column>
 				<display:column title="檔案下載">
-					<a title="下載" href='<c:out value="${ListTable.filepath}"/><c:out value="${ListTable.filename}"/>'>下載</a>
+					<a title="下載" target="_blank" href='../<c:out value="${ListTable.filepath}"/><c:out value="${ListTable.filename}"/>'>下載</a>
 				</display:column>
 			</display:table>
 
