@@ -8,6 +8,7 @@
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link type="text/css" rel="stylesheet" href="../css/form.css" />
 		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
+		<link type="text/css" rel="stylesheet" href="../css/list.css" />
 		<script src="../js/upload.js" language="javascript">&nbsp;</script>
 		<script src="../js/mootools.js" language="javascript">&nbsp;</script>
 		<script src="../js/globals.js" type="text/javascript">&nbsp;</script>
