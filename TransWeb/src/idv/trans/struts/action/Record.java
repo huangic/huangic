@@ -7,7 +7,9 @@ import idv.trans.service.admin.UserService;
 import idv.trans.service.record.RecordService;
 import idv.trans.util.SpringUtil;
 
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -244,6 +246,69 @@ public class Record {
     	
     	
     }
+    
+    
+    //匯出csv
+    public String export() {
+    	
+    	HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpSession session = request.getSession();
+    	
+		Record recordAct = (Record)session.getAttribute("recordSearch");
+		List<FileinfoUser> records = recordAct.getRecords();
+		
+    	try{
+    		
+    		StringBuffer sb = new StringBuffer();
+    		sb.append("轉檔紀錄報表\r\n");
+    		sb.append(",檔案名稱,上傳人員,單位,狀態,總筆數,匯入筆數,失敗筆數,上傳時間,處理時間\r\n");
+    		
+    		for(int i=0;i<records.size();i++){
+    			FileinfoUser fu = records.get(i);
+    			
+    			
+    			sb.append(i+1+",");
+    			sb.append(fu.getFilename()+",");
+    			sb.append(fu.getUploaduser().getUsername()+",");
+    			sb.append(fu.getUploaduser().getDept()+",");
+    			sb.append(fu.getStatus()+",");
+    			sb.append(fu.getAllnum()+",");
+    			sb.append(fu.getSuccessnum()+",");
+    			sb.append(fu.getErrornum()+",");
+    			if(fu.getUploaddate() == null){
+    				sb.append("null,");
+    			}else{
+    				sb.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(fu.getUploaddate()).toString()+",");
+    			}
+    			if (fu.getTransdate() == null) {
+					sb.append("");
+				}else {
+					sb.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(fu.getTransdate()).toString()+"");
+				}
+    			
+    			//sb.append(fu.getUploaddate()+",");
+    			//sb.append(fu.getTransdate()+"");
+    			sb.append("\r\n");
+    			
+    		}
+    		
+    		response.reset();
+    		response.setContentType("text/csv;charset=big5");
+    	    response.setHeader("Content-disposition", "filename=report.csv");
+    	    
+    	    PrintWriter output = response.getWriter();
+    	    output.println(sb.toString());
+    	    output.close();
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		e.printStackTrace();
+    		
+		}
+    	
+    	
+		return "SUCCESS";
+	}
     
     
     

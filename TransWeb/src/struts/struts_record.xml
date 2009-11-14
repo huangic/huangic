@@ -28,7 +28,9 @@
 		<action name="record" class="idv.trans.struts.action.Record" method="search">
 			<result name="SUCCESS">/Template/Record/record.jsp</result>
 		</action>
-		
+		<action name="record_export" class="idv.trans.struts.action.Record" method="export">
+			
+		</action>
 		<action name="record_cancel" class="idv.trans.struts.action.Record" method="cancel">
 			<result name="SUCCESS">/Template/Record/record.jsp</result>
 		</action>

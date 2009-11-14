@@ -37,7 +37,7 @@ function cbar(st){st.style.backgroundColor='';}
 				記錄查詢∕轉檔記錄
 			</h1>
 			<div id="Nav">
-				<a href="" target="#">匯出cvs</a>
+				<a href="record_export.do" target="_blank">匯出cvs</a>
 				<a href="record_search.do" >重設查詢</a> &nbsp;
 			</div>
 		</div>
