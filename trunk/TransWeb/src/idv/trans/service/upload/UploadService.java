@@ -23,11 +23,13 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.struts2.ServletActionContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class UploadService {
+		
 	Logger logger = LoggerFactory.getLogger(UploadService.class);
 	
 	/*
@@ -35,9 +37,11 @@ public class UploadService {
 	 * */
 	public void uploadFile(String uploadFileName, File uploadFile) throws Exception {
 		
+			
+		
 			SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 			
-			String saveDirectory = systemVar.getRealDir()+"/"+systemVar.getDownloadPath();
+			String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getDownloadPath())+"\\";
 			
 			logger.debug("copy to "+saveDirectory+uploadFileName);
 			String fullFileName = saveDirectory+uploadFileName;
@@ -57,7 +61,7 @@ public class UploadService {
 		
 		SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 		
-		String saveDirectory = systemVar.getRealDir()+"/"+systemVar.getUploadPath()+"/"+uploadUserName+"/";
+		String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getUploadPath())+"\\";
 		
 		logger.debug("copy to "+saveDirectory+uploadFileName);
 		String fullFileName = saveDirectory+uploadFileName;
