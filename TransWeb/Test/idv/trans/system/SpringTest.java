@@ -11,8 +11,12 @@ public class SpringTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		String[] ConfigureXML = { "classpath:applicationContext-Test.xml"
-				};
+		String[] ConfigureXML = { "classpath:applicationContext-system.xml",
+				"classpath:applicationContext-DB.xml",
+				"classpath:applicationContext-DAO.xml",
+				"classpath:applicationContext-Service.xml",
+				"classpath:applicationContext-BatchRule.xml"
+		};
 
 		context = new FileSystemXmlApplicationContext(
 				ConfigureXML);

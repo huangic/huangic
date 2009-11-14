@@ -80,7 +80,7 @@
 <div id="Nav"><a title="回前頁"
 	href="Javascript:window.history.back();">回前頁</A></div>
 </div>
-<div id="FormName">【發展遲緩兒早期療育個案管理 - 上傳界面 】</div>
+<div id="FormName">【早療系統 - 上傳界面 】</div>
 <form onSubmit="return checkOnSubmit()" name="reg" method="POST"
 	id="Form1" action="uploadTransFileSave.do" enctype="multipart/form-data">
 <table cellspacing="0">

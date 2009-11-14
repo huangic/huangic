@@ -38,7 +38,6 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/hibernate3.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/htmllexer.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/htmlparser.jar"/>
-	<classpathentry kind="lib" path="Web/WEB-INF/lib/httpclient-4.0.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/httpcore-4.0.1.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/httpmime-4.0.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/javassist-3.9.0.GA.jar"/>
@@ -95,5 +94,6 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/commons-pool-1.5.3.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/displaytag-1.2.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="output" path="Web/WEB-INF/classes"/>
 </classpath>

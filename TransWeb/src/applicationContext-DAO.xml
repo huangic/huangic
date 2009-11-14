@@ -4,16 +4,20 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	  
 	
+	<bean id="baseDAO" abstract="true" class="idv.trans.model.BaseDao">
+		<property name="sessionFactory">
+			<ref bean="baseSessionFactory" />
+		</property>
+	</bean>
 	
 	
 	
-	
-	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO" parent="baseDAO">
+	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO" parent="baseDAO" >
 		
 	</bean>
-	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO" parent="baseDAO">
+	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO" parent="baseDAO" >
 	
 	</bean>
-	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO" parent="baseDAO">
+	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO" parent="baseDAO" >
 		
 	</bean></beans>

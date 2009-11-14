@@ -9,4 +9,12 @@ public class CheckUtil{
 			return false;
 		}
 	}
+	
+	public static String getNotEmpty(Object o){
+		if(o==null){
+			return "";
+		}else{
+			return (String)o;
+		}
+	}
 }

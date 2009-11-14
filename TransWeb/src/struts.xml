@@ -35,6 +35,8 @@
 
 
 	<package name="default" extends="struts-default">
+		
+		
 		<global-results>
 			<result name="login" type="redirect">index.htm</result>
 		</global-results>

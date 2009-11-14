@@ -61,7 +61,12 @@ public class UploadService {
 		
 		SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 		
-		String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getUploadPath())+"\\";
+		//String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getUploadPath())+"\\";
+		
+		String saveDirectory =systemVar.getUploadPath()+"/"+uploadUserName+"/";
+		
+		
+		
 		
 		logger.debug("copy to "+saveDirectory+uploadFileName);
 		String fullFileName = saveDirectory+uploadFileName;
@@ -78,7 +83,12 @@ public class UploadService {
 		FileinfoDAO dao = (FileinfoDAO) SpringUtil.getBean("FileinfoDAO");
 		SystemVar systemVar = (SystemVar)SpringUtil.getBean("SystemVar");
 		
-		String saveDirectory = systemVar.getRealDir()+"/"+systemVar.getUploadPath()+"/"+user.getAccount()+"/";
+		//String saveDirectory = systemVar.getRealDir()+"/"+systemVar.getUploadPath()+"/"+user.getAccount()+"/";
+		
+		String saveDirectory =systemVar.getUploadPath()+"/"+user.getAccount()+"/";
+		
+		
+		
 		String uploadFileName = uploadAct.getUploadFileName().get(iFile);
 		
 		//檢查一下是不是有重覆的資料在資料庫，用上傳檔名檢查

@@ -12,10 +12,10 @@
 	<bean id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="weblogic.jdbc.db2.DB2Driver">
 		</property>
-		<property name="url" value="jdbc:bea:db2://localhost;DatabaseName=TRANS">
+		<property name="url" value="jdbc:bea:db2://163.17.20.106;DatabaseName=TRANS">
 		</property>
-		<property name="username" value="MYNE"></property>
-		<property name="password" value="ok1234"></property>
+		<property name="username" value="db2admin"></property>
+		<property name="password" value="12345"></property>
 	</bean>
 
 	<bean id="baseSessionFactory"
@@ -53,15 +53,18 @@
 		</property>
 	-->
 
-	<bean id="baseTranactionManager"
+	
+
+	
+
+<!--  
+
+    <bean id="baseTranactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory">
 			<ref bean="baseSessionFactory" />
 		</property>
 	</bean>
-
-	
-
 
 
 	<bean id="baseServiceTarget" abstract="true" class="idv.trans.service.BaseService"></bean>
@@ -72,9 +75,9 @@
    
      
 	
+	-->
 	
-	
-	<!-- 交易用的Service TEMPLATE -->
+	<!-- 交易用的Service TEMPLATE
 	
 	<bean id="normalServiceTemplate" abstract="true" parent="baseService">
 		<property name="transactionManager">
@@ -96,7 +99,7 @@
 		</property>
 	</bean>
 
-
+ -->
     <!-- 給ORMapping Util用的 -->
    
 

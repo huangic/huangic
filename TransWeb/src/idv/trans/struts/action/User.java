@@ -86,10 +86,26 @@ public class User {
 
 	public String save() {
 		init();
+		
+		String mode;
+		
+		if (this.getUserinfo().getUserid()==null){
+		mode="ADD";
+		
+		}else{
+		mode="EDIT";	
+			
+		}
+		
 		try {
 
+			
+			
 			String result=service.insertUser(this);
 
+			
+			
+			
 			
 			if(result.equals("ADD_SUCCESS")){
 			// 存檔後轉條列業
@@ -109,9 +125,6 @@ public class User {
 		    	//把舊的條件丟給SEARCH
 		    	
 		    	this.users=service.findAllUsers(old);	
-				
-				
-				
 			}
 			return result;
 			
@@ -121,7 +134,10 @@ public class User {
 			this.message = new Message();
 			this.message.setErrorMessage(ex.getMessage());
 
-			return "ADD_ERROR";
+			
+			
+			
+			return mode+"_ERROR";
 		}
 
 	}

@@ -27,18 +27,4 @@
 	<import resource="classpath:applicationContext-Quartz.xml"/>
 	
 -->
-	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
-	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
-	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean></beans>
+</beans>
