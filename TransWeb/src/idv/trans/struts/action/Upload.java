@@ -37,6 +37,8 @@ public class Upload extends ActionSupport {
 	
 	private Message message;
 	
+	
+	
 	//show form
 	public String showUploadTransFileForm() {
 		
@@ -52,15 +54,12 @@ public class Upload extends ActionSupport {
 	
 	//儲存
 	public String uploadTransFileSave() {
-		
-		
-		UploadService uService = (UploadService) SpringUtil.getBean("UploadService");
 		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpSession session = request.getSession();
 		
-		SessionUserInfo sessionUserInfo = (SessionUserInfo) session.getAttribute("UserInfo");
+		UploadService uService = (UploadService) SpringUtil.getBean("UploadService");
 		
+		SessionUserInfo sessionUserInfo = (SessionUserInfo) session.getAttribute("UserInfo");
 		String userAccount =  sessionUserInfo.getUserInfo().getAccount();
 		
 		for (int i = 0; i < upload.size(); i++) {

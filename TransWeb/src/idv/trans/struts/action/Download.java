@@ -47,6 +47,8 @@ public class Download extends ActionSupport {
     
     private Message message;
     
+    
+    
     //	initial
 	private void init() {
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
@@ -85,8 +87,10 @@ public class Download extends ActionSupport {
 	//上傳下載區檔案
 	public String uploadFile() {
 		UploadService uService = (UploadService) SpringUtil.getBean("UploadService");
+		
 		DownloadService dService = (DownloadService) SpringUtil.getBean("DownloadService");
 		
+		init();
 		try {
 			//賦予新檔名
 			filename = uService.getNewFileName(uploadFileName);
@@ -183,5 +187,4 @@ public class Download extends ActionSupport {
 	public void setMessage(Message message) {
 		this.message = message;
 	}
-	
 }

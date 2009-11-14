@@ -12,7 +12,7 @@
 	<bean id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="weblogic.jdbc.db2.DB2Driver">
 		</property>
-		<property name="url" value="jdbc:bea:db2://10.10.46.136;DatabaseName=TRANS">
+		<property name="url" value="jdbc:bea:db2://localhost;DatabaseName=TRANS">
 		</property>
 		<property name="username" value="MYNE"></property>
 		<property name="password" value="ok1234"></property>
