@@ -13,7 +13,20 @@
 			<FileNamePattern>logFile.%d{yyyy-MM-dd}.log</FileNamePattern>
 		</rollingPolicy>
 		<layout class="ch.qos.logback.classic.PatternLayout">
-			<Pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n
+			<Pattern>%date %-4relative [%thread] %-5level %logger{35} - %msg%n
+			</Pattern>
+		</layout>
+
+	</appender>
+	
+	
+	<appender name="BatchFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>BatchlogFile.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>BatchlogFile.%d{yyyy-MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date %-4relative [%thread] %-5level %logger{35} - %msg%n
 			</Pattern>
 		</layout>
 
@@ -24,6 +37,12 @@
 
 
 	<logger name="idv" level="DEBUG" />
+	
+	<logger name="idv.trans.service.batch" level="DEBUG" >
+		<appender-ref ref="stdout" />
+		<appender-ref ref="BatchFILE" />
+	
+	</logger>
 
 	<root level="INFO">
 		<appender-ref ref="stdout" />

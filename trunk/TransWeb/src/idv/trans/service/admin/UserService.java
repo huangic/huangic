@@ -23,9 +23,10 @@ public class UserService {
 			throws IllegalAccessException, InvocationTargetException {
 
 		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
-        
-		if (priority == null || priority == Short.valueOf("0")) {
-			BeanUtils.setProperty(bean, "permissionRole", var.getSystemPermission());
+
+		if (priority == null || priority.equals(Short.parseShort("0"))) {
+			BeanUtils.setProperty(bean, "permissionRole", var
+					.getSystemPermission());
 		} else {
 			LinkedHashMap old_prioritys = (LinkedHashMap) var
 					.getSystemPermission().clone();
@@ -40,11 +41,10 @@ public class UserService {
 					prioritys.remove(key);
 				}
 			}
-			
-			BeanUtils.setProperty(bean, "permissionRole", prioritys);	
+
+			BeanUtils.setProperty(bean, "permissionRole", prioritys);
 		}
-		
-		
+
 		if (role.toString().equals("1")) {
 
 			// user.setUserRole(var.getUserLevel());
@@ -61,7 +61,6 @@ public class UserService {
 
 		}
 
-		
 		// user.setPermissionRole(prioritys);
 	}
 
@@ -84,17 +83,37 @@ public class UserService {
 				if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
 					throw new Exception("身分證字號重覆");
 				}
-				;
+
+				if (1 == checkUID(user.getUserinfo().getUid().toCharArray())) {
+					throw new Exception("身分證字號不合法");
+				}
+
 			}
 			//
 			// 如果沒問題~那就資料建一建寫入吧
 			dao.save(newUser);
-			
+
 			return "ADD_SUCCESS";
-			
+
 		} else {
 			// UPDATE
 			Userinfo oldUser = dao.findById(newUser.getUserid());
+
+			if (!user.getUserinfo().getUid().equals("")) {
+
+				if (!user.getUserinfo().getUid().equals(oldUser.getUid())) {
+
+					if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
+						throw new Exception("身分證字號重覆");
+					}
+
+					if (1 == checkUID(user.getUserinfo().getUid().toCharArray())) {
+						throw new Exception("身分證字號不合法");
+					}
+				}
+
+			}
+
 			// 把值COPY一下
 			if (newUser.getPassword().equals("")) {
 				newUser.setPassword(oldUser.getPassword());
@@ -196,6 +215,50 @@ public class UserService {
 			throw new Exception("密碼錯誤");
 		}
 
+	}
+
+	public int checkUID(char pass[]) {
+		int rc = 0, dex = 0;
+		String[] n = { "10", "11", "12", "13", "14", "15", "16", "17", "34",
+				"18", "19", "20", "21", "22", "35", "23", "24", "25", "26",
+				"27", "28", "29", "32", "30", "31", "33" };
+		String idaccept = "";
+		char cc;
+		idaccept = "";
+		if (!Character.isLetter(pass[0])) {
+			rc = 1;
+			return (rc);
+		}
+		for (int i = 1; i <= 9; i++) {
+			if (!Character.isDigit(pass[i])) {
+				rc = 1;
+				return (rc);
+			}
+		}
+		for (int i = 0; i <= 9; i++) {
+			// System.out.println("ID"+i+":"+pass[i]); //測試用@.@
+			idaccept = idaccept + pass[i];
+		}
+		cc = Character.toUpperCase(pass[0]); // 將值過來的值轉換成大寫
+		dex = ((int) cc) - 65; // 將大寫的英文字母轉換成10進位碼並減65對應到n陣列的index值
+		String D0 = n[dex];
+		int D00 = Integer.parseInt(D0.substring(0, 1));
+		int D01 = Integer.parseInt(D0.substring(1, 2));
+		int D1 = Integer.parseInt(idaccept.substring(1, 2));
+		int D2 = Integer.parseInt(idaccept.substring(2, 3));
+		int D3 = Integer.parseInt(idaccept.substring(3, 4));
+		int D4 = Integer.parseInt(idaccept.substring(4, 5));
+		int D5 = Integer.parseInt(idaccept.substring(5, 6));
+		int D6 = Integer.parseInt(idaccept.substring(6, 7));
+		int D7 = Integer.parseInt(idaccept.substring(7, 8));
+		int D8 = Integer.parseInt(idaccept.substring(8, 9));
+		int D9 = Integer.parseInt(idaccept.substring(9));
+		int CheckCode = 10 - (((D00 * 1) + (D01 * 9) + (D1 * 8) + (D2 * 7)
+				+ (D3 * 6) + (D4 * 5) + (D5 * 4) + (D6 * 3) + (D7 * 2) + (D8 * 1)) % 10);
+		if (CheckCode != D9) {
+			rc = 1;
+		}
+		return (rc);
 	}
 
 }

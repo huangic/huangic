@@ -171,7 +171,7 @@
 				</tr>
 				<tr>
 					<td class="Label" align="right">
-						<span class="Must">*</span>密碼
+						密碼
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_password"
@@ -180,7 +180,7 @@
 				</tr>
 				<tr>
 					<td class="Label" align="right">
-						<span class="Must">*</span> 確認密碼
+						確認密碼
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_checkpassword"
@@ -276,8 +276,8 @@
 					</td>
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
-							<s:if test="#session.UserInfo.userInfo.priority== 1">
-								<option value="">
+							<s:if test="#session.UserInfo.userInfo.priority== 0">
+								<option value="0">
 									不指定
 								</option>
 							</s:if>

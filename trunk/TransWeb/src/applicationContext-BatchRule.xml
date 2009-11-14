@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+
+
+
+	<bean id="BatchRule" name="批次規則" class="idv.trans.service.batch.BatchRule">
+		
+		<!-- 遠端的url -->
+		<property name="batchURL">
+			<value>http://localhost:8080/TransWeb/tester.txt</value>
+		</property>
+		<!-- 遠端的url -->
+		<property name="batchDB">
+			<value>CBIDB</value>
+		</property>
+		<property name="remoteCharset">
+			<value>BIG5</value>
+		</property>
+		
+		
+		<!-- 檔名對應的class -->
+		<property name="batchPattern">
+			<map>
+				<entry key="TB_OPENCASE">
+					<value>tw.gov.cbi.trans.parser.Parser22</value>
+				</entry>
+				<entry key="TB_CASEBASICDATA1">
+					<value>tw.gov.cbi.trans.parser.Parser23</value>
+				</entry>
+				<entry key="TB_CASEBASICDATA2">
+					<value>tw.gov.cbi.trans.parser.Parser24</value>
+				</entry>
+				<entry key="TB_CASEBASICDATA3">
+					<value>tw.gov.cbi.trans.parser.Parser25</value>
+				</entry>
+				<entry key="TB_CASESERVEPLACE">
+					<value>tw.gov.cbi.trans.parser.Parser26</value>
+				</entry>
+				<entry key="TB_CASESERVEMASTER">
+					<value>tw.gov.cbi.trans.parser.Parser27</value>
+				</entry>
+				<entry key="TB_CASECARE">
+					<value>tw.gov.cbi.trans.parser.Parser28</value>
+				</entry>
+				<entry key="TB_CASETRANSDATA">
+					<value>tw.gov.cbi.trans.parser.Parser29</value>
+				</entry>
+				
+				
+				
+				<entry key="F01_OPEN_CASE">
+					<value>tw.gov.cbi.trans.parser.Parser01</value>
+				</entry>
+				<entry key="F01_CHILDREN_CASE">
+					<value>tw.gov.cbi.trans.parser.Parser02</value>
+				</entry>
+				<entry key="F01_CHILDREN_DATA">
+					<value>tw.gov.cbi.trans.parser.Parser03</value>
+				</entry>
+				<entry key="F01_CHILDREN_MEMBER">
+					<value>tw.gov.cbi.trans.parser.Parser04</value>
+				</entry>
+				<entry key="F01_CHILDREN_VISIT">
+					<value>tw.gov.cbi.trans.parser.Parser05</value>
+				</entry>
+				<entry key="F01_CHILDREN_SUBSIDIES">
+					<value>tw.gov.cbi.trans.parser.Parser06</value>
+				</entry>
+				<entry key="F01_CHILDREN_SETTLE">
+					<value>tw.gov.cbi.trans.parser.Parser07</value>
+				</entry>
+				<entry key="F01_CHILDREN_MIND">
+					<value>tw.gov.cbi.trans.parser.Parser08</value>
+				</entry>
+				<entry key="F01_CHILDREN_MEDICAL">
+					<value>tw.gov.cbi.trans.parser.Parser09</value>
+				</entry>
+				<entry key="F01_CHILDREN_SERVICE">
+					<value>tw.gov.cbi.trans.parser.Parser10</value>
+				</entry>
+				<entry key="F01_CHILDREN_EXPENSE">
+					<value>tw.gov.cbi.trans.parser.Parser11</value>
+				</entry>
+				<entry key="F01_CHILDREN_CONTACT">
+					<value>tw.gov.cbi.trans.parser.Parser12</value>
+				</entry>
+				<entry key="F01_CHILDREN_ESTIMATE">
+					<value>tw.gov.cbi.trans.parser.Parser13</value>
+				</entry>
+				<entry key="F01_CHILDREN_CLOSE">
+					<value>tw.gov.cbi.trans.parser.Parser14</value>
+				</entry>
+				<entry key="F01_FAMILY">
+					<value>tw.gov.cbi.trans.parser.Parser15</value>
+				</entry>
+				<entry key="F01_FAMILY_DATA">
+					<value>tw.gov.cbi.trans.parser.Parser16</value>
+				</entry>
+				<entry key="F01_FAMILY_MEMBER">
+					<value>tw.gov.cbi.trans.parser.Parser17</value>
+				</entry>
+				<entry key="F01_FAMILY_TRAIN">
+					<value>tw.gov.cbi.trans.parser.Parser18</value>
+				</entry>
+				<entry key="F01_FAMILY_VISIT">
+					<value>tw.gov.cbi.trans.parser.Parser19</value>
+				</entry>
+				<entry key="F01_FAMILY_EXAM">
+					<value>tw.gov.cbi.trans.parser.Parser20</value>
+				</entry>
+				<entry key="F01_FAMILY_CLOSE">
+					<value>tw.gov.cbi.trans.parser.Parser21</value>
+				</entry>
+				
+
+			</map>
+		</property>
+
+
+
+	</bean>
+
+
+
+</beans>

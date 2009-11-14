@@ -27,9 +27,15 @@
   				return false;
   			}
   		
+  		    if($('htx_userId').value != null &&  
+			  	$('htx_userId').value.length  <4 ){
+  				alert('使用帳號長度最少要4');
+  				return false;
+  			}
+  		
   			if($('htx_userId').value != null &&  
-			  	$('htx_userId').value.length  >10 ){
-  				alert('使用帳號長度不能超過10');
+			  	$('htx_userId').value.length  >20 ){
+  				alert('使用帳號長度不能超過20');
   				return false;
   			}
   		
@@ -213,7 +219,7 @@
 						<span class="Must">*</span>角色
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="userInfo.role">
+						<select id="htx_tdataCat" name="userinfo.role">
 
 							<s:iterator value="userRole.keySet()" id="id">
 								<option value='<s:property  escape="false" value="id"/>'>

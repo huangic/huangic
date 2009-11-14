@@ -3,10 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	  
-		
-		
-		
-		
 	<bean id="LoginService" class="idv.trans.service.index.LoginService">
 	</bean>
 	<bean id="DownloadService" class="idv.trans.service.download.DownloadService">
@@ -18,6 +14,9 @@
 	</bean>
 	
 	<bean id="RecordService" class="idv.trans.service.record.RecordService">
+	</bean>
+	
+	<bean id="BatchService" class="idv.trans.service.batch.BatchService">
 	</bean>
 	
 	  <!--使用者項目	  

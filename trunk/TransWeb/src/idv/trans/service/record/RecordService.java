@@ -19,37 +19,7 @@ import org.hibernate.criterion.Restrictions;
 
 public class RecordService {
 
-	public void init(Record record, Short role, Short priority) {
-
-		SystemVar var = (SystemVar) SpringUtil.getBean("SystemVar");
-
-		if (role.toString().equals("1")) {
-
-			record.setUserRole(var.getUserLevel());
-			record.setPermissionRole(var.getSystemPermission());
-		} else {
-			LinkedHashMap roles = (LinkedHashMap) var.getUserLevel().clone();
-			LinkedHashMap old_prioritys = (LinkedHashMap) var
-					.getSystemPermission().clone();
-
-			LinkedHashMap prioritys = (LinkedHashMap) var.getSystemPermission()
-					.clone();
-			roles.remove("1");
-			roles.remove("2");
-
-			for (Iterator i = (Iterator) old_prioritys.keySet().iterator(); i
-					.hasNext();) {
-				String key = (String) i.next();
-				if (!key.equals(priority.toString())) {
-					prioritys.remove(key);
-				}
-			}
-
-			record.setUserRole(roles);
-			record.setPermissionRole(prioritys);
-		}
-	}
-
+	
 	
 	
 	

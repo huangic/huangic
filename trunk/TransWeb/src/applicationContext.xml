@@ -13,10 +13,9 @@
 	<import resource="classpath:applicationContext-DAO.xml"/>
 	<import resource="classpath:applicationContext-Service.xml"/>
 	<import resource="classpath:applicationContext-filter.xml"/>
-    
-	
-	
-	<import resource="classpath:applicationContext-system.xml"/>
+    <import resource="classpath:applicationContext-system.xml"/>
+    <import resource="classpath:applicationContext-BatchRule.xml"/>
+
 <!--	
 	<import resource="classpath:applicationContext-Perf4j.xml"/>
 	<import resource="classpath:applicationContext-Infouser.xml"/>
@@ -27,18 +26,4 @@
 	<import resource="classpath:applicationContext-Quartz.xml"/>
 	
 -->
-	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
-	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
-	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean></beans>
+	</beans>

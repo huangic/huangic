@@ -56,6 +56,8 @@
 		</property>
 	-->
 
+
+<!-- 
 	<bean id="baseTranactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory">
@@ -63,11 +65,7 @@
 		</property>
 	</bean>
 
-	<bean id="baseDao" abstract="true" class="idv.trans.model.BaseDao">
-		<property name="sessionFactory">
-			<ref bean="baseSessionFactory" />
-		</property>
-	</bean>
+	
 
 
 
@@ -78,10 +76,10 @@
 
    
      
+	-->
 	
 	
-	
-	<!-- 交易用的Service TEMPLATE -->
+	<!-- 交易用的Service TEMPLATE
 	
 	<bean id="normalServiceTemplate" abstract="true" parent="baseService">
 		<property name="transactionManager">
@@ -102,7 +100,7 @@
 			</props>
 		</property>
 	</bean>
-
+ -->
 
     <!-- 給ORMapping Util用的 -->
    
