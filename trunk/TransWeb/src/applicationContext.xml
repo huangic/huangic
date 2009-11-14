@@ -15,7 +15,7 @@
 	<import resource="classpath:applicationContext-filter.xml"/>
     <import resource="classpath:applicationContext-system.xml"/>
     <import resource="classpath:applicationContext-BatchRule.xml"/>
-
+    <import resource="classpath:applicationContext-Quartz.xml"/>
 <!--	
 	<import resource="classpath:applicationContext-Perf4j.xml"/>
 	<import resource="classpath:applicationContext-Infouser.xml"/>
@@ -23,7 +23,7 @@
 	
 	<import resource="classpath:applicationContext-Sendmail.xml"/>
 		
-	<import resource="classpath:applicationContext-Quartz.xml"/>
+	
 	
 -->
 	</beans>

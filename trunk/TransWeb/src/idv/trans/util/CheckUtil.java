@@ -14,7 +14,7 @@ public class CheckUtil{
 		if(o==null){
 			return "";
 		}else{
-			return (String)o;
+			return String.valueOf(o);
 		}
 	}
 }

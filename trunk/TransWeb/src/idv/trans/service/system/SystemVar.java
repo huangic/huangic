@@ -7,11 +7,18 @@ public class SystemVar{
 	LinkedHashMap userLevel;
 	LinkedHashMap systemPermission;
 	String uploadPath="";
+	String logPath="";
+	
 	String downloadPath="";
 	String backupPath="";
 	String realDir="";
 	
-	
+	public String getLogPath() {
+		return logPath;
+	}
+	public void setLogPath(String logPath) {
+		this.logPath = logPath;
+	}
 	public String getUploadPath() {
 		return uploadPath;
 	}
