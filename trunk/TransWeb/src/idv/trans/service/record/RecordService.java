@@ -142,5 +142,9 @@ public class RecordService {
 		
 	}
 	
+	
+	public void exportRecord(){
+		
+	}
 
 }
