@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 public class RecordService {
@@ -28,7 +29,7 @@ public class RecordService {
 		DetachedCriteria criteria = DetachedCriteria.forClass(
 				FileinfoUser.class, "files").createAlias("files.uploaduser",
 				"user");
-
+      
 		// 設定條件
 		try {
 			// 使用者角色
@@ -76,6 +77,8 @@ public class RecordService {
 				criteria.add(Restrictions.in("status", status));
 
 			//}
+				
+				criteria.addOrder(Order.desc("uploaddate"));
 			
 
 		} catch (Exception ex) {

@@ -91,8 +91,8 @@ public class UploadService {
 		
 		String uploadFileName = uploadAct.getUploadFileName().get(iFile);
 		
-		//檢查一下是不是有重覆的資料在資料庫，用上傳檔名檢查
-		List<Fileinfo> list = dao.findByFilename(uploadFileName);
+		//檢查一下是不是有重覆的資料在資料庫，用上傳新檔名檢查，表示他還沒有被轉檔
+		List<Fileinfo> list = dao.findByNewfilename(uploadFileName);
 		if(list.size()>0){
 			Fileinfo oldFileinfo = list.get(0);	
 			oldFileinfo.setUserid(user.getUserid());

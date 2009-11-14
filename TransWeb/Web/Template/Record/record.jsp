@@ -52,7 +52,7 @@ function cbar(st){st.style.backgroundColor='';}
 					<display:column title="取消">
 				<c:if test="${ListTable.status==1}">
                   <a title="取消轉入"
-				      href='record_cancel.do?fileid=<c:out value="${ListTable.fileid}"/>'>修改</a>
+				      href='record_cancel.do?fileid=<c:out value="${ListTable.fileid}"/>'>取消</a>
 			         
 				</c:if>
 				<c:if test="${ListTable.status!=1}">
@@ -114,7 +114,6 @@ function cbar(st){st.style.backgroundColor='';}
 				  
 				
 				
-				
 				</c:if>
 				<c:if test="${ListTable.status==3}">
                   <c:set var="statusName" value="轉入失敗"/>                
@@ -125,9 +124,22 @@ function cbar(st){st.style.backgroundColor='';}
 				
 				
 				
-				<c:out escapeXml="false" value='${statusName}'
+				<c:if test="${ListTable.status==2||ListTable.status==3}">
+                   <a title="<c:out value='${statusName}'/>"
+				      target="_blank" href='record_log.do?fileid=<c:out value="${ListTable.fileid}"/>'>
+				      <c:out value="${statusName}"/>
+				      </a>   
+                      
+                                
+				</c:if>
+				<c:if test="${ListTable.status!=2&&ListTable.status!=3}">
+                  <c:out escapeXml="false" value='${statusName}'
 					default="&nbsp;" />
-					<c:remove var="statusName"/>  
+					                
+				</c:if>
+				<c:remove var="statusName"/>
+				
+				 
 			</display:column>
 			<display:column  title="總筆數">
 				<c:out escapeXml="false" value='${ListTable.allnum}'

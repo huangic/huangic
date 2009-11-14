@@ -1,5 +1,7 @@
 package idv.trans.struts.action;
 
+import idv.trans.model.Fileinfo;
+import idv.trans.model.FileinfoDAO;
 import idv.trans.model.FileinfoUser;
 import idv.trans.model.Message;
 import idv.trans.model.SessionUserInfo;
@@ -8,6 +10,7 @@ import idv.trans.service.record.RecordService;
 import idv.trans.util.CheckUtil;
 import idv.trans.util.SpringUtil;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
@@ -15,10 +18,12 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 public class Record {
@@ -291,6 +296,42 @@ public class Record {
 			PrintWriter output = response.getWriter();
 			output.println(sb.toString());
 			output.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+
+		}
+
+		return "SUCCESS";
+	}
+	
+	
+	// LOG
+	public String log() {
+
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpSession session = request.getSession();
+		FileinfoDAO dao=(FileinfoDAO)SpringUtil.getBean("FileinfoDAO");
+		
+		Fileinfo fileinfo = dao.findById(this.getFileid());
+
+		try {
+
+			String logFilePath=fileinfo.getLogpath()+"/"+fileinfo.getLogfilename();
+			
+
+			response.reset();
+			response.setContentType("text/plain;charset=big5");
+			//response.setHeader("Content-disposition", "filename=report.csv");
+
+			//PrintWriter output = response.getWriter();
+			ServletOutputStream out=response.getOutputStream();
+			File logfile=new File(logFilePath);
+			
+			out.write(FileUtils.readFileToByteArray(logfile));
+			out.flush();
+			out.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

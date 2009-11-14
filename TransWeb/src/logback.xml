@@ -36,16 +36,20 @@
 
 
 
-	<logger name="idv" level="DEBUG" />
+	<logger name="idv" level="DEBUG" >
+	 <appender-ref ref="stdout" />
+	</logger>
 	
 	<logger name="idv.trans.service.batch" level="DEBUG" >
 		<appender-ref ref="stdout" />
 		<appender-ref ref="BatchFILE" />
 	
 	</logger>
-
+		
+        <!-- -->
 	<root level="INFO">
 		<appender-ref ref="stdout" />
 		<appender-ref ref="FILE" />
 	</root>
+	
 </configuration>  
