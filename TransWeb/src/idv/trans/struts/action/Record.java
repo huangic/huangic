@@ -234,7 +234,6 @@ public class Record {
 		try {
 
 			StringBuffer sb = new StringBuffer();
-			sb.append("轉檔紀錄報表\r\n");
 			sb.append(",檔案名稱,上傳人員,單位,狀態,總筆數,匯入筆數,失敗筆數,上傳時間,處理時間\r\n");
 
 			for (int i = 0; i < records.size(); i++) {
