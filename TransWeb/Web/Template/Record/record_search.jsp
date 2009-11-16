@@ -77,7 +77,7 @@
 							帳號
 						</td>
 						<td>
-							<input type="text" name="account">
+							<input type="text" name="account" onblur="javascript:this.value=this.value.toUpperCase();">
 						</td>
 					</tr>
 				</s:if>
