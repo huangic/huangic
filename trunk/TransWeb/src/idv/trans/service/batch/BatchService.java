@@ -154,6 +154,10 @@ public class BatchService {
 					fileinfo.setTransdate(new Date());
 					fileinfo.setNewfilename(transfilename);
 					fileinfo.setFilepath(newFilePathDir.toString());
+					fileinfo.setAllnum(0);
+					fileinfo.setErrornum(0);
+					fileinfo.setSuccessnum(0);
+					
 					dao.attachDirty(fileinfo);
 
 				} catch (Exception e) {
