@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>系統管理∕使用者</title>
+		<title>帳號管理∕使用者</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link type="text/css" rel="stylesheet" href="../css/form.css" />
 		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
@@ -55,10 +55,7 @@
   				return false;
   			}
   			
-  			if( $('htx_uid').value == '' ){
-  				alert('請輸入身分證字號');
-  				return false;
-  			}
+  			
   			
   		
   			if($('htx_password').value != null &&  
@@ -72,22 +69,28 @@
   				return false;
   			}
   		
-                var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
+               // var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
               
                 var pwd=$('htx_password').value
                  
                 if(pwd!=''){
-                  if(pwd.length<8  ||  pwd.length>16){
-                    alert("密碼請設定八碼以上,十六碼以下");
+                  if(pwd.length<8  ||  pwd.length>20){
+                    alert("密碼請設定八碼以上,二十碼以下");
                     return false;
                   }
-                  else if(!myRegEnpassword.test(pwd)){
-                   alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
-                   return false;
-                 }
+                 // else if(!myRegEnpassword.test(pwd)){
+                 //  alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
+                 //  return false;
+                // }
                  
                  
                }	  		
+	  		
+	  		if( $('htx_uid').value == '' ){
+  				alert('請輸入身分證字號');
+  				return false;
+  			}
+	  		
 	  		
   			if( $('htx_dept').value == '' ){
   				alert('請輸入 單位');
@@ -141,7 +144,7 @@
 					<td class="whitetablebg">
 						<input class="InputText" type="text" id="htx_userId"
 							onblur="javascript:this.value=this.value.toUpperCase();"
-							name="userinfo.account" size="10"
+							name="userinfo.account" size="20"
 							value="<c:out value='${userinfo.account}'/>">
 					</td>
 				</tr>
@@ -225,7 +228,7 @@
 								<option value='<s:property  escape="false" value="id"/>'>
 									<s:property escape="false" value="userRole.get(#id)" />
 								</option>
-								</option>
+								
 
 
 							</s:iterator>
@@ -241,7 +244,7 @@
 					<td class="whitetablebg">
 						<select id="htx_tdataCat" name="userinfo.priority">
 							<s:if test="#session.UserInfo.userInfo.role== 1&&#session.UserInfo.userInfo.priority== 0 ">
-							<option value="">
+							<option value="0">
 								不指定
 							</option>
 							</s:if>
@@ -249,7 +252,7 @@
 								<option value='<s:property  escape="false" value="id"/>'>
 									<s:property escape="false" value="permissionRole.get(#id)" />
 								</option>
-								</option>
+								
 							</s:iterator>
 						</select>
 					</td>

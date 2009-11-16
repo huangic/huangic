@@ -83,12 +83,17 @@
 				</s:if>
 
 				<s:if test="#session.UserInfo.userInfo.role== 3">
-
+                  <input type="hidden" name="account" value="<c:out value='${sessionScope.userInfo.userinfo.account}'/>"/>
+                  
+                  
+						
 					<tr>
 						<td class="Label">
 							檔案名稱
 						</td>
 						<td>
+							
+							
 							<input type="text" name="filename">
 						</td>
 					</tr>
@@ -104,11 +109,14 @@
 
 							<select id="htx_tdataCat" name="role">
 
+								<!--
 								<s:if test="#session.UserInfo.userInfo.role== 1">
 									<option>
 										不指定
 									</option>
 								</s:if>
+
+                                
 
 								<s:iterator value="userRole.keySet()" id="id">
 
@@ -118,10 +126,17 @@
 									<option value='<s:property  escape="false" value="id"/>'>
 										<s:property escape="false" value="userRole.get(#id)" />
 									</option>
-									</option>
+									
 
 
 								</s:iterator>
+
+                             -->
+                             
+                             <option value='3'>
+										一般使用者
+									</option>
+                             
 
 							</select>
 

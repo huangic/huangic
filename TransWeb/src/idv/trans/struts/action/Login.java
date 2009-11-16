@@ -130,10 +130,13 @@ public class Login extends ActionSupport {
     			
     			try{
     			if(today.after(user.getUserInfo().getPwdexpiredate())){
+    				this.message=new Message("密碼已過期，請變更密碼");
     				return "CHANGE_PWD";
     				
     			}
     			}catch(Exception ex){
+    				this.message=new Message("第一次登入系統，請變更密碼");
+    				
     				return "CHANGE_PWD";
     			}
     			//密碼過期就轉跳密碼頁//

@@ -51,13 +51,15 @@ function cbar(st){st.style.backgroundColor='';}
 			requestURI="record.do" >
 					<display:column title="取消">
 				<c:if test="${ListTable.status==1}">
+                 
+                  <c:if test="${ListTable.userid==sessionScope.UserInfo.userInfo.userid}">
                   <a title="取消轉入"
 				      href='record_cancel.do?fileid=<c:out value="${ListTable.fileid}"/>'>取消</a>
-			         
+			         </c:if>
+				
 				</c:if>
-				<c:if test="${ListTable.status!=1}">
-                  &nbsp;
-				</c:if>
+				
+				&nbsp;
 				
 					</display:column>
 

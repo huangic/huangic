@@ -6,13 +6,13 @@
 	<head>
 		<title>帳號管理∕使用者</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-		<link type="text/css" rel="stylesheet" href="../css/form.css" />
-		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
-		<script src="../js/noRightButton.js" language="javascript">&nbsp;</script>
-		<script src="../js/upload.js" language="javascript">&nbsp;</script>
-		<script src="../js/mootools.js" language="javascript">&nbsp;</script>
-		<script src="../js/buttonCheck.js" language="javascript">&nbsp;</script>
-		<script src="../js/SS_Popup.js">&nbsp;</script>
+		<link type="text/css" rel="stylesheet" href="css/form.css" />
+		<link type="text/css" rel="stylesheet" href="css/layout.css" />
+		<script src="js/noRightButton.js" language="javascript">&nbsp;</script>
+		<script src="js/upload.js" language="javascript">&nbsp;</script>
+		<script src="js/mootools.js" language="javascript">&nbsp;</script>
+		<script src="js/buttonCheck.js" language="javascript">&nbsp;</script>
+		<script src="js/SS_Popup.js">&nbsp;</script>
 
 		<script language="javascript">
 			//檢查各欄位內容
@@ -25,13 +25,13 @@
                  
                 if(pwd!=''){
                   if(pwd.length<8  ||  pwd.length>20){
-                   alert("密碼請設定八碼以上,二十碼以下");
+                    alert("密碼請設定八碼以上,二十碼以下");
                     return false;
                   }
                  // else if(!myRegEnpassword.test(pwd)){
                  //  alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
-                 //  return false;
-                 //}
+                //   return false;
+                // }
 		 }
 		
   			if( $('htx_oldpassword').value == '' ){
@@ -108,7 +108,7 @@
 			【密碼修改】
 		</div>
 		<form onSubmit="return checkOnSubmit()" name="reg" method="POST"
-			id="Form1" action="user_pwd_save.do">
+			id="Form1" action="Admin/user_pwd_save.do">
 			<table cellspacing="0">
 
 				<input class="InputText" type="hidden" name="userinfo.userid"

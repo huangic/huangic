@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>系統管理∕使用者</title>
+		<title>帳號管理∕使用者</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link type="text/css" rel="stylesheet" href="../css/form.css" />
 		<link type="text/css" rel="stylesheet" href="../css/layout.css" />
@@ -28,8 +28,8 @@
   			//}
   		
   			if($('htx_userId').value != null &&  
-			  	$('htx_userId').value.length  >10 ){
-  				alert('使用帳號長度不能超過10');
+			  	$('htx_userId').value.length  >20 ){
+  				alert('使用帳號長度不能超過20');
   				return false;
   			}
   		
@@ -57,8 +57,8 @@
   			
   		
   			if($('htx_password').value != null &&  
-			  	$('htx_password').value.length  >50 ){
-  				alert('密碼長度不能超過50');
+			  	$('htx_password').value.length  >20 ){
+  				alert('密碼長度不能超過20');
   				return false;
   			}
   		
@@ -67,19 +67,19 @@
   				return false;
   			}
   		
-                 var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
+                 //var myRegEnpassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).*$/i;
               
                 var pwd=$('htx_password').value
                  
                 if(pwd!=''){
-                  if(pwd.length<8  ||  pwd.length>16){
-                    alert("密碼請設定八碼以上,十六碼以下");
+                  if(pwd.length<8  ||  pwd.length>20){
+                    alert("密碼請設定八碼以上,二十碼以下");
                     return false;
                   }
-                  else if(!myRegEnpassword.test(pwd)){
-                   alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
-                   return false;
-                 }	
+                 // else if(!myRegEnpassword.test(pwd)){
+                //   alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
+                //   return false;
+                // }	
 	  		
   			if( $('htx_dept').value == '' ){
   				alert('請輸入 單位');
@@ -131,7 +131,7 @@
 						<span class="Must">*</span>使用帳號
 					</td>
 					<td class="whitetablebg">
-						<input class="InputText" type="text" id="htx_userId" size="10"
+						<input class="InputText" type="text" id="htx_userId" size="20"
 							value="<c:out value='${userinfo.account}'/>" disabled="disable" />
 
 						<s:hidden name="userinfo.account" />
@@ -175,7 +175,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_password"
-							name="userinfo.password" size="20">
+							name="userinfo.password" size="20" value="*****"/>
 					</td>
 				</tr>
 				<tr>
@@ -184,7 +184,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_checkpassword"
-							name="checkpassword" size="20">
+							name="checkpassword" size="20" value="*****">
 					</td>
 				</tr>
 				<tr>
@@ -335,7 +335,7 @@
 
 
 
-			<input class="cbutton" value="新增存檔" type="submit">
+			<input class="cbutton" value="修改存檔" type="submit">
 			<input value="清除重填" class="cbutton" type="reset">
 		</form>
 		<div id="Explain">

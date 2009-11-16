@@ -77,12 +77,16 @@ public class UserService {
 				throw new Exception("帳號重覆");
 			}
 			;
+			
+			
+			
+			
 
 			if (!user.getUserinfo().getUid().equals("")) {
 
-				if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
-					throw new Exception("身分證字號重覆");
-				}
+				//if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
+				//	throw new Exception("身分證字號重覆");
+				//}
 
 				if (1 == checkUID(user.getUserinfo().getUid().toCharArray())) {
 					throw new Exception("身分證字號不合法");
@@ -103,9 +107,9 @@ public class UserService {
 
 				if (!user.getUserinfo().getUid().equals(oldUser.getUid())) {
 
-					if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
-						throw new Exception("身分證字號重覆");
-					}
+					//if (dao.findByUid(user.getUserinfo().getUid()).size() > 0) {
+					//	throw new Exception("身分證字號重覆");
+					//}
 
 					if (1 == checkUID(user.getUserinfo().getUid().toCharArray())) {
 						throw new Exception("身分證字號不合法");
@@ -115,11 +119,11 @@ public class UserService {
 			}
 
 			// 把值COPY一下
-			if (newUser.getPassword().equals("")) {
+			if (newUser.getPassword().equals("")||newUser.getPassword().equals("*****")) {
 				newUser.setPassword(oldUser.getPassword());
 				newUser.setPwdexpiredate(oldUser.getPwdexpiredate());
 			} else {
-				newUser.setPwdexpiredate(new Date());
+				newUser.setPwdexpiredate(null);
 			}
 
 			dao.attachDirty(newUser);

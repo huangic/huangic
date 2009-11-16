@@ -36,7 +36,7 @@ public class Record {
 	String account;
 	Short role;
 	Short priority;
-
+    String filename;
 	Date startDate;
 	Date endDate;
 
@@ -234,7 +234,7 @@ public class Record {
 		try {
 
 			StringBuffer sb = new StringBuffer();
-			sb.append(",檔案名稱,上傳人員,單位,狀態,總筆數,匯入筆數,失敗筆數,上傳時間,處理時間\r\n");
+			sb.append("檔案名稱,上傳人員,單位,狀態,總筆數,匯入筆數,失敗筆數,上傳時間,處理時間\r\n");
 
 			for (int i = 0; i < records.size(); i++) {
 				String status="";
@@ -257,7 +257,7 @@ public class Record {
 					break;
 				}
 
-				sb.append(i + 1 + ",");
+				//sb.append(i + 1 + ",");
 				sb.append(fu.getFilename() + ",");
 				sb.append(fu.getUploaduser().getUsername() + ",");
 				sb.append(fu.getUploaduser().getDept() + ",");
@@ -338,6 +338,14 @@ public class Record {
 		}
 
 		return "SUCCESS";
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	
 
