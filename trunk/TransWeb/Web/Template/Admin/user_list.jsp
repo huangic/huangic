@@ -19,7 +19,7 @@
 	<body>
 		<div id="FuncName">
 			<h1>
-				系統管理∕權限群組
+				帳號管理∕使用者
 			</h1>
 			<div id="Nav">
 				<a href="user_search.do" target="">重設查詢</a> &nbsp;

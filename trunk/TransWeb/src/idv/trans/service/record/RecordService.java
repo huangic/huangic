@@ -3,14 +3,11 @@ package idv.trans.service.record;
 import idv.trans.model.Fileinfo;
 import idv.trans.model.FileinfoDAO;
 import idv.trans.model.FileinfoUser;
-import idv.trans.service.system.SystemVar;
 import idv.trans.struts.action.Record;
 import idv.trans.util.CheckUtil;
 import idv.trans.util.SpringUtil;
 
 import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.apache.commons.lang.time.DateUtils;
@@ -47,6 +44,16 @@ public class RecordService {
 						.getAccount()));
 
 			}
+			
+			
+
+			// 檔案名稱
+			if (!record.getFilename().equals("")) {
+				criteria.add(Restrictions.like("filename", record
+						.getFilename()+"%"));
+
+			}
+			
 
 			// 使用者系統全縣
 			if (!CheckUtil.isNull(record.getPriority())) {
@@ -107,7 +114,7 @@ public class RecordService {
 				throw new Exception("此資料非待處理中，無法取消");
 			}
 			file.setStatus(Short.valueOf("4"));
-			file.setTransdate(new Date());
+			//file.setTransdate(new Date());
 			
 			dao.attachDirty(file);
 		}
@@ -116,8 +123,6 @@ public class RecordService {
 	}
 	
 	
-	public void exportRecord(){
-		
-	}
+	
 
 }

@@ -41,7 +41,7 @@
 	<bean id="functionBean" class="idv.trans.service.system.Functions">
 		<property name="permission">
 			<map>
-				<entry key="系統管理">
+				<entry key="帳號管理">
 					<list>
 						<ref bean="userAddBean"/>
 						<ref bean="userSearchBean"/>

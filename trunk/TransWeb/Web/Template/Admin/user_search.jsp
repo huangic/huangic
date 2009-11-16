@@ -21,7 +21,7 @@
 
 <body>
 <div id="FuncName">
-<h1>系統管理∕使用者</h1>
+<h1>帳號管理∕使用者</h1>
 <div id="Nav"></div>
 </div>
 <div id="FormName">【帳號查詢】</div>
@@ -31,7 +31,7 @@
 <table>
 	<tr>
 		<td class="Label">使用帳號</td>
-		<td><input type="text" name="userinfo.account" id="q_userId"></td>
+		<td><input type="text" name="userinfo.account" id="q_userId" onblur="javascript:this.value=this.value.toUpperCase();"/></td>
 	</tr>
 	
 	<tr>
