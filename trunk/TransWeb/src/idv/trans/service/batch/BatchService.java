@@ -100,6 +100,8 @@ public class BatchService {
 			/*
 			 * 轉檔檔名 /account/filename...
 			 */
+			
+			String transfilepath=fileinfo.getFilepath();
 			String transfilename = "/" + account + "/" + fileinfo.getFilename();
 			String filename = fileinfo.getFilename();
 
@@ -110,12 +112,12 @@ public class BatchService {
 			{
 				// 檢查一下要轉的檔案是否存在
 
-				String absfilepath = systemVar.getUploadPath() + "/"
-						+ transfilename;
+				String absfilepath = transfilepath + "/"
+						+ filename;
 				if (!FileUtils.fileExists(absfilepath)) {
 					canTrans = false;
 					logger.debug("檔案不存在!!" + absfilepath);
-					logger.info("\t檔案不存在!!" + transfilename);
+					logger.info("\t檔案不存在!!" + filename);
 				}
 			}
 
@@ -179,9 +181,12 @@ public class BatchService {
 			/*
 			 * 轉檔檔名 /account/filename...
 			 */
+			
+			String transfilepath=fileinfo.getFilepath();
 			String transfilename = "/" + account + "/" + fileinfo.getFilename();
 			String filename = fileinfo.getFilename();
-			String loggfile = filename.substring(0, filename.lastIndexOf('.'))
+			
+			String loggfile ="/" + account + "/"+filename.substring(0, filename.lastIndexOf('.'))
 					+ "_LOG.txt";
 
 			String filePattren = filename.substring(0, filename
@@ -220,12 +225,12 @@ public class BatchService {
 			{
 				// 檢查一下要轉的檔案是否存在
 
-				String absfilepath = systemVar.getUploadPath() + "/"
-						+ transfilename;
+				String absfilepath = transfilepath + "/"
+						+ filename;
 				if (!FileUtils.fileExists(absfilepath)) {
 					canTrans = false;
 					logger.debug("檔案不存在!!" + absfilepath);
-					logger.info("檔案不存在!!" + transfilename);
+					logger.info("檔案不存在!!" + filename);
 				}
 			}
 
@@ -240,8 +245,7 @@ public class BatchService {
 					// logger.debug(data);
 
 					// 檢查一下是不是有檔案產生 系統路徑+LOG檔案
-					String logpath = systemVar.getUploadPath() + "/" + account
-							+ "/" + loggfile;
+					String logpath = systemVar.getUploadPath() + "/" +  loggfile;
 					if (!FileUtils.fileExists(logpath)) {
 						logger.info("\t路徑:" + logpath + " LOG文件沒有產生!");
 					} else {
@@ -250,7 +254,7 @@ public class BatchService {
 						StringBuffer newlogPathDir = new StringBuffer(systemVar
 								.getLogPath());
 						newlogPathDir.append("/").append(excuteDate)
-								.append("/").append(account).append("/");
+								.append("/");
 
 						StringBuffer newlogPath = new StringBuffer(
 								newlogPathDir).append(loggfile);
@@ -301,9 +305,7 @@ public class BatchService {
 
 						// 使用者上傳檔案搬到/backup/upload/轉檔執行時間/user/txt檔
 
-						StringBuffer oldFilePath = new StringBuffer();
-						oldFilePath.append(systemVar.getUploadPath()).append(
-								transfilename);
+						String oldFilePath = transfilepath+"/"+filename;
 
 						StringBuffer newFilePath = new StringBuffer();
 						newFilePath.append(systemVar.getBackupPath()).append(
