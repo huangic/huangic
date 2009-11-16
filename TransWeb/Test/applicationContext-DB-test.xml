@@ -15,7 +15,7 @@
 		<property name="url" value="jdbc:bea:db2://localhost;DatabaseName=TRANS">
 		</property>
 		<property name="username" value="db2admin"></property>
-		<property name="password" value="12345"></property>
+		<property name="password" value="ok1234"></property>
 	</bean>
 
 	<bean id="baseSessionFactory"

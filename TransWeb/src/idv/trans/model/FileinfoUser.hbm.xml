@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
  <class catalog="TRANS" name="idv.trans.model.FileinfoUser"
-  schema="MYNE" table="FILEINFO">
+  schema="DBSCHEMA" table="FILEINFO">
   <id name="fileid" type="java.lang.Long">
    <column name="FILEID"/>
    <generator class="identity"/>
