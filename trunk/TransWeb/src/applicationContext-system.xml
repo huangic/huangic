@@ -29,8 +29,6 @@
      <property name="logPath"><value>c:/test/log/</value></property>
      <property name="backupPath"><value>c:/test/backup</value></property>
    	
-   	
-   	 <property name="realDir"><value>D:\jetty-6.1.17\webapps\TransWeb</value></property>
      <property name="downloadPath"><value>files/download/</value></property>
     
     </bean>
