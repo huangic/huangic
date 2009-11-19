@@ -12,8 +12,12 @@
 	<bean id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="weblogic.jdbc.db2.DB2Driver">
 		</property>
+		
+		<!-- 資料庫連線設定 -->
 		<property name="url" value="jdbc:bea:db2://163.17.20.106;DatabaseName=TRANS">
 		</property>
+		
+		
 		<property name="username" value="db2admin"></property>
 		<property name="password" value="12345"></property>
 	</bean>
@@ -29,10 +33,16 @@
 				</prop>
 				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider
 				</prop>
-				<prop key="hibernate.hibernate.cache.use_query_cache">true</prop>
-
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+                
+                
+                <!-- 設定的預設SCHEMA -->
+                <prop key="hibernate.default_schema">TEST</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				
+				
+				<!-- 第一次啟動後，記得要拿掉~不然會每次啟動都重建DB -->
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
                  
 			</props>
 		</property>
