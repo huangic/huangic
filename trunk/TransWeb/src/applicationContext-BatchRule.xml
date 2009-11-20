@@ -11,14 +11,17 @@
 		
 		<!-- 遠端的url -->
 		<property name="batchURL">
-			<value>http://localhost:8080/TransWeb/tester.txt</value>
+			<value>http://localhost:8080/TransWeb/log.htm</value>
 		</property>
 		<!-- 遠端的url -->
 		<property name="batchDB">
-			<value>CBIDB</value>
+			<map>
+				<entry key="TB"><value>SLUGG</value></entry>
+				<entry key="F01"><value>CBIDB</value></entry>
+			</map>
 		</property>
 		<property name="remoteCharset">
-			<value>BIG5</value>
+			<value>UTF8</value>
 		</property>
 		
 		
@@ -49,7 +52,9 @@
 				<entry key="TB_CASETRANSDATA">
 					<value>tw.gov.cbi.trans.parser.Parser29</value>
 				</entry>
-				
+				<entry key="TB_CASECLOSED">
+					<value>tw.gov.cbi.trans.parser.Parser30</value>
+				</entry>
 				
 				
 				<entry key="F01_OPEN_CASE">

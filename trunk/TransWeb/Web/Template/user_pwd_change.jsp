@@ -98,7 +98,7 @@
 
 		<div id="FuncName">
 			<h1>
-				系統管理∕密碼修改
+				帳號管理∕密碼修改
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>

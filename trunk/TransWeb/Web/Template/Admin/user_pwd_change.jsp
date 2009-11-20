@@ -61,10 +61,10 @@
   			
   			
   			
-  			if( $('htx_oldpassword').value == $('htx_password').value  ){
-  				alert('新舊密碼不可相同');
-  				return false;
-  			}
+  			//if( $('htx_oldpassword').value == $('htx_password').value  ){
+  			//	alert('新舊密碼不可相同');
+  			//	return false;
+  			//}
   			
   		
   			if( $('htx_password').value != $('htx_checkpassword').value  ){
@@ -98,7 +98,7 @@
 
 		<div id="FuncName">
 			<h1>
-				系統管理∕密碼修改
+				帳號管理∕密碼修改
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>

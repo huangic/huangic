@@ -192,6 +192,9 @@ public class BatchService {
 			
 			String loggfile ="/" + account + "/"+filename.substring(0, filename.lastIndexOf('.'))
 					+ "_LOG.txt";
+			
+			
+			String dbPattren=filename.substring(0,filename.indexOf('_'));
 
 			String filePattren = filename.substring(0, filename
 					.lastIndexOf('_'));
@@ -211,13 +214,13 @@ public class BatchService {
 			// PSR=tw.gov.cbi.trans.parser.Parser01&
 			// LOG=F01_OPEN_CASE_SAMPLE_LOG.tx
 			logger.debug("URL:" + rule.getBatchURL());
-			logger.debug("DB:" + rule.getBatchDB());
+			logger.debug("DB:" + rule.getBatchDB().get(dbPattren).toString());
 			logger.debug("CSV:" + transfilename);
 			logger.debug("PSR:" + ParserClass);
 			logger.debug("LOG:" + loggfile);
 
 			ArrayList<NameValuePair> args = new ArrayList<NameValuePair>();
-			args.add(new NameValuePair("DB", rule.getBatchDB()));
+			args.add(new NameValuePair("DB", rule.getBatchDB().get(dbPattren).toString()));
 			args.add(new NameValuePair("CSV", transfilename));
 			args.add(new NameValuePair("PSR", ParserClass));
 			args.add(new NameValuePair("LOG", loggfile));
@@ -357,6 +360,10 @@ public class BatchService {
 		}
 	}
 
+	
+	
+	//需要一個取dom的 然後拿最後一個textarea的值
+	
 	public static List<String> basicPostAction(String url,
 			ArrayList<NameValuePair> paramsList, HttpClient httpclient,
 			String Charset) throws HttpException, IOException {
@@ -382,6 +389,8 @@ public class BatchService {
 				String htmlRet = "";
 				while ((tmp = reader.readLine()) != null) {
 					data.add(new String(tmp.getBytes("ISO-8859-1"), Charset));
+					logger.debug(new String(tmp.getBytes("ISO-8859-1"), Charset));
+					
 				}
 
 				return data;

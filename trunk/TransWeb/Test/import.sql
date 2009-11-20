@@ -1,1 +1,1 @@
-insert into DBSCHEMA.userinfo (account ,password,role,priority,status) values ('SYSADMIN','1q2w3e4r',1,0,1);
+insert into TEST.userinfo (account ,password,role,priority,status) values ('SYSADMIN','1q2w3e4r',1,0,1);

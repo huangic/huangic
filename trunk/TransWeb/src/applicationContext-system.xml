@@ -38,17 +38,17 @@
 
 		<!-- 使用者上傳CSV的路徑 -->
 		<property name="uploadPath">
-			<value>c:/files/upload/</value>
+			<value>/file/upload/</value>
 		</property>
 
 		<!-- 批次處理後LOG的放置路徑 -->
 		<property name="logPath">
-			<value>c:/test/log/</value>
+			<value>/file/log/</value>
 		</property>
 
 		<!-- 批次處理後BACKUP的放置路徑 -->
 		<property name="backupPath">
-			<value>c:/test/backup</value>
+			<value>/file/backup</value>
 		</property>
 
 
@@ -218,7 +218,6 @@
 		<property name="userLevel">
 			<list>
 				<value>1</value>
-				<value>2</value>
 			</list>
 
 		</property>
