@@ -21,7 +21,7 @@
 
 <body>
 <div id="FuncName">
-<h1>帳號管理∕使用者</h1>
+<h1>帳號管理∕帳號查詢</h1>
 <div id="Nav"></div>
 </div>
 <div id="FormName">【帳號查詢】</div>

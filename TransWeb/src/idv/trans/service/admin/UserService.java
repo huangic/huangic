@@ -119,7 +119,7 @@ public class UserService {
 			}
 
 			// 把值COPY一下
-			if (newUser.getPassword().equals("")||newUser.getPassword().equals("*****")) {
+			if (newUser.getPassword().equals("")||newUser.getPassword().equals("********")) {
 				newUser.setPassword(oldUser.getPassword());
 				newUser.setPwdexpiredate(oldUser.getPwdexpiredate());
 			} else {

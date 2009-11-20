@@ -38,8 +38,7 @@ public class DownloadService {
 	
 	public List list(Userinfo userinfo)throws Exception{
 		
-		if(userinfo.getRole().equals(new Short("1"))||
-				userinfo.getRole().equals(new Short("2"))){
+		if(userinfo.getRole().equals(new Short("1")) && userinfo.getPriority().equals(new Short("0"))){
 			logger.debug("Role 1 list all files.");
 			return listAll();
 			

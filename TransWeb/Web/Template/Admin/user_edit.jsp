@@ -76,6 +76,7 @@
                     alert("密碼請設定八碼以上,二十碼以下");
                     return false;
                   }
+                  }
                  // else if(!myRegEnpassword.test(pwd)){
                 //   alert("密碼請具備英數字混合，大小寫系統均視為不同，請重新設定密碼");
                 //   return false;
@@ -86,12 +87,11 @@
   				return false;
   			}
   		
-  			if($('htx_deptId').value != null &&  
-			  	$('htx_deptId').value.length  >15 ){
-  				alert('單位長度不能超過15');
-  				return false;
-  			}
-  		
+  			  		
+  		    if($('htx_role').value!='1' && $('htx_priority').value=='0'){
+  		      alert('非系統管理員，系統權限不可設定為不指定');
+  		      return false;
+  		    }  		    
   
 			}
 		</script>
@@ -108,7 +108,7 @@
 
 		<div id="FuncName">
 			<h1>
-				系統管理∕使用者
+				帳號管理/修改使用者
 			</h1>
 			<div id="Nav">
 				<a title="回前頁" href="Javascript:window.history.back();">回前頁</A>
@@ -175,7 +175,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_password"
-							name="userinfo.password" size="20" value="*****"/>
+							name="userinfo.password" size="20" value="********"/>
 					</td>
 				</tr>
 				<tr>
@@ -184,7 +184,7 @@
 					</td>
 					<td class="whitetablebg">
 						<input class="InputText" type="password" id="htx_checkpassword"
-							name="checkpassword" size="20" value="*****">
+							name="checkpassword" size="20" value="********">
 					</td>
 				</tr>
 				<tr>
@@ -200,6 +200,7 @@
 					   
 					<s:if test="#session.UserInfo.userInfo.role==1">
                         <input class="InputText" id="htx_uid" name="userinfo.uid"
+							onblur="javascript:this.value=this.value.toUpperCase();"
 							type="text" value="<c:out value='${userinfo.uid}'/>" />
 					
 					</s:if>
@@ -252,7 +253,7 @@
 						<span class="Must">*</span>角色
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="userinfo.role">
+						<select id="htx_role" name="userinfo.role">
 
 							<s:iterator value="userRole.keySet()" id="id">
 								<option value='<s:property  escape="false" value="id"/>'
@@ -275,7 +276,7 @@
 						<span class="Must">*</span>系統權限
 					</td>
 					<td class="whitetablebg">
-						<select id="htx_tdataCat" name="userinfo.priority">
+						<select id="htx_priority" name="userinfo.priority">
 							<s:if test="#session.UserInfo.userInfo.priority== 0">
 								<option value="0">
 									不指定

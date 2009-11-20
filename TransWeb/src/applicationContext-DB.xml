@@ -41,8 +41,9 @@
 				<prop key="hibernate.show_sql">true</prop>
 				
 				
-				<!-- 第一次啟動後，記得要拿掉~不然會每次啟動都重建DB -->
+				<!-- 第一次啟動後，記得要拿掉~不然會每次啟動都重建DB
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				 -->
                  
 			</props>
 		</property>

@@ -83,7 +83,7 @@
 				</s:if>
 
 				<s:if test="#session.UserInfo.userInfo.role== 3">
-                  <input type="hidden" name="account" value="<c:out value='${sessionScope.userInfo.userinfo.account}'/>"/>
+                  <input type="hidden" name="account" value="<c:out value='${sessionScope.UserInfo.userInfo.account}'/>"/>
                   
                   
 						

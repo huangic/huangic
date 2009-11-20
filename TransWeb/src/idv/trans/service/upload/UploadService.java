@@ -41,7 +41,7 @@ public class UploadService {
 		
 			SystemVar systemVar = (SystemVar) SpringUtil.getBean("SystemVar");
 			
-			String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getDownloadPath())+"\\";
+			String saveDirectory = ServletActionContext.getServletContext().getRealPath(systemVar.getDownloadPath())+"/";
 			
 			logger.debug("copy to "+saveDirectory+uploadFileName);
 			String fullFileName = saveDirectory+uploadFileName;
