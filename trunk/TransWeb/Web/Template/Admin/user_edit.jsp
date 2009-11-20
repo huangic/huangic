@@ -290,7 +290,6 @@
 								</s:if>>
 									<s:property escape="false" value="permissionRole.get(#id)" />
 								</option>
-								</option>
 							</s:iterator>
 						</select>
 					</td>
