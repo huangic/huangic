@@ -52,7 +52,7 @@
 							    <option value='<s:property  escape="false" value="id"/>'>
 								<s:property  escape="false" value="userRole.get(#id)"/>
 								</option>
-							</option>
+							
 							
 							
 							</s:iterator>
@@ -75,7 +75,7 @@
 							    <option value='<s:property  escape="false" value="id"/>'>
 								<s:property  escape="false" value="permissionRole.get(#id)"/>
 								</option>
-							</option>
+							
 							</s:iterator>
 		</select></td>
 
