@@ -161,7 +161,7 @@
 									<option value='<s:property  escape="false" value="id"/>'>
 										<s:property escape="false" value="permissionRole.get(#id)" />
 									</option>
-									</option>
+									
 								</s:iterator>
 							</select>
 
