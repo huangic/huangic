@@ -21,7 +21,7 @@
 			</map>
 		</property>
 		<property name="remoteCharset">
-			<value>UTF8</value>
+			<value>BIG5</value>
 		</property>
 		
 		
