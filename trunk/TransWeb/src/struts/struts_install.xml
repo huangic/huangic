@@ -20,30 +20,12 @@
 
 <struts>
 
-	<include file="struts/struts_login.xml" />
-	<include file="struts/struts_function.xml" />
-	<include file="struts/struts_download.xml" />
-	<include file="struts/struts_user.xml" />
-	<include file="struts/struts_record.xml" />
-	<include file="struts/struts_upload.xml" />
-	<include file="struts/struts_install.xml" />
-	<!--
 
-
-		<constant name="struts.objectFactory" value="spring" /> <constant
-		name="struts.devMode" value="true" />
-	-->
-
-
-	<package name="default" extends="struts-default">
+	<package name="idv.trans.struts.install" namespace="/Install" extends="struts-default">
+		<action name="index" class="idv.trans.struts.action.Install" method="index">
+			<result name="SUCCESS">../Template/install/install.jsp</result>
+		</action>
+				
 		
-		
-		<global-results>
-			<result name="login" type="redirect">index.htm</result>
-		</global-results>
 	</package>
-
-
-
-
 </struts>

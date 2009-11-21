@@ -1,6 +1,7 @@
 package idv.trans.filter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -26,12 +27,19 @@ public class CheckLoginFilter implements Filter {
 
   String currentURL = request.getRequestURI();//取得根目录所对应的绝对路径:
 
+   ArrayList<String> noContainURL=new ArrayList<String>();
+   
+   noContainURL.add("/index.do");
+   noContainURL.add("/login.do");
+   noContainURL.add("/Install/index.do");
+   noContainURL.add("/Install/save.do");
+   
   
   String targetURL = currentURL.substring(currentURL.indexOf("/", 1), currentURL.length());  //截取到当前文件名用于比较
 
   HttpSession session = request.getSession(false);
   
-  if (!"/index.do".equals(targetURL)&&!"/login.do".equals(targetURL)) {//判断当前页是否是重定向以后的登录页面页面，如果是就不做session的判断，防止出现死循环
+  if (!noContainURL.contains(targetURL)) {//判断当前页是否是重定向以后的登录页面页面，如果是就不做session的判断，防止出现死循环
    if (session == null || session.getAttribute("UserInfo") == null) {//*用户登录以后需手动添加session
     System.out.println("request.getContextPath()=" + request.getContextPath());
     response.sendRedirect(request.getContextPath() + "/expire.jsp");//如果session为空表示用户没有登录就重定向到login.jsp页面

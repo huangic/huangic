@@ -7,10 +7,10 @@ import idv.trans.model.UserinfoDAO;
 import idv.trans.service.system.SystemVar;
 import idv.trans.util.SpringUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +25,6 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.aspectj.util.FileUtil;
 import org.codehaus.plexus.util.FileUtils;
-import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
@@ -244,11 +243,38 @@ public class BatchService {
 			if (canTrans) {
 
 				try {
-					List<String> data = basicPostAction(rule.getBatchURL(),
+					String data = basicPostAction(rule.getBatchURL(),
 							args, httpclient, rule.getRemoteCharset());
 
+					
+					logger.debug(data);
+					//String logdata="";
+					//Document xmldoc;
+					//try {
+						
+					//	SAXReader reader=new SAXReader(false);
+					//	try {
+					//		reader.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.LOAD_EXTERNAL_DTD_FEATURE, false);
+					//	} catch (SAXException e) {
+							// TODO Auto-generated catch block
+					//		e.printStackTrace();
+					//	}
+						
+					
+					//} catch (DocumentException e) {
+						// TODO Auto-generated catch block
+						//e.printStackTrace();
+					//}
+					
+					
+					
+					
+					
+					
 					// data是執行完之後的LOG
 
+					List<String> logdata=new ArrayList<String>();
+					logdata.add("");
 					// logger.debug(data);
 
 					// 檢查一下是不是有檔案產生 系統路徑+LOG檔案
@@ -257,7 +283,11 @@ public class BatchService {
 						logger.info("\t路徑:" + logpath + " LOG文件沒有產生!");
 					} else {
 						// 把LOG檔案搬到LOG中的log/user/轉檔執行時間/log檔
-
+                          
+						logdata=read(logpath,rule.getRemoteCharset());
+						
+						
+						
 						StringBuffer newlogPathDir = new StringBuffer(systemVar
 								.getLogPath());
 						newlogPathDir.append("/").append(excuteDate)
@@ -272,7 +302,7 @@ public class BatchService {
 
 						FileUtils.copyFile(logFile, newLogFile);
 
-						// logFile.delete();
+						logFile.delete();
 						logger.debug("路徑:" + logpath + " LOG文件產生!");
 						logger.debug("新路徑:" + newlogPath.toString()
 								+ " LOG文件產生!");
@@ -282,7 +312,10 @@ public class BatchService {
 
 					// Parser一下拿到的資料
 					// 讀取DATA的最後一行
-					String parserData = data.get(data.size() - 1);
+					//String[] splitdata=StringUtils.split(logdata,"\n");
+					
+					
+					String parserData = logdata.get(0);
 					logger.info("\t" + parserData);
 
 					// 解讀一下資料，如果不是那就丟例外
@@ -331,7 +364,7 @@ public class BatchService {
 						File newTranFile = new File(newFilePath.toString());
 
 						FileUtil.copyFile(oldTranFile, newTranFile);
-						// oldTranFile.delete();
+						 oldTranFile.delete();
 						// fileinfo更新 改變新檔名 轉檔時間 狀態 數值 //新檔名要改變因為上傳會檢查檔名
 						fileinfo.setStatus(status);
 						fileinfo.setTransdate(new Date());
@@ -364,10 +397,11 @@ public class BatchService {
 	
 	//需要一個取dom的 然後拿最後一個textarea的值
 	
-	public static List<String> basicPostAction(String url,
+	public static String basicPostAction(String url,
 			ArrayList<NameValuePair> paramsList, HttpClient httpclient,
 			String Charset) throws HttpException, IOException {
 
+		httpclient.getParams().setParameter("http.protocol.content-charset", Charset);
 		PostMethod post = new PostMethod(url);
 		post.setRequestHeader("Connection", "close");
 		NameValuePair[] params = new NameValuePair[paramsList.size()];
@@ -376,24 +410,24 @@ public class BatchService {
 		try {
 			int result = httpclient.executeMethod(post);
 			if (result == 200) {
-				// return post.getResponseBodyAsString();
+				return post.getResponseBodyAsString();
 				// try {
 				// httpClient.executeMethod(get);
 
 				// System.out.println(get.getResponseBodyAsString());
-				List<String> data = new ArrayList<String>();
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(post.getResponseBodyAsStream(),
-								"ISO-8859-1"));
-				String tmp = null;
-				String htmlRet = "";
-				while ((tmp = reader.readLine()) != null) {
-					data.add(new String(tmp.getBytes("ISO-8859-1"), Charset));
-					logger.debug(new String(tmp.getBytes("ISO-8859-1"), Charset));
+				//List<String> data = new ArrayList<String>();
+				//BufferedReader reader = new BufferedReader(
+				//		new InputStreamReader(post.getResponseBodyAsStream(),
+				//				"ISO-8859-1"));
+				//String tmp = null;
+				//String htmlRet = "";
+				//while ((tmp = reader.readLine()) != null) {
+				//	data.add(new String(tmp.getBytes("ISO-8859-1"), Charset));
+				//	logger.debug(new String(tmp.getBytes("ISO-8859-1"), Charset));
 					
-				}
+				//}
 
-				return data;
+				//return data;
 			} else {
 				throw new RuntimeException("遠端URL錯誤:" + url + ":" + result
 						+ ":" + post.getStatusText());
@@ -404,4 +438,56 @@ public class BatchService {
 		}
 	}
 
+	
+
+	  public static List<String> read(String filename, String charset) {
+
+        ArrayList<String> list=new ArrayList<String>();		  
+		  
+	    RandomAccessFile rf = null;
+	    try {
+	      rf = new RandomAccessFile(filename, "r");
+	      long len = rf.length();
+	      long start = rf.getFilePointer();
+	      long nextend = start + len - 1;
+	      String line;
+	      rf.seek(nextend);
+	      int c = -1;
+	      while (nextend > start) {
+	        c = rf.read();
+	        if (c == '\n' || c == '\r') {
+	          line = rf.readLine();
+	          if (line != null) {
+	            list.add(new String(line.getBytes("ISO-8859-1"), charset));
+	          }else {
+	            //System.out.println(line);
+	          }
+	          nextend--;
+	        }
+	        nextend--;
+	        rf.seek(nextend);
+	        if (nextend == 0) {// 当文件指针退至文件开始处，输出第一行
+	          //System.out.println(rf.readLine());
+	          list.add(new String(rf.readLine().getBytes("ISO-8859-1"), charset));
+	          
+	        }
+	      }
+	    } catch (FileNotFoundException e) {
+	      e.printStackTrace();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    } finally {
+	      try {
+	        if (rf != null)
+	          rf.close();
+	      } catch (IOException e) {
+	        e.printStackTrace();
+	      }
+	    }
+	    
+	    return list;
+	  }
+
+	
+	
 }
