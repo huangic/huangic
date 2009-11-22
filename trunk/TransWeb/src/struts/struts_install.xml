@@ -25,6 +25,12 @@
 		<action name="index" class="idv.trans.struts.action.Install" method="index">
 			<result name="SUCCESS">../Template/install/install.jsp</result>
 		</action>
+		
+		<action name="save" class="idv.trans.struts.action.Install" method="save">
+			<result name="SUCCESS">../Template/install/install.jsp</result>
+		</action>
+		
+		
 				
 		
 	</package>
