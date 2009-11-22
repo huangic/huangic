@@ -265,4 +265,21 @@ public class UserService {
 		return (rc);
 	}
 
+	
+	public void initUser(){
+		UserinfoDAO dao = (UserinfoDAO) SpringUtil.getBean("UserinfoDAO");
+
+		Userinfo user=new Userinfo();
+		
+		user.setAccount("SYSADMIN");
+		user.setPassword("sysadmin");
+		user.setUsername("系統管理員");
+		user.setRole(new Short("1"));
+		user.setPriority(new Short("0"));
+		user.setStatus(new Short("1"));
+		
+		dao.save(user);
+		
+	}
+	
 }

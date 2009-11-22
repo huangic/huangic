@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	  
 	
-	<bean id="baseDAO" abstract="true" class="idv.trans.model.BaseDao">
+	<bean lazy-init="true" id="baseDAO" abstract="true" class="idv.trans.model.BaseDao">
 		<property name="sessionFactory">
 			<ref bean="baseSessionFactory" />
 		</property>
@@ -12,12 +12,12 @@
 	
 	
 	
-	<bean id="UserinfoDAO" class="idv.trans.model.UserinfoDAO" parent="baseDAO" >
+	<bean lazy-init="true" id="UserinfoDAO" class="idv.trans.model.UserinfoDAO" parent="baseDAO" >
 		
 	</bean>
-	<bean id="FileinfoDAO" class="idv.trans.model.FileinfoDAO" parent="baseDAO" >
+	<bean lazy-init="true" id="FileinfoDAO" class="idv.trans.model.FileinfoDAO" parent="baseDAO" >
 	
 	</bean>
-	<bean id="DownloadDAO" class="idv.trans.model.DownloadDAO" parent="baseDAO" >
+	<bean lazy-init="true" id="DownloadDAO" class="idv.trans.model.DownloadDAO" parent="baseDAO" >
 		
 	</bean></beans>

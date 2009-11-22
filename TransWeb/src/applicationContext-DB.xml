@@ -9,7 +9,7 @@
 	</bean>
 
 
-	<bean id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean lazy-init="true" id="baseDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="weblogic.jdbc.db2.DB2Driver">
 		</property>
 
@@ -20,10 +20,10 @@
 
 
 		<property name="username" value="db2admin"></property>
-		<property name="password" value="12345"></property>
+		<property name="password" value="1111"></property>
 	</bean>
 
-	<bean id="baseSessionFactory"
+	<bean  lazy-init="true" id="baseSessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource">
 			<ref bean="dataSource" />
