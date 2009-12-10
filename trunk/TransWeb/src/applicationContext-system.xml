@@ -38,22 +38,25 @@
 
 		<!-- 使用者上傳CSV的路徑 -->
 		<property name="uploadPath">
-			<value>/file/upload/</value>
+			<value>d:/uploadfile</value> 
+		<!--<value>/child/web_upload</value>-->
 		</property>
 
 		<!-- 批次處理後LOG的放置路徑 -->
 		<property name="logPath">
-			<value>/file/log/</value>
+			<value>d:/uploadfile/LOG</value> 
+		<!--<value>/child/web_upload/LOG</value>-->
 		</property>
 
 		<!-- 批次處理後BACKUP的放置路徑 -->
 		<property name="backupPath">
-			<value>/file/backup</value>
+			<value>d:/uploadfile/BACKUP</value> 
+		<!--<value>/child/web_upload/BACKUP</value>-->
 		</property>
 
 
 		<property name="downloadPath">
-			<value>files/download/</value>
+			<value>file/DOWNLOAD</value>
 		</property>
 
 	</bean>

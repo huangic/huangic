@@ -17,8 +17,8 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
-  
-    <filter>
+
+	<filter>
 		<filter-name>LoginFilter</filter-name>
 		<filter-class>idv.trans.filter.CheckLoginFilter</filter-class>
 	</filter>
@@ -26,7 +26,7 @@
 		<filter-name>LoginFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
-	
+
 
 
 
@@ -35,7 +35,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 
 	</listener>
-	
+
 
 	<filter>
 		<filter-name>struts2</filter-name>
@@ -47,8 +47,38 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 
-   
-    
+
+    <mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+
+	<mime-mapping>
+		<extension>mht</extension>
+		<mime-type>text/x-mht</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>rar</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>iso</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>ape</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>rmvb</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>ico</extension>
+		<mime-type>image/x-icon</mime-type>
+	</mime-mapping>
+
+
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

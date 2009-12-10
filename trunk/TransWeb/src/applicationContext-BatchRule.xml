@@ -11,7 +11,7 @@
 		
 		<!-- 遠端的url -->
 		<property name="batchURL">
-			<value>http://localhost:8080/TransWeb/log.htm</value>
+			<value>http://localhost:8080/cbi_trans/tester.do?</value>
 		</property>
 		<!-- 遠端的url -->
 		<property name="batchDB">
