@@ -13,7 +13,7 @@
 			<ref bean="BatchQuartzBean" />
 		</property>
 		<property name="cronExpression">
-			<value>0 0 22 * * ?</value>
+			<value>0 0/10 * * * ?</value>
 		</property>
 	</bean>
 

@@ -15,12 +15,18 @@
 
 		<!-- 資料庫連線設定 -->
 		<property name="url"
-			value="jdbc:bea:db2://163.17.20.106;DatabaseName=TRANS">
-		</property>
-
+			value="jdbc:bea:db2://localhost;DatabaseName=STARK">
+		</property>  
 
 		<property name="username" value="db2admin"></property>
-		<property name="password" value="1111"></property>
+		<property name="password" value="12345"></property>
+		
+		<!-- 
+		<property name="url"
+			value="jdbc:bea:db2://localhost;DatabaseName=SLUGG">
+		</property>
+		<property name="username" value="stark"></property>
+		<property name="password" value="1qaz2wsx"></property>-->
 	</bean>
 
 	<bean  lazy-init="true" id="baseSessionFactory"
@@ -38,7 +44,8 @@
 
 
 				<!-- 設定的預設SCHEMA -->
-				<prop key="hibernate.default_schema">TEST</prop>
+				<!-- <prop key="hibernate.default_schema">STARK</prop>  -->
+				<prop key="hibernate.default_schema">ADMIN</prop>
 				<prop key="hibernate.show_sql">true</prop>
 
 

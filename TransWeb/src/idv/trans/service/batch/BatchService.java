@@ -99,8 +99,8 @@ public class BatchService {
 			/*
 			 * 轉檔檔名 /account/filename...
 			 */
-			
-			String transfilepath=fileinfo.getFilepath();
+
+			String transfilepath = fileinfo.getFilepath();
 			String transfilename = "/" + account + "/" + fileinfo.getFilename();
 			String filename = fileinfo.getFilename();
 
@@ -111,8 +111,7 @@ public class BatchService {
 			{
 				// 檢查一下要轉的檔案是否存在
 
-				String absfilepath = transfilepath + "/"
-						+ filename;
+				String absfilepath = transfilepath + "/" + filename;
 				if (!FileUtils.fileExists(absfilepath)) {
 					canTrans = false;
 					logger.debug("檔案不存在!!" + absfilepath);
@@ -120,50 +119,48 @@ public class BatchService {
 				}
 			}
 
-			
-				try {
+			try {
 
-					// 使用者上傳檔案搬到/backup/upload/轉檔執行時間/user/txt檔
+				// 使用者上傳檔案搬到/backup/upload/轉檔執行時間/user/txt檔
 
-					StringBuffer oldFilePath = new StringBuffer();
-					oldFilePath.append(systemVar.getUploadPath()).append(
-							transfilename);
+				StringBuffer oldFilePath = new StringBuffer();
+				oldFilePath.append(systemVar.getUploadPath()).append(
+						transfilename);
 
-					StringBuffer newFilePath = new StringBuffer();
-					newFilePath.append(systemVar.getBackupPath()).append("/")
-							.append(excuteDate).append("/").append(
-									transfilename);
+				StringBuffer newFilePath = new StringBuffer();
+				newFilePath.append(systemVar.getBackupPath()).append("/")
+						.append(excuteDate).append("/").append(transfilename);
 
-					StringBuffer newFilePathDir = new StringBuffer();
-					newFilePathDir.append(systemVar.getBackupPath())
-							.append("/").append(excuteDate).append("/").append(
-									account).append("/");
+				StringBuffer newFilePathDir = new StringBuffer();
+				newFilePathDir.append(systemVar.getBackupPath()).append("/")
+						.append(excuteDate).append("/").append(account).append(
+								"/");
 
-					logger.debug("OLD FILE:" + oldFilePath.toString());
-					logger.debug("NEW FILE:" + newFilePath.toString());
-                    
-					File oldTranFile = new File(oldFilePath.toString());
-					File newTranFile = new File(newFilePath.toString());
-                  
-					if (canTrans) {
-					  FileUtil.copyFile(oldTranFile, newTranFile);
-					}
-					// fileinfo更新 改變新檔名 轉檔時間 狀態 數值 //新檔名要改變因為上傳會檢查檔名
+				logger.debug("OLD FILE:" + oldFilePath.toString());
+				logger.debug("NEW FILE:" + newFilePath.toString());
 
-					fileinfo.setTransdate(new Date());
-					fileinfo.setNewfilename(transfilename);
-					fileinfo.setFilepath(newFilePathDir.toString());
-					fileinfo.setAllnum(0);
-					fileinfo.setErrornum(0);
-					fileinfo.setSuccessnum(0);
-					
-					dao.attachDirty(fileinfo);
+				File oldTranFile = new File(oldFilePath.toString());
+				File newTranFile = new File(newFilePath.toString());
 
-				} catch (Exception e) {
-					e.printStackTrace();
+				if (canTrans) {
+					FileUtil.copyFile(oldTranFile, newTranFile);
+					this.delete(oldTranFile);
 				}
+				// fileinfo更新 改變新檔名 轉檔時間 狀態 數值 //新檔名要改變因為上傳會檢查檔名
 
-			
+				fileinfo.setTransdate(new Date());
+				fileinfo.setNewfilename(transfilename);
+				fileinfo.setFilepath(newFilePathDir.toString());
+				fileinfo.setAllnum(0);
+				fileinfo.setErrornum(0);
+				fileinfo.setSuccessnum(0);
+
+				dao.attachDirty(fileinfo);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 
 	}
@@ -184,16 +181,16 @@ public class BatchService {
 			/*
 			 * 轉檔檔名 /account/filename...
 			 */
-			
-			String transfilepath=fileinfo.getFilepath();
+
+			String transfilepath = fileinfo.getFilepath();
 			String transfilename = "/" + account + "/" + fileinfo.getFilename();
 			String filename = fileinfo.getFilename();
-			
-			String loggfile ="/" + account + "/"+filename.substring(0, filename.lastIndexOf('.'))
+
+			String loggfile = "/" + account + "/"
+					+ filename.substring(0, filename.lastIndexOf('.'))
 					+ "_LOG.txt";
-			
-			
-			String dbPattren=filename.substring(0,filename.indexOf('_'));
+
+			String dbPattren = filename.substring(0, filename.indexOf('_'));
 
 			String filePattren = filename.substring(0, filename
 					.lastIndexOf('_'));
@@ -211,7 +208,7 @@ public class BatchService {
 			// DB=CBIDB&
 			// CSV=F01_OPEN_CASE_SAMPLE.txt&
 			// PSR=tw.gov.cbi.trans.parser.Parser01&
-			// LOG=F01_OPEN_CASE_SAMPLE_LOG.tx
+			// LOG=F01_OPEN_CASE_SAMPLE_LOG.txt
 			logger.debug("URL:" + rule.getBatchURL());
 			logger.debug("DB:" + rule.getBatchDB().get(dbPattren).toString());
 			logger.debug("CSV:" + transfilename);
@@ -219,7 +216,8 @@ public class BatchService {
 			logger.debug("LOG:" + loggfile);
 
 			ArrayList<NameValuePair> args = new ArrayList<NameValuePair>();
-			args.add(new NameValuePair("DB", rule.getBatchDB().get(dbPattren).toString()));
+			args.add(new NameValuePair("DB", rule.getBatchDB().get(dbPattren)
+					.toString()));
 			args.add(new NameValuePair("CSV", transfilename));
 			args.add(new NameValuePair("PSR", ParserClass));
 			args.add(new NameValuePair("LOG", loggfile));
@@ -231,8 +229,7 @@ public class BatchService {
 			{
 				// 檢查一下要轉的檔案是否存在
 
-				String absfilepath = transfilepath + "/"
-						+ filename;
+				String absfilepath = transfilepath + "/" + filename;
 				if (!FileUtils.fileExists(absfilepath)) {
 					canTrans = false;
 					logger.debug("檔案不存在!!" + absfilepath);
@@ -243,56 +240,49 @@ public class BatchService {
 			if (canTrans) {
 
 				try {
-					String data = basicPostAction(rule.getBatchURL(),
-							args, httpclient, rule.getRemoteCharset());
+					String data = basicPostAction(rule.getBatchURL(), args,
+							httpclient, rule.getRemoteCharset());
 
-					
 					logger.debug(data);
-					//String logdata="";
-					//Document xmldoc;
-					//try {
-						
-					//	SAXReader reader=new SAXReader(false);
-					//	try {
-					//		reader.setFeature(Constants.XERCES_FEATURE_PREFIX + Constants.LOAD_EXTERNAL_DTD_FEATURE, false);
-					//	} catch (SAXException e) {
-							// TODO Auto-generated catch block
-					//		e.printStackTrace();
-					//	}
-						
-					
-					//} catch (DocumentException e) {
-						// TODO Auto-generated catch block
-						//e.printStackTrace();
-					//}
-					
-					
-					
-					
-					
-					
+					// String logdata="";
+					// Document xmldoc;
+					// try {
+
+					// SAXReader reader=new SAXReader(false);
+					// try {
+					// reader.setFeature(Constants.XERCES_FEATURE_PREFIX +
+					// Constants.LOAD_EXTERNAL_DTD_FEATURE, false);
+					// } catch (SAXException e) {
+					// TODO Auto-generated catch block
+					// e.printStackTrace();
+					// }
+
+					// } catch (DocumentException e) {
+					// TODO Auto-generated catch block
+					// e.printStackTrace();
+					// }
+
 					// data是執行完之後的LOG
 
-					List<String> logdata=new ArrayList<String>();
+					List<String> logdata = new ArrayList<String>();
 					logdata.add("");
 					// logger.debug(data);
 
 					// 檢查一下是不是有檔案產生 系統路徑+LOG檔案
-					String logpath = systemVar.getUploadPath() + "/" +  loggfile;
+					String logpath = systemVar.getUploadPath() + "/" + loggfile;
 					if (!FileUtils.fileExists(logpath)) {
 						logger.info("\t路徑:" + logpath + " LOG文件沒有產生!");
 					} else {
 						// 把LOG檔案搬到LOG中的log/user/轉檔執行時間/log檔
-                          
-						logdata=read(logpath,rule.getRemoteCharset());
-						
-						
-						
+
+						logdata = read(logpath, rule.getRemoteCharset());
+
 						StringBuffer newlogPathDir = new StringBuffer(systemVar
 								.getLogPath());
 						newlogPathDir.append("/").append(excuteDate)
 								.append("/");
-
+						// newlogPathDir.append("/").append(account)
+						// .append("/");
 						StringBuffer newlogPath = new StringBuffer(
 								newlogPathDir).append(loggfile);
 
@@ -301,8 +291,8 @@ public class BatchService {
 						File logFile = new File(logpath);
 
 						FileUtils.copyFile(logFile, newLogFile);
-
-						logFile.delete();
+						
+						delete(logFile);
 						logger.debug("路徑:" + logpath + " LOG文件產生!");
 						logger.debug("新路徑:" + newlogPath.toString()
 								+ " LOG文件產生!");
@@ -312,9 +302,8 @@ public class BatchService {
 
 					// Parser一下拿到的資料
 					// 讀取DATA的最後一行
-					//String[] splitdata=StringUtils.split(logdata,"\n");
-					
-					
+					// String[] splitdata=StringUtils.split(logdata,"\n");
+
 					String parserData = logdata.get(0);
 					logger.info("\t" + parserData);
 
@@ -345,7 +334,7 @@ public class BatchService {
 
 						// 使用者上傳檔案搬到/backup/upload/轉檔執行時間/user/txt檔
 
-						String oldFilePath = transfilepath+"/"+filename;
+						String oldFilePath = transfilepath + "/" + filename;
 
 						StringBuffer newFilePath = new StringBuffer();
 						newFilePath.append(systemVar.getBackupPath()).append(
@@ -364,7 +353,9 @@ public class BatchService {
 						File newTranFile = new File(newFilePath.toString());
 
 						FileUtil.copyFile(oldTranFile, newTranFile);
-						 oldTranFile.delete();
+
+						delete(oldTranFile);
+
 						// fileinfo更新 改變新檔名 轉檔時間 狀態 數值 //新檔名要改變因為上傳會檢查檔名
 						fileinfo.setStatus(status);
 						fileinfo.setTransdate(new Date());
@@ -393,15 +384,14 @@ public class BatchService {
 		}
 	}
 
-	
-	
-	//需要一個取dom的 然後拿最後一個textarea的值
-	
+	// 需要一個取dom的 然後拿最後一個textarea的值
+
 	public static String basicPostAction(String url,
 			ArrayList<NameValuePair> paramsList, HttpClient httpclient,
 			String Charset) throws HttpException, IOException {
 
-		httpclient.getParams().setParameter("http.protocol.content-charset", Charset);
+		httpclient.getParams().setParameter("http.protocol.content-charset",
+				Charset);
 		PostMethod post = new PostMethod(url);
 		post.setRequestHeader("Connection", "close");
 		NameValuePair[] params = new NameValuePair[paramsList.size()];
@@ -415,79 +405,95 @@ public class BatchService {
 				// httpClient.executeMethod(get);
 
 				// System.out.println(get.getResponseBodyAsString());
-				//List<String> data = new ArrayList<String>();
-				//BufferedReader reader = new BufferedReader(
-				//		new InputStreamReader(post.getResponseBodyAsStream(),
-				//				"ISO-8859-1"));
-				//String tmp = null;
-				//String htmlRet = "";
-				//while ((tmp = reader.readLine()) != null) {
-				//	data.add(new String(tmp.getBytes("ISO-8859-1"), Charset));
-				//	logger.debug(new String(tmp.getBytes("ISO-8859-1"), Charset));
-					
-				//}
+				// List<String> data = new ArrayList<String>();
+				// BufferedReader reader = new BufferedReader(
+				// new InputStreamReader(post.getResponseBodyAsStream(),
+				// "ISO-8859-1"));
+				// String tmp = null;
+				// String htmlRet = "";
+				// while ((tmp = reader.readLine()) != null) {
+				// data.add(new String(tmp.getBytes("ISO-8859-1"), Charset));
+				// logger.debug(new String(tmp.getBytes("ISO-8859-1"),
+				// Charset));
 
-				//return data;
+				// }
+
+				// return data;
 			} else {
 				throw new RuntimeException("遠端URL錯誤:" + url + ":" + result
 						+ ":" + post.getStatusText());
 			}
 		} finally {
 			post.releaseConnection();
+			
 			// ((SimpleHttpConnectionManager)httpclient.getHttpConnectionManager()).shutdown();
 		}
 	}
 
-	
+	public static void delete(File file) {
+        
+		
+		if (!file.canWrite()) {
+			logger.debug("Cant W");
 
-	  public static List<String> read(String filename, String charset) {
+		}
+		try {
+			FileUtils.forceDelete(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-        ArrayList<String> list=new ArrayList<String>();		  
-		  
-	    RandomAccessFile rf = null;
-	    try {
-	      rf = new RandomAccessFile(filename, "r");
-	      long len = rf.length();
-	      long start = rf.getFilePointer();
-	      long nextend = start + len - 1;
-	      String line;
-	      rf.seek(nextend);
-	      int c = -1;
-	      while (nextend > start) {
-	        c = rf.read();
-	        if (c == '\n' || c == '\r') {
-	          line = rf.readLine();
-	          if (line != null) {
-	            list.add(new String(line.getBytes("ISO-8859-1"), charset));
-	          }else {
-	            //System.out.println(line);
-	          }
-	          nextend--;
-	        }
-	        nextend--;
-	        rf.seek(nextend);
-	        if (nextend == 0) {// 当文件指针退至文件开始处，输出第一行
-	          //System.out.println(rf.readLine());
-	          list.add(new String(rf.readLine().getBytes("ISO-8859-1"), charset));
-	          
-	        }
-	      }
-	    } catch (FileNotFoundException e) {
-	      e.printStackTrace();
-	    } catch (IOException e) {
-	      e.printStackTrace();
-	    } finally {
-	      try {
-	        if (rf != null)
-	          rf.close();
-	      } catch (IOException e) {
-	        e.printStackTrace();
-	      }
-	    }
-	    
-	    return list;
-	  }
+	}
 
-	
-	
+	public static List<String> read(String filename, String charset) {
+
+		ArrayList<String> list = new ArrayList<String>();
+
+		RandomAccessFile rf = null;
+		try {
+			rf = new RandomAccessFile(filename, "r");
+			long len = rf.length();
+			long start = rf.getFilePointer();
+			long nextend = start + len - 1;
+			String line;
+			rf.seek(nextend);
+			int c = -1;
+			while (nextend > start) {
+				c = rf.read();
+				if (c == '\n' || c == '\r') {
+					line = rf.readLine();
+					if (line != null) {
+						list.add(new String(line.getBytes("ISO-8859-1"),
+								charset));
+					} else {
+						// System.out.println(line);
+					}
+					nextend--;
+				}
+				nextend--;
+				rf.seek(nextend);
+				if (nextend == 0) {// 当文件指针退至文件开始处，输出第一行
+					// System.out.println(rf.readLine());
+					list.add(new String(rf.readLine().getBytes("ISO-8859-1"),
+							charset));
+
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rf != null)
+					rf.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+
 }

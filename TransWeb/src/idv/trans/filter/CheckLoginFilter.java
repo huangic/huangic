@@ -31,6 +31,7 @@ public class CheckLoginFilter implements Filter {
    
    noContainURL.add("/index.do");
    noContainURL.add("/login.do");
+   noContainURL.add("/logout.do");
    noContainURL.add("/Install/index.do");
    noContainURL.add("/Install/save.do");
    
