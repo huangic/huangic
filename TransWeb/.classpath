@@ -44,9 +44,6 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/jcl-over-slf4j-1.5.8.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/json-lib-2.1.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-access-0.9.17.jar"/>
-	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-classic-0.9.17.jar"/>
-	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-core-0.9.17.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/ognl-2.7.3.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/org.apache.felix.bundlerepository-1.2.1.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/org.apache.felix.framework-1.4.1.jar"/>
@@ -98,5 +95,8 @@
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/quartz-1.6.4.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/spring-context-support.jar"/>
 	<classpathentry kind="lib" path="Web/WEB-INF/lib/jaxen-1.1-beta-6.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-access-0.9.17.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-classic-0.9.17.jar"/>
+	<classpathentry kind="lib" path="Web/WEB-INF/lib/logback-core-0.9.17.jar"/>
 	<classpathentry kind="output" path="Web/WEB-INF/classes"/>
 </classpath>
