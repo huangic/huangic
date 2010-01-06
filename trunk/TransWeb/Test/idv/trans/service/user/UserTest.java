@@ -10,6 +10,19 @@ import idv.trans.util.SpringUtil;
 public class UserTest extends SpringTest {
 
 	
+	  public void testUID(){
+		  String UID="E221061420";
+		  String UID2="A125673091";
+		  
+		  UserService service=(UserService)SpringUtil.getBean("UserService");
+		  
+		  System.out.print(service.checkUID(UID.toCharArray()));
+		  System.out.print(service.checkUID(UID2.toCharArray()));
+		  
+		  
+	  }
+	
+	
 	  public void testUserInit(){
 		  UserService service=(UserService)SpringUtil.getBean("UserService");
 		  

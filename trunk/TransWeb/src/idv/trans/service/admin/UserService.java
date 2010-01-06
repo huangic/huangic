@@ -259,7 +259,7 @@ public class UserService {
 		int D9 = Integer.parseInt(idaccept.substring(9));
 		int CheckCode = 10 - (((D00 * 1) + (D01 * 9) + (D1 * 8) + (D2 * 7)
 				+ (D3 * 6) + (D4 * 5) + (D5 * 4) + (D6 * 3) + (D7 * 2) + (D8 * 1)) % 10);
-		if (CheckCode != D9) {
+		if (CheckCode%10 != D9) {
 			rc = 1;
 		}
 		return (rc);
