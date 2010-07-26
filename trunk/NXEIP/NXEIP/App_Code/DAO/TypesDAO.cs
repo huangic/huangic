@@ -47,7 +47,7 @@ namespace NXEIP.DAO
 
 
             return (from t in model.types
-                    where t.typ_status != "0" && t.typ_number == type_code orderby t.typ_order select t);
+                    where t.typ_status == "1" && t.typ_number == type_code orderby t.typ_order select t);
 
 
 

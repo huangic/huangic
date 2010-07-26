@@ -26,59 +26,36 @@ namespace NXEIP.DAO{
         public IQueryable<departments> GetAll()
         {
 
-
-            
-            
-            
-            return (from d in model.departments where d.dep_status != "0"  orderby d.dep_no select d);
-
-            
-
-
-
+            return (from d in model.departments where d.dep_status == "1"  orderby d.dep_no select d);
         }
 
 
         public IQueryable<departments> GetAll(int startRowIndex, int maximumRows)
         {
-
-
             return GetAll().Skip(startRowIndex).Take(maximumRows);
-
-
-
-            
-
         }
 
 
-        public int GetAllCount() {
-
-
+        public int GetAllCount() 
+        {
             return GetAll().Count();
-
-                
-
-           
-            
         }
 
 
-        public void AddDepartment(departments department) {
+        public void AddDepartment(departments department) 
+        {
             model.AddTodepartments(department);
-            
-         
         }
 
 
-        public int Update() {
-           
-            
+        public int Update() 
+        {
             return model.SaveChanges();
         }
 
 
-        public departments GetByDepNo(int dep_no) {
+        public departments GetByDepNo(int dep_no) 
+        {
             return (from depart in model.departments where depart.dep_no == dep_no select depart).FirstOrDefault();
         }
 
