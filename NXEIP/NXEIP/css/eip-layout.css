@@ -1,0 +1,63 @@
+.wrap {
+	width:1020px;
+	margin:0 auto;
+    padding:0;
+    background-color:#ffffff;
+    z-index:1;
+}
+
+
+.leftbg {
+    float:left;
+    width:210px;
+    
+   padding:0px 5px 0px 5px;
+}
+
+.center {
+   float:left;
+   width:580px;
+   /*padding-top:20px;*/
+}
+
+.rightbg {
+   float:right;
+   width:210px;
+   padding:0px 5px 0px 5px;
+}
+
+
+
+.activeDrag
+{
+    border: dashed 2px #000000;    
+    z-index:99;
+    filter:alpha(opacity=70);
+    opacity:0.7; 
+    
+}
+
+
+
+
+
+
+/*
+
+ MODALPOPUP ¸õ¥X¥Îªº­I´º
+*/
+.modalBackground
+{
+  background-color:Gray;
+filter:alpha(opacity=70);
+opacity:0.7;   
+    
+}
+
+.modalBackground2
+{
+background-color:Gray;
+filter:alpha(opacity=70);
+opacity:0.7;   
+    
+}
