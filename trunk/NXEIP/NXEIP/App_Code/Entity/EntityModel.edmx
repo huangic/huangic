@@ -1,0 +1,1772 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="NXEIPModelStoreContainer">
+          <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="block" EntityType="NXEIPModel.Store.block" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="c01" EntityType="NXEIPModel.Store.c01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="c02" EntityType="NXEIPModel.Store.c02" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="c03" EntityType="NXEIPModel.Store.c03" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="c04" EntityType="NXEIPModel.Store.c04" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="departments" EntityType="NXEIPModel.Store.departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dtproperties" EntityType="NXEIPModel.Store.dtproperties" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="rauthority" EntityType="NXEIPModel.Store.rauthority" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="role" EntityType="NXEIPModel.Store.role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="roleaccount" EntityType="NXEIPModel.Store.roleaccount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="s01" EntityType="NXEIPModel.Store.s01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="s02" EntityType="NXEIPModel.Store.s02" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="s03" EntityType="NXEIPModel.Store.s03" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="s04" EntityType="NXEIPModel.Store.s04" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sys" EntityType="NXEIPModel.Store.sys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="NXEIPModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysfuction" EntityType="NXEIPModel.Store.sysfuction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="types" EntityType="NXEIPModel.Store.types" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="widget" EntityType="NXEIPModel.Store.widget" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ACCOUNTS_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_ACCOUNTS_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="accounts" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_block_page" Association="NXEIPModel.Store.FK_block_page">
+            <End Role="page" EntitySet="page" />
+            <End Role="block" EntitySet="block" />
+          </AssociationSet>
+          <AssociationSet Name="FK_block_widget" Association="NXEIPModel.Store.FK_block_widget">
+            <End Role="widget" EntitySet="widget" />
+            <End Role="block" EntitySet="block" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C01_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_C01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c01" EntitySet="c01" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C02_RELATIONS_C03" Association="NXEIPModel.Store.FK_C02_RELATIONS_C03">
+            <End Role="c03" EntitySet="c03" />
+            <End Role="c02" EntitySet="c02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C02_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_C02_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c02" EntitySet="c02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_C04_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_C04_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c04" EntitySet="c04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OPERATES_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_OPERATES_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="operates" EntitySet="operates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OPERATES_RELATIONS_SYSFUCTI" Association="NXEIPModel.Store.FK_OPERATES_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="operates" EntitySet="operates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PEOPLE_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_PEOPLE_RELATIONS_DEPARTME">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="people" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAUTHORI_RELATIONS_ROLE" Association="NXEIPModel.Store.FK_RAUTHORI_RELATIONS_ROLE">
+            <End Role="role" EntitySet="role" />
+            <End Role="rauthority" EntitySet="rauthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAUTHORI_RELATIONS_SYSFUCTI" Association="NXEIPModel.Store.FK_RAUTHORI_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="rauthority" EntitySet="rauthority" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROLEACCO_RELATIONS_ACCOUNTS" Association="NXEIPModel.Store.FK_ROLEACCO_RELATIONS_ACCOUNTS">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="roleaccount" EntitySet="roleaccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ROLEACCO_RELATIONS_ROLE" Association="NXEIPModel.Store.FK_ROLEACCO_RELATIONS_ROLE">
+            <End Role="role" EntitySet="role" />
+            <End Role="roleaccount" EntitySet="roleaccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S02_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_S02_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="s02" EntitySet="s02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S02_RELATIONS_S01" Association="NXEIPModel.Store.FK_S02_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s02" EntitySet="s02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S03_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_S03_RELATIONS_DEPARTME">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="s03" EntitySet="s03" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S03_RELATIONS_S01" Association="NXEIPModel.Store.FK_S03_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s03" EntitySet="s03" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S04_RELATIONS_S01" Association="NXEIPModel.Store.FK_S04_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s04" EntitySet="s04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_S04_RELATIONS_TYPES" Association="NXEIPModel.Store.FK_S04_RELATIONS_TYPES">
+            <End Role="types" EntitySet="types" />
+            <End Role="s04" EntitySet="s04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYSFUCTI_RELATIONS_SYS" Association="NXEIPModel.Store.FK_SYSFUCTI_RELATIONS_SYS">
+            <End Role="sys" EntitySet="sys" />
+            <End Role="sysfuction" EntitySet="sysfuction" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="acc_no" />
+          </Key>
+          <Property Name="acc_createtime" Type="datetime" />
+          <Property Name="acc_createuid" Type="int" />
+          <Property Name="acc_login" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="acc_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="acc_passwd" Type="varchar" MaxLength="20" />
+          <Property Name="acc_status" Type="char" MaxLength="1" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arguments">
+          <Key>
+            <PropertyRef Name="arg_no" />
+          </Key>
+          <Property Name="arg_describe" Type="nvarchar" MaxLength="500" />
+          <Property Name="arg_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="arg_value" Type="varchar" MaxLength="50" />
+          <Property Name="arg_variable" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="block">
+          <Key>
+            <PropertyRef Name="blo_no" />
+          </Key>
+          <Property Name="blo_createtime" Type="datetime" />
+          <Property Name="blo_createuid" Type="int" />
+          <Property Name="blo_layout" Type="varchar" MaxLength="50" />
+          <Property Name="blo_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="blo_order" Type="int" />
+          <Property Name="blo_setting" Type="text" />
+          <Property Name="pag_no" Type="int" Nullable="false" />
+          <Property Name="wid_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c01">
+          <Key>
+            <PropertyRef Name="co1_no" />
+          </Key>
+          <Property Name="c01_createtime" Type="datetime" />
+          <Property Name="c01_peouid" Type="int" Nullable="false" />
+          <Property Name="co1_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c02">
+          <Key>
+            <PropertyRef Name="c02_no" />
+            <PropertyRef Name="peo_uid" />
+          </Key>
+          <Property Name="c02_bgcolor" Type="varchar" MaxLength="8" />
+          <Property Name="c02_createtime" Type="datetime" />
+          <Property Name="c02_createuid" Type="int" />
+          <Property Name="c02_edate" Type="datetime" Nullable="false" />
+          <Property Name="c02_no" Type="int" Nullable="false" />
+          <Property Name="c02_place" Type="nvarchar" MaxLength="150" />
+          <Property Name="c02_project" Type="ntext" />
+          <Property Name="c02_result" Type="ntext" />
+          <Property Name="c02_sdate" Type="datetime" Nullable="false" />
+          <Property Name="c02_setuid" Type="int" />
+          <Property Name="c02_title" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="c03_no" Type="int" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="c03">
+          <Key>
+            <PropertyRef Name="c03_no" />
+          </Key>
+          <Property Name="c03_crule" Type="varchar" MaxLength="10" />
+          <Property Name="c03_ctype" Type="char" MaxLength="1" />
+          <Property Name="c03_cycle" Type="char" MaxLength="1" />
+          <Property Name="c03_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="c03_rule" Type="varchar" MaxLength="30" />
+          <Property Name="c03_sdate" Type="datetime" />
+          <Property Name="c03_type" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="c04">
+          <Key>
+            <PropertyRef Name="c04_no" />
+          </Key>
+          <Property Name="c04_createtime" Type="datetime" />
+          <Property Name="c04_createuid" Type="int" />
+          <Property Name="c04_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="c04_right" Type="char" MaxLength="1" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="dep_no" />
+          </Key>
+          <Property Name="dep_addr" Type="nvarchar" MaxLength="100" />
+          <Property Name="dep_code" Type="varchar" MaxLength="20" />
+          <Property Name="dep_createtime" Type="datetime" />
+          <Property Name="dep_createuid" Type="int" />
+          <Property Name="dep_ename" Type="varchar" MaxLength="60" />
+          <Property Name="dep_fax" Type="varchar" MaxLength="20" />
+          <Property Name="dep_level" Type="int" />
+          <Property Name="dep_name" Type="nvarchar" MaxLength="40" />
+          <Property Name="dep_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="dep_order" Type="int" />
+          <Property Name="dep_parentid" Type="int" />
+          <Property Name="dep_son" Type="char" MaxLength="1" />
+          <Property Name="dep_status" Type="char" MaxLength="1" />
+          <Property Name="dep_tel" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loginlog">
+          <Key>
+            <PropertyRef Name="log_no" />
+          </Key>
+          <Property Name="log_accno" Type="int" />
+          <Property Name="log_ip" Type="varchar" MaxLength="50" />
+          <Property Name="log_loginout" Type="datetime" />
+          <Property Name="log_logintime" Type="datetime" />
+          <Property Name="log_no" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="log_peouid" Type="int" />
+          <Property Name="log_sessionid" Type="varchar" MaxLength="100" />
+          <Property Name="log_status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="operates">
+          <Key>
+            <PropertyRef Name="ope_no" />
+          </Key>
+          <Property Name="ope_fuction" Type="int" />
+          <Property Name="ope_logintime" Type="datetime" />
+          <Property Name="ope_memo" Type="nvarchar" MaxLength="500" />
+          <Property Name="ope_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+          <Property Name="sfu_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="page">
+          <Key>
+            <PropertyRef Name="pag_no" />
+          </Key>
+          <Property Name="pag_createtime" Type="datetime" />
+          <Property Name="pag_createuid" Type="int" />
+          <Property Name="pag_css" Type="varchar" MaxLength="50" />
+          <Property Name="pag_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pag_type" Type="char" MaxLength="1" />
+          <Property Name="pag_uid" Type="int" />
+        </EntityType>
+        <EntityType Name="people">
+          <Key>
+            <PropertyRef Name="peo_uid" />
+          </Key>
+          <Property Name="dep_no" Type="int" Nullable="false" />
+          <Property Name="peo_account" Type="varchar" MaxLength="30" />
+          <Property Name="peo_addr" Type="nvarchar" MaxLength="100" />
+          <Property Name="peo_age" Type="varchar" MaxLength="4" />
+          <Property Name="peo_armyage" Type="varchar" MaxLength="4" />
+          <Property Name="peo_arrivedate" Type="datetime" />
+          <Property Name="peo_bankname" Type="nvarchar" MaxLength="30" />
+          <Property Name="peo_beforelast" Type="varchar" MaxLength="4" />
+          <Property Name="peo_birthday" Type="datetime" />
+          <Property Name="peo_boss" Type="int" />
+          <Property Name="peo_break" Type="char" MaxLength="1" />
+          <Property Name="peo_cardtype" Type="char" Nullable="false" MaxLength="3" />
+          <Property Name="peo_contractage" Type="varchar" MaxLength="4" />
+          <Property Name="peo_createtime" Type="datetime" />
+          <Property Name="peo_createuid" Type="int" />
+          <Property Name="peo_eduno" Type="int" />
+          <Property Name="peo_email" Type="varchar" MaxLength="100" />
+          <Property Name="peo_english" Type="varchar" MaxLength="40" />
+          <Property Name="peo_exmno" Type="int" />
+          <Property Name="peo_filename" Type="nvarchar" MaxLength="100" />
+          <Property Name="peo_homeaddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="peo_hometel" Type="varchar" MaxLength="20" />
+          <Property Name="peo_idcard" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="peo_jobtype" Type="int" />
+          <Property Name="peo_lastyear" Type="varchar" MaxLength="4" />
+          <Property Name="peo_leave" Type="datetime" />
+          <Property Name="peo_major" Type="int" />
+          <Property Name="peo_marry" Type="char" MaxLength="1" />
+          <Property Name="peo_memo" Type="nvarchar" MaxLength="100" />
+          <Property Name="peo_name" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="peo_nonstop" Type="varchar" MaxLength="4" />
+          <Property Name="peo_nonthree" Type="varchar" MaxLength="4" />
+          <Property Name="peo_nontwo" Type="varchar" MaxLength="4" />
+          <Property Name="peo_organization" Type="char" MaxLength="1" />
+          <Property Name="peo_pagno" Type="int" />
+          <Property Name="peo_pfofess" Type="int" />
+          <Property Name="peo_picture" Type="image" />
+          <Property Name="peo_pincode" Type="varchar" MaxLength="100" />
+          <Property Name="peo_plevel" Type="int" />
+          <Property Name="peo_point" Type="varchar" MaxLength="20" />
+          <Property Name="peo_postaccount" Type="varchar" MaxLength="30" />
+          <Property Name="peo_prospcst" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="peo_ptype" Type="int" />
+          <Property Name="peo_publicday" Type="datetime" Nullable="false" />
+          <Property Name="peo_reserve" Type="varchar" MaxLength="4" />
+          <Property Name="peo_salary" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="peo_sex" Type="char" MaxLength="1" />
+          <Property Name="peo_tel" Type="varchar" MaxLength="20" />
+          <Property Name="peo_thisyear" Type="varchar" MaxLength="4" />
+          <Property Name="peo_tree" Type="int" />
+          <Property Name="peo_uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="peo_workerage" Type="varchar" MaxLength="4" />
+          <Property Name="peo_workid" Type="varchar" MaxLength="10" />
+          <Property Name="peo_worktype" Type="int" />
+          <Property Name="peo_yeartype" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="rauthority">
+          <Key>
+            <PropertyRef Name="rau_no" />
+          </Key>
+          <Property Name="rau_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="rau_sys" Type="int" />
+          <Property Name="rol_no" Type="int" Nullable="false" />
+          <Property Name="sfu_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="rol_no" />
+          </Key>
+          <Property Name="rol_createtime" Type="datetime" />
+          <Property Name="rol_createuid" Type="int" />
+          <Property Name="rol_memo" Type="nvarchar" MaxLength="100" />
+          <Property Name="rol_name" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="rol_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="roleaccount">
+          <Key>
+            <PropertyRef Name="rac_no" />
+            <PropertyRef Name="rol_no" />
+          </Key>
+          <Property Name="acc_no" Type="int" Nullable="false" />
+          <Property Name="rac_no" Type="int" Nullable="false" />
+          <Property Name="rol_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="s01">
+          <Key>
+            <PropertyRef Name="s01_no" />
+          </Key>
+          <Property Name="s01_createtime" Type="datetime" />
+          <Property Name="s01_createuid" Type="int" />
+          <Property Name="s01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="s01_peouid" Type="int" />
+          <Property Name="s01_type" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="s02">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s02_no" />
+          </Key>
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+          <Property Name="s01_no" Type="int" Nullable="false" />
+          <Property Name="s02_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="s03">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s03_no" />
+          </Key>
+          <Property Name="dep_no" Type="int" Nullable="false" />
+          <Property Name="s01_no" Type="int" Nullable="false" />
+          <Property Name="s03_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="s04">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s04_no" />
+          </Key>
+          <Property Name="s01_no" Type="int" Nullable="false" />
+          <Property Name="s04_no" Type="int" Nullable="false" />
+          <Property Name="typ_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sys">
+          <Key>
+            <PropertyRef Name="sys_no" />
+          </Key>
+          <Property Name="sys_catalog" Type="varchar" MaxLength="100" />
+          <Property Name="sys_createtime" Type="datetime" />
+          <Property Name="sys_createuid" Type="int" />
+          <Property Name="sys_defaultpic" Type="varchar" MaxLength="200" />
+          <Property Name="sys_name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="sys_no" Type="int" Nullable="false" />
+          <Property Name="sys_order" Type="int" />
+          <Property Name="sys_overpicture" Type="varchar" MaxLength="200" />
+          <Property Name="sys_status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="version" Type="int" />
+        </EntityType>
+        <EntityType Name="sysfuction">
+          <Key>
+            <PropertyRef Name="sfu_no" />
+          </Key>
+          <Property Name="sfu_catalog" Type="varchar" MaxLength="100" />
+          <Property Name="sfu_createtime" Type="datetime" />
+          <Property Name="sfu_createuid" Type="int" />
+          <Property Name="sfu_defaltpic" Type="varchar" MaxLength="200" />
+          <Property Name="sfu_name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="sfu_no" Type="int" Nullable="false" />
+          <Property Name="sfu_order" Type="int" />
+          <Property Name="sfu_overpicture" Type="varchar" MaxLength="200" />
+          <Property Name="sfu_parent" Type="int" />
+          <Property Name="sfu_path" Type="varchar" MaxLength="200" />
+          <Property Name="sfu_status" Type="char" MaxLength="1" />
+          <Property Name="sys_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="typ_no" />
+          </Key>
+          <Property Name="typ_cname" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="typ_code" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="typ_createtime" Type="datetime" />
+          <Property Name="typ_createuid" Type="int" />
+          <Property Name="typ_ename" Type="varchar" MaxLength="100" />
+          <Property Name="typ_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="typ_number" Type="nvarchar" MaxLength="10" />
+          <Property Name="typ_order" Type="int" />
+          <Property Name="typ_status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="widget">
+          <Key>
+            <PropertyRef Name="wid_no" />
+          </Key>
+          <Property Name="wid_memo" Type="varchar" MaxLength="200" />
+          <Property Name="wid_name" Type="varchar" MaxLength="50" />
+          <Property Name="wid_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="wid_order" Type="int" />
+          <Property Name="wid_setting" Type="text" />
+          <Property Name="wid_status" Type="char" MaxLength="1" />
+          <Property Name="wid_type" Type="char" MaxLength="1" />
+          <Property Name="wid_url" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_ACCOUNTS_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="accounts" Type="NXEIPModel.Store.accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="accounts">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_block_page">
+          <End Role="page" Type="NXEIPModel.Store.page" Multiplicity="1" />
+          <End Role="block" Type="NXEIPModel.Store.block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="page">
+              <PropertyRef Name="pag_no" />
+            </Principal>
+            <Dependent Role="block">
+              <PropertyRef Name="pag_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_block_widget">
+          <End Role="widget" Type="NXEIPModel.Store.widget" Multiplicity="1" />
+          <End Role="block" Type="NXEIPModel.Store.block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="widget">
+              <PropertyRef Name="wid_no" />
+            </Principal>
+            <Dependent Role="block">
+              <PropertyRef Name="wid_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C01_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="c01" Type="NXEIPModel.Store.c01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="c01">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C02_RELATIONS_C03">
+          <End Role="c03" Type="NXEIPModel.Store.c03" Multiplicity="0..1" />
+          <End Role="c02" Type="NXEIPModel.Store.c02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="c03">
+              <PropertyRef Name="c03_no" />
+            </Principal>
+            <Dependent Role="c02">
+              <PropertyRef Name="c03_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C02_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="c02" Type="NXEIPModel.Store.c02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="c02">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_C04_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="c04" Type="NXEIPModel.Store.c04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="c04">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPERATES_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="operates" Type="NXEIPModel.Store.operates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="operates">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPERATES_RELATIONS_SYSFUCTI">
+          <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="1" />
+          <End Role="operates" Type="NXEIPModel.Store.operates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sysfuction">
+              <PropertyRef Name="sfu_no" />
+            </Principal>
+            <Dependent Role="operates">
+              <PropertyRef Name="sfu_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PEOPLE_RELATIONS_DEPARTME">
+          <End Role="departments" Type="NXEIPModel.Store.departments" Multiplicity="1" />
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="dep_no" />
+            </Principal>
+            <Dependent Role="people">
+              <PropertyRef Name="dep_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAUTHORI_RELATIONS_ROLE">
+          <End Role="role" Type="NXEIPModel.Store.role" Multiplicity="1" />
+          <End Role="rauthority" Type="NXEIPModel.Store.rauthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="rol_no" />
+            </Principal>
+            <Dependent Role="rauthority">
+              <PropertyRef Name="rol_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAUTHORI_RELATIONS_SYSFUCTI">
+          <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="1" />
+          <End Role="rauthority" Type="NXEIPModel.Store.rauthority" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sysfuction">
+              <PropertyRef Name="sfu_no" />
+            </Principal>
+            <Dependent Role="rauthority">
+              <PropertyRef Name="sfu_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROLEACCO_RELATIONS_ACCOUNTS">
+          <End Role="accounts" Type="NXEIPModel.Store.accounts" Multiplicity="1" />
+          <End Role="roleaccount" Type="NXEIPModel.Store.roleaccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="acc_no" />
+            </Principal>
+            <Dependent Role="roleaccount">
+              <PropertyRef Name="acc_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ROLEACCO_RELATIONS_ROLE">
+          <End Role="role" Type="NXEIPModel.Store.role" Multiplicity="1" />
+          <End Role="roleaccount" Type="NXEIPModel.Store.roleaccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="rol_no" />
+            </Principal>
+            <Dependent Role="roleaccount">
+              <PropertyRef Name="rol_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S02_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="s02" Type="NXEIPModel.Store.s02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="s02">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S02_RELATIONS_S01">
+          <End Role="s01" Type="NXEIPModel.Store.s01" Multiplicity="1" />
+          <End Role="s02" Type="NXEIPModel.Store.s02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" />
+            </Principal>
+            <Dependent Role="s02">
+              <PropertyRef Name="s01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S03_RELATIONS_DEPARTME">
+          <End Role="departments" Type="NXEIPModel.Store.departments" Multiplicity="1" />
+          <End Role="s03" Type="NXEIPModel.Store.s03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departments">
+              <PropertyRef Name="dep_no" />
+            </Principal>
+            <Dependent Role="s03">
+              <PropertyRef Name="dep_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S03_RELATIONS_S01">
+          <End Role="s01" Type="NXEIPModel.Store.s01" Multiplicity="1" />
+          <End Role="s03" Type="NXEIPModel.Store.s03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" />
+            </Principal>
+            <Dependent Role="s03">
+              <PropertyRef Name="s01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S04_RELATIONS_S01">
+          <End Role="s01" Type="NXEIPModel.Store.s01" Multiplicity="1" />
+          <End Role="s04" Type="NXEIPModel.Store.s04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" />
+            </Principal>
+            <Dependent Role="s04">
+              <PropertyRef Name="s01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_S04_RELATIONS_TYPES">
+          <End Role="types" Type="NXEIPModel.Store.types" Multiplicity="1" />
+          <End Role="s04" Type="NXEIPModel.Store.s04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="typ_no" />
+            </Principal>
+            <Dependent Role="s04">
+              <PropertyRef Name="typ_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYSFUCTI_RELATIONS_SYS">
+          <End Role="sys" Type="NXEIPModel.Store.sys" Multiplicity="1" />
+          <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys">
+              <PropertyRef Name="sys_no" />
+            </Principal>
+            <Dependent Role="sysfuction">
+              <PropertyRef Name="sys_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NXEIPModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="NXEIPEntities">
+          <EntitySet Name="accounts" EntityType="NXEIPModel.accounts" />
+          <EntitySet Name="arguments" EntityType="NXEIPModel.arguments" />
+          <EntitySet Name="block" EntityType="NXEIPModel.block" />
+          <EntitySet Name="c01" EntityType="NXEIPModel.c01" />
+          <EntitySet Name="c02" EntityType="NXEIPModel.c02" />
+          <EntitySet Name="c03" EntityType="NXEIPModel.c03" />
+          <EntitySet Name="c04" EntityType="NXEIPModel.c04" />
+          <EntitySet Name="departments" EntityType="NXEIPModel.departments" />
+          <EntitySet Name="dtproperties" EntityType="NXEIPModel.dtproperties" />
+          <EntitySet Name="loginlog" EntityType="NXEIPModel.loginlog" />
+          <EntitySet Name="operates" EntityType="NXEIPModel.operates" />
+          <EntitySet Name="page" EntityType="NXEIPModel.page" />
+          <EntitySet Name="people" EntityType="NXEIPModel.people" />
+          <EntitySet Name="rauthority" EntityType="NXEIPModel.rauthority" />
+          <EntitySet Name="role" EntityType="NXEIPModel.role" />
+          <EntitySet Name="roleaccount" EntityType="NXEIPModel.roleaccount" />
+          <EntitySet Name="s01" EntityType="NXEIPModel.s01" />
+          <EntitySet Name="s02" EntityType="NXEIPModel.s02" />
+          <EntitySet Name="s03" EntityType="NXEIPModel.s03" />
+          <EntitySet Name="s04" EntityType="NXEIPModel.s04" />
+          <EntitySet Name="sys" EntityType="NXEIPModel.sys" />
+          <EntitySet Name="sysdiagrams" EntityType="NXEIPModel.sysdiagrams" />
+          <EntitySet Name="sysfuction" EntityType="NXEIPModel.sysfuction" />
+          <EntitySet Name="types" EntityType="NXEIPModel.types" />
+          <EntitySet Name="widget" EntityType="NXEIPModel.widget" />
+          <AssociationSet Name="FK_ACCOUNTS_RELATIONS_PEOPLE" Association="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="accounts" EntitySet="accounts" /></AssociationSet>
+          <AssociationSet Name="FK_ROLEACCO_RELATIONS_ACCOUNTS" Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="roleaccount" EntitySet="roleaccount" /></AssociationSet>
+          <AssociationSet Name="FK_block_page" Association="NXEIPModel.FK_block_page">
+            <End Role="page" EntitySet="page" />
+            <End Role="block" EntitySet="block" /></AssociationSet>
+          <AssociationSet Name="FK_block_widget" Association="NXEIPModel.FK_block_widget">
+            <End Role="widget" EntitySet="widget" />
+            <End Role="block" EntitySet="block" /></AssociationSet>
+          <AssociationSet Name="FK_C01_RELATIONS_PEOPLE" Association="NXEIPModel.FK_C01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c01" EntitySet="c01" /></AssociationSet>
+          <AssociationSet Name="FK_C02_RELATIONS_C03" Association="NXEIPModel.FK_C02_RELATIONS_C03">
+            <End Role="c03" EntitySet="c03" />
+            <End Role="c02" EntitySet="c02" /></AssociationSet>
+          <AssociationSet Name="FK_C02_RELATIONS_PEOPLE" Association="NXEIPModel.FK_C02_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c02" EntitySet="c02" /></AssociationSet>
+          <AssociationSet Name="FK_C04_RELATIONS_PEOPLE" Association="NXEIPModel.FK_C04_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="c04" EntitySet="c04" /></AssociationSet>
+          <AssociationSet Name="FK_PEOPLE_RELATIONS_DEPARTME" Association="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="people" EntitySet="people" /></AssociationSet>
+          <AssociationSet Name="FK_S03_RELATIONS_DEPARTME" Association="NXEIPModel.FK_S03_RELATIONS_DEPARTME">
+            <End Role="departments" EntitySet="departments" />
+            <End Role="s03" EntitySet="s03" /></AssociationSet>
+          <AssociationSet Name="FK_OPERATES_RELATIONS_PEOPLE" Association="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="operates" EntitySet="operates" /></AssociationSet>
+          <AssociationSet Name="FK_OPERATES_RELATIONS_SYSFUCTI" Association="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="operates" EntitySet="operates" /></AssociationSet>
+          <AssociationSet Name="FK_S02_RELATIONS_PEOPLE" Association="NXEIPModel.FK_S02_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="s02" EntitySet="s02" /></AssociationSet>
+          <AssociationSet Name="FK_RAUTHORI_RELATIONS_ROLE" Association="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE">
+            <End Role="role" EntitySet="role" />
+            <End Role="rauthority" EntitySet="rauthority" /></AssociationSet>
+          <AssociationSet Name="FK_RAUTHORI_RELATIONS_SYSFUCTI" Association="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="rauthority" EntitySet="rauthority" /></AssociationSet>
+          <AssociationSet Name="FK_ROLEACCO_RELATIONS_ROLE" Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE">
+            <End Role="role" EntitySet="role" />
+            <End Role="roleaccount" EntitySet="roleaccount" /></AssociationSet>
+          <AssociationSet Name="FK_S02_RELATIONS_S01" Association="NXEIPModel.FK_S02_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s02" EntitySet="s02" /></AssociationSet>
+          <AssociationSet Name="FK_S03_RELATIONS_S01" Association="NXEIPModel.FK_S03_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s03" EntitySet="s03" /></AssociationSet>
+          <AssociationSet Name="FK_S04_RELATIONS_S01" Association="NXEIPModel.FK_S04_RELATIONS_S01">
+            <End Role="s01" EntitySet="s01" />
+            <End Role="s04" EntitySet="s04" /></AssociationSet>
+          <AssociationSet Name="FK_S04_RELATIONS_TYPES" Association="NXEIPModel.FK_S04_RELATIONS_TYPES">
+            <End Role="types" EntitySet="types" />
+            <End Role="s04" EntitySet="s04" /></AssociationSet>
+          <AssociationSet Name="FK_SYSFUCTI_RELATIONS_SYS" Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS">
+            <End Role="sys" EntitySet="sys" />
+            <End Role="sysfuction" EntitySet="sysfuction" /></AssociationSet>
+          </EntityContainer>
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="acc_no" /></Key>
+          <Property Name="acc_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="acc_createuid" Type="Int32" Nullable="true" />
+          <Property Name="acc_login" Type="String" Nullable="false" />
+          <Property Name="acc_no" Type="Int32" Nullable="false" />
+          <Property Name="acc_passwd" Type="String" Nullable="true" />
+          <Property Name="acc_status" Type="String" Nullable="true" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" FromRole="accounts" ToRole="people" />
+          <NavigationProperty Name="roleaccount" Relationship="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" FromRole="accounts" ToRole="roleaccount" /></EntityType>
+        <EntityType Name="arguments">
+          <Key>
+            <PropertyRef Name="arg_no" /></Key>
+          <Property Name="arg_describe" Type="String" Nullable="true" />
+          <Property Name="arg_no" Type="Int32" Nullable="false" />
+          <Property Name="arg_value" Type="String" Nullable="true" />
+          <Property Name="arg_variable" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="block">
+          <Key>
+            <PropertyRef Name="blo_no" /></Key>
+          <Property Name="blo_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="blo_createuid" Type="Int32" Nullable="true" />
+          <Property Name="blo_layout" Type="String" Nullable="true" />
+          <Property Name="blo_no" Type="Int32" Nullable="false" />
+          <Property Name="blo_order" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="page" Relationship="NXEIPModel.FK_block_page" FromRole="block" ToRole="page" />
+          <NavigationProperty Name="widget" Relationship="NXEIPModel.FK_block_widget" FromRole="block" ToRole="widget" />
+          <Property Name="blo_setting" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="c01">
+          <Key>
+            <PropertyRef Name="co1_no" /></Key>
+          <Property Name="c01_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="c01_peouid" Type="Int32" Nullable="false" />
+          <Property Name="co1_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_C01_RELATIONS_PEOPLE" FromRole="c01" ToRole="people" /></EntityType>
+        <EntityType Name="c02">
+          <Key>
+            <PropertyRef Name="c02_no" />
+            <PropertyRef Name="peo_uid" /></Key>
+          <Property Name="c02_bgcolor" Type="String" Nullable="true" />
+          <Property Name="c02_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="c02_createuid" Type="Int32" Nullable="true" />
+          <Property Name="c02_edate" Type="DateTime" Nullable="false" />
+          <Property Name="c02_no" Type="Int32" Nullable="false" />
+          <Property Name="c02_place" Type="String" Nullable="true" />
+          <Property Name="c02_project" Type="String" Nullable="true" />
+          <Property Name="c02_result" Type="String" Nullable="true" />
+          <Property Name="c02_sdate" Type="DateTime" Nullable="false" />
+          <Property Name="c02_setuid" Type="Int32" Nullable="true" />
+          <Property Name="c02_title" Type="String" Nullable="false" />
+          <Property Name="peo_uid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="c03" Relationship="NXEIPModel.FK_C02_RELATIONS_C03" FromRole="c02" ToRole="c03" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_C02_RELATIONS_PEOPLE" FromRole="c02" ToRole="people" /></EntityType>
+        <EntityType Name="c03">
+          <Key>
+            <PropertyRef Name="c03_no" /></Key>
+          <Property Name="c03_crule" Type="String" Nullable="true" />
+          <Property Name="c03_ctype" Type="String" Nullable="true" />
+          <Property Name="c03_cycle" Type="String" Nullable="true" />
+          <Property Name="c03_no" Type="Int32" Nullable="false" />
+          <Property Name="c03_rule" Type="String" Nullable="true" />
+          <Property Name="c03_sdate" Type="DateTime" Nullable="true" />
+          <Property Name="c03_type" Type="String" Nullable="true" />
+          <NavigationProperty Name="c02" Relationship="NXEIPModel.FK_C02_RELATIONS_C03" FromRole="c03" ToRole="c02" /></EntityType>
+        <EntityType Name="c04">
+          <Key>
+            <PropertyRef Name="c04_no" /></Key>
+          <Property Name="c04_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="c04_createuid" Type="Int32" Nullable="true" />
+          <Property Name="c04_no" Type="Int32" Nullable="false" />
+          <Property Name="c04_right" Type="String" Nullable="true" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_C04_RELATIONS_PEOPLE" FromRole="c04" ToRole="people" /></EntityType>
+        <EntityType Name="departments">
+          <Key>
+            <PropertyRef Name="dep_no" /></Key>
+          <Property Name="dep_addr" Type="String" Nullable="true" />
+          <Property Name="dep_code" Type="String" Nullable="true" />
+          <Property Name="dep_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="dep_createuid" Type="Int32" Nullable="true" />
+          <Property Name="dep_ename" Type="String" Nullable="true" />
+          <Property Name="dep_fax" Type="String" Nullable="true" />
+          <Property Name="dep_level" Type="Int32" Nullable="true" />
+          <Property Name="dep_name" Type="String" Nullable="true" />
+          <Property Name="dep_no" Type="Int32" Nullable="false" />
+          <Property Name="dep_order" Type="Int32" Nullable="true" />
+          <Property Name="dep_parentid" Type="Int32" Nullable="true" />
+          <Property Name="dep_son" Type="String" Nullable="true" />
+          <Property Name="dep_status" Type="String" Nullable="true" />
+          <Property Name="dep_tel" Type="String" Nullable="true" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" FromRole="departments" ToRole="people" />
+          <NavigationProperty Name="s03" Relationship="NXEIPModel.FK_S03_RELATIONS_DEPARTME" FromRole="departments" ToRole="s03" /></EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" /></Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lvalue" Type="Binary" Nullable="true" />
+          <Property Name="objectid" Type="Int32" Nullable="true" />
+          <Property Name="property" Type="String" Nullable="false" />
+          <Property Name="uvalue" Type="String" Nullable="true" />
+          <Property Name="value" Type="String" Nullable="true" />
+          <Property Name="version" Type="Int32" Nullable="false" /></EntityType>
+        <EntityType Name="loginlog">
+          <Key>
+            <PropertyRef Name="log_no" /></Key>
+          <Property Name="log_accno" Type="Int32" Nullable="true" />
+          <Property Name="log_ip" Type="String" Nullable="true" />
+          <Property Name="log_loginout" Type="DateTime" Nullable="true" />
+          <Property Name="log_logintime" Type="DateTime" Nullable="true" />
+          <Property Name="log_no" Type="String" Nullable="false" />
+          <Property Name="log_peouid" Type="Int32" Nullable="true" />
+          <Property Name="log_sessionid" Type="String" Nullable="true" />
+          <Property Name="log_status" Type="String" Nullable="true" /></EntityType>
+        <EntityType Name="operates">
+          <Key>
+            <PropertyRef Name="ope_no" /></Key>
+          <Property Name="ope_fuction" Type="Int32" Nullable="true" />
+          <Property Name="ope_logintime" Type="DateTime" Nullable="true" />
+          <Property Name="ope_memo" Type="String" Nullable="true" />
+          <Property Name="ope_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" FromRole="operates" ToRole="people" />
+          <NavigationProperty Name="sysfuction" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" FromRole="operates" ToRole="sysfuction" /></EntityType>
+        <EntityType Name="page">
+          <Key>
+            <PropertyRef Name="pag_no" /></Key>
+          <Property Name="pag_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="pag_createuid" Type="Int32" Nullable="true" />
+          <Property Name="pag_css" Type="String" Nullable="true" />
+          <Property Name="pag_no" Type="Int32" Nullable="false" />
+          <Property Name="pag_type" Type="String" Nullable="true" />
+          <Property Name="pag_uid" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="block" Relationship="NXEIPModel.FK_block_page" FromRole="page" ToRole="block" /></EntityType>
+        <EntityType Name="people">
+          <Key>
+            <PropertyRef Name="peo_uid" /></Key>
+          <Property Name="peo_account" Type="String" Nullable="true" />
+          <Property Name="peo_addr" Type="String" Nullable="true" />
+          <Property Name="peo_age" Type="String" Nullable="true" />
+          <Property Name="peo_armyage" Type="String" Nullable="true" />
+          <Property Name="peo_arrivedate" Type="DateTime" Nullable="true" />
+          <Property Name="peo_bankname" Type="String" Nullable="true" />
+          <Property Name="peo_beforelast" Type="String" Nullable="true" />
+          <Property Name="peo_birthday" Type="DateTime" Nullable="true" />
+          <Property Name="peo_boss" Type="Int32" Nullable="true" />
+          <Property Name="peo_break" Type="String" Nullable="true" />
+          <Property Name="peo_cardtype" Type="String" Nullable="false" />
+          <Property Name="peo_contractage" Type="String" Nullable="true" />
+          <Property Name="peo_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="peo_createuid" Type="Int32" Nullable="true" />
+          <Property Name="peo_eduno" Type="Int32" Nullable="true" />
+          <Property Name="peo_email" Type="String" Nullable="true" />
+          <Property Name="peo_english" Type="String" Nullable="true" />
+          <Property Name="peo_exmno" Type="Int32" Nullable="true" />
+          <Property Name="peo_filename" Type="String" Nullable="true" />
+          <Property Name="peo_homeaddr" Type="String" Nullable="true" />
+          <Property Name="peo_hometel" Type="String" Nullable="true" />
+          <Property Name="peo_idcard" Type="String" Nullable="false" />
+          <Property Name="peo_jobtype" Type="Int32" Nullable="true" />
+          <Property Name="peo_lastyear" Type="String" Nullable="true" />
+          <Property Name="peo_leave" Type="DateTime" Nullable="true" />
+          <Property Name="peo_major" Type="Int32" Nullable="true" />
+          <Property Name="peo_marry" Type="String" Nullable="true" />
+          <Property Name="peo_memo" Type="String" Nullable="true" />
+          <Property Name="peo_name" Type="String" Nullable="false" />
+          <Property Name="peo_nonstop" Type="String" Nullable="true" />
+          <Property Name="peo_nonthree" Type="String" Nullable="true" />
+          <Property Name="peo_nontwo" Type="String" Nullable="true" />
+          <Property Name="peo_organization" Type="String" Nullable="true" />
+          <Property Name="peo_pagno" Type="Int32" Nullable="true" />
+          <Property Name="peo_pfofess" Type="Int32" Nullable="true" />
+          <Property Name="peo_picture" Type="Binary" Nullable="true" />
+          <Property Name="peo_pincode" Type="String" Nullable="true" />
+          <Property Name="peo_plevel" Type="Int32" Nullable="true" />
+          <Property Name="peo_point" Type="String" Nullable="true" />
+          <Property Name="peo_postaccount" Type="String" Nullable="true" />
+          <Property Name="peo_prospcst" Type="String" Nullable="false" />
+          <Property Name="peo_ptype" Type="Int32" Nullable="true" />
+          <Property Name="peo_publicday" Type="DateTime" Nullable="false" />
+          <Property Name="peo_reserve" Type="String" Nullable="true" />
+          <Property Name="peo_salary" Type="Decimal" Nullable="true" />
+          <Property Name="peo_sex" Type="String" Nullable="true" />
+          <Property Name="peo_tel" Type="String" Nullable="true" />
+          <Property Name="peo_thisyear" Type="String" Nullable="true" />
+          <Property Name="peo_tree" Type="Int32" Nullable="true" />
+          <Property Name="peo_uid" Type="Int32" Nullable="false" />
+          <Property Name="peo_workerage" Type="String" Nullable="true" />
+          <Property Name="peo_workid" Type="String" Nullable="true" />
+          <Property Name="peo_worktype" Type="Int32" Nullable="true" />
+          <Property Name="peo_yeartype" Type="String" Nullable="false" />
+          <NavigationProperty Name="accounts" Relationship="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" FromRole="people" ToRole="accounts" />
+          <NavigationProperty Name="c01" Relationship="NXEIPModel.FK_C01_RELATIONS_PEOPLE" FromRole="people" ToRole="c01" />
+          <NavigationProperty Name="c02" Relationship="NXEIPModel.FK_C02_RELATIONS_PEOPLE" FromRole="people" ToRole="c02" />
+          <NavigationProperty Name="c04" Relationship="NXEIPModel.FK_C04_RELATIONS_PEOPLE" FromRole="people" ToRole="c04" />
+          <NavigationProperty Name="departments" Relationship="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" FromRole="people" ToRole="departments" />
+          <NavigationProperty Name="operates" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" FromRole="people" ToRole="operates" />
+          <NavigationProperty Name="s02" Relationship="NXEIPModel.FK_S02_RELATIONS_PEOPLE" FromRole="people" ToRole="s02" /></EntityType>
+        <EntityType Name="rauthority">
+          <Key>
+            <PropertyRef Name="rau_no" /></Key>
+          <Property Name="rau_no" Type="Int32" Nullable="false" />
+          <Property Name="rau_sys" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="role" Relationship="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" FromRole="rauthority" ToRole="role" />
+          <NavigationProperty Name="sysfuction" Relationship="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" FromRole="rauthority" ToRole="sysfuction" /></EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="rol_no" /></Key>
+          <Property Name="rol_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="rol_createuid" Type="Int32" Nullable="true" />
+          <Property Name="rol_memo" Type="String" Nullable="true" />
+          <Property Name="rol_name" Type="String" Nullable="false" />
+          <Property Name="rol_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="rauthority" Relationship="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" FromRole="role" ToRole="rauthority" />
+          <NavigationProperty Name="roleaccount" Relationship="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE" FromRole="role" ToRole="roleaccount" />
+          </EntityType>
+        <EntityType Name="roleaccount">
+          <Key>
+            <PropertyRef Name="rac_no" />
+            <PropertyRef Name="rol_no" /></Key>
+          <Property Name="rac_no" Type="Int32" Nullable="false" />
+          <Property Name="rol_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="accounts" Relationship="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" FromRole="roleaccount" ToRole="accounts" />
+          <NavigationProperty Name="role" Relationship="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE" FromRole="roleaccount" ToRole="role" /></EntityType>
+        <EntityType Name="s01">
+          <Key>
+            <PropertyRef Name="s01_no" /></Key>
+          <Property Name="s01_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="s01_createuid" Type="Int32" Nullable="true" />
+          <Property Name="s01_no" Type="Int32" Nullable="false" />
+          <Property Name="s01_peouid" Type="Int32" Nullable="true" />
+          <Property Name="s01_type" Type="String" Nullable="true" />
+          <NavigationProperty Name="s02" Relationship="NXEIPModel.FK_S02_RELATIONS_S01" FromRole="s01" ToRole="s02" />
+          <NavigationProperty Name="s03" Relationship="NXEIPModel.FK_S03_RELATIONS_S01" FromRole="s01" ToRole="s03" />
+          <NavigationProperty Name="s04" Relationship="NXEIPModel.FK_S04_RELATIONS_S01" FromRole="s01" ToRole="s04" /></EntityType>
+        <EntityType Name="s02">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s02_no" /></Key>
+          <Property Name="s01_no" Type="Int32" Nullable="false" />
+          <Property Name="s02_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_S02_RELATIONS_PEOPLE" FromRole="s02" ToRole="people" />
+          <NavigationProperty Name="s01" Relationship="NXEIPModel.FK_S02_RELATIONS_S01" FromRole="s02" ToRole="s01" /></EntityType>
+        <EntityType Name="s03">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s03_no" /></Key>
+          <Property Name="s01_no" Type="Int32" Nullable="false" />
+          <Property Name="s03_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="departments" Relationship="NXEIPModel.FK_S03_RELATIONS_DEPARTME" FromRole="s03" ToRole="departments" />
+          <NavigationProperty Name="s01" Relationship="NXEIPModel.FK_S03_RELATIONS_S01" FromRole="s03" ToRole="s01" /></EntityType>
+        <EntityType Name="s04">
+          <Key>
+            <PropertyRef Name="s01_no" />
+            <PropertyRef Name="s04_no" /></Key>
+          <Property Name="s01_no" Type="Int32" Nullable="false" />
+          <Property Name="s04_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="s01" Relationship="NXEIPModel.FK_S04_RELATIONS_S01" FromRole="s04" ToRole="s01" />
+          <NavigationProperty Name="types" Relationship="NXEIPModel.FK_S04_RELATIONS_TYPES" FromRole="s04" ToRole="types" /></EntityType>
+        <EntityType Name="sys">
+          <Key>
+            <PropertyRef Name="sys_no" /></Key>
+          <Property Name="sys_catalog" Type="String" Nullable="true" />
+          <Property Name="sys_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="sys_createuid" Type="Int32" Nullable="true" />
+          <Property Name="sys_defaultpic" Type="String" Nullable="true" />
+          <Property Name="sys_name" Type="String" Nullable="false" />
+          <Property Name="sys_no" Type="Int32" Nullable="false" />
+          <Property Name="sys_order" Type="Int32" Nullable="true" />
+          <Property Name="sys_overpicture" Type="String" Nullable="true" />
+          <Property Name="sys_status" Type="String" Nullable="true" />
+          <NavigationProperty Name="sysfuction" Relationship="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" FromRole="sys" ToRole="sysfuction" /></EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" /></Key>
+          <Property Name="definition" Type="Binary" Nullable="true" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" Nullable="true" /></EntityType>
+        <EntityType Name="sysfuction">
+          <Key>
+            <PropertyRef Name="sfu_no" /></Key>
+          <Property Name="sfu_catalog" Type="String" Nullable="true" />
+          <Property Name="sfu_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="sfu_createuid" Type="Int32" Nullable="true" />
+          <Property Name="sfu_defaltpic" Type="String" Nullable="true" />
+          <Property Name="sfu_name" Type="String" Nullable="false" />
+          <Property Name="sfu_no" Type="Int32" Nullable="false" />
+          <Property Name="sfu_order" Type="Int32" Nullable="true" />
+          <Property Name="sfu_overpicture" Type="String" Nullable="true" />
+          <Property Name="sfu_parent" Type="Int32" Nullable="true" />
+          <Property Name="sfu_path" Type="String" Nullable="true" />
+          <Property Name="sfu_status" Type="String" Nullable="true" />
+          <NavigationProperty Name="operates" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="operates" />
+          <NavigationProperty Name="rauthority" Relationship="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="rauthority" />
+          <NavigationProperty Name="sys" Relationship="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" FromRole="sysfuction" ToRole="sys" /></EntityType>
+        <EntityType Name="types">
+          <Key>
+            <PropertyRef Name="typ_no" /></Key>
+          <Property Name="typ_cname" Type="String" Nullable="false" />
+          <Property Name="typ_code" Type="String" Nullable="false" />
+          <Property Name="typ_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="typ_createuid" Type="Int32" Nullable="true" />
+          <Property Name="typ_ename" Type="String" Nullable="true" />
+          <Property Name="typ_no" Type="Int32" Nullable="false" />
+          <Property Name="typ_number" Type="String" Nullable="true" />
+          <Property Name="typ_order" Type="Int32" Nullable="true" />
+          <Property Name="typ_status" Type="String" Nullable="true" />
+          <NavigationProperty Name="s04" Relationship="NXEIPModel.FK_S04_RELATIONS_TYPES" FromRole="types" ToRole="s04" /></EntityType>
+        <EntityType Name="widget">
+          <Key>
+            <PropertyRef Name="wid_no" /></Key>
+          <Property Name="wid_memo" Type="String" Nullable="true" />
+          <Property Name="wid_name" Type="String" Nullable="true" />
+          <Property Name="wid_no" Type="Int32" Nullable="false" />
+          <Property Name="wid_order" Type="Int32" Nullable="true" />
+          <Property Name="wid_status" Type="String" Nullable="true" />
+          <Property Name="wid_url" Type="String" Nullable="true" />
+          <NavigationProperty Name="block" Relationship="NXEIPModel.FK_block_widget" FromRole="widget" ToRole="block" />
+          <Property Name="wid_type" Type="String" Nullable="true" />
+          <Property Name="wid_setting" Type="String" Nullable="true" /></EntityType>
+        <Association Name="FK_ACCOUNTS_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.accounts" Role="accounts" Multiplicity="*" /></Association>
+        <Association Name="FK_ROLEACCO_RELATIONS_ACCOUNTS">
+          <End Type="NXEIPModel.accounts" Role="accounts" Multiplicity="1" />
+          <End Type="NXEIPModel.roleaccount" Role="roleaccount" Multiplicity="*" /></Association>
+        <Association Name="FK_block_page">
+          <End Type="NXEIPModel.page" Role="page" Multiplicity="1" />
+          <End Type="NXEIPModel.block" Role="block" Multiplicity="*" /></Association>
+        <Association Name="FK_block_widget">
+          <End Type="NXEIPModel.widget" Role="widget" Multiplicity="1" />
+          <End Type="NXEIPModel.block" Role="block" Multiplicity="*" /></Association>
+        <Association Name="FK_C01_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.c01" Role="c01" Multiplicity="*" /></Association>
+        <Association Name="FK_C02_RELATIONS_C03">
+          <End Type="NXEIPModel.c03" Role="c03" Multiplicity="0..1" />
+          <End Type="NXEIPModel.c02" Role="c02" Multiplicity="*" /></Association>
+        <Association Name="FK_C02_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.c02" Role="c02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" /></Principal>
+            <Dependent Role="c02">
+              <PropertyRef Name="peo_uid" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_C04_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.c04" Role="c04" Multiplicity="*" /></Association>
+        <Association Name="FK_PEOPLE_RELATIONS_DEPARTME">
+          <End Type="NXEIPModel.departments" Role="departments" Multiplicity="1" />
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="*" /></Association>
+        <Association Name="FK_S03_RELATIONS_DEPARTME">
+          <End Type="NXEIPModel.departments" Role="departments" Multiplicity="1" />
+          <End Type="NXEIPModel.s03" Role="s03" Multiplicity="*" /></Association>
+        <Association Name="FK_OPERATES_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.operates" Role="operates" Multiplicity="*" /></Association>
+        <Association Name="FK_OPERATES_RELATIONS_SYSFUCTI">
+          <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="1" />
+          <End Type="NXEIPModel.operates" Role="operates" Multiplicity="*" /></Association>
+        <Association Name="FK_S02_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.s02" Role="s02" Multiplicity="*" /></Association>
+        <Association Name="FK_RAUTHORI_RELATIONS_ROLE">
+          <End Type="NXEIPModel.role" Role="role" Multiplicity="1" />
+          <End Type="NXEIPModel.rauthority" Role="rauthority" Multiplicity="*" /></Association>
+        <Association Name="FK_RAUTHORI_RELATIONS_SYSFUCTI">
+          <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="1" />
+          <End Type="NXEIPModel.rauthority" Role="rauthority" Multiplicity="*" /></Association>
+        <Association Name="FK_ROLEACCO_RELATIONS_ROLE">
+          <End Type="NXEIPModel.role" Role="role" Multiplicity="1" />
+          <End Type="NXEIPModel.roleaccount" Role="roleaccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="rol_no" /></Principal>
+            <Dependent Role="roleaccount">
+              <PropertyRef Name="rol_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_S02_RELATIONS_S01">
+          <End Type="NXEIPModel.s01" Role="s01" Multiplicity="1" />
+          <End Type="NXEIPModel.s02" Role="s02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" /></Principal>
+            <Dependent Role="s02">
+              <PropertyRef Name="s01_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_S03_RELATIONS_S01">
+          <End Type="NXEIPModel.s01" Role="s01" Multiplicity="1" />
+          <End Type="NXEIPModel.s03" Role="s03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" /></Principal>
+            <Dependent Role="s03">
+              <PropertyRef Name="s01_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_S04_RELATIONS_S01">
+          <End Type="NXEIPModel.s01" Role="s01" Multiplicity="1" />
+          <End Type="NXEIPModel.s04" Role="s04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="s01">
+              <PropertyRef Name="s01_no" /></Principal>
+            <Dependent Role="s04">
+              <PropertyRef Name="s01_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_S04_RELATIONS_TYPES">
+          <End Type="NXEIPModel.types" Role="types" Multiplicity="1" />
+          <End Type="NXEIPModel.s04" Role="s04" Multiplicity="*" /></Association>
+        <Association Name="FK_SYSFUCTI_RELATIONS_SYS">
+          <End Type="NXEIPModel.sys" Role="sys" Multiplicity="1" />
+          <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="*" /></Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="NXEIPModelStoreContainer" CdmEntityContainer="NXEIPEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.accounts)">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="acc_status" ColumnName="acc_status" />
+                <ScalarProperty Name="acc_passwd" ColumnName="acc_passwd" />
+                <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+                <ScalarProperty Name="acc_login" ColumnName="acc_login" />
+                <ScalarProperty Name="acc_createuid" ColumnName="acc_createuid" />
+                <ScalarProperty Name="acc_createtime" ColumnName="acc_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="arguments">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.arguments)">
+              <MappingFragment StoreEntitySet="arguments">
+                <ScalarProperty Name="arg_variable" ColumnName="arg_variable" />
+                <ScalarProperty Name="arg_value" ColumnName="arg_value" />
+                <ScalarProperty Name="arg_no" ColumnName="arg_no" />
+                <ScalarProperty Name="arg_describe" ColumnName="arg_describe" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="block">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.block)">
+              <MappingFragment StoreEntitySet="block">
+                <ScalarProperty Name="blo_setting" ColumnName="blo_setting" />
+                <ScalarProperty Name="blo_order" ColumnName="blo_order" />
+                <ScalarProperty Name="blo_no" ColumnName="blo_no" />
+                <ScalarProperty Name="blo_layout" ColumnName="blo_layout" />
+                <ScalarProperty Name="blo_createuid" ColumnName="blo_createuid" />
+                <ScalarProperty Name="blo_createtime" ColumnName="blo_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="c01">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.c01)">
+              <MappingFragment StoreEntitySet="c01">
+                <ScalarProperty Name="co1_no" ColumnName="co1_no" />
+                <ScalarProperty Name="c01_peouid" ColumnName="c01_peouid" />
+                <ScalarProperty Name="c01_createtime" ColumnName="c01_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="c02">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.c02)">
+              <MappingFragment StoreEntitySet="c02">
+                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+                <ScalarProperty Name="c02_title" ColumnName="c02_title" />
+                <ScalarProperty Name="c02_setuid" ColumnName="c02_setuid" />
+                <ScalarProperty Name="c02_sdate" ColumnName="c02_sdate" />
+                <ScalarProperty Name="c02_result" ColumnName="c02_result" />
+                <ScalarProperty Name="c02_project" ColumnName="c02_project" />
+                <ScalarProperty Name="c02_place" ColumnName="c02_place" />
+                <ScalarProperty Name="c02_no" ColumnName="c02_no" />
+                <ScalarProperty Name="c02_edate" ColumnName="c02_edate" />
+                <ScalarProperty Name="c02_createuid" ColumnName="c02_createuid" />
+                <ScalarProperty Name="c02_createtime" ColumnName="c02_createtime" />
+                <ScalarProperty Name="c02_bgcolor" ColumnName="c02_bgcolor" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="c03">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.c03)">
+              <MappingFragment StoreEntitySet="c03">
+                <ScalarProperty Name="c03_type" ColumnName="c03_type" />
+                <ScalarProperty Name="c03_sdate" ColumnName="c03_sdate" />
+                <ScalarProperty Name="c03_rule" ColumnName="c03_rule" />
+                <ScalarProperty Name="c03_no" ColumnName="c03_no" />
+                <ScalarProperty Name="c03_cycle" ColumnName="c03_cycle" />
+                <ScalarProperty Name="c03_ctype" ColumnName="c03_ctype" />
+                <ScalarProperty Name="c03_crule" ColumnName="c03_crule" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="c04">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.c04)">
+              <MappingFragment StoreEntitySet="c04">
+                <ScalarProperty Name="c04_right" ColumnName="c04_right" />
+                <ScalarProperty Name="c04_no" ColumnName="c04_no" />
+                <ScalarProperty Name="c04_createuid" ColumnName="c04_createuid" />
+                <ScalarProperty Name="c04_createtime" ColumnName="c04_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.departments)">
+              <MappingFragment StoreEntitySet="departments">
+                <ScalarProperty Name="dep_tel" ColumnName="dep_tel" />
+                <ScalarProperty Name="dep_status" ColumnName="dep_status" />
+                <ScalarProperty Name="dep_son" ColumnName="dep_son" />
+                <ScalarProperty Name="dep_parentid" ColumnName="dep_parentid" />
+                <ScalarProperty Name="dep_order" ColumnName="dep_order" />
+                <ScalarProperty Name="dep_no" ColumnName="dep_no" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="dep_level" ColumnName="dep_level" />
+                <ScalarProperty Name="dep_fax" ColumnName="dep_fax" />
+                <ScalarProperty Name="dep_ename" ColumnName="dep_ename" />
+                <ScalarProperty Name="dep_createuid" ColumnName="dep_createuid" />
+                <ScalarProperty Name="dep_createtime" ColumnName="dep_createtime" />
+                <ScalarProperty Name="dep_code" ColumnName="dep_code" />
+                <ScalarProperty Name="dep_addr" ColumnName="dep_addr" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dtproperties">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.dtproperties)">
+              <MappingFragment StoreEntitySet="dtproperties">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="objectid" ColumnName="objectid" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+                <ScalarProperty Name="id" ColumnName="id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="loginlog">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.loginlog)">
+              <MappingFragment StoreEntitySet="loginlog">
+                <ScalarProperty Name="log_status" ColumnName="log_status" />
+                <ScalarProperty Name="log_sessionid" ColumnName="log_sessionid" />
+                <ScalarProperty Name="log_peouid" ColumnName="log_peouid" />
+                <ScalarProperty Name="log_no" ColumnName="log_no" />
+                <ScalarProperty Name="log_logintime" ColumnName="log_logintime" />
+                <ScalarProperty Name="log_loginout" ColumnName="log_loginout" />
+                <ScalarProperty Name="log_ip" ColumnName="log_ip" />
+                <ScalarProperty Name="log_accno" ColumnName="log_accno" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="operates">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.operates)">
+              <MappingFragment StoreEntitySet="operates">
+                <ScalarProperty Name="ope_no" ColumnName="ope_no" />
+                <ScalarProperty Name="ope_memo" ColumnName="ope_memo" />
+                <ScalarProperty Name="ope_logintime" ColumnName="ope_logintime" />
+                <ScalarProperty Name="ope_fuction" ColumnName="ope_fuction" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="page">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.page)">
+              <MappingFragment StoreEntitySet="page">
+                <ScalarProperty Name="pag_uid" ColumnName="pag_uid" />
+                <ScalarProperty Name="pag_type" ColumnName="pag_type" />
+                <ScalarProperty Name="pag_no" ColumnName="pag_no" />
+                <ScalarProperty Name="pag_css" ColumnName="pag_css" />
+                <ScalarProperty Name="pag_createuid" ColumnName="pag_createuid" />
+                <ScalarProperty Name="pag_createtime" ColumnName="pag_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="people">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.people)">
+              <MappingFragment StoreEntitySet="people">
+                <ScalarProperty Name="peo_yeartype" ColumnName="peo_yeartype" />
+                <ScalarProperty Name="peo_worktype" ColumnName="peo_worktype" />
+                <ScalarProperty Name="peo_workid" ColumnName="peo_workid" />
+                <ScalarProperty Name="peo_workerage" ColumnName="peo_workerage" />
+                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+                <ScalarProperty Name="peo_tree" ColumnName="peo_tree" />
+                <ScalarProperty Name="peo_thisyear" ColumnName="peo_thisyear" />
+                <ScalarProperty Name="peo_tel" ColumnName="peo_tel" />
+                <ScalarProperty Name="peo_sex" ColumnName="peo_sex" />
+                <ScalarProperty Name="peo_salary" ColumnName="peo_salary" />
+                <ScalarProperty Name="peo_reserve" ColumnName="peo_reserve" />
+                <ScalarProperty Name="peo_publicday" ColumnName="peo_publicday" />
+                <ScalarProperty Name="peo_ptype" ColumnName="peo_ptype" />
+                <ScalarProperty Name="peo_prospcst" ColumnName="peo_prospcst" />
+                <ScalarProperty Name="peo_postaccount" ColumnName="peo_postaccount" />
+                <ScalarProperty Name="peo_point" ColumnName="peo_point" />
+                <ScalarProperty Name="peo_plevel" ColumnName="peo_plevel" />
+                <ScalarProperty Name="peo_pincode" ColumnName="peo_pincode" />
+                <ScalarProperty Name="peo_picture" ColumnName="peo_picture" />
+                <ScalarProperty Name="peo_pfofess" ColumnName="peo_pfofess" />
+                <ScalarProperty Name="peo_pagno" ColumnName="peo_pagno" />
+                <ScalarProperty Name="peo_organization" ColumnName="peo_organization" />
+                <ScalarProperty Name="peo_nontwo" ColumnName="peo_nontwo" />
+                <ScalarProperty Name="peo_nonthree" ColumnName="peo_nonthree" />
+                <ScalarProperty Name="peo_nonstop" ColumnName="peo_nonstop" />
+                <ScalarProperty Name="peo_name" ColumnName="peo_name" />
+                <ScalarProperty Name="peo_memo" ColumnName="peo_memo" />
+                <ScalarProperty Name="peo_marry" ColumnName="peo_marry" />
+                <ScalarProperty Name="peo_major" ColumnName="peo_major" />
+                <ScalarProperty Name="peo_leave" ColumnName="peo_leave" />
+                <ScalarProperty Name="peo_lastyear" ColumnName="peo_lastyear" />
+                <ScalarProperty Name="peo_jobtype" ColumnName="peo_jobtype" />
+                <ScalarProperty Name="peo_idcard" ColumnName="peo_idcard" />
+                <ScalarProperty Name="peo_hometel" ColumnName="peo_hometel" />
+                <ScalarProperty Name="peo_homeaddr" ColumnName="peo_homeaddr" />
+                <ScalarProperty Name="peo_filename" ColumnName="peo_filename" />
+                <ScalarProperty Name="peo_exmno" ColumnName="peo_exmno" />
+                <ScalarProperty Name="peo_english" ColumnName="peo_english" />
+                <ScalarProperty Name="peo_email" ColumnName="peo_email" />
+                <ScalarProperty Name="peo_eduno" ColumnName="peo_eduno" />
+                <ScalarProperty Name="peo_createuid" ColumnName="peo_createuid" />
+                <ScalarProperty Name="peo_createtime" ColumnName="peo_createtime" />
+                <ScalarProperty Name="peo_contractage" ColumnName="peo_contractage" />
+                <ScalarProperty Name="peo_cardtype" ColumnName="peo_cardtype" />
+                <ScalarProperty Name="peo_break" ColumnName="peo_break" />
+                <ScalarProperty Name="peo_boss" ColumnName="peo_boss" />
+                <ScalarProperty Name="peo_birthday" ColumnName="peo_birthday" />
+                <ScalarProperty Name="peo_beforelast" ColumnName="peo_beforelast" />
+                <ScalarProperty Name="peo_bankname" ColumnName="peo_bankname" />
+                <ScalarProperty Name="peo_arrivedate" ColumnName="peo_arrivedate" />
+                <ScalarProperty Name="peo_armyage" ColumnName="peo_armyage" />
+                <ScalarProperty Name="peo_age" ColumnName="peo_age" />
+                <ScalarProperty Name="peo_addr" ColumnName="peo_addr" />
+                <ScalarProperty Name="peo_account" ColumnName="peo_account" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="rauthority">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.rauthority)">
+              <MappingFragment StoreEntitySet="rauthority">
+                <ScalarProperty Name="rau_sys" ColumnName="rau_sys" />
+                <ScalarProperty Name="rau_no" ColumnName="rau_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.role)">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="rol_no" ColumnName="rol_no" />
+                <ScalarProperty Name="rol_name" ColumnName="rol_name" />
+                <ScalarProperty Name="rol_memo" ColumnName="rol_memo" />
+                <ScalarProperty Name="rol_createuid" ColumnName="rol_createuid" />
+                <ScalarProperty Name="rol_createtime" ColumnName="rol_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="roleaccount">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.roleaccount)">
+              <MappingFragment StoreEntitySet="roleaccount">
+                <ScalarProperty Name="rol_no" ColumnName="rol_no" />
+                <ScalarProperty Name="rac_no" ColumnName="rac_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="s01">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.s01)">
+              <MappingFragment StoreEntitySet="s01">
+                <ScalarProperty Name="s01_type" ColumnName="s01_type" />
+                <ScalarProperty Name="s01_peouid" ColumnName="s01_peouid" />
+                <ScalarProperty Name="s01_no" ColumnName="s01_no" />
+                <ScalarProperty Name="s01_createuid" ColumnName="s01_createuid" />
+                <ScalarProperty Name="s01_createtime" ColumnName="s01_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="s02">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.s02)">
+              <MappingFragment StoreEntitySet="s02">
+                <ScalarProperty Name="s02_no" ColumnName="s02_no" />
+                <ScalarProperty Name="s01_no" ColumnName="s01_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="s03">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.s03)">
+              <MappingFragment StoreEntitySet="s03">
+                <ScalarProperty Name="s03_no" ColumnName="s03_no" />
+                <ScalarProperty Name="s01_no" ColumnName="s01_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="s04">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.s04)">
+              <MappingFragment StoreEntitySet="s04">
+                <ScalarProperty Name="s04_no" ColumnName="s04_no" />
+                <ScalarProperty Name="s01_no" ColumnName="s01_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sys">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.sys)">
+              <MappingFragment StoreEntitySet="sys">
+                <ScalarProperty Name="sys_status" ColumnName="sys_status" />
+                <ScalarProperty Name="sys_overpicture" ColumnName="sys_overpicture" />
+                <ScalarProperty Name="sys_order" ColumnName="sys_order" />
+                <ScalarProperty Name="sys_no" ColumnName="sys_no" />
+                <ScalarProperty Name="sys_name" ColumnName="sys_name" />
+                <ScalarProperty Name="sys_defaultpic" ColumnName="sys_defaultpic" />
+                <ScalarProperty Name="sys_createuid" ColumnName="sys_createuid" />
+                <ScalarProperty Name="sys_createtime" ColumnName="sys_createtime" />
+                <ScalarProperty Name="sys_catalog" ColumnName="sys_catalog" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.sysdiagrams)">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="definition" ColumnName="definition" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysfuction">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.sysfuction)">
+              <MappingFragment StoreEntitySet="sysfuction">
+                <ScalarProperty Name="sfu_status" ColumnName="sfu_status" />
+                <ScalarProperty Name="sfu_path" ColumnName="sfu_path" />
+                <ScalarProperty Name="sfu_parent" ColumnName="sfu_parent" />
+                <ScalarProperty Name="sfu_overpicture" ColumnName="sfu_overpicture" />
+                <ScalarProperty Name="sfu_order" ColumnName="sfu_order" />
+                <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
+                <ScalarProperty Name="sfu_name" ColumnName="sfu_name" />
+                <ScalarProperty Name="sfu_defaltpic" ColumnName="sfu_defaltpic" />
+                <ScalarProperty Name="sfu_createuid" ColumnName="sfu_createuid" />
+                <ScalarProperty Name="sfu_createtime" ColumnName="sfu_createtime" />
+                <ScalarProperty Name="sfu_catalog" ColumnName="sfu_catalog" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="types">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.types)">
+              <MappingFragment StoreEntitySet="types">
+                <ScalarProperty Name="typ_status" ColumnName="typ_status" />
+                <ScalarProperty Name="typ_order" ColumnName="typ_order" />
+                <ScalarProperty Name="typ_number" ColumnName="typ_number" />
+                <ScalarProperty Name="typ_no" ColumnName="typ_no" />
+                <ScalarProperty Name="typ_ename" ColumnName="typ_ename" />
+                <ScalarProperty Name="typ_createuid" ColumnName="typ_createuid" />
+                <ScalarProperty Name="typ_createtime" ColumnName="typ_createtime" />
+                <ScalarProperty Name="typ_code" ColumnName="typ_code" />
+                <ScalarProperty Name="typ_cname" ColumnName="typ_cname" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="widget">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.widget)">
+              <MappingFragment StoreEntitySet="widget">
+                <ScalarProperty Name="wid_setting" ColumnName="wid_setting" />
+                <ScalarProperty Name="wid_type" ColumnName="wid_type" />
+                <ScalarProperty Name="wid_url" ColumnName="wid_url" />
+                <ScalarProperty Name="wid_status" ColumnName="wid_status" />
+                <ScalarProperty Name="wid_order" ColumnName="wid_order" />
+                <ScalarProperty Name="wid_no" ColumnName="wid_no" />
+                <ScalarProperty Name="wid_name" ColumnName="wid_name" />
+                <ScalarProperty Name="wid_memo" ColumnName="wid_memo" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_ACCOUNTS_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" StoreEntitySet="accounts">
+            <EndProperty Name="accounts">
+              <ScalarProperty Name="acc_no" ColumnName="acc_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ROLEACCO_RELATIONS_ACCOUNTS" TypeName="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" StoreEntitySet="roleaccount">
+            <EndProperty Name="roleaccount">
+              <ScalarProperty Name="rol_no" ColumnName="rol_no" />
+              <ScalarProperty Name="rac_no" ColumnName="rac_no" /></EndProperty>
+            <EndProperty Name="accounts">
+              <ScalarProperty Name="acc_no" ColumnName="acc_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_block_page" TypeName="NXEIPModel.FK_block_page" StoreEntitySet="block">
+            <EndProperty Name="block">
+              <ScalarProperty Name="blo_no" ColumnName="blo_no" /></EndProperty>
+            <EndProperty Name="page">
+              <ScalarProperty Name="pag_no" ColumnName="pag_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_block_widget" TypeName="NXEIPModel.FK_block_widget" StoreEntitySet="block">
+            <EndProperty Name="block">
+              <ScalarProperty Name="blo_no" ColumnName="blo_no" /></EndProperty>
+            <EndProperty Name="widget">
+              <ScalarProperty Name="wid_no" ColumnName="wid_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_C01_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_C01_RELATIONS_PEOPLE" StoreEntitySet="c01">
+            <EndProperty Name="c01">
+              <ScalarProperty Name="co1_no" ColumnName="co1_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_C02_RELATIONS_C03" TypeName="NXEIPModel.FK_C02_RELATIONS_C03" StoreEntitySet="c02">
+            <EndProperty Name="c02">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+              <ScalarProperty Name="c02_no" ColumnName="c02_no" /></EndProperty>
+            <EndProperty Name="c03">
+              <ScalarProperty Name="c03_no" ColumnName="c03_no" /></EndProperty>
+            <Condition ColumnName="c03_no" IsNull="false" /></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_C02_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_C02_RELATIONS_PEOPLE" StoreEntitySet="c02">
+            <EndProperty Name="c02">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+              <ScalarProperty Name="c02_no" ColumnName="c02_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_C04_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_C04_RELATIONS_PEOPLE" StoreEntitySet="c04">
+            <EndProperty Name="c04">
+              <ScalarProperty Name="c04_no" ColumnName="c04_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PEOPLE_RELATIONS_DEPARTME" TypeName="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" StoreEntitySet="people">
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty>
+            <EndProperty Name="departments">
+              <ScalarProperty Name="dep_no" ColumnName="dep_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S03_RELATIONS_DEPARTME" TypeName="NXEIPModel.FK_S03_RELATIONS_DEPARTME" StoreEntitySet="s03">
+            <EndProperty Name="s03">
+              <ScalarProperty Name="s03_no" ColumnName="s03_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="departments">
+              <ScalarProperty Name="dep_no" ColumnName="dep_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_OPERATES_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" StoreEntitySet="operates">
+            <EndProperty Name="operates">
+              <ScalarProperty Name="ope_no" ColumnName="ope_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_OPERATES_RELATIONS_SYSFUCTI" TypeName="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" StoreEntitySet="operates">
+            <EndProperty Name="operates">
+              <ScalarProperty Name="ope_no" ColumnName="ope_no" /></EndProperty>
+            <EndProperty Name="sysfuction">
+              <ScalarProperty Name="sfu_no" ColumnName="sfu_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S02_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_S02_RELATIONS_PEOPLE" StoreEntitySet="s02">
+            <EndProperty Name="s02">
+              <ScalarProperty Name="s02_no" ColumnName="s02_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_RAUTHORI_RELATIONS_ROLE" TypeName="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" StoreEntitySet="rauthority">
+            <EndProperty Name="rauthority">
+              <ScalarProperty Name="rau_no" ColumnName="rau_no" /></EndProperty>
+            <EndProperty Name="role">
+              <ScalarProperty Name="rol_no" ColumnName="rol_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_RAUTHORI_RELATIONS_SYSFUCTI" TypeName="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" StoreEntitySet="rauthority">
+            <EndProperty Name="rauthority">
+              <ScalarProperty Name="rau_no" ColumnName="rau_no" /></EndProperty>
+            <EndProperty Name="sysfuction">
+              <ScalarProperty Name="sfu_no" ColumnName="sfu_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ROLEACCO_RELATIONS_ROLE" TypeName="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE" StoreEntitySet="roleaccount">
+            <EndProperty Name="roleaccount">
+              <ScalarProperty Name="rol_no" ColumnName="rol_no" />
+              <ScalarProperty Name="rac_no" ColumnName="rac_no" /></EndProperty>
+            <EndProperty Name="role">
+              <ScalarProperty Name="rol_no" ColumnName="rol_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S02_RELATIONS_S01" TypeName="NXEIPModel.FK_S02_RELATIONS_S01" StoreEntitySet="s02">
+            <EndProperty Name="s02">
+              <ScalarProperty Name="s02_no" ColumnName="s02_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="s01">
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S03_RELATIONS_S01" TypeName="NXEIPModel.FK_S03_RELATIONS_S01" StoreEntitySet="s03">
+            <EndProperty Name="s03">
+              <ScalarProperty Name="s03_no" ColumnName="s03_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="s01">
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S04_RELATIONS_S01" TypeName="NXEIPModel.FK_S04_RELATIONS_S01" StoreEntitySet="s04">
+            <EndProperty Name="s04">
+              <ScalarProperty Name="s04_no" ColumnName="s04_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="s01">
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_S04_RELATIONS_TYPES" TypeName="NXEIPModel.FK_S04_RELATIONS_TYPES" StoreEntitySet="s04">
+            <EndProperty Name="s04">
+              <ScalarProperty Name="s04_no" ColumnName="s04_no" />
+              <ScalarProperty Name="s01_no" ColumnName="s01_no" /></EndProperty>
+            <EndProperty Name="types">
+              <ScalarProperty Name="typ_no" ColumnName="typ_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_SYSFUCTI_RELATIONS_SYS" TypeName="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" StoreEntitySet="sysfuction">
+            <EndProperty Name="sysfuction">
+              <ScalarProperty Name="sfu_no" ColumnName="sfu_no" /></EndProperty>
+            <EndProperty Name="sys">
+              <ScalarProperty Name="sys_no" ColumnName="sys_no" /></EndProperty></AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="EntityModel" ZoomLevel="86">
+        <EntityTypeShape EntityType="NXEIPModel.accounts" Width="1.5" PointX="5.25" PointY="22.375" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="NXEIPModel.arguments" Width="1.5" PointX="0.75" PointY="1.875" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="NXEIPModel.block" Width="1.5" PointX="7.5" PointY="34.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="NXEIPModel.c01" Width="1.5" PointX="5.25" PointY="14.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.c02" Width="1.5" PointX="8.25" PointY="17.75" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="NXEIPModel.c03" Width="1.5" PointX="6" PointY="26.375" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="NXEIPModel.c04" Width="1.5" PointX="5.25" PointY="16.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="NXEIPModel.departments" Width="1.5" PointX="0.75" PointY="11" Height="4.0956022135416639" />
+        <EntityTypeShape EntityType="NXEIPModel.dtproperties" Width="1.5" PointX="0.75" PointY="4.875" Height="2.3648893229166665" />
+        <EntityTypeShape EntityType="NXEIPModel.loginlog" Width="1.5" PointX="8.75" PointY="1.875" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="NXEIPModel.operates" Width="1.5" PointX="8.25" PointY="11.5" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="NXEIPModel.page" Width="1.5" PointX="5.25" PointY="38.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="NXEIPModel.people" Width="1.5" PointX="3" PointY="9.25" Height="12.749166666666667" />
+        <EntityTypeShape EntityType="NXEIPModel.rauthority" Width="1.5" PointX="11.25" PointY="16" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="NXEIPModel.role" Width="1.5" PointX="5.25" PointY="30.375" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="NXEIPModel.roleaccount" Width="1.5" PointX="7.5" PointY="22.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.s01" Width="1.5" PointX="3.75" PointY="5.75" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="NXEIPModel.s02" Width="1.5" PointX="8.25" PointY="14.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.s03" Width="1.5" PointX="6" PointY="11.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.s04" Width="1.5" PointX="6" PointY="6.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.sys" Width="1.5" PointX="3.75" PointY="1.25" Height="2.9417936197916665" />
+        <EntityTypeShape EntityType="NXEIPModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="5.875" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="NXEIPModel.sysfuction" Width="1.5" PointX="6" PointY="0.75" Height="3.7109993489583326" />
+        <EntityTypeShape EntityType="NXEIPModel.types" Width="1.5" PointX="3.75" PointY="26.625" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="NXEIPModel.widget" Width="1.5" PointX="5.25" PointY="34.375" Height="2.5571907552083388" />
+        <AssociationConnector Association="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="3.75" PointY="21.999166666666667" />
+          <ConnectorPoint PointX="3.75" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="4.3854146666666667" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="4.5520813333333328" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="5.25" PointY="23.653595377604166" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" >
+          <ConnectorPoint PointX="6.75" PointY="23.643992513020834" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="23.643992513020834" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="23.643992513020834" />
+          <ConnectorPoint PointX="7.5" PointY="23.643992513020834" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_block_page" >
+          <ConnectorPoint PointX="6.75" PointY="39.682444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="39.682444661458334" />
+          <ConnectorPoint PointX="8.25" PointY="36.864889322916667" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_block_widget" >
+          <ConnectorPoint PointX="6.75" PointY="35.682444661458334" />
+          <ConnectorPoint PointX="7.5" PointY="35.682444661458334" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_C01_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="4.5" PointY="15.143992513020834" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="15.143992513020834" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="15.143992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="15.143992513020834" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_C02_RELATIONS_C03" >
+          <ConnectorPoint PointX="7.125" PointY="26.375" />
+          <ConnectorPoint PointX="7.125" PointY="20.126892903645832" />
+          <ConnectorPoint PointX="8.25" PointY="20.126892903645832" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_C02_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="4.5" PointY="19.397339680989582" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="19.397339680989582" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="19.397339680989582" />
+          <ConnectorPoint PointX="8.25" PointY="19.397339680989582" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_C04_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="4.5" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="17.740143229166666" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" >
+          <ConnectorPoint PointX="2.25" PointY="13.047801106770832" />
+          <ConnectorPoint PointX="3" PointY="13.047801106770832" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S03_RELATIONS_DEPARTME" >
+          <ConnectorPoint PointX="1.5" PointY="11" />
+          <ConnectorPoint PointX="1.5" PointY="9" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="9" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="9" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="9" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="9" />
+          <ConnectorPoint PointX="5.625" PointY="9" />
+          <ConnectorPoint PointX="5.625" PointY="12.018992513020834" />
+          <ConnectorPoint PointX="6" PointY="12.018992513020834" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="4.5" PointY="13.324036458333334" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="13.324036458333334" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="13.324036458333334" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="13.324036458333334" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="13.324036458333334" />
+          <ConnectorPoint PointX="8.25" PointY="13.324036458333334" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" >
+          <ConnectorPoint PointX="7.5" PointY="1.28125" />
+          <ConnectorPoint PointX="8.46875" PointY="1.28125" />
+          <ConnectorPoint PointX="8.46875" PointY="11.5" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S02_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="4.5" PointY="16.319235026041667" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="16.319235026041667" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="16.319235026041667" />
+          <ConnectorPoint PointX="8.25" PointY="16.319235026041667" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" >
+          <ConnectorPoint PointX="6.75" PointY="31.653595377604169" />
+          <ConnectorPoint PointX="12" PointY="31.653595377604169" />
+          <ConnectorPoint PointX="12" PointY="17.787985026041667" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" >
+          <ConnectorPoint PointX="7.5" PointY="1.5781275" />
+          <ConnectorPoint PointX="8.3854166666666661" PointY="1.5781274999999992" />
+          <ConnectorPoint PointX="8.5520833333333339" PointY="1.5781275" />
+          <ConnectorPoint PointX="12" PointY="1.5781275" />
+          <ConnectorPoint PointX="12" PointY="16" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE" >
+          <ConnectorPoint PointX="6" PointY="30.375" />
+          <ConnectorPoint PointX="6" PointY="30" />
+          <ConnectorPoint PointX="8.25" PointY="30" />
+          <ConnectorPoint PointX="8.25" PointY="24.537985026041667" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S02_RELATIONS_S01" >
+          <ConnectorPoint PointX="5.25" PointY="7.0285953776041676" />
+          <ConnectorPoint PointX="5.75" PointY="7.0285953776041676" />
+          <ConnectorPoint PointX="5.75" PointY="8.1629850260416674" />
+          <ConnectorPoint PointX="8" PointY="8.1629850260416674" />
+          <ConnectorPoint PointX="8" PointY="14.375" />
+          <ConnectorPoint PointX="9" PointY="14.375" />
+          <ConnectorPoint PointX="9" PointY="14.75" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S03_RELATIONS_S01" >
+          <ConnectorPoint PointX="5.25" PointY="7.6991450664062508" />
+          <ConnectorPoint PointX="5.5" PointY="7.6991450664062508" />
+          <ConnectorPoint PointX="5.5" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="6" PointY="11.540744256510417" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S04_RELATIONS_S01" >
+          <ConnectorPoint PointX="5.25" PointY="6.5142976888020838" />
+          <ConnectorPoint PointX="6" PointY="6.5142976888020838" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_S04_RELATIONS_TYPES" >
+          <ConnectorPoint PointX="4.468748" PointY="26.625" />
+          <ConnectorPoint PointX="4.468748" PointY="22.249166666666667" />
+          <ConnectorPoint PointX="4.75" PointY="22.249166666666667" />
+          <ConnectorPoint PointX="4.75" PointY="8.5571907552083335" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="8.5571907552083335" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="8.5571907552083335" />
+          <ConnectorPoint PointX="5.625" PointY="8.5571907552083335" />
+          <ConnectorPoint PointX="5.625" PointY="7.3638702220052092" />
+          <ConnectorPoint PointX="5.666666666666667" PointY="7.3638702220052084" />
+          <ConnectorPoint PointX="5.833333333333333" PointY="7.3638702220052092" />
+          <ConnectorPoint PointX="6" PointY="7.3638702220052092" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" >
+          <ConnectorPoint PointX="5.25" PointY="2.7208968098958333" />
+          <ConnectorPoint PointX="6" PointY="2.7208968098958333" /></AssociationConnector>
+        </Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

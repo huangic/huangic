@@ -1,0 +1,87 @@
+
+ .HeaderMenuBar td
+{
+      background-image:url(../image/a37.gif);
+      background-repeat:repeat;
+}
+
+.home:hover
+{
+  background:url(../image/a49-1.gif) no-repeat;  
+ 
+}
+
+.home
+{
+   background:url(../image/a49.gif) no-repeat;    
+    
+}
+
+.logout:hover
+{
+  background:url(../image/a48-1.gif) no-repeat;  
+ 
+}
+
+.logout
+{
+   background:url(../image/a48.gif) no-repeat;    
+    
+}
+
+
+
+ .home, .logout
+{ 
+    
+    text-indent : -1px;
+    display:inline-block;
+	height:25px;
+	width:35px;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+}
+
+ .big,.middle,.small 
+{
+    text-indent : -1px;
+    display:inline-block;
+	height:28px;
+	width:25px;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+    }
+
+
+
+ .big 
+{
+    background:url(../image/a06.gif) no-repeat;    
+    }
+     .big:hover 
+{
+    background:url(../image/a06-1.gif) no-repeat;    
+    }
+    
+    
+    
+   .middle
+   {
+       background:url(../image/a05.gif) no-repeat;    
+       }
+       
+        .middle:hover
+   {
+       background:url(../image/a05-1.gif) no-repeat;    
+       }
+   
+   .small
+   {
+       background:url(../image/a04.gif) no-repeat;    
+       }
+         .small:hover
+   {
+       background:url(../image/a04-1.gif) no-repeat;    
+       }

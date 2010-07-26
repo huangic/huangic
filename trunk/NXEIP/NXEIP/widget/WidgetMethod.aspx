@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WidgetMethod.aspx.cs" Inherits="WidgetMethod" %>

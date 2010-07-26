@@ -1,0 +1,70 @@
+.tableData 
+{
+     
+}
+
+
+.tableData th,.tableData td
+{
+    color:#888888;
+font-family:Arial,Helvetica,sans-serif;
+font-size:13px;
+font-weight:bold;
+line-height:20px;
+text-decoration:none;
+background-color:#eeeeee;
+    
+}
+
+.tableData td
+{
+
+font-weight:normal;
+    
+    }
+
+
+
+
+
+.tableData tr:hover,.tableData tr:hover td
+{ 
+       background-color:Yellow;
+    
+    }
+
+.pager
+{
+     clear: both;
+    color: #999999;
+    line-height: 150%;
+    margin: 0 0 5px;
+    padding: 5px 10px;
+    position: relative;
+    text-align: center;
+    top: 79px;
+    left: 0px;
+}
+    
+.pager span span
+{
+     color: #ff0000;
+    }
+    
+.pager a
+{
+    color: #999999;
+    font-size: 15px;
+    text-decoration:none;
+}
+
+
+.headerbg 
+{
+     background-image:url(../image/b02-1.gif);
+}
+
+.footbg 
+{
+     background-image:url(../image/b02-4.gif);
+}

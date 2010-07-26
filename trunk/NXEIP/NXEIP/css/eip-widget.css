@@ -1,0 +1,96 @@
+
+
+.widget {
+  margin: 1em;
+  
+}
+.widget-menu
+{
+ position:relative;
+ float:right;
+}
+
+.widget-collapselink
+{
+     display: inline-block; /* Or float left, whichever is necessary... */
+  width: 16px;
+  height: 16px;
+font-size:0;
+     
+     background: url(../image/collapse.png) no-repeat;
+     text-decoration:none;
+     text-indent:-1px;
+}
+.widget-closelink
+{
+     display: inline-block; /* Or float left, whichever is necessary... */
+  width: 16px;
+  height: 16px;
+font-size:0;
+     
+     
+     background: url(../image/close.png) no-repeat;
+        text-decoration:none;
+        text-indent:-1px;
+}
+
+
+
+.widgetEdit 
+{
+    background-color:#99C2AD;
+    
+    padding-top:5px;
+    padding-top:5px;
+     
+}
+    
+.widget .widget-content
+{
+    background-color:#FFFFFF;
+}
+
+
+.widget-placeholder {
+  color: #000;
+  margin: 1em;
+  background-color: #ebebeb;
+}
+
+
+
+
+.dock
+{
+    position:fixed;
+    bottom: 0;
+     margin: auto;
+     padding: auto;
+     direction:ltr;
+    height:25px;
+    position:fixed;
+    right:0;
+    z-index:99;
+    background-color:#D8D8D8;
+    color:#555555;
+    border: dashed 1px #000000;
+    }
+
+
+.widgetfunc
+{
+    position:fixed;
+    bottom: 25px;
+    right:0;
+    background-color:#D8D8D8;
+    height:200px;
+    display:none;
+}
+
+
+
+.movable
+{
+     border: dashed 1px #000000;
+}
+
