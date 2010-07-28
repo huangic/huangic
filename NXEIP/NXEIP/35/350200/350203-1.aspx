@@ -135,6 +135,20 @@
                                         <tr>
                                             <td bgcolor="#eeeeee" class="a-letter-2">
                                                 <div align="right">
+                                                    部門預設角色</div>
+                                            </td>
+                                            <td bgcolor="#eeeeee" class="a-letter-1" colspan="3">
+                                                <asp:DropDownList ID="ddl_role" runat="server" DataSourceID="SqlDataSource1" 
+                                                    DataTextField="rol_name" DataValueField="rol_no">
+                                                </asp:DropDownList>
+                                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                                                    ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>" 
+                                                    SelectCommand="SELECT rol_no, rol_name FROM role"></asp:SqlDataSource>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#eeeeee" class="a-letter-2">
+                                                <div align="right">
                                                     簡介</div>
                                             </td>
                                             <td bgcolor="#eeeeee" class="a-letter-1" colspan="3">
