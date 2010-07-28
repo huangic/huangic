@@ -9,6 +9,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 
 /// <summary>
 /// DBObject 的摘要描述
@@ -173,5 +174,36 @@ public class DBObject
         return ret;
     }
 
+    /// <summary>
+    /// 新增操作記錄
+    /// </summary>
+    /// <param name="sfu_no">功能編號</param>
+    /// <param name="peo_uid">人員編號</param>
+    /// <param name="fuction">操作代碼1:新增 2:查詢 3:更新 4:刪除 5:保留</param>
+    /// <param name="memo">備註</param>
+    public void ExecuteOperates(int sfu_no, string peo_uid, int fuction, string memo)
+    {
+        string strSQL = "insert into operates (sfu_no,peo_uid,ope_logintime,ope_fuction,ope_memo) values (" + sfu_no + "," + peo_uid + ",GETDATE()," + fuction + ",'" + memo + "')";
+
+        SqlCommand com = new SqlCommand(strSQL, new SqlConnection(connStr));
+        try
+        {
+            if (com.Connection.State != ConnectionState.Open)
+            {
+                com.Connection.Open();
+            }
+
+            com.ExecuteNonQuery();
+
+        }
+        finally
+        {
+            if (com.Connection.State != ConnectionState.Closed)
+            {
+                com.Connection.Close();
+            }
+            com.Dispose();
+        }
+    }
 
 }
