@@ -9,6 +9,16 @@ public partial class _35_350200_350205 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!this.IsPostBack)
+        {
+            
 
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string peo_arrivedate = calendar1.Get_Date();
+
+        string peo_birthday = calendar2.Get_Date();
     }
 }
