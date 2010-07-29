@@ -7,9 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class lib_calendar : System.Web.UI.UserControl
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "calendar_js", ResolveClientUrl("~/js/calendar.js"));
+        
     }
 
     public string Get_Date() 

@@ -10,7 +10,8 @@
 <%@ Register src="../../lib/messagebox/ConfirmMessagebox.ascx" tagname="ConfirmMessagebox" tagprefix="uc3" %>
 <%@ Register src="../../lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-<script type="text/javascript">
+
+    <script type="text/javascript">
        function update(msg) {
 
            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
