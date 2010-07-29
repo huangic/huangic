@@ -14,11 +14,51 @@
           <EntitySet Name="c03" EntityType="NXEIPModel.Store.c03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="c04" EntityType="NXEIPModel.Store.c04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="departments" EntityType="NXEIPModel.Store.departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc01" EntityType="NXEIPModel.Store.doc01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc02" EntityType="NXEIPModel.Store.doc02" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc03" EntityType="NXEIPModel.Store.doc03" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc04" EntityType="NXEIPModel.Store.doc04" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc05" EntityType="NXEIPModel.Store.doc05" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="dtproperties" EntityType="NXEIPModel.Store.dtproperties" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="per01" EntityType="NXEIPModel.Store.per01" store:Type="Tables" store:Schema="dbo" store:Name="per01">
+            <DefiningQuery>SELECT 
+      [per01].[p01_age] AS [p01_age], 
+      [per01].[p01_armyage] AS [p01_armyage], 
+      [per01].[p01_bankno] AS [p01_bankno], 
+      [per01].[p01_beforelast] AS [p01_beforelast], 
+      [per01].[p01_boss] AS [p01_boss], 
+      [per01].[p01_break] AS [p01_break], 
+      [per01].[p01_cardtype] AS [p01_cardtype], 
+      [per01].[p01_contractage] AS [p01_contractage], 
+      [per01].[p01_homeaddr] AS [p01_homeaddr], 
+      [per01].[p01_hometel] AS [p01_hometel], 
+      [per01].[p01_lastyear] AS [p01_lastyear], 
+      [per01].[p01_major] AS [p01_major], 
+      [per01].[p01_marry] AS [p01_marry], 
+      [per01].[p01_no] AS [p01_no], 
+      [per01].[p01_nonstop] AS [p01_nonstop], 
+      [per01].[p01_nontwo] AS [p01_nontwo], 
+      [per01].[p01_organization] AS [p01_organization], 
+      [per01].[p01_other] AS [p01_other], 
+      [per01].[p01_pagno] AS [p01_pagno], 
+      [per01].[p01_plevel] AS [p01_plevel], 
+      [per01].[p01_point] AS [p01_point], 
+      [per01].[p01_postaccount] AS [p01_postaccount], 
+      [per01].[p01_prospcst] AS [p01_prospcst], 
+      [per01].[p01_publicday] AS [p01_publicday], 
+      [per01].[p01_reserve] AS [p01_reserve], 
+      [per01].[p01_salary] AS [p01_salary], 
+      [per01].[p01_thisyear] AS [p01_thisyear], 
+      [per01].[p01_tree] AS [p01_tree], 
+      [per01].[p01_worktype] AS [p01_worktype], 
+      [per01].[p01_yeartype] AS [p01_yeartype], 
+      [per01].[peo_uid] AS [peo_uid]
+      FROM [dbo].[per01] AS [per01]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="rauthority" EntityType="NXEIPModel.Store.rauthority" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="role" EntityType="NXEIPModel.Store.role" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="roleaccount" EntityType="NXEIPModel.Store.roleaccount" store:Type="Tables" Schema="dbo" />
@@ -59,6 +99,26 @@
             <End Role="people" EntitySet="people" />
             <End Role="c04" EntitySet="c04" />
           </AssociationSet>
+          <AssociationSet Name="FK_DOC01_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_DOC01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="doc01" EntitySet="doc01" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC02_RELATIONS_DOC01" Association="NXEIPModel.Store.FK_DOC02_RELATIONS_DOC01">
+            <End Role="doc01" EntitySet="doc01" />
+            <End Role="doc02" EntitySet="doc02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC03_RELATIONS_DOC01" Association="NXEIPModel.Store.FK_DOC03_RELATIONS_DOC01">
+            <End Role="doc01" EntitySet="doc01" />
+            <End Role="doc03" EntitySet="doc03" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC04_RELATIONS_DOC03" Association="NXEIPModel.Store.FK_DOC04_RELATIONS_DOC03">
+            <End Role="doc03" EntitySet="doc03" />
+            <End Role="doc04" EntitySet="doc04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC05_RELATIONS_DOC03" Association="NXEIPModel.Store.FK_DOC05_RELATIONS_DOC03">
+            <End Role="doc03" EntitySet="doc03" />
+            <End Role="doc05" EntitySet="doc05" />
+          </AssociationSet>
           <AssociationSet Name="FK_OPERATES_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_OPERATES_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="operates" EntitySet="operates" />
@@ -70,6 +130,10 @@
           <AssociationSet Name="FK_PEOPLE_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_PEOPLE_RELATIONS_DEPARTME">
             <End Role="departments" EntitySet="departments" />
             <End Role="people" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PER01_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_PER01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="per01" EntitySet="per01" />
           </AssociationSet>
           <AssociationSet Name="FK_RAUTHORI_RELATIONS_ROLE" Association="NXEIPModel.Store.FK_RAUTHORI_RELATIONS_ROLE">
             <End Role="role" EntitySet="role" />
@@ -219,6 +283,83 @@
           <Property Name="dep_status" Type="char" MaxLength="1" />
           <Property Name="dep_tel" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="doc01">
+          <Key>
+            <PropertyRef Name="d01_no" />
+          </Key>
+          <Property Name="d01_createtime" Type="datetime" />
+          <Property Name="d01_createuid" Type="int" />
+          <Property Name="d01_file" Type="nvarchar" MaxLength="100" />
+          <Property Name="d01_level" Type="int" />
+          <Property Name="d01_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="d01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="d01_parentid" Type="int" Nullable="false" />
+          <Property Name="d01_passwd" Type="varchar" MaxLength="20" />
+          <Property Name="d01_son" Type="int" Nullable="false" />
+          <Property Name="d01_url" Type="varchar" MaxLength="200" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doc02">
+          <Key>
+            <PropertyRef Name="d01_no" />
+            <PropertyRef Name="d02_no" />
+          </Key>
+          <Property Name="d01_no" Type="int" Nullable="false" />
+          <Property Name="d02_cake" Type="varchar" MaxLength="10" />
+          <Property Name="d02_content" Type="text" />
+          <Property Name="d02_contributor" Type="nvarchar" MaxLength="100" />
+          <Property Name="d02_coverage" Type="nvarchar" MaxLength="200" />
+          <Property Name="d02_creator" Type="nvarchar" MaxLength="40" />
+          <Property Name="d02_date" Type="datetime" />
+          <Property Name="d02_depname" Type="nvarchar" MaxLength="40" />
+          <Property Name="d02_description" Type="text" />
+          <Property Name="d02_format" Type="nvarchar" MaxLength="20" />
+          <Property Name="d02_idnetifier" Type="nvarchar" MaxLength="40" />
+          <Property Name="d02_KB" Type="int" />
+          <Property Name="d02_keyword" Type="text" />
+          <Property Name="d02_language" Type="nvarchar" MaxLength="40" />
+          <Property Name="d02_no" Type="int" Nullable="false" />
+          <Property Name="d02_open" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="d02_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="d02_public" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="d02_publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="d02_relation" Type="nvarchar" MaxLength="40" />
+          <Property Name="d02_rights" Type="nvarchar" MaxLength="200" />
+          <Property Name="d02_service" Type="varchar" MaxLength="10" />
+          <Property Name="d02_source" Type="nvarchar" MaxLength="100" />
+          <Property Name="d02_subject" Type="text" />
+          <Property Name="d02_theme" Type="varchar" MaxLength="10" />
+          <Property Name="d02_title" Type="nvarchar" MaxLength="200" />
+          <Property Name="d02_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="d02_version" Type="int" />
+        </EntityType>
+        <EntityType Name="doc03">
+          <Key>
+            <PropertyRef Name="d03_no" />
+          </Key>
+          <Property Name="d01_no" Type="int" Nullable="false" />
+          <Property Name="d03_authority" Type="varchar" MaxLength="4" />
+          <Property Name="d03_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="d03_type" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="doc04">
+          <Key>
+            <PropertyRef Name="d03_no" />
+            <PropertyRef Name="d04_no" />
+          </Key>
+          <Property Name="d03_no" Type="int" Nullable="false" />
+          <Property Name="d04_depno" Type="int" />
+          <Property Name="d04_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="doc05">
+          <Key>
+            <PropertyRef Name="d03_no" />
+            <PropertyRef Name="d05_no" />
+          </Key>
+          <Property Name="d03_no" Type="int" Nullable="false" />
+          <Property Name="d05_no" Type="int" Nullable="false" />
+          <Property Name="d05_peouid" Type="int" />
+        </EntityType>
         <EntityType Name="dtproperties">
           <Key>
             <PropertyRef Name="id" />
@@ -274,58 +415,68 @@
           <Property Name="dep_no" Type="int" Nullable="false" />
           <Property Name="peo_account" Type="varchar" MaxLength="30" />
           <Property Name="peo_addr" Type="nvarchar" MaxLength="100" />
-          <Property Name="peo_age" Type="varchar" MaxLength="4" />
-          <Property Name="peo_armyage" Type="varchar" MaxLength="4" />
           <Property Name="peo_arrivedate" Type="datetime" />
-          <Property Name="peo_bankname" Type="nvarchar" MaxLength="30" />
-          <Property Name="peo_beforelast" Type="varchar" MaxLength="4" />
           <Property Name="peo_birthday" Type="datetime" />
-          <Property Name="peo_boss" Type="int" />
-          <Property Name="peo_break" Type="char" MaxLength="1" />
-          <Property Name="peo_cardtype" Type="char" Nullable="false" MaxLength="3" />
-          <Property Name="peo_contractage" Type="varchar" MaxLength="4" />
           <Property Name="peo_createtime" Type="datetime" />
           <Property Name="peo_createuid" Type="int" />
-          <Property Name="peo_eduno" Type="int" />
           <Property Name="peo_email" Type="varchar" MaxLength="100" />
           <Property Name="peo_english" Type="varchar" MaxLength="40" />
-          <Property Name="peo_exmno" Type="int" />
           <Property Name="peo_filename" Type="nvarchar" MaxLength="100" />
-          <Property Name="peo_homeaddr" Type="nvarchar" MaxLength="100" />
-          <Property Name="peo_hometel" Type="varchar" MaxLength="20" />
           <Property Name="peo_idcard" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="peo_jobtype" Type="int" />
-          <Property Name="peo_lastyear" Type="varchar" MaxLength="4" />
           <Property Name="peo_leave" Type="datetime" />
-          <Property Name="peo_major" Type="int" />
-          <Property Name="peo_marry" Type="char" MaxLength="1" />
           <Property Name="peo_memo" Type="nvarchar" MaxLength="100" />
           <Property Name="peo_name" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="peo_nonstop" Type="varchar" MaxLength="4" />
-          <Property Name="peo_nonthree" Type="varchar" MaxLength="4" />
-          <Property Name="peo_nontwo" Type="varchar" MaxLength="4" />
-          <Property Name="peo_organization" Type="char" MaxLength="1" />
-          <Property Name="peo_pagno" Type="int" />
           <Property Name="peo_pfofess" Type="int" />
           <Property Name="peo_picture" Type="image" />
           <Property Name="peo_pincode" Type="varchar" MaxLength="100" />
           <Property Name="peo_plevel" Type="int" />
-          <Property Name="peo_point" Type="varchar" MaxLength="20" />
-          <Property Name="peo_postaccount" Type="varchar" MaxLength="30" />
-          <Property Name="peo_prospcst" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="peo_ptype" Type="int" />
-          <Property Name="peo_publicday" Type="datetime" Nullable="false" />
-          <Property Name="peo_reserve" Type="varchar" MaxLength="4" />
-          <Property Name="peo_salary" Type="decimal" Precision="6" Scale="2" />
           <Property Name="peo_sex" Type="char" MaxLength="1" />
           <Property Name="peo_tel" Type="varchar" MaxLength="20" />
-          <Property Name="peo_thisyear" Type="varchar" MaxLength="4" />
-          <Property Name="peo_tree" Type="int" />
           <Property Name="peo_uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="peo_workerage" Type="varchar" MaxLength="4" />
           <Property Name="peo_workid" Type="varchar" MaxLength="10" />
-          <Property Name="peo_worktype" Type="int" />
-          <Property Name="peo_yeartype" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+      警告 6002: 資料表/檢視 'NxEip.dbo.per01' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      -->
+        <EntityType Name="per01">
+          <Key>
+            <PropertyRef Name="p01_marry" />
+            <PropertyRef Name="p01_no" />
+            <PropertyRef Name="peo_uid" />
+          </Key>
+          <Property Name="p01_age" Type="varchar" MaxLength="4" />
+          <Property Name="p01_armyage" Type="varchar" MaxLength="4" />
+          <Property Name="p01_bankno" Type="int" />
+          <Property Name="p01_beforelast" Type="varchar" MaxLength="4" />
+          <Property Name="p01_boss" Type="int" />
+          <Property Name="p01_break" Type="char" MaxLength="1" />
+          <Property Name="p01_cardtype" Type="char" MaxLength="1" />
+          <Property Name="p01_contractage" Type="varchar" MaxLength="4" />
+          <Property Name="p01_homeaddr" Type="nvarchar" MaxLength="100" />
+          <Property Name="p01_hometel" Type="varchar" MaxLength="20" />
+          <Property Name="p01_lastyear" Type="varchar" MaxLength="4" />
+          <Property Name="p01_major" Type="int" />
+          <Property Name="p01_marry" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="p01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="p01_nonstop" Type="varchar" MaxLength="4" />
+          <Property Name="p01_nontwo" Type="varchar" MaxLength="4" />
+          <Property Name="p01_organization" Type="char" MaxLength="1" />
+          <Property Name="p01_other" Type="varchar" MaxLength="4" />
+          <Property Name="p01_pagno" Type="int" />
+          <Property Name="p01_plevel" Type="int" />
+          <Property Name="p01_point" Type="varchar" MaxLength="20" />
+          <Property Name="p01_postaccount" Type="varchar" MaxLength="30" />
+          <Property Name="p01_prospcst" Type="char" MaxLength="1" />
+          <Property Name="p01_publicday" Type="datetime" />
+          <Property Name="p01_reserve" Type="varchar" MaxLength="4" />
+          <Property Name="p01_salary" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="p01_thisyear" Type="varchar" MaxLength="4" />
+          <Property Name="p01_tree" Type="int" />
+          <Property Name="p01_worktype" Type="int" />
+          <Property Name="p01_yeartype" Type="char" MaxLength="1" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="rauthority">
           <Key>
@@ -544,6 +695,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DOC01_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="doc01" Type="NXEIPModel.Store.doc01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="doc01">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC02_RELATIONS_DOC01">
+          <End Role="doc01" Type="NXEIPModel.Store.doc01" Multiplicity="1" />
+          <End Role="doc02" Type="NXEIPModel.Store.doc02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc01">
+              <PropertyRef Name="d01_no" />
+            </Principal>
+            <Dependent Role="doc02">
+              <PropertyRef Name="d01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC03_RELATIONS_DOC01">
+          <End Role="doc01" Type="NXEIPModel.Store.doc01" Multiplicity="1" />
+          <End Role="doc03" Type="NXEIPModel.Store.doc03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc01">
+              <PropertyRef Name="d01_no" />
+            </Principal>
+            <Dependent Role="doc03">
+              <PropertyRef Name="d01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC04_RELATIONS_DOC03">
+          <End Role="doc03" Type="NXEIPModel.Store.doc03" Multiplicity="1" />
+          <End Role="doc04" Type="NXEIPModel.Store.doc04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc03">
+              <PropertyRef Name="d03_no" />
+            </Principal>
+            <Dependent Role="doc04">
+              <PropertyRef Name="d03_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC05_RELATIONS_DOC03">
+          <End Role="doc03" Type="NXEIPModel.Store.doc03" Multiplicity="1" />
+          <End Role="doc05" Type="NXEIPModel.Store.doc05" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc03">
+              <PropertyRef Name="d03_no" />
+            </Principal>
+            <Dependent Role="doc05">
+              <PropertyRef Name="d03_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OPERATES_RELATIONS_PEOPLE">
           <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
           <End Role="operates" Type="NXEIPModel.Store.operates" Multiplicity="*" />
@@ -577,6 +788,18 @@
             </Principal>
             <Dependent Role="people">
               <PropertyRef Name="dep_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PER01_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="per01" Type="NXEIPModel.Store.per01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="per01">
+              <PropertyRef Name="peo_uid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -805,7 +1028,30 @@
           <AssociationSet Name="FK_SYSFUCTI_RELATIONS_SYS" Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS">
             <End Role="sys" EntitySet="sys" />
             <End Role="sysfuction" EntitySet="sysfuction" /></AssociationSet>
-          </EntityContainer>
+          <EntitySet Name="doc01" EntityType="NXEIPModel.doc01" />
+          <EntitySet Name="doc03" EntityType="NXEIPModel.doc03" />
+          <EntitySet Name="doc04" EntityType="NXEIPModel.doc04" />
+          <EntitySet Name="doc05" EntityType="NXEIPModel.doc05" />
+          <EntitySet Name="per01" EntityType="NXEIPModel.per01" />
+          <AssociationSet Name="FK_DOC01_RELATIONS_PEOPLE" Association="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="doc01" EntitySet="doc01" /></AssociationSet>
+          <AssociationSet Name="FK_DOC03_RELATIONS_DOC01" Association="NXEIPModel.FK_DOC03_RELATIONS_DOC01">
+            <End Role="doc01" EntitySet="doc01" />
+            <End Role="doc03" EntitySet="doc03" /></AssociationSet>
+          <AssociationSet Name="FK_DOC04_RELATIONS_DOC03" Association="NXEIPModel.FK_DOC04_RELATIONS_DOC03">
+            <End Role="doc03" EntitySet="doc03" />
+            <End Role="doc04" EntitySet="doc04" /></AssociationSet>
+          <AssociationSet Name="FK_DOC05_RELATIONS_DOC03" Association="NXEIPModel.FK_DOC05_RELATIONS_DOC03">
+            <End Role="doc03" EntitySet="doc03" />
+            <End Role="doc05" EntitySet="doc05" /></AssociationSet>
+          <AssociationSet Name="FK_PER01_RELATIONS_PEOPLE" Association="NXEIPModel.FK_PER01_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="per01" EntitySet="per01" /></AssociationSet>
+          <EntitySet Name="doc02" EntityType="NXEIPModel.doc02" />
+          <AssociationSet Name="FK_DOC02_RELATIONS_DOC01" Association="NXEIPModel.FK_DOC02_RELATIONS_DOC01">
+            <End Role="doc01" EntitySet="doc01" />
+            <End Role="doc02" EntitySet="doc02" /></AssociationSet></EntityContainer>
         <EntityType Name="accounts">
           <Key>
             <PropertyRef Name="acc_no" /></Key>
@@ -944,65 +1190,36 @@
             <PropertyRef Name="peo_uid" /></Key>
           <Property Name="peo_account" Type="String" Nullable="true" />
           <Property Name="peo_addr" Type="String" Nullable="true" />
-          <Property Name="peo_age" Type="String" Nullable="true" />
-          <Property Name="peo_armyage" Type="String" Nullable="true" />
           <Property Name="peo_arrivedate" Type="DateTime" Nullable="true" />
-          <Property Name="peo_bankname" Type="String" Nullable="true" />
-          <Property Name="peo_beforelast" Type="String" Nullable="true" />
           <Property Name="peo_birthday" Type="DateTime" Nullable="true" />
-          <Property Name="peo_boss" Type="Int32" Nullable="true" />
-          <Property Name="peo_break" Type="String" Nullable="true" />
-          <Property Name="peo_cardtype" Type="String" Nullable="false" />
-          <Property Name="peo_contractage" Type="String" Nullable="true" />
           <Property Name="peo_createtime" Type="DateTime" Nullable="true" />
           <Property Name="peo_createuid" Type="Int32" Nullable="true" />
-          <Property Name="peo_eduno" Type="Int32" Nullable="true" />
           <Property Name="peo_email" Type="String" Nullable="true" />
           <Property Name="peo_english" Type="String" Nullable="true" />
-          <Property Name="peo_exmno" Type="Int32" Nullable="true" />
           <Property Name="peo_filename" Type="String" Nullable="true" />
-          <Property Name="peo_homeaddr" Type="String" Nullable="true" />
-          <Property Name="peo_hometel" Type="String" Nullable="true" />
           <Property Name="peo_idcard" Type="String" Nullable="false" />
           <Property Name="peo_jobtype" Type="Int32" Nullable="true" />
-          <Property Name="peo_lastyear" Type="String" Nullable="true" />
           <Property Name="peo_leave" Type="DateTime" Nullable="true" />
-          <Property Name="peo_major" Type="Int32" Nullable="true" />
-          <Property Name="peo_marry" Type="String" Nullable="true" />
           <Property Name="peo_memo" Type="String" Nullable="true" />
           <Property Name="peo_name" Type="String" Nullable="false" />
-          <Property Name="peo_nonstop" Type="String" Nullable="true" />
-          <Property Name="peo_nonthree" Type="String" Nullable="true" />
-          <Property Name="peo_nontwo" Type="String" Nullable="true" />
-          <Property Name="peo_organization" Type="String" Nullable="true" />
-          <Property Name="peo_pagno" Type="Int32" Nullable="true" />
           <Property Name="peo_pfofess" Type="Int32" Nullable="true" />
           <Property Name="peo_picture" Type="Binary" Nullable="true" />
           <Property Name="peo_pincode" Type="String" Nullable="true" />
           <Property Name="peo_plevel" Type="Int32" Nullable="true" />
-          <Property Name="peo_point" Type="String" Nullable="true" />
-          <Property Name="peo_postaccount" Type="String" Nullable="true" />
-          <Property Name="peo_prospcst" Type="String" Nullable="false" />
           <Property Name="peo_ptype" Type="Int32" Nullable="true" />
-          <Property Name="peo_publicday" Type="DateTime" Nullable="false" />
-          <Property Name="peo_reserve" Type="String" Nullable="true" />
-          <Property Name="peo_salary" Type="Decimal" Nullable="true" />
           <Property Name="peo_sex" Type="String" Nullable="true" />
           <Property Name="peo_tel" Type="String" Nullable="true" />
-          <Property Name="peo_thisyear" Type="String" Nullable="true" />
-          <Property Name="peo_tree" Type="Int32" Nullable="true" />
           <Property Name="peo_uid" Type="Int32" Nullable="false" />
-          <Property Name="peo_workerage" Type="String" Nullable="true" />
           <Property Name="peo_workid" Type="String" Nullable="true" />
-          <Property Name="peo_worktype" Type="Int32" Nullable="true" />
-          <Property Name="peo_yeartype" Type="String" Nullable="false" />
           <NavigationProperty Name="accounts" Relationship="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" FromRole="people" ToRole="accounts" />
           <NavigationProperty Name="c01" Relationship="NXEIPModel.FK_C01_RELATIONS_PEOPLE" FromRole="people" ToRole="c01" />
           <NavigationProperty Name="c02" Relationship="NXEIPModel.FK_C02_RELATIONS_PEOPLE" FromRole="people" ToRole="c02" />
           <NavigationProperty Name="c04" Relationship="NXEIPModel.FK_C04_RELATIONS_PEOPLE" FromRole="people" ToRole="c04" />
           <NavigationProperty Name="departments" Relationship="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" FromRole="people" ToRole="departments" />
           <NavigationProperty Name="operates" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" FromRole="people" ToRole="operates" />
-          <NavigationProperty Name="s02" Relationship="NXEIPModel.FK_S02_RELATIONS_PEOPLE" FromRole="people" ToRole="s02" /></EntityType>
+          <NavigationProperty Name="s02" Relationship="NXEIPModel.FK_S02_RELATIONS_PEOPLE" FromRole="people" ToRole="s02" />
+          <NavigationProperty Name="doc01" Relationship="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" FromRole="people" ToRole="doc01" />
+          <NavigationProperty Name="per01" Relationship="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" FromRole="people" ToRole="per01" /></EntityType>
         <EntityType Name="rauthority">
           <Key>
             <PropertyRef Name="rau_no" /></Key>
@@ -1215,7 +1432,155 @@
         <Association Name="FK_SYSFUCTI_RELATIONS_SYS">
           <End Type="NXEIPModel.sys" Role="sys" Multiplicity="1" />
           <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="*" /></Association>
-        </Schema>
+        <EntityType Name="doc01">
+          <Key>
+            <PropertyRef Name="d01_no" /></Key>
+          <Property Name="d01_createtime" Type="DateTime" Nullable="true" />
+          <Property Name="d01_createuid" Type="Int32" Nullable="true" />
+          <Property Name="d01_file" Type="String" Nullable="true" />
+          <Property Name="d01_level" Type="Int32" Nullable="true" />
+          <Property Name="d01_name" Type="String" Nullable="true" />
+          <Property Name="d01_no" Type="Int32" Nullable="false" />
+          <Property Name="d01_parentid" Type="Int32" Nullable="false" />
+          <Property Name="d01_son" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" FromRole="doc01" ToRole="people" />
+          <NavigationProperty Name="doc03" Relationship="NXEIPModel.FK_DOC03_RELATIONS_DOC01" FromRole="doc01" ToRole="doc03" />
+          <Property Name="d01_passwd" Type="String" Nullable="true" />
+          <Property Name="d01_url" Type="String" Nullable="true" />
+          <NavigationProperty Name="doc02" Relationship="NXEIPModel.FK_DOC02_RELATIONS_DOC01" FromRole="doc01" ToRole="doc02" /></EntityType>
+        <EntityType Name="doc03">
+          <Key>
+            <PropertyRef Name="d03_no" /></Key>
+          <Property Name="d03_authority" Type="String" Nullable="true" />
+          <Property Name="d03_no" Type="Int32" Nullable="false" />
+          <Property Name="d03_type" Type="String" Nullable="true" />
+          <NavigationProperty Name="doc01" Relationship="NXEIPModel.FK_DOC03_RELATIONS_DOC01" FromRole="doc03" ToRole="doc01" />
+          <NavigationProperty Name="doc04" Relationship="NXEIPModel.FK_DOC04_RELATIONS_DOC03" FromRole="doc03" ToRole="doc04" />
+          <NavigationProperty Name="doc05" Relationship="NXEIPModel.FK_DOC05_RELATIONS_DOC03" FromRole="doc03" ToRole="doc05" /></EntityType>
+        <EntityType Name="doc04">
+          <Key>
+            <PropertyRef Name="d03_no" />
+            <PropertyRef Name="d04_no" /></Key>
+          <Property Name="d03_no" Type="Int32" Nullable="false" />
+          <Property Name="d04_depno" Type="Int32" Nullable="true" />
+          <Property Name="d04_no" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="doc03" Relationship="NXEIPModel.FK_DOC04_RELATIONS_DOC03" FromRole="doc04" ToRole="doc03" /></EntityType>
+        <EntityType Name="doc05">
+          <Key>
+            <PropertyRef Name="d03_no" />
+            <PropertyRef Name="d05_no" /></Key>
+          <Property Name="d03_no" Type="Int32" Nullable="false" />
+          <Property Name="d05_no" Type="Int32" Nullable="false" />
+          <Property Name="d05_peouid" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="doc03" Relationship="NXEIPModel.FK_DOC05_RELATIONS_DOC03" FromRole="doc05" ToRole="doc03" /></EntityType>
+        <EntityType Name="per01">
+          <Key>
+            <PropertyRef Name="p01_marry" />
+            <PropertyRef Name="p01_no" />
+            <PropertyRef Name="peo_uid" /></Key>
+          <Property Name="p01_age" Type="String" Nullable="true" />
+          <Property Name="p01_armyage" Type="String" Nullable="true" />
+          <Property Name="p01_bankno" Type="Int32" Nullable="true" />
+          <Property Name="p01_beforelast" Type="String" Nullable="true" />
+          <Property Name="p01_boss" Type="Int32" Nullable="true" />
+          <Property Name="p01_break" Type="String" Nullable="true" />
+          <Property Name="p01_cardtype" Type="String" Nullable="true" />
+          <Property Name="p01_contractage" Type="String" Nullable="true" />
+          <Property Name="p01_homeaddr" Type="String" Nullable="true" />
+          <Property Name="p01_hometel" Type="String" Nullable="true" />
+          <Property Name="p01_lastyear" Type="String" Nullable="true" />
+          <Property Name="p01_major" Type="Int32" Nullable="true" />
+          <Property Name="p01_marry" Type="String" Nullable="false" />
+          <Property Name="p01_no" Type="Int32" Nullable="false" />
+          <Property Name="p01_nonstop" Type="String" Nullable="true" />
+          <Property Name="p01_nontwo" Type="String" Nullable="true" />
+          <Property Name="p01_organization" Type="String" Nullable="true" />
+          <Property Name="p01_other" Type="String" Nullable="true" />
+          <Property Name="p01_pagno" Type="Int32" Nullable="true" />
+          <Property Name="p01_plevel" Type="Int32" Nullable="true" />
+          <Property Name="p01_point" Type="String" Nullable="true" />
+          <Property Name="p01_postaccount" Type="String" Nullable="true" />
+          <Property Name="p01_prospcst" Type="String" Nullable="true" />
+          <Property Name="p01_publicday" Type="DateTime" Nullable="true" />
+          <Property Name="p01_reserve" Type="String" Nullable="true" />
+          <Property Name="p01_salary" Type="Decimal" Nullable="true" />
+          <Property Name="p01_thisyear" Type="String" Nullable="true" />
+          <Property Name="p01_tree" Type="Int32" Nullable="true" />
+          <Property Name="p01_worktype" Type="Int32" Nullable="true" />
+          <Property Name="p01_yeartype" Type="String" Nullable="true" />
+          <Property Name="peo_uid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" FromRole="per01" ToRole="people" /></EntityType>
+        <Association Name="FK_DOC01_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.doc01" Role="doc01" Multiplicity="*" /></Association>
+        <Association Name="FK_DOC03_RELATIONS_DOC01">
+          <End Type="NXEIPModel.doc01" Role="doc01" Multiplicity="1" />
+          <End Type="NXEIPModel.doc03" Role="doc03" Multiplicity="*" /></Association>
+        <Association Name="FK_DOC04_RELATIONS_DOC03">
+          <End Type="NXEIPModel.doc03" Role="doc03" Multiplicity="1" />
+          <End Type="NXEIPModel.doc04" Role="doc04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc03">
+              <PropertyRef Name="d03_no" /></Principal>
+            <Dependent Role="doc04">
+              <PropertyRef Name="d03_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_DOC05_RELATIONS_DOC03">
+          <End Type="NXEIPModel.doc03" Role="doc03" Multiplicity="1" />
+          <End Type="NXEIPModel.doc05" Role="doc05" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc03">
+              <PropertyRef Name="d03_no" /></Principal>
+            <Dependent Role="doc05">
+              <PropertyRef Name="d03_no" /></Dependent></ReferentialConstraint></Association>
+        <Association Name="FK_PER01_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.per01" Role="per01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" /></Principal>
+            <Dependent Role="per01">
+              <PropertyRef Name="peo_uid" /></Dependent></ReferentialConstraint></Association>
+        <EntityType Name="doc02">
+          <Key>
+            <PropertyRef Name="d01_no" />
+            <PropertyRef Name="d02_no" /></Key>
+          <Property Name="d01_no" Type="Int32" Nullable="false" />
+          <Property Name="d02_cake" Type="String" Nullable="true" />
+          <Property Name="d02_content" Type="String" Nullable="true" />
+          <Property Name="d02_contributor" Type="String" Nullable="true" />
+          <Property Name="d02_coverage" Type="String" Nullable="true" />
+          <Property Name="d02_creator" Type="String" Nullable="true" />
+          <Property Name="d02_date" Type="DateTime" Nullable="true" />
+          <Property Name="d02_depname" Type="String" Nullable="true" />
+          <Property Name="d02_description" Type="String" Nullable="true" />
+          <Property Name="d02_format" Type="String" Nullable="true" />
+          <Property Name="d02_idnetifier" Type="String" Nullable="true" />
+          <Property Name="d02_KB" Type="Int32" Nullable="true" />
+          <Property Name="d02_keyword" Type="String" Nullable="true" />
+          <Property Name="d02_language" Type="String" Nullable="true" />
+          <Property Name="d02_no" Type="Int32" Nullable="false" />
+          <Property Name="d02_open" Type="String" Nullable="false" />
+          <Property Name="d02_path" Type="String" Nullable="true" />
+          <Property Name="d02_public" Type="String" Nullable="false" />
+          <Property Name="d02_publisher" Type="String" Nullable="true" />
+          <Property Name="d02_relation" Type="String" Nullable="true" />
+          <Property Name="d02_rights" Type="String" Nullable="true" />
+          <Property Name="d02_service" Type="String" Nullable="true" />
+          <Property Name="d02_source" Type="String" Nullable="true" />
+          <Property Name="d02_subject" Type="String" Nullable="true" />
+          <Property Name="d02_theme" Type="String" Nullable="true" />
+          <Property Name="d02_title" Type="String" Nullable="true" />
+          <Property Name="d02_type" Type="String" Nullable="true" />
+          <Property Name="d02_version" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="doc01" Relationship="NXEIPModel.FK_DOC02_RELATIONS_DOC01" FromRole="doc02" ToRole="doc01" /></EntityType>
+        <Association Name="FK_DOC02_RELATIONS_DOC01">
+          <End Type="NXEIPModel.doc01" Role="doc01" Multiplicity="1" />
+          <End Type="NXEIPModel.doc02" Role="doc02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc01">
+              <PropertyRef Name="d01_no" /></Principal>
+            <Dependent Role="doc02">
+              <PropertyRef Name="d01_no" /></Dependent></ReferentialConstraint></Association></Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1341,58 +1706,27 @@
           <EntitySetMapping Name="people">
             <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.people)">
               <MappingFragment StoreEntitySet="people">
-                <ScalarProperty Name="peo_yeartype" ColumnName="peo_yeartype" />
-                <ScalarProperty Name="peo_worktype" ColumnName="peo_worktype" />
                 <ScalarProperty Name="peo_workid" ColumnName="peo_workid" />
-                <ScalarProperty Name="peo_workerage" ColumnName="peo_workerage" />
                 <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
-                <ScalarProperty Name="peo_tree" ColumnName="peo_tree" />
-                <ScalarProperty Name="peo_thisyear" ColumnName="peo_thisyear" />
                 <ScalarProperty Name="peo_tel" ColumnName="peo_tel" />
                 <ScalarProperty Name="peo_sex" ColumnName="peo_sex" />
-                <ScalarProperty Name="peo_salary" ColumnName="peo_salary" />
-                <ScalarProperty Name="peo_reserve" ColumnName="peo_reserve" />
-                <ScalarProperty Name="peo_publicday" ColumnName="peo_publicday" />
                 <ScalarProperty Name="peo_ptype" ColumnName="peo_ptype" />
-                <ScalarProperty Name="peo_prospcst" ColumnName="peo_prospcst" />
-                <ScalarProperty Name="peo_postaccount" ColumnName="peo_postaccount" />
-                <ScalarProperty Name="peo_point" ColumnName="peo_point" />
                 <ScalarProperty Name="peo_plevel" ColumnName="peo_plevel" />
                 <ScalarProperty Name="peo_pincode" ColumnName="peo_pincode" />
                 <ScalarProperty Name="peo_picture" ColumnName="peo_picture" />
                 <ScalarProperty Name="peo_pfofess" ColumnName="peo_pfofess" />
-                <ScalarProperty Name="peo_pagno" ColumnName="peo_pagno" />
-                <ScalarProperty Name="peo_organization" ColumnName="peo_organization" />
-                <ScalarProperty Name="peo_nontwo" ColumnName="peo_nontwo" />
-                <ScalarProperty Name="peo_nonthree" ColumnName="peo_nonthree" />
-                <ScalarProperty Name="peo_nonstop" ColumnName="peo_nonstop" />
                 <ScalarProperty Name="peo_name" ColumnName="peo_name" />
                 <ScalarProperty Name="peo_memo" ColumnName="peo_memo" />
-                <ScalarProperty Name="peo_marry" ColumnName="peo_marry" />
-                <ScalarProperty Name="peo_major" ColumnName="peo_major" />
                 <ScalarProperty Name="peo_leave" ColumnName="peo_leave" />
-                <ScalarProperty Name="peo_lastyear" ColumnName="peo_lastyear" />
                 <ScalarProperty Name="peo_jobtype" ColumnName="peo_jobtype" />
                 <ScalarProperty Name="peo_idcard" ColumnName="peo_idcard" />
-                <ScalarProperty Name="peo_hometel" ColumnName="peo_hometel" />
-                <ScalarProperty Name="peo_homeaddr" ColumnName="peo_homeaddr" />
                 <ScalarProperty Name="peo_filename" ColumnName="peo_filename" />
-                <ScalarProperty Name="peo_exmno" ColumnName="peo_exmno" />
                 <ScalarProperty Name="peo_english" ColumnName="peo_english" />
                 <ScalarProperty Name="peo_email" ColumnName="peo_email" />
-                <ScalarProperty Name="peo_eduno" ColumnName="peo_eduno" />
                 <ScalarProperty Name="peo_createuid" ColumnName="peo_createuid" />
                 <ScalarProperty Name="peo_createtime" ColumnName="peo_createtime" />
-                <ScalarProperty Name="peo_contractage" ColumnName="peo_contractage" />
-                <ScalarProperty Name="peo_cardtype" ColumnName="peo_cardtype" />
-                <ScalarProperty Name="peo_break" ColumnName="peo_break" />
-                <ScalarProperty Name="peo_boss" ColumnName="peo_boss" />
                 <ScalarProperty Name="peo_birthday" ColumnName="peo_birthday" />
-                <ScalarProperty Name="peo_beforelast" ColumnName="peo_beforelast" />
-                <ScalarProperty Name="peo_bankname" ColumnName="peo_bankname" />
                 <ScalarProperty Name="peo_arrivedate" ColumnName="peo_arrivedate" />
-                <ScalarProperty Name="peo_armyage" ColumnName="peo_armyage" />
-                <ScalarProperty Name="peo_age" ColumnName="peo_age" />
                 <ScalarProperty Name="peo_addr" ColumnName="peo_addr" />
                 <ScalarProperty Name="peo_account" ColumnName="peo_account" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="rauthority">
@@ -1609,7 +1943,137 @@
               <ScalarProperty Name="sfu_no" ColumnName="sfu_no" /></EndProperty>
             <EndProperty Name="sys">
               <ScalarProperty Name="sys_no" ColumnName="sys_no" /></EndProperty></AssociationSetMapping>
-          </EntityContainerMapping>
+          <EntitySetMapping Name="doc01">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.doc01)">
+              <MappingFragment StoreEntitySet="doc01">
+                <ScalarProperty Name="d01_url" ColumnName="d01_url" />
+                <ScalarProperty Name="d01_passwd" ColumnName="d01_passwd" />
+                <ScalarProperty Name="d01_son" ColumnName="d01_son" />
+                <ScalarProperty Name="d01_parentid" ColumnName="d01_parentid" />
+                <ScalarProperty Name="d01_no" ColumnName="d01_no" />
+                <ScalarProperty Name="d01_name" ColumnName="d01_name" />
+                <ScalarProperty Name="d01_level" ColumnName="d01_level" />
+                <ScalarProperty Name="d01_file" ColumnName="d01_file" />
+                <ScalarProperty Name="d01_createuid" ColumnName="d01_createuid" />
+                <ScalarProperty Name="d01_createtime" ColumnName="d01_createtime" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="doc03">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.doc03)">
+              <MappingFragment StoreEntitySet="doc03">
+                <ScalarProperty Name="d03_type" ColumnName="d03_type" />
+                <ScalarProperty Name="d03_no" ColumnName="d03_no" />
+                <ScalarProperty Name="d03_authority" ColumnName="d03_authority" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="doc04">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.doc04)">
+              <MappingFragment StoreEntitySet="doc04">
+                <ScalarProperty Name="d04_no" ColumnName="d04_no" />
+                <ScalarProperty Name="d04_depno" ColumnName="d04_depno" />
+                <ScalarProperty Name="d03_no" ColumnName="d03_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="doc05">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.doc05)">
+              <MappingFragment StoreEntitySet="doc05">
+                <ScalarProperty Name="d05_peouid" ColumnName="d05_peouid" />
+                <ScalarProperty Name="d05_no" ColumnName="d05_no" />
+                <ScalarProperty Name="d03_no" ColumnName="d03_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="per01">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.per01)">
+              <MappingFragment StoreEntitySet="per01">
+                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+                <ScalarProperty Name="p01_yeartype" ColumnName="p01_yeartype" />
+                <ScalarProperty Name="p01_worktype" ColumnName="p01_worktype" />
+                <ScalarProperty Name="p01_tree" ColumnName="p01_tree" />
+                <ScalarProperty Name="p01_thisyear" ColumnName="p01_thisyear" />
+                <ScalarProperty Name="p01_salary" ColumnName="p01_salary" />
+                <ScalarProperty Name="p01_reserve" ColumnName="p01_reserve" />
+                <ScalarProperty Name="p01_publicday" ColumnName="p01_publicday" />
+                <ScalarProperty Name="p01_prospcst" ColumnName="p01_prospcst" />
+                <ScalarProperty Name="p01_postaccount" ColumnName="p01_postaccount" />
+                <ScalarProperty Name="p01_point" ColumnName="p01_point" />
+                <ScalarProperty Name="p01_plevel" ColumnName="p01_plevel" />
+                <ScalarProperty Name="p01_pagno" ColumnName="p01_pagno" />
+                <ScalarProperty Name="p01_other" ColumnName="p01_other" />
+                <ScalarProperty Name="p01_organization" ColumnName="p01_organization" />
+                <ScalarProperty Name="p01_nontwo" ColumnName="p01_nontwo" />
+                <ScalarProperty Name="p01_nonstop" ColumnName="p01_nonstop" />
+                <ScalarProperty Name="p01_no" ColumnName="p01_no" />
+                <ScalarProperty Name="p01_marry" ColumnName="p01_marry" />
+                <ScalarProperty Name="p01_major" ColumnName="p01_major" />
+                <ScalarProperty Name="p01_lastyear" ColumnName="p01_lastyear" />
+                <ScalarProperty Name="p01_hometel" ColumnName="p01_hometel" />
+                <ScalarProperty Name="p01_homeaddr" ColumnName="p01_homeaddr" />
+                <ScalarProperty Name="p01_contractage" ColumnName="p01_contractage" />
+                <ScalarProperty Name="p01_cardtype" ColumnName="p01_cardtype" />
+                <ScalarProperty Name="p01_break" ColumnName="p01_break" />
+                <ScalarProperty Name="p01_boss" ColumnName="p01_boss" />
+                <ScalarProperty Name="p01_beforelast" ColumnName="p01_beforelast" />
+                <ScalarProperty Name="p01_bankno" ColumnName="p01_bankno" />
+                <ScalarProperty Name="p01_armyage" ColumnName="p01_armyage" />
+                <ScalarProperty Name="p01_age" ColumnName="p01_age" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_DOC01_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" StoreEntitySet="doc01">
+            <EndProperty Name="doc01">
+              <ScalarProperty Name="d01_no" ColumnName="d01_no" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_DOC03_RELATIONS_DOC01" TypeName="NXEIPModel.FK_DOC03_RELATIONS_DOC01" StoreEntitySet="doc03">
+            <EndProperty Name="doc03">
+              <ScalarProperty Name="d03_no" ColumnName="d03_no" /></EndProperty>
+            <EndProperty Name="doc01">
+              <ScalarProperty Name="d01_no" ColumnName="d01_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_DOC04_RELATIONS_DOC03" TypeName="NXEIPModel.FK_DOC04_RELATIONS_DOC03" StoreEntitySet="doc04">
+            <EndProperty Name="doc04">
+              <ScalarProperty Name="d04_no" ColumnName="d04_no" />
+              <ScalarProperty Name="d03_no" ColumnName="d03_no" /></EndProperty>
+            <EndProperty Name="doc03">
+              <ScalarProperty Name="d03_no" ColumnName="d03_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_DOC05_RELATIONS_DOC03" TypeName="NXEIPModel.FK_DOC05_RELATIONS_DOC03" StoreEntitySet="doc05">
+            <EndProperty Name="doc05">
+              <ScalarProperty Name="d05_no" ColumnName="d05_no" />
+              <ScalarProperty Name="d03_no" ColumnName="d03_no" /></EndProperty>
+            <EndProperty Name="doc03">
+              <ScalarProperty Name="d03_no" ColumnName="d03_no" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PER01_RELATIONS_PEOPLE" TypeName="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" StoreEntitySet="per01">
+            <EndProperty Name="per01">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+              <ScalarProperty Name="p01_no" ColumnName="p01_no" />
+              <ScalarProperty Name="p01_marry" ColumnName="p01_marry" /></EndProperty>
+            <EndProperty Name="people">
+              <ScalarProperty Name="peo_uid" ColumnName="peo_uid" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="doc02">
+            <EntityTypeMapping TypeName="IsTypeOf(NXEIPModel.doc02)">
+              <MappingFragment StoreEntitySet="doc02">
+                <ScalarProperty Name="d02_version" ColumnName="d02_version" />
+                <ScalarProperty Name="d02_type" ColumnName="d02_type" />
+                <ScalarProperty Name="d02_title" ColumnName="d02_title" />
+                <ScalarProperty Name="d02_theme" ColumnName="d02_theme" />
+                <ScalarProperty Name="d02_subject" ColumnName="d02_subject" />
+                <ScalarProperty Name="d02_source" ColumnName="d02_source" />
+                <ScalarProperty Name="d02_service" ColumnName="d02_service" />
+                <ScalarProperty Name="d02_rights" ColumnName="d02_rights" />
+                <ScalarProperty Name="d02_relation" ColumnName="d02_relation" />
+                <ScalarProperty Name="d02_publisher" ColumnName="d02_publisher" />
+                <ScalarProperty Name="d02_public" ColumnName="d02_public" />
+                <ScalarProperty Name="d02_path" ColumnName="d02_path" />
+                <ScalarProperty Name="d02_open" ColumnName="d02_open" />
+                <ScalarProperty Name="d02_no" ColumnName="d02_no" />
+                <ScalarProperty Name="d02_language" ColumnName="d02_language" />
+                <ScalarProperty Name="d02_keyword" ColumnName="d02_keyword" />
+                <ScalarProperty Name="d02_KB" ColumnName="d02_KB" />
+                <ScalarProperty Name="d02_idnetifier" ColumnName="d02_idnetifier" />
+                <ScalarProperty Name="d02_format" ColumnName="d02_format" />
+                <ScalarProperty Name="d02_description" ColumnName="d02_description" />
+                <ScalarProperty Name="d02_depname" ColumnName="d02_depname" />
+                <ScalarProperty Name="d02_date" ColumnName="d02_date" />
+                <ScalarProperty Name="d02_creator" ColumnName="d02_creator" />
+                <ScalarProperty Name="d02_coverage" ColumnName="d02_coverage" />
+                <ScalarProperty Name="d02_contributor" ColumnName="d02_contributor" />
+                <ScalarProperty Name="d02_content" ColumnName="d02_content" />
+                <ScalarProperty Name="d02_cake" ColumnName="d02_cake" />
+                <ScalarProperty Name="d01_no" ColumnName="d01_no" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_DOC02_RELATIONS_DOC01" TypeName="NXEIPModel.FK_DOC02_RELATIONS_DOC01" StoreEntitySet="doc02">
+            <EndProperty Name="doc02">
+              <ScalarProperty Name="d02_no" ColumnName="d02_no" />
+              <ScalarProperty Name="d01_no" ColumnName="d01_no" /></EndProperty>
+            <EndProperty Name="doc01">
+              <ScalarProperty Name="d01_no" ColumnName="d01_no" /></EndProperty></AssociationSetMapping></EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1640,7 +2104,7 @@
         <EntityTypeShape EntityType="NXEIPModel.loginlog" Width="1.5" PointX="8.75" PointY="1.875" Height="2.5571907552083326" />
         <EntityTypeShape EntityType="NXEIPModel.operates" Width="1.5" PointX="8.25" PointY="11.5" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="NXEIPModel.page" Width="1.5" PointX="5.25" PointY="38.5" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="NXEIPModel.people" Width="1.5" PointX="3" PointY="9.25" Height="12.749166666666667" />
+        <EntityTypeShape EntityType="NXEIPModel.people" Width="1.5" PointX="3" PointY="9.25" Height="7.1724251302083353" />
         <EntityTypeShape EntityType="NXEIPModel.rauthority" Width="1.5" PointX="11.25" PointY="16" Height="1.7879850260416657" />
         <EntityTypeShape EntityType="NXEIPModel.role" Width="1.5" PointX="5.25" PointY="30.375" Height="2.5571907552083353" />
         <EntityTypeShape EntityType="NXEIPModel.roleaccount" Width="1.5" PointX="7.5" PointY="22.75" Height="1.7879850260416674" />
@@ -1654,10 +2118,10 @@
         <EntityTypeShape EntityType="NXEIPModel.types" Width="1.5" PointX="3.75" PointY="26.625" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="NXEIPModel.widget" Width="1.5" PointX="5.25" PointY="34.375" Height="2.5571907552083388" />
         <AssociationConnector Association="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="3.75" PointY="21.999166666666667" />
-          <ConnectorPoint PointX="3.75" PointY="23.653595377604166" />
-          <ConnectorPoint PointX="4.3854146666666667" PointY="23.653595377604166" />
-          <ConnectorPoint PointX="4.5520813333333328" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="3.991700078125" PointY="16.422425130208335" />
+          <ConnectorPoint PointX="3.991700078125" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="4.6489654361979165" PointY="23.653595377604166" />
+          <ConnectorPoint PointX="4.8156321028645825" PointY="23.653595377604166" />
           <ConnectorPoint PointX="5.25" PointY="23.653595377604166" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" >
           <ConnectorPoint PointX="6.75" PointY="23.643992513020834" />
@@ -1681,14 +2145,20 @@
           <ConnectorPoint PointX="7.125" PointY="20.126892903645832" />
           <ConnectorPoint PointX="8.25" PointY="20.126892903645832" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_C02_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.5" PointY="19.397339680989582" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="19.397339680989582" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="19.397339680989582" />
-          <ConnectorPoint PointX="8.25" PointY="19.397339680989582" /></AssociationConnector>
+          <ConnectorPoint PointX="4.2771025390625" PointY="16.422425130208335" />
+          <ConnectorPoint PointX="4.2771025390625" PointY="19.428587180989581" />
+          <ConnectorPoint PointX="4.6489654361979165" PointY="19.428587180989581" />
+          <ConnectorPoint PointX="4.8156321028645825" PointY="19.428587180989581" />
+          <ConnectorPoint PointX="8.25" PointY="19.428587180989581" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_C04_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.5" PointY="17.740143229166666" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="17.740143229166666" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="3.73596318359375" PointY="16.422425130208335" />
+          <ConnectorPoint PointX="3.73596318359375" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="3.9083667447916666" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.0750334114583335" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.1937692057291667" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.3604358723958327" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.6489654361979165" PointY="17.740143229166666" />
+          <ConnectorPoint PointX="4.8156321028645825" PointY="17.740143229166666" />
           <ConnectorPoint PointX="5.25" PointY="17.740143229166666" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" >
           <ConnectorPoint PointX="2.25" PointY="13.047801106770832" />
@@ -1698,11 +2168,11 @@
           <ConnectorPoint PointX="1.5" PointY="9" />
           <ConnectorPoint PointX="4.666666666666667" PointY="9" />
           <ConnectorPoint PointX="4.833333333333333" PointY="9" />
-          <ConnectorPoint PointX="5.416666666666667" PointY="9" />
-          <ConnectorPoint PointX="5.583333333333333" PointY="9" />
-          <ConnectorPoint PointX="5.625" PointY="9" />
-          <ConnectorPoint PointX="5.625" PointY="12.018992513020834" />
-          <ConnectorPoint PointX="6" PointY="12.018992513020834" /></AssociationConnector>
+          <ConnectorPoint PointX="5.375" PointY="9" />
+          <ConnectorPoint PointX="5.375" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="5.4583333333333339" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="5.625" PointY="11.540744256510417" />
+          <ConnectorPoint PointX="6" PointY="11.540744256510417" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" >
           <ConnectorPoint PointX="4.5" PointY="13.324036458333334" />
           <ConnectorPoint PointX="4.666666666666667" PointY="13.324036458333334" />
@@ -1715,10 +2185,10 @@
           <ConnectorPoint PointX="8.46875" PointY="1.28125" />
           <ConnectorPoint PointX="8.46875" PointY="11.5" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_S02_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.5" PointY="16.319235026041667" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="16.319235026041667" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="16.319235026041667" />
-          <ConnectorPoint PointX="8.25" PointY="16.319235026041667" /></AssociationConnector>
+          <ConnectorPoint PointX="4.5" PointY="16.261455078125003" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="16.261455078125003" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="16.261455078125003" />
+          <ConnectorPoint PointX="8.25" PointY="16.261455078125003" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" >
           <ConnectorPoint PointX="6.75" PointY="31.653595377604169" />
           <ConnectorPoint PointX="12" PointY="31.653595377604169" />
@@ -1736,6 +2206,8 @@
           <ConnectorPoint PointX="8.25" PointY="24.537985026041667" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_S02_RELATIONS_S01" >
           <ConnectorPoint PointX="5.25" PointY="7.0285953776041676" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.0285953776041667" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="7.0285953776041676" />
           <ConnectorPoint PointX="5.75" PointY="7.0285953776041676" />
           <ConnectorPoint PointX="5.75" PointY="8.1629850260416674" />
           <ConnectorPoint PointX="8" PointY="8.1629850260416674" />
@@ -1744,29 +2216,56 @@
           <ConnectorPoint PointX="9" PointY="14.75" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_S03_RELATIONS_S01" >
           <ConnectorPoint PointX="5.25" PointY="7.6991450664062508" />
-          <ConnectorPoint PointX="5.5" PointY="7.6991450664062508" />
-          <ConnectorPoint PointX="5.5" PointY="11.540744256510417" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.540744256510417" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="11.540744256510417" />
-          <ConnectorPoint PointX="6" PointY="11.540744256510417" /></AssociationConnector>
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.6991450664062508" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="12.018992513020834" />
+          <ConnectorPoint PointX="6" PointY="12.018992513020834" />
+          </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_S04_RELATIONS_S01" >
           <ConnectorPoint PointX="5.25" PointY="6.5142976888020838" />
           <ConnectorPoint PointX="6" PointY="6.5142976888020838" /></AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_S04_RELATIONS_TYPES" >
-          <ConnectorPoint PointX="4.468748" PointY="26.625" />
-          <ConnectorPoint PointX="4.468748" PointY="22.249166666666667" />
-          <ConnectorPoint PointX="4.75" PointY="22.249166666666667" />
+          <ConnectorPoint PointX="4.7322987695312495" PointY="26.625" />
+          <ConnectorPoint PointX="4.7322987695312495" PointY="16.672425130208335" />
+          <ConnectorPoint PointX="4.75" PointY="16.672425130208335" />
           <ConnectorPoint PointX="4.75" PointY="8.5571907552083335" />
-          <ConnectorPoint PointX="5.416666666666667" PointY="8.5571907552083335" />
-          <ConnectorPoint PointX="5.583333333333333" PointY="8.5571907552083335" />
           <ConnectorPoint PointX="5.625" PointY="8.5571907552083335" />
-          <ConnectorPoint PointX="5.625" PointY="7.3638702220052092" />
-          <ConnectorPoint PointX="5.666666666666667" PointY="7.3638702220052084" />
-          <ConnectorPoint PointX="5.833333333333333" PointY="7.3638702220052092" />
-          <ConnectorPoint PointX="6" PointY="7.3638702220052092" /></AssociationConnector>
+          <ConnectorPoint PointX="5.625" PointY="6.5767981888020834" />
+          <ConnectorPoint PointX="6" PointY="6.5767981888020834" />
+          </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" >
           <ConnectorPoint PointX="5.25" PointY="2.7208968098958333" />
           <ConnectorPoint PointX="6" PointY="2.7208968098958333" /></AssociationConnector>
-        </Diagram></edmx:Diagrams>
+        <EntityTypeShape EntityType="NXEIPModel.doc01" Width="1.5" PointX="4.5" PointY="45.625" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="NXEIPModel.doc03" Width="1.5" PointX="7.5" PointY="43.25" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="NXEIPModel.doc04" Width="1.5" PointX="9.75" PointY="42.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.doc05" Width="1.5" PointX="9.75" PointY="44.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.per01" Width="1.5" PointX="5.25" PointY="50.375" Height="7.1724251302083246" />
+        <AssociationConnector Association="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="3.2084639111328124" PointY="16.422425130208335" />
+          <ConnectorPoint PointX="3.2084639111328124" PointY="47.384348958333334" />
+          <ConnectorPoint PointX="3.3960994889322915" PointY="47.384348958333334" />
+          <ConnectorPoint PointX="3.5627661555989585" PointY="47.384348958333334" />
+          <ConnectorPoint PointX="4.5" PointY="47.384348958333334" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC03_RELATIONS_DOC01" >
+          <ConnectorPoint PointX="6" PointY="47.384348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="47.384348958333334" />
+          <ConnectorPoint PointX="8.25" PointY="45.422587890624996" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC04_RELATIONS_DOC03" >
+          <ConnectorPoint PointX="9" PointY="43.581492513020834" />
+          <ConnectorPoint PointX="9.75" PointY="43.581492513020834" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC05_RELATIONS_DOC03" >
+          <ConnectorPoint PointX="9" PointY="45.0237939453125" />
+          <ConnectorPoint PointX="9.75" PointY="45.0237939453125" /></AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="3.479432822265625" PointY="16.422425130208335" />
+          <ConnectorPoint PointX="3.479432822265625" PointY="53.961212565104162" />
+          <ConnectorPoint PointX="4.760416666666667" PointY="53.961212565104162" />
+          <ConnectorPoint PointX="4.927083333333333" PointY="53.961212565104162" />
+          <ConnectorPoint PointX="5.25" PointY="53.961212565104162" /></AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.doc02" Width="1.5" PointX="6.75" PointY="59.125" Height="6.5955208333333317" />
+        <AssociationConnector Association="NXEIPModel.FK_DOC02_RELATIONS_DOC01" >
+          <ConnectorPoint PointX="4.84375" PointY="49.143697916666667" />
+          <ConnectorPoint PointX="4.84375" PointY="62.422760416666662" />
+          <ConnectorPoint PointX="6.75" PointY="62.422760416666662" /></AssociationConnector></Diagram></edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
