@@ -6,9 +6,9 @@ using System.Web;
 /// <summary>
 /// FileJSON 的摘要描述
 /// </summary>
-public class FileJson
+public class FolderJSON
 {
-    public FileJson() {
+    public FolderJSON() {
         this.attr = new AttrJson();
     }
 
@@ -16,7 +16,7 @@ public class FileJson
      public String state { get; set; }
      public AttrJson attr { get; set; }
 
-     public FileJson[] children { get; set; }
+     public ICollection<FolderJSON> children { get; set; }
         
 }
 

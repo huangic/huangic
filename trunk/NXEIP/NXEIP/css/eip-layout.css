@@ -38,7 +38,21 @@
 }
 
 
+.folderTree
+{
+     float:left;
+    width:250px;
+    
+   padding:0px 5px 0px 5px;
+}
 
+.fileTable
+{
+   float:left;
+  
+   padding:0px 5px 0px 5px;
+    
+    }
 
 
 
