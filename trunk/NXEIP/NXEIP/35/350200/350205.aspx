@@ -96,7 +96,7 @@
                   <div align="right">到職日期</div>
                 </div></td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
-                    <uc2:calendar ID="calendar1" runat="server" />
+                    <uc2:calendar ID="calendar1" runat="server" code="111" />
                   </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">生日</div></td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
