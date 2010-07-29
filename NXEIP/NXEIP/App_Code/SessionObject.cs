@@ -27,11 +27,26 @@ public class SessionObject : System.Web.UI.Page
         {
             try
             {
-                return (string)Session["UserID"];
+                if (System.Configuration.ConfigurationManager.AppSettings["DeBUGMode"].Equals("True"))
+                {
+                    return "1";
+                }
+                else
+                {
+                    return (string)Session["UserID"];
+                }
+                
             }
             catch
             {
-                return null;
+                if (System.Configuration.ConfigurationManager.AppSettings["DeBUGMode"].Equals("True"))
+                {
+                    return "1";
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
         set
@@ -191,7 +206,6 @@ public class SessionObject : System.Web.UI.Page
     }
     #endregion
 
-
     #region 判斷 Session 是否存在
     /// <summary>
     /// 判斷 Session 是否存在 不存在:自動導回登入畫面
@@ -338,17 +352,6 @@ public class SessionObject : System.Web.UI.Page
             strIpAddr = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
         }
         return strIpAddr; ;
-    }
-    #endregion
-
-    #region 顯示 MessageBox
-    /// <summary>
-    /// 顯示 MessageBox
-    /// </summary>
-    /// <param name="msg">訊息</param>
-    public void ShowMessage(string msg)
-    {
-        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "msg", "<script language='JavaScript'>\nwindow.alert('" + msg + "');\n</script>");
     }
     #endregion
 
