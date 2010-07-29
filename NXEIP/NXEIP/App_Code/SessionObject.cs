@@ -397,5 +397,8 @@ public class SessionObject : System.Web.UI.Page
     }
     #endregion
 
-    
+    public void ShowMessage(string msg)
+    {
+        Page.ClientScript.RegisterStartupScript(typeof(SessionObject), "msg", "alert('" + msg + "');", true);
+    }
 }
