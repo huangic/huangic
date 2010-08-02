@@ -3,7 +3,6 @@
 using System;
 using System.Web;
 using System.Linq;
-using log4net;
 using System.Collections;
 using System.Collections.Generic;
 using Entity;
@@ -16,7 +15,7 @@ public class TreePeopleMethod : IHttpHandler,IRequiresSessionState {
     
     private static String SessionName="selectPeople";
 
-    private static ILog logger = LogManager.GetLogger(typeof(TreePeopleMethod));
+    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";

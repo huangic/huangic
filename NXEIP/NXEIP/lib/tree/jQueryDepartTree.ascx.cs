@@ -20,11 +20,28 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
        
+
+        //註冊THICKBOX INIT事件
+
+        string thickbox=@"function pageLoad(sender, args) {
+           if (args.get_isPartialLoad()) {
+               //  reapply the thick box stuff
+               tb_init('a.thickbox');
+           }
+       }";
+
+
+
+        //Page.ClientScript.RegisterClientScriptBlock(typeof(UserControl), "thickboxInit", thickbox, true);
+
+
+
         if(!Page.IsPostBack){
-        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryDepartTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID="+this.UpdatePanel1.ClientID;
         Session["selectDepart"] = null;
         
         }
+        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryDepartTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID=" + this.UpdatePanel1.ClientID;
+        
         
 
         
