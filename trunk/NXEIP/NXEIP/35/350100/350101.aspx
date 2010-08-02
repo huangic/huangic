@@ -14,7 +14,6 @@
             __doPostBack('<%=UpdatePanel1.ClientID%>', '');
             tb_remove();
 
-
             alert(msg);
         }
 
@@ -63,7 +62,7 @@
                                 </td>
                                 <td background="../../image/b02-1.gif">
                                     <div align="right">
-                                        <input type="button" class="thickbox b-input" alt="350101-1.aspx?modal=true&TB_iframe=true&height=250&width=550"
+                                        <input type="button" class="thickbox b-input" alt="350101-1.aspx?modal=true&TB_iframe=true&height=378&width=600"
                                             value="新增角色資料">
                                         &nbsp;</div>
                                 </td>
@@ -86,33 +85,49 @@
                                         <asp:BoundField DataField="rol_createuid" HeaderText="修建者" SortExpression="rol_createuid" />
                                         <asp:BoundField DataField="rol_createtime" HeaderText="修建時間" SortExpression="rol_createtime"
                                             DataFormatString="{0:yyyy-MM-dd HH:mm}" />
+                                        
+                                        <asp:BoundField DataField="rol_default" HeaderText="預設值" 
+                                            SortExpression="rol_default">
+                                        <ItemStyle HorizontalAlign="Center" Width="7%" />
+                                        </asp:BoundField>
+                                        
+                                        <asp:TemplateField HeaderText="預設角色">
+                                            <ItemTemplate>
+                                                <a title='<%# Eval("rol_name", "設定{0}為預設角色") %>'>
+                                                <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                                                    CommandName="default" ImageUrl="~/image/v02.gif"  />
+                                                </a>    
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                                        </asp:TemplateField>
+                                            
                                         <asp:TemplateField HeaderText="人員明細" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
-                                                <a id="btnShowPopup" runat="server" class="thickbox" href='<%# Eval("rol_no", "350101-2.aspx?rol_no={0}&modal=true&TB_iframe=true") %>'>
-                                                    <asp:Image ID="Image1" ImageUrl="~/image/v05.gif" runat="server" />
+                                                <a class="thickbox" href='<%# Eval("rol_no", "350101-2.aspx?rol_no={0}&modal=true&TB_iframe=true") %>'>
+                                                    <img alt="" src="../../image/v05.gif" />
                                                 </a>
                                             </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
                                         </asp:TemplateField>
                                         <asp:ButtonField Text="設定權限" ButtonType="Image" DataTextField="rol_no" HeaderText="設定權限"
                                             ImageUrl="~/image/alter.gif" CommandName="set">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
                                         </asp:ButtonField>
                                         <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
-                                                <a id="btnShowPopup" runat="server" class="thickbox" title='<%# Eval("rol_name", "修改{0}") %>'
+                                                <a class="thickbox" title='<%# Eval("rol_name", "修改{0}") %>'
                                                     href='<%# Eval("rol_no", "350101-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=450&width=600") %>'>
-                                                    <asp:Image ID="Image1" ImageUrl="~/image/edit.gif" runat="server" />
+                                                    <img alt="" src="../../image/edit.gif" />
                                                 </a>
                                             </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="刪除">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
                                                     CommandName="disable" ImageUrl="~/image/delete.gif" OnClientClick=" return confirm('確定要刪除?')" />
                                             </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
+                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
                                         </asp:TemplateField>
                                     </Columns>
                                 </cc1:GridView>
@@ -133,6 +148,7 @@
                                     SelectCommand="SELECT rol_no, rol_name, rol_memo, rol_createuid, rol_createtime, rol_default FROM role">
                                 </asp:SqlDataSource>
                                 <div class="pager">
+                                    
                                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                                         <Fields>
                                             <asp:NextPreviousPagerField ShowNextPageButton="False" />
