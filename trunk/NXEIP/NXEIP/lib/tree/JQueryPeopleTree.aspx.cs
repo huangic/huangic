@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using log4net;
+
 using System.Collections;
 
 public partial class lib_tree_JQueryPeopleTree : System.Web.UI.Page
 {
 
-    private static ILog logger = LogManager.GetLogger(typeof(lib_tree_JQueryPeopleTree));
+    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
     
     protected void Page_Load(object sender, EventArgs e)

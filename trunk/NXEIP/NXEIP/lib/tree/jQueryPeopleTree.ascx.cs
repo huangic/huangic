@@ -21,11 +21,13 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
     {
        
         if(!Page.IsPostBack){
-        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryPeopleTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID="+this.UpdatePanel1.ClientID;
         Session["selectPeople"] = null;
         
         }
+
+        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryPeopleTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID=" + this.UpdatePanel1.ClientID;
         
+
 
         String  tbInit="<script>tb_init('a.thickbox, area.thickbox, input.thickbox,');//pass where to apply thickbox</script>";
 

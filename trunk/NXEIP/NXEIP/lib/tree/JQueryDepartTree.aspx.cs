@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using log4net;
 using System.Collections;
+using NLog;
 
 public partial class lib_tree_JQueryDepartTree : System.Web.UI.Page
 {
 
-    private static ILog logger = LogManager.GetLogger(typeof(lib_tree_JQueryDepartTree));
+    private static Logger logger = LogManager.GetCurrentClassLogger();
     
     
     protected void Page_Load(object sender, EventArgs e)
