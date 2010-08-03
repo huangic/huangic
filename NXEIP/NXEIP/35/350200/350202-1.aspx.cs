@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using log4net;
+
 using NXEIP.DAO;
 using Entity;
+using NLog;
 
 public partial class _35_350200_350201_1 : System.Web.UI.Page
 {
 
-    private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+     
     protected void Page_Load(object sender, EventArgs e)
     {
         //編輯模式

@@ -123,14 +123,14 @@
   
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td width="17">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/image/b02.gif" /></td>
-                    <td class="a02-15 headerbg"">
+                    <td class="leftheaderbg"/>
+                       
+                    <td class="a02-15 headerbg">
                         部門單位選取
                     </td>
                    
-                    <td width="17">
-                        <asp:Image ID="Image2" runat="server" ImageUrl="~/image/b02-2.gif" /></td>
+                    <td class="rightheaderbg">
+                       </td>
                 </tr>
             </table>
             <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
@@ -171,16 +171,14 @@
             </table>
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td width="17">
-                        <asp:Image ID="Image3" ImageUrl="~/image/b02-3.gif" Width="17" Height="17" runat="server" />
+                    <td class="leftfootbg">
                        
                     </td>
                     <td class="footbg">
                         &nbsp;
                     </td>
-                    <td width="17">
-                        <asp:Image ID="Image4" ImageUrl="~/image/b02-5.gif" Width="17" Height="17"  runat="server"/>
-                       
+                    <td class="rightfootbg">
+                        
                     </td>
                 </tr>
             </table>

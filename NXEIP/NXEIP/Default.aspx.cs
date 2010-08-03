@@ -17,11 +17,12 @@ public partial class _Default : System.Web.UI.Page
         {
             //作SESSION
 
+#if DEBUG
             SessionObject sessionObj = new SessionObject();
             sessionObj.sessionUserDepartID = "1";
             sessionObj.sessionUserAccount = "admin";
             sessionObj.sessionUserID = "1";
-
+#endif
 
         }
     }

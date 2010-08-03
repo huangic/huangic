@@ -8,12 +8,13 @@ using Entity;
 using NXEIP.DAO;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
-using log4net;
+using NLog;
+
 
 public partial class _35_350200_350202 : System.Web.UI.Page
 {
-    private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 

@@ -48,19 +48,19 @@
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                     <tbody>
                                         <tr>
-                                            <td width="17">
-                                                <img height="29" src="../../image/b02.gif" width="17"></img>
+                                            <td class=leftheaderbg>
+                                               
                                             </td>
-                                            <td background="../../image/b02-1.gif" class="a02-15">
+                                            <td class="a02-15 headerbg">
                                                 <asp:Label ID="lab_headermode" runat="server"></asp:Label>
                                                 職稱資料
                                             </td>
-                                            <td background="../../image/b02-1.gif">
+                                            <td class=headerbg>
                                                 <div align="right">
                                                 </div>
                                             </td>
-                                            <td width="17">
-                                                <img height="29" src="../../image/b02-2.gif" width="17"></img>
+                                            <td class="rightheaderbg">
+                                                
                                             </td>
                                         </tr>
                                     </tbody>
@@ -110,6 +110,24 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                               
+                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                   <tr>
+                    <td class="leftfootbg">
+                       
+                    </td>
+                    <td class="footbg">
+                        &nbsp;
+                    </td>
+                    <td class="rightfootbg">
+                        
+                    </td>
+                </tr>
+               
+            </table>
+                               
+                               
                                 <table border="0" cellpadding="0" cellspacing="10" width="100%" bgcolor="White">
                                     <tbody>
                                         <tr>
@@ -124,6 +142,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                
+                                
+                                
                             </td>
                         </tr>
                     </tbody>

@@ -67,22 +67,22 @@
                             <table width="100%" cellspacing="0" cellpadding="0" border="0">
                                 <tbody>
                                     <tr>
-                                        <td width="17">
-                                            <img width="17" height="29" src="../../image/b02.gif">
+                                        
+                                        
+                                        
+                                        
+                                       <td class="leftheaderbg"/>
+                                       <td class="a02-15 headerbg"">
+                                            職稱管理
                                         </td>
-                                        <td background="../../image/b02-1.gif" class="a02-15">
-                                            部門管理
-                                        </td>
-                                        <td background="../../image/b02-1.gif">
+                                        <td class="a02-15 headerbg"">
                                             <div align="right">
                                                 
                                                 <input type="button" class="thickbox b-input" alt="350201-1.aspx?modal=true&TB_iframe=true" value="新增職稱">
                                                 
                                             </div>
                                         </td>
-                                        <td width="17">
-                                            <img width="17" height="29" src="../../image/b02-2.gif">
-                                        </td>
+                                        <td class="rightheaderbg"/>
                                     </tr>
                                 </tbody>
                             </table>
@@ -126,6 +126,23 @@
                                 
                                  </ContentTemplate>
                     </asp:UpdatePanel>
+                    
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                
+                    <tr>
+                    <td class="leftfootbg">
+                       
+                    </td>
+                    <td class="footbg">
+                        &nbsp;
+                    </td>
+                    <td class="rightfootbg">
+                        
+                    </td>
+                     </tr>
+               
+            </table>
+                    
                                 <div class="pager">
                                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                                         <Fields>

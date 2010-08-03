@@ -8,12 +8,12 @@ using System.Web.UI.WebControls;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
 using System.Data.SqlClient;
-using log4net;
+
 
 public partial class AjaxTest : System.Web.UI.Page
 {
-    private static ILog logger = LogManager.GetLogger(typeof(AjaxTest));
-
+    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+    
 
 
 
