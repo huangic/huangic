@@ -9,14 +9,13 @@ using Entity;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using System.Data;
-using log4net;
 using NXEIP.Widget;
 
 public partial class WidgetMethod : System.Web.UI.Page
 {
 
-    protected static ILog logger = LogManager.GetLogger(typeof(WidgetMethod));
-
+    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+    
 
 
     [System.Web.Services.WebMethod(true)]

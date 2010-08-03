@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Entity;
 using System.Linq;
 using System.Web.SessionState;
+using FileManager;
 
 public class FileFolder : IHttpHandler,IRequiresSessionState
 {
@@ -27,19 +28,9 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
              
             foreach(var folder in folders){
 
-             FolderJSON f = new FolderJSON();
+                FolderJSON f = new EntityFolderJSON(folder);
 
-
-             f.data =folder.d01_name;
-             if (folder.d01_son > 0)
-             {
-
-                 f.state = "closed";
-             }
-                f.attr.id = folder.d01_no.ToString();
-
-
-            fs.Add(f);
+              fs.Add(f);
     
             }
 
@@ -57,20 +48,11 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
          
             ICollection<FolderJSON> fs = new List<FolderJSON>();
 
-            var folders = from f in model.doc01 where f.d01_parentid == pid select f;
+            var folders = from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f;
              
             foreach(var folder in folders){
 
-             FolderJSON f = new FolderJSON();
-
-
-             f.data =folder.d01_name;
-             if (folder.d01_son > 0)
-             {
-
-                 f.state = "closed";
-             }
-                f.attr.id = folder.d01_no.ToString();
+             FolderJSON f = new EntityFolderJSON(folder);
 
 
             fs.Add(f);
@@ -119,7 +101,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
            
             f.data = "使用者文件夾";
             
-            f.attr.id = "1";
+            f.attr.id = "0";
         
             
             //取第一層目錄
@@ -135,7 +117,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
 
 
-            //取別人開放給他的他可以使用的目路結構
+          
             
             
             

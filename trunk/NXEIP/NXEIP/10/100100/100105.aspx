@@ -10,63 +10,12 @@
      <script type="text/javascript" src="../../js/jquery.jstree.js"></script>
       <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
       <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
-       <script type="text/javascript" src="../../js/jquery.jqGrid-helper.js"></script>
+       <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
+
       
       
+
       
-
-       <script type="text/javascript">
-           $(function() {
-
-
-               $("#accordion").accordion({
-                   fillSpace: true
-               });
-
-
-
-
-
-               $("#userFolder").jstree({
-
-                   "json_data": {
-                       "ajax": {
-                           "type": "POST",
-                           "url": "FileFolder.ashx",
-                           //"contentType": "application/json; charset=utf-8",
-                           "dataType": "json",
-                           "async": "true",
-                           "data":
-                        function(n) {
-                            return {
-                                "operation": "get_children",
-                                "id": n.attr ? n.attr("id") : 0
-                            };
-                        }
-                       }
-                   },
-                   lang: {
-                       loading: "目录加载中……"
-                   },
-                   rules:
-                    {
-                        draggable: "all"
-                    },
-                   "themes": {
-                       "theme": "classic"
-                   },
-                   "plugins": ["themes", "json_data"],
-
-                   callback: {
-                       ondblclk: function(node) {
-                           alert("TEST");
-                           showFile(node.id);
-                       }
-                   }
-               })
-           })
-       
-       </script>
 
 
 </asp:Content>
@@ -79,12 +28,15 @@
 	    <div id="userFolder"></div>
 	    <h3><a href="#">公用資料夾</a></h3>
 	    <div id="publicFolder"></div>
-	    <h3><a href="#">共享資料夾</a></h3>
+	    <h3><a href="#">搜尋</a></h3>
 	    <div id="shereFolder"></div>
         </div>
     </div>
     
     <div class="fileTable">
+            <div id="toolbar">
+                <input id="addFile" type="button"  value="新增檔案" class="b-input" />
+            </div>
             <table id="filelist" >
             </table>
     </div>

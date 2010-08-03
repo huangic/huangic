@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entity;
-using log4net;
 using System.Web.UI.HtmlControls;
 using NXEIP.Widget;
 

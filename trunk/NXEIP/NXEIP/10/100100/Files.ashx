@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Entity;
 using System.Linq;
 using System.Web.SessionState;
+using FileManager;
 
 public class Files : IHttpHandler,IRequiresSessionState
 {
