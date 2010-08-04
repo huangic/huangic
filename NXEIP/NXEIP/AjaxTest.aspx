@@ -6,7 +6,6 @@
 
 <%@ Register src="lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc2" %>
 
-<%@ Register src="lib/messagebox/ConfirmMessagebox.ascx" tagname="ConfirmMessagebox" tagprefix="uc3" %>
 
 
 

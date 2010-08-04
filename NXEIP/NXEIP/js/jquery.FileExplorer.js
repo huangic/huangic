@@ -75,6 +75,9 @@ $(function() {
         },
 
         "dnd": {
+        "drag_target": false,//"tr[aria-selected='true']", 
+        
+        
             "drop_finish": function() {
                 alert("DROP");
             },
@@ -93,11 +96,30 @@ $(function() {
                 alert("DRAG OK");
             }
         },
+        "contextmenu":{
+            items:{
+                "create" : {
+                   "label": "新增資料夾"
+					},
+					"rename": {
+					   
+					    "label": "更名"
+					    
+					},
+					"remove": {
+					   
+					    
+					    
+					    "label": "刪除"
+					  
+					}
+				
+            }
+        },
 
 
 
-
-        "plugins": ["themes", "json_data", "core", "ui", "dnd","crrm", "contextmenu"]
+        "plugins": ["themes", "json_data", "core", "ui", "dnd", "crrm", "contextmenu", "unique"]
 
 
 
@@ -151,24 +173,38 @@ alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id"));
 
 
 
-function showFile(id) { 
+function showFile(id) {
 
-$("#filelist").jqGrid({
-           url:"Files.ashx?id="+id,
-           datatype:"json",
-           width:740,
-           height: 350,
-           colNames: ['名稱', '修改日期','檔案大小', '類型'],
-           colModel:[ {name:'name',index:'name', width:400,align:"left"}, 
-                      {name:'date',index:'date', width:100,align:"left"},
-                      {name:'size',index:'size', width:100,align:"right"}, 
-                      {name:'type',index:'type', width:100, align:"left"}
+    $("#filelist").jqGrid({
+        url: "Files.ashx?id=" + id,
+        datatype: "json",
+        width: 740,
+        height: 350,
+        colNames: ['名稱', '修改日期', '檔案大小', '類型', '動作'],
+        colModel: [{ name: 'name', index: 'name', width: 400, align: "left", editable: true },
+                      { name: 'date', index: 'date', width: 100, align: "left" },
+                      { name: 'size', index: 'size', width: 100, align: "right" },
+                      { name: 'type', index: 'type', width: 100, align: "left" },
+                      { name: 'act', index: 'act', width: 100, sortable: false }, 
                       ],
-                 
-           caption:"檔案清單",
-           
-           
-           });
+        multiselect: true,
+
+        loadComplete: function() {
+            var ids = jQuery("#filelist").getDataIDs();
+            for (var i = 0; i < ids.length; i++) {
+                var cl = ids[i];
+                be = "<input class='a-input' type='button' value='修改' onclick=jQuery('#filelist').editRow(" + cl + "); ></ids>";
+                ce ="<input class='a-input' type='button' value='版本' onclick=jQuery('#filelist').editRow(" + cl + "); ></ids>";
+                jQuery("#filelist").setRowData(ids[i], { act: be+ce })
+            }
+        },
+
+        caption: "檔案清單"
+
+
+    });
+
+    //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
 
 }
 

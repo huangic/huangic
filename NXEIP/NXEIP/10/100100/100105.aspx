@@ -8,9 +8,9 @@
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
      <script type="text/javascript" src="../../js/jquery.jstree.js"></script>
-      <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
-      <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
-       <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
+     <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
+     <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
+     <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
 
       
       
@@ -29,13 +29,21 @@
 	    <h3><a href="#">公用資料夾</a></h3>
 	    <div id="publicFolder"></div>
 	    <h3><a href="#">搜尋</a></h3>
-	    <div id="shereFolder"></div>
+	    <div id="shereFolder">
+	     檔名<input type="text" />	
+	          
+	    
+	    </div>
         </div>
     </div>
     
     <div class="fileTable">
-            <div id="toolbar">
-                <input id="addFile" type="button"  value="新增檔案" class="b-input" />
+            <div id="toolbar" style="text-align:right">
+                <input id="addFile" type="button"  value="上傳" class="b-input" />
+                <input id="Button1" type="button"  value="搬移" class="b-input" />
+                <input id="Button2" type="button"  value="複製" class="b-input" />
+                <input id="Button3" type="button"  value="權限" class="b-input" />
+                <input id="Button4" type="button"  value="公開" class="b-input" />
             </div>
             <table id="filelist" >
             </table>

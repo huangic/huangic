@@ -73,9 +73,10 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 
                 
                 //判斷舊目錄的有沒有下層目錄
-
-                resetChildFolder(oldPid);
-                
+                if (oldPid != 0)
+                {
+                    resetChildFolder(oldPid);
+                }
                 
                 
                    //pid =0 表示他是根目路 不需要處理子目錄判斷

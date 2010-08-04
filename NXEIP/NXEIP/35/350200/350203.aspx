@@ -5,9 +5,6 @@
     TagPrefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
-<%@ Register Src="../../lib/messagebox/OkMessagebox.ascx" TagName="OkMessagebox"
-    TagPrefix="uc2" %>
-<%@ Register src="../../lib/messagebox/ConfirmMessagebox.ascx" tagname="ConfirmMessagebox" tagprefix="uc3" %>
 <%@ Register src="../../lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
