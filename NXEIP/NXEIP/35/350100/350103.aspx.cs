@@ -16,6 +16,11 @@ public partial class _35_350100_350103 : System.Web.UI.Page
         }
     }
 
+    /// <summary>
+    /// 確定 - 選人員
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void but_ok_Click(object sender, EventArgs e)
     {
         if (this.jQueryPeopleTree1.Items.Count > 0)
@@ -67,7 +72,48 @@ public partial class _35_350100_350103 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
+        DBObject dbo = new DBObject();
 
+        //帳號
+        if (this.tbox_accounts.Text.Length > 0)
+        {
+            if (!this.lab_oldaccount.Text.Equals(this.tbox_accounts.Text))
+            {
+                if (Convert.ToInt32(dbo.ExecuteScalar("select count(*) as total from accounts where acc_login = '" + this.tbox_accounts.Text + "'")) > 0)
+                {
+                    this.lab_msg.Text = "已有相同帳號，請重新輸入！";
+                    return;
+                }
+                else
+                {
+                    dbo.ExecuteNonQuery("update accounts set acc_login = '" + this.tbox_accounts.Text + "' where acc_no = " + this.lab_accno.Text);
+                }
+            }
+        }
+        else
+        {
+            this.lab_msg.Text = "請輸入帳號！";
+            return;
+        }
+
+        //密碼
+        if (this.tbox_passwd.Text.Length > 0)
+        {
+            if (this.tbox_passwd.Text.Length < 4)
+            {
+                this.lab_msg.Text = "密碼長度需介於4~20字元!";
+                return;
+            }
+            else
+            {
+                dbo.ExecuteNonQuery("update accounts set acc_passwd = '" + this.tbox_passwd.Text + "' where acc_no = " + this.lab_accno.Text);
+            }
+        }
+
+        //狀態
+        dbo.ExecuteNonQuery("update accounts set acc_status = '" + this.ddl_status.SelectedValue + "' where acc_no = " + this.lab_accno.Text);
+
+        Response.Redirect("350103.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)

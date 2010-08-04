@@ -146,6 +146,13 @@
                                                         &nbsp;&nbsp;</div>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">
+                                                        <asp:Label ID="lab_msg" runat="server" ForeColor="Red"></asp:Label>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </table>
                                     </asp:Panel>
                                 </td>
