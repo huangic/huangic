@@ -46,6 +46,7 @@ namespace FileManager
             cell[2] = fileDetial.d02_KB.ToString();
 
             cell[3] = fileDetial.d02_format;
+            this.id = file.d01_no.ToString();
 
         }
     }

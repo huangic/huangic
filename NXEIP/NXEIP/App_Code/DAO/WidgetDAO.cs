@@ -20,7 +20,7 @@ namespace NXEIP.DAO
         }
 
         /// <summary>
-        /// 取DB 的PAGENO
+        /// 取DB 的PAGENO //沒有就幫他建一個
         /// </summary>
         /// <param name="uid"></param>
         /// <param name="page_type"></param>
@@ -28,13 +28,29 @@ namespace NXEIP.DAO
         public int? GetPageNo(int? uid, String page_type)
         {
             NXEIPEntities model = new NXEIPEntities();
+           
+            
             try
             {
-                return (from p in model.page where p.pag_type == page_type && p.pag_uid == uid select p).FirstOrDefault().pag_no;
+                
+                return (from p in model.page where p.pag_type == page_type && p.pag_uid == uid select p).First().pag_no;
+                
             }
             catch
             {
-                return null;
+
+                page newPage = new page();
+
+                newPage.pag_createuid = uid;
+                newPage.pag_type = page_type;
+                newPage.pag_uid = uid;
+                newPage.pag_createtime = DateTime.Now;
+
+                model.AddTopage(newPage);
+
+                model.SaveChanges();
+
+                return newPage.pag_no;
             }
         }
 

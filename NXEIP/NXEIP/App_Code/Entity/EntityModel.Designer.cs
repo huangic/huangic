@@ -11,63 +11,65 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ACCOUNTS_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "accounts", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.accounts))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.accounts), "roleaccount", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.roleaccount))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_block_page", "page", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.page), "block", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.block))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_block_widget", "widget", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.widget), "block", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.block))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_PAGE", "page", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.page), "block", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.block))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_WIDGET", "widget", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.widget), "block", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.block))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_C01_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "c01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.c01))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_C02_RELATIONS_C03", "c03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.c03), "c02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.c02))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_C02_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "c02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.c02))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_C04_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "c04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.c04))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_PEOPLE_RELATIONS_DEPARTME", "departments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.people))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S03_RELATIONS_DEPARTME", "departments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "s03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s03))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "operates", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.operates))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sysfuction), "operates", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.operates))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S02_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "s02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s02))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "role", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.role), "rauthority", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rauthority))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sysfuction), "rauthority", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rauthority))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "role", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.role), "roleaccount", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.roleaccount))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S02_RELATIONS_S01", "s01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.s01), "s02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s02))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S03_RELATIONS_S01", "s01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.s01), "s03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s03))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S04_RELATIONS_S01", "s01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.s01), "s04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s04))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_S04_RELATIONS_TYPES", "types", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.types), "s04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.s04))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sys), "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.sysfuction))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_DEPARTME", "departments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "roldefault", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.roldefault))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_DEPARTME", "departments", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "search03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search03))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC01_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "doc01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc01))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc02))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC03_RELATIONS_DOC01", "doc01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc03))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC04_RELATIONS_DOC03", "doc03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc03), "doc04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc04))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC05_RELATIONS_DOC03", "doc03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc03), "doc05", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc05))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "operates", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.operates))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sysfuction), "operates", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.operates))]
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_PER01_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "per01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.per01))]
-[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc02))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_PEOPLE", "people", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "search02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search02))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "role", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.role), "rauthority", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rauthority))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sysfuction), "rauthority", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rauthority))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_ROLE", "role", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.role), "roldefault", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.roldefault))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "role", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.role), "roleaccount", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.roleaccount))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_SEARCH01", "search01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.search01), "search02", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search02))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_SEARCH01", "search01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.search01), "search03", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search03))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_SEARCH01", "search01", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.search01), "search04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search04))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_TYPES", "types", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.types), "search04", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.search04))]
+[assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sys), "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.sysfuction))]
 
 // 原始檔案名稱:
-// 產生日期: 2010/7/28 下午 02:32:04
+// 產生日期: 2010/8/4 下午 04:29:47
 namespace Entity
 {
     
     /// <summary>
-    /// 結構描述中沒有 NXEIPEntities 的註解。
+    /// 結構描述中沒有 Entities 的註解。
     /// </summary>
     public partial class NXEIPEntities : global::System.Data.Objects.ObjectContext
     {
         /// <summary>
-        /// 使用應用程式組態檔 'NXEIPEntities' 區段中找到的連接字串初始化新的 NXEIPEntities 物件。
+        /// 使用應用程式組態檔 'Entities' 區段中找到的連接字串初始化新的 Entities 物件。
         /// </summary>
-        public NXEIPEntities() : 
-                base("name=NXEIPEntities", "NXEIPEntities")
+        public NXEIPEntities() :
+            base("name=NXEIPEntities", "NXEIPEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// 初始化新的 NXEIPEntities 物件。
+        /// 初始化新的 Entities 物件。
         /// </summary>
-        public NXEIPEntities(string connectionString) : 
-                base(connectionString, "NXEIPEntities")
+        public NXEIPEntities(string connectionString) :
+            base(connectionString, "NXEIPEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// 初始化新的 NXEIPEntities 物件。
+        /// 初始化新的 Entities 物件。
         /// </summary>
-        public NXEIPEntities(global::System.Data.EntityClient.EntityConnection connection) : 
-                base(connection, "NXEIPEntities")
+        public NXEIPEntities(global::System.Data.EntityClient.EntityConnection connection) :
+            base(connection, "NXEIPEntities")
         {
             this.OnContextCreated();
         }
@@ -193,20 +195,80 @@ namespace Entity
         }
         private global::System.Data.Objects.ObjectQuery<departments> _departments;
         /// <summary>
-        /// 結構描述中沒有 dtproperties 的註解。
+        /// 結構描述中沒有 doc01 的註解。
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<dtproperties> dtproperties
+        public global::System.Data.Objects.ObjectQuery<doc01> doc01
         {
             get
             {
-                if ((this._dtproperties == null))
+                if ((this._doc01 == null))
                 {
-                    this._dtproperties = base.CreateQuery<dtproperties>("[dtproperties]");
+                    this._doc01 = base.CreateQuery<doc01>("[doc01]");
                 }
-                return this._dtproperties;
+                return this._doc01;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<dtproperties> _dtproperties;
+        private global::System.Data.Objects.ObjectQuery<doc01> _doc01;
+        /// <summary>
+        /// 結構描述中沒有 doc02 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<doc02> doc02
+        {
+            get
+            {
+                if ((this._doc02 == null))
+                {
+                    this._doc02 = base.CreateQuery<doc02>("[doc02]");
+                }
+                return this._doc02;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<doc02> _doc02;
+        /// <summary>
+        /// 結構描述中沒有 doc03 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<doc03> doc03
+        {
+            get
+            {
+                if ((this._doc03 == null))
+                {
+                    this._doc03 = base.CreateQuery<doc03>("[doc03]");
+                }
+                return this._doc03;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<doc03> _doc03;
+        /// <summary>
+        /// 結構描述中沒有 doc04 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<doc04> doc04
+        {
+            get
+            {
+                if ((this._doc04 == null))
+                {
+                    this._doc04 = base.CreateQuery<doc04>("[doc04]");
+                }
+                return this._doc04;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<doc04> _doc04;
+        /// <summary>
+        /// 結構描述中沒有 doc05 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<doc05> doc05
+        {
+            get
+            {
+                if ((this._doc05 == null))
+                {
+                    this._doc05 = base.CreateQuery<doc05>("[doc05]");
+                }
+                return this._doc05;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<doc05> _doc05;
         /// <summary>
         /// 結構描述中沒有 loginlog 的註解。
         /// </summary>
@@ -268,6 +330,21 @@ namespace Entity
         }
         private global::System.Data.Objects.ObjectQuery<people> _people;
         /// <summary>
+        /// 結構描述中沒有 per01 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<per01> per01
+        {
+            get
+            {
+                if ((this._per01 == null))
+                {
+                    this._per01 = base.CreateQuery<per01>("[per01]");
+                }
+                return this._per01;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<per01> _per01;
+        /// <summary>
         /// 結構描述中沒有 rauthority 的註解。
         /// </summary>
         public global::System.Data.Objects.ObjectQuery<rauthority> rauthority
@@ -282,6 +359,21 @@ namespace Entity
             }
         }
         private global::System.Data.Objects.ObjectQuery<rauthority> _rauthority;
+        /// <summary>
+        /// 結構描述中沒有 roldefault 的註解。
+        /// </summary>
+        public global::System.Data.Objects.ObjectQuery<roldefault> roldefault
+        {
+            get
+            {
+                if ((this._roldefault == null))
+                {
+                    this._roldefault = base.CreateQuery<roldefault>("[roldefault]");
+                }
+                return this._roldefault;
+            }
+        }
+        private global::System.Data.Objects.ObjectQuery<roldefault> _roldefault;
         /// <summary>
         /// 結構描述中沒有 role 的註解。
         /// </summary>
@@ -313,65 +405,65 @@ namespace Entity
         }
         private global::System.Data.Objects.ObjectQuery<roleaccount> _roleaccount;
         /// <summary>
-        /// 結構描述中沒有 s01 的註解。
+        /// 結構描述中沒有 search01 的註解。
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<s01> s01
+        public global::System.Data.Objects.ObjectQuery<search01> search01
         {
             get
             {
-                if ((this._s01 == null))
+                if ((this._search01 == null))
                 {
-                    this._s01 = base.CreateQuery<s01>("[s01]");
+                    this._search01 = base.CreateQuery<search01>("[search01]");
                 }
-                return this._s01;
+                return this._search01;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<s01> _s01;
+        private global::System.Data.Objects.ObjectQuery<search01> _search01;
         /// <summary>
-        /// 結構描述中沒有 s02 的註解。
+        /// 結構描述中沒有 search02 的註解。
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<s02> s02
+        public global::System.Data.Objects.ObjectQuery<search02> search02
         {
             get
             {
-                if ((this._s02 == null))
+                if ((this._search02 == null))
                 {
-                    this._s02 = base.CreateQuery<s02>("[s02]");
+                    this._search02 = base.CreateQuery<search02>("[search02]");
                 }
-                return this._s02;
+                return this._search02;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<s02> _s02;
+        private global::System.Data.Objects.ObjectQuery<search02> _search02;
         /// <summary>
-        /// 結構描述中沒有 s03 的註解。
+        /// 結構描述中沒有 search03 的註解。
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<s03> s03
+        public global::System.Data.Objects.ObjectQuery<search03> search03
         {
             get
             {
-                if ((this._s03 == null))
+                if ((this._search03 == null))
                 {
-                    this._s03 = base.CreateQuery<s03>("[s03]");
+                    this._search03 = base.CreateQuery<search03>("[search03]");
                 }
-                return this._s03;
+                return this._search03;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<s03> _s03;
+        private global::System.Data.Objects.ObjectQuery<search03> _search03;
         /// <summary>
-        /// 結構描述中沒有 s04 的註解。
+        /// 結構描述中沒有 search04 的註解。
         /// </summary>
-        public global::System.Data.Objects.ObjectQuery<s04> s04
+        public global::System.Data.Objects.ObjectQuery<search04> search04
         {
             get
             {
-                if ((this._s04 == null))
+                if ((this._search04 == null))
                 {
-                    this._s04 = base.CreateQuery<s04>("[s04]");
+                    this._search04 = base.CreateQuery<search04>("[search04]");
                 }
-                return this._s04;
+                return this._search04;
             }
         }
-        private global::System.Data.Objects.ObjectQuery<s04> _s04;
+        private global::System.Data.Objects.ObjectQuery<search04> _search04;
         /// <summary>
         /// 結構描述中沒有 sys 的註解。
         /// </summary>
@@ -387,21 +479,6 @@ namespace Entity
             }
         }
         private global::System.Data.Objects.ObjectQuery<sys> _sys;
-        /// <summary>
-        /// 結構描述中沒有 sysdiagrams 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<sysdiagrams> sysdiagrams
-        {
-            get
-            {
-                if ((this._sysdiagrams == null))
-                {
-                    this._sysdiagrams = base.CreateQuery<sysdiagrams>("[sysdiagrams]");
-                }
-                return this._sysdiagrams;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<sysdiagrams> _sysdiagrams;
         /// <summary>
         /// 結構描述中沒有 sysfuction 的註解。
         /// </summary>
@@ -447,96 +524,6 @@ namespace Entity
             }
         }
         private global::System.Data.Objects.ObjectQuery<widget> _widget;
-        /// <summary>
-        /// 結構描述中沒有 doc01 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<doc01> doc01
-        {
-            get
-            {
-                if ((this._doc01 == null))
-                {
-                    this._doc01 = base.CreateQuery<doc01>("[doc01]");
-                }
-                return this._doc01;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<doc01> _doc01;
-        /// <summary>
-        /// 結構描述中沒有 doc03 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<doc03> doc03
-        {
-            get
-            {
-                if ((this._doc03 == null))
-                {
-                    this._doc03 = base.CreateQuery<doc03>("[doc03]");
-                }
-                return this._doc03;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<doc03> _doc03;
-        /// <summary>
-        /// 結構描述中沒有 doc04 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<doc04> doc04
-        {
-            get
-            {
-                if ((this._doc04 == null))
-                {
-                    this._doc04 = base.CreateQuery<doc04>("[doc04]");
-                }
-                return this._doc04;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<doc04> _doc04;
-        /// <summary>
-        /// 結構描述中沒有 doc05 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<doc05> doc05
-        {
-            get
-            {
-                if ((this._doc05 == null))
-                {
-                    this._doc05 = base.CreateQuery<doc05>("[doc05]");
-                }
-                return this._doc05;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<doc05> _doc05;
-        /// <summary>
-        /// 結構描述中沒有 per01 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<per01> per01
-        {
-            get
-            {
-                if ((this._per01 == null))
-                {
-                    this._per01 = base.CreateQuery<per01>("[per01]");
-                }
-                return this._per01;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<per01> _per01;
-        /// <summary>
-        /// 結構描述中沒有 doc02 的註解。
-        /// </summary>
-        public global::System.Data.Objects.ObjectQuery<doc02> doc02
-        {
-            get
-            {
-                if ((this._doc02 == null))
-                {
-                    this._doc02 = base.CreateQuery<doc02>("[doc02]");
-                }
-                return this._doc02;
-            }
-        }
-        private global::System.Data.Objects.ObjectQuery<doc02> _doc02;
         /// <summary>
         /// 結構描述中沒有 accounts 的註解。
         /// </summary>
@@ -594,11 +581,39 @@ namespace Entity
             base.AddObject("departments", departments);
         }
         /// <summary>
-        /// 結構描述中沒有 dtproperties 的註解。
+        /// 結構描述中沒有 doc01 的註解。
         /// </summary>
-        public void AddTodtproperties(dtproperties dtproperties)
+        public void AddTodoc01(doc01 doc01)
         {
-            base.AddObject("dtproperties", dtproperties);
+            base.AddObject("doc01", doc01);
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc02 的註解。
+        /// </summary>
+        public void AddTodoc02(doc02 doc02)
+        {
+            base.AddObject("doc02", doc02);
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc03 的註解。
+        /// </summary>
+        public void AddTodoc03(doc03 doc03)
+        {
+            base.AddObject("doc03", doc03);
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc04 的註解。
+        /// </summary>
+        public void AddTodoc04(doc04 doc04)
+        {
+            base.AddObject("doc04", doc04);
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc05 的註解。
+        /// </summary>
+        public void AddTodoc05(doc05 doc05)
+        {
+            base.AddObject("doc05", doc05);
         }
         /// <summary>
         /// 結構描述中沒有 loginlog 的註解。
@@ -629,11 +644,25 @@ namespace Entity
             base.AddObject("people", people);
         }
         /// <summary>
+        /// 結構描述中沒有 per01 的註解。
+        /// </summary>
+        public void AddToper01(per01 per01)
+        {
+            base.AddObject("per01", per01);
+        }
+        /// <summary>
         /// 結構描述中沒有 rauthority 的註解。
         /// </summary>
         public void AddTorauthority(rauthority rauthority)
         {
             base.AddObject("rauthority", rauthority);
+        }
+        /// <summary>
+        /// 結構描述中沒有 roldefault 的註解。
+        /// </summary>
+        public void AddToroldefault(roldefault roldefault)
+        {
+            base.AddObject("roldefault", roldefault);
         }
         /// <summary>
         /// 結構描述中沒有 role 的註解。
@@ -650,32 +679,32 @@ namespace Entity
             base.AddObject("roleaccount", roleaccount);
         }
         /// <summary>
-        /// 結構描述中沒有 s01 的註解。
+        /// 結構描述中沒有 search01 的註解。
         /// </summary>
-        public void AddTos01(s01 s01)
+        public void AddTosearch01(search01 search01)
         {
-            base.AddObject("s01", s01);
+            base.AddObject("search01", search01);
         }
         /// <summary>
-        /// 結構描述中沒有 s02 的註解。
+        /// 結構描述中沒有 search02 的註解。
         /// </summary>
-        public void AddTos02(s02 s02)
+        public void AddTosearch02(search02 search02)
         {
-            base.AddObject("s02", s02);
+            base.AddObject("search02", search02);
         }
         /// <summary>
-        /// 結構描述中沒有 s03 的註解。
+        /// 結構描述中沒有 search03 的註解。
         /// </summary>
-        public void AddTos03(s03 s03)
+        public void AddTosearch03(search03 search03)
         {
-            base.AddObject("s03", s03);
+            base.AddObject("search03", search03);
         }
         /// <summary>
-        /// 結構描述中沒有 s04 的註解。
+        /// 結構描述中沒有 search04 的註解。
         /// </summary>
-        public void AddTos04(s04 s04)
+        public void AddTosearch04(search04 search04)
         {
-            base.AddObject("s04", s04);
+            base.AddObject("search04", search04);
         }
         /// <summary>
         /// 結構描述中沒有 sys 的註解。
@@ -683,13 +712,6 @@ namespace Entity
         public void AddTosys(sys sys)
         {
             base.AddObject("sys", sys);
-        }
-        /// <summary>
-        /// 結構描述中沒有 sysdiagrams 的註解。
-        /// </summary>
-        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
-        {
-            base.AddObject("sysdiagrams", sysdiagrams);
         }
         /// <summary>
         /// 結構描述中沒有 sysfuction 的註解。
@@ -712,48 +734,6 @@ namespace Entity
         {
             base.AddObject("widget", widget);
         }
-        /// <summary>
-        /// 結構描述中沒有 doc01 的註解。
-        /// </summary>
-        public void AddTodoc01(doc01 doc01)
-        {
-            base.AddObject("doc01", doc01);
-        }
-        /// <summary>
-        /// 結構描述中沒有 doc03 的註解。
-        /// </summary>
-        public void AddTodoc03(doc03 doc03)
-        {
-            base.AddObject("doc03", doc03);
-        }
-        /// <summary>
-        /// 結構描述中沒有 doc04 的註解。
-        /// </summary>
-        public void AddTodoc04(doc04 doc04)
-        {
-            base.AddObject("doc04", doc04);
-        }
-        /// <summary>
-        /// 結構描述中沒有 doc05 的註解。
-        /// </summary>
-        public void AddTodoc05(doc05 doc05)
-        {
-            base.AddObject("doc05", doc05);
-        }
-        /// <summary>
-        /// 結構描述中沒有 per01 的註解。
-        /// </summary>
-        public void AddToper01(per01 per01)
-        {
-            base.AddObject("per01", per01);
-        }
-        /// <summary>
-        /// 結構描述中沒有 doc02 的註解。
-        /// </summary>
-        public void AddTodoc02(doc02 doc02)
-        {
-            base.AddObject("doc02", doc02);
-        }
     }
     /// <summary>
     /// 結構描述中沒有 NXEIPModel.accounts 的註解。
@@ -769,84 +749,15 @@ namespace Entity
         /// <summary>
         /// 建立新的 accounts 物件。
         /// </summary>
-        /// <param name="acc_login">acc_login 的初始值。</param>
         /// <param name="acc_no">acc_no 的初始值。</param>
-        public static accounts Createaccounts(string acc_login, int acc_no)
+        /// <param name="acc_login">acc_login 的初始值。</param>
+        public static accounts Createaccounts(int acc_no, string acc_login)
         {
             accounts accounts = new accounts();
-            accounts.acc_login = acc_login;
             accounts.acc_no = acc_no;
+            accounts.acc_login = acc_login;
             return accounts;
         }
-        /// <summary>
-        /// 結構描述中沒有屬性 acc_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> acc_createtime
-        {
-            get
-            {
-                return this._acc_createtime;
-            }
-            set
-            {
-                this.Onacc_createtimeChanging(value);
-                this.ReportPropertyChanging("acc_createtime");
-                this._acc_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("acc_createtime");
-                this.Onacc_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _acc_createtime;
-        partial void Onacc_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onacc_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 acc_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> acc_createuid
-        {
-            get
-            {
-                return this._acc_createuid;
-            }
-            set
-            {
-                this.Onacc_createuidChanging(value);
-                this.ReportPropertyChanging("acc_createuid");
-                this._acc_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("acc_createuid");
-                this.Onacc_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _acc_createuid;
-        partial void Onacc_createuidChanging(global::System.Nullable<int> value);
-        partial void Onacc_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 acc_login 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string acc_login
-        {
-            get
-            {
-                return this._acc_login;
-            }
-            set
-            {
-                this.Onacc_loginChanging(value);
-                this.ReportPropertyChanging("acc_login");
-                this._acc_login = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("acc_login");
-                this.Onacc_loginChanged();
-            }
-        }
-        private string _acc_login;
-        partial void Onacc_loginChanging(string value);
-        partial void Onacc_loginChanged();
         /// <summary>
         /// 結構描述中沒有屬性 acc_no 的註解。
         /// </summary>
@@ -870,6 +781,29 @@ namespace Entity
         private int _acc_no;
         partial void Onacc_noChanging(int value);
         partial void Onacc_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 acc_login 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string acc_login
+        {
+            get
+            {
+                return this._acc_login;
+            }
+            set
+            {
+                this.Onacc_loginChanging(value);
+                this.ReportPropertyChanging("acc_login");
+                this._acc_login = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("acc_login");
+                this.Onacc_loginChanged();
+            }
+        }
+        private string _acc_login;
+        partial void Onacc_loginChanging(string value);
+        partial void Onacc_loginChanged();
         /// <summary>
         /// 結構描述中沒有屬性 acc_passwd 的註解。
         /// </summary>
@@ -916,6 +850,52 @@ namespace Entity
         private string _acc_status;
         partial void Onacc_statusChanging(string value);
         partial void Onacc_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 acc_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> acc_createuid
+        {
+            get
+            {
+                return this._acc_createuid;
+            }
+            set
+            {
+                this.Onacc_createuidChanging(value);
+                this.ReportPropertyChanging("acc_createuid");
+                this._acc_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("acc_createuid");
+                this.Onacc_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _acc_createuid;
+        partial void Onacc_createuidChanging(global::System.Nullable<int> value);
+        partial void Onacc_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 acc_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> acc_createtime
+        {
+            get
+            {
+                return this._acc_createtime;
+            }
+            set
+            {
+                this.Onacc_createtimeChanging(value);
+                this.ReportPropertyChanging("acc_createtime");
+                this._acc_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("acc_createtime");
+                this.Onacc_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _acc_createtime;
+        partial void Onacc_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onacc_createtimeChanged();
         /// <summary>
         /// 結構描述中沒有 people 的註解。
         /// </summary>
@@ -997,29 +977,6 @@ namespace Entity
             return arguments;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 arg_describe 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string arg_describe
-        {
-            get
-            {
-                return this._arg_describe;
-            }
-            set
-            {
-                this.Onarg_describeChanging(value);
-                this.ReportPropertyChanging("arg_describe");
-                this._arg_describe = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("arg_describe");
-                this.Onarg_describeChanged();
-            }
-        }
-        private string _arg_describe;
-        partial void Onarg_describeChanging(string value);
-        partial void Onarg_describeChanged();
-        /// <summary>
         /// 結構描述中沒有屬性 arg_no 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
@@ -1043,28 +1000,28 @@ namespace Entity
         partial void Onarg_noChanging(int value);
         partial void Onarg_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 arg_value 的註解。
+        /// 結構描述中沒有屬性 arg_describe 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string arg_value
+        public string arg_describe
         {
             get
             {
-                return this._arg_value;
+                return this._arg_describe;
             }
             set
             {
-                this.Onarg_valueChanging(value);
-                this.ReportPropertyChanging("arg_value");
-                this._arg_value = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("arg_value");
-                this.Onarg_valueChanged();
+                this.Onarg_describeChanging(value);
+                this.ReportPropertyChanging("arg_describe");
+                this._arg_describe = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("arg_describe");
+                this.Onarg_describeChanged();
             }
         }
-        private string _arg_value;
-        partial void Onarg_valueChanging(string value);
-        partial void Onarg_valueChanged();
+        private string _arg_describe;
+        partial void Onarg_describeChanging(string value);
+        partial void Onarg_describeChanged();
         /// <summary>
         /// 結構描述中沒有屬性 arg_variable 的註解。
         /// </summary>
@@ -1088,6 +1045,29 @@ namespace Entity
         private string _arg_variable;
         partial void Onarg_variableChanging(string value);
         partial void Onarg_variableChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 arg_value 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string arg_value
+        {
+            get
+            {
+                return this._arg_value;
+            }
+            set
+            {
+                this.Onarg_valueChanging(value);
+                this.ReportPropertyChanging("arg_value");
+                this._arg_value = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("arg_value");
+                this.Onarg_valueChanged();
+            }
+        }
+        private string _arg_value;
+        partial void Onarg_valueChanging(string value);
+        partial void Onarg_valueChanged();
     }
     /// <summary>
     /// 結構描述中沒有 NXEIPModel.block 的註解。
@@ -1104,81 +1084,14 @@ namespace Entity
         /// 建立新的 block 物件。
         /// </summary>
         /// <param name="blo_no">blo_no 的初始值。</param>
-        public static block Createblock(int blo_no)
+        /// <param name="blo_order">blo_order 的初始值。</param>
+        public static block Createblock(int blo_no, int blo_order)
         {
             block block = new block();
             block.blo_no = blo_no;
+            block.blo_order = blo_order;
             return block;
         }
-        /// <summary>
-        /// 結構描述中沒有屬性 blo_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> blo_createtime
-        {
-            get
-            {
-                return this._blo_createtime;
-            }
-            set
-            {
-                this.Onblo_createtimeChanging(value);
-                this.ReportPropertyChanging("blo_createtime");
-                this._blo_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("blo_createtime");
-                this.Onblo_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _blo_createtime;
-        partial void Onblo_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onblo_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 blo_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> blo_createuid
-        {
-            get
-            {
-                return this._blo_createuid;
-            }
-            set
-            {
-                this.Onblo_createuidChanging(value);
-                this.ReportPropertyChanging("blo_createuid");
-                this._blo_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("blo_createuid");
-                this.Onblo_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _blo_createuid;
-        partial void Onblo_createuidChanging(global::System.Nullable<int> value);
-        partial void Onblo_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 blo_layout 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string blo_layout
-        {
-            get
-            {
-                return this._blo_layout;
-            }
-            set
-            {
-                this.Onblo_layoutChanging(value);
-                this.ReportPropertyChanging("blo_layout");
-                this._blo_layout = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("blo_layout");
-                this.Onblo_layoutChanged();
-            }
-        }
-        private string _blo_layout;
-        partial void Onblo_layoutChanging(string value);
-        partial void Onblo_layoutChanged();
         /// <summary>
         /// 結構描述中沒有屬性 blo_no 的註解。
         /// </summary>
@@ -1203,11 +1116,34 @@ namespace Entity
         partial void Onblo_noChanging(int value);
         partial void Onblo_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 blo_order 的註解。
+        /// 結構描述中沒有屬性 blo_layout 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> blo_order
+        public string blo_layout
+        {
+            get
+            {
+                return this._blo_layout;
+            }
+            set
+            {
+                this.Onblo_layoutChanging(value);
+                this.ReportPropertyChanging("blo_layout");
+                this._blo_layout = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("blo_layout");
+                this.Onblo_layoutChanged();
+            }
+        }
+        private string _blo_layout;
+        partial void Onblo_layoutChanging(string value);
+        partial void Onblo_layoutChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 blo_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int blo_order
         {
             get
             {
@@ -1222,8 +1158,8 @@ namespace Entity
                 this.Onblo_orderChanged();
             }
         }
-        private global::System.Nullable<int> _blo_order;
-        partial void Onblo_orderChanging(global::System.Nullable<int> value);
+        private int _blo_order;
+        partial void Onblo_orderChanging(int value);
         partial void Onblo_orderChanged();
         /// <summary>
         /// 結構描述中沒有屬性 blo_setting 的註解。
@@ -1249,9 +1185,55 @@ namespace Entity
         partial void Onblo_settingChanging(string value);
         partial void Onblo_settingChanged();
         /// <summary>
+        /// 結構描述中沒有屬性 blo_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> blo_createuid
+        {
+            get
+            {
+                return this._blo_createuid;
+            }
+            set
+            {
+                this.Onblo_createuidChanging(value);
+                this.ReportPropertyChanging("blo_createuid");
+                this._blo_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("blo_createuid");
+                this.Onblo_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _blo_createuid;
+        partial void Onblo_createuidChanging(global::System.Nullable<int> value);
+        partial void Onblo_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 blo_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> blo_createtime
+        {
+            get
+            {
+                return this._blo_createtime;
+            }
+            set
+            {
+                this.Onblo_createtimeChanging(value);
+                this.ReportPropertyChanging("blo_createtime");
+                this._blo_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("blo_createtime");
+                this.Onblo_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _blo_createtime;
+        partial void Onblo_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onblo_createtimeChanged();
+        /// <summary>
         /// 結構描述中沒有 page 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_block_page", "page")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_PAGE", "page")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -1259,11 +1241,11 @@ namespace Entity
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_block_page", "page").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "page").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_block_page", "page").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "page").Value = value;
             }
         }
         /// <summary>
@@ -1275,20 +1257,20 @@ namespace Entity
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_block_page", "page");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<page>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "page");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<page>("NXEIPModel.FK_block_page", "page", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<page>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "page", value);
                 }
             }
         }
         /// <summary>
         /// 結構描述中沒有 widget 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_block_widget", "widget")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_WIDGET", "widget")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
@@ -1296,11 +1278,11 @@ namespace Entity
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_block_widget", "widget").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_block_widget", "widget").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget").Value = value;
             }
         }
         /// <summary>
@@ -1312,13 +1294,13 @@ namespace Entity
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_block_widget", "widget");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<widget>("NXEIPModel.FK_block_widget", "widget", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget", value);
                 }
             }
         }
@@ -1337,38 +1319,38 @@ namespace Entity
         /// <summary>
         /// 建立新的 c01 物件。
         /// </summary>
-        /// <param name="c01_peouid">c01_peouid 的初始值。</param>
         /// <param name="co1_no">co1_no 的初始值。</param>
-        public static c01 Createc01(int c01_peouid, int co1_no)
+        /// <param name="c01_peouid">c01_peouid 的初始值。</param>
+        public static c01 Createc01(int co1_no, int c01_peouid)
         {
             c01 c01 = new c01();
-            c01.c01_peouid = c01_peouid;
             c01.co1_no = co1_no;
+            c01.c01_peouid = c01_peouid;
             return c01;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 c01_createtime 的註解。
+        /// 結構描述中沒有屬性 co1_no 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> c01_createtime
+        public int co1_no
         {
             get
             {
-                return this._c01_createtime;
+                return this._co1_no;
             }
             set
             {
-                this.Onc01_createtimeChanging(value);
-                this.ReportPropertyChanging("c01_createtime");
-                this._c01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c01_createtime");
-                this.Onc01_createtimeChanged();
+                this.Onco1_noChanging(value);
+                this.ReportPropertyChanging("co1_no");
+                this._co1_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("co1_no");
+                this.Onco1_noChanged();
             }
         }
-        private global::System.Nullable<global::System.DateTime> _c01_createtime;
-        partial void Onc01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onc01_createtimeChanged();
+        private int _co1_no;
+        partial void Onco1_noChanging(int value);
+        partial void Onco1_noChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c01_peouid 的註解。
         /// </summary>
@@ -1393,28 +1375,28 @@ namespace Entity
         partial void Onc01_peouidChanging(int value);
         partial void Onc01_peouidChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 co1_no 的註解。
+        /// 結構描述中沒有屬性 c01_createtime 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int co1_no
+        public global::System.Nullable<global::System.DateTime> c01_createtime
         {
             get
             {
-                return this._co1_no;
+                return this._c01_createtime;
             }
             set
             {
-                this.Onco1_noChanging(value);
-                this.ReportPropertyChanging("co1_no");
-                this._co1_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("co1_no");
-                this.Onco1_noChanged();
+                this.Onc01_createtimeChanging(value);
+                this.ReportPropertyChanging("c01_createtime");
+                this._c01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c01_createtime");
+                this.Onc01_createtimeChanged();
             }
         }
-        private int _co1_no;
-        partial void Onco1_noChanging(int value);
-        partial void Onco1_noChanged();
+        private global::System.Nullable<global::System.DateTime> _c01_createtime;
+        partial void Onc01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onc01_createtimeChanged();
         /// <summary>
         /// 結構描述中沒有 people 的註解。
         /// </summary>
@@ -1457,8 +1439,8 @@ namespace Entity
     /// 結構描述中沒有 NXEIPModel.c02 的註解。
     /// </summary>
     /// <KeyProperties>
-    /// c02_no
     /// peo_uid
+    /// c02_no
     /// </KeyProperties>
     [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="c02")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
@@ -1468,90 +1450,90 @@ namespace Entity
         /// <summary>
         /// 建立新的 c02 物件。
         /// </summary>
-        /// <param name="c02_edate">c02_edate 的初始值。</param>
+        /// <param name="peo_uid">peo_uid 的初始值。</param>
         /// <param name="c02_no">c02_no 的初始值。</param>
         /// <param name="c02_sdate">c02_sdate 的初始值。</param>
+        /// <param name="c02_edate">c02_edate 的初始值。</param>
         /// <param name="c02_title">c02_title 的初始值。</param>
-        /// <param name="peo_uid">peo_uid 的初始值。</param>
-        public static c02 Createc02(global::System.DateTime c02_edate, int c02_no, global::System.DateTime c02_sdate, string c02_title, int peo_uid)
+        public static c02 Createc02(int peo_uid, int c02_no, global::System.DateTime c02_sdate, global::System.DateTime c02_edate, string c02_title)
         {
             c02 c02 = new c02();
-            c02.c02_edate = c02_edate;
+            c02.peo_uid = peo_uid;
             c02.c02_no = c02_no;
             c02.c02_sdate = c02_sdate;
+            c02.c02_edate = c02_edate;
             c02.c02_title = c02_title;
-            c02.peo_uid = peo_uid;
             return c02;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 c02_bgcolor 的註解。
+        /// 結構描述中沒有屬性 peo_uid 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string c02_bgcolor
+        public int peo_uid
         {
             get
             {
-                return this._c02_bgcolor;
+                return this._peo_uid;
             }
             set
             {
-                this.Onc02_bgcolorChanging(value);
-                this.ReportPropertyChanging("c02_bgcolor");
-                this._c02_bgcolor = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("c02_bgcolor");
-                this.Onc02_bgcolorChanged();
+                this.Onpeo_uidChanging(value);
+                this.ReportPropertyChanging("peo_uid");
+                this._peo_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_uid");
+                this.Onpeo_uidChanged();
             }
         }
-        private string _c02_bgcolor;
-        partial void Onc02_bgcolorChanging(string value);
-        partial void Onc02_bgcolorChanged();
+        private int _peo_uid;
+        partial void Onpeo_uidChanging(int value);
+        partial void Onpeo_uidChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c02_createtime 的註解。
+        /// 結構描述中沒有屬性 c02_no 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> c02_createtime
+        public int c02_no
         {
             get
             {
-                return this._c02_createtime;
+                return this._c02_no;
             }
             set
             {
-                this.Onc02_createtimeChanging(value);
-                this.ReportPropertyChanging("c02_createtime");
-                this._c02_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c02_createtime");
-                this.Onc02_createtimeChanged();
+                this.Onc02_noChanging(value);
+                this.ReportPropertyChanging("c02_no");
+                this._c02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c02_no");
+                this.Onc02_noChanged();
             }
         }
-        private global::System.Nullable<global::System.DateTime> _c02_createtime;
-        partial void Onc02_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onc02_createtimeChanged();
+        private int _c02_no;
+        partial void Onc02_noChanging(int value);
+        partial void Onc02_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c02_createuid 的註解。
+        /// 結構描述中沒有屬性 c02_sdate 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> c02_createuid
+        public global::System.DateTime c02_sdate
         {
             get
             {
-                return this._c02_createuid;
+                return this._c02_sdate;
             }
             set
             {
-                this.Onc02_createuidChanging(value);
-                this.ReportPropertyChanging("c02_createuid");
-                this._c02_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c02_createuid");
-                this.Onc02_createuidChanged();
+                this.Onc02_sdateChanging(value);
+                this.ReportPropertyChanging("c02_sdate");
+                this._c02_sdate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c02_sdate");
+                this.Onc02_sdateChanged();
             }
         }
-        private global::System.Nullable<int> _c02_createuid;
-        partial void Onc02_createuidChanging(global::System.Nullable<int> value);
-        partial void Onc02_createuidChanged();
+        private global::System.DateTime _c02_sdate;
+        partial void Onc02_sdateChanging(global::System.DateTime value);
+        partial void Onc02_sdateChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c02_edate 的註解。
         /// </summary>
@@ -1576,28 +1558,28 @@ namespace Entity
         partial void Onc02_edateChanging(global::System.DateTime value);
         partial void Onc02_edateChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c02_no 的註解。
+        /// 結構描述中沒有屬性 c02_title 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int c02_no
+        public string c02_title
         {
             get
             {
-                return this._c02_no;
+                return this._c02_title;
             }
             set
             {
-                this.Onc02_noChanging(value);
-                this.ReportPropertyChanging("c02_no");
-                this._c02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c02_no");
-                this.Onc02_noChanged();
+                this.Onc02_titleChanging(value);
+                this.ReportPropertyChanging("c02_title");
+                this._c02_title = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("c02_title");
+                this.Onc02_titleChanged();
             }
         }
-        private int _c02_no;
-        partial void Onc02_noChanging(int value);
-        partial void Onc02_noChanged();
+        private string _c02_title;
+        partial void Onc02_titleChanging(string value);
+        partial void Onc02_titleChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c02_place 的註解。
         /// </summary>
@@ -1668,28 +1650,28 @@ namespace Entity
         partial void Onc02_resultChanging(string value);
         partial void Onc02_resultChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c02_sdate 的註解。
+        /// 結構描述中沒有屬性 c02_bgcolor 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.DateTime c02_sdate
+        public string c02_bgcolor
         {
             get
             {
-                return this._c02_sdate;
+                return this._c02_bgcolor;
             }
             set
             {
-                this.Onc02_sdateChanging(value);
-                this.ReportPropertyChanging("c02_sdate");
-                this._c02_sdate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c02_sdate");
-                this.Onc02_sdateChanged();
+                this.Onc02_bgcolorChanging(value);
+                this.ReportPropertyChanging("c02_bgcolor");
+                this._c02_bgcolor = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("c02_bgcolor");
+                this.Onc02_bgcolorChanged();
             }
         }
-        private global::System.DateTime _c02_sdate;
-        partial void Onc02_sdateChanging(global::System.DateTime value);
-        partial void Onc02_sdateChanged();
+        private string _c02_bgcolor;
+        partial void Onc02_bgcolorChanging(string value);
+        partial void Onc02_bgcolorChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c02_setuid 的註解。
         /// </summary>
@@ -1714,51 +1696,51 @@ namespace Entity
         partial void Onc02_setuidChanging(global::System.Nullable<int> value);
         partial void Onc02_setuidChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c02_title 的註解。
+        /// 結構描述中沒有屬性 c02_createuid 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string c02_title
+        public global::System.Nullable<int> c02_createuid
         {
             get
             {
-                return this._c02_title;
+                return this._c02_createuid;
             }
             set
             {
-                this.Onc02_titleChanging(value);
-                this.ReportPropertyChanging("c02_title");
-                this._c02_title = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("c02_title");
-                this.Onc02_titleChanged();
+                this.Onc02_createuidChanging(value);
+                this.ReportPropertyChanging("c02_createuid");
+                this._c02_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c02_createuid");
+                this.Onc02_createuidChanged();
             }
         }
-        private string _c02_title;
-        partial void Onc02_titleChanging(string value);
-        partial void Onc02_titleChanged();
+        private global::System.Nullable<int> _c02_createuid;
+        partial void Onc02_createuidChanging(global::System.Nullable<int> value);
+        partial void Onc02_createuidChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 peo_uid 的註解。
+        /// 結構描述中沒有屬性 c02_createtime 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int peo_uid
+        public global::System.Nullable<global::System.DateTime> c02_createtime
         {
             get
             {
-                return this._peo_uid;
+                return this._c02_createtime;
             }
             set
             {
-                this.Onpeo_uidChanging(value);
-                this.ReportPropertyChanging("peo_uid");
-                this._peo_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_uid");
-                this.Onpeo_uidChanged();
+                this.Onc02_createtimeChanging(value);
+                this.ReportPropertyChanging("c02_createtime");
+                this._c02_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c02_createtime");
+                this.Onc02_createtimeChanged();
             }
         }
-        private int _peo_uid;
-        partial void Onpeo_uidChanging(int value);
-        partial void Onpeo_uidChanged();
+        private global::System.Nullable<global::System.DateTime> _c02_createtime;
+        partial void Onc02_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onc02_createtimeChanged();
         /// <summary>
         /// 結構描述中沒有 c03 的註解。
         /// </summary>
@@ -1856,51 +1838,28 @@ namespace Entity
             return c03;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 c03_crule 的註解。
+        /// 結構描述中沒有屬性 c03_no 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string c03_crule
+        public int c03_no
         {
             get
             {
-                return this._c03_crule;
+                return this._c03_no;
             }
             set
             {
-                this.Onc03_cruleChanging(value);
-                this.ReportPropertyChanging("c03_crule");
-                this._c03_crule = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("c03_crule");
-                this.Onc03_cruleChanged();
+                this.Onc03_noChanging(value);
+                this.ReportPropertyChanging("c03_no");
+                this._c03_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c03_no");
+                this.Onc03_noChanged();
             }
         }
-        private string _c03_crule;
-        partial void Onc03_cruleChanging(string value);
-        partial void Onc03_cruleChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 c03_ctype 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string c03_ctype
-        {
-            get
-            {
-                return this._c03_ctype;
-            }
-            set
-            {
-                this.Onc03_ctypeChanging(value);
-                this.ReportPropertyChanging("c03_ctype");
-                this._c03_ctype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("c03_ctype");
-                this.Onc03_ctypeChanged();
-            }
-        }
-        private string _c03_ctype;
-        partial void Onc03_ctypeChanging(string value);
-        partial void Onc03_ctypeChanged();
+        private int _c03_no;
+        partial void Onc03_noChanging(int value);
+        partial void Onc03_noChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c03_cycle 的註解。
         /// </summary>
@@ -1925,28 +1884,28 @@ namespace Entity
         partial void Onc03_cycleChanging(string value);
         partial void Onc03_cycleChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c03_no 的註解。
+        /// 結構描述中沒有屬性 c03_type 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int c03_no
+        public string c03_type
         {
             get
             {
-                return this._c03_no;
+                return this._c03_type;
             }
             set
             {
-                this.Onc03_noChanging(value);
-                this.ReportPropertyChanging("c03_no");
-                this._c03_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c03_no");
-                this.Onc03_noChanged();
+                this.Onc03_typeChanging(value);
+                this.ReportPropertyChanging("c03_type");
+                this._c03_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("c03_type");
+                this.Onc03_typeChanged();
             }
         }
-        private int _c03_no;
-        partial void Onc03_noChanging(int value);
-        partial void Onc03_noChanged();
+        private string _c03_type;
+        partial void Onc03_typeChanging(string value);
+        partial void Onc03_typeChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c03_rule 的註解。
         /// </summary>
@@ -1994,28 +1953,51 @@ namespace Entity
         partial void Onc03_sdateChanging(global::System.Nullable<global::System.DateTime> value);
         partial void Onc03_sdateChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 c03_type 的註解。
+        /// 結構描述中沒有屬性 c03_ctype 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string c03_type
+        public string c03_ctype
         {
             get
             {
-                return this._c03_type;
+                return this._c03_ctype;
             }
             set
             {
-                this.Onc03_typeChanging(value);
-                this.ReportPropertyChanging("c03_type");
-                this._c03_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("c03_type");
-                this.Onc03_typeChanged();
+                this.Onc03_ctypeChanging(value);
+                this.ReportPropertyChanging("c03_ctype");
+                this._c03_ctype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("c03_ctype");
+                this.Onc03_ctypeChanged();
             }
         }
-        private string _c03_type;
-        partial void Onc03_typeChanging(string value);
-        partial void Onc03_typeChanged();
+        private string _c03_ctype;
+        partial void Onc03_ctypeChanging(string value);
+        partial void Onc03_ctypeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 c03_crule 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string c03_crule
+        {
+            get
+            {
+                return this._c03_crule;
+            }
+            set
+            {
+                this.Onc03_cruleChanging(value);
+                this.ReportPropertyChanging("c03_crule");
+                this._c03_crule = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("c03_crule");
+                this.Onc03_cruleChanged();
+            }
+        }
+        private string _c03_crule;
+        partial void Onc03_cruleChanging(string value);
+        partial void Onc03_cruleChanged();
         /// <summary>
         /// 結構描述中沒有 c02 的註解。
         /// </summary>
@@ -2059,52 +2041,6 @@ namespace Entity
             c04.c04_no = c04_no;
             return c04;
         }
-        /// <summary>
-        /// 結構描述中沒有屬性 c04_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> c04_createtime
-        {
-            get
-            {
-                return this._c04_createtime;
-            }
-            set
-            {
-                this.Onc04_createtimeChanging(value);
-                this.ReportPropertyChanging("c04_createtime");
-                this._c04_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c04_createtime");
-                this.Onc04_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _c04_createtime;
-        partial void Onc04_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onc04_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 c04_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> c04_createuid
-        {
-            get
-            {
-                return this._c04_createuid;
-            }
-            set
-            {
-                this.Onc04_createuidChanging(value);
-                this.ReportPropertyChanging("c04_createuid");
-                this._c04_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("c04_createuid");
-                this.Onc04_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _c04_createuid;
-        partial void Onc04_createuidChanging(global::System.Nullable<int> value);
-        partial void Onc04_createuidChanged();
         /// <summary>
         /// 結構描述中沒有屬性 c04_no 的註解。
         /// </summary>
@@ -2151,6 +2087,52 @@ namespace Entity
         private string _c04_right;
         partial void Onc04_rightChanging(string value);
         partial void Onc04_rightChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 c04_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> c04_createuid
+        {
+            get
+            {
+                return this._c04_createuid;
+            }
+            set
+            {
+                this.Onc04_createuidChanging(value);
+                this.ReportPropertyChanging("c04_createuid");
+                this._c04_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c04_createuid");
+                this.Onc04_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _c04_createuid;
+        partial void Onc04_createuidChanging(global::System.Nullable<int> value);
+        partial void Onc04_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 c04_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> c04_createtime
+        {
+            get
+            {
+                return this._c04_createtime;
+            }
+            set
+            {
+                this.Onc04_createtimeChanging(value);
+                this.ReportPropertyChanging("c04_createtime");
+                this._c04_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("c04_createtime");
+                this.Onc04_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _c04_createtime;
+        partial void Onc04_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onc04_createtimeChanged();
         /// <summary>
         /// 結構描述中沒有 people 的註解。
         /// </summary>
@@ -2211,190 +2193,6 @@ namespace Entity
             return departments;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 dep_addr 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_addr
-        {
-            get
-            {
-                return this._dep_addr;
-            }
-            set
-            {
-                this.Ondep_addrChanging(value);
-                this.ReportPropertyChanging("dep_addr");
-                this._dep_addr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_addr");
-                this.Ondep_addrChanged();
-            }
-        }
-        private string _dep_addr;
-        partial void Ondep_addrChanging(string value);
-        partial void Ondep_addrChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_code 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_code
-        {
-            get
-            {
-                return this._dep_code;
-            }
-            set
-            {
-                this.Ondep_codeChanging(value);
-                this.ReportPropertyChanging("dep_code");
-                this._dep_code = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_code");
-                this.Ondep_codeChanged();
-            }
-        }
-        private string _dep_code;
-        partial void Ondep_codeChanging(string value);
-        partial void Ondep_codeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> dep_createtime
-        {
-            get
-            {
-                return this._dep_createtime;
-            }
-            set
-            {
-                this.Ondep_createtimeChanging(value);
-                this.ReportPropertyChanging("dep_createtime");
-                this._dep_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("dep_createtime");
-                this.Ondep_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _dep_createtime;
-        partial void Ondep_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Ondep_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> dep_createuid
-        {
-            get
-            {
-                return this._dep_createuid;
-            }
-            set
-            {
-                this.Ondep_createuidChanging(value);
-                this.ReportPropertyChanging("dep_createuid");
-                this._dep_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("dep_createuid");
-                this.Ondep_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _dep_createuid;
-        partial void Ondep_createuidChanging(global::System.Nullable<int> value);
-        partial void Ondep_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_ename 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_ename
-        {
-            get
-            {
-                return this._dep_ename;
-            }
-            set
-            {
-                this.Ondep_enameChanging(value);
-                this.ReportPropertyChanging("dep_ename");
-                this._dep_ename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_ename");
-                this.Ondep_enameChanged();
-            }
-        }
-        private string _dep_ename;
-        partial void Ondep_enameChanging(string value);
-        partial void Ondep_enameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_fax 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_fax
-        {
-            get
-            {
-                return this._dep_fax;
-            }
-            set
-            {
-                this.Ondep_faxChanging(value);
-                this.ReportPropertyChanging("dep_fax");
-                this._dep_fax = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_fax");
-                this.Ondep_faxChanged();
-            }
-        }
-        private string _dep_fax;
-        partial void Ondep_faxChanging(string value);
-        partial void Ondep_faxChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_level 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> dep_level
-        {
-            get
-            {
-                return this._dep_level;
-            }
-            set
-            {
-                this.Ondep_levelChanging(value);
-                this.ReportPropertyChanging("dep_level");
-                this._dep_level = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("dep_level");
-                this.Ondep_levelChanged();
-            }
-        }
-        private global::System.Nullable<int> _dep_level;
-        partial void Ondep_levelChanging(global::System.Nullable<int> value);
-        partial void Ondep_levelChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_name
-        {
-            get
-            {
-                return this._dep_name;
-            }
-            set
-            {
-                this.Ondep_nameChanging(value);
-                this.ReportPropertyChanging("dep_name");
-                this._dep_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_name");
-                this.Ondep_nameChanged();
-            }
-        }
-        private string _dep_name;
-        partial void Ondep_nameChanging(string value);
-        partial void Ondep_nameChanged();
-        /// <summary>
         /// 結構描述中沒有屬性 dep_no 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
@@ -2417,29 +2215,6 @@ namespace Entity
         private int _dep_no;
         partial void Ondep_noChanging(int value);
         partial void Ondep_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 dep_order 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> dep_order
-        {
-            get
-            {
-                return this._dep_order;
-            }
-            set
-            {
-                this.Ondep_orderChanging(value);
-                this.ReportPropertyChanging("dep_order");
-                this._dep_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("dep_order");
-                this.Ondep_orderChanged();
-            }
-        }
-        private global::System.Nullable<int> _dep_order;
-        partial void Ondep_orderChanging(global::System.Nullable<int> value);
-        partial void Ondep_orderChanged();
         /// <summary>
         /// 結構描述中沒有屬性 dep_parentid 的註解。
         /// </summary>
@@ -2464,6 +2239,29 @@ namespace Entity
         partial void Ondep_parentidChanging(global::System.Nullable<int> value);
         partial void Ondep_parentidChanged();
         /// <summary>
+        /// 結構描述中沒有屬性 dep_level 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> dep_level
+        {
+            get
+            {
+                return this._dep_level;
+            }
+            set
+            {
+                this.Ondep_levelChanging(value);
+                this.ReportPropertyChanging("dep_level");
+                this._dep_level = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("dep_level");
+                this.Ondep_levelChanged();
+            }
+        }
+        private global::System.Nullable<int> _dep_level;
+        partial void Ondep_levelChanging(global::System.Nullable<int> value);
+        partial void Ondep_levelChanged();
+        /// <summary>
         /// 結構描述中沒有屬性 dep_son 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
@@ -2487,28 +2285,74 @@ namespace Entity
         partial void Ondep_sonChanging(string value);
         partial void Ondep_sonChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 dep_status 的註解。
+        /// 結構描述中沒有屬性 dep_code 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string dep_status
+        public string dep_code
         {
             get
             {
-                return this._dep_status;
+                return this._dep_code;
             }
             set
             {
-                this.Ondep_statusChanging(value);
-                this.ReportPropertyChanging("dep_status");
-                this._dep_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("dep_status");
-                this.Ondep_statusChanged();
+                this.Ondep_codeChanging(value);
+                this.ReportPropertyChanging("dep_code");
+                this._dep_code = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_code");
+                this.Ondep_codeChanged();
             }
         }
-        private string _dep_status;
-        partial void Ondep_statusChanging(string value);
-        partial void Ondep_statusChanged();
+        private string _dep_code;
+        partial void Ondep_codeChanging(string value);
+        partial void Ondep_codeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string dep_name
+        {
+            get
+            {
+                return this._dep_name;
+            }
+            set
+            {
+                this.Ondep_nameChanging(value);
+                this.ReportPropertyChanging("dep_name");
+                this._dep_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_name");
+                this.Ondep_nameChanged();
+            }
+        }
+        private string _dep_name;
+        partial void Ondep_nameChanging(string value);
+        partial void Ondep_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_ename 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string dep_ename
+        {
+            get
+            {
+                return this._dep_ename;
+            }
+            set
+            {
+                this.Ondep_enameChanging(value);
+                this.ReportPropertyChanging("dep_ename");
+                this._dep_ename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_ename");
+                this.Ondep_enameChanged();
+            }
+        }
+        private string _dep_ename;
+        partial void Ondep_enameChanging(string value);
+        partial void Ondep_enameChanged();
         /// <summary>
         /// 結構描述中沒有屬性 dep_tel 的註解。
         /// </summary>
@@ -2533,6 +2377,144 @@ namespace Entity
         partial void Ondep_telChanging(string value);
         partial void Ondep_telChanged();
         /// <summary>
+        /// 結構描述中沒有屬性 dep_fax 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string dep_fax
+        {
+            get
+            {
+                return this._dep_fax;
+            }
+            set
+            {
+                this.Ondep_faxChanging(value);
+                this.ReportPropertyChanging("dep_fax");
+                this._dep_fax = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_fax");
+                this.Ondep_faxChanged();
+            }
+        }
+        private string _dep_fax;
+        partial void Ondep_faxChanging(string value);
+        partial void Ondep_faxChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_addr 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string dep_addr
+        {
+            get
+            {
+                return this._dep_addr;
+            }
+            set
+            {
+                this.Ondep_addrChanging(value);
+                this.ReportPropertyChanging("dep_addr");
+                this._dep_addr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_addr");
+                this.Ondep_addrChanged();
+            }
+        }
+        private string _dep_addr;
+        partial void Ondep_addrChanging(string value);
+        partial void Ondep_addrChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> dep_order
+        {
+            get
+            {
+                return this._dep_order;
+            }
+            set
+            {
+                this.Ondep_orderChanging(value);
+                this.ReportPropertyChanging("dep_order");
+                this._dep_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("dep_order");
+                this.Ondep_orderChanged();
+            }
+        }
+        private global::System.Nullable<int> _dep_order;
+        partial void Ondep_orderChanging(global::System.Nullable<int> value);
+        partial void Ondep_orderChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string dep_status
+        {
+            get
+            {
+                return this._dep_status;
+            }
+            set
+            {
+                this.Ondep_statusChanging(value);
+                this.ReportPropertyChanging("dep_status");
+                this._dep_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("dep_status");
+                this.Ondep_statusChanged();
+            }
+        }
+        private string _dep_status;
+        partial void Ondep_statusChanging(string value);
+        partial void Ondep_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> dep_createuid
+        {
+            get
+            {
+                return this._dep_createuid;
+            }
+            set
+            {
+                this.Ondep_createuidChanging(value);
+                this.ReportPropertyChanging("dep_createuid");
+                this._dep_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("dep_createuid");
+                this.Ondep_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _dep_createuid;
+        partial void Ondep_createuidChanging(global::System.Nullable<int> value);
+        partial void Ondep_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 dep_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> dep_createtime
+        {
+            get
+            {
+                return this._dep_createtime;
+            }
+            set
+            {
+                this.Ondep_createtimeChanging(value);
+                this.ReportPropertyChanging("dep_createtime");
+                this._dep_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("dep_createtime");
+                this.Ondep_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _dep_createtime;
+        partial void Ondep_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Ondep_createtimeChanged();
+        /// <summary>
         /// 結構描述中沒有 people 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PEOPLE_RELATIONS_DEPARTME", "people")]
@@ -2554,3879 +2536,44 @@ namespace Entity
             }
         }
         /// <summary>
-        /// 結構描述中沒有 s03 的註解。
+        /// 結構描述中沒有 roldefault 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S03_RELATIONS_DEPARTME", "s03")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_DEPARTME", "roldefault")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s03> s03
+        public global::System.Data.Objects.DataClasses.EntityCollection<roldefault> roldefault
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s03>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "s03");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<roldefault>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "roldefault");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s03>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "s03", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.dtproperties 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// id
-    /// property
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="dtproperties")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class dtproperties : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 dtproperties 物件。
-        /// </summary>
-        /// <param name="id">id 的初始值。</param>
-        /// <param name="property">property 的初始值。</param>
-        /// <param name="version">version 的初始值。</param>
-        public static dtproperties Createdtproperties(int id, string property, int version)
-        {
-            dtproperties dtproperties = new dtproperties();
-            dtproperties.id = id;
-            dtproperties.property = property;
-            dtproperties.version = version;
-            return dtproperties;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 id 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int id
-        {
-            get
-            {
-                return this._id;
-            }
-            set
-            {
-                this.OnidChanging(value);
-                this.ReportPropertyChanging("id");
-                this._id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("id");
-                this.OnidChanged();
-            }
-        }
-        private int _id;
-        partial void OnidChanging(int value);
-        partial void OnidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 lvalue 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] lvalue
-        {
-            get
-            {
-                return global::System.Data.Objects.DataClasses.StructuralObject.GetValidValue(this._lvalue);
-            }
-            set
-            {
-                this.OnlvalueChanging(value);
-                this.ReportPropertyChanging("lvalue");
-                this._lvalue = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("lvalue");
-                this.OnlvalueChanged();
-            }
-        }
-        private byte[] _lvalue;
-        partial void OnlvalueChanging(byte[] value);
-        partial void OnlvalueChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 objectid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> objectid
-        {
-            get
-            {
-                return this._objectid;
-            }
-            set
-            {
-                this.OnobjectidChanging(value);
-                this.ReportPropertyChanging("objectid");
-                this._objectid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("objectid");
-                this.OnobjectidChanged();
-            }
-        }
-        private global::System.Nullable<int> _objectid;
-        partial void OnobjectidChanging(global::System.Nullable<int> value);
-        partial void OnobjectidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 property 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string property
-        {
-            get
-            {
-                return this._property;
-            }
-            set
-            {
-                this.OnpropertyChanging(value);
-                this.ReportPropertyChanging("property");
-                this._property = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("property");
-                this.OnpropertyChanged();
-            }
-        }
-        private string _property;
-        partial void OnpropertyChanging(string value);
-        partial void OnpropertyChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 uvalue 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string uvalue
-        {
-            get
-            {
-                return this._uvalue;
-            }
-            set
-            {
-                this.OnuvalueChanging(value);
-                this.ReportPropertyChanging("uvalue");
-                this._uvalue = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("uvalue");
-                this.OnuvalueChanged();
-            }
-        }
-        private string _uvalue;
-        partial void OnuvalueChanging(string value);
-        partial void OnuvalueChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 value 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string value
-        {
-            get
-            {
-                return this._value;
-            }
-            set
-            {
-                this.OnvalueChanging(value);
-                this.ReportPropertyChanging("value");
-                this._value = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("value");
-                this.OnvalueChanged();
-            }
-        }
-        private string _value;
-        partial void OnvalueChanging(string value);
-        partial void OnvalueChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 version 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int version
-        {
-            get
-            {
-                return this._version;
-            }
-            set
-            {
-                this.OnversionChanging(value);
-                this.ReportPropertyChanging("version");
-                this._version = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("version");
-                this.OnversionChanged();
-            }
-        }
-        private int _version;
-        partial void OnversionChanging(int value);
-        partial void OnversionChanged();
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.loginlog 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// log_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="loginlog")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class loginlog : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 loginlog 物件。
-        /// </summary>
-        /// <param name="log_no">log_no 的初始值。</param>
-        public static loginlog Createloginlog(string log_no)
-        {
-            loginlog loginlog = new loginlog();
-            loginlog.log_no = log_no;
-            return loginlog;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 log_accno 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> log_accno
-        {
-            get
-            {
-                return this._log_accno;
-            }
-            set
-            {
-                this.Onlog_accnoChanging(value);
-                this.ReportPropertyChanging("log_accno");
-                this._log_accno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("log_accno");
-                this.Onlog_accnoChanged();
-            }
-        }
-        private global::System.Nullable<int> _log_accno;
-        partial void Onlog_accnoChanging(global::System.Nullable<int> value);
-        partial void Onlog_accnoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_ip 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string log_ip
-        {
-            get
-            {
-                return this._log_ip;
-            }
-            set
-            {
-                this.Onlog_ipChanging(value);
-                this.ReportPropertyChanging("log_ip");
-                this._log_ip = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("log_ip");
-                this.Onlog_ipChanged();
-            }
-        }
-        private string _log_ip;
-        partial void Onlog_ipChanging(string value);
-        partial void Onlog_ipChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_loginout 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> log_loginout
-        {
-            get
-            {
-                return this._log_loginout;
-            }
-            set
-            {
-                this.Onlog_loginoutChanging(value);
-                this.ReportPropertyChanging("log_loginout");
-                this._log_loginout = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("log_loginout");
-                this.Onlog_loginoutChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _log_loginout;
-        partial void Onlog_loginoutChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onlog_loginoutChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_logintime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> log_logintime
-        {
-            get
-            {
-                return this._log_logintime;
-            }
-            set
-            {
-                this.Onlog_logintimeChanging(value);
-                this.ReportPropertyChanging("log_logintime");
-                this._log_logintime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("log_logintime");
-                this.Onlog_logintimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _log_logintime;
-        partial void Onlog_logintimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onlog_logintimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string log_no
-        {
-            get
-            {
-                return this._log_no;
-            }
-            set
-            {
-                this.Onlog_noChanging(value);
-                this.ReportPropertyChanging("log_no");
-                this._log_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("log_no");
-                this.Onlog_noChanged();
-            }
-        }
-        private string _log_no;
-        partial void Onlog_noChanging(string value);
-        partial void Onlog_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_peouid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> log_peouid
-        {
-            get
-            {
-                return this._log_peouid;
-            }
-            set
-            {
-                this.Onlog_peouidChanging(value);
-                this.ReportPropertyChanging("log_peouid");
-                this._log_peouid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("log_peouid");
-                this.Onlog_peouidChanged();
-            }
-        }
-        private global::System.Nullable<int> _log_peouid;
-        partial void Onlog_peouidChanging(global::System.Nullable<int> value);
-        partial void Onlog_peouidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_sessionid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string log_sessionid
-        {
-            get
-            {
-                return this._log_sessionid;
-            }
-            set
-            {
-                this.Onlog_sessionidChanging(value);
-                this.ReportPropertyChanging("log_sessionid");
-                this._log_sessionid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("log_sessionid");
-                this.Onlog_sessionidChanged();
-            }
-        }
-        private string _log_sessionid;
-        partial void Onlog_sessionidChanging(string value);
-        partial void Onlog_sessionidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 log_status 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string log_status
-        {
-            get
-            {
-                return this._log_status;
-            }
-            set
-            {
-                this.Onlog_statusChanging(value);
-                this.ReportPropertyChanging("log_status");
-                this._log_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("log_status");
-                this.Onlog_statusChanged();
-            }
-        }
-        private string _log_status;
-        partial void Onlog_statusChanging(string value);
-        partial void Onlog_statusChanged();
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.operates 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// ope_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="operates")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class operates : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 operates 物件。
-        /// </summary>
-        /// <param name="ope_no">ope_no 的初始值。</param>
-        public static operates Createoperates(int ope_no)
-        {
-            operates operates = new operates();
-            operates.ope_no = ope_no;
-            return operates;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 ope_fuction 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> ope_fuction
-        {
-            get
-            {
-                return this._ope_fuction;
-            }
-            set
-            {
-                this.Onope_fuctionChanging(value);
-                this.ReportPropertyChanging("ope_fuction");
-                this._ope_fuction = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ope_fuction");
-                this.Onope_fuctionChanged();
-            }
-        }
-        private global::System.Nullable<int> _ope_fuction;
-        partial void Onope_fuctionChanging(global::System.Nullable<int> value);
-        partial void Onope_fuctionChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 ope_logintime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> ope_logintime
-        {
-            get
-            {
-                return this._ope_logintime;
-            }
-            set
-            {
-                this.Onope_logintimeChanging(value);
-                this.ReportPropertyChanging("ope_logintime");
-                this._ope_logintime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ope_logintime");
-                this.Onope_logintimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _ope_logintime;
-        partial void Onope_logintimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onope_logintimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 ope_memo 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string ope_memo
-        {
-            get
-            {
-                return this._ope_memo;
-            }
-            set
-            {
-                this.Onope_memoChanging(value);
-                this.ReportPropertyChanging("ope_memo");
-                this._ope_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("ope_memo");
-                this.Onope_memoChanged();
-            }
-        }
-        private string _ope_memo;
-        partial void Onope_memoChanging(string value);
-        partial void Onope_memoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 ope_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int ope_no
-        {
-            get
-            {
-                return this._ope_no;
-            }
-            set
-            {
-                this.Onope_noChanging(value);
-                this.ReportPropertyChanging("ope_no");
-                this._ope_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("ope_no");
-                this.Onope_noChanged();
-            }
-        }
-        private int _ope_no;
-        partial void Onope_noChanging(int value);
-        partial void Onope_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 people 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "people")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public people people
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 people 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<people> peopleReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<roldefault>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "roldefault", value);
                 }
             }
         }
         /// <summary>
-        /// 結構描述中沒有 sysfuction 的註解。
+        /// 結構描述中沒有 search03 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_DEPARTME", "search03")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public sysfuction sysfuction
+        public global::System.Data.Objects.DataClasses.EntityCollection<search03> search03
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 sysfuction 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<sysfuction> sysfuctionReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search03>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "search03");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.page 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// pag_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="page")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class page : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 page 物件。
-        /// </summary>
-        /// <param name="pag_no">pag_no 的初始值。</param>
-        public static page Createpage(int pag_no)
-        {
-            page page = new page();
-            page.pag_no = pag_no;
-            return page;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> pag_createtime
-        {
-            get
-            {
-                return this._pag_createtime;
-            }
-            set
-            {
-                this.Onpag_createtimeChanging(value);
-                this.ReportPropertyChanging("pag_createtime");
-                this._pag_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("pag_createtime");
-                this.Onpag_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _pag_createtime;
-        partial void Onpag_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onpag_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> pag_createuid
-        {
-            get
-            {
-                return this._pag_createuid;
-            }
-            set
-            {
-                this.Onpag_createuidChanging(value);
-                this.ReportPropertyChanging("pag_createuid");
-                this._pag_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("pag_createuid");
-                this.Onpag_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _pag_createuid;
-        partial void Onpag_createuidChanging(global::System.Nullable<int> value);
-        partial void Onpag_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_css 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string pag_css
-        {
-            get
-            {
-                return this._pag_css;
-            }
-            set
-            {
-                this.Onpag_cssChanging(value);
-                this.ReportPropertyChanging("pag_css");
-                this._pag_css = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("pag_css");
-                this.Onpag_cssChanged();
-            }
-        }
-        private string _pag_css;
-        partial void Onpag_cssChanging(string value);
-        partial void Onpag_cssChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int pag_no
-        {
-            get
-            {
-                return this._pag_no;
-            }
-            set
-            {
-                this.Onpag_noChanging(value);
-                this.ReportPropertyChanging("pag_no");
-                this._pag_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("pag_no");
-                this.Onpag_noChanged();
-            }
-        }
-        private int _pag_no;
-        partial void Onpag_noChanging(int value);
-        partial void Onpag_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_type 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string pag_type
-        {
-            get
-            {
-                return this._pag_type;
-            }
-            set
-            {
-                this.Onpag_typeChanging(value);
-                this.ReportPropertyChanging("pag_type");
-                this._pag_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("pag_type");
-                this.Onpag_typeChanged();
-            }
-        }
-        private string _pag_type;
-        partial void Onpag_typeChanging(string value);
-        partial void Onpag_typeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 pag_uid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> pag_uid
-        {
-            get
-            {
-                return this._pag_uid;
-            }
-            set
-            {
-                this.Onpag_uidChanging(value);
-                this.ReportPropertyChanging("pag_uid");
-                this._pag_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("pag_uid");
-                this.Onpag_uidChanged();
-            }
-        }
-        private global::System.Nullable<int> _pag_uid;
-        partial void Onpag_uidChanging(global::System.Nullable<int> value);
-        partial void Onpag_uidChanged();
-        /// <summary>
-        /// 結構描述中沒有 block 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_block_page", "block")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<block> block
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<block>("NXEIPModel.FK_block_page", "block");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<block>("NXEIPModel.FK_block_page", "block", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.people 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// peo_uid
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="people")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class people : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 people 物件。
-        /// </summary>
-        /// <param name="peo_idcard">peo_idcard 的初始值。</param>
-        /// <param name="peo_name">peo_name 的初始值。</param>
-        /// <param name="peo_uid">peo_uid 的初始值。</param>
-        public static people Createpeople(string peo_idcard, string peo_name, int peo_uid)
-        {
-            people people = new people();
-            people.peo_idcard = peo_idcard;
-            people.peo_name = peo_name;
-            people.peo_uid = peo_uid;
-            return people;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_account 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_account
-        {
-            get
-            {
-                return this._peo_account;
-            }
-            set
-            {
-                this.Onpeo_accountChanging(value);
-                this.ReportPropertyChanging("peo_account");
-                this._peo_account = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_account");
-                this.Onpeo_accountChanged();
-            }
-        }
-        private string _peo_account;
-        partial void Onpeo_accountChanging(string value);
-        partial void Onpeo_accountChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_addr 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_addr
-        {
-            get
-            {
-                return this._peo_addr;
-            }
-            set
-            {
-                this.Onpeo_addrChanging(value);
-                this.ReportPropertyChanging("peo_addr");
-                this._peo_addr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_addr");
-                this.Onpeo_addrChanged();
-            }
-        }
-        private string _peo_addr;
-        partial void Onpeo_addrChanging(string value);
-        partial void Onpeo_addrChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_arrivedate 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> peo_arrivedate
-        {
-            get
-            {
-                return this._peo_arrivedate;
-            }
-            set
-            {
-                this.Onpeo_arrivedateChanging(value);
-                this.ReportPropertyChanging("peo_arrivedate");
-                this._peo_arrivedate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_arrivedate");
-                this.Onpeo_arrivedateChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _peo_arrivedate;
-        partial void Onpeo_arrivedateChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onpeo_arrivedateChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_birthday 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> peo_birthday
-        {
-            get
-            {
-                return this._peo_birthday;
-            }
-            set
-            {
-                this.Onpeo_birthdayChanging(value);
-                this.ReportPropertyChanging("peo_birthday");
-                this._peo_birthday = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_birthday");
-                this.Onpeo_birthdayChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _peo_birthday;
-        partial void Onpeo_birthdayChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onpeo_birthdayChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> peo_createtime
-        {
-            get
-            {
-                return this._peo_createtime;
-            }
-            set
-            {
-                this.Onpeo_createtimeChanging(value);
-                this.ReportPropertyChanging("peo_createtime");
-                this._peo_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_createtime");
-                this.Onpeo_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _peo_createtime;
-        partial void Onpeo_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onpeo_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> peo_createuid
-        {
-            get
-            {
-                return this._peo_createuid;
-            }
-            set
-            {
-                this.Onpeo_createuidChanging(value);
-                this.ReportPropertyChanging("peo_createuid");
-                this._peo_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_createuid");
-                this.Onpeo_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _peo_createuid;
-        partial void Onpeo_createuidChanging(global::System.Nullable<int> value);
-        partial void Onpeo_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_email 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_email
-        {
-            get
-            {
-                return this._peo_email;
-            }
-            set
-            {
-                this.Onpeo_emailChanging(value);
-                this.ReportPropertyChanging("peo_email");
-                this._peo_email = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_email");
-                this.Onpeo_emailChanged();
-            }
-        }
-        private string _peo_email;
-        partial void Onpeo_emailChanging(string value);
-        partial void Onpeo_emailChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_english 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_english
-        {
-            get
-            {
-                return this._peo_english;
-            }
-            set
-            {
-                this.Onpeo_englishChanging(value);
-                this.ReportPropertyChanging("peo_english");
-                this._peo_english = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_english");
-                this.Onpeo_englishChanged();
-            }
-        }
-        private string _peo_english;
-        partial void Onpeo_englishChanging(string value);
-        partial void Onpeo_englishChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_filename 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_filename
-        {
-            get
-            {
-                return this._peo_filename;
-            }
-            set
-            {
-                this.Onpeo_filenameChanging(value);
-                this.ReportPropertyChanging("peo_filename");
-                this._peo_filename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_filename");
-                this.Onpeo_filenameChanged();
-            }
-        }
-        private string _peo_filename;
-        partial void Onpeo_filenameChanging(string value);
-        partial void Onpeo_filenameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_idcard 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_idcard
-        {
-            get
-            {
-                return this._peo_idcard;
-            }
-            set
-            {
-                this.Onpeo_idcardChanging(value);
-                this.ReportPropertyChanging("peo_idcard");
-                this._peo_idcard = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("peo_idcard");
-                this.Onpeo_idcardChanged();
-            }
-        }
-        private string _peo_idcard;
-        partial void Onpeo_idcardChanging(string value);
-        partial void Onpeo_idcardChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_jobtype 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> peo_jobtype
-        {
-            get
-            {
-                return this._peo_jobtype;
-            }
-            set
-            {
-                this.Onpeo_jobtypeChanging(value);
-                this.ReportPropertyChanging("peo_jobtype");
-                this._peo_jobtype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_jobtype");
-                this.Onpeo_jobtypeChanged();
-            }
-        }
-        private global::System.Nullable<int> _peo_jobtype;
-        partial void Onpeo_jobtypeChanging(global::System.Nullable<int> value);
-        partial void Onpeo_jobtypeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_leave 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> peo_leave
-        {
-            get
-            {
-                return this._peo_leave;
-            }
-            set
-            {
-                this.Onpeo_leaveChanging(value);
-                this.ReportPropertyChanging("peo_leave");
-                this._peo_leave = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_leave");
-                this.Onpeo_leaveChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _peo_leave;
-        partial void Onpeo_leaveChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onpeo_leaveChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_memo 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_memo
-        {
-            get
-            {
-                return this._peo_memo;
-            }
-            set
-            {
-                this.Onpeo_memoChanging(value);
-                this.ReportPropertyChanging("peo_memo");
-                this._peo_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_memo");
-                this.Onpeo_memoChanged();
-            }
-        }
-        private string _peo_memo;
-        partial void Onpeo_memoChanging(string value);
-        partial void Onpeo_memoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_name
-        {
-            get
-            {
-                return this._peo_name;
-            }
-            set
-            {
-                this.Onpeo_nameChanging(value);
-                this.ReportPropertyChanging("peo_name");
-                this._peo_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("peo_name");
-                this.Onpeo_nameChanged();
-            }
-        }
-        private string _peo_name;
-        partial void Onpeo_nameChanging(string value);
-        partial void Onpeo_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_pfofess 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> peo_pfofess
-        {
-            get
-            {
-                return this._peo_pfofess;
-            }
-            set
-            {
-                this.Onpeo_pfofessChanging(value);
-                this.ReportPropertyChanging("peo_pfofess");
-                this._peo_pfofess = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_pfofess");
-                this.Onpeo_pfofessChanged();
-            }
-        }
-        private global::System.Nullable<int> _peo_pfofess;
-        partial void Onpeo_pfofessChanging(global::System.Nullable<int> value);
-        partial void Onpeo_pfofessChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_picture 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] peo_picture
-        {
-            get
-            {
-                return global::System.Data.Objects.DataClasses.StructuralObject.GetValidValue(this._peo_picture);
-            }
-            set
-            {
-                this.Onpeo_pictureChanging(value);
-                this.ReportPropertyChanging("peo_picture");
-                this._peo_picture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_picture");
-                this.Onpeo_pictureChanged();
-            }
-        }
-        private byte[] _peo_picture;
-        partial void Onpeo_pictureChanging(byte[] value);
-        partial void Onpeo_pictureChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_pincode 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_pincode
-        {
-            get
-            {
-                return this._peo_pincode;
-            }
-            set
-            {
-                this.Onpeo_pincodeChanging(value);
-                this.ReportPropertyChanging("peo_pincode");
-                this._peo_pincode = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_pincode");
-                this.Onpeo_pincodeChanged();
-            }
-        }
-        private string _peo_pincode;
-        partial void Onpeo_pincodeChanging(string value);
-        partial void Onpeo_pincodeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_plevel 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> peo_plevel
-        {
-            get
-            {
-                return this._peo_plevel;
-            }
-            set
-            {
-                this.Onpeo_plevelChanging(value);
-                this.ReportPropertyChanging("peo_plevel");
-                this._peo_plevel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_plevel");
-                this.Onpeo_plevelChanged();
-            }
-        }
-        private global::System.Nullable<int> _peo_plevel;
-        partial void Onpeo_plevelChanging(global::System.Nullable<int> value);
-        partial void Onpeo_plevelChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_ptype 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> peo_ptype
-        {
-            get
-            {
-                return this._peo_ptype;
-            }
-            set
-            {
-                this.Onpeo_ptypeChanging(value);
-                this.ReportPropertyChanging("peo_ptype");
-                this._peo_ptype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_ptype");
-                this.Onpeo_ptypeChanged();
-            }
-        }
-        private global::System.Nullable<int> _peo_ptype;
-        partial void Onpeo_ptypeChanging(global::System.Nullable<int> value);
-        partial void Onpeo_ptypeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_sex 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_sex
-        {
-            get
-            {
-                return this._peo_sex;
-            }
-            set
-            {
-                this.Onpeo_sexChanging(value);
-                this.ReportPropertyChanging("peo_sex");
-                this._peo_sex = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_sex");
-                this.Onpeo_sexChanged();
-            }
-        }
-        private string _peo_sex;
-        partial void Onpeo_sexChanging(string value);
-        partial void Onpeo_sexChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_tel 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_tel
-        {
-            get
-            {
-                return this._peo_tel;
-            }
-            set
-            {
-                this.Onpeo_telChanging(value);
-                this.ReportPropertyChanging("peo_tel");
-                this._peo_tel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_tel");
-                this.Onpeo_telChanged();
-            }
-        }
-        private string _peo_tel;
-        partial void Onpeo_telChanging(string value);
-        partial void Onpeo_telChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_uid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int peo_uid
-        {
-            get
-            {
-                return this._peo_uid;
-            }
-            set
-            {
-                this.Onpeo_uidChanging(value);
-                this.ReportPropertyChanging("peo_uid");
-                this._peo_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_uid");
-                this.Onpeo_uidChanged();
-            }
-        }
-        private int _peo_uid;
-        partial void Onpeo_uidChanging(int value);
-        partial void Onpeo_uidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 peo_workid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string peo_workid
-        {
-            get
-            {
-                return this._peo_workid;
-            }
-            set
-            {
-                this.Onpeo_workidChanging(value);
-                this.ReportPropertyChanging("peo_workid");
-                this._peo_workid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("peo_workid");
-                this.Onpeo_workidChanged();
-            }
-        }
-        private string _peo_workid;
-        partial void Onpeo_workidChanging(string value);
-        partial void Onpeo_workidChanged();
-        /// <summary>
-        /// 結構描述中沒有 accounts 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<accounts> accounts
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<accounts>("NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<accounts>("NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 c01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C01_RELATIONS_PEOPLE", "c01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<c01> c01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c01>("NXEIPModel.FK_C01_RELATIONS_PEOPLE", "c01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c01>("NXEIPModel.FK_C01_RELATIONS_PEOPLE", "c01", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 c02 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C02_RELATIONS_PEOPLE", "c02")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<c02> c02
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c02>("NXEIPModel.FK_C02_RELATIONS_PEOPLE", "c02");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c02>("NXEIPModel.FK_C02_RELATIONS_PEOPLE", "c02", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 c04 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C04_RELATIONS_PEOPLE", "c04")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<c04> c04
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c04>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "c04");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c04>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "c04", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 departments 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PEOPLE_RELATIONS_DEPARTME", "departments")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public departments departments
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 departments 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<departments> departmentsReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 operates 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "operates")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<operates> operates
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "operates");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "operates", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s02 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S02_RELATIONS_PEOPLE", "s02")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s02> s02
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s02>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "s02");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s02>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "s02", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 doc01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC01_RELATIONS_PEOPLE", "doc01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<doc01> doc01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_PEOPLE", "doc01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_PEOPLE", "doc01", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 per01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PER01_RELATIONS_PEOPLE", "per01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<per01> per01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<per01>("NXEIPModel.FK_PER01_RELATIONS_PEOPLE", "per01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<per01>("NXEIPModel.FK_PER01_RELATIONS_PEOPLE", "per01", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.rauthority 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// rau_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="rauthority")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class rauthority : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 rauthority 物件。
-        /// </summary>
-        /// <param name="rau_no">rau_no 的初始值。</param>
-        public static rauthority Createrauthority(int rau_no)
-        {
-            rauthority rauthority = new rauthority();
-            rauthority.rau_no = rau_no;
-            return rauthority;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 rau_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int rau_no
-        {
-            get
-            {
-                return this._rau_no;
-            }
-            set
-            {
-                this.Onrau_noChanging(value);
-                this.ReportPropertyChanging("rau_no");
-                this._rau_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rau_no");
-                this.Onrau_noChanged();
-            }
-        }
-        private int _rau_no;
-        partial void Onrau_noChanging(int value);
-        partial void Onrau_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rau_sys 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> rau_sys
-        {
-            get
-            {
-                return this._rau_sys;
-            }
-            set
-            {
-                this.Onrau_sysChanging(value);
-                this.ReportPropertyChanging("rau_sys");
-                this._rau_sys = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rau_sys");
-                this.Onrau_sysChanged();
-            }
-        }
-        private global::System.Nullable<int> _rau_sys;
-        partial void Onrau_sysChanging(global::System.Nullable<int> value);
-        partial void Onrau_sysChanged();
-        /// <summary>
-        /// 結構描述中沒有 role 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "role")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public role role
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 role 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<role> roleReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 sysfuction 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public sysfuction sysfuction
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 sysfuction 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<sysfuction> sysfuctionReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.role 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// rol_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="role")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class role : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 role 物件。
-        /// </summary>
-        /// <param name="rol_name">rol_name 的初始值。</param>
-        /// <param name="rol_no">rol_no 的初始值。</param>
-        public static role Createrole(string rol_name, int rol_no)
-        {
-            role role = new role();
-            role.rol_name = rol_name;
-            role.rol_no = rol_no;
-            return role;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> rol_createtime
-        {
-            get
-            {
-                return this._rol_createtime;
-            }
-            set
-            {
-                this.Onrol_createtimeChanging(value);
-                this.ReportPropertyChanging("rol_createtime");
-                this._rol_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rol_createtime");
-                this.Onrol_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _rol_createtime;
-        partial void Onrol_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onrol_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> rol_createuid
-        {
-            get
-            {
-                return this._rol_createuid;
-            }
-            set
-            {
-                this.Onrol_createuidChanging(value);
-                this.ReportPropertyChanging("rol_createuid");
-                this._rol_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rol_createuid");
-                this.Onrol_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _rol_createuid;
-        partial void Onrol_createuidChanging(global::System.Nullable<int> value);
-        partial void Onrol_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_memo 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string rol_memo
-        {
-            get
-            {
-                return this._rol_memo;
-            }
-            set
-            {
-                this.Onrol_memoChanging(value);
-                this.ReportPropertyChanging("rol_memo");
-                this._rol_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("rol_memo");
-                this.Onrol_memoChanged();
-            }
-        }
-        private string _rol_memo;
-        partial void Onrol_memoChanging(string value);
-        partial void Onrol_memoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string rol_name
-        {
-            get
-            {
-                return this._rol_name;
-            }
-            set
-            {
-                this.Onrol_nameChanging(value);
-                this.ReportPropertyChanging("rol_name");
-                this._rol_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("rol_name");
-                this.Onrol_nameChanged();
-            }
-        }
-        private string _rol_name;
-        partial void Onrol_nameChanging(string value);
-        partial void Onrol_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int rol_no
-        {
-            get
-            {
-                return this._rol_no;
-            }
-            set
-            {
-                this.Onrol_noChanging(value);
-                this.ReportPropertyChanging("rol_no");
-                this._rol_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rol_no");
-                this.Onrol_noChanged();
-            }
-        }
-        private int _rol_no;
-        partial void Onrol_noChanging(int value);
-        partial void Onrol_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 rauthority 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "rauthority")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<rauthority> rauthority
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "rauthority");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "rauthority", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 roleaccount 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "roleaccount")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<roleaccount> roleaccount
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<roleaccount>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "roleaccount");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<roleaccount>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "roleaccount", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.roleaccount 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// rac_no
-    /// rol_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="roleaccount")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class roleaccount : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 roleaccount 物件。
-        /// </summary>
-        /// <param name="rac_no">rac_no 的初始值。</param>
-        /// <param name="rol_no">rol_no 的初始值。</param>
-        public static roleaccount Createroleaccount(int rac_no, int rol_no)
-        {
-            roleaccount roleaccount = new roleaccount();
-            roleaccount.rac_no = rac_no;
-            roleaccount.rol_no = rol_no;
-            return roleaccount;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 rac_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int rac_no
-        {
-            get
-            {
-                return this._rac_no;
-            }
-            set
-            {
-                this.Onrac_noChanging(value);
-                this.ReportPropertyChanging("rac_no");
-                this._rac_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rac_no");
-                this.Onrac_noChanged();
-            }
-        }
-        private int _rac_no;
-        partial void Onrac_noChanging(int value);
-        partial void Onrac_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 rol_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int rol_no
-        {
-            get
-            {
-                return this._rol_no;
-            }
-            set
-            {
-                this.Onrol_noChanging(value);
-                this.ReportPropertyChanging("rol_no");
-                this._rol_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("rol_no");
-                this.Onrol_noChanged();
-            }
-        }
-        private int _rol_no;
-        partial void Onrol_noChanging(int value);
-        partial void Onrol_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 accounts 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public accounts accounts
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 accounts 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<accounts> accountsReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 role 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "role")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public role role
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 role 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<role> roleReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.s01 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// s01_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="s01")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class s01 : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 s01 物件。
-        /// </summary>
-        /// <param name="s01_no">s01_no 的初始值。</param>
-        public static s01 Creates01(int s01_no)
-        {
-            s01 s01 = new s01();
-            s01.s01_no = s01_no;
-            return s01;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> s01_createtime
-        {
-            get
-            {
-                return this._s01_createtime;
-            }
-            set
-            {
-                this.Ons01_createtimeChanging(value);
-                this.ReportPropertyChanging("s01_createtime");
-                this._s01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_createtime");
-                this.Ons01_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _s01_createtime;
-        partial void Ons01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Ons01_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> s01_createuid
-        {
-            get
-            {
-                return this._s01_createuid;
-            }
-            set
-            {
-                this.Ons01_createuidChanging(value);
-                this.ReportPropertyChanging("s01_createuid");
-                this._s01_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_createuid");
-                this.Ons01_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _s01_createuid;
-        partial void Ons01_createuidChanging(global::System.Nullable<int> value);
-        partial void Ons01_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s01_no
-        {
-            get
-            {
-                return this._s01_no;
-            }
-            set
-            {
-                this.Ons01_noChanging(value);
-                this.ReportPropertyChanging("s01_no");
-                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_no");
-                this.Ons01_noChanged();
-            }
-        }
-        private int _s01_no;
-        partial void Ons01_noChanging(int value);
-        partial void Ons01_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_peouid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> s01_peouid
-        {
-            get
-            {
-                return this._s01_peouid;
-            }
-            set
-            {
-                this.Ons01_peouidChanging(value);
-                this.ReportPropertyChanging("s01_peouid");
-                this._s01_peouid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_peouid");
-                this.Ons01_peouidChanged();
-            }
-        }
-        private global::System.Nullable<int> _s01_peouid;
-        partial void Ons01_peouidChanging(global::System.Nullable<int> value);
-        partial void Ons01_peouidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_type 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string s01_type
-        {
-            get
-            {
-                return this._s01_type;
-            }
-            set
-            {
-                this.Ons01_typeChanging(value);
-                this.ReportPropertyChanging("s01_type");
-                this._s01_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("s01_type");
-                this.Ons01_typeChanged();
-            }
-        }
-        private string _s01_type;
-        partial void Ons01_typeChanging(string value);
-        partial void Ons01_typeChanged();
-        /// <summary>
-        /// 結構描述中沒有 s02 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S02_RELATIONS_S01", "s02")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s02> s02
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s02>("NXEIPModel.FK_S02_RELATIONS_S01", "s02");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s02>("NXEIPModel.FK_S02_RELATIONS_S01", "s02", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s03 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S03_RELATIONS_S01", "s03")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s03> s03
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s03>("NXEIPModel.FK_S03_RELATIONS_S01", "s03");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s03>("NXEIPModel.FK_S03_RELATIONS_S01", "s03", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s04 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S04_RELATIONS_S01", "s04")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s04> s04
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s04>("NXEIPModel.FK_S04_RELATIONS_S01", "s04");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s04>("NXEIPModel.FK_S04_RELATIONS_S01", "s04", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.s02 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// s01_no
-    /// s02_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="s02")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class s02 : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 s02 物件。
-        /// </summary>
-        /// <param name="s01_no">s01_no 的初始值。</param>
-        /// <param name="s02_no">s02_no 的初始值。</param>
-        public static s02 Creates02(int s01_no, int s02_no)
-        {
-            s02 s02 = new s02();
-            s02.s01_no = s01_no;
-            s02.s02_no = s02_no;
-            return s02;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s01_no
-        {
-            get
-            {
-                return this._s01_no;
-            }
-            set
-            {
-                this.Ons01_noChanging(value);
-                this.ReportPropertyChanging("s01_no");
-                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_no");
-                this.Ons01_noChanged();
-            }
-        }
-        private int _s01_no;
-        partial void Ons01_noChanging(int value);
-        partial void Ons01_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s02_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s02_no
-        {
-            get
-            {
-                return this._s02_no;
-            }
-            set
-            {
-                this.Ons02_noChanging(value);
-                this.ReportPropertyChanging("s02_no");
-                this._s02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s02_no");
-                this.Ons02_noChanged();
-            }
-        }
-        private int _s02_no;
-        partial void Ons02_noChanging(int value);
-        partial void Ons02_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 people 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S02_RELATIONS_PEOPLE", "people")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public people people
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "people").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "people").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 people 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<people> peopleReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "people");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_S02_RELATIONS_PEOPLE", "people", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S02_RELATIONS_S01", "s01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public s01 s01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S02_RELATIONS_S01", "s01").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S02_RELATIONS_S01", "s01").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<s01> s01Reference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S02_RELATIONS_S01", "s01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<s01>("NXEIPModel.FK_S02_RELATIONS_S01", "s01", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.s03 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// s01_no
-    /// s03_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="s03")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class s03 : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 s03 物件。
-        /// </summary>
-        /// <param name="s01_no">s01_no 的初始值。</param>
-        /// <param name="s03_no">s03_no 的初始值。</param>
-        public static s03 Creates03(int s01_no, int s03_no)
-        {
-            s03 s03 = new s03();
-            s03.s01_no = s01_no;
-            s03.s03_no = s03_no;
-            return s03;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s01_no
-        {
-            get
-            {
-                return this._s01_no;
-            }
-            set
-            {
-                this.Ons01_noChanging(value);
-                this.ReportPropertyChanging("s01_no");
-                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_no");
-                this.Ons01_noChanged();
-            }
-        }
-        private int _s01_no;
-        partial void Ons01_noChanging(int value);
-        partial void Ons01_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s03_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s03_no
-        {
-            get
-            {
-                return this._s03_no;
-            }
-            set
-            {
-                this.Ons03_noChanging(value);
-                this.ReportPropertyChanging("s03_no");
-                this._s03_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s03_no");
-                this.Ons03_noChanged();
-            }
-        }
-        private int _s03_no;
-        partial void Ons03_noChanging(int value);
-        partial void Ons03_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 departments 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S03_RELATIONS_DEPARTME", "departments")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public departments departments
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "departments").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "departments").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 departments 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<departments> departmentsReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "departments");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_S03_RELATIONS_DEPARTME", "departments", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S03_RELATIONS_S01", "s01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public s01 s01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S03_RELATIONS_S01", "s01").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S03_RELATIONS_S01", "s01").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<s01> s01Reference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S03_RELATIONS_S01", "s01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<s01>("NXEIPModel.FK_S03_RELATIONS_S01", "s01", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.s04 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// s01_no
-    /// s04_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="s04")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class s04 : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 s04 物件。
-        /// </summary>
-        /// <param name="s01_no">s01_no 的初始值。</param>
-        /// <param name="s04_no">s04_no 的初始值。</param>
-        public static s04 Creates04(int s01_no, int s04_no)
-        {
-            s04 s04 = new s04();
-            s04.s01_no = s01_no;
-            s04.s04_no = s04_no;
-            return s04;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 s01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s01_no
-        {
-            get
-            {
-                return this._s01_no;
-            }
-            set
-            {
-                this.Ons01_noChanging(value);
-                this.ReportPropertyChanging("s01_no");
-                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s01_no");
-                this.Ons01_noChanged();
-            }
-        }
-        private int _s01_no;
-        partial void Ons01_noChanging(int value);
-        partial void Ons01_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 s04_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int s04_no
-        {
-            get
-            {
-                return this._s04_no;
-            }
-            set
-            {
-                this.Ons04_noChanging(value);
-                this.ReportPropertyChanging("s04_no");
-                this._s04_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("s04_no");
-                this.Ons04_noChanged();
-            }
-        }
-        private int _s04_no;
-        partial void Ons04_noChanging(int value);
-        partial void Ons04_noChanged();
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S04_RELATIONS_S01", "s01")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public s01 s01
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S04_RELATIONS_S01", "s01").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S04_RELATIONS_S01", "s01").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 s01 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<s01> s01Reference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<s01>("NXEIPModel.FK_S04_RELATIONS_S01", "s01");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<s01>("NXEIPModel.FK_S04_RELATIONS_S01", "s01", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 types 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S04_RELATIONS_TYPES", "types")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public types types
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_S04_RELATIONS_TYPES", "types").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_S04_RELATIONS_TYPES", "types").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 types 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<types> typesReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_S04_RELATIONS_TYPES", "types");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<types>("NXEIPModel.FK_S04_RELATIONS_TYPES", "types", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.sys 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// sys_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sys")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class sys : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 sys 物件。
-        /// </summary>
-        /// <param name="sys_name">sys_name 的初始值。</param>
-        /// <param name="sys_no">sys_no 的初始值。</param>
-        public static sys Createsys(string sys_name, int sys_no)
-        {
-            sys sys = new sys();
-            sys.sys_name = sys_name;
-            sys.sys_no = sys_no;
-            return sys;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_catalog 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sys_catalog
-        {
-            get
-            {
-                return this._sys_catalog;
-            }
-            set
-            {
-                this.Onsys_catalogChanging(value);
-                this.ReportPropertyChanging("sys_catalog");
-                this._sys_catalog = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sys_catalog");
-                this.Onsys_catalogChanged();
-            }
-        }
-        private string _sys_catalog;
-        partial void Onsys_catalogChanging(string value);
-        partial void Onsys_catalogChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> sys_createtime
-        {
-            get
-            {
-                return this._sys_createtime;
-            }
-            set
-            {
-                this.Onsys_createtimeChanging(value);
-                this.ReportPropertyChanging("sys_createtime");
-                this._sys_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sys_createtime");
-                this.Onsys_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _sys_createtime;
-        partial void Onsys_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onsys_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> sys_createuid
-        {
-            get
-            {
-                return this._sys_createuid;
-            }
-            set
-            {
-                this.Onsys_createuidChanging(value);
-                this.ReportPropertyChanging("sys_createuid");
-                this._sys_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sys_createuid");
-                this.Onsys_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _sys_createuid;
-        partial void Onsys_createuidChanging(global::System.Nullable<int> value);
-        partial void Onsys_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_defaultpic 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sys_defaultpic
-        {
-            get
-            {
-                return this._sys_defaultpic;
-            }
-            set
-            {
-                this.Onsys_defaultpicChanging(value);
-                this.ReportPropertyChanging("sys_defaultpic");
-                this._sys_defaultpic = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sys_defaultpic");
-                this.Onsys_defaultpicChanged();
-            }
-        }
-        private string _sys_defaultpic;
-        partial void Onsys_defaultpicChanging(string value);
-        partial void Onsys_defaultpicChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sys_name
-        {
-            get
-            {
-                return this._sys_name;
-            }
-            set
-            {
-                this.Onsys_nameChanging(value);
-                this.ReportPropertyChanging("sys_name");
-                this._sys_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("sys_name");
-                this.Onsys_nameChanged();
-            }
-        }
-        private string _sys_name;
-        partial void Onsys_nameChanging(string value);
-        partial void Onsys_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int sys_no
-        {
-            get
-            {
-                return this._sys_no;
-            }
-            set
-            {
-                this.Onsys_noChanging(value);
-                this.ReportPropertyChanging("sys_no");
-                this._sys_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sys_no");
-                this.Onsys_noChanged();
-            }
-        }
-        private int _sys_no;
-        partial void Onsys_noChanging(int value);
-        partial void Onsys_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_order 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> sys_order
-        {
-            get
-            {
-                return this._sys_order;
-            }
-            set
-            {
-                this.Onsys_orderChanging(value);
-                this.ReportPropertyChanging("sys_order");
-                this._sys_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sys_order");
-                this.Onsys_orderChanged();
-            }
-        }
-        private global::System.Nullable<int> _sys_order;
-        partial void Onsys_orderChanging(global::System.Nullable<int> value);
-        partial void Onsys_orderChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_overpicture 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sys_overpicture
-        {
-            get
-            {
-                return this._sys_overpicture;
-            }
-            set
-            {
-                this.Onsys_overpictureChanging(value);
-                this.ReportPropertyChanging("sys_overpicture");
-                this._sys_overpicture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sys_overpicture");
-                this.Onsys_overpictureChanged();
-            }
-        }
-        private string _sys_overpicture;
-        partial void Onsys_overpictureChanging(string value);
-        partial void Onsys_overpictureChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sys_status 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sys_status
-        {
-            get
-            {
-                return this._sys_status;
-            }
-            set
-            {
-                this.Onsys_statusChanging(value);
-                this.ReportPropertyChanging("sys_status");
-                this._sys_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sys_status");
-                this.Onsys_statusChanged();
-            }
-        }
-        private string _sys_status;
-        partial void Onsys_statusChanging(string value);
-        partial void Onsys_statusChanged();
-        /// <summary>
-        /// 結構描述中沒有 sysfuction 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sysfuction")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<sysfuction> sysfuction
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<sysfuction>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sysfuction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<sysfuction>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sysfuction", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.sysdiagrams 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// diagram_id
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sysdiagrams")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class sysdiagrams : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 sysdiagrams 物件。
-        /// </summary>
-        /// <param name="diagram_id">diagram_id 的初始值。</param>
-        /// <param name="name">name 的初始值。</param>
-        /// <param name="principal_id">principal_id 的初始值。</param>
-        public static sysdiagrams Createsysdiagrams(int diagram_id, string name, int principal_id)
-        {
-            sysdiagrams sysdiagrams = new sysdiagrams();
-            sysdiagrams.diagram_id = diagram_id;
-            sysdiagrams.name = name;
-            sysdiagrams.principal_id = principal_id;
-            return sysdiagrams;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 definition 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] definition
-        {
-            get
-            {
-                return global::System.Data.Objects.DataClasses.StructuralObject.GetValidValue(this._definition);
-            }
-            set
-            {
-                this.OndefinitionChanging(value);
-                this.ReportPropertyChanging("definition");
-                this._definition = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("definition");
-                this.OndefinitionChanged();
-            }
-        }
-        private byte[] _definition;
-        partial void OndefinitionChanging(byte[] value);
-        partial void OndefinitionChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 diagram_id 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int diagram_id
-        {
-            get
-            {
-                return this._diagram_id;
-            }
-            set
-            {
-                this.Ondiagram_idChanging(value);
-                this.ReportPropertyChanging("diagram_id");
-                this._diagram_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("diagram_id");
-                this.Ondiagram_idChanged();
-            }
-        }
-        private int _diagram_id;
-        partial void Ondiagram_idChanging(int value);
-        partial void Ondiagram_idChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string name
-        {
-            get
-            {
-                return this._name;
-            }
-            set
-            {
-                this.OnnameChanging(value);
-                this.ReportPropertyChanging("name");
-                this._name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("name");
-                this.OnnameChanged();
-            }
-        }
-        private string _name;
-        partial void OnnameChanging(string value);
-        partial void OnnameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 principal_id 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int principal_id
-        {
-            get
-            {
-                return this._principal_id;
-            }
-            set
-            {
-                this.Onprincipal_idChanging(value);
-                this.ReportPropertyChanging("principal_id");
-                this._principal_id = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("principal_id");
-                this.Onprincipal_idChanged();
-            }
-        }
-        private int _principal_id;
-        partial void Onprincipal_idChanging(int value);
-        partial void Onprincipal_idChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 version 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> version
-        {
-            get
-            {
-                return this._version;
-            }
-            set
-            {
-                this.OnversionChanging(value);
-                this.ReportPropertyChanging("version");
-                this._version = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("version");
-                this.OnversionChanged();
-            }
-        }
-        private global::System.Nullable<int> _version;
-        partial void OnversionChanging(global::System.Nullable<int> value);
-        partial void OnversionChanged();
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.sysfuction 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// sfu_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sysfuction")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class sysfuction : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 sysfuction 物件。
-        /// </summary>
-        /// <param name="sfu_name">sfu_name 的初始值。</param>
-        /// <param name="sfu_no">sfu_no 的初始值。</param>
-        public static sysfuction Createsysfuction(string sfu_name, int sfu_no)
-        {
-            sysfuction sysfuction = new sysfuction();
-            sysfuction.sfu_name = sfu_name;
-            sysfuction.sfu_no = sfu_no;
-            return sysfuction;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_catalog 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_catalog
-        {
-            get
-            {
-                return this._sfu_catalog;
-            }
-            set
-            {
-                this.Onsfu_catalogChanging(value);
-                this.ReportPropertyChanging("sfu_catalog");
-                this._sfu_catalog = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sfu_catalog");
-                this.Onsfu_catalogChanged();
-            }
-        }
-        private string _sfu_catalog;
-        partial void Onsfu_catalogChanging(string value);
-        partial void Onsfu_catalogChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> sfu_createtime
-        {
-            get
-            {
-                return this._sfu_createtime;
-            }
-            set
-            {
-                this.Onsfu_createtimeChanging(value);
-                this.ReportPropertyChanging("sfu_createtime");
-                this._sfu_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sfu_createtime");
-                this.Onsfu_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _sfu_createtime;
-        partial void Onsfu_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onsfu_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> sfu_createuid
-        {
-            get
-            {
-                return this._sfu_createuid;
-            }
-            set
-            {
-                this.Onsfu_createuidChanging(value);
-                this.ReportPropertyChanging("sfu_createuid");
-                this._sfu_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sfu_createuid");
-                this.Onsfu_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _sfu_createuid;
-        partial void Onsfu_createuidChanging(global::System.Nullable<int> value);
-        partial void Onsfu_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_defaltpic 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_defaltpic
-        {
-            get
-            {
-                return this._sfu_defaltpic;
-            }
-            set
-            {
-                this.Onsfu_defaltpicChanging(value);
-                this.ReportPropertyChanging("sfu_defaltpic");
-                this._sfu_defaltpic = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sfu_defaltpic");
-                this.Onsfu_defaltpicChanged();
-            }
-        }
-        private string _sfu_defaltpic;
-        partial void Onsfu_defaltpicChanging(string value);
-        partial void Onsfu_defaltpicChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_name
-        {
-            get
-            {
-                return this._sfu_name;
-            }
-            set
-            {
-                this.Onsfu_nameChanging(value);
-                this.ReportPropertyChanging("sfu_name");
-                this._sfu_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("sfu_name");
-                this.Onsfu_nameChanged();
-            }
-        }
-        private string _sfu_name;
-        partial void Onsfu_nameChanging(string value);
-        partial void Onsfu_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int sfu_no
-        {
-            get
-            {
-                return this._sfu_no;
-            }
-            set
-            {
-                this.Onsfu_noChanging(value);
-                this.ReportPropertyChanging("sfu_no");
-                this._sfu_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sfu_no");
-                this.Onsfu_noChanged();
-            }
-        }
-        private int _sfu_no;
-        partial void Onsfu_noChanging(int value);
-        partial void Onsfu_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_order 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> sfu_order
-        {
-            get
-            {
-                return this._sfu_order;
-            }
-            set
-            {
-                this.Onsfu_orderChanging(value);
-                this.ReportPropertyChanging("sfu_order");
-                this._sfu_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sfu_order");
-                this.Onsfu_orderChanged();
-            }
-        }
-        private global::System.Nullable<int> _sfu_order;
-        partial void Onsfu_orderChanging(global::System.Nullable<int> value);
-        partial void Onsfu_orderChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_overpicture 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_overpicture
-        {
-            get
-            {
-                return this._sfu_overpicture;
-            }
-            set
-            {
-                this.Onsfu_overpictureChanging(value);
-                this.ReportPropertyChanging("sfu_overpicture");
-                this._sfu_overpicture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sfu_overpicture");
-                this.Onsfu_overpictureChanged();
-            }
-        }
-        private string _sfu_overpicture;
-        partial void Onsfu_overpictureChanging(string value);
-        partial void Onsfu_overpictureChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_parent 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> sfu_parent
-        {
-            get
-            {
-                return this._sfu_parent;
-            }
-            set
-            {
-                this.Onsfu_parentChanging(value);
-                this.ReportPropertyChanging("sfu_parent");
-                this._sfu_parent = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("sfu_parent");
-                this.Onsfu_parentChanged();
-            }
-        }
-        private global::System.Nullable<int> _sfu_parent;
-        partial void Onsfu_parentChanging(global::System.Nullable<int> value);
-        partial void Onsfu_parentChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_path 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_path
-        {
-            get
-            {
-                return this._sfu_path;
-            }
-            set
-            {
-                this.Onsfu_pathChanging(value);
-                this.ReportPropertyChanging("sfu_path");
-                this._sfu_path = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sfu_path");
-                this.Onsfu_pathChanged();
-            }
-        }
-        private string _sfu_path;
-        partial void Onsfu_pathChanging(string value);
-        partial void Onsfu_pathChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 sfu_status 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string sfu_status
-        {
-            get
-            {
-                return this._sfu_status;
-            }
-            set
-            {
-                this.Onsfu_statusChanging(value);
-                this.ReportPropertyChanging("sfu_status");
-                this._sfu_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("sfu_status");
-                this.Onsfu_statusChanged();
-            }
-        }
-        private string _sfu_status;
-        partial void Onsfu_statusChanging(string value);
-        partial void Onsfu_statusChanged();
-        /// <summary>
-        /// 結構描述中沒有 operates 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "operates")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<operates> operates
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "operates");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "operates", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 rauthority 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<rauthority> rauthority
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority", value);
-                }
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 sys 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public sys sys
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys").Value;
-            }
-            set
-            {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys").Value = value;
-            }
-        }
-        /// <summary>
-        /// 結構描述中沒有 sys 的註解。
-        /// </summary>
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<sys> sysReference
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.types 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// typ_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="types")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class types : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 types 物件。
-        /// </summary>
-        /// <param name="typ_cname">typ_cname 的初始值。</param>
-        /// <param name="typ_code">typ_code 的初始值。</param>
-        /// <param name="typ_no">typ_no 的初始值。</param>
-        public static types Createtypes(string typ_cname, string typ_code, int typ_no)
-        {
-            types types = new types();
-            types.typ_cname = typ_cname;
-            types.typ_code = typ_code;
-            types.typ_no = typ_no;
-            return types;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_cname 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string typ_cname
-        {
-            get
-            {
-                return this._typ_cname;
-            }
-            set
-            {
-                this.Ontyp_cnameChanging(value);
-                this.ReportPropertyChanging("typ_cname");
-                this._typ_cname = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("typ_cname");
-                this.Ontyp_cnameChanged();
-            }
-        }
-        private string _typ_cname;
-        partial void Ontyp_cnameChanging(string value);
-        partial void Ontyp_cnameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_code 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string typ_code
-        {
-            get
-            {
-                return this._typ_code;
-            }
-            set
-            {
-                this.Ontyp_codeChanging(value);
-                this.ReportPropertyChanging("typ_code");
-                this._typ_code = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("typ_code");
-                this.Ontyp_codeChanged();
-            }
-        }
-        private string _typ_code;
-        partial void Ontyp_codeChanging(string value);
-        partial void Ontyp_codeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_createtime 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> typ_createtime
-        {
-            get
-            {
-                return this._typ_createtime;
-            }
-            set
-            {
-                this.Ontyp_createtimeChanging(value);
-                this.ReportPropertyChanging("typ_createtime");
-                this._typ_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("typ_createtime");
-                this.Ontyp_createtimeChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _typ_createtime;
-        partial void Ontyp_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Ontyp_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> typ_createuid
-        {
-            get
-            {
-                return this._typ_createuid;
-            }
-            set
-            {
-                this.Ontyp_createuidChanging(value);
-                this.ReportPropertyChanging("typ_createuid");
-                this._typ_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("typ_createuid");
-                this.Ontyp_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _typ_createuid;
-        partial void Ontyp_createuidChanging(global::System.Nullable<int> value);
-        partial void Ontyp_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_ename 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string typ_ename
-        {
-            get
-            {
-                return this._typ_ename;
-            }
-            set
-            {
-                this.Ontyp_enameChanging(value);
-                this.ReportPropertyChanging("typ_ename");
-                this._typ_ename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("typ_ename");
-                this.Ontyp_enameChanged();
-            }
-        }
-        private string _typ_ename;
-        partial void Ontyp_enameChanging(string value);
-        partial void Ontyp_enameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int typ_no
-        {
-            get
-            {
-                return this._typ_no;
-            }
-            set
-            {
-                this.Ontyp_noChanging(value);
-                this.ReportPropertyChanging("typ_no");
-                this._typ_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("typ_no");
-                this.Ontyp_noChanged();
-            }
-        }
-        private int _typ_no;
-        partial void Ontyp_noChanging(int value);
-        partial void Ontyp_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_number 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string typ_number
-        {
-            get
-            {
-                return this._typ_number;
-            }
-            set
-            {
-                this.Ontyp_numberChanging(value);
-                this.ReportPropertyChanging("typ_number");
-                this._typ_number = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("typ_number");
-                this.Ontyp_numberChanged();
-            }
-        }
-        private string _typ_number;
-        partial void Ontyp_numberChanging(string value);
-        partial void Ontyp_numberChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_order 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> typ_order
-        {
-            get
-            {
-                return this._typ_order;
-            }
-            set
-            {
-                this.Ontyp_orderChanging(value);
-                this.ReportPropertyChanging("typ_order");
-                this._typ_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("typ_order");
-                this.Ontyp_orderChanged();
-            }
-        }
-        private global::System.Nullable<int> _typ_order;
-        partial void Ontyp_orderChanging(global::System.Nullable<int> value);
-        partial void Ontyp_orderChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 typ_status 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string typ_status
-        {
-            get
-            {
-                return this._typ_status;
-            }
-            set
-            {
-                this.Ontyp_statusChanging(value);
-                this.ReportPropertyChanging("typ_status");
-                this._typ_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("typ_status");
-                this.Ontyp_statusChanged();
-            }
-        }
-        private string _typ_status;
-        partial void Ontyp_statusChanging(string value);
-        partial void Ontyp_statusChanged();
-        /// <summary>
-        /// 結構描述中沒有 s04 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_S04_RELATIONS_TYPES", "s04")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<s04> s04
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<s04>("NXEIPModel.FK_S04_RELATIONS_TYPES", "s04");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<s04>("NXEIPModel.FK_S04_RELATIONS_TYPES", "s04", value);
-                }
-            }
-        }
-    }
-    /// <summary>
-    /// 結構描述中沒有 NXEIPModel.widget 的註解。
-    /// </summary>
-    /// <KeyProperties>
-    /// wid_no
-    /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="widget")]
-    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
-    [global::System.Serializable()]
-    public partial class widget : global::System.Data.Objects.DataClasses.EntityObject
-    {
-        /// <summary>
-        /// 建立新的 widget 物件。
-        /// </summary>
-        /// <param name="wid_no">wid_no 的初始值。</param>
-        public static widget Createwidget(int wid_no)
-        {
-            widget widget = new widget();
-            widget.wid_no = wid_no;
-            return widget;
-        }
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_memo 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_memo
-        {
-            get
-            {
-                return this._wid_memo;
-            }
-            set
-            {
-                this.Onwid_memoChanging(value);
-                this.ReportPropertyChanging("wid_memo");
-                this._wid_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_memo");
-                this.Onwid_memoChanged();
-            }
-        }
-        private string _wid_memo;
-        partial void Onwid_memoChanging(string value);
-        partial void Onwid_memoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_name 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_name
-        {
-            get
-            {
-                return this._wid_name;
-            }
-            set
-            {
-                this.Onwid_nameChanging(value);
-                this.ReportPropertyChanging("wid_name");
-                this._wid_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_name");
-                this.Onwid_nameChanged();
-            }
-        }
-        private string _wid_name;
-        partial void Onwid_nameChanging(string value);
-        partial void Onwid_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int wid_no
-        {
-            get
-            {
-                return this._wid_no;
-            }
-            set
-            {
-                this.Onwid_noChanging(value);
-                this.ReportPropertyChanging("wid_no");
-                this._wid_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("wid_no");
-                this.Onwid_noChanged();
-            }
-        }
-        private int _wid_no;
-        partial void Onwid_noChanging(int value);
-        partial void Onwid_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_order 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> wid_order
-        {
-            get
-            {
-                return this._wid_order;
-            }
-            set
-            {
-                this.Onwid_orderChanging(value);
-                this.ReportPropertyChanging("wid_order");
-                this._wid_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("wid_order");
-                this.Onwid_orderChanged();
-            }
-        }
-        private global::System.Nullable<int> _wid_order;
-        partial void Onwid_orderChanging(global::System.Nullable<int> value);
-        partial void Onwid_orderChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_status 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_status
-        {
-            get
-            {
-                return this._wid_status;
-            }
-            set
-            {
-                this.Onwid_statusChanging(value);
-                this.ReportPropertyChanging("wid_status");
-                this._wid_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_status");
-                this.Onwid_statusChanged();
-            }
-        }
-        private string _wid_status;
-        partial void Onwid_statusChanging(string value);
-        partial void Onwid_statusChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_url 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_url
-        {
-            get
-            {
-                return this._wid_url;
-            }
-            set
-            {
-                this.Onwid_urlChanging(value);
-                this.ReportPropertyChanging("wid_url");
-                this._wid_url = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_url");
-                this.Onwid_urlChanged();
-            }
-        }
-        private string _wid_url;
-        partial void Onwid_urlChanging(string value);
-        partial void Onwid_urlChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_type 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_type
-        {
-            get
-            {
-                return this._wid_type;
-            }
-            set
-            {
-                this.Onwid_typeChanging(value);
-                this.ReportPropertyChanging("wid_type");
-                this._wid_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_type");
-                this.Onwid_typeChanged();
-            }
-        }
-        private string _wid_type;
-        partial void Onwid_typeChanging(string value);
-        partial void Onwid_typeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 wid_setting 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string wid_setting
-        {
-            get
-            {
-                return this._wid_setting;
-            }
-            set
-            {
-                this.Onwid_settingChanging(value);
-                this.ReportPropertyChanging("wid_setting");
-                this._wid_setting = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("wid_setting");
-                this.Onwid_settingChanged();
-            }
-        }
-        private string _wid_setting;
-        partial void Onwid_settingChanging(string value);
-        partial void Onwid_settingChanged();
-        /// <summary>
-        /// 結構描述中沒有 block 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_block_widget", "block")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<block> block
-        {
-            get
-            {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<block>("NXEIPModel.FK_block_widget", "block");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<block>("NXEIPModel.FK_block_widget", "block", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search03>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "search03", value);
                 }
             }
         }
@@ -6457,97 +2604,28 @@ namespace Entity
             return doc01;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 d01_createtime 的註解。
+        /// 結構描述中沒有屬性 d01_no 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> d01_createtime
+        public int d01_no
         {
             get
             {
-                return this._d01_createtime;
+                return this._d01_no;
             }
             set
             {
-                this.Ond01_createtimeChanging(value);
-                this.ReportPropertyChanging("d01_createtime");
-                this._d01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d01_createtime");
-                this.Ond01_createtimeChanged();
+                this.Ond01_noChanging(value);
+                this.ReportPropertyChanging("d01_no");
+                this._d01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d01_no");
+                this.Ond01_noChanged();
             }
         }
-        private global::System.Nullable<global::System.DateTime> _d01_createtime;
-        partial void Ond01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Ond01_createtimeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d01_createuid 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> d01_createuid
-        {
-            get
-            {
-                return this._d01_createuid;
-            }
-            set
-            {
-                this.Ond01_createuidChanging(value);
-                this.ReportPropertyChanging("d01_createuid");
-                this._d01_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d01_createuid");
-                this.Ond01_createuidChanged();
-            }
-        }
-        private global::System.Nullable<int> _d01_createuid;
-        partial void Ond01_createuidChanging(global::System.Nullable<int> value);
-        partial void Ond01_createuidChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d01_file 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d01_file
-        {
-            get
-            {
-                return this._d01_file;
-            }
-            set
-            {
-                this.Ond01_fileChanging(value);
-                this.ReportPropertyChanging("d01_file");
-                this._d01_file = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d01_file");
-                this.Ond01_fileChanged();
-            }
-        }
-        private string _d01_file;
-        partial void Ond01_fileChanging(string value);
-        partial void Ond01_fileChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d01_level 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> d01_level
-        {
-            get
-            {
-                return this._d01_level;
-            }
-            set
-            {
-                this.Ond01_levelChanging(value);
-                this.ReportPropertyChanging("d01_level");
-                this._d01_level = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d01_level");
-                this.Ond01_levelChanged();
-            }
-        }
-        private global::System.Nullable<int> _d01_level;
-        partial void Ond01_levelChanging(global::System.Nullable<int> value);
-        partial void Ond01_levelChanged();
+        private int _d01_no;
+        partial void Ond01_noChanging(int value);
+        partial void Ond01_noChanged();
         /// <summary>
         /// 結構描述中沒有屬性 d01_name 的註解。
         /// </summary>
@@ -6571,29 +2649,6 @@ namespace Entity
         private string _d01_name;
         partial void Ond01_nameChanging(string value);
         partial void Ond01_nameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int d01_no
-        {
-            get
-            {
-                return this._d01_no;
-            }
-            set
-            {
-                this.Ond01_noChanging(value);
-                this.ReportPropertyChanging("d01_no");
-                this._d01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d01_no");
-                this.Ond01_noChanged();
-            }
-        }
-        private int _d01_no;
-        partial void Ond01_noChanging(int value);
-        partial void Ond01_noChanged();
         /// <summary>
         /// 結構描述中沒有屬性 d01_parentid 的註解。
         /// </summary>
@@ -6640,6 +2695,75 @@ namespace Entity
         private int _d01_son;
         partial void Ond01_sonChanging(int value);
         partial void Ond01_sonChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d01_file 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d01_file
+        {
+            get
+            {
+                return this._d01_file;
+            }
+            set
+            {
+                this.Ond01_fileChanging(value);
+                this.ReportPropertyChanging("d01_file");
+                this._d01_file = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d01_file");
+                this.Ond01_fileChanged();
+            }
+        }
+        private string _d01_file;
+        partial void Ond01_fileChanging(string value);
+        partial void Ond01_fileChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d01_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> d01_createuid
+        {
+            get
+            {
+                return this._d01_createuid;
+            }
+            set
+            {
+                this.Ond01_createuidChanging(value);
+                this.ReportPropertyChanging("d01_createuid");
+                this._d01_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d01_createuid");
+                this.Ond01_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _d01_createuid;
+        partial void Ond01_createuidChanging(global::System.Nullable<int> value);
+        partial void Ond01_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d01_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> d01_createtime
+        {
+            get
+            {
+                return this._d01_createtime;
+            }
+            set
+            {
+                this.Ond01_createtimeChanging(value);
+                this.ReportPropertyChanging("d01_createtime");
+                this._d01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d01_createtime");
+                this.Ond01_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _d01_createtime;
+        partial void Ond01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Ond01_createtimeChanged();
         /// <summary>
         /// 結構描述中沒有屬性 d01_passwd 的註解。
         /// </summary>
@@ -6724,6 +2848,27 @@ namespace Entity
             }
         }
         /// <summary>
+        /// 結構描述中沒有 doc02 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc02")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<doc02> doc02
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<doc02>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc02");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<doc02>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc02", value);
+                }
+            }
+        }
+        /// <summary>
         /// 結構描述中沒有 doc03 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC03_RELATIONS_DOC01", "doc03")]
@@ -6744,24 +2889,713 @@ namespace Entity
                 }
             }
         }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.doc02 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// d01_no
+    /// d02_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="doc02")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class doc02 : global::System.Data.Objects.DataClasses.EntityObject
+    {
         /// <summary>
-        /// 結構描述中沒有 doc02 的註解。
+        /// 建立新的 doc02 物件。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc02")]
-        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
-        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        /// <param name="d01_no">d01_no 的初始值。</param>
+        /// <param name="d02_no">d02_no 的初始值。</param>
+        /// <param name="d02_public">d02_public 的初始值。</param>
+        /// <param name="d02_open">d02_open 的初始值。</param>
+        public static doc02 Createdoc02(int d01_no, int d02_no, string d02_public, string d02_open)
+        {
+            doc02 doc02 = new doc02();
+            doc02.d01_no = d01_no;
+            doc02.d02_no = d02_no;
+            doc02.d02_public = d02_public;
+            doc02.d02_open = d02_open;
+            return doc02;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 d01_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityCollection<doc02> doc02
+        public int d01_no
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<doc02>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc02");
+                return this._d01_no;
+            }
+            set
+            {
+                this.Ond01_noChanging(value);
+                this.ReportPropertyChanging("d01_no");
+                this._d01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d01_no");
+                this.Ond01_noChanged();
+            }
+        }
+        private int _d01_no;
+        partial void Ond01_noChanging(int value);
+        partial void Ond01_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int d02_no
+        {
+            get
+            {
+                return this._d02_no;
+            }
+            set
+            {
+                this.Ond02_noChanging(value);
+                this.ReportPropertyChanging("d02_no");
+                this._d02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d02_no");
+                this.Ond02_noChanged();
+            }
+        }
+        private int _d02_no;
+        partial void Ond02_noChanging(int value);
+        partial void Ond02_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_path 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_path
+        {
+            get
+            {
+                return this._d02_path;
+            }
+            set
+            {
+                this.Ond02_pathChanging(value);
+                this.ReportPropertyChanging("d02_path");
+                this._d02_path = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_path");
+                this.Ond02_pathChanged();
+            }
+        }
+        private string _d02_path;
+        partial void Ond02_pathChanging(string value);
+        partial void Ond02_pathChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_version 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> d02_version
+        {
+            get
+            {
+                return this._d02_version;
+            }
+            set
+            {
+                this.Ond02_versionChanging(value);
+                this.ReportPropertyChanging("d02_version");
+                this._d02_version = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d02_version");
+                this.Ond02_versionChanged();
+            }
+        }
+        private global::System.Nullable<int> _d02_version;
+        partial void Ond02_versionChanging(global::System.Nullable<int> value);
+        partial void Ond02_versionChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_title 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_title
+        {
+            get
+            {
+                return this._d02_title;
+            }
+            set
+            {
+                this.Ond02_titleChanging(value);
+                this.ReportPropertyChanging("d02_title");
+                this._d02_title = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_title");
+                this.Ond02_titleChanged();
+            }
+        }
+        private string _d02_title;
+        partial void Ond02_titleChanging(string value);
+        partial void Ond02_titleChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_creator 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_creator
+        {
+            get
+            {
+                return this._d02_creator;
+            }
+            set
+            {
+                this.Ond02_creatorChanging(value);
+                this.ReportPropertyChanging("d02_creator");
+                this._d02_creator = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_creator");
+                this.Ond02_creatorChanged();
+            }
+        }
+        private string _d02_creator;
+        partial void Ond02_creatorChanging(string value);
+        partial void Ond02_creatorChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_depname 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_depname
+        {
+            get
+            {
+                return this._d02_depname;
+            }
+            set
+            {
+                this.Ond02_depnameChanging(value);
+                this.ReportPropertyChanging("d02_depname");
+                this._d02_depname = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_depname");
+                this.Ond02_depnameChanged();
+            }
+        }
+        private string _d02_depname;
+        partial void Ond02_depnameChanging(string value);
+        partial void Ond02_depnameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_subject 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_subject
+        {
+            get
+            {
+                return this._d02_subject;
+            }
+            set
+            {
+                this.Ond02_subjectChanging(value);
+                this.ReportPropertyChanging("d02_subject");
+                this._d02_subject = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_subject");
+                this.Ond02_subjectChanged();
+            }
+        }
+        private string _d02_subject;
+        partial void Ond02_subjectChanging(string value);
+        partial void Ond02_subjectChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_keyword 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_keyword
+        {
+            get
+            {
+                return this._d02_keyword;
+            }
+            set
+            {
+                this.Ond02_keywordChanging(value);
+                this.ReportPropertyChanging("d02_keyword");
+                this._d02_keyword = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_keyword");
+                this.Ond02_keywordChanged();
+            }
+        }
+        private string _d02_keyword;
+        partial void Ond02_keywordChanging(string value);
+        partial void Ond02_keywordChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_description 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_description
+        {
+            get
+            {
+                return this._d02_description;
+            }
+            set
+            {
+                this.Ond02_descriptionChanging(value);
+                this.ReportPropertyChanging("d02_description");
+                this._d02_description = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_description");
+                this.Ond02_descriptionChanged();
+            }
+        }
+        private string _d02_description;
+        partial void Ond02_descriptionChanging(string value);
+        partial void Ond02_descriptionChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_date 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> d02_date
+        {
+            get
+            {
+                return this._d02_date;
+            }
+            set
+            {
+                this.Ond02_dateChanging(value);
+                this.ReportPropertyChanging("d02_date");
+                this._d02_date = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d02_date");
+                this.Ond02_dateChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _d02_date;
+        partial void Ond02_dateChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Ond02_dateChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_public 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_public
+        {
+            get
+            {
+                return this._d02_public;
+            }
+            set
+            {
+                this.Ond02_publicChanging(value);
+                this.ReportPropertyChanging("d02_public");
+                this._d02_public = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("d02_public");
+                this.Ond02_publicChanged();
+            }
+        }
+        private string _d02_public;
+        partial void Ond02_publicChanging(string value);
+        partial void Ond02_publicChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_publisher 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_publisher
+        {
+            get
+            {
+                return this._d02_publisher;
+            }
+            set
+            {
+                this.Ond02_publisherChanging(value);
+                this.ReportPropertyChanging("d02_publisher");
+                this._d02_publisher = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_publisher");
+                this.Ond02_publisherChanged();
+            }
+        }
+        private string _d02_publisher;
+        partial void Ond02_publisherChanging(string value);
+        partial void Ond02_publisherChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_contributor 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_contributor
+        {
+            get
+            {
+                return this._d02_contributor;
+            }
+            set
+            {
+                this.Ond02_contributorChanging(value);
+                this.ReportPropertyChanging("d02_contributor");
+                this._d02_contributor = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_contributor");
+                this.Ond02_contributorChanged();
+            }
+        }
+        private string _d02_contributor;
+        partial void Ond02_contributorChanging(string value);
+        partial void Ond02_contributorChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_type 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_type
+        {
+            get
+            {
+                return this._d02_type;
+            }
+            set
+            {
+                this.Ond02_typeChanging(value);
+                this.ReportPropertyChanging("d02_type");
+                this._d02_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_type");
+                this.Ond02_typeChanged();
+            }
+        }
+        private string _d02_type;
+        partial void Ond02_typeChanging(string value);
+        partial void Ond02_typeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_format 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_format
+        {
+            get
+            {
+                return this._d02_format;
+            }
+            set
+            {
+                this.Ond02_formatChanging(value);
+                this.ReportPropertyChanging("d02_format");
+                this._d02_format = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_format");
+                this.Ond02_formatChanged();
+            }
+        }
+        private string _d02_format;
+        partial void Ond02_formatChanging(string value);
+        partial void Ond02_formatChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_idnetifier 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_idnetifier
+        {
+            get
+            {
+                return this._d02_idnetifier;
+            }
+            set
+            {
+                this.Ond02_idnetifierChanging(value);
+                this.ReportPropertyChanging("d02_idnetifier");
+                this._d02_idnetifier = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_idnetifier");
+                this.Ond02_idnetifierChanged();
+            }
+        }
+        private string _d02_idnetifier;
+        partial void Ond02_idnetifierChanging(string value);
+        partial void Ond02_idnetifierChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_relation 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_relation
+        {
+            get
+            {
+                return this._d02_relation;
+            }
+            set
+            {
+                this.Ond02_relationChanging(value);
+                this.ReportPropertyChanging("d02_relation");
+                this._d02_relation = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_relation");
+                this.Ond02_relationChanged();
+            }
+        }
+        private string _d02_relation;
+        partial void Ond02_relationChanging(string value);
+        partial void Ond02_relationChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_source 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_source
+        {
+            get
+            {
+                return this._d02_source;
+            }
+            set
+            {
+                this.Ond02_sourceChanging(value);
+                this.ReportPropertyChanging("d02_source");
+                this._d02_source = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_source");
+                this.Ond02_sourceChanged();
+            }
+        }
+        private string _d02_source;
+        partial void Ond02_sourceChanging(string value);
+        partial void Ond02_sourceChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_language 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_language
+        {
+            get
+            {
+                return this._d02_language;
+            }
+            set
+            {
+                this.Ond02_languageChanging(value);
+                this.ReportPropertyChanging("d02_language");
+                this._d02_language = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_language");
+                this.Ond02_languageChanged();
+            }
+        }
+        private string _d02_language;
+        partial void Ond02_languageChanging(string value);
+        partial void Ond02_languageChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_coverage 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_coverage
+        {
+            get
+            {
+                return this._d02_coverage;
+            }
+            set
+            {
+                this.Ond02_coverageChanging(value);
+                this.ReportPropertyChanging("d02_coverage");
+                this._d02_coverage = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_coverage");
+                this.Ond02_coverageChanged();
+            }
+        }
+        private string _d02_coverage;
+        partial void Ond02_coverageChanging(string value);
+        partial void Ond02_coverageChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_rights 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_rights
+        {
+            get
+            {
+                return this._d02_rights;
+            }
+            set
+            {
+                this.Ond02_rightsChanging(value);
+                this.ReportPropertyChanging("d02_rights");
+                this._d02_rights = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_rights");
+                this.Ond02_rightsChanged();
+            }
+        }
+        private string _d02_rights;
+        partial void Ond02_rightsChanging(string value);
+        partial void Ond02_rightsChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_theme 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_theme
+        {
+            get
+            {
+                return this._d02_theme;
+            }
+            set
+            {
+                this.Ond02_themeChanging(value);
+                this.ReportPropertyChanging("d02_theme");
+                this._d02_theme = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_theme");
+                this.Ond02_themeChanged();
+            }
+        }
+        private string _d02_theme;
+        partial void Ond02_themeChanging(string value);
+        partial void Ond02_themeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_cake 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_cake
+        {
+            get
+            {
+                return this._d02_cake;
+            }
+            set
+            {
+                this.Ond02_cakeChanging(value);
+                this.ReportPropertyChanging("d02_cake");
+                this._d02_cake = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_cake");
+                this.Ond02_cakeChanged();
+            }
+        }
+        private string _d02_cake;
+        partial void Ond02_cakeChanging(string value);
+        partial void Ond02_cakeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_service 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_service
+        {
+            get
+            {
+                return this._d02_service;
+            }
+            set
+            {
+                this.Ond02_serviceChanging(value);
+                this.ReportPropertyChanging("d02_service");
+                this._d02_service = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_service");
+                this.Ond02_serviceChanged();
+            }
+        }
+        private string _d02_service;
+        partial void Ond02_serviceChanging(string value);
+        partial void Ond02_serviceChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_content 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_content
+        {
+            get
+            {
+                return this._d02_content;
+            }
+            set
+            {
+                this.Ond02_contentChanging(value);
+                this.ReportPropertyChanging("d02_content");
+                this._d02_content = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d02_content");
+                this.Ond02_contentChanged();
+            }
+        }
+        private string _d02_content;
+        partial void Ond02_contentChanging(string value);
+        partial void Ond02_contentChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_open 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d02_open
+        {
+            get
+            {
+                return this._d02_open;
+            }
+            set
+            {
+                this.Ond02_openChanging(value);
+                this.ReportPropertyChanging("d02_open");
+                this._d02_open = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("d02_open");
+                this.Ond02_openChanged();
+            }
+        }
+        private string _d02_open;
+        partial void Ond02_openChanging(string value);
+        partial void Ond02_openChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d02_KB 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> d02_KB
+        {
+            get
+            {
+                return this._d02_KB;
+            }
+            set
+            {
+                this.Ond02_KBChanging(value);
+                this.ReportPropertyChanging("d02_KB");
+                this._d02_KB = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d02_KB");
+                this.Ond02_KBChanged();
+            }
+        }
+        private global::System.Nullable<int> _d02_KB;
+        partial void Ond02_KBChanging(global::System.Nullable<int> value);
+        partial void Ond02_KBChanged();
+        /// <summary>
+        /// 結構描述中沒有 doc01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public doc01 doc01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc01 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<doc01> doc01Reference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<doc02>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc02", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01", value);
                 }
             }
         }
@@ -6788,29 +3622,6 @@ namespace Entity
             return doc03;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 d03_authority 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d03_authority
-        {
-            get
-            {
-                return this._d03_authority;
-            }
-            set
-            {
-                this.Ond03_authorityChanging(value);
-                this.ReportPropertyChanging("d03_authority");
-                this._d03_authority = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d03_authority");
-                this.Ond03_authorityChanged();
-            }
-        }
-        private string _d03_authority;
-        partial void Ond03_authorityChanging(string value);
-        partial void Ond03_authorityChanged();
-        /// <summary>
         /// 結構描述中沒有屬性 d03_no 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
@@ -6833,6 +3644,29 @@ namespace Entity
         private int _d03_no;
         partial void Ond03_noChanging(int value);
         partial void Ond03_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d03_authority 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string d03_authority
+        {
+            get
+            {
+                return this._d03_authority;
+            }
+            set
+            {
+                this.Ond03_authorityChanging(value);
+                this.ReportPropertyChanging("d03_authority");
+                this._d03_authority = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("d03_authority");
+                this.Ond03_authorityChanged();
+            }
+        }
+        private string _d03_authority;
+        partial void Ond03_authorityChanging(string value);
+        partial void Ond03_authorityChanged();
         /// <summary>
         /// 結構描述中沒有屬性 d03_type 的註解。
         /// </summary>
@@ -6984,29 +3818,6 @@ namespace Entity
         partial void Ond03_noChanging(int value);
         partial void Ond03_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 d04_depno 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> d04_depno
-        {
-            get
-            {
-                return this._d04_depno;
-            }
-            set
-            {
-                this.Ond04_depnoChanging(value);
-                this.ReportPropertyChanging("d04_depno");
-                this._d04_depno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d04_depno");
-                this.Ond04_depnoChanged();
-            }
-        }
-        private global::System.Nullable<int> _d04_depno;
-        partial void Ond04_depnoChanging(global::System.Nullable<int> value);
-        partial void Ond04_depnoChanged();
-        /// <summary>
         /// 結構描述中沒有屬性 d04_no 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
@@ -7029,6 +3840,29 @@ namespace Entity
         private int _d04_no;
         partial void Ond04_noChanging(int value);
         partial void Ond04_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 d04_depno 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> d04_depno
+        {
+            get
+            {
+                return this._d04_depno;
+            }
+            set
+            {
+                this.Ond04_depnoChanging(value);
+                this.ReportPropertyChanging("d04_depno");
+                this._d04_depno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("d04_depno");
+                this.Ond04_depnoChanged();
+            }
+        }
+        private global::System.Nullable<int> _d04_depno;
+        partial void Ond04_depnoChanging(global::System.Nullable<int> value);
+        partial void Ond04_depnoChanged();
         /// <summary>
         /// 結構描述中沒有 doc03 的註解。
         /// </summary>
@@ -7199,12 +4033,1345 @@ namespace Entity
         }
     }
     /// <summary>
+    /// 結構描述中沒有 NXEIPModel.loginlog 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// log_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="loginlog")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class loginlog : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 loginlog 物件。
+        /// </summary>
+        /// <param name="log_no">log_no 的初始值。</param>
+        public static loginlog Createloginlog(string log_no)
+        {
+            loginlog loginlog = new loginlog();
+            loginlog.log_no = log_no;
+            return loginlog;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 log_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string log_no
+        {
+            get
+            {
+                return this._log_no;
+            }
+            set
+            {
+                this.Onlog_noChanging(value);
+                this.ReportPropertyChanging("log_no");
+                this._log_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("log_no");
+                this.Onlog_noChanged();
+            }
+        }
+        private string _log_no;
+        partial void Onlog_noChanging(string value);
+        partial void Onlog_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_sessionid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string log_sessionid
+        {
+            get
+            {
+                return this._log_sessionid;
+            }
+            set
+            {
+                this.Onlog_sessionidChanging(value);
+                this.ReportPropertyChanging("log_sessionid");
+                this._log_sessionid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("log_sessionid");
+                this.Onlog_sessionidChanged();
+            }
+        }
+        private string _log_sessionid;
+        partial void Onlog_sessionidChanging(string value);
+        partial void Onlog_sessionidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_peouid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> log_peouid
+        {
+            get
+            {
+                return this._log_peouid;
+            }
+            set
+            {
+                this.Onlog_peouidChanging(value);
+                this.ReportPropertyChanging("log_peouid");
+                this._log_peouid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("log_peouid");
+                this.Onlog_peouidChanged();
+            }
+        }
+        private global::System.Nullable<int> _log_peouid;
+        partial void Onlog_peouidChanging(global::System.Nullable<int> value);
+        partial void Onlog_peouidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_logintime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> log_logintime
+        {
+            get
+            {
+                return this._log_logintime;
+            }
+            set
+            {
+                this.Onlog_logintimeChanging(value);
+                this.ReportPropertyChanging("log_logintime");
+                this._log_logintime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("log_logintime");
+                this.Onlog_logintimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _log_logintime;
+        partial void Onlog_logintimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onlog_logintimeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_loginout 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> log_loginout
+        {
+            get
+            {
+                return this._log_loginout;
+            }
+            set
+            {
+                this.Onlog_loginoutChanging(value);
+                this.ReportPropertyChanging("log_loginout");
+                this._log_loginout = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("log_loginout");
+                this.Onlog_loginoutChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _log_loginout;
+        partial void Onlog_loginoutChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onlog_loginoutChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string log_status
+        {
+            get
+            {
+                return this._log_status;
+            }
+            set
+            {
+                this.Onlog_statusChanging(value);
+                this.ReportPropertyChanging("log_status");
+                this._log_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("log_status");
+                this.Onlog_statusChanged();
+            }
+        }
+        private string _log_status;
+        partial void Onlog_statusChanging(string value);
+        partial void Onlog_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_accno 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> log_accno
+        {
+            get
+            {
+                return this._log_accno;
+            }
+            set
+            {
+                this.Onlog_accnoChanging(value);
+                this.ReportPropertyChanging("log_accno");
+                this._log_accno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("log_accno");
+                this.Onlog_accnoChanged();
+            }
+        }
+        private global::System.Nullable<int> _log_accno;
+        partial void Onlog_accnoChanging(global::System.Nullable<int> value);
+        partial void Onlog_accnoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 log_ip 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string log_ip
+        {
+            get
+            {
+                return this._log_ip;
+            }
+            set
+            {
+                this.Onlog_ipChanging(value);
+                this.ReportPropertyChanging("log_ip");
+                this._log_ip = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("log_ip");
+                this.Onlog_ipChanged();
+            }
+        }
+        private string _log_ip;
+        partial void Onlog_ipChanging(string value);
+        partial void Onlog_ipChanged();
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.operates 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// ope_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="operates")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class operates : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 operates 物件。
+        /// </summary>
+        /// <param name="ope_no">ope_no 的初始值。</param>
+        public static operates Createoperates(string ope_no)
+        {
+            operates operates = new operates();
+            operates.ope_no = ope_no;
+            return operates;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 ope_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string ope_no
+        {
+            get
+            {
+                return this._ope_no;
+            }
+            set
+            {
+                this.Onope_noChanging(value);
+                this.ReportPropertyChanging("ope_no");
+                this._ope_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("ope_no");
+                this.Onope_noChanged();
+            }
+        }
+        private string _ope_no;
+        partial void Onope_noChanging(string value);
+        partial void Onope_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 ope_logintime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> ope_logintime
+        {
+            get
+            {
+                return this._ope_logintime;
+            }
+            set
+            {
+                this.Onope_logintimeChanging(value);
+                this.ReportPropertyChanging("ope_logintime");
+                this._ope_logintime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ope_logintime");
+                this.Onope_logintimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _ope_logintime;
+        partial void Onope_logintimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onope_logintimeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 ope_fuction 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> ope_fuction
+        {
+            get
+            {
+                return this._ope_fuction;
+            }
+            set
+            {
+                this.Onope_fuctionChanging(value);
+                this.ReportPropertyChanging("ope_fuction");
+                this._ope_fuction = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("ope_fuction");
+                this.Onope_fuctionChanged();
+            }
+        }
+        private global::System.Nullable<int> _ope_fuction;
+        partial void Onope_fuctionChanging(global::System.Nullable<int> value);
+        partial void Onope_fuctionChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 ope_memo 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string ope_memo
+        {
+            get
+            {
+                return this._ope_memo;
+            }
+            set
+            {
+                this.Onope_memoChanging(value);
+                this.ReportPropertyChanging("ope_memo");
+                this._ope_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ope_memo");
+                this.Onope_memoChanged();
+            }
+        }
+        private string _ope_memo;
+        partial void Onope_memoChanging(string value);
+        partial void Onope_memoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 ope_address 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string ope_address
+        {
+            get
+            {
+                return this._ope_address;
+            }
+            set
+            {
+                this.Onope_addressChanging(value);
+                this.ReportPropertyChanging("ope_address");
+                this._ope_address = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ope_address");
+                this.Onope_addressChanged();
+            }
+        }
+        private string _ope_address;
+        partial void Onope_addressChanging(string value);
+        partial void Onope_addressChanged();
+        /// <summary>
+        /// 結構描述中沒有 people 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "people")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public people people
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 people 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sysfuction 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public sysfuction sysfuction
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sysfuction 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<sysfuction> sysfuctionReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sysfuction>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "sysfuction", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.page 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// pag_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="page")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class page : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 page 物件。
+        /// </summary>
+        /// <param name="pag_no">pag_no 的初始值。</param>
+        public static page Createpage(int pag_no)
+        {
+            page page = new page();
+            page.pag_no = pag_no;
+            return page;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int pag_no
+        {
+            get
+            {
+                return this._pag_no;
+            }
+            set
+            {
+                this.Onpag_noChanging(value);
+                this.ReportPropertyChanging("pag_no");
+                this._pag_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("pag_no");
+                this.Onpag_noChanged();
+            }
+        }
+        private int _pag_no;
+        partial void Onpag_noChanging(int value);
+        partial void Onpag_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_uid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> pag_uid
+        {
+            get
+            {
+                return this._pag_uid;
+            }
+            set
+            {
+                this.Onpag_uidChanging(value);
+                this.ReportPropertyChanging("pag_uid");
+                this._pag_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("pag_uid");
+                this.Onpag_uidChanged();
+            }
+        }
+        private global::System.Nullable<int> _pag_uid;
+        partial void Onpag_uidChanging(global::System.Nullable<int> value);
+        partial void Onpag_uidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_type 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string pag_type
+        {
+            get
+            {
+                return this._pag_type;
+            }
+            set
+            {
+                this.Onpag_typeChanging(value);
+                this.ReportPropertyChanging("pag_type");
+                this._pag_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("pag_type");
+                this.Onpag_typeChanged();
+            }
+        }
+        private string _pag_type;
+        partial void Onpag_typeChanging(string value);
+        partial void Onpag_typeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_css 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string pag_css
+        {
+            get
+            {
+                return this._pag_css;
+            }
+            set
+            {
+                this.Onpag_cssChanging(value);
+                this.ReportPropertyChanging("pag_css");
+                this._pag_css = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("pag_css");
+                this.Onpag_cssChanged();
+            }
+        }
+        private string _pag_css;
+        partial void Onpag_cssChanging(string value);
+        partial void Onpag_cssChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> pag_createtime
+        {
+            get
+            {
+                return this._pag_createtime;
+            }
+            set
+            {
+                this.Onpag_createtimeChanging(value);
+                this.ReportPropertyChanging("pag_createtime");
+                this._pag_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("pag_createtime");
+                this.Onpag_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _pag_createtime;
+        partial void Onpag_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onpag_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 pag_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> pag_createuid
+        {
+            get
+            {
+                return this._pag_createuid;
+            }
+            set
+            {
+                this.Onpag_createuidChanging(value);
+                this.ReportPropertyChanging("pag_createuid");
+                this._pag_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("pag_createuid");
+                this.Onpag_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _pag_createuid;
+        partial void Onpag_createuidChanging(global::System.Nullable<int> value);
+        partial void Onpag_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有 block 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_PAGE", "block")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<block> block
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<block>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "block");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<block>("NXEIPModel.FK_BLCOK_RELATIONS_PAGE", "block", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.people 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// peo_uid
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="people")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class people : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 people 物件。
+        /// </summary>
+        /// <param name="peo_uid">peo_uid 的初始值。</param>
+        /// <param name="peo_idcard">peo_idcard 的初始值。</param>
+        /// <param name="peo_name">peo_name 的初始值。</param>
+        public static people Createpeople(int peo_uid, string peo_idcard, string peo_name)
+        {
+            people people = new people();
+            people.peo_uid = peo_uid;
+            people.peo_idcard = peo_idcard;
+            people.peo_name = peo_name;
+            return people;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_uid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int peo_uid
+        {
+            get
+            {
+                return this._peo_uid;
+            }
+            set
+            {
+                this.Onpeo_uidChanging(value);
+                this.ReportPropertyChanging("peo_uid");
+                this._peo_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_uid");
+                this.Onpeo_uidChanged();
+            }
+        }
+        private int _peo_uid;
+        partial void Onpeo_uidChanging(int value);
+        partial void Onpeo_uidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_workid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_workid
+        {
+            get
+            {
+                return this._peo_workid;
+            }
+            set
+            {
+                this.Onpeo_workidChanging(value);
+                this.ReportPropertyChanging("peo_workid");
+                this._peo_workid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_workid");
+                this.Onpeo_workidChanged();
+            }
+        }
+        private string _peo_workid;
+        partial void Onpeo_workidChanging(string value);
+        partial void Onpeo_workidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_idcard 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_idcard
+        {
+            get
+            {
+                return this._peo_idcard;
+            }
+            set
+            {
+                this.Onpeo_idcardChanging(value);
+                this.ReportPropertyChanging("peo_idcard");
+                this._peo_idcard = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("peo_idcard");
+                this.Onpeo_idcardChanged();
+            }
+        }
+        private string _peo_idcard;
+        partial void Onpeo_idcardChanging(string value);
+        partial void Onpeo_idcardChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_pincode 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_pincode
+        {
+            get
+            {
+                return this._peo_pincode;
+            }
+            set
+            {
+                this.Onpeo_pincodeChanging(value);
+                this.ReportPropertyChanging("peo_pincode");
+                this._peo_pincode = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_pincode");
+                this.Onpeo_pincodeChanged();
+            }
+        }
+        private string _peo_pincode;
+        partial void Onpeo_pincodeChanging(string value);
+        partial void Onpeo_pincodeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_name
+        {
+            get
+            {
+                return this._peo_name;
+            }
+            set
+            {
+                this.Onpeo_nameChanging(value);
+                this.ReportPropertyChanging("peo_name");
+                this._peo_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("peo_name");
+                this.Onpeo_nameChanged();
+            }
+        }
+        private string _peo_name;
+        partial void Onpeo_nameChanging(string value);
+        partial void Onpeo_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_english 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_english
+        {
+            get
+            {
+                return this._peo_english;
+            }
+            set
+            {
+                this.Onpeo_englishChanging(value);
+                this.ReportPropertyChanging("peo_english");
+                this._peo_english = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_english");
+                this.Onpeo_englishChanged();
+            }
+        }
+        private string _peo_english;
+        partial void Onpeo_englishChanging(string value);
+        partial void Onpeo_englishChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_birthday 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> peo_birthday
+        {
+            get
+            {
+                return this._peo_birthday;
+            }
+            set
+            {
+                this.Onpeo_birthdayChanging(value);
+                this.ReportPropertyChanging("peo_birthday");
+                this._peo_birthday = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_birthday");
+                this.Onpeo_birthdayChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _peo_birthday;
+        partial void Onpeo_birthdayChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onpeo_birthdayChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_sex 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_sex
+        {
+            get
+            {
+                return this._peo_sex;
+            }
+            set
+            {
+                this.Onpeo_sexChanging(value);
+                this.ReportPropertyChanging("peo_sex");
+                this._peo_sex = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_sex");
+                this.Onpeo_sexChanged();
+            }
+        }
+        private string _peo_sex;
+        partial void Onpeo_sexChanging(string value);
+        partial void Onpeo_sexChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_arrivedate 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> peo_arrivedate
+        {
+            get
+            {
+                return this._peo_arrivedate;
+            }
+            set
+            {
+                this.Onpeo_arrivedateChanging(value);
+                this.ReportPropertyChanging("peo_arrivedate");
+                this._peo_arrivedate = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_arrivedate");
+                this.Onpeo_arrivedateChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _peo_arrivedate;
+        partial void Onpeo_arrivedateChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onpeo_arrivedateChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_leave 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> peo_leave
+        {
+            get
+            {
+                return this._peo_leave;
+            }
+            set
+            {
+                this.Onpeo_leaveChanging(value);
+                this.ReportPropertyChanging("peo_leave");
+                this._peo_leave = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_leave");
+                this.Onpeo_leaveChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _peo_leave;
+        partial void Onpeo_leaveChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onpeo_leaveChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_addr 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_addr
+        {
+            get
+            {
+                return this._peo_addr;
+            }
+            set
+            {
+                this.Onpeo_addrChanging(value);
+                this.ReportPropertyChanging("peo_addr");
+                this._peo_addr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_addr");
+                this.Onpeo_addrChanged();
+            }
+        }
+        private string _peo_addr;
+        partial void Onpeo_addrChanging(string value);
+        partial void Onpeo_addrChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_tel 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_tel
+        {
+            get
+            {
+                return this._peo_tel;
+            }
+            set
+            {
+                this.Onpeo_telChanging(value);
+                this.ReportPropertyChanging("peo_tel");
+                this._peo_tel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_tel");
+                this.Onpeo_telChanged();
+            }
+        }
+        private string _peo_tel;
+        partial void Onpeo_telChanging(string value);
+        partial void Onpeo_telChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_email 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_email
+        {
+            get
+            {
+                return this._peo_email;
+            }
+            set
+            {
+                this.Onpeo_emailChanging(value);
+                this.ReportPropertyChanging("peo_email");
+                this._peo_email = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_email");
+                this.Onpeo_emailChanged();
+            }
+        }
+        private string _peo_email;
+        partial void Onpeo_emailChanging(string value);
+        partial void Onpeo_emailChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_account 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_account
+        {
+            get
+            {
+                return this._peo_account;
+            }
+            set
+            {
+                this.Onpeo_accountChanging(value);
+                this.ReportPropertyChanging("peo_account");
+                this._peo_account = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_account");
+                this.Onpeo_accountChanged();
+            }
+        }
+        private string _peo_account;
+        partial void Onpeo_accountChanging(string value);
+        partial void Onpeo_accountChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_picture 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] peo_picture
+        {
+            get
+            {
+                return global::System.Data.Objects.DataClasses.StructuralObject.GetValidValue(this._peo_picture);
+            }
+            set
+            {
+                this.Onpeo_pictureChanging(value);
+                this.ReportPropertyChanging("peo_picture");
+                this._peo_picture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_picture");
+                this.Onpeo_pictureChanged();
+            }
+        }
+        private byte[] _peo_picture;
+        partial void Onpeo_pictureChanging(byte[] value);
+        partial void Onpeo_pictureChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_filename 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_filename
+        {
+            get
+            {
+                return this._peo_filename;
+            }
+            set
+            {
+                this.Onpeo_filenameChanging(value);
+                this.ReportPropertyChanging("peo_filename");
+                this._peo_filename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_filename");
+                this.Onpeo_filenameChanged();
+            }
+        }
+        private string _peo_filename;
+        partial void Onpeo_filenameChanging(string value);
+        partial void Onpeo_filenameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_memo 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_memo
+        {
+            get
+            {
+                return this._peo_memo;
+            }
+            set
+            {
+                this.Onpeo_memoChanging(value);
+                this.ReportPropertyChanging("peo_memo");
+                this._peo_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_memo");
+                this.Onpeo_memoChanged();
+            }
+        }
+        private string _peo_memo;
+        partial void Onpeo_memoChanging(string value);
+        partial void Onpeo_memoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_jobtype 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> peo_jobtype
+        {
+            get
+            {
+                return this._peo_jobtype;
+            }
+            set
+            {
+                this.Onpeo_jobtypeChanging(value);
+                this.ReportPropertyChanging("peo_jobtype");
+                this._peo_jobtype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_jobtype");
+                this.Onpeo_jobtypeChanged();
+            }
+        }
+        private global::System.Nullable<int> _peo_jobtype;
+        partial void Onpeo_jobtypeChanging(global::System.Nullable<int> value);
+        partial void Onpeo_jobtypeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_pfofess 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> peo_pfofess
+        {
+            get
+            {
+                return this._peo_pfofess;
+            }
+            set
+            {
+                this.Onpeo_pfofessChanging(value);
+                this.ReportPropertyChanging("peo_pfofess");
+                this._peo_pfofess = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_pfofess");
+                this.Onpeo_pfofessChanged();
+            }
+        }
+        private global::System.Nullable<int> _peo_pfofess;
+        partial void Onpeo_pfofessChanging(global::System.Nullable<int> value);
+        partial void Onpeo_pfofessChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_ptype 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> peo_ptype
+        {
+            get
+            {
+                return this._peo_ptype;
+            }
+            set
+            {
+                this.Onpeo_ptypeChanging(value);
+                this.ReportPropertyChanging("peo_ptype");
+                this._peo_ptype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_ptype");
+                this.Onpeo_ptypeChanged();
+            }
+        }
+        private global::System.Nullable<int> _peo_ptype;
+        partial void Onpeo_ptypeChanging(global::System.Nullable<int> value);
+        partial void Onpeo_ptypeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> peo_createuid
+        {
+            get
+            {
+                return this._peo_createuid;
+            }
+            set
+            {
+                this.Onpeo_createuidChanging(value);
+                this.ReportPropertyChanging("peo_createuid");
+                this._peo_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_createuid");
+                this.Onpeo_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _peo_createuid;
+        partial void Onpeo_createuidChanging(global::System.Nullable<int> value);
+        partial void Onpeo_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> peo_createtime
+        {
+            get
+            {
+                return this._peo_createtime;
+            }
+            set
+            {
+                this.Onpeo_createtimeChanging(value);
+                this.ReportPropertyChanging("peo_createtime");
+                this._peo_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("peo_createtime");
+                this.Onpeo_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _peo_createtime;
+        partial void Onpeo_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onpeo_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有 accounts 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<accounts> accounts
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<accounts>("NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<accounts>("NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE", "accounts", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 c01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C01_RELATIONS_PEOPLE", "c01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<c01> c01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c01>("NXEIPModel.FK_C01_RELATIONS_PEOPLE", "c01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c01>("NXEIPModel.FK_C01_RELATIONS_PEOPLE", "c01", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 c02 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C02_RELATIONS_PEOPLE", "c02")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<c02> c02
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c02>("NXEIPModel.FK_C02_RELATIONS_PEOPLE", "c02");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c02>("NXEIPModel.FK_C02_RELATIONS_PEOPLE", "c02", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 c04 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_C04_RELATIONS_PEOPLE", "c04")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<c04> c04
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<c04>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "c04");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<c04>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "c04", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PEOPLE_RELATIONS_DEPARTME", "departments")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public departments departments
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<departments> departmentsReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME", "departments", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 doc01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC01_RELATIONS_PEOPLE", "doc01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<doc01> doc01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_PEOPLE", "doc01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_PEOPLE", "doc01", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 operates 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_PEOPLE", "operates")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<operates> operates
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "operates");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE", "operates", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 per01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PER01_RELATIONS_PEOPLE", "per01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<per01> per01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<per01>("NXEIPModel.FK_PER01_RELATIONS_PEOPLE", "per01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<per01>("NXEIPModel.FK_PER01_RELATIONS_PEOPLE", "per01", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search02 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_PEOPLE", "search02")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<search02> search02
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search02>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "search02");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search02>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "search02", value);
+                }
+            }
+        }
+    }
+    /// <summary>
     /// 結構描述中沒有 NXEIPModel.per01 的註解。
     /// </summary>
     /// <KeyProperties>
-    /// p01_marry
     /// p01_no
-    /// peo_uid
     /// </KeyProperties>
     [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="per01")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
@@ -7214,132 +5381,84 @@ namespace Entity
         /// <summary>
         /// 建立新的 per01 物件。
         /// </summary>
-        /// <param name="p01_marry">p01_marry 的初始值。</param>
         /// <param name="p01_no">p01_no 的初始值。</param>
-        /// <param name="peo_uid">peo_uid 的初始值。</param>
-        public static per01 Createper01(string p01_marry, int p01_no, int peo_uid)
+        /// <param name="p01_marry">p01_marry 的初始值。</param>
+        public static per01 Createper01(int p01_no, string p01_marry)
         {
             per01 per01 = new per01();
-            per01.p01_marry = p01_marry;
             per01.p01_no = p01_no;
-            per01.peo_uid = peo_uid;
+            per01.p01_marry = p01_marry;
             return per01;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 p01_age 的註解。
+        /// 結構描述中沒有屬性 p01_no 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_age
+        public int p01_no
         {
             get
             {
-                return this._p01_age;
+                return this._p01_no;
             }
             set
             {
-                this.Onp01_ageChanging(value);
-                this.ReportPropertyChanging("p01_age");
-                this._p01_age = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_age");
-                this.Onp01_ageChanged();
+                this.Onp01_noChanging(value);
+                this.ReportPropertyChanging("p01_no");
+                this._p01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_no");
+                this.Onp01_noChanged();
             }
         }
-        private string _p01_age;
-        partial void Onp01_ageChanging(string value);
-        partial void Onp01_ageChanged();
+        private int _p01_no;
+        partial void Onp01_noChanging(int value);
+        partial void Onp01_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_armyage 的註解。
+        /// 結構描述中沒有屬性 p01_marry 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_armyage
+        public string p01_marry
         {
             get
             {
-                return this._p01_armyage;
+                return this._p01_marry;
             }
             set
             {
-                this.Onp01_armyageChanging(value);
-                this.ReportPropertyChanging("p01_armyage");
-                this._p01_armyage = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_armyage");
-                this.Onp01_armyageChanged();
+                this.Onp01_marryChanging(value);
+                this.ReportPropertyChanging("p01_marry");
+                this._p01_marry = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("p01_marry");
+                this.Onp01_marryChanged();
             }
         }
-        private string _p01_armyage;
-        partial void Onp01_armyageChanging(string value);
-        partial void Onp01_armyageChanged();
+        private string _p01_marry;
+        partial void Onp01_marryChanging(string value);
+        partial void Onp01_marryChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_bankno 的註解。
+        /// 結構描述中沒有屬性 p01_publicday 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_bankno
+        public global::System.Nullable<global::System.DateTime> p01_publicday
         {
             get
             {
-                return this._p01_bankno;
+                return this._p01_publicday;
             }
             set
             {
-                this.Onp01_banknoChanging(value);
-                this.ReportPropertyChanging("p01_bankno");
-                this._p01_bankno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_bankno");
-                this.Onp01_banknoChanged();
+                this.Onp01_publicdayChanging(value);
+                this.ReportPropertyChanging("p01_publicday");
+                this._p01_publicday = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_publicday");
+                this.Onp01_publicdayChanged();
             }
         }
-        private global::System.Nullable<int> _p01_bankno;
-        partial void Onp01_banknoChanging(global::System.Nullable<int> value);
-        partial void Onp01_banknoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_beforelast 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_beforelast
-        {
-            get
-            {
-                return this._p01_beforelast;
-            }
-            set
-            {
-                this.Onp01_beforelastChanging(value);
-                this.ReportPropertyChanging("p01_beforelast");
-                this._p01_beforelast = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_beforelast");
-                this.Onp01_beforelastChanged();
-            }
-        }
-        private string _p01_beforelast;
-        partial void Onp01_beforelastChanging(string value);
-        partial void Onp01_beforelastChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_boss 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_boss
-        {
-            get
-            {
-                return this._p01_boss;
-            }
-            set
-            {
-                this.Onp01_bossChanging(value);
-                this.ReportPropertyChanging("p01_boss");
-                this._p01_boss = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_boss");
-                this.Onp01_bossChanged();
-            }
-        }
-        private global::System.Nullable<int> _p01_boss;
-        partial void Onp01_bossChanging(global::System.Nullable<int> value);
-        partial void Onp01_bossChanged();
+        private global::System.Nullable<global::System.DateTime> _p01_publicday;
+        partial void Onp01_publicdayChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onp01_publicdayChanged();
         /// <summary>
         /// 結構描述中沒有屬性 p01_break 的註解。
         /// </summary>
@@ -7364,28 +5483,28 @@ namespace Entity
         partial void Onp01_breakChanging(string value);
         partial void Onp01_breakChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_cardtype 的註解。
+        /// 結構描述中沒有屬性 p01_armyage 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_cardtype
+        public string p01_armyage
         {
             get
             {
-                return this._p01_cardtype;
+                return this._p01_armyage;
             }
             set
             {
-                this.Onp01_cardtypeChanging(value);
-                this.ReportPropertyChanging("p01_cardtype");
-                this._p01_cardtype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_cardtype");
-                this.Onp01_cardtypeChanged();
+                this.Onp01_armyageChanging(value);
+                this.ReportPropertyChanging("p01_armyage");
+                this._p01_armyage = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_armyage");
+                this.Onp01_armyageChanged();
             }
         }
-        private string _p01_cardtype;
-        partial void Onp01_cardtypeChanging(string value);
-        partial void Onp01_cardtypeChanged();
+        private string _p01_armyage;
+        partial void Onp01_armyageChanging(string value);
+        partial void Onp01_armyageChanged();
         /// <summary>
         /// 結構描述中沒有屬性 p01_contractage 的註解。
         /// </summary>
@@ -7410,51 +5529,74 @@ namespace Entity
         partial void Onp01_contractageChanging(string value);
         partial void Onp01_contractageChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_homeaddr 的註解。
+        /// 結構描述中沒有屬性 p01_other 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_homeaddr
+        public string p01_other
         {
             get
             {
-                return this._p01_homeaddr;
+                return this._p01_other;
             }
             set
             {
-                this.Onp01_homeaddrChanging(value);
-                this.ReportPropertyChanging("p01_homeaddr");
-                this._p01_homeaddr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_homeaddr");
-                this.Onp01_homeaddrChanged();
+                this.Onp01_otherChanging(value);
+                this.ReportPropertyChanging("p01_other");
+                this._p01_other = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_other");
+                this.Onp01_otherChanged();
             }
         }
-        private string _p01_homeaddr;
-        partial void Onp01_homeaddrChanging(string value);
-        partial void Onp01_homeaddrChanged();
+        private string _p01_other;
+        partial void Onp01_otherChanging(string value);
+        partial void Onp01_otherChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_hometel 的註解。
+        /// 結構描述中沒有屬性 p01_age 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_hometel
+        public string p01_age
         {
             get
             {
-                return this._p01_hometel;
+                return this._p01_age;
             }
             set
             {
-                this.Onp01_hometelChanging(value);
-                this.ReportPropertyChanging("p01_hometel");
-                this._p01_hometel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_hometel");
-                this.Onp01_hometelChanged();
+                this.Onp01_ageChanging(value);
+                this.ReportPropertyChanging("p01_age");
+                this._p01_age = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_age");
+                this.Onp01_ageChanged();
             }
         }
-        private string _p01_hometel;
-        partial void Onp01_hometelChanging(string value);
-        partial void Onp01_hometelChanged();
+        private string _p01_age;
+        partial void Onp01_ageChanging(string value);
+        partial void Onp01_ageChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_thisyear 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string p01_thisyear
+        {
+            get
+            {
+                return this._p01_thisyear;
+            }
+            set
+            {
+                this.Onp01_thisyearChanging(value);
+                this.ReportPropertyChanging("p01_thisyear");
+                this._p01_thisyear = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_thisyear");
+                this.Onp01_thisyearChanged();
+            }
+        }
+        private string _p01_thisyear;
+        partial void Onp01_thisyearChanging(string value);
+        partial void Onp01_thisyearChanged();
         /// <summary>
         /// 結構描述中沒有屬性 p01_lastyear 的註解。
         /// </summary>
@@ -7479,74 +5621,28 @@ namespace Entity
         partial void Onp01_lastyearChanging(string value);
         partial void Onp01_lastyearChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_major 的註解。
+        /// 結構描述中沒有屬性 p01_beforelast 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_major
+        public string p01_beforelast
         {
             get
             {
-                return this._p01_major;
+                return this._p01_beforelast;
             }
             set
             {
-                this.Onp01_majorChanging(value);
-                this.ReportPropertyChanging("p01_major");
-                this._p01_major = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_major");
-                this.Onp01_majorChanged();
+                this.Onp01_beforelastChanging(value);
+                this.ReportPropertyChanging("p01_beforelast");
+                this._p01_beforelast = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_beforelast");
+                this.Onp01_beforelastChanged();
             }
         }
-        private global::System.Nullable<int> _p01_major;
-        partial void Onp01_majorChanging(global::System.Nullable<int> value);
-        partial void Onp01_majorChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_marry 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_marry
-        {
-            get
-            {
-                return this._p01_marry;
-            }
-            set
-            {
-                this.Onp01_marryChanging(value);
-                this.ReportPropertyChanging("p01_marry");
-                this._p01_marry = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("p01_marry");
-                this.Onp01_marryChanged();
-            }
-        }
-        private string _p01_marry;
-        partial void Onp01_marryChanging(string value);
-        partial void Onp01_marryChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int p01_no
-        {
-            get
-            {
-                return this._p01_no;
-            }
-            set
-            {
-                this.Onp01_noChanging(value);
-                this.ReportPropertyChanging("p01_no");
-                this._p01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_no");
-                this.Onp01_noChanged();
-            }
-        }
-        private int _p01_no;
-        partial void Onp01_noChanging(int value);
-        partial void Onp01_noChanged();
+        private string _p01_beforelast;
+        partial void Onp01_beforelastChanging(string value);
+        partial void Onp01_beforelastChanged();
         /// <summary>
         /// 結構描述中沒有屬性 p01_nonstop 的註解。
         /// </summary>
@@ -7594,190 +5690,6 @@ namespace Entity
         partial void Onp01_nontwoChanging(string value);
         partial void Onp01_nontwoChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_organization 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_organization
-        {
-            get
-            {
-                return this._p01_organization;
-            }
-            set
-            {
-                this.Onp01_organizationChanging(value);
-                this.ReportPropertyChanging("p01_organization");
-                this._p01_organization = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_organization");
-                this.Onp01_organizationChanged();
-            }
-        }
-        private string _p01_organization;
-        partial void Onp01_organizationChanging(string value);
-        partial void Onp01_organizationChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_other 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_other
-        {
-            get
-            {
-                return this._p01_other;
-            }
-            set
-            {
-                this.Onp01_otherChanging(value);
-                this.ReportPropertyChanging("p01_other");
-                this._p01_other = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_other");
-                this.Onp01_otherChanged();
-            }
-        }
-        private string _p01_other;
-        partial void Onp01_otherChanging(string value);
-        partial void Onp01_otherChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_pagno 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_pagno
-        {
-            get
-            {
-                return this._p01_pagno;
-            }
-            set
-            {
-                this.Onp01_pagnoChanging(value);
-                this.ReportPropertyChanging("p01_pagno");
-                this._p01_pagno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_pagno");
-                this.Onp01_pagnoChanged();
-            }
-        }
-        private global::System.Nullable<int> _p01_pagno;
-        partial void Onp01_pagnoChanging(global::System.Nullable<int> value);
-        partial void Onp01_pagnoChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_plevel 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_plevel
-        {
-            get
-            {
-                return this._p01_plevel;
-            }
-            set
-            {
-                this.Onp01_plevelChanging(value);
-                this.ReportPropertyChanging("p01_plevel");
-                this._p01_plevel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_plevel");
-                this.Onp01_plevelChanged();
-            }
-        }
-        private global::System.Nullable<int> _p01_plevel;
-        partial void Onp01_plevelChanging(global::System.Nullable<int> value);
-        partial void Onp01_plevelChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_point 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_point
-        {
-            get
-            {
-                return this._p01_point;
-            }
-            set
-            {
-                this.Onp01_pointChanging(value);
-                this.ReportPropertyChanging("p01_point");
-                this._p01_point = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_point");
-                this.Onp01_pointChanged();
-            }
-        }
-        private string _p01_point;
-        partial void Onp01_pointChanging(string value);
-        partial void Onp01_pointChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_postaccount 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_postaccount
-        {
-            get
-            {
-                return this._p01_postaccount;
-            }
-            set
-            {
-                this.Onp01_postaccountChanging(value);
-                this.ReportPropertyChanging("p01_postaccount");
-                this._p01_postaccount = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_postaccount");
-                this.Onp01_postaccountChanged();
-            }
-        }
-        private string _p01_postaccount;
-        partial void Onp01_postaccountChanging(string value);
-        partial void Onp01_postaccountChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_prospcst 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_prospcst
-        {
-            get
-            {
-                return this._p01_prospcst;
-            }
-            set
-            {
-                this.Onp01_prospcstChanging(value);
-                this.ReportPropertyChanging("p01_prospcst");
-                this._p01_prospcst = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_prospcst");
-                this.Onp01_prospcstChanged();
-            }
-        }
-        private string _p01_prospcst;
-        partial void Onp01_prospcstChanging(string value);
-        partial void Onp01_prospcstChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_publicday 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> p01_publicday
-        {
-            get
-            {
-                return this._p01_publicday;
-            }
-            set
-            {
-                this.Onp01_publicdayChanging(value);
-                this.ReportPropertyChanging("p01_publicday");
-                this._p01_publicday = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_publicday");
-                this.Onp01_publicdayChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _p01_publicday;
-        partial void Onp01_publicdayChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Onp01_publicdayChanged();
-        /// <summary>
         /// 結構描述中沒有屬性 p01_reserve 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
@@ -7801,74 +5713,51 @@ namespace Entity
         partial void Onp01_reserveChanging(string value);
         partial void Onp01_reserveChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_salary 的註解。
+        /// 結構描述中沒有屬性 p01_homeaddr 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<decimal> p01_salary
+        public string p01_homeaddr
         {
             get
             {
-                return this._p01_salary;
+                return this._p01_homeaddr;
             }
             set
             {
-                this.Onp01_salaryChanging(value);
-                this.ReportPropertyChanging("p01_salary");
-                this._p01_salary = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_salary");
-                this.Onp01_salaryChanged();
+                this.Onp01_homeaddrChanging(value);
+                this.ReportPropertyChanging("p01_homeaddr");
+                this._p01_homeaddr = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_homeaddr");
+                this.Onp01_homeaddrChanged();
             }
         }
-        private global::System.Nullable<decimal> _p01_salary;
-        partial void Onp01_salaryChanging(global::System.Nullable<decimal> value);
-        partial void Onp01_salaryChanged();
+        private string _p01_homeaddr;
+        partial void Onp01_homeaddrChanging(string value);
+        partial void Onp01_homeaddrChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 p01_thisyear 的註解。
+        /// 結構描述中沒有屬性 p01_hometel 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string p01_thisyear
+        public string p01_hometel
         {
             get
             {
-                return this._p01_thisyear;
+                return this._p01_hometel;
             }
             set
             {
-                this.Onp01_thisyearChanging(value);
-                this.ReportPropertyChanging("p01_thisyear");
-                this._p01_thisyear = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("p01_thisyear");
-                this.Onp01_thisyearChanged();
+                this.Onp01_hometelChanging(value);
+                this.ReportPropertyChanging("p01_hometel");
+                this._p01_hometel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_hometel");
+                this.Onp01_hometelChanged();
             }
         }
-        private string _p01_thisyear;
-        partial void Onp01_thisyearChanging(string value);
-        partial void Onp01_thisyearChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 p01_tree 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> p01_tree
-        {
-            get
-            {
-                return this._p01_tree;
-            }
-            set
-            {
-                this.Onp01_treeChanging(value);
-                this.ReportPropertyChanging("p01_tree");
-                this._p01_tree = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("p01_tree");
-                this.Onp01_treeChanged();
-            }
-        }
-        private global::System.Nullable<int> _p01_tree;
-        partial void Onp01_treeChanging(global::System.Nullable<int> value);
-        partial void Onp01_treeChanged();
+        private string _p01_hometel;
+        partial void Onp01_hometelChanging(string value);
+        partial void Onp01_hometelChanged();
         /// <summary>
         /// 結構描述中沒有屬性 p01_worktype 的註解。
         /// </summary>
@@ -7916,28 +5805,281 @@ namespace Entity
         partial void Onp01_yeartypeChanging(string value);
         partial void Onp01_yeartypeChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 peo_uid 的註解。
+        /// 結構描述中沒有屬性 p01_cardtype 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int peo_uid
+        public string p01_cardtype
         {
             get
             {
-                return this._peo_uid;
+                return this._p01_cardtype;
             }
             set
             {
-                this.Onpeo_uidChanging(value);
-                this.ReportPropertyChanging("peo_uid");
-                this._peo_uid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("peo_uid");
-                this.Onpeo_uidChanged();
+                this.Onp01_cardtypeChanging(value);
+                this.ReportPropertyChanging("p01_cardtype");
+                this._p01_cardtype = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_cardtype");
+                this.Onp01_cardtypeChanged();
             }
         }
-        private int _peo_uid;
-        partial void Onpeo_uidChanging(int value);
-        partial void Onpeo_uidChanged();
+        private string _p01_cardtype;
+        partial void Onp01_cardtypeChanging(string value);
+        partial void Onp01_cardtypeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_tree 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_tree
+        {
+            get
+            {
+                return this._p01_tree;
+            }
+            set
+            {
+                this.Onp01_treeChanging(value);
+                this.ReportPropertyChanging("p01_tree");
+                this._p01_tree = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_tree");
+                this.Onp01_treeChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_tree;
+        partial void Onp01_treeChanging(global::System.Nullable<int> value);
+        partial void Onp01_treeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_salary 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<decimal> p01_salary
+        {
+            get
+            {
+                return this._p01_salary;
+            }
+            set
+            {
+                this.Onp01_salaryChanging(value);
+                this.ReportPropertyChanging("p01_salary");
+                this._p01_salary = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_salary");
+                this.Onp01_salaryChanged();
+            }
+        }
+        private global::System.Nullable<decimal> _p01_salary;
+        partial void Onp01_salaryChanging(global::System.Nullable<decimal> value);
+        partial void Onp01_salaryChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_point 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string p01_point
+        {
+            get
+            {
+                return this._p01_point;
+            }
+            set
+            {
+                this.Onp01_pointChanging(value);
+                this.ReportPropertyChanging("p01_point");
+                this._p01_point = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_point");
+                this.Onp01_pointChanged();
+            }
+        }
+        private string _p01_point;
+        partial void Onp01_pointChanging(string value);
+        partial void Onp01_pointChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_prospcst 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string p01_prospcst
+        {
+            get
+            {
+                return this._p01_prospcst;
+            }
+            set
+            {
+                this.Onp01_prospcstChanging(value);
+                this.ReportPropertyChanging("p01_prospcst");
+                this._p01_prospcst = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_prospcst");
+                this.Onp01_prospcstChanged();
+            }
+        }
+        private string _p01_prospcst;
+        partial void Onp01_prospcstChanging(string value);
+        partial void Onp01_prospcstChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_organization 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string p01_organization
+        {
+            get
+            {
+                return this._p01_organization;
+            }
+            set
+            {
+                this.Onp01_organizationChanging(value);
+                this.ReportPropertyChanging("p01_organization");
+                this._p01_organization = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_organization");
+                this.Onp01_organizationChanged();
+            }
+        }
+        private string _p01_organization;
+        partial void Onp01_organizationChanging(string value);
+        partial void Onp01_organizationChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_bankno 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_bankno
+        {
+            get
+            {
+                return this._p01_bankno;
+            }
+            set
+            {
+                this.Onp01_banknoChanging(value);
+                this.ReportPropertyChanging("p01_bankno");
+                this._p01_bankno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_bankno");
+                this.Onp01_banknoChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_bankno;
+        partial void Onp01_banknoChanging(global::System.Nullable<int> value);
+        partial void Onp01_banknoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_postaccount 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string p01_postaccount
+        {
+            get
+            {
+                return this._p01_postaccount;
+            }
+            set
+            {
+                this.Onp01_postaccountChanging(value);
+                this.ReportPropertyChanging("p01_postaccount");
+                this._p01_postaccount = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("p01_postaccount");
+                this.Onp01_postaccountChanged();
+            }
+        }
+        private string _p01_postaccount;
+        partial void Onp01_postaccountChanging(string value);
+        partial void Onp01_postaccountChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_pagno 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_pagno
+        {
+            get
+            {
+                return this._p01_pagno;
+            }
+            set
+            {
+                this.Onp01_pagnoChanging(value);
+                this.ReportPropertyChanging("p01_pagno");
+                this._p01_pagno = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_pagno");
+                this.Onp01_pagnoChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_pagno;
+        partial void Onp01_pagnoChanging(global::System.Nullable<int> value);
+        partial void Onp01_pagnoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_boss 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_boss
+        {
+            get
+            {
+                return this._p01_boss;
+            }
+            set
+            {
+                this.Onp01_bossChanging(value);
+                this.ReportPropertyChanging("p01_boss");
+                this._p01_boss = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_boss");
+                this.Onp01_bossChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_boss;
+        partial void Onp01_bossChanging(global::System.Nullable<int> value);
+        partial void Onp01_bossChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_major 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_major
+        {
+            get
+            {
+                return this._p01_major;
+            }
+            set
+            {
+                this.Onp01_majorChanging(value);
+                this.ReportPropertyChanging("p01_major");
+                this._p01_major = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_major");
+                this.Onp01_majorChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_major;
+        partial void Onp01_majorChanging(global::System.Nullable<int> value);
+        partial void Onp01_majorChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 p01_plevel 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> p01_plevel
+        {
+            get
+            {
+                return this._p01_plevel;
+            }
+            set
+            {
+                this.Onp01_plevelChanging(value);
+                this.ReportPropertyChanging("p01_plevel");
+                this._p01_plevel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("p01_plevel");
+                this.Onp01_plevelChanged();
+            }
+        }
+        private global::System.Nullable<int> _p01_plevel;
+        partial void Onp01_plevelChanging(global::System.Nullable<int> value);
+        partial void Onp01_plevelChanged();
         /// <summary>
         /// 結構描述中沒有 people 的註解。
         /// </summary>
@@ -7977,711 +6119,2364 @@ namespace Entity
         }
     }
     /// <summary>
-    /// 結構描述中沒有 NXEIPModel.doc02 的註解。
+    /// 結構描述中沒有 NXEIPModel.rauthority 的註解。
     /// </summary>
     /// <KeyProperties>
-    /// d01_no
-    /// d02_no
+    /// rau_no
     /// </KeyProperties>
-    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="doc02")]
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="rauthority")]
     [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
     [global::System.Serializable()]
-    public partial class doc02 : global::System.Data.Objects.DataClasses.EntityObject
+    public partial class rauthority : global::System.Data.Objects.DataClasses.EntityObject
     {
         /// <summary>
-        /// 建立新的 doc02 物件。
+        /// 建立新的 rauthority 物件。
         /// </summary>
-        /// <param name="d01_no">d01_no 的初始值。</param>
-        /// <param name="d02_no">d02_no 的初始值。</param>
-        /// <param name="d02_open">d02_open 的初始值。</param>
-        /// <param name="d02_public">d02_public 的初始值。</param>
-        public static doc02 Createdoc02(int d01_no, int d02_no, string d02_open, string d02_public)
+        /// <param name="rau_no">rau_no 的初始值。</param>
+        public static rauthority Createrauthority(int rau_no)
         {
-            doc02 doc02 = new doc02();
-            doc02.d01_no = d01_no;
-            doc02.d02_no = d02_no;
-            doc02.d02_open = d02_open;
-            doc02.d02_public = d02_public;
-            return doc02;
+            rauthority rauthority = new rauthority();
+            rauthority.rau_no = rau_no;
+            return rauthority;
         }
         /// <summary>
-        /// 結構描述中沒有屬性 d01_no 的註解。
+        /// 結構描述中沒有屬性 rau_no 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int d01_no
+        public int rau_no
         {
             get
             {
-                return this._d01_no;
+                return this._rau_no;
             }
             set
             {
-                this.Ond01_noChanging(value);
-                this.ReportPropertyChanging("d01_no");
-                this._d01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d01_no");
-                this.Ond01_noChanged();
+                this.Onrau_noChanging(value);
+                this.ReportPropertyChanging("rau_no");
+                this._rau_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rau_no");
+                this.Onrau_noChanged();
             }
         }
-        private int _d01_no;
-        partial void Ond01_noChanging(int value);
-        partial void Ond01_noChanged();
+        private int _rau_no;
+        partial void Onrau_noChanging(int value);
+        partial void Onrau_noChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 d02_cake 的註解。
+        /// 結構描述中沒有屬性 rau_sys 的註解。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_cake
+        public global::System.Nullable<int> rau_sys
         {
             get
             {
-                return this._d02_cake;
+                return this._rau_sys;
             }
             set
             {
-                this.Ond02_cakeChanging(value);
-                this.ReportPropertyChanging("d02_cake");
-                this._d02_cake = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_cake");
-                this.Ond02_cakeChanged();
+                this.Onrau_sysChanging(value);
+                this.ReportPropertyChanging("rau_sys");
+                this._rau_sys = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rau_sys");
+                this.Onrau_sysChanged();
             }
         }
-        private string _d02_cake;
-        partial void Ond02_cakeChanging(string value);
-        partial void Ond02_cakeChanged();
+        private global::System.Nullable<int> _rau_sys;
+        partial void Onrau_sysChanging(global::System.Nullable<int> value);
+        partial void Onrau_sysChanged();
         /// <summary>
-        /// 結構描述中沒有屬性 d02_content 的註解。
+        /// 結構描述中沒有 role 的註解。
         /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_content
-        {
-            get
-            {
-                return this._d02_content;
-            }
-            set
-            {
-                this.Ond02_contentChanging(value);
-                this.ReportPropertyChanging("d02_content");
-                this._d02_content = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_content");
-                this.Ond02_contentChanged();
-            }
-        }
-        private string _d02_content;
-        partial void Ond02_contentChanging(string value);
-        partial void Ond02_contentChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_contributor 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_contributor
-        {
-            get
-            {
-                return this._d02_contributor;
-            }
-            set
-            {
-                this.Ond02_contributorChanging(value);
-                this.ReportPropertyChanging("d02_contributor");
-                this._d02_contributor = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_contributor");
-                this.Ond02_contributorChanged();
-            }
-        }
-        private string _d02_contributor;
-        partial void Ond02_contributorChanging(string value);
-        partial void Ond02_contributorChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_coverage 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_coverage
-        {
-            get
-            {
-                return this._d02_coverage;
-            }
-            set
-            {
-                this.Ond02_coverageChanging(value);
-                this.ReportPropertyChanging("d02_coverage");
-                this._d02_coverage = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_coverage");
-                this.Ond02_coverageChanged();
-            }
-        }
-        private string _d02_coverage;
-        partial void Ond02_coverageChanging(string value);
-        partial void Ond02_coverageChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_creator 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_creator
-        {
-            get
-            {
-                return this._d02_creator;
-            }
-            set
-            {
-                this.Ond02_creatorChanging(value);
-                this.ReportPropertyChanging("d02_creator");
-                this._d02_creator = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_creator");
-                this.Ond02_creatorChanged();
-            }
-        }
-        private string _d02_creator;
-        partial void Ond02_creatorChanging(string value);
-        partial void Ond02_creatorChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_date 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<global::System.DateTime> d02_date
-        {
-            get
-            {
-                return this._d02_date;
-            }
-            set
-            {
-                this.Ond02_dateChanging(value);
-                this.ReportPropertyChanging("d02_date");
-                this._d02_date = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d02_date");
-                this.Ond02_dateChanged();
-            }
-        }
-        private global::System.Nullable<global::System.DateTime> _d02_date;
-        partial void Ond02_dateChanging(global::System.Nullable<global::System.DateTime> value);
-        partial void Ond02_dateChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_depname 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_depname
-        {
-            get
-            {
-                return this._d02_depname;
-            }
-            set
-            {
-                this.Ond02_depnameChanging(value);
-                this.ReportPropertyChanging("d02_depname");
-                this._d02_depname = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_depname");
-                this.Ond02_depnameChanged();
-            }
-        }
-        private string _d02_depname;
-        partial void Ond02_depnameChanging(string value);
-        partial void Ond02_depnameChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_description 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_description
-        {
-            get
-            {
-                return this._d02_description;
-            }
-            set
-            {
-                this.Ond02_descriptionChanging(value);
-                this.ReportPropertyChanging("d02_description");
-                this._d02_description = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_description");
-                this.Ond02_descriptionChanged();
-            }
-        }
-        private string _d02_description;
-        partial void Ond02_descriptionChanging(string value);
-        partial void Ond02_descriptionChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_format 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_format
-        {
-            get
-            {
-                return this._d02_format;
-            }
-            set
-            {
-                this.Ond02_formatChanging(value);
-                this.ReportPropertyChanging("d02_format");
-                this._d02_format = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_format");
-                this.Ond02_formatChanged();
-            }
-        }
-        private string _d02_format;
-        partial void Ond02_formatChanging(string value);
-        partial void Ond02_formatChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_idnetifier 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_idnetifier
-        {
-            get
-            {
-                return this._d02_idnetifier;
-            }
-            set
-            {
-                this.Ond02_idnetifierChanging(value);
-                this.ReportPropertyChanging("d02_idnetifier");
-                this._d02_idnetifier = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_idnetifier");
-                this.Ond02_idnetifierChanged();
-            }
-        }
-        private string _d02_idnetifier;
-        partial void Ond02_idnetifierChanging(string value);
-        partial void Ond02_idnetifierChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_KB 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> d02_KB
-        {
-            get
-            {
-                return this._d02_KB;
-            }
-            set
-            {
-                this.Ond02_KBChanging(value);
-                this.ReportPropertyChanging("d02_KB");
-                this._d02_KB = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d02_KB");
-                this.Ond02_KBChanged();
-            }
-        }
-        private global::System.Nullable<int> _d02_KB;
-        partial void Ond02_KBChanging(global::System.Nullable<int> value);
-        partial void Ond02_KBChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_keyword 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_keyword
-        {
-            get
-            {
-                return this._d02_keyword;
-            }
-            set
-            {
-                this.Ond02_keywordChanging(value);
-                this.ReportPropertyChanging("d02_keyword");
-                this._d02_keyword = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_keyword");
-                this.Ond02_keywordChanged();
-            }
-        }
-        private string _d02_keyword;
-        partial void Ond02_keywordChanging(string value);
-        partial void Ond02_keywordChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_language 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_language
-        {
-            get
-            {
-                return this._d02_language;
-            }
-            set
-            {
-                this.Ond02_languageChanging(value);
-                this.ReportPropertyChanging("d02_language");
-                this._d02_language = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_language");
-                this.Ond02_languageChanged();
-            }
-        }
-        private string _d02_language;
-        partial void Ond02_languageChanging(string value);
-        partial void Ond02_languageChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_no 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public int d02_no
-        {
-            get
-            {
-                return this._d02_no;
-            }
-            set
-            {
-                this.Ond02_noChanging(value);
-                this.ReportPropertyChanging("d02_no");
-                this._d02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d02_no");
-                this.Ond02_noChanged();
-            }
-        }
-        private int _d02_no;
-        partial void Ond02_noChanging(int value);
-        partial void Ond02_noChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_open 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_open
-        {
-            get
-            {
-                return this._d02_open;
-            }
-            set
-            {
-                this.Ond02_openChanging(value);
-                this.ReportPropertyChanging("d02_open");
-                this._d02_open = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("d02_open");
-                this.Ond02_openChanged();
-            }
-        }
-        private string _d02_open;
-        partial void Ond02_openChanging(string value);
-        partial void Ond02_openChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_path 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_path
-        {
-            get
-            {
-                return this._d02_path;
-            }
-            set
-            {
-                this.Ond02_pathChanging(value);
-                this.ReportPropertyChanging("d02_path");
-                this._d02_path = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_path");
-                this.Ond02_pathChanged();
-            }
-        }
-        private string _d02_path;
-        partial void Ond02_pathChanging(string value);
-        partial void Ond02_pathChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_public 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_public
-        {
-            get
-            {
-                return this._d02_public;
-            }
-            set
-            {
-                this.Ond02_publicChanging(value);
-                this.ReportPropertyChanging("d02_public");
-                this._d02_public = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
-                this.ReportPropertyChanged("d02_public");
-                this.Ond02_publicChanged();
-            }
-        }
-        private string _d02_public;
-        partial void Ond02_publicChanging(string value);
-        partial void Ond02_publicChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_publisher 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_publisher
-        {
-            get
-            {
-                return this._d02_publisher;
-            }
-            set
-            {
-                this.Ond02_publisherChanging(value);
-                this.ReportPropertyChanging("d02_publisher");
-                this._d02_publisher = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_publisher");
-                this.Ond02_publisherChanged();
-            }
-        }
-        private string _d02_publisher;
-        partial void Ond02_publisherChanging(string value);
-        partial void Ond02_publisherChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_relation 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_relation
-        {
-            get
-            {
-                return this._d02_relation;
-            }
-            set
-            {
-                this.Ond02_relationChanging(value);
-                this.ReportPropertyChanging("d02_relation");
-                this._d02_relation = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_relation");
-                this.Ond02_relationChanged();
-            }
-        }
-        private string _d02_relation;
-        partial void Ond02_relationChanging(string value);
-        partial void Ond02_relationChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_rights 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_rights
-        {
-            get
-            {
-                return this._d02_rights;
-            }
-            set
-            {
-                this.Ond02_rightsChanging(value);
-                this.ReportPropertyChanging("d02_rights");
-                this._d02_rights = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_rights");
-                this.Ond02_rightsChanged();
-            }
-        }
-        private string _d02_rights;
-        partial void Ond02_rightsChanging(string value);
-        partial void Ond02_rightsChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_service 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_service
-        {
-            get
-            {
-                return this._d02_service;
-            }
-            set
-            {
-                this.Ond02_serviceChanging(value);
-                this.ReportPropertyChanging("d02_service");
-                this._d02_service = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_service");
-                this.Ond02_serviceChanged();
-            }
-        }
-        private string _d02_service;
-        partial void Ond02_serviceChanging(string value);
-        partial void Ond02_serviceChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_source 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_source
-        {
-            get
-            {
-                return this._d02_source;
-            }
-            set
-            {
-                this.Ond02_sourceChanging(value);
-                this.ReportPropertyChanging("d02_source");
-                this._d02_source = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_source");
-                this.Ond02_sourceChanged();
-            }
-        }
-        private string _d02_source;
-        partial void Ond02_sourceChanging(string value);
-        partial void Ond02_sourceChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_subject 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_subject
-        {
-            get
-            {
-                return this._d02_subject;
-            }
-            set
-            {
-                this.Ond02_subjectChanging(value);
-                this.ReportPropertyChanging("d02_subject");
-                this._d02_subject = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_subject");
-                this.Ond02_subjectChanged();
-            }
-        }
-        private string _d02_subject;
-        partial void Ond02_subjectChanging(string value);
-        partial void Ond02_subjectChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_theme 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_theme
-        {
-            get
-            {
-                return this._d02_theme;
-            }
-            set
-            {
-                this.Ond02_themeChanging(value);
-                this.ReportPropertyChanging("d02_theme");
-                this._d02_theme = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_theme");
-                this.Ond02_themeChanged();
-            }
-        }
-        private string _d02_theme;
-        partial void Ond02_themeChanging(string value);
-        partial void Ond02_themeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_title 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_title
-        {
-            get
-            {
-                return this._d02_title;
-            }
-            set
-            {
-                this.Ond02_titleChanging(value);
-                this.ReportPropertyChanging("d02_title");
-                this._d02_title = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_title");
-                this.Ond02_titleChanged();
-            }
-        }
-        private string _d02_title;
-        partial void Ond02_titleChanging(string value);
-        partial void Ond02_titleChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_type 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public string d02_type
-        {
-            get
-            {
-                return this._d02_type;
-            }
-            set
-            {
-                this.Ond02_typeChanging(value);
-                this.ReportPropertyChanging("d02_type");
-                this._d02_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("d02_type");
-                this.Ond02_typeChanged();
-            }
-        }
-        private string _d02_type;
-        partial void Ond02_typeChanging(string value);
-        partial void Ond02_typeChanged();
-        /// <summary>
-        /// 結構描述中沒有屬性 d02_version 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Nullable<int> d02_version
-        {
-            get
-            {
-                return this._d02_version;
-            }
-            set
-            {
-                this.Ond02_versionChanging(value);
-                this.ReportPropertyChanging("d02_version");
-                this._d02_version = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
-                this.ReportPropertyChanged("d02_version");
-                this.Ond02_versionChanged();
-            }
-        }
-        private global::System.Nullable<int> _d02_version;
-        partial void Ond02_versionChanging(global::System.Nullable<int> value);
-        partial void Ond02_versionChanged();
-        /// <summary>
-        /// 結構描述中沒有 doc01 的註解。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC02_RELATIONS_DOC01", "doc01")]
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "role")]
         [global::System.Xml.Serialization.XmlIgnoreAttribute()]
         [global::System.Xml.Serialization.SoapIgnoreAttribute()]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public doc01 doc01
+        public role role
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01").Value;
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role").Value;
             }
             set
             {
-                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01").Value = value;
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role").Value = value;
             }
         }
         /// <summary>
-        /// 結構描述中沒有 doc01 的註解。
+        /// 結構描述中沒有 role 的註解。
         /// </summary>
         [global::System.ComponentModel.BrowsableAttribute(false)]
         [global::System.Runtime.Serialization.DataMemberAttribute()]
-        public global::System.Data.Objects.DataClasses.EntityReference<doc01> doc01Reference
+        public global::System.Data.Objects.DataClasses.EntityReference<role> roleReference
         {
             get
             {
-                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01");
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<doc01>("NXEIPModel.FK_DOC02_RELATIONS_DOC01", "doc01", value);
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<role>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "role", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sysfuction 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public sysfuction sysfuction
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sysfuction 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<sysfuction> sysfuctionReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sysfuction>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "sysfuction", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.roldefault 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// rde_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="roldefault")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class roldefault : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 roldefault 物件。
+        /// </summary>
+        /// <param name="rde_no">rde_no 的初始值。</param>
+        public static roldefault Createroldefault(int rde_no)
+        {
+            roldefault roldefault = new roldefault();
+            roldefault.rde_no = rde_no;
+            return roldefault;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 rde_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int rde_no
+        {
+            get
+            {
+                return this._rde_no;
+            }
+            set
+            {
+                this.Onrde_noChanging(value);
+                this.ReportPropertyChanging("rde_no");
+                this._rde_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rde_no");
+                this.Onrde_noChanged();
+            }
+        }
+        private int _rde_no;
+        partial void Onrde_noChanging(int value);
+        partial void Onrde_noChanged();
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_DEPARTME", "departments")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public departments departments
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "departments").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "departments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<departments> departmentsReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "departments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME", "departments", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 role 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_ROLE", "role")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public role role
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "role").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "role").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 role 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<role> roleReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "role");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<role>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "role", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.role 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// rol_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="role")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class role : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 role 物件。
+        /// </summary>
+        /// <param name="rol_no">rol_no 的初始值。</param>
+        /// <param name="rol_name">rol_name 的初始值。</param>
+        /// <param name="rol_default">rol_default 的初始值。</param>
+        public static role Createrole(int rol_no, string rol_name, string rol_default)
+        {
+            role role = new role();
+            role.rol_no = rol_no;
+            role.rol_name = rol_name;
+            role.rol_default = rol_default;
+            return role;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int rol_no
+        {
+            get
+            {
+                return this._rol_no;
+            }
+            set
+            {
+                this.Onrol_noChanging(value);
+                this.ReportPropertyChanging("rol_no");
+                this._rol_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rol_no");
+                this.Onrol_noChanged();
+            }
+        }
+        private int _rol_no;
+        partial void Onrol_noChanging(int value);
+        partial void Onrol_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string rol_name
+        {
+            get
+            {
+                return this._rol_name;
+            }
+            set
+            {
+                this.Onrol_nameChanging(value);
+                this.ReportPropertyChanging("rol_name");
+                this._rol_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("rol_name");
+                this.Onrol_nameChanged();
+            }
+        }
+        private string _rol_name;
+        partial void Onrol_nameChanging(string value);
+        partial void Onrol_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_memo 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string rol_memo
+        {
+            get
+            {
+                return this._rol_memo;
+            }
+            set
+            {
+                this.Onrol_memoChanging(value);
+                this.ReportPropertyChanging("rol_memo");
+                this._rol_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("rol_memo");
+                this.Onrol_memoChanged();
+            }
+        }
+        private string _rol_memo;
+        partial void Onrol_memoChanging(string value);
+        partial void Onrol_memoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> rol_createuid
+        {
+            get
+            {
+                return this._rol_createuid;
+            }
+            set
+            {
+                this.Onrol_createuidChanging(value);
+                this.ReportPropertyChanging("rol_createuid");
+                this._rol_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rol_createuid");
+                this.Onrol_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _rol_createuid;
+        partial void Onrol_createuidChanging(global::System.Nullable<int> value);
+        partial void Onrol_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> rol_createtime
+        {
+            get
+            {
+                return this._rol_createtime;
+            }
+            set
+            {
+                this.Onrol_createtimeChanging(value);
+                this.ReportPropertyChanging("rol_createtime");
+                this._rol_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rol_createtime");
+                this.Onrol_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _rol_createtime;
+        partial void Onrol_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onrol_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_default 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string rol_default
+        {
+            get
+            {
+                return this._rol_default;
+            }
+            set
+            {
+                this.Onrol_defaultChanging(value);
+                this.ReportPropertyChanging("rol_default");
+                this._rol_default = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("rol_default");
+                this.Onrol_defaultChanged();
+            }
+        }
+        private string _rol_default;
+        partial void Onrol_defaultChanging(string value);
+        partial void Onrol_defaultChanged();
+        /// <summary>
+        /// 結構描述中沒有 rauthority 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_ROLE", "rauthority")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<rauthority> rauthority
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "rauthority");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE", "rauthority", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 roldefault 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLDEFAU_RELATIONS_ROLE", "roldefault")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<roldefault> roldefault
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<roldefault>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "roldefault");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<roldefault>("NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE", "roldefault", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 roleaccount 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "roleaccount")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<roleaccount> roleaccount
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<roleaccount>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "roleaccount");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<roleaccount>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "roleaccount", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.roleaccount 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// rol_no
+    /// rac_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="roleaccount")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class roleaccount : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 roleaccount 物件。
+        /// </summary>
+        /// <param name="rol_no">rol_no 的初始值。</param>
+        /// <param name="rac_no">rac_no 的初始值。</param>
+        public static roleaccount Createroleaccount(int rol_no, int rac_no)
+        {
+            roleaccount roleaccount = new roleaccount();
+            roleaccount.rol_no = rol_no;
+            roleaccount.rac_no = rac_no;
+            return roleaccount;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 rol_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int rol_no
+        {
+            get
+            {
+                return this._rol_no;
+            }
+            set
+            {
+                this.Onrol_noChanging(value);
+                this.ReportPropertyChanging("rol_no");
+                this._rol_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rol_no");
+                this.Onrol_noChanged();
+            }
+        }
+        private int _rol_no;
+        partial void Onrol_noChanging(int value);
+        partial void Onrol_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 rac_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int rac_no
+        {
+            get
+            {
+                return this._rac_no;
+            }
+            set
+            {
+                this.Onrac_noChanging(value);
+                this.ReportPropertyChanging("rac_no");
+                this._rac_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("rac_no");
+                this.Onrac_noChanged();
+            }
+        }
+        private int _rac_no;
+        partial void Onrac_noChanging(int value);
+        partial void Onrac_noChanged();
+        /// <summary>
+        /// 結構描述中沒有 accounts 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public accounts accounts
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 accounts 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<accounts> accountsReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<accounts>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "accounts", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 role 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROLEACCO_RELATIONS_ROLE", "role")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public role role
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 role 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<role> roleReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<role>("NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE", "role", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.search01 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// s01_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="search01")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class search01 : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 search01 物件。
+        /// </summary>
+        /// <param name="s01_no">s01_no 的初始值。</param>
+        public static search01 Createsearch01(int s01_no)
+        {
+            search01 search01 = new search01();
+            search01.s01_no = s01_no;
+            return search01;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s01_no
+        {
+            get
+            {
+                return this._s01_no;
+            }
+            set
+            {
+                this.Ons01_noChanging(value);
+                this.ReportPropertyChanging("s01_no");
+                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_no");
+                this.Ons01_noChanged();
+            }
+        }
+        private int _s01_no;
+        partial void Ons01_noChanging(int value);
+        partial void Ons01_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_peouid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> s01_peouid
+        {
+            get
+            {
+                return this._s01_peouid;
+            }
+            set
+            {
+                this.Ons01_peouidChanging(value);
+                this.ReportPropertyChanging("s01_peouid");
+                this._s01_peouid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_peouid");
+                this.Ons01_peouidChanged();
+            }
+        }
+        private global::System.Nullable<int> _s01_peouid;
+        partial void Ons01_peouidChanging(global::System.Nullable<int> value);
+        partial void Ons01_peouidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_type 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string s01_type
+        {
+            get
+            {
+                return this._s01_type;
+            }
+            set
+            {
+                this.Ons01_typeChanging(value);
+                this.ReportPropertyChanging("s01_type");
+                this._s01_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("s01_type");
+                this.Ons01_typeChanged();
+            }
+        }
+        private string _s01_type;
+        partial void Ons01_typeChanging(string value);
+        partial void Ons01_typeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> s01_createuid
+        {
+            get
+            {
+                return this._s01_createuid;
+            }
+            set
+            {
+                this.Ons01_createuidChanging(value);
+                this.ReportPropertyChanging("s01_createuid");
+                this._s01_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_createuid");
+                this.Ons01_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _s01_createuid;
+        partial void Ons01_createuidChanging(global::System.Nullable<int> value);
+        partial void Ons01_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> s01_createtime
+        {
+            get
+            {
+                return this._s01_createtime;
+            }
+            set
+            {
+                this.Ons01_createtimeChanging(value);
+                this.ReportPropertyChanging("s01_createtime");
+                this._s01_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_createtime");
+                this.Ons01_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _s01_createtime;
+        partial void Ons01_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Ons01_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有 search02 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_SEARCH01", "search02")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<search02> search02
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search02>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search02");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search02>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search02", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search03 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_SEARCH01", "search03")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<search03> search03
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search03>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search03");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search03>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search03", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search04 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_SEARCH01", "search04")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<search04> search04
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search04>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search04");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search04>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search04", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.search02 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// s01_no
+    /// s02_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="search02")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class search02 : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 search02 物件。
+        /// </summary>
+        /// <param name="s01_no">s01_no 的初始值。</param>
+        /// <param name="s02_no">s02_no 的初始值。</param>
+        public static search02 Createsearch02(int s01_no, int s02_no)
+        {
+            search02 search02 = new search02();
+            search02.s01_no = s01_no;
+            search02.s02_no = s02_no;
+            return search02;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s01_no
+        {
+            get
+            {
+                return this._s01_no;
+            }
+            set
+            {
+                this.Ons01_noChanging(value);
+                this.ReportPropertyChanging("s01_no");
+                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_no");
+                this.Ons01_noChanged();
+            }
+        }
+        private int _s01_no;
+        partial void Ons01_noChanging(int value);
+        partial void Ons01_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s02_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s02_no
+        {
+            get
+            {
+                return this._s02_no;
+            }
+            set
+            {
+                this.Ons02_noChanging(value);
+                this.ReportPropertyChanging("s02_no");
+                this._s02_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s02_no");
+                this.Ons02_noChanged();
+            }
+        }
+        private int _s02_no;
+        partial void Ons02_noChanging(int value);
+        partial void Ons02_noChanged();
+        /// <summary>
+        /// 結構描述中沒有 people 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_PEOPLE", "people")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public people people
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 people 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH02_RELATIONS_SEARCH01", "search01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public search01 search01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search01").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search01").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<search01> search01Reference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<search01>("NXEIPModel.FK_SEARCH02_RELATIONS_SEARCH01", "search01", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.search03 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// s01_no
+    /// s03_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="search03")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class search03 : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 search03 物件。
+        /// </summary>
+        /// <param name="s01_no">s01_no 的初始值。</param>
+        /// <param name="s03_no">s03_no 的初始值。</param>
+        public static search03 Createsearch03(int s01_no, int s03_no)
+        {
+            search03 search03 = new search03();
+            search03.s01_no = s01_no;
+            search03.s03_no = s03_no;
+            return search03;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s01_no
+        {
+            get
+            {
+                return this._s01_no;
+            }
+            set
+            {
+                this.Ons01_noChanging(value);
+                this.ReportPropertyChanging("s01_no");
+                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_no");
+                this.Ons01_noChanged();
+            }
+        }
+        private int _s01_no;
+        partial void Ons01_noChanging(int value);
+        partial void Ons01_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s03_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s03_no
+        {
+            get
+            {
+                return this._s03_no;
+            }
+            set
+            {
+                this.Ons03_noChanging(value);
+                this.ReportPropertyChanging("s03_no");
+                this._s03_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s03_no");
+                this.Ons03_noChanged();
+            }
+        }
+        private int _s03_no;
+        partial void Ons03_noChanging(int value);
+        partial void Ons03_noChanged();
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_DEPARTME", "departments")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public departments departments
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "departments").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "departments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 departments 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<departments> departmentsReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "departments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME", "departments", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH03_RELATIONS_SEARCH01", "search01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public search01 search01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search01").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search01").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<search01> search01Reference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<search01>("NXEIPModel.FK_SEARCH03_RELATIONS_SEARCH01", "search01", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.search04 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// s01_no
+    /// s04_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="search04")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class search04 : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 search04 物件。
+        /// </summary>
+        /// <param name="s01_no">s01_no 的初始值。</param>
+        /// <param name="s04_no">s04_no 的初始值。</param>
+        public static search04 Createsearch04(int s01_no, int s04_no)
+        {
+            search04 search04 = new search04();
+            search04.s01_no = s01_no;
+            search04.s04_no = s04_no;
+            return search04;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 s01_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s01_no
+        {
+            get
+            {
+                return this._s01_no;
+            }
+            set
+            {
+                this.Ons01_noChanging(value);
+                this.ReportPropertyChanging("s01_no");
+                this._s01_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s01_no");
+                this.Ons01_noChanged();
+            }
+        }
+        private int _s01_no;
+        partial void Ons01_noChanging(int value);
+        partial void Ons01_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 s04_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int s04_no
+        {
+            get
+            {
+                return this._s04_no;
+            }
+            set
+            {
+                this.Ons04_noChanging(value);
+                this.ReportPropertyChanging("s04_no");
+                this._s04_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("s04_no");
+                this.Ons04_noChanged();
+            }
+        }
+        private int _s04_no;
+        partial void Ons04_noChanging(int value);
+        partial void Ons04_noChanged();
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_SEARCH01", "search01")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public search01 search01
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search01").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search01").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 search01 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<search01> search01Reference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<search01>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<search01>("NXEIPModel.FK_SEARCH04_RELATIONS_SEARCH01", "search01", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 types 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_TYPES", "types")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public types types
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "types").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "types").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 types 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<types> typesReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<types>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "types");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<types>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "types", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.sys 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// sys_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sys")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class sys : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 sys 物件。
+        /// </summary>
+        /// <param name="sys_no">sys_no 的初始值。</param>
+        /// <param name="sys_name">sys_name 的初始值。</param>
+        public static sys Createsys(int sys_no, string sys_name)
+        {
+            sys sys = new sys();
+            sys.sys_no = sys_no;
+            sys.sys_name = sys_name;
+            return sys;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int sys_no
+        {
+            get
+            {
+                return this._sys_no;
+            }
+            set
+            {
+                this.Onsys_noChanging(value);
+                this.ReportPropertyChanging("sys_no");
+                this._sys_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sys_no");
+                this.Onsys_noChanged();
+            }
+        }
+        private int _sys_no;
+        partial void Onsys_noChanging(int value);
+        partial void Onsys_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sys_name
+        {
+            get
+            {
+                return this._sys_name;
+            }
+            set
+            {
+                this.Onsys_nameChanging(value);
+                this.ReportPropertyChanging("sys_name");
+                this._sys_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("sys_name");
+                this.Onsys_nameChanged();
+            }
+        }
+        private string _sys_name;
+        partial void Onsys_nameChanging(string value);
+        partial void Onsys_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_catalog 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sys_catalog
+        {
+            get
+            {
+                return this._sys_catalog;
+            }
+            set
+            {
+                this.Onsys_catalogChanging(value);
+                this.ReportPropertyChanging("sys_catalog");
+                this._sys_catalog = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sys_catalog");
+                this.Onsys_catalogChanged();
+            }
+        }
+        private string _sys_catalog;
+        partial void Onsys_catalogChanging(string value);
+        partial void Onsys_catalogChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> sys_order
+        {
+            get
+            {
+                return this._sys_order;
+            }
+            set
+            {
+                this.Onsys_orderChanging(value);
+                this.ReportPropertyChanging("sys_order");
+                this._sys_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sys_order");
+                this.Onsys_orderChanged();
+            }
+        }
+        private global::System.Nullable<int> _sys_order;
+        partial void Onsys_orderChanging(global::System.Nullable<int> value);
+        partial void Onsys_orderChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_defaultpic 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sys_defaultpic
+        {
+            get
+            {
+                return this._sys_defaultpic;
+            }
+            set
+            {
+                this.Onsys_defaultpicChanging(value);
+                this.ReportPropertyChanging("sys_defaultpic");
+                this._sys_defaultpic = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sys_defaultpic");
+                this.Onsys_defaultpicChanged();
+            }
+        }
+        private string _sys_defaultpic;
+        partial void Onsys_defaultpicChanging(string value);
+        partial void Onsys_defaultpicChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_overpicture 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sys_overpicture
+        {
+            get
+            {
+                return this._sys_overpicture;
+            }
+            set
+            {
+                this.Onsys_overpictureChanging(value);
+                this.ReportPropertyChanging("sys_overpicture");
+                this._sys_overpicture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sys_overpicture");
+                this.Onsys_overpictureChanged();
+            }
+        }
+        private string _sys_overpicture;
+        partial void Onsys_overpictureChanging(string value);
+        partial void Onsys_overpictureChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sys_status
+        {
+            get
+            {
+                return this._sys_status;
+            }
+            set
+            {
+                this.Onsys_statusChanging(value);
+                this.ReportPropertyChanging("sys_status");
+                this._sys_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sys_status");
+                this.Onsys_statusChanged();
+            }
+        }
+        private string _sys_status;
+        partial void Onsys_statusChanging(string value);
+        partial void Onsys_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> sys_createuid
+        {
+            get
+            {
+                return this._sys_createuid;
+            }
+            set
+            {
+                this.Onsys_createuidChanging(value);
+                this.ReportPropertyChanging("sys_createuid");
+                this._sys_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sys_createuid");
+                this.Onsys_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _sys_createuid;
+        partial void Onsys_createuidChanging(global::System.Nullable<int> value);
+        partial void Onsys_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sys_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> sys_createtime
+        {
+            get
+            {
+                return this._sys_createtime;
+            }
+            set
+            {
+                this.Onsys_createtimeChanging(value);
+                this.ReportPropertyChanging("sys_createtime");
+                this._sys_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sys_createtime");
+                this.Onsys_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _sys_createtime;
+        partial void Onsys_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onsys_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有 sysfuction 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sysfuction")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<sysfuction> sysfuction
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<sysfuction>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sysfuction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<sysfuction>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sysfuction", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.sysfuction 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// sfu_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sysfuction")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class sysfuction : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 sysfuction 物件。
+        /// </summary>
+        /// <param name="sfu_no">sfu_no 的初始值。</param>
+        /// <param name="sfu_name">sfu_name 的初始值。</param>
+        public static sysfuction Createsysfuction(int sfu_no, string sfu_name)
+        {
+            sysfuction sysfuction = new sysfuction();
+            sysfuction.sfu_no = sfu_no;
+            sysfuction.sfu_name = sfu_name;
+            return sysfuction;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int sfu_no
+        {
+            get
+            {
+                return this._sfu_no;
+            }
+            set
+            {
+                this.Onsfu_noChanging(value);
+                this.ReportPropertyChanging("sfu_no");
+                this._sfu_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sfu_no");
+                this.Onsfu_noChanged();
+            }
+        }
+        private int _sfu_no;
+        partial void Onsfu_noChanging(int value);
+        partial void Onsfu_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_name
+        {
+            get
+            {
+                return this._sfu_name;
+            }
+            set
+            {
+                this.Onsfu_nameChanging(value);
+                this.ReportPropertyChanging("sfu_name");
+                this._sfu_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("sfu_name");
+                this.Onsfu_nameChanged();
+            }
+        }
+        private string _sfu_name;
+        partial void Onsfu_nameChanging(string value);
+        partial void Onsfu_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_catalog 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_catalog
+        {
+            get
+            {
+                return this._sfu_catalog;
+            }
+            set
+            {
+                this.Onsfu_catalogChanging(value);
+                this.ReportPropertyChanging("sfu_catalog");
+                this._sfu_catalog = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sfu_catalog");
+                this.Onsfu_catalogChanged();
+            }
+        }
+        private string _sfu_catalog;
+        partial void Onsfu_catalogChanging(string value);
+        partial void Onsfu_catalogChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> sfu_order
+        {
+            get
+            {
+                return this._sfu_order;
+            }
+            set
+            {
+                this.Onsfu_orderChanging(value);
+                this.ReportPropertyChanging("sfu_order");
+                this._sfu_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sfu_order");
+                this.Onsfu_orderChanged();
+            }
+        }
+        private global::System.Nullable<int> _sfu_order;
+        partial void Onsfu_orderChanging(global::System.Nullable<int> value);
+        partial void Onsfu_orderChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_path 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_path
+        {
+            get
+            {
+                return this._sfu_path;
+            }
+            set
+            {
+                this.Onsfu_pathChanging(value);
+                this.ReportPropertyChanging("sfu_path");
+                this._sfu_path = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sfu_path");
+                this.Onsfu_pathChanged();
+            }
+        }
+        private string _sfu_path;
+        partial void Onsfu_pathChanging(string value);
+        partial void Onsfu_pathChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_defaltpic 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_defaltpic
+        {
+            get
+            {
+                return this._sfu_defaltpic;
+            }
+            set
+            {
+                this.Onsfu_defaltpicChanging(value);
+                this.ReportPropertyChanging("sfu_defaltpic");
+                this._sfu_defaltpic = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sfu_defaltpic");
+                this.Onsfu_defaltpicChanged();
+            }
+        }
+        private string _sfu_defaltpic;
+        partial void Onsfu_defaltpicChanging(string value);
+        partial void Onsfu_defaltpicChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_overpicture 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_overpicture
+        {
+            get
+            {
+                return this._sfu_overpicture;
+            }
+            set
+            {
+                this.Onsfu_overpictureChanging(value);
+                this.ReportPropertyChanging("sfu_overpicture");
+                this._sfu_overpicture = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sfu_overpicture");
+                this.Onsfu_overpictureChanged();
+            }
+        }
+        private string _sfu_overpicture;
+        partial void Onsfu_overpictureChanging(string value);
+        partial void Onsfu_overpictureChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_parent 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> sfu_parent
+        {
+            get
+            {
+                return this._sfu_parent;
+            }
+            set
+            {
+                this.Onsfu_parentChanging(value);
+                this.ReportPropertyChanging("sfu_parent");
+                this._sfu_parent = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sfu_parent");
+                this.Onsfu_parentChanged();
+            }
+        }
+        private global::System.Nullable<int> _sfu_parent;
+        partial void Onsfu_parentChanging(global::System.Nullable<int> value);
+        partial void Onsfu_parentChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string sfu_status
+        {
+            get
+            {
+                return this._sfu_status;
+            }
+            set
+            {
+                this.Onsfu_statusChanging(value);
+                this.ReportPropertyChanging("sfu_status");
+                this._sfu_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("sfu_status");
+                this.Onsfu_statusChanged();
+            }
+        }
+        private string _sfu_status;
+        partial void Onsfu_statusChanging(string value);
+        partial void Onsfu_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> sfu_createuid
+        {
+            get
+            {
+                return this._sfu_createuid;
+            }
+            set
+            {
+                this.Onsfu_createuidChanging(value);
+                this.ReportPropertyChanging("sfu_createuid");
+                this._sfu_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sfu_createuid");
+                this.Onsfu_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _sfu_createuid;
+        partial void Onsfu_createuidChanging(global::System.Nullable<int> value);
+        partial void Onsfu_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 sfu_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> sfu_createtime
+        {
+            get
+            {
+                return this._sfu_createtime;
+            }
+            set
+            {
+                this.Onsfu_createtimeChanging(value);
+                this.ReportPropertyChanging("sfu_createtime");
+                this._sfu_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("sfu_createtime");
+                this.Onsfu_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _sfu_createtime;
+        partial void Onsfu_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Onsfu_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有 operates 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_OPERATES_RELATIONS_SYSFUCTI", "operates")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<operates> operates
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "operates");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<operates>("NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI", "operates", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 rauthority 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<rauthority> rauthority
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<rauthority>("NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI", "rauthority", value);
+                }
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sys 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public sys sys
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys").Value;
+            }
+            set
+            {
+                ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys").Value = value;
+            }
+        }
+        /// <summary>
+        /// 結構描述中沒有 sys 的註解。
+        /// </summary>
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityReference<sys> sysReference
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.types 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// typ_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="types")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class types : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 types 物件。
+        /// </summary>
+        /// <param name="typ_no">typ_no 的初始值。</param>
+        /// <param name="typ_code">typ_code 的初始值。</param>
+        /// <param name="typ_cname">typ_cname 的初始值。</param>
+        public static types Createtypes(int typ_no, string typ_code, string typ_cname)
+        {
+            types types = new types();
+            types.typ_no = typ_no;
+            types.typ_code = typ_code;
+            types.typ_cname = typ_cname;
+            return types;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int typ_no
+        {
+            get
+            {
+                return this._typ_no;
+            }
+            set
+            {
+                this.Ontyp_noChanging(value);
+                this.ReportPropertyChanging("typ_no");
+                this._typ_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("typ_no");
+                this.Ontyp_noChanged();
+            }
+        }
+        private int _typ_no;
+        partial void Ontyp_noChanging(int value);
+        partial void Ontyp_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_code 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string typ_code
+        {
+            get
+            {
+                return this._typ_code;
+            }
+            set
+            {
+                this.Ontyp_codeChanging(value);
+                this.ReportPropertyChanging("typ_code");
+                this._typ_code = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("typ_code");
+                this.Ontyp_codeChanged();
+            }
+        }
+        private string _typ_code;
+        partial void Ontyp_codeChanging(string value);
+        partial void Ontyp_codeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_number 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string typ_number
+        {
+            get
+            {
+                return this._typ_number;
+            }
+            set
+            {
+                this.Ontyp_numberChanging(value);
+                this.ReportPropertyChanging("typ_number");
+                this._typ_number = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("typ_number");
+                this.Ontyp_numberChanged();
+            }
+        }
+        private string _typ_number;
+        partial void Ontyp_numberChanging(string value);
+        partial void Ontyp_numberChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_cname 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string typ_cname
+        {
+            get
+            {
+                return this._typ_cname;
+            }
+            set
+            {
+                this.Ontyp_cnameChanging(value);
+                this.ReportPropertyChanging("typ_cname");
+                this._typ_cname = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("typ_cname");
+                this.Ontyp_cnameChanged();
+            }
+        }
+        private string _typ_cname;
+        partial void Ontyp_cnameChanging(string value);
+        partial void Ontyp_cnameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_ename 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string typ_ename
+        {
+            get
+            {
+                return this._typ_ename;
+            }
+            set
+            {
+                this.Ontyp_enameChanging(value);
+                this.ReportPropertyChanging("typ_ename");
+                this._typ_ename = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("typ_ename");
+                this.Ontyp_enameChanged();
+            }
+        }
+        private string _typ_ename;
+        partial void Ontyp_enameChanging(string value);
+        partial void Ontyp_enameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> typ_order
+        {
+            get
+            {
+                return this._typ_order;
+            }
+            set
+            {
+                this.Ontyp_orderChanging(value);
+                this.ReportPropertyChanging("typ_order");
+                this._typ_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("typ_order");
+                this.Ontyp_orderChanged();
+            }
+        }
+        private global::System.Nullable<int> _typ_order;
+        partial void Ontyp_orderChanging(global::System.Nullable<int> value);
+        partial void Ontyp_orderChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string typ_status
+        {
+            get
+            {
+                return this._typ_status;
+            }
+            set
+            {
+                this.Ontyp_statusChanging(value);
+                this.ReportPropertyChanging("typ_status");
+                this._typ_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("typ_status");
+                this.Ontyp_statusChanged();
+            }
+        }
+        private string _typ_status;
+        partial void Ontyp_statusChanging(string value);
+        partial void Ontyp_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_createuid 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<int> typ_createuid
+        {
+            get
+            {
+                return this._typ_createuid;
+            }
+            set
+            {
+                this.Ontyp_createuidChanging(value);
+                this.ReportPropertyChanging("typ_createuid");
+                this._typ_createuid = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("typ_createuid");
+                this.Ontyp_createuidChanged();
+            }
+        }
+        private global::System.Nullable<int> _typ_createuid;
+        partial void Ontyp_createuidChanging(global::System.Nullable<int> value);
+        partial void Ontyp_createuidChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 typ_createtime 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Nullable<global::System.DateTime> typ_createtime
+        {
+            get
+            {
+                return this._typ_createtime;
+            }
+            set
+            {
+                this.Ontyp_createtimeChanging(value);
+                this.ReportPropertyChanging("typ_createtime");
+                this._typ_createtime = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("typ_createtime");
+                this.Ontyp_createtimeChanged();
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _typ_createtime;
+        partial void Ontyp_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
+        partial void Ontyp_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有 search04 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SEARCH04_RELATIONS_TYPES", "search04")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<search04> search04
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<search04>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "search04");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<search04>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "search04", value);
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 結構描述中沒有 NXEIPModel.widget 的註解。
+    /// </summary>
+    /// <KeyProperties>
+    /// wid_no
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="widget")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class widget : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 建立新的 widget 物件。
+        /// </summary>
+        /// <param name="wid_no">wid_no 的初始值。</param>
+        /// <param name="wid_order">wid_order 的初始值。</param>
+        /// <param name="wid_status">wid_status 的初始值。</param>
+        /// <param name="wid_type">wid_type 的初始值。</param>
+        public static widget Createwidget(int wid_no, int wid_order, string wid_status, string wid_type)
+        {
+            widget widget = new widget();
+            widget.wid_no = wid_no;
+            widget.wid_order = wid_order;
+            widget.wid_status = wid_status;
+            widget.wid_type = wid_type;
+            return widget;
+        }
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_no 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int wid_no
+        {
+            get
+            {
+                return this._wid_no;
+            }
+            set
+            {
+                this.Onwid_noChanging(value);
+                this.ReportPropertyChanging("wid_no");
+                this._wid_no = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("wid_no");
+                this.Onwid_noChanged();
+            }
+        }
+        private int _wid_no;
+        partial void Onwid_noChanging(int value);
+        partial void Onwid_noChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_name 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_name
+        {
+            get
+            {
+                return this._wid_name;
+            }
+            set
+            {
+                this.Onwid_nameChanging(value);
+                this.ReportPropertyChanging("wid_name");
+                this._wid_name = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("wid_name");
+                this.Onwid_nameChanged();
+            }
+        }
+        private string _wid_name;
+        partial void Onwid_nameChanging(string value);
+        partial void Onwid_nameChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_url 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_url
+        {
+            get
+            {
+                return this._wid_url;
+            }
+            set
+            {
+                this.Onwid_urlChanging(value);
+                this.ReportPropertyChanging("wid_url");
+                this._wid_url = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("wid_url");
+                this.Onwid_urlChanged();
+            }
+        }
+        private string _wid_url;
+        partial void Onwid_urlChanging(string value);
+        partial void Onwid_urlChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_memo 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_memo
+        {
+            get
+            {
+                return this._wid_memo;
+            }
+            set
+            {
+                this.Onwid_memoChanging(value);
+                this.ReportPropertyChanging("wid_memo");
+                this._wid_memo = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("wid_memo");
+                this.Onwid_memoChanged();
+            }
+        }
+        private string _wid_memo;
+        partial void Onwid_memoChanging(string value);
+        partial void Onwid_memoChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_setting 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_setting
+        {
+            get
+            {
+                return this._wid_setting;
+            }
+            set
+            {
+                this.Onwid_settingChanging(value);
+                this.ReportPropertyChanging("wid_setting");
+                this._wid_setting = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("wid_setting");
+                this.Onwid_settingChanged();
+            }
+        }
+        private string _wid_setting;
+        partial void Onwid_settingChanging(string value);
+        partial void Onwid_settingChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_order 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public int wid_order
+        {
+            get
+            {
+                return this._wid_order;
+            }
+            set
+            {
+                this.Onwid_orderChanging(value);
+                this.ReportPropertyChanging("wid_order");
+                this._wid_order = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("wid_order");
+                this.Onwid_orderChanged();
+            }
+        }
+        private int _wid_order;
+        partial void Onwid_orderChanging(int value);
+        partial void Onwid_orderChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_status 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_status
+        {
+            get
+            {
+                return this._wid_status;
+            }
+            set
+            {
+                this.Onwid_statusChanging(value);
+                this.ReportPropertyChanging("wid_status");
+                this._wid_status = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("wid_status");
+                this.Onwid_statusChanged();
+            }
+        }
+        private string _wid_status;
+        partial void Onwid_statusChanging(string value);
+        partial void Onwid_statusChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 wid_type 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string wid_type
+        {
+            get
+            {
+                return this._wid_type;
+            }
+            set
+            {
+                this.Onwid_typeChanging(value);
+                this.ReportPropertyChanging("wid_type");
+                this._wid_type = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("wid_type");
+                this.Onwid_typeChanged();
+            }
+        }
+        private string _wid_type;
+        partial void Onwid_typeChanging(string value);
+        partial void Onwid_typeChanged();
+        /// <summary>
+        /// 結構描述中沒有 block 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BLCOK_RELATIONS_WIDGET", "block")]
+        [global::System.Xml.Serialization.XmlIgnoreAttribute()]
+        [global::System.Xml.Serialization.SoapIgnoreAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public global::System.Data.Objects.DataClasses.EntityCollection<block> block
+        {
+            get
+            {
+                return ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.GetRelatedCollection<block>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "block");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((global::System.Data.Objects.DataClasses.IEntityWithRelationships)(this)).RelationshipManager.InitializeRelatedCollection<block>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "block", value);
                 }
             }
         }

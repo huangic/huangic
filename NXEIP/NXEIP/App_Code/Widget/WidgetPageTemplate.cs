@@ -174,7 +174,9 @@ namespace NXEIP.Widget
             {
                 int page_no = this.GetCurrentPage();
 
-                //如果WidgetPage的狀態是FALSE那就表示沒有他的頁面也沒有父代的那就不生成了(變空白頁)
+
+
+              //如果WidgetPage的狀態是FALSE那就表示沒有他的頁面也沒有父代的那就不生成了(變空白頁)
                 if (this.IsHasWidgetPage)
                 {
 
@@ -189,11 +191,12 @@ namespace NXEIP.Widget
                     //載入所有WIDGET物件
                     LoadZoneWidgetSession(page_no);
                 }
-            }
-            catch (Exception ex) { 
-            
-            }
 
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         /// <summary>
@@ -209,10 +212,7 @@ namespace NXEIP.Widget
 
             int? page_no = Dao.GetPageNo(uid, this.PageType);
 
-            if (!page_no.HasValue)
-            {
-                page_no = Dao.GetPageNo(null, this.PageType);
-            }
+          
 
 
             logger.Info(string.Format("使用PAGE_NO={0}的設定",page_no));
