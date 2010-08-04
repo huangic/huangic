@@ -170,23 +170,28 @@ namespace NXEIP.Widget
         protected virtual void LoadAllWidget()
         {
 
-
-            int page_no = this.GetCurrentPage();
-
-            //如果WidgetPage的狀態是FALSE那就表示沒有他的頁面也沒有父代的那就不生成了(變空白頁)
-            if (this.IsHasWidgetPage)
+            try
             {
-                
+                int page_no = this.GetCurrentPage();
 
-                //如果SESSION 沒有東西 那就是RELOAD
-                if (Session[SessionName] == null)
+                //如果WidgetPage的狀態是FALSE那就表示沒有他的頁面也沒有父代的那就不生成了(變空白頁)
+                if (this.IsHasWidgetPage)
                 {
-                    CreateWidget(page_no);
+
+
+                    //如果SESSION 沒有東西 那就是RELOAD
+                    if (Session[SessionName] == null)
+                    {
+                        CreateWidget(page_no);
+                    }
+
+
+                    //載入所有WIDGET物件
+                    LoadZoneWidgetSession(page_no);
                 }
-
-
-                //載入所有WIDGET物件
-                LoadZoneWidgetSession(page_no);
+            }
+            catch (Exception ex) { 
+            
             }
 
         }
@@ -210,7 +215,7 @@ namespace NXEIP.Widget
             }
 
 
-            logger.Info(string.Format("使用PAGE_NO={0}的設定",page_no.Value));
+            logger.Info(string.Format("使用PAGE_NO={0}的設定",page_no));
 
             return page_no.Value;
         
