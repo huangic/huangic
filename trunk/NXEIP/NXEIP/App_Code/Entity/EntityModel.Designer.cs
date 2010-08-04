@@ -40,36 +40,36 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sys), "sysfuction", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.sysfuction))]
 
 // 原始檔案名稱:
-// 產生日期: 2010/8/4 下午 04:29:47
+// 產生日期: 2010/8/4 下午 04:47:19
 namespace Entity
 {
     
     /// <summary>
-    /// 結構描述中沒有 Entities 的註解。
+    /// 結構描述中沒有 NXEIPEntities 的註解。
     /// </summary>
     public partial class NXEIPEntities : global::System.Data.Objects.ObjectContext
     {
         /// <summary>
-        /// 使用應用程式組態檔 'Entities' 區段中找到的連接字串初始化新的 Entities 物件。
+        /// 使用應用程式組態檔 'NXEIPEntities' 區段中找到的連接字串初始化新的 NXEIPEntities 物件。
         /// </summary>
-        public NXEIPEntities() :
-            base("name=NXEIPEntities", "NXEIPEntities")
+        public NXEIPEntities() : 
+                base("name=NXEIPEntities", "NXEIPEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// 初始化新的 Entities 物件。
+        /// 初始化新的 NXEIPEntities 物件。
         /// </summary>
-        public NXEIPEntities(string connectionString) :
-            base(connectionString, "NXEIPEntities")
+        public NXEIPEntities(string connectionString) : 
+                base(connectionString, "NXEIPEntities")
         {
             this.OnContextCreated();
         }
         /// <summary>
-        /// 初始化新的 Entities 物件。
+        /// 初始化新的 NXEIPEntities 物件。
         /// </summary>
-        public NXEIPEntities(global::System.Data.EntityClient.EntityConnection connection) :
-            base(connection, "NXEIPEntities")
+        public NXEIPEntities(global::System.Data.EntityClient.EntityConnection connection) : 
+                base(connection, "NXEIPEntities")
         {
             this.OnContextCreated();
         }
@@ -5161,6 +5161,52 @@ namespace Entity
         private global::System.Nullable<global::System.DateTime> _peo_createtime;
         partial void Onpeo_createtimeChanging(global::System.Nullable<global::System.DateTime> value);
         partial void Onpeo_createtimeChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_officetel 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_officetel
+        {
+            get
+            {
+                return this._peo_officetel;
+            }
+            set
+            {
+                this.Onpeo_officetelChanging(value);
+                this.ReportPropertyChanging("peo_officetel");
+                this._peo_officetel = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_officetel");
+                this.Onpeo_officetelChanged();
+            }
+        }
+        private string _peo_officetel;
+        partial void Onpeo_officetelChanging(string value);
+        partial void Onpeo_officetelChanged();
+        /// <summary>
+        /// 結構描述中沒有屬性 peo_extension 的註解。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        public string peo_extension
+        {
+            get
+            {
+                return this._peo_extension;
+            }
+            set
+            {
+                this.Onpeo_extensionChanging(value);
+                this.ReportPropertyChanging("peo_extension");
+                this._peo_extension = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("peo_extension");
+                this.Onpeo_extensionChanged();
+            }
+        }
+        private string _peo_extension;
+        partial void Onpeo_extensionChanging(string value);
+        partial void Onpeo_extensionChanged();
         /// <summary>
         /// 結構描述中沒有 accounts 的註解。
         /// </summary>

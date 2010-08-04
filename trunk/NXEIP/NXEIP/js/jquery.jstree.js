@@ -3024,7 +3024,9 @@
 					"separator_after"	: false,
 					"label"				: "Delete",
 					"action"			: function (obj) { this.remove(obj); }
-				},
+	            }
+				/*
+				,
 				"ccp" : {
 					"separator_before"	: true,
 					"icon"				: false,
@@ -3052,8 +3054,10 @@
 							"label"				: "Paste",
 							"action"			: function (obj) { this.paste(obj); }
 						}
+						
 					}
-				}
+					
+				}*/
 			}
 		},
 		_fn : {
