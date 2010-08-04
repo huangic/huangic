@@ -194,7 +194,7 @@ public partial class _35_350100_350101_3 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "msg", "alert('" + msg + "');", true);
+        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('" + msg + "');", true);
     }
 
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
