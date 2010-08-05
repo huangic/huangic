@@ -39,7 +39,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
 
 
 
-                this.tbx_typ_code.Text = t.typ_code;
+                this.tbx_typ_number.Text = t.typ_number;
                 this.tbx_typ_cname.Text = t.typ_cname;
                 this.tbx_typ_order.Text = t.typ_order.ToString();
                 this.tbx_typ_ename.Text = t.typ_ename;
@@ -95,8 +95,8 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
     public void Add()
     {
         SessionObject sessionObj = new SessionObject();
-        String typ_number = "profess";
-        String typ_code = this.tbx_typ_code.Text;
+        String typ_code = "profess";
+        String typ_number = this.tbx_typ_number.Text;
         String typ_cname = this.tbx_typ_cname.Text;
         String typ_ename = this.tbx_typ_ename.Text;
         String typ_order = this.tbx_typ_order.Text;
@@ -145,8 +145,8 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
 
         TypesDAO dao = new TypesDAO();
         SessionObject sessionObj = new SessionObject();
-        //String typ_number = "profess";
-        String typ_code = this.tbx_typ_code.Text;
+        
+        String typ_number = this.tbx_typ_number.Text;
         String typ_cname = this.tbx_typ_cname.Text;
         String typ_ename = this.tbx_typ_ename.Text;
         String typ_order = this.tbx_typ_order.Text;
@@ -155,10 +155,8 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         //新增模式
         Entity.types newType = dao.GetTypes(System.Convert.ToInt32(id));
 
-        newType.typ_code = typ_code;
+        newType.typ_number = typ_number;
         newType.typ_cname = typ_cname;
-        //newType.typ_number = typ_number;
-        newType.typ_status = "1";
         newType.typ_ename = typ_ename;
         newType.typ_createtime = DateTime.Now;
         try
@@ -169,7 +167,6 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         {
 
         }
-
 
         try
         {
