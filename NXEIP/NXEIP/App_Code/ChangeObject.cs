@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.IO;
 using System.Collections;
+using System.Globalization;
 
 /// <summary>
 /// ChangeObject 的摘要描述
@@ -14,6 +15,28 @@ public class ChangeObject
 	{
 		
 	}
+
+    /// <summary>
+    /// 回傳民國年格式日期
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <returns></returns>
+    public string _ADtoROC(DateTime dt)
+    {
+        TaiwanCalendar tc = new TaiwanCalendar( );
+        
+        return tc.GetYear(dt)+"-"+tc.GetMonth(dt)+"-"+tc.GetDayOfMonth(dt);
+    }
+
+    /// <summary>
+    /// 回傳西元年格式日期
+    /// </summary>
+    /// <param name="roc">民國年</param>
+    /// <returns></returns>
+    public DateTime _ROCtoAD(string roc)
+    {
+        return Convert.ToDateTime(ROCDTtoADDT(roc));
+    }
 
     #region 民國 轉西元年 ROCDTtoADDT
     /// <summary>
