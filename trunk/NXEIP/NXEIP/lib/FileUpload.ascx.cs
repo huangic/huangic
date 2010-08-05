@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class lib_FileUpload : System.Web.UI.UserControl
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -19,6 +20,7 @@ public partial class lib_FileUpload : System.Web.UI.UserControl
     {
         if (this.FileUpload1.HasFile)
         {
+
             string exi = this.FileUpload1.FileName.Split('.')[1].ToLower();
 
             if (exi.Equals("jpeg") || exi.Equals("jpg") || exi.Equals("png") || exi.Equals("bmp") || exi.Equals("gif"))
@@ -41,7 +43,35 @@ public partial class lib_FileUpload : System.Web.UI.UserControl
             
         }
         
+    }
 
-        
+    public string Get_FileName
+    {
+        get
+        {
+            try
+            {
+                return this.FileUpload1.FileName;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+    }
+
+    public byte[] Get_FileByte
+    {
+        get
+        {
+            try
+            {
+                return this.FileUpload1.FileBytes;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
