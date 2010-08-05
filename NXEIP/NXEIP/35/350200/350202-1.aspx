@@ -75,7 +75,7 @@
                                                 </div>
                                             </td>
                                             <td bgcolor="#eeeeee" class="a-letter-1">
-                                                <asp:TextBox ID="tbx_typ_code" runat="server"></asp:TextBox><span class="a-letter-Red">代碼長度為4位數</span>
+                                                <asp:TextBox ID="tbx_typ_number" runat="server"></asp:TextBox><span class="a-letter-Red">代碼長度為4位數</span>
                                             </td>
                                             
                                         </tr>

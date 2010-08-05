@@ -75,6 +75,7 @@ public partial class _35_350200_350202 : System.Web.UI.Page
 
             e.Row.Cells[2].Text = dao.GetPeopleNameByUid(uid);
 
+            e.Row.Cells[3].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[3].Text);
         }
 
     }

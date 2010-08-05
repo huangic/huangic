@@ -1,138 +1,236 @@
-Ôªø<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="350205.aspx.cs" Inherits="_35_350200_350205" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="350205.aspx.cs" Inherits="_35_350200_350205" %>
 
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc1" %>
-
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
-
-<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
-
-<%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc3" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-
+<%@ Register Src="../../lib/tree/jQueryDepartTree.ascx" TagName="jQueryDepartTree"
+    TagPrefix="uc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc2" %>
+<%@ Register Src="../../lib/FileUpload.ascx" TagName="FileUpload" TagPrefix="uc3" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-  <tr>
-    <td><!-- InstanceBeginEditable name="EditRegion3" -->
-      <table width="100%" height="500" border="1" cellpadding="0" cellspacing="20">
         <tr>
-          <td height="22" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr><td colspan="2">
-                  <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-                  </asp:ToolkitScriptManager>
-                    </td></tr>
-              <tr>
-                <td width="17"><img src="../../image/b01.gif" width="17" height="22" /></td>
-                <td background="../../image/b01-1.gif" class="b01">Â∏≥ËôüÁÆ°ÁêÜ / ‰∫∫Âì°ÁÆ°ÁêÜ /<strong>  ‰∫∫‰∫ãË≥áÊñôÂª∫Ê™î&nbsp;</strong></td>
-              </tr>
-          </table></td>
+            <td>
+                <!-- InstanceBeginEditable name="EditRegion3" -->
+                <table width="100%" height="500" border="1" cellpadding="0" cellspacing="20">
+                    <tr>
+                        <td height="22" valign="top">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+                                        </asp:ToolkitScriptManager>
+                                        <asp:ObjectDataSource ID="ODS_profess" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.TypesDAO">
+                                            <SelectParameters>
+                                                <asp:Parameter Name="type_code" Type="String" DefaultValue="profess" />
+                                            </SelectParameters>
+                                        </asp:ObjectDataSource>
+                                        <asp:ObjectDataSource ID="ODS_ptype" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.TypesDAO">
+                                            <SelectParameters>
+                                                <asp:Parameter DefaultValue="ptype" Name="type_code" Type="String" />
+                                            </SelectParameters>
+                                        </asp:ObjectDataSource>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                                            ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>" 
+                                            SelectCommand="SELECT typ_cname, typ_number FROM types WHERE (typ_status = '1') AND (typ_code = 'work') ORDER BY typ_order">
+                                        </asp:SqlDataSource>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="17">
+                                        <img src="../../image/b01.gif" width="17" height="22" />
+                                    </td>
+                                    <td background="../../image/b01-1.gif" class="b01">
+                                        ±b∏π∫ﬁ≤z / §H≠˚∫ﬁ≤z /<strong> §H®∆∏ÍÆ∆´ÿ¿…&nbsp;</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="17">
+                                        <img src="../../image/b02.gif" width="17" height="29" />
+                                    </td>
+                                    <td background="../../image/b02-1.gif" class="a02-15">
+                                        §H®∆∏ÍÆ∆´ÿ¿…
+                                    </td>
+                                    <td background="../../image/b02-1.gif">
+                                        <div align="right">
+                                        </div>
+                                    </td>
+                                    <td width="17">
+                                        <img src="../../image/b02-2.gif" width="17" height="29" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellpadding="3" cellspacing="3" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td width="100" bgcolor="#eeeeee" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>®≠§¿√“¶r∏π
+                                        </div>
+                                    </td>
+                                    <td width="338" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_cardid" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td width="82" bgcolor="#eeeeee" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>©m¶W</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_name" runat="server" ></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>≠˚§u±b∏π</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>§H®∆Ωs∏π</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>™A∞»≥Ê¶Ï</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                                    </td>
+                                    <td align="right" bgcolor="#EEEEEE" class="a-letter-2">
+                                        ≠”§H∑”§˘
+                                    </td>
+                                    <td width="101" bgcolor="#EEEEEE" class="a-letter-1" colspan="2">
+                                        <uc3:FileUpload ID="FileUpload1" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>¬æ∫Ÿ</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:DropDownList ID="ddl_profess" runat="server" DataSourceID="ODS_profess" DataTextField="typ_cname"
+                                            DataValueField="typ_no">
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <span class="a-letter-Red">* </span>§H≠˚√˛ßO</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:DropDownList ID="ddl_ptype" runat="server" DataSourceID="ODS_ptype" DataTextField="typ_cname"
+                                            DataValueField="typ_no">
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            <div align="right">
+                                                <span class="a-letter-Red">* </span>®Ï¬æ§È¥¡</div>
+                                        </div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <uc2:calendar ID="calendar1" runat="server" code="111" />
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            •Õ§È</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <uc2:calendar ID="calendar2" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            ≥sµ∏¶aß}</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_addr" runat="server" Width="250px"></asp:TextBox>
+                                        &nbsp;</td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            ≥sµ∏πq∏‹</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_tel" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            πq§l∂l•Û</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_mail" runat="server" Width="250px"></asp:TextBox>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            øÏ§Ω´«πq∏‹</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_otel" runat="server" ></asp:TextBox>
+                                        <span class="a-letter-2">§¿æ˜°G</span><asp:TextBox ID="tbox_extension" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            ¶b¬æ™¨™p</div>
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-1">
+                                        <div>
+                                        <asp:DropDownList ID="ddl_jobtype" runat="server" AutoPostBack="True" 
+                                            DataSourceID="SqlDataSource1" DataTextField="typ_cname" 
+                                            DataValueField="typ_number" 
+                                            onselectedindexchanged="ddl_jobtype_SelectedIndexChanged">
+                                        </asp:DropDownList>
+                                        &nbsp;&nbsp;
+                                            <uc2:calendar ID="calendar3" runat="server" />
+                                        
+                                        </div>                                           
+                                    </td>
+                                    <td bgcolor="#EEEEEE" class="a-letter-2">
+                                        <div align="right">
+                                            ≠˚§u≥∆µ˘</div>
+                                    </td>
+                                    <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
+                                        <asp:TextBox ID="tbox_memo" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td>
+                                        <div align="center">
+                                            <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="ΩT©w" OnClick="Button1_Click" />
+                                            &nbsp;&nbsp;&nbsp;
+                                            <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="®˙Æ¯" onclick="Button2_Click" />
+                                        </div>
+                                        <div id="calendarDiv">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!-- InstanceEndEditable -->
+            </td>
         </tr>
-        <tr>
-          <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-              <td width="17"><img src="../../image/b02.gif" width="17" height="29" /></td>
-              <td background="../../image/b02-1.gif" class="a02-15"> ‰∫∫‰∫ãË≥áÊñôÂª∫Ê™î</td>
-              <td background="../../image/b02-1.gif"><div align="right"></div></td>
-              <td width="17"><img src="../../image/b02-2.gif" width="17" height="29" /></td>
-            </tr>
-          </table>
-            <table width="100%" border="0" cellpadding="3" cellspacing="3" bgcolor="#FFFFFF">
-              <tr>
-                <td width="100" bgcolor="#eeeeee" class="a-letter-2"><div align="right">
-                    <span class="a-letter-Red">* </span>Ë∫´ÂàÜË≠âÂ≠óËôü
-                </div></td>
-                <td width="338" bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield222222242" type="text" size="15" /></td>
-                <td width="82" bgcolor="#eeeeee" class="a-letter-2"><div align="right"><span class="a-letter-Red">* </span>ÂßìÂêç</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield22222223" type="text" size="10" /></td>
-                </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right"><span class="a-letter-Red">* </span>Âì°Â∑•Â∏≥Ëôü</div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield22222224" type="text" size="15" /></td>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right"><span class="a-letter-Red">* </span>‰∫∫‰∫ãÁ∑®Ëôü</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield2222222" type="text" size="15" /></td>
-              </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right"><span class="a-letter-Red">* </span>ÊúçÂãôÂñÆ‰Ωç</div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1">
-                
-                    <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
-                
-                </td>
-                <td align="right" bgcolor="#EEEEEE" class="a-letter-2">ÂÄã‰∫∫ÁÖßÁâá</td>
-                <td width="101" bgcolor="#EEEEEE" class="a-letter-1" colspan="2">
-                    <uc3:FileUpload ID="FileUpload1" runat="server" />
-                  </td>
-                
-                </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right"><span class="a-letter-Red">* </span>ËÅ∑Á®±</div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1">
-                    <asp:DropDownList ID="ddl_profess" runat="server" DataSourceID="ODS_profess" 
-                        DataTextField="typ_cname" DataValueField="typ_no">
-                    </asp:DropDownList>
-                    <asp:ObjectDataSource ID="ODS_profess" runat="server" SelectMethod="GetAll" 
-                        TypeName="NXEIP.DAO.TypesDAO">
-                        <SelectParameters>
-                            <asp:Parameter Name="type_code" Type="String" DefaultValue="profess" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-                  </td>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">‰∫∫Âì°È°ûÂà•</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
-                    <asp:DropDownList ID="ddl_ptype" runat="server" DataSourceID="ODS_ptype" 
-                        DataTextField="typ_cname" DataValueField="typ_no">
-                    </asp:DropDownList>
-                    <asp:ObjectDataSource ID="ODS_ptype" runat="server" SelectMethod="GetAll" 
-                        TypeName="NXEIP.DAO.TypesDAO">
-                        <SelectParameters>
-                            <asp:Parameter DefaultValue="ptype" Name="type_code" Type="String" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-                  </td>
-              </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">
-                  <div align="right">Âà∞ËÅ∑Êó•Êúü</div>
-                </div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1">
-                    <uc2:calendar ID="calendar1" runat="server" code="111" />
-                  </td>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">ÁîüÊó•</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
-                    <uc2:calendar ID="calendar2" runat="server" />
-                  </td>
-              </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">ÈÄ£Áµ°Âú∞ÂùÄ</div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield222222243" type="text" size="40" /></td>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">ÈÄ£Áµ°ÈõªË©±</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield" type="text" size="25" /></td>
-                </tr>
-              <tr>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">ÈõªÂ≠êÈÉµ‰ª∂</div></td>
-                <td bgcolor="#EEEEEE" class="a-letter-1">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                  </td>
-                <td bgcolor="#EEEEEE" class="a-letter-2"><div align="right">Ëæ¶ÂÖ¨ÂÆ§ÈõªË©±</div></td>
-                <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1"><input name="textfield3" type="text" size="15" />
-                  <span class="a-letter-2">ÂàÜÊ©üÔºö</span>                  <input name="textfield4" type="text" size="10" /></td>
-                </tr>
-            </table>
-            <table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#FFFFFF">
-              <tr>
-                <td><div align="center">
-                    <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="Á¢∫ÂÆö" 
-                        onclick="Button1_Click" />
-                    &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="ÂèñÊ∂à" />
-                </div><div id="calendarDiv"></div></td>
-              </tr>
-            </table></td>
-        </tr>
-      </table>
-      <!-- InstanceEndEditable --></td>
-  </tr>
-</table>
+    </table>
 </asp:Content>
-

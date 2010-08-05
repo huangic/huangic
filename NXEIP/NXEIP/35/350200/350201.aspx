@@ -96,11 +96,13 @@
                                     GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no" EnableViewState="False"
                                     EmptyDataText="目前無資料" onrowdatabound="GridView1_RowDataBound">
                                     <Columns>
-                                        <asp:BoundField DataField="typ_code" HeaderText="職稱代號" SortExpression="typ_code" />
+                                        <asp:BoundField DataField="typ_number" HeaderText="職稱代號" 
+                                            SortExpression="typ_number" />
                                         <asp:BoundField DataField="typ_cname" HeaderText="職稱 " SortExpression="typ_cname" />
                                         <asp:BoundField DataField="typ_order" HeaderText="排列順序" SortExpression="typ_order" />
                                         <asp:BoundField DataField="typ_createuid" HeaderText="修建者" SortExpression="typ_createuid" />
-                                        <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" SortExpression="typ_createtime" />
+                                        <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" 
+                                            SortExpression="typ_createtime" DataFormatString="{0:yyyy-MM-dd hh:mm}" />
                                         
                                          <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
 					                        <ItemTemplate >
@@ -110,6 +112,7 @@
                                                  <asp:Image ImageUrl="~/image/edit.gif" runat="server" />
                                              </a>                
 					                        </ItemTemplate>
+				                             <ItemStyle HorizontalAlign="Center" />
 				                         </asp:TemplateField>
                                         
                                         
