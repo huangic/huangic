@@ -12,11 +12,6 @@ using Entity;
 
 namespace NXEIP.DAO
 {
-   
-    
-    
-    
-    
     
     public class TypesDAO
     {
@@ -30,63 +25,41 @@ namespace NXEIP.DAO
 
         private NXEIPEntities model = new NXEIPEntities();
 
-
-
-        public types GetTypes(int typ_no) {
+        public types GetTypes(int typ_no)
+        {
             return (from t in model.types where t.typ_no == typ_no select t).FirstOrDefault();
-        
+
         }
 
 
 
         public IQueryable<types> GetAll(String type_code)
         {
-
-
-
-
-
             return (from t in model.types
-                    where t.typ_status == "1" && t.typ_number == type_code orderby t.typ_order select t);
-
-
-
-
-
+                    where t.typ_status == "1" && t.typ_code == type_code orderby t.typ_order select t);
         }
 
 
         public IQueryable<types> GetAll(String type_code, int startRowIndex, int maximumRows)
         {
-
-
             return GetAll(type_code).Skip(startRowIndex).Take(maximumRows);
-
-
-
-
-
         }
 
 
         public int GetAllCount(String type_code)
         {
-
-
             return GetAll(type_code).Count();
-
-
-
-
 
         }
 
 
-        public void AddTypes(types type){
+        public void AddTypes(types type)
+        {
             model.AddTotypes(type);
         }
 
-        public int Update() {
+        public int Update()
+        {
             return model.SaveChanges();
         }
 
