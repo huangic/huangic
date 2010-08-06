@@ -148,7 +148,7 @@ public partial class _35_350100_350101_3 : System.Web.UI.Page
 
         #region 記錄log
 
-        new DBObject().ExecuteOperates(350101, new SessionObject().sessionUserID, 3, "");
+        new OperatesObject().ExecuteOperates(350101, new SessionObject().sessionUserID, 3, "");
         
         #endregion
 
