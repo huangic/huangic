@@ -34,9 +34,12 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             newPeople.peo_workid = this.tbox_workid.Text;
 
             //照片
-            newPeople.peo_picture = this.FileUpload1.Get_FileByte;
             newPeople.peo_filename = this.FileUpload1.Get_FileName;
-
+            if (!this.FileUpload1.Get_FileName.Equals(""))
+            {
+                newPeople.peo_picture = this.FileUpload1.Get_FileByte;
+            }
+            
             //部門
             int dep_no = Convert.ToInt32(this.jQueryDepartTree1.Items[0].Key);
             newPeople.departments = (from d in model.departments where d.dep_no == dep_no select d).First();
@@ -73,9 +76,66 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             model.AddTopeople(newPeople);
             model.SaveChanges();
 
+            //預設帳號{1:人事編號,2:員工帳號}  密碼，{1:身份證末4碼,2:同人事編號}
+            string arg = "", acc_login = "", acc_passwd = "";
+            arg = new ArgumentsObject().Get_argValue("320205_accounts");
+            if (arg.Equals("2"))
+            {
+                acc_login = this.tbox_account.Text;
+            }
+            else
+            {
+                acc_login = this.tbox_workid.Text;
+            }
+
+            arg = new ArgumentsObject().Get_argValue("320205_passwd");
+            if (arg.Equals("1"))
+            {
+                acc_passwd = this.tbox_cardid.Text.Substring(this.tbox_cardid.Text.Length - 4, 4);
+            }
+            else
+            {
+                acc_passwd = this.tbox_workid.Text;
+            }
+
+            accounts accountable = new accounts();
+
+            accountable.acc_login = acc_login;
+            accountable.acc_passwd = acc_passwd;
+            accountable.acc_status = "1";
+            accountable.acc_createuid = Convert.ToInt32(peo_uid);
+            accountable.acc_createtime = System.DateTime.Now;
+            accountable.people = newPeople;
+            model.AddToaccounts(accountable);
+            model.SaveChanges();
+
+            DBObject dbo = new DBObject();
+
+            //角色權限 1.部門預設角色 2.系統預設角色
+            string rol_no = "";
+            string defrole = dbo.ExecuteScalar("select rol_no from roldefault where dep_no =" + dep_no);
+            if (!defrole.Equals(""))
+            {
+                rol_no = defrole;
+            }
+            else
+            {
+                rol_no = dbo.ExecuteScalar("select rol_no from role where rol_default='1'");
+            }
+            //尋找 rac_no 最大值
+            int rac_no = 0;
+            try
+            {
+                rac_no = Convert.ToInt32(dbo.ExecuteScalar("select max(rac_no) as rac_no from roleaccount"));
+            }
+            catch { }
+
+            dbo.ExecuteNonQuery("insert into roleaccount (rol_no,rac_no,acc_no) values (" + rol_no + "," + rac_no + "," + accountable.acc_no + ")");
+
             //操作記錄
-            new Operates().ExecuteOperates(350205, peo_uid, 1, "新增人員-peo_uid:" + newPeople.peo_uid);
-            
+            new OperatesObject().ExecuteOperates(350205, peo_uid, 1, "新增人員-peo_uid:" + newPeople.peo_uid);
+
+            this.ShowMSG("人員新增完成!");
         }
 
     }
