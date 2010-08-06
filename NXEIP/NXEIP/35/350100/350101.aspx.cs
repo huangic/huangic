@@ -44,7 +44,7 @@ public partial class _35_350100_350101 : System.Web.UI.Page
             {
                 if (this.GridView1.Rows[i].Cells[4].Text.Equals("預設角色"))
                 {
-                    new DBObject().ExecuteNonQuery("update role set rol_default = null where rol_no = " + this.GridView1.DataKeys[i].Value.ToString());
+                    new DBObject().ExecuteNonQuery("update role set rol_default = '2' where rol_no = " + this.GridView1.DataKeys[i].Value.ToString());
                 }
             }
 

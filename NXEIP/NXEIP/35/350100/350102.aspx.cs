@@ -87,8 +87,8 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         //尋找人員帳號acc_no
         string acc_no = dbo.ExecuteScalar("select acc_no from accounts where peo_uid = " + peo_uid);
 
-        //尋找人員帳號角色 rac_no 最大值
-        sql = "select max(rac_no) as rac_no from roleaccount where acc_no = " + acc_no;
+        //尋找 rac_no 最大值
+        sql = "select max(rac_no) as rac_no from roleaccount";
         int rac_no = 0;
         try
         {
