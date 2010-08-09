@@ -12,7 +12,8 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 {
     
     private NXEIPEntities model=new NXEIPEntities();
-    
+
+    private SessionObject sessionObj = new SessionObject();
     public void ProcessRequest (HttpContext context) {
         
         
@@ -27,7 +28,7 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
             //搬移
         
        
-        SessionObject sessionObj=new SessionObject();
+        
         
         context.Response.ContentType = "text/plain";
         
@@ -101,6 +102,36 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
         }
 
 
+        if (!String.IsNullOrEmpty(handle) && handle.Equals("create")) {
+            try
+            {
+                //新增一個目錄節點
+                doc01 newFolder = new doc01();
+               
+                newFolder.d01_name = "新資料夾";
+                newFolder.d01_parentid = pid;
+                newFolder.d01_createuid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                newFolder.d01_createtime = DateTime.Now;
+                newFolder.d01_son = 2;
+                newFolder.peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                model.doc01.AddObject(newFolder);
+                model.SaveChanges();
+                String new_id = newFolder.d01_no.ToString();
+                
+                
+                context.Response.Write("{'process':'success','id':" + new_id + "}");
+                return;
+            }
+            catch (Exception ex)
+            {
+                
+                context.Response.Write(ex.Message);
+                return;
+            }
+        }
+        
+
+
         context.Response.Write("error handle");
         }
         
@@ -125,7 +156,8 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
         }
 
     }
-    
+
+    #region 處理目錄是否有子目錄
     /// <summary>
     /// 處理目錄是否有子目錄
     /// </summary>
@@ -141,9 +173,10 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
         parentFolder.d01_son = count > 0 ? 1 : 2;
 
         model.SaveChanges();
-        
-        
-      
+
+
+
     }
-    
+    #endregion
+
 }
