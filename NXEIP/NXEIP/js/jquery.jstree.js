@@ -3517,7 +3517,8 @@
 				if(!cnms.length || !nms.length) { return true; }
 				cnms = cnms.sort().join(",,").replace(/(,|^)([^,]+)(,,\2)+(,|$)/g,"$1$2$4").replace(/,,+/g,",").replace(/,$/,"").split(",");
 				if((cnms.length + nms.length) != cnms.concat(nms).sort().join(",,").replace(/(,|^)([^,]+)(,,\2)+(,|$)/g,"$1$2$4").replace(/,,+/g,",").replace(/,$/,"").split(",").length) {
-					return false;
+					//alert("資料夾("+nms+")名稱重複");
+                    return false;
 				}
 				return true;
 			},

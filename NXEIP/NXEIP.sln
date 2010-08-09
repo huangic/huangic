@@ -1,13 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "NXEIP", "NXEIP\", "{EA109C94-82ED-440D-B417-C4ED75C47D89}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "Svn"
 		SccAuxPath = "Svn"
 		SccLocalPath = "Svn"
 		SccProvider = "SubversionScc"
-		TargetFramework = "3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{5F61E3F1-90F0-4D7A-8C93-0046E698C1BB}|SWFUploadAPI.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/NXEIP"
 		Debug.AspNetCompiler.PhysicalPath = "NXEIP\"

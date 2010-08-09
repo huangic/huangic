@@ -130,8 +130,8 @@ $(function() {
 
                .bind("dblclick_node.jstree",reloadNodeFile)
                .bind("move_node.jstree", moveNode)
-
-
+               .bind("create_node.jstree", addNode)
+               .bind("rename_node.jstree",renameNode)
 
 
 
@@ -159,7 +159,7 @@ function moveNode(obj, ref, position, is_copy, is_prepared, skip_check){
 //目錄搬移
  
  
-alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
+//alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
 
 
   url="FolderHandle.ashx"
@@ -218,4 +218,26 @@ function AjaxHandle(url,data,onSuccess,onError){
         success: onSuccess,
         error: onError
     });
+}
+
+function addNode(obj, position, js, callback, is_loaded) {
+    //alert("New");
+
+    url = "FolderHandle.ashx"
+    data = { handle: "create",
+        //id: position.rslt..attr("id"),
+        pid: position.rslt.parent.attr("id")
+    };
+    AjaxHandle(url, data, handleAddNode, $.noop());
+
+
+    
+}
+
+function renameNode(obj, val) {
+    //alert("rename");
+}
+
+function handleAddNode(data) {
+    alert(data);
 }

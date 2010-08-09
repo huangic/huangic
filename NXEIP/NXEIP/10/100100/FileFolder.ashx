@@ -25,13 +25,18 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
             ICollection<FolderJSON> fs = new List<FolderJSON>();
 
             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid==peo_uid select f;
-             
-            foreach(var folder in folders){
+            try
+            {
+                foreach (var folder in folders)
+                {
 
-                FolderJSON f = new EntityFolderJSON(folder);
+                    FolderJSON f = new EntityFolderJSON(folder);
 
-              fs.Add(f);
-    
+                    fs.Add(f);
+
+                }
+            }
+            catch { 
             }
 
             return fs;
