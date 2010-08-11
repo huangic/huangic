@@ -225,6 +225,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
 
     private void ShowMSG(string msg)
     {
+        //ClientScript.RegisterStartupScript(typeof(_35_350200_350205), "msg", "<script>alert('" + msg + "');</script>",true);
         this.Page.RegisterStartupScript("msg", "<script>alert('" + msg + "');</script>");
     }
 }
