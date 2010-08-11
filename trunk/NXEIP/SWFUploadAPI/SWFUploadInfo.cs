@@ -10,7 +10,7 @@ namespace IMMENSITY.SWFUploadAPI
         /// </summary>
         public SWFUploadInfo()
         {
-            this.Upload_url = "/Upload/index";
+            this.Upload_url = "~/lib/SWFUpload/upload.aspx";
             this.Path = "/upload/";
             this.File_size_limit = 2;
             this.File_types = "*.*";

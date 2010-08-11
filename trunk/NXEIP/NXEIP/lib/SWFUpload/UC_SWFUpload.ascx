@@ -30,7 +30,7 @@ Inherits="lib.SWFUpload.UC_SWFUpload"%>
 		    
 		    //upload_url: "lib/SWFUpload/upload.aspx",
 		    
-		    upload_url: "<%=Page.ResolveUrl("~/lib/SWFUpload/upload.aspx")%>",
+		    upload_url: "<%=Page.ResolveUrl(SwfUploadInfo.Upload_url)%>",
 		    
 		    button_disabled : <%=((SwfUploadInfo.File_upload_limit - SwfUploadInfo.Exist_file_count)<= 0 && SwfUploadInfo.File_upload_limit!=0)  ? "true" : "false" %>,
 		    button_placeholder_id:  "<%= this.GetControlId("spanButtonPlaceholder") %>",

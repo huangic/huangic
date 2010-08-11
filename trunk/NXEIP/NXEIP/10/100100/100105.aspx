@@ -12,7 +12,25 @@
      <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
 
-      
+      <script type="text/javascript">
+          function update(msg) {
+
+             
+              tb_remove();
+
+
+              alert(msg);
+          }
+
+          function pageLoad(sender, args) {
+              if (args.get_isPartialLoad()) {
+                  //  reapply the thick box stuff
+                  tb_init('a.thickbox input.thickbox');
+              }
+          }
+    
+    
+    </script>
      
 
       
@@ -39,11 +57,11 @@
     
     <div class="fileTable">
             <div id="toolbar" style="text-align:right">
-                <input id="addFile" type="button"  value="上傳" class="b-input" />
-                <input id="Button1" type="button"  value="搬移" class="b-input" />
-                <input id="Button2" type="button"  value="複製" class="b-input" />
-                <input id="Button3" type="button"  value="權限" class="b-input" />
-                <input id="Button4" type="button"  value="公開" class="b-input" />
+                <input id="addFile" type="button" alt="100105-1.aspx?modal=true&TB_iframe=true" value="上傳" class="thickbox b-input" />
+                <input id="Button1" type="button"  value="搬移" class="thickbox b-input" />
+                <input id="Button2" type="button"  value="複製" class="thickbox b-input" />
+                <input id="Button3" type="button"  value="權限" class="thickbox b-input" />
+                <input id="Button4" type="button"  value="公開" class="thickbox b-input" />
             </div>
             <table id="filelist" >
             </table>
