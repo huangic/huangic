@@ -31,20 +31,16 @@ namespace NXEIP.DAO
 
         }
 
-
-
         public IQueryable<types> GetAll(String type_code)
         {
             return (from t in model.types
                     where t.typ_status == "1" && t.typ_code == type_code orderby t.typ_order select t);
         }
 
-
         public IQueryable<types> GetAll(String type_code, int startRowIndex, int maximumRows)
         {
             return GetAll(type_code).Skip(startRowIndex).Take(maximumRows);
         }
-
 
         public int GetAllCount(String type_code)
         {
