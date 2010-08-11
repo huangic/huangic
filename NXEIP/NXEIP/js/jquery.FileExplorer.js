@@ -9,7 +9,9 @@ jquery.jqGrid
 
 
 
-$(function() {
+$(function () {
+    tb_init('a.thickbox input.thickbox');
+
     $.ajaxSetup({ cache: false });
 
     $("#accordion").accordion({
@@ -30,7 +32,7 @@ $(function() {
                 "dataType": "json",
                 "async": "true",
                 "data":
-                        function(n) {
+                        function (n) {
                             return {
                                 "operation": "get_children",
                                 "id": n.attr ? n.attr("id") : 0
@@ -51,37 +53,37 @@ $(function() {
         "crrm": {
             move: {
                 default_position: "inside",
-                check_move: function(m) {
-                        
-                        //需要判斷是不是同一個父代
-                        if(m.op.attr("id")==m.np.attr("id")){return false};
-                        
-                        if(m.np.attr("tagName")=="DIV"){return false;}
-                        
-                        
-                        
-                        if(m.p === "before" || m.p === "after"){return false;}
-                       //  var p = this._get_parent(m.o);
-	                  //     if(!p) return false;
-	                  //      p = p == -1 ? this.get_container() : p;
-	                  //      if(p === m.np) return true;
-	                  //  if(p[0] && m.np[0] && p[0] === m.np[0]) return true;
-	               
-	                    
-	                    return true;
+                check_move: function (m) {
+
+                    //需要判斷是不是同一個父代
+                    if (m.op.attr("id") == m.np.attr("id")) { return false };
+
+                    if (m.np.attr("tagName") == "DIV") { return false; }
+
+
+
+                    if (m.p === "before" || m.p === "after") { return false; }
+                    //  var p = this._get_parent(m.o);
+                    //     if(!p) return false;
+                    //      p = p == -1 ? this.get_container() : p;
+                    //      if(p === m.np) return true;
+                    //  if(p[0] && m.np[0] && p[0] === m.np[0]) return true;
+
+
+                    return true;
                 }
 
             }
         },
 
         "dnd": {
-        "drag_target": false,//"tr[aria-selected='true']", 
-        
-        
-            "drop_finish": function() {
+            "drag_target": false, //"tr[aria-selected='true']", 
+
+
+            "drop_finish": function () {
                 alert("DROP");
             },
-            "drag_check": function(data) {
+            "drag_check": function (data) {
                 if (data.r.attr("id") == "userFolder") {
                     alert("NO");
                     return false;
@@ -92,34 +94,34 @@ $(function() {
                     inside: true
                 };
             },
-            "drag_finish": function() {
+            "drag_finish": function () {
                 alert("DRAG OK");
             }
         },
-        "contextmenu":{
-            items:{
-                "create" : {
-                   "label": "新增資料夾"
-					},
-					"rename": {
-					   
-					    "label": "更名"
-					    
-					},
-					"remove": {
-					   
-					    
-					    
-					    "label": "刪除"
-					  
-					}
-				
+        "contextmenu": {
+            items: {
+                "create": {
+                    "label": "新增資料夾"
+                },
+                "rename": {
+
+                    "label": "更名"
+
+                },
+                "remove": {
+
+
+
+                    "label": "刪除"
+
+                }
+
             }
         },
 
 
 
-        "plugins": ["themes", "json_data", "core", "ui", "dnd", "crrm", "contextmenu", "unique"]
+        "plugins": ["themes", "json_data", "core", "ui", "dnd", "crrm", "contextmenu", "unique", "cookies"]
 
 
 
@@ -128,11 +130,11 @@ $(function() {
     })
 
 
-               .bind("dblclick_node.jstree",reloadNodeFile)
+               .bind("dblclick_node.jstree", reloadNodeFile)
                .bind("move_node.jstree", moveNode)
                .bind("create_node.jstree", addNode)
-               .bind("rename_node.jstree",renameNode)
-
+               .bind("rename_node.jstree", renameNode)
+               .bind("delete_node.jstree", deleteNode)
 
 
 
@@ -208,36 +210,60 @@ function showFile(id) {
 
 }
 
-function AjaxHandle(url,data,onSuccess,onError){
-     $.ajax({
-        type: "POST",
-        url: url,
-        data: data,
-        //contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: onSuccess,
-        error: onError
-    });
+function AjaxHandle(url,data,onSuccess,onError,obj){
+     $.post(url,data,onSuccess,"json");
 }
 
 function addNode(obj, position, js, callback, is_loaded) {
     //alert("New");
-
+   
     url = "FolderHandle.ashx"
     data = { handle: "create",
-        //id: position.rslt..attr("id"),
+        //id: position.rslt.obj.attr("id"),
         pid: position.rslt.parent.attr("id")
     };
     AjaxHandle(url, data, handleAddNode, $.noop());
 
-
+    function handleAddNode(data) {
+        //alert(position.rslt.obj);
+        //寫入新ID
+        position.rslt.obj.attr("id", data.id);
+    }
     
 }
 
 function renameNode(obj, val) {
-    //alert("rename");
+    //alert("New");
+    
+    url = "FolderHandle.ashx"
+    data = { handle: "rename",
+        //id: position.rslt.obj.attr("id"),
+        "id": val.rslt.obj.attr("id"),
+        "name":val.rslt.name
+    };
+    AjaxHandle(url, data, $.noop(), $.noop());
+
+
 }
 
-function handleAddNode(data) {
-    alert(data);
+function deleteNode(obj,val) {
+    //alert("New");
+   
+   if(val.rslt.obj.attr("id")==0) {
+    return false;
+   }
+
+
+
+    url = "FolderHandle.ashx"
+    data = { handle: "delete",
+        //id: position.rslt.obj.attr("id"),
+        "id": val.rslt.obj.attr("id")
+        
+    };
+    AjaxHandle(url, data, $.noop(), $.noop());
+
+
 }
+
+

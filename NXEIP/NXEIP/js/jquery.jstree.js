@@ -681,12 +681,15 @@
 			},
 			rename_node : function (obj, val) {
 				obj = this._get_node(obj);
+                if($(obj).attr("id")==0){return false}
 				this.__rollback();
 				if(obj && obj.length && this.set_text.apply(this, Array.prototype.slice.call(arguments))) { this.__callback({ "obj" : obj, "name" : val }); }
 			},
 			// Basic operations: deleting nodes
 			delete_node : function (obj) {
 				obj = this._get_node(obj);
+                if($(obj).attr("id")==0){return false}
+
 				if(!obj.length) { return false; }
 				this.__rollback();
 				var p = this._get_parent(obj), prev = this._get_prev(obj);

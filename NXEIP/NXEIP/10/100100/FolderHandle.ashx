@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="FolderHandle"%>
+﻿<%@ WebHandler Language="C#" Class="FolderHandle" %>
 
 using System;
 using System.Web;
@@ -37,7 +37,7 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
 
         String handle = context.Request["handle"];
-
+        string newname = context.Request["name"];
 
         int id, pid;
         
@@ -117,9 +117,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 model.doc01.AddObject(newFolder);
                 model.SaveChanges();
                 String new_id = newFolder.d01_no.ToString();
-                
-                
-                context.Response.Write("{'process':'success','id':" + new_id + "}");
+
+                resetChildFolder(pid);
+                context.Response.Write("{\"process\":\"success\",\"id\":\"" + new_id + "\"}");
                 return;
             }
             catch (Exception ex)
@@ -129,9 +129,70 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 return;
             }
         }
+
+
+
+        if (!String.IsNullOrEmpty(handle) && handle.Equals("rename"))
+        {
+            try
+            {
+                //找目錄節點
+                doc01 newFolder = (from f in model.doc01 where f.d01_no==id select f).First();
+
+                if (newFolder != null)
+                {
+
+                    newFolder.d01_name = newname;
+                    newFolder.d01_createuid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                    newFolder.d01_createtime = DateTime.Now;
+                    //newFolder.d01_son = 2;
+                    newFolder.peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                    //model.doc01.AddObject(newFolder);
+                    model.SaveChanges();
+
+                    
+
+                    context.Response.Write("{'process':'success','id':" + id + "}");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                context.Response.Write(ex.Message);
+                return;
+            }
+        }
+
+
+        if (!String.IsNullOrEmpty(handle) && handle.Equals("delete"))
+        {
+            try
+            {
+                //找目錄節點
+                doc01 newFolder = (from f in model.doc01 where f.d01_no == id select f).First();
+
+                if (newFolder != null)
+                {
+
+                    model.doc01.DeleteObject(newFolder);
+
+
+
+                    context.Response.Write("{'process':'success','id':" + id + "}");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                context.Response.Write(ex.Message);
+                return;
+            }
+        }
         
-
-
+        
+        
         context.Response.Write("error handle");
         }
         

@@ -46,7 +46,7 @@ namespace IMMENSITY.SWFUploadAPI
             //默认上传路径
             this.Path = System.Web.HttpContext.Current.Server.MapPath("~/");
             //大图子文件夹
-            this.BigChildPath = "b";
+            this.BigChildPath = "";
             //小图子文件夹
             this.SmallChildPath = "s";
             //水印图片路径
@@ -186,7 +186,13 @@ namespace IMMENSITY.SWFUploadAPI
                 }
                 #endregion
                 #region 检查目录是否存在
+                
+              
+                
                 DirectoryInfo dir = new DirectoryInfo(this.Path + savePath + "/" + this.BigChildPath);
+                
+                
+                
                 //判断大图存放目录是否存在   不存在则创建
                 if (!dir.Exists) { dir.Create(); }
                 if (this.SmallPic)

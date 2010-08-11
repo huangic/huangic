@@ -88,7 +88,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
 
       
-        
+     
 
         //把測試用的HTML清掉
 
@@ -159,8 +159,8 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
 
         mlmenu.Controls.Add(MainMenu);
-    
 
+        menudataset.Dispose();
     
     }
 
