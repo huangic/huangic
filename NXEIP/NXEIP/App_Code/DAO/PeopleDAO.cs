@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Web;
 using Entity;
-
-
-
 
 namespace NXEIP.DAO
 {
@@ -20,7 +18,6 @@ namespace NXEIP.DAO
             // TODO: 在此加入建構函式的程式碼
             //
         }
-
 
         private NXEIPEntities model = new NXEIPEntities();
 
