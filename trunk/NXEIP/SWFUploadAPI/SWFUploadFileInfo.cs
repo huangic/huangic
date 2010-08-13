@@ -26,5 +26,13 @@ namespace IMMENSITY.SWFUploadAPI
         /// 文件存放路径
         /// </summary>
         public string Path = string.Empty;
+        /// <summary>
+        /// 檔案大小(KB)
+        /// </summary>
+        public int Size = 0;
+        /// <summary>
+        /// 延伸檔名
+        /// </summary>
+        public string Extension = string.Empty;
     }
 }

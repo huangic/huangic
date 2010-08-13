@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using lib.SWFUpload;
+using Entity;
 
 namespace lib.SWFUpload
 {
@@ -44,6 +45,8 @@ namespace lib.SWFUpload
             string[] imgExtension = new string[] { "jpg", "gif", "png", "bmp" };
             //已上传文件的文件名
             string nameList = SWFUrlOper.GetFormStringParamValue("data");
+            //可上傳空間大小(MB)
+            double quota = 100;
             try
             {
                 // 获取上传的文件信息
@@ -51,13 +54,53 @@ namespace lib.SWFUpload
                 string extension = string.Empty;
                 string fileName = string.Empty;
                 //bool isImg = false;
+                
+              
+                
+                
+                
                 if (file_upload.ContentLength > 0)
                 {
+                    int KBsize=(int)Math.Ceiling(((decimal)file_upload.ContentLength)/1024);
+                    
                     fileName = file_upload.FileName;
                     if (fileName.IndexOf(".") != -1)
                         extension = fileName.Substring(fileName.LastIndexOf(".") + 1, fileName.Length - fileName.LastIndexOf(".") - 1);
 
                     SWFUploadFile uf = new SWFUploadFile();
+
+
+                    //判斷重復檔名
+                    NXEIPEntities model = new NXEIPEntities();
+
+                    SessionObject sessionObj = new SessionObject();
+                    //要改用COOKIES的值來判斷
+                    int peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
+
+                    var files = from d in model.doc01
+                                where d.peo_uid == peo_uid && d.d01_file.ToLower() == file_upload.FileName.ToLower()
+                                select d;
+                    if (files.Count() > 0)
+                    {
+                        Response.StatusCode = 500;
+                        Response.Write("檔案重複上傳");
+                    }
+
+                    //判斷TOTAL檔案空間
+                   //使用資料庫判斷 減少IO
+                    var currentsize = (from d2 in model.doc02
+                                         from d in model.doc01
+                                         where d.d01_no == d2.d01_no && d.peo_uid == peo_uid
+                                         select d2).Sum(c=>c.d02_KB);
+
+                    double total = currentsize.GetValueOrDefault(0) + KBsize;
+
+                    if (((total) / 1024) >= quota) {
+                        Response.StatusCode = 500;
+                        Response.Write("空間不足");
+                    }
+
+                    
                     if (isSmall)
                     {
                         uf.SmallPic = true;
@@ -93,7 +136,9 @@ namespace lib.SWFUpload
                         Id = listufi.Count,
                         FileName = newFileName,
                         OriginalFileName = fileName,
-                        Path = savePath
+                        Path = savePath,
+                        Size=KBsize,
+                        Extension=extension
                     });
                     string postData = "";
                     //序列化
