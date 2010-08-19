@@ -8,7 +8,9 @@ using Entity;
 using System.Linq;
 using System.Web.SessionState;
 using FileManager;
-
+/// <summary>
+/// 檔案處理
+/// </summary>
 public class FileFolder : IHttpHandler,IRequiresSessionState
 {
     
@@ -19,27 +21,30 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// <param name="peo_uid"></param>
     /// <returns></returns>
      private ICollection<FolderJSON> getRootFilder(int pid,int peo_uid){
-     
-          NXEIPEntities model=new NXEIPEntities();
-         
-            ICollection<FolderJSON> fs = new List<FolderJSON>();
 
-            var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid==peo_uid select f;
-            try
-            {
-                foreach (var folder in folders)
-                {
+         using (NXEIPEntities model = new NXEIPEntities())
+         {
 
-                    FolderJSON f = new EntityFolderJSON(folder);
+             ICollection<FolderJSON> fs = new List<FolderJSON>();
 
-                    fs.Add(f);
+             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid select f;
+             try
+             {
+                 foreach (var folder in folders)
+                 {
 
-                }
-            }
-            catch { 
-            }
+                     FolderJSON f = new EntityFolderJSON(folder);
 
-            return fs;
+                     fs.Add(f);
+
+                 }
+             }
+             catch
+             {
+             }
+
+             return fs;
+         }
         }
     
     /// <summary>
@@ -47,25 +52,29 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// </summary>
     /// <param name="pid"></param>
     /// <returns></returns>
-     private ICollection<FolderJSON> getFilder(int pid){
-     
-          NXEIPEntities model=new NXEIPEntities();
-         
-            ICollection<FolderJSON> fs = new List<FolderJSON>();
+     private ICollection<FolderJSON> getFilder(int pid)
+     {
 
-            var folders = from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f;
-             
-            foreach(var folder in folders){
+         using (NXEIPEntities model = new NXEIPEntities())
+         {
 
-             FolderJSON f = new EntityFolderJSON(folder);
+             ICollection<FolderJSON> fs = new List<FolderJSON>();
+
+             var folders = from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f;
+
+             foreach (var folder in folders)
+             {
+
+                 FolderJSON f = new EntityFolderJSON(folder);
 
 
-            fs.Add(f);
-    
-            }
+                 fs.Add(f);
 
-            return fs;
-        }
+             }
+
+             return fs;
+         }
+     }
     
     
     public void ProcessRequest (HttpContext context) {

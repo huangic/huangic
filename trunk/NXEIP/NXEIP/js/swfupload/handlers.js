@@ -118,11 +118,11 @@ function fileQueueError(file, errorCode, message) {
                 if (message > 0) {
                     errorMsg = "您只能上傳" + message + "個檔案!";
                 } else {
-                    errorMsg = "您不可继续上傳檔案!";
+                    errorMsg = "您不可繼續上傳檔案!";
                 }
                 break;
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                errorMsg = "您不可上傳長度為0的檔案";
+                errorMsg = "您不可上傳大小為0的檔案";
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                 errorMsg = "文件不可大於" + this.settings.file_size_limit;
@@ -131,6 +131,7 @@ function fileQueueError(file, errorCode, message) {
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
             default:
                 alert(message);
+               // progress.setStatus("message");
                 break;
         }
         if (errorMsg !== "") {
@@ -295,7 +296,12 @@ function uploadError(file, errorCode, message) {
                     this.debug(ex2);
                 }
             default:
-                alert(message);
+                progress = GetFileProgressObject(this.customSettings, file, this.customSettings.upload_target);
+                progress.setCancelled();
+                progress.setStatus("伺服器拒絕上傳");
+                progress.toggleCancel(false); 
+                
+                //alert(message);
                 break;
         }
     } catch (ex3) {

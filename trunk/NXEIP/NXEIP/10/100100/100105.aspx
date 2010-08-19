@@ -13,13 +13,12 @@
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
 
       <script type="text/javascript">
-          function update(msg) {
+          function update() {
 
-             
               tb_remove();
 
-
-              alert(msg);
+              $('#filelist').trigger("reloadGrid");
+              
           }
 
           function pageLoad(sender, args) {
@@ -28,7 +27,17 @@
                   tb_init('a.thickbox input.thickbox');
               }
           }
-    
+
+          $(function () {
+              $("#accordion").accordion({
+                  fillSpace: true
+              });
+              $("#folderTree").fileManager(
+              { treeDiv: "#userFolder",
+                  fileDiv: "#filelist"
+              }
+              );
+          });
     
     </script>
      
@@ -58,12 +67,12 @@
     <div class="fileTable">
             <div id="toolbar" style="text-align:right">
                 <input id="addFile" type="button" alt="100105-1.aspx?modal=true&TB_iframe=true" value="上傳" class="thickbox b-input" />
-                <input id="Button1" type="button"  value="搬移" class="thickbox b-input" />
+                <input id="moveFile" type="button" alt="100105-2.aspx?modal=true&width=300&TB_iframe=true" value="搬移" class="thickbox b-input" />
                 <input id="Button2" type="button"  value="複製" class="thickbox b-input" />
                 <input id="Button3" type="button"  value="權限" class="thickbox b-input" />
                 <input id="Button4" type="button"  value="公開" class="thickbox b-input" />
             </div>
-            <table id="filelist" >
+            <table id="filelist">
             </table>
     </div>
 </div>
