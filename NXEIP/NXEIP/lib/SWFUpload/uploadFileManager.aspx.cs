@@ -84,6 +84,8 @@ namespace lib.SWFUpload
                     {
                         Response.StatusCode = 500;
                         Response.Write("檔案重複上傳");
+                        HttpContext.Current.ApplicationInstance.CompleteRequest();
+                        return;
                     }
 
                     //判斷TOTAL檔案空間
@@ -98,6 +100,8 @@ namespace lib.SWFUpload
                     if (((total) / 1024) >= quota) {
                         Response.StatusCode = 500;
                         Response.Write("空間不足");
+                        HttpContext.Current.ApplicationInstance.CompleteRequest();
+                        return;
                     }
 
                     

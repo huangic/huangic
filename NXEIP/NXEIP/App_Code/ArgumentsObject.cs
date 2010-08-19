@@ -22,18 +22,21 @@ public class ArgumentsObject
         try
         {
 
-            System.Data.DataTable mytable = new DBObject().ExecuteQuery("select arg_value from arguments where arg_variable = '" + var + "'");
-
-            if (mytable.Rows.Count > 0)
+            using (System.Data.DataTable mytable = new DBObject().ExecuteQuery("select arg_value from arguments where arg_variable = '" + var + "'"))
             {
-                argValue = mytable.Rows[0]["arg_value"].ToString();
+
+                if (mytable.Rows.Count > 0)
+                {
+                    argValue = mytable.Rows[0]["arg_value"].ToString();
+                }
             }
         }
         catch
         {
         }
+        
 
-
+        
         return argValue;
     }
 }
