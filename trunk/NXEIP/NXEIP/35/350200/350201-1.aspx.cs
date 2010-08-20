@@ -18,7 +18,10 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //編輯模式
-
+        
+        //送出後DISABLE按鈕
+        this.btn_ok.Attributes.Add("onclick", "this.value='送出中...';this.disabled=true;" + 
+            ClientScript.GetPostBackEventReference(this.btn_ok, "").ToString());
 
         if (!Page.IsPostBack)
         {
