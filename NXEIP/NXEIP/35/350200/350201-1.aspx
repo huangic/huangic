@@ -134,7 +134,7 @@
                                             <td>
                                                 <div align="center">
                                                     <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" 
-                                                       OnClick="btn_ok_Click"  />
+                                                       OnClick="btn_ok_Click"/>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.tb_remove()"  UseSubmitBehavior="false"/>
                                                     &nbsp;</div>
