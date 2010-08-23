@@ -56,6 +56,13 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
             this.CopyFile(context, json);
             return;
         }
+
+        if (handle == "delete")
+        {
+            this.DeleteFile(context, json);
+            return;
+        }
+        
         
         
         context.Response.Write("{msg:error handle}");
@@ -112,18 +119,9 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
        int parent_id = int.Parse((string)json["folderId"]);
-       ArgumentsObject args = new ArgumentsObject();
-       string upload_dir=args.Get_argValue("upload_dir");
        string Msg = String.Empty;
-       
-       
-       //抓系統上傳路徑(空就用系統根木路)
-       if (String.IsNullOrEmpty(upload_dir))
-       {
-           upload_dir=System.Web.HttpContext.Current.Server.MapPath("~/");
-       }
 
-       logger.Debug("上傳根目錄:"+upload_dir);
+       string upload_dir = GetPathArg();
        
            using (NXEIPEntities model = new NXEIPEntities())
            {
@@ -248,8 +246,57 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
            }
        
        }
+
+   private string GetPathArg()
+   {
+       ArgumentsObject args = new ArgumentsObject();
+       string upload_dir = args.Get_argValue("upload_dir");
+
+       //抓系統上傳路徑(空就用系統根木路)
+       if (String.IsNullOrEmpty(upload_dir))
+       {
+           upload_dir = System.Web.HttpContext.Current.Server.MapPath("~/");
+       }
+
+       logger.Debug("上傳根目錄:" + upload_dir);
+       return upload_dir;
+   }
       
+   private void DeleteFile(HttpContext context,JObject json){
+       JArray files = (JArray)json["files"];
+       try
+       {
+           using (NXEIPEntities model = new NXEIPEntities())
+           {
+
+               string FilePath = GetPathArg();
+               foreach (var fid in files)
+               {
+                   int id = int.Parse((string)fid);
+                   var file = (from f in model.doc01 where f.d01_no == id select f).First();
+                   var fileDetial = from f2 in model.doc02 where f2.d01_no == id select f2;
+                   //檔案刪除
+                   //檔案路徑
+                   //
+                   model.DeleteObject(file);
+                   foreach (var d in fileDetial)
+                   {
+
+                       File.Delete(FilePath + d.d02_path);
+                       model.DeleteObject(d);
+                   }
+                   //資料庫刪除
+               }
+
+               model.SaveChanges();
+               context.Response.Write("{\"msg\":\"success\"}");
+           }
+       }
+       catch (Exception ex) {
+           context.Response.Write("{\"msg\":\""+ex.Message+"\"}");
+       }
        
+   }    
        
        
    

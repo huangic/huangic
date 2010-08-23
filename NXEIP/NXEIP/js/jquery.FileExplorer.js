@@ -16,7 +16,50 @@ jquery.jqGrid
 
         $.ajaxSetup({ cache: false });
    
-    
+        
+
+    var del=$(_setting.fileDeleteButton);
+    //alert(del);
+
+    $(del).bind("click",
+        delFile
+    );
+
+
+    function test(){
+        $.log("TEST");
+        alert("test");
+    }
+    //檔案刪除
+    function delFile(){
+         $.log("DelFile");
+        //取GRID的SELECTED
+        var s;
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
+        var data = { 
+            "handle":"delete",
+            "files": s
+
+        };
+        var url = "FileHandle.ashx";
+        var jsonData = JSON.stringify(data) ;
+        AjaxHandle(url, ""+jsonData, success);
+
+        //讀取 FILE 傳入 FOLDER
+        //檢查節點
+        function success(data){
+          if(data.msg=="success"){
+            $( _setting.fileDiv).trigger("reloadGrid");
+          }else{
+            alert(data.msg);
+          }
+
+        };        
+
+    };
+
+
+
 
         //顯示根目錄
         
@@ -313,7 +356,7 @@ jquery.jqGrid
         //設定要搬移的目的地
         var folder_id = $(obj).attr("id");
         var s;
-        s = jQuery("#filelist").jqGrid('getGridParam', 'selarrrow');
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
         var data = { 
             "handle":"move",
             "folderId": folder_id,
@@ -341,7 +384,7 @@ jquery.jqGrid
         //設定要搬移的目的地
         var folder_id = $(obj).attr("id");
         var s;
-        s = jQuery("#filelist").jqGrid('getGridParam', 'selarrrow');
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
         var data = { 
             "handle":"copy",
             "folderId": folder_id,
@@ -356,17 +399,16 @@ jquery.jqGrid
         //檢查節點
         function success(data){
           if(data.msg=="success"){
-          $( _setting.fileDiv).trigger("reloadGrid");
+            $( _setting.fileDiv).trigger("reloadGrid");
           }else{
-           alert(data.msg);
+            alert(data.msg);
           }
 
         }
 
     };
-
-
-
+    
+    
 
 
     }//_init end
@@ -375,13 +417,15 @@ jquery.jqGrid
     $.fn.fileManager=function(settings){
         var _defaultSettings={
             treeDiv:"#treeDiv",
-            fileDiv:"#fileDiv"
+            publicDiv:"#publicDiv",
+            fileDiv:"#fileDiv",
+            fileDeleteButton:"#deleteButton"
            
         };
 
 
         var _settings = $.extend(_defaultSettings, settings);
-
         _init(_settings);
+        
     };
 })(jQuery); 
