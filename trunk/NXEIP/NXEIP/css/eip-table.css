@@ -35,30 +35,7 @@ font-weight:normal;
     
     }
 
-.pager
-{
-     clear: both;
-    color: #999999;
-    line-height: 150%;
-    margin: 0 0 5px;
-    padding: 5px 10px;
-    position: relative;
-    text-align: center;
-    top: 10px;
-    left: 0px;
-}
-    
-.pager span span
-{
-     color: #ff0000;
-    }
-    
-.pager a
-{
-    color: #999999;
-    font-size: 15px;
-    text-decoration:none;
-}
+
 
 
 table .leftheaderbg
@@ -95,5 +72,38 @@ table .footbg
 table .rightfootbg
 {
     width:17px;
+   background-image:url(../image/b02-5.gif);
+}
+
+
+.nav
+{
+   width:97%;
+    background:url("../image/b01-1.gif"); 
+    padding:3px 0px 3px 0px;
+    margin:5px 10px 5px 15px;
+    color:#666666;
+        font-size:13px;
+    text-decoration:none;
+}
+
+.nav span
+{
+  line-height:1.3em;
+   background:url("../image/b01.gif") no-repeat; 
+   background-repeat:no-repeat;
+   padding:3px 0px 3px 17px;
+    
+}
+
+.tableDiv
+{
+
+    width:100%;    
+}
+
+.tableDiv .header
+{
+   width:17px;
    background-image:url(../image/b02-5.gif);
 }
