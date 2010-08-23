@@ -36,6 +36,30 @@
             <asp:Parameter DefaultValue="profess" Name="type_code" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+   
+   
+   <div class="nav"><span>帳號管理 / 人員管理 /<strong> 職稱管理 </strong></span></div>
+
+   <div class="tableDiv">
+    <div class="header">
+        <div class="h1"></div>
+         <div class="h2">職稱管理</div>
+          <div class="h3"><input type="button" class="thickbox b-input" alt="350201-1.aspx?modal=true&TB_iframe=true"
+                                            value="新增職稱"></div>
+           <div class="h4"></div>
+        
+     </div>
+   
+    <div class="foot">
+        <div class="f1"></div>
+        <div class="f2"></div>
+        <div class="f3"></div>
+    </div>
+   </div>
+
+
+
+   
     <table width="100%" cellspacing="20" cellpadding="0" border="0">
         <tbody>
             <tr>
@@ -91,7 +115,7 @@
                                             <ItemTemplate>
                                                 <a id="btnShowPopup" runat="server" class="thickbox" title='<%# Eval("typ_cname", "修改{0}") %>'
                                                     href='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'>
-                                                    <asp:Image ImageUrl="~/image/edit.gif" runat="server" />
+                                                    <asp:Image CssClass="edit" runat="server" />
                                                 </a>
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
@@ -99,7 +123,7 @@
                                         <asp:TemplateField HeaderText="刪除">
                                             <ItemTemplate>
                                                 <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                                    CommandName="disable" ImageUrl="~/image/delete.gif" OnClientClick=" return confirm('確定要刪除?')" />
+                                                    CommandName="disable" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
