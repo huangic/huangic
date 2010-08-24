@@ -1,29 +1,23 @@
-.edit
+.imageButton >span
 {
-   background:url(../image/edit.gif) no-repeat;    
-    
+ *positioned: relative;
+ visibility:hidden;
+ _visibility:visible;/* for IE6 */  
+ _filter:alpha(opacity=0);/* for IE6 */
 }
 
-.delete
+
+
+.edit
 {
     
-    background:url(../image/delete.gif) no-repeat;  
+    background:url(../image/edit.gif) no-repeat;    
+    width:18px;
+    height:16px;
+    text-decoration:none;
 }
-.delete
-{
-    
-    background:url(../image/delete.gif) no-repeat;  
-}
-.delete
-{
-    
-    background:url(../image/delete.gif) no-repeat;  
-}
-.delete
-{
-    
-    background:url(../image/delete.gif) no-repeat;  
-}
+
+
 .delete
 {
     
