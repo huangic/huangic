@@ -1,79 +1,5 @@
-/*表格*/
-
-.tableData 
-{
-     
-}
 
 
-.tableData th,.tableData td
-{
-color:#888888;
-font-family:Arial,Helvetica,sans-serif;
-font-size:13px;
-font-weight:bold;
-line-height:20px;
-text-decoration:none;
-background-color:#eeeeee;
-    
-}
-
-.tableData td
-{
-
-font-weight:normal;
-    
-    }
-
-
-
-
-
-.tableData tr:hover,.tableData tr:hover td
-{ 
-       background-color:Yellow;
-    
-    }
-
-
-
-
-table .leftheaderbg
-{
-   width:17px;
-   background-image:url(../image/b02.gif);
-  
-}
-
-table .rightheaderbg
-{
-   width:17px;
-   background-image:url(../image/b02-2.gif);
-}
-
-table .headerbg 
-{
-     background-image:url(../image/b02-1.gif);
-}
-
-
-table .leftfootbg
-{
-    width:17px;
-   background-image:url(../image/b02-3.gif);
-}
-
-
-table .footbg 
-{
-     background-image:url(../image/b02-4.gif);
-}
-
-table .rightfootbg
-{
-    width:17px;
-   background-image:url(../image/b02-5.gif);
-}
 
 
 .nav
@@ -89,7 +15,7 @@ table .rightfootbg
 
 .nav span
 {
-  line-height:1.3em;
+   line-height:1.3em;
    background:url("../image/b01.gif") no-repeat; 
    background-repeat:no-repeat;
    padding:3px 0px 3px 17px;
@@ -98,12 +24,130 @@ table .rightfootbg
 
 .tableDiv
 {
-
-    width:100%;    
+  
+  
+   width:95%; 
+   margin: 10px auto;   
 }
+
+
+/*header*/
 
 .tableDiv .header
 {
-   width:17px;
-   background-image:url(../image/b02-5.gif);
+  
+  background-image:url(../image/b02-1.gif);
+  height:25px;
 }
+
+
+.tableDiv .header div
+{
+    display:inline-block;    
+}
+
+.tableDiv .header .h1
+{
+     float:left;
+   width:17px;
+   background-image:url(../image/b02.gif);
+  height:25px;
+/*padding:14px 0;*/
+}
+.tableDiv .header .h2
+{
+ 
+}
+
+.tableDiv .header .h2 .name
+{
+   position:absolute;
+   left:180px;
+   
+}
+
+.tableDiv .header .h2 .function
+{
+ 
+  position:absolute;
+  right:180px;
+  
+}
+
+.tableDiv .header .h3
+{
+   
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-2.gif);
+   height:25px;
+}
+
+/*FOOTER*/
+.tableDiv .footer
+{
+  background-image:url(../image/b02-4.gif);
+  height:17px;
+}
+
+.tableDiv .footer .f1
+{
+     float:left;
+   width:17px;
+   background-image:url(../image/b02-3.gif);
+  height:17px;
+}
+.tableDiv .footer .f2
+{
+    
+}
+.tableDiv .footer .f3
+{
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-5.gif);
+    height:17px;
+}
+
+/*表格*/
+
+.tableDiv table,.tableData 
+{
+  width:100%;
+}
+
+
+.tableDiv table th,.tableDiv table td,.tableData th,.tableData td
+{
+color:#888888;
+font-size:13px;
+font-weight:bold;
+line-height:20px;
+text-decoration:none;
+background-color:#eeeeee;
+    
+}
+
+.tableDiv table td,.tableData td
+{
+
+font-weight:normal;
+    
+}
+
+
+
+
+
+.tableData tr:hover,.tableData tr:hover td,.tableDiv table tr:hover,.tableDiv table tr:hover td
+{ 
+       background-color:Yellow;
+    
+}
+
+.tableDiv .bottom
+{
+    
+       margin:10px auto;
+     text-align:center;
+    }

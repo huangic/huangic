@@ -28,21 +28,34 @@
  
 		.mlmenu ul li {
 			display: inline;
-			
-			position: relative; }
+   position : relative; }
+ 
+ 
  
  /*Level 1 MENU 消除文字連結*/
 .mlmenu>ul>li>a {
-	text-indent: -1px;
+	/*text-indent: -1px;*/
+	
 	display: inline-block;
+	
+	
+	*zoom : 1;
+	*display : inline;
 	height: 76px;
 	width: 66px;
-	line-height: 0;
-	font-size: 0;
-	/*overflow: hidden;*/
+	/*line-height: 0;*/
+	/*font-size: 0;*/
+	overflow: hidden;
+
+
 	 }
  
-
+.mlmenu >ul>li>a>span
+{
+  visibility:hidden;
+  _visibility:visible;/* for IE6 */  
+  _filter:alpha(opacity=0);/* for IE6 */ 
+ }
  
 
  /* MENU 
@@ -64,10 +77,12 @@
 	
 	#top: 81px;
 	_top: 81px;
+	
+	position: absolute;
 	left: -50px;
 	padding-top:5px;
 	margin-top: 0px;
-	position: absolute;
+	
 	display: none; }
   /*第三層MENU*/
 	.mlmenu ul li ul li ul {

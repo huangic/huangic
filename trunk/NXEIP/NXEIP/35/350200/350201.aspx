@@ -43,65 +43,18 @@
    <div class="tableDiv">
     <div class="header">
         <div class="h1"></div>
-         <div class="h2">職稱管理</div>
-          <div class="h3"><input type="button" class="thickbox b-input" alt="350201-1.aspx?modal=true&TB_iframe=true"
+         <div class="h2">
+         <div class="name">職稱管理</div>
+         <div class="function"><input type="button" class="thickbox b-input" alt="350201-1.aspx?height=250&TB_iframe=true&modal=true"
                                             value="新增職稱"></div>
-           <div class="h4"></div>
-        
+         </div>
+          <div class="h3"></div>   
      </div>
-   
-    <div class="foot">
-        <div class="f1"></div>
-        <div class="f2"></div>
-        <div class="f3"></div>
-    </div>
-   </div>
 
-
-
-   
-    <table width="100%" cellspacing="20" cellpadding="0" border="0">
-        <tbody>
-            <tr>
-                <td valign="top" height="22">
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td width="17">
-                                    <img width="17" height="22" src="../../image/b01.gif">
-                                </td>
-                                <td background="../../image/b01-1.gif" class="b01">
-                                    帳號管理 / 人員管理 /<strong> 職稱管理 </strong>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td class="leftheaderbg" />
-                                <td class="a02-15 headerbg">
-                                    職稱管理
-                                </td>
-                                <td class="a02-15 headerbg">
-                                    <div align="right">
-                                        <input type="button" class="thickbox b-input" alt="350201-1.aspx?modal=true&TB_iframe=true"
-                                            value="新增職稱">
-                                    </div>
-                                </td>
-                                <td class="rightheaderbg" />
-                            </tr>
-                        </tbody>
-                    </table>
-                    <strong>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="TypesDataSource" AutoGenerateColumns="False"
-                                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" CssClass="tableData"
+                                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3"
                                     GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no" EnableViewState="False"
                                     EmptyDataText="目前無資料" OnRowDataBound="GridView1_RowDataBound">
                                     <Columns>
@@ -113,10 +66,17 @@
                                             DataFormatString="{0:yyyy-MM-dd hh:mm}" />
                                         <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
                                             <ItemTemplate>
-                                                <a id="btnShowPopup" runat="server" class="thickbox" title='<%# Eval("typ_cname", "修改{0}") %>'
+                                               <!--
+                                                <input  type="button" class="thickbox edit" name='<%# Eval("typ_cname", "修改{0}") %>'
+                                                alt='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'
+                                                </input>
+                                               -->
+                                               
+                                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("typ_cname", "修改{0}") %>'
                                                     href='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'>
-                                                    <asp:Image CssClass="edit" runat="server" />
+                                                    <span><span>修改</span></span>
                                                 </a>
+                                               
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
                                         </asp:TemplateField>
@@ -131,18 +91,17 @@
                                 </cc1:GridView>
                             </ContentTemplate>
                         </asp:UpdatePanel>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td class="leftfootbg">
-                                </td>
-                                <td class="footbg">
-                                    &nbsp;
-                                </td>
-                                <td class="rightfootbg">
-                                </td>
-                            </tr>
-                        </table>
-                        <div class="pager">
+
+
+
+   
+    <div class="footer">
+        <div class="f1"></div>
+        <div class="f2"></div>
+        <div class="f3"></div>
+    </div>
+   
+   <div class="pager">
                             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                                 <Fields>
                                     <asp:NextPreviousPagerField ShowNextPageButton="False" />
@@ -151,10 +110,12 @@
                                 </Fields>
                             </asp:DataPager>
                         </div>
-                    </strong>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    </table>
+   
+   
+   </div>
+
+
+
+   
+   
 </asp:Content>
