@@ -1,9 +1,12 @@
-.imageButton >span
+.imageButton span
 {
  *positioned: relative;
  visibility:hidden;
- _visibility:visible;/* for IE6 */  
- _filter:alpha(opacity=0);/* for IE6 */
+/* for IE6 */  
+ /*
+ _visibility:visible;
+ _filter:alpha(opacity=0);
+ */
 }
 
 

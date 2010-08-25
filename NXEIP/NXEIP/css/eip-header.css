@@ -35,7 +35,9 @@
 
 .home span,.logout span,.big span,.middle span,.small span
 {
- visibility:hidden;    
+ 
+  visibility:hidden;
+  overflow:hidden;    
 }
 
 
@@ -56,7 +58,7 @@
     display:inline-block;
 	height:28px;
 	width:25px;
-	
+	overflow:hidden;  
 	
     }
 
