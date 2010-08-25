@@ -88,7 +88,7 @@
 		delay		: 800,
 		animation	: {opacity:'show'},
 		speed		: 'normal',
-		autoArrows	: true,
+		autoArrows	: false,
 		dropShadows : true,
 		disableHI	: false,		// true disables hoverIntent detection
 		onInit		: function(){}, // callback functions
@@ -101,10 +101,12 @@
 			var o = sf.op,
 				not = (o.retainPath===true) ? o.$path : '';
 			o.retainPath = false;
-			var $ul = $(['li.',o.hoverClass].join(''),this).add(this).not(not).removeClass(o.hoverClass)
+			
+            var $ul = $(['li.',o.hoverClass].join(''),this).add(this).not(not).removeClass(o.hoverClass)
 					.find('>ul').hide().css('visibility','hidden');
 			o.onHide.call($ul);
-			return this;
+			
+            return this;
 		},
 		showSuperfishUl : function(){
 			var o = sf.op,

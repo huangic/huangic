@@ -129,16 +129,21 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
             
             a.ID="item"+sys_no;
             a.Attributes["alt"] = MainSys.sys_name;
+            
             //a.InnerText =MainSys.sys_name;
             //因為第一層比較特殊需要SPAN來做隱藏
-            a.Controls.Add(new HtmlGenericControl("span")
-            {
-                InnerText="MainSys.sys_name"
-            }
-                    );
+            
+            HtmlGenericControl span2=new HtmlGenericControl("span"){
+               InnerText=MainSys.sys_name
+               };
+            HtmlGenericControl span1 = new HtmlGenericControl("span");
+            span1.Controls.Add(span2);
+
+            a.Controls.Add(span1);
+              
             
             
-            a.Attributes["class"] = "item" + sys_no;
+            a.Attributes["class"] ="imageMenu "+"item" + sys_no;
             //CSS handle Level one Pic;
 
             String pic = Page.ResolveUrl("~/image/"+ MainSys .sys_defaultpic);

@@ -29,11 +29,13 @@
 		.mlmenu ul li {
 			display: inline;
    position : relative; }
- 
- 
- 
- /*Level 1 MENU 消除文字連結*/
-.mlmenu>ul>li>a {
+
+
+ /*Level 1 MENU 消除文字連結*/ 
+ .mlmenu .imageMenu
+{
+    height: 76px;
+	width: 66px;
 	/*text-indent: -1px;*/
 	
 	display: inline-block;
@@ -41,20 +43,24 @@
 	
 	*zoom : 1;
 	*display : inline;
-	height: 76px;
-	width: 66px;
+	
 	/*line-height: 0;*/
 	/*font-size: 0;*/
 	overflow: hidden;
+	
+    }
+ 
+
+.mlmenu >ul >li >a {
+	
 
 
 	 }
  
-.mlmenu >ul>li>a>span
+.mlmenu  ul li a span
 {
   visibility:hidden;
-  _visibility:visible;/* for IE6 */  
-  _filter:alpha(opacity=0);/* for IE6 */ 
+  
  }
  
 
@@ -78,6 +84,7 @@
 	#top: 81px;
 	_top: 81px;
 	
+	
 	position: absolute;
 	left: -50px;
 	padding-top:5px;
@@ -86,20 +93,25 @@
 	display: none; }
   /*第三層MENU*/
 	.mlmenu ul li ul li ul {
+		clear:both;
+		
 		background-color: #99C2AD;
 		width: 150px;
 		#top: 0px;
-		_top: 0px
+		_top: 0px;
 		top: 20px;
 		left: 1px;
 		list-style-type: none;
 		/*margin-top: 2px;*/
+		margin:0px;
 		padding:0px 0px 0px 0px;
 		z-index:1000;
 		}
  
 		.mlmenu ul li ul li ul li {
+			 clear:both;
 			display: block;
+			
 			margin: 0px 5px 5px 5px; }
  
 	/*
