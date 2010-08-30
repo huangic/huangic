@@ -24,28 +24,73 @@
       <asp:Label id="holder3" runat="server" visible="false"> 右方區塊 </asp:Label>
     </div>
    
+
+ 
     <asp:Panel ID="Panel2" runat="server">
       <div id="func" class="widgetfunc" runat="server">
-        可用Widget功能
+        <h2><span>可用Widget功能</span></h2>
         
-     
-      
-      
-       </div>
-    
+       <!--
+            
+                <li>
+                    <a id="ctl00_ContentPlaceHolder1_Widget-1" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Widget-1&#39;,&#39;&#39;)">個人資訊
+                    </a>
+                </li>
+                <li>
+                    <a id="ctl00_ContentPlaceHolder1_Widget-2" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Widget-2&#39;,&#39;&#39;)">時間
+                    </a>
+                </li>
+                <li>
+                    <a id="ctl00_ContentPlaceHolder1_Widget-3" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Widget-3&#39;,&#39;&#39;)">個人最新消息
+                    </a>
+                </li>
+            
+        -->    
+        
+       
+                
+     </div>
+        
     
     </asp:Panel>
    
    
+
+   
+
+
+
+
+
+
+  
+
     <asp:Panel ID="Panel1"  CssClass="dock" runat="server" visible="false" >
-          <div class="controlPanel" >
-              版型設定|
-                  <input type="button" class="b-input" onclick="saveLayout()"  value="存檔" />
-                  <input type="button" class="a-input" onclick="widget_init()"  value="設定" />
-                  <input type="button" class="a-input" onclick="$('.widgetfunc').slideToggle('slow')"  value="Widget" />
+         
+
+
+              
+
+
+            <div class="controlPanel">
+                
+                
                
+                
+                
+                <div class="head"></div>
+                <ul>
+                    <li><a class="save" onclick="saveLayout()"><span>存檔</span></a></li>
+                    <li><a class="setting" onclick="widget_init()"><span>設定</span></a></li>
+                    <li><a class="widget" onclick="$('.widgetfunc').slideToggle('slow')"><span>Widget</span></a></li>
+                </ul>
             </div>
+
     </asp:Panel>
+
+
+
+
         
         </ContentTemplate>
     
