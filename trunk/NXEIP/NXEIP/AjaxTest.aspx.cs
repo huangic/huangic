@@ -33,10 +33,15 @@ public partial class AjaxTest : System.Web.UI.Page
         SWFUploadFileInfo uf = new SWFUploadFileInfo();
         DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(SWFUploadFileInfo));
         System.IO.MemoryStream ms = new System.IO.MemoryStream();
-        serializer.WriteObject(ms, uf);   
+        serializer.WriteObject(ms, uf);
 
-       
 
+        if (!this.IsPostBack)
+        {
+            this.jQueryDepartTree1.Clear();
+            this.jQueryDepartTree1.Add("1");
+           
+        }
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

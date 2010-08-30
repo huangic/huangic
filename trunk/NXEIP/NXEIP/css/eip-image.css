@@ -15,14 +15,21 @@
 {
     
     background:url(../image/edit.gif) no-repeat;    
-    width:18px;
-    height:16px;
-    text-decoration:none;
+       border:0 none;
+        height:18px;
+        width:18px;
+         cursor:hand;
+         text-decoration:none;
+  
 }
 
 
 .delete
 {
-    
+    border:0 none;
+    height:18px;
+    width:18px;
     background:url(../image/delete.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
 }

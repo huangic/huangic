@@ -352,6 +352,10 @@ namespace NXEIP.Widget
             //this.func.Controls.Clear();
             HtmlGenericControl HtmlUl = new HtmlGenericControl("ul");
 
+            //Control HtmlUl = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv).FindControl("funcUl");
+
+
+
             //取出可以用的WIDGET(TYPE =P status=1)
             var widgets = from w in model.widget where w.wid_status.Equals("1") && w.wid_type.Equals(this.PageType) select w;
 
@@ -374,7 +378,18 @@ namespace NXEIP.Widget
 
             }
 
-            Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv).Controls.Add(HtmlUl);
+            Control ParentDiv = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv);
+
+
+
+            ParentDiv.Controls.Add(HtmlUl);
+
+            HtmlGenericControl htmlDiv=new HtmlGenericControl("div");
+            htmlDiv.Attributes["class"]="footer";
+
+
+
+            ParentDiv.Controls.Add(htmlDiv);
 
         }
         #region 新增WIDGET

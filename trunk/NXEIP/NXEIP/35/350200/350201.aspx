@@ -82,7 +82,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="刪除">
                                             <ItemTemplate>
-                                                <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                                                <asp:Button ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
                                                     CommandName="disable" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
                                             </ItemTemplate>
                                             <ItemStyle HorizontalAlign="Center" />
