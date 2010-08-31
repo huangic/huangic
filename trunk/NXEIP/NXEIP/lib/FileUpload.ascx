@@ -10,6 +10,8 @@
             <asp:FileUpload ID="FileUpload1" runat="server" />
             &nbsp;<asp:Button ID="Button1" runat="server" Text="預覽照片" OnClick="Button1_Click"
                  />
+            <asp:Label ID="lab_filename" runat="server" Visible="false"></asp:Label>
+            <asp:Label ID="lab_path" runat="server" Visible="false"></asp:Label>
         </td>
     </tr>
 </table>

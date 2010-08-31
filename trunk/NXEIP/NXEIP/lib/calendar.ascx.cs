@@ -13,16 +13,18 @@ public partial class lib_calendar : System.Web.UI.UserControl
         {
             try
             {
-
                 return new ChangeObject()._ROCtoAD(this.tbox_date.Text);
-                
             }
             catch
             {
                 throw new Exception("日期格式錯誤!!");
             }
         }
-
+        
+        set
+        {
+            this.tbox_date.Text = new ChangeObject()._ADtoROC(value);
+        }
     }
 
     protected void Page_Load(object sender, EventArgs e)
