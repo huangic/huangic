@@ -141,6 +141,9 @@ public partial class _35_350200_350204 : System.Web.UI.Page
                 }
             }
 
+            //操作記錄
+            new OperatesObject().ExecuteOperates(350204, new SessionObject().sessionUserID, 2, "");
+
             Response.Redirect("350204-1.aspx?jobtype=" + jobtype + "&ptype=" + ptype + "&workid=" + workid + "&name=" + name + "&account=" + account + "&profess=" + profess + "&depar=" + depar + "&people=" + people);
         }
 

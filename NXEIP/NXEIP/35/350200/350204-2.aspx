@@ -1,15 +1,14 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="350205.aspx.cs" Inherits="_35_350200_350205" %>
+Ôªø<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="350204-2.aspx.cs" Inherits="_35_350200_350204_2" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <%@ Register Src="../../lib/tree/jQueryDepartTree.ascx" TagName="jQueryDepartTree"
     TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc2" %>
 <%@ Register Src="../../lib/FileUpload.ascx" TagName="FileUpload" TagPrefix="uc3" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ODS_profess" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.TypesDAO">
         <SelectParameters>
@@ -22,10 +21,11 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-        SelectCommand="SELECT typ_cname, typ_number,typ_no FROM types WHERE (typ_status = '1') AND (typ_code = 'work') ORDER BY typ_order">
+        
+        SelectCommand="SELECT typ_cname, typ_no FROM types WHERE (typ_status = '1') AND (typ_code = 'work') ORDER BY typ_order">
     </asp:SqlDataSource>
     <div class="nav">
-        <span>±b∏π∫ﬁ≤z / §H≠˚∫ﬁ≤z /<strong> §H®∆∏ÍÆ∆´ÿ¿… </strong></span>
+        <span>Â∏≥ËôüÁÆ°ÁêÜ / ‰∫∫Âì°ÁÆ°ÁêÜ /<strong> ‰∫∫‰∫ãË≥áÊñôÊü•‰øÆ </strong></span>
     </div>
     <div class="tableDiv">
         <div class="header">
@@ -33,7 +33,7 @@
             </div>
             <div class="h2">
                 <div class="name">
-                    §H®∆∏ÍÆ∆´ÿ¿…</div>
+                    ‰∫∫‰∫ãË≥áÊñôÊü•‰øÆ - ‰øÆÊîπ</div>
             </div>
             <div class="h3">
             </div>
@@ -42,7 +42,7 @@
             <tr>
                 <td width="100" bgcolor="#eeeeee" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>®≠§¿√“¶r∏π
+                        <span class="a-letter-Red">* </span>Ë∫´ÂàÜË≠âÂ≠óËôü
                     </div>
                 </td>
                 <td width="338" bgcolor="#EEEEEE" class="a-letter-1">
@@ -50,7 +50,7 @@
                 </td>
                 <td width="82" bgcolor="#eeeeee" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>©m¶W</div>
+                        <span class="a-letter-Red">* </span>ÂßìÂêç</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_name" runat="server"></asp:TextBox>
@@ -59,14 +59,14 @@
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>≠˚§u±b∏π</div>
+                        <span class="a-letter-Red">* </span>Âì°Â∑•Â∏≥Ëôü</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>§H®∆Ωs∏π</div>
+                        <span class="a-letter-Red">* </span>‰∫∫‰∫ãÁ∑®Ëôü</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
@@ -75,13 +75,13 @@
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>™A∞»≥Ê¶Ï</div>
+                        <span class="a-letter-Red">* </span>ÊúçÂãôÂñÆ‰Ωç</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
                 </td>
                 <td align="right" bgcolor="#EEEEEE" class="a-letter-2">
-                    ≠”§H∑”§˘
+                    ÂÄã‰∫∫ÁÖßÁâá
                 </td>
                 <td width="101" bgcolor="#EEEEEE" class="a-letter-1" colspan="2">
                     <uc3:FileUpload ID="FileUpload1" runat="server" />
@@ -90,7 +90,7 @@
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>¬æ∫Ÿ</div>
+                        <span class="a-letter-Red">* </span>ËÅ∑Á®±</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:DropDownList ID="ddl_profess" runat="server" DataSourceID="ODS_profess" DataTextField="typ_cname"
@@ -99,7 +99,7 @@
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        <span class="a-letter-Red">* </span>§H≠˚√˛ßO</div>
+                        <span class="a-letter-Red">* </span>‰∫∫Âì°È°ûÂà•</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:DropDownList ID="ddl_ptype" runat="server" DataSourceID="ODS_ptype" DataTextField="typ_cname"
@@ -111,7 +111,7 @@
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
                         <div align="right">
-                            <span class="a-letter-Red">* </span>®Ï¬æ§È¥¡</div>
+                            <span class="a-letter-Red">* </span>Âà∞ËÅ∑Êó•Êúü</div>
                     </div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
@@ -119,7 +119,7 @@
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        •Õ§È</div>
+                        ÁîüÊó•</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <uc2:calendar ID="calendar2" runat="server" />
@@ -128,7 +128,7 @@
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        ≥sµ∏¶aß}</div>
+                        ÈÄ£Áµ°Âú∞ÂùÄ</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_addr" runat="server" Width="250px"></asp:TextBox>
@@ -136,7 +136,7 @@
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        ≥sµ∏πq∏‹</div>
+                        ÈÄ£Áµ°ÈõªË©±</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_tel" runat="server"></asp:TextBox>
@@ -145,24 +145,24 @@
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        πq§l∂l•Û</div>
+                        ÈõªÂ≠êÈÉµ‰ª∂</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_mail" runat="server" Width="250px"></asp:TextBox>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        øÏ§Ω´«πq∏‹</div>
+                        Ëæ¶ÂÖ¨ÂÆ§ÈõªË©±</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_otel" runat="server"></asp:TextBox>
-                    <span class="a-letter-2">§¿æ˜°G</span><asp:TextBox ID="tbox_extension" runat="server"></asp:TextBox>
+                    <span class="a-letter-2">ÂàÜÊ©üÔºö</span><asp:TextBox ID="tbox_extension" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        ¶b¬æ™¨™p</div>
+                        Âú®ËÅ∑ÁãÄÊ≥Å</div>
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-1">
                     <div>
@@ -176,10 +176,11 @@
                 </td>
                 <td bgcolor="#EEEEEE" class="a-letter-2">
                     <div align="right">
-                        ≠˚§u≥∆µ˘</div>
+                        Âì°Â∑•ÂÇôË®ª</div>
                 </td>
                 <td colspan="2" bgcolor="#EEEEEE" class="a-letter-1">
                     <asp:TextBox ID="tbox_memo" runat="server"></asp:TextBox>
+                    <asp:Label ID="lab_filename" runat="server" Visible="False"></asp:Label>
                 </td>
             </tr>
         </table>
@@ -192,11 +193,13 @@
             </div>
         </div>
         <div class="bottom">
-            <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="ΩT©w" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="Á¢∫ÂÆö" OnClick="Button1_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="®˙Æ¯" OnClick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="ÂèñÊ∂à" OnClick="Button2_Click" />
         </div>
+        <div id="div_msg" runat="server"></div>
         <div id="calendarDiv">
         </div>
     </div>
 </asp:Content>
+
