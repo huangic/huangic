@@ -413,19 +413,31 @@ namespace NXEIP.Widget
 
 
             WidgetObj widgetObj = (WidgetObj)Session[SessionTmpName];
-            int size = widgetObj.Place[0].Block.Length + 1;
-
-
-            WidgetBlock[] newBlock = new WidgetBlock[size];
-
-            for (int i = 0; i < size - 1; i++)
+            int size = 1;
+            if (widgetObj == null)
             {
-                newBlock[i] = widgetObj.Place[0].Block[i];
+                widgetObj = WidgetObj.GetInstance(this.Divs);
             }
-            newBlock[size - 1] = new WidgetBlock(System.Convert.ToInt32(e.CommandArgument));
+            else {
+                size = widgetObj.Place[0].Block.Length + 1;
+            }
+               
 
-            widgetObj.Place[0].Block = newBlock;
-            Session[SessionTmpName] = widgetObj;
+
+                WidgetBlock[] newBlock = new WidgetBlock[size];
+
+                for (int i = 0; i < size - 1; i++)
+                {
+                    newBlock[i] = widgetObj.Place[0].Block[i];
+                }
+                newBlock[size - 1] = new WidgetBlock(System.Convert.ToInt32(e.CommandArgument));
+
+                widgetObj.Place[0].Block = newBlock;
+
+            
+                
+                
+                Session[SessionTmpName] = widgetObj;
 
 
         }

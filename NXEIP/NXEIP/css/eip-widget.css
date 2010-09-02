@@ -79,12 +79,7 @@ font-size:0;
 
 
 
-.footer
-{
-     background: url("widget/Widget-08.jpg") no-repeat;
-     width: 187px;
-     height: 22px;
-    }
+
 
 .widgetfunc
 {
@@ -120,26 +115,22 @@ font-size:0;
 {
       background-image: url("widget/Widget-06.jpg");
       background-repeat:repeat-y;
-      width: 187px;
-     
+      width: 187px;    
 }
 
 
 
 .widgetfunc ul li
 {
-       margin-left:20px;
-    
+       margin-left:20px;    
 }
 
 
 .widgetfunc .footer
 {
     background-image: url("widget/Widget-08.jpg");
-      
-      width: 187px;
-      height:20px;
-     
+    width: 187px;
+    height:20px;
 }
 
 

@@ -27,6 +27,16 @@ namespace NXEIP.Widget
 
 
 
+        public static WidgetObj GetInstance(String[] div){
+            WidgetObj wobj = new WidgetObj();
+            wobj.Place = new WidgetPlace[div.Length];
+
+            for (int i = 0; i < div.Length; i++) {
+                wobj.Place[i] = new WidgetPlace(div[i]);
+            }
+
+            return wobj;
+        }
 
     }
 }

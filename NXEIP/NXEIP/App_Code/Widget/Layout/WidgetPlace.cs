@@ -20,6 +20,10 @@ namespace NXEIP.Widget
         }
 
 
+        public WidgetPlace(String name){
+            this.Name = name;
+        }
+
         private String _Name;
 
         public String Name
