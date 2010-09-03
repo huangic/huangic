@@ -14,8 +14,7 @@
                     <div class="h1">
                     </div>
                     <div class="h2">
-                        <div class="name">
-                            請先選擇場所與日期</div>
+                        <div class="name">請先選擇場所與日期</div>
                     </div>
                     <div class="h3">
                     </div>
@@ -372,7 +371,7 @@
                         </tr>
                         <tr>
                             <td class="time">
-                                <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">08：00</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
@@ -423,7 +422,7 @@
                         </tr>
                         <tr>
                             <td class="time">
-                                 <a href="a04-02-new.htm">申請</a>
+                                 <a href="a04-02-new.htm">10：00</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
@@ -446,7 +445,7 @@
                         </tr>
                         <tr>
                             <td class="time">
-                                <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">11：00</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>

@@ -1,0 +1,233 @@
+
+
+
+
+.nav
+{
+   width:97%;
+    background:url("../image/b01-1.gif"); 
+    padding:3px 0px 3px 0px;
+    margin:5px 10px 5px 15px;
+    color:#666666;
+        font-size:13px;
+    text-decoration:none;
+}
+
+.nav span
+{
+   line-height:1.3em;
+   background:url("../image/b01.gif") no-repeat; 
+   background-repeat:no-repeat;
+   padding:3px 0px 3px 17px;
+    
+}
+
+
+.layoutDiv
+{
+    width:100%; 
+    }
+
+
+.tableDiv
+{
+  
+  
+   width:95%; 
+   margin: 10px auto;   
+}
+
+
+/*header*/
+
+.tableDiv .header,.layoutDiv .header
+{
+   position:relative;
+  background-image:url(../image/b02-1.gif);
+  height:25px;
+}
+
+
+.tableDiv .header div .layoutDiv .header div
+{
+    display:inline-block;    
+}
+
+.tableDiv .header .h1,.layoutDiv .header .h1
+{
+   float:left;
+   width:17px;
+   background-image:url(../image/b02.gif);
+  height:25px;
+/*padding:14px 0;*/
+}
+.tableDiv .header .h2,.layoutDiv .header .h2
+{
+ 
+  
+vertical-align:middle;
+  font-size:16px;
+  line-height:25px;
+
+}
+.tableDiv .header .h2 .name,.layoutDiv .header .h2 .name
+{
+   float:left;
+   
+   /*
+   position:absolute;
+   left:180px;
+   *left:50px;
+ */  
+}
+
+.tableDiv .header .h2 .function,.layoutDiv .header .h2 .function
+{
+   
+   float:right;
+   position:absolute;
+   right:30px;
+/*  
+  float:right;
+  
+   text-align:right;
+   right:30px;
+   width:auto;
+  */
+ /*
+  position:absolute;
+  right:180px;
+  *right:0px;
+*/
+  
+}
+
+.tableDiv .header .h3,.layoutDiv .header .h3
+{
+    
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-2.gif);
+    height:25px;
+   
+}
+
+/*FOOTER*/
+.tableDiv .footer,.layoutDiv .footer
+{
+  background-image:url(../image/b02-4.gif);
+  height:17px;
+}
+
+.tableDiv .footer .f1,.layoutDiv .footer .f1
+{
+     float:left;
+   width:17px;
+   background-image:url(../image/b02-3.gif);
+  height:17px;
+}
+.tableDiv .footer .f2,.layoutDiv .footer .f2
+{
+    
+}
+.tableDiv .footer .f3,.layoutDiv .footer .f3
+{
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-5.gif);
+    height:17px;
+}
+
+/*表格*/
+
+.tableDiv table,.tableData 
+{
+  width:100%;
+  border-spacing:1px;
+  background-color:#dddddd;
+}
+
+
+.tableDiv table th,.tableDiv table td,.tableData th,.tableData td
+{
+color:#888888;
+font-size:13px;
+font-weight:bold;
+line-height:20px;
+text-decoration:none;
+background-color:#eeeeee;
+ padding:2px;
+}
+
+.tableDiv table td,.tableData td
+{
+
+font-weight:normal;
+    
+}
+
+
+
+
+
+.tableData tr:hover,.tableData tr:hover td,.tableDiv table tr:hover,.tableDiv table tr:hover td
+{ 
+       background-color:Yellow;
+    
+}
+
+.tableDiv .bottom
+{
+    
+       margin:10px auto;
+     text-align:center;
+    }
+    
+ /*場地表格*/
+ .place
+ {
+  width:100%; 
+   border-spacing:1px;
+  
+  
+   
+    border:0;
+    background-color:#cccccc;    
+ } 
+ 
+ .place td
+ {
+      padding:1px;
+       background-color:#ffffff;
+       font-size: 13px;
+	color: #666666;
+     }
+     
+     .place th
+     {
+         width:70px; 
+          background-color:#eeeeee;
+          padding:1px;
+          text-align:right;
+          font-size: 13px;
+	  color: #666666;
+         }
+         
+         
+ .layoutDiv .top,.layoutDiv .center ,.layoutDiv .bottom
+ {
+   width:97%;
+  
+  padding:2px 2px 2px 2px; 
+  
+  border:#dddddd 1px solid; 
+      
+ }
+ 
+ .layoutDiv .center
+ {
+     font-size:14px;
+     text-align:center;   
+  }
+ 
+ 

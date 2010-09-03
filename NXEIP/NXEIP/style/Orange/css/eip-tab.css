@@ -1,0 +1,78 @@
+
+
+/* AJAX - TabContainer */
+.ajax__tab_default .ajax__tab_header /*整體按鈕底*/{
+ background-image: url(images/ajax__tab_head.jpg);
+ background-repeat: repeat-x;
+ background-position: bottom;
+ font-size: 12px;
+ font-family: "新細明體";
+}
+
+.ajax__tab_default .ajax__tab_body /*資料區*/{
+ font-family:"新細明體";/* 文字字體*/
+ border:1px solid #1D75BB;/*邊框*/
+ border-top:0;
+ padding: 8px; /*文字與邊框間隔*/
+ font-size: 12px;/*文字大小*/
+ background-color: #EEF2F2;
+ background-image: url(images/ajax__tab_body.jpg);
+ background-repeat: repeat-x;
+ background-position: top;
+}
+/*預設 ------------------------------*/
+.ajax__tab_default .ajax__tab_inner /*左邊*/{
+padding-left:9px;/*左邊距離*/
+background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
+
+.ajax__tab_default .ajax__tab_tab /*中間*/{
+ background:url(images/ajax__tab_default_02.jpg) repeat-x; /*文字與圖片邊間隔*/
+ margin:0;/*邊界為0*/
+ padding-top: 11px;/*文字上間隔*/
+ padding-right: 1px;/*文字右間隔*/
+ padding-bottom: 14px;/*文字下間隔*/
+ padding-left: 1px;
+ /*上+下+文字大小= 圖片高度*/}
+
+.ajax__tab_default .ajax__tab_outer /*右邊*/{
+ background:url(images/ajax__tab_default_04.jpg) no-repeat right;/*背景圖片，不重複，靠右對齊*/
+ padding-right: 5px;/*右邊距離*/
+}
+
+/*滑鼠經過------------------------------*/
+.ajax__tab_default .ajax__tab_hover .ajax__tab_inner /*左*/{
+ background-image: url(images/ajax__tab_hover_01.jpg);
+ background-repeat: no-repeat;
+}
+
+.ajax__tab_default .ajax__tab_hover .ajax__tab_tab /*中*/{
+ color: #006699;/*文字顏色*/
+ background-image: url(images/ajax__tab_hover_02.jpg);
+ background-repeat: repeat-x;
+}
+ 
+.ajax__tab_default .ajax__tab_hover .ajax__tab_outer /*右*/{
+ background-image: url(images/ajax__tab_hover_04.jpg);
+ background-repeat: no-repeat;
+ background-position: right;
+}
+
+/*使用中------------------------------*/
+
+.ajax__tab_default .ajax__tab_active .ajax__tab_inner /*使用中-左*/{
+ background-image: url(images/ajax__tab_active_01.jpg);
+ background-repeat: no-repeat;
+}
+
+
+.ajax__tab_default .ajax__tab_active .ajax__tab_tab /*使用中-中*/{
+ color: #FFFFFF;/*文字顏色*/
+ background-image: url(images/ajax__tab_active_02.jpg);
+ background-repeat: repeat-x;
+}
+ 
+.ajax__tab_default .ajax__tab_active .ajax__tab_outer/*右*/{
+ background-image: url(images/ajax__tab_active_04.jpg);
+ background-repeat: no-repeat;
+ background-position: right;
+}

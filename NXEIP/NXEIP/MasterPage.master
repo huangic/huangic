@@ -14,7 +14,7 @@
   
   
     
-    <link href="css/eip.css" rel="stylesheet" type="text/css" />
+    <link href="style/Default/css/eip.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src='<%#ResolveUrl("~/js/jquery-1.4.2.min.js") %>'></script>
      <script type="text/javascript" src='<%#ResolveUrl("~/js/jquery.log.js") %>'></script>
     <script type="text/javascript" src='<%#ResolveUrl("~/js/thickbox.js") %>'></script>
@@ -39,6 +39,9 @@
    <table width="100%" height="76" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
   <tr>
     <td width="170">
+        
+        <div class="logo"><span>台南市員工入口網</span></div>
+        
         <asp:Image ID="logo" runat="server" Height="76px" ImageUrl="~/image/logo.jpg" 
             Width="169px" />
       </td>
