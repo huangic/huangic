@@ -1,0 +1,102 @@
+﻿
+
+.block-1
+{
+     background-color:#ebebeb;
+     margin:0px auto;
+    }
+
+
+
+/*header*/
+
+ .block-1 .header
+{
+  text-align:center;
+  position:relative;
+  background-image:url(../image/a44.gif);
+  height:30px;
+}
+
+
+ .block-1 .header div
+{
+  display:inline-block;    
+}
+
+ .block-1 .header .h1
+{
+     float:left;
+   width:24px;
+   background-image:url(../image/a43.gif);
+  height:30px;
+/*padding:14px 0;*/
+}
+ .block-1 .header .h2
+{
+ 
+ 
+ vertical-align:middle;
+ color:#ffffff;
+  line-height:30px;
+  font-size:16px;
+  
+  
+}
+
+ .block-1 .header .h2 .name
+{
+   float:left;
+   text-align:center;
+   margin:0px auto;
+}
+
+ .block-1 .header .h2 .function
+{
+ 
+ float:right;
+  
+}
+
+ .block-1 .header .h3
+{
+   
+    float:right;
+    width:24px;
+    background-image:url(../image/a45.gif);
+   height:30px;
+}
+
+/*FOOTER*/
+ .block-1 .footer
+{
+  background-image:url(../image/b02-4.gif);
+  height:17px;
+}
+
+ .block-1 .footer .f1
+{
+     float:left;
+   width:17px;
+   background-image:url(../image/b02-3.gif);
+  height:17px;
+}
+ .block-1 .footer .f2
+{
+    
+}
+ .block-1 .footer .f3
+{
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-5.gif);
+    height:17px;
+}
+
+.border-bottom-block
+{
+     border-bottom:1px;
+     border-bottom-style:solid;
+     border-bottom-color:#888888;
+     padding:10px 5px 10px 5px; 
+    }
