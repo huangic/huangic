@@ -1,0 +1,105 @@
+.logo
+{
+     background:url(../image/logo.jpg) no-repeat;
+      width:170px;
+      height:80px;
+}
+
+.logo span
+{
+   visibility:hidden; 
+}
+ .HeaderMenuBar
+{
+      width:100%;
+      height:30px;
+      background-image:url(../image/a37.gif);
+      background-repeat:repeat;
+      z-index:0;
+}
+
+.home:hover
+{
+  background:url(../image/a49-1.gif) no-repeat;  
+ 
+}
+
+.home
+{
+   background:url(../image/a49.gif) no-repeat;    
+    
+}
+
+.logout:hover
+{
+  background:url(../image/a48-1.gif) no-repeat;  
+ 
+}
+
+.logout
+{
+   background:url(../image/a48.gif) no-repeat;    
+    
+}
+
+
+.home span,.logout span,.big span,.middle span,.small span
+{
+ 
+  visibility:hidden;
+  overflow:hidden;    
+}
+
+
+
+ .home, .logout
+{ 
+    
+  
+    display:inline-block;
+	height:25px;
+	width:35px;
+}
+	
+
+ .big,.middle,.small 
+{
+    
+    display:inline-block;
+	height:28px;
+	width:25px;
+	overflow:hidden;  
+	
+    }
+
+
+
+ .big 
+{
+    background:url(../image/a06.gif) no-repeat;    
+    }
+     .big:hover 
+{
+    background:url(../image/a06-1.gif) no-repeat;    
+    }
+    
+    
+    
+   .middle
+   {
+       background:url(../image/a05.gif) no-repeat;    
+       }
+       
+        .middle:hover
+   {
+       background:url(../image/a05-1.gif) no-repeat;    
+       }
+   
+   .small
+   {
+       background:url(../image/a04.gif) no-repeat;    
+       }
+         .small:hover
+   {
+       background:url(../image/a04-1.gif) no-repeat;    
+       }

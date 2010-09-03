@@ -1,0 +1,199 @@
+.icon
+{
+     background:url("../image/a14.gif");  
+      background-repeat:no-repeat;
+     line-height:1.3em;
+     padding: 0px 0px 0px 20px;
+     font-size:13px;
+ }
+
+
+.bblock
+{
+     background-color:#ebebeb;
+     margin:0px auto;
+    }
+
+
+
+/*header*/
+
+.bblock .header
+{
+   position:relative;
+  background-image:url(../image/a44.gif);
+  height:30px;
+}
+
+
+.bblock .header div
+{
+    display:inline-block;    
+}
+
+.bblock .header .h1
+{
+     float:left;
+   width:24px;
+   background-image:url(../image/a43.gif);
+  height:30px;
+/*padding:14px 0;*/
+}
+.bblock .header .h2
+{
+ 
+ text-align:center;
+ vertical-align:middle;
+ color:#ffffff;
+  line-height:30px;
+  font-size:16px;
+  width:100px;
+}
+
+.bblock .header .h2 .name
+{
+   float:left;
+   
+}
+
+.bblock .header .h2 .function
+{
+ 
+ float:right;
+  
+}
+
+.bblock .header .h3
+{
+   
+    float:right;
+    width:24px;
+    background-image:url(../image/a45.gif);
+   height:30px;
+}
+
+/*FOOTER*/
+.bblock .footer
+{
+  background-image:url(../image/b02-4.gif);
+  height:17px;
+}
+
+.bblock .footer .f1
+{
+     float:left;
+   width:17px;
+   background-image:url(../image/b02-3.gif);
+  height:17px;
+}
+.bblock .footer .f2
+{
+    
+}
+.bblock .footer .f3
+{
+    float:right;
+    width:17px;
+    background-image:url(../image/b02-5.gif);
+    height:17px;
+}
+
+
+
+
+
+
+.bblock .calendar
+{
+    width:96%;
+     border-spacing:1px;
+     margin:0 auto;
+    
+   
+    border:0; 
+     background-color:#cccccc; 
+    text-align:center;    
+}
+
+.bblock .calendar td
+{
+    padding:1px;
+    text-align:center;
+    background:#ffffff;
+    font-size: 15px;
+	color: #333333;
+	text-decoration: none;    
+}
+
+.bblock .calendar a 
+{
+     font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+
+
+.bblock .calendar .holiday
+{
+    background-color: #ebebeb;  
+}
+
+
+
+
+
+.bblock .calendar .today
+{
+    background-image: url(../image/a46.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #330000;
+    }
+    
+    
+ .big-calendar
+ {
+     width:100%;
+     border-spacing:1px;
+     background-color:#dddddd; 
+     text-align:center;
+     font-size:13px;
+     line-height:20px;
+     text-decoration:none;
+     
+  }
+  
+  .big-calendar td
+  {
+      padding:4px;
+      background-color:#ffffff;
+      height:20px; 
+      }
+  
+  .big-calendar th
+  {
+      color:#888888;
+      
+      font-weight:bold;
+      width:12%;
+      height:20px; 
+     
+  }
+  .big-calendar .time
+  {
+       background-color:#eeeeee;
+   }
+   
+   
+   
+   .big-calendar .holiday
+   {
+        background-color:#e8f3ff;
+   }
+   
+   .big-calendar a
+   {
+     color:#888888;
+     font-size:13px;
+     line-height:20px;
+     text-decoration:none;
+   }
