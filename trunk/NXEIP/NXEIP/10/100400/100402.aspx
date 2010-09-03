@@ -31,7 +31,7 @@
                             <option selected="selected">請選擇</option>
                         </select>
                     </div>
-                    <div class="bblock">
+                    <div class="block-1">
                         <div class="header">
                             <div class="h1">
                             </div>
@@ -272,11 +272,10 @@
                     <div class="h3">
                     </div>
                 </div>
-                <table class="big-calendar">
+                <table class="big-calendar-time">
                     <tbody>
                         <tr>
                             <th >
-                               
                                     時間
                             </th>
                             <th >

@@ -1,20 +1,24 @@
 @import url(reset.css);
-@import url(eip-layout.css);
-@import url(eip-menu.css);
-@import url(eip-list.css);
-@import url(eip-table.css);
-@import url(eip-treeView.css);
-@import url(eip-header.css);
-@import url(eip-tab.css);
-@import url(swfupload.css);
+@import url(eip-layout.css); /*版型配置*/
+@import url(eip-menu.css);   /*MENU*/
+@import url(eip-list.css);  /*版型配置*/
+@import url(eip-table.css);  /*表格*/
+@import url(eip-treeView.css); /*版型配置*/
+@import url(eip-header.css);  /*版型配置*/
+@import url(eip-tab.css); 
+@import url(swfupload.css);  /*版型配置*/
 @import url(thickbox.css);
-@import url(eip-widget.css);
+@import url(eip-widget.css);  /*widget*/
 @import url(jquery.treeview.css);
 @import url(calendar.css);
 @import url(eip-pager.css);
 @import url(eip-image.css);
-@import url(eip-block-calendar.css);
+@import url(eip-block.css);  /*區塊類配置*/
 @import url(eip-color.css);
+@import url(eip-calendar.css); /*日栗*/
+@import url(eip-Page-PersonalCalendar.css);
+@import url(eip-Page-Place.css);
+
 
 
 body {

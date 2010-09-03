@@ -1,0 +1,42 @@
+﻿  .PersonalCalendarLayout
+{
+    width:97%;
+    margin: 10px auto;   
+}
+
+
+
+
+.PersonalCalendarLayout .left
+{
+    float:left;
+    width:245px;
+    
+ }
+ 
+ .PersonalCalendarLayout .left .center
+ {
+  text-align:center;
+  width:100%;
+  margin:10px 0px 10px 0px;
+ }
+ 
+ 
+ 
+ .PersonalCalendarLayout .right
+ {
+     float:left;
+     width:720px;
+     margin:0px 0px 0px 20px   
+     
+  }
+  
+  .PersonalCalendarLayout .big-calendar-time th
+  {
+       width:auto;
+      }
+  
+  .PersonalCalendarLayout .big-calendar-time .title
+  {
+       width:70px; 
+      }

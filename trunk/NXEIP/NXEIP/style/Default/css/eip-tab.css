@@ -76,3 +76,100 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
  background-repeat: no-repeat;
  background-position: right;
 }
+
+
+.tabHeader
+{
+     display:inline;
+     margin:0px 0px 0px 0px;
+    }
+    
+.tabHeader .currentTab,.tabHeader .Tab
+{
+  display:inline-block;
+  position:relative;
+  
+  height:29px;
+  
+  margin:0px 0px 0px 0px;   
+ }
+ 
+ .tabHeader .currentTab
+ {
+     
+     background-image:url(../image/b02-1.gif);
+     }
+ .tabHeader .Tab
+ {
+     background-image:url(../image/b02-1-a.gif);
+ }
+ 
+ 
+ 
+ .tabHeader .currentTab div,.tabHeader .Tab div
+ {
+      display:inline-block;
+     }
+     
+     
+   .tabHeader .t1
+   {
+   float:left;
+   width:13px;
+   height:29px; 
+   }  
+   
+    .tabHeader .t2
+   {
+    vertical-align:middle;
+    font-size:13px;
+    line-height :29px;
+   }  
+   
+   
+   .tabHeader .t2 a
+   {
+       color:#999999;
+        
+        font-size:15px;
+        font-weight:bold;
+        text-decoration:none;
+       }
+   
+    .tabHeader .t3
+   {
+    float:right;
+    width:14px;
+  
+    height:29px;
+   }  
+     
+     
+  .tabHeader .currentTab .t1
+  {
+   
+   background-image:url(../image/b02.gif);
+     
+  }
+  
+   .tabHeader .currentTab .t3
+  {
+   
+    background-image:url(../image/b02-2.gif);
+    background-position:right;
+    
+  }
+  
+   .tabHeader .Tab .t1
+  {
+   
+   background-image:url(../image/b02-a.gif);
+     
+  }
+  
+   .tabHeader .Tab .t3
+  {
+   
+    background-image:url(../image/b02-2-a.gif);
+    background-position:right;
+  }
