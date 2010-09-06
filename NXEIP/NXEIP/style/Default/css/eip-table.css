@@ -117,6 +117,7 @@ vertical-align:middle;
 {
   background-image:url(../image/b02-4.gif);
   height:17px;
+  clear:both;
 }
 
 .tableDiv .footer .f1,.layoutDiv .footer .f1
