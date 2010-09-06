@@ -50,7 +50,7 @@
     }
     
     
- .big-calendar-time
+ .big-calendar-time ,.event-list
  {
      width:100%;
      border-spacing:1px;
@@ -62,12 +62,25 @@
      
   }
   
- .big-calendar-time td
+ .big-calendar-time td,.event-list td
   {
       padding:4px;
       background-color:#ffffff;
       height:20px; 
+      text-align:left;
       }
+  
+  
+  .event-list th
+  {
+      background-color:#EBEBEB;
+      
+       color:#888888;
+      font-weight:bold;
+      width:100px;
+      
+      }
+  
   
 .big-calendar-time th
   {
@@ -101,3 +114,5 @@
      line-height:20px;
      text-decoration:none;
    }
+   
+   
