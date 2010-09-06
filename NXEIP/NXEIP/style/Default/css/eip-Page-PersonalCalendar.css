@@ -44,6 +44,9 @@
  
  
  
+ 
+ 
+ 
   .PersonalCalendarLayout .big_td  td
   {
        height:70px;
@@ -64,8 +67,8 @@
         display:inline-block;
         width:33%;
         border:1px solid #888888;
-        padding:0 0 0 0;
-        margin:0 0 0 0;
+        padding:2px 0px 2px 0px;
+        margin:0px;
      }
  
   .monthHeader
