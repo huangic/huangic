@@ -10,7 +10,7 @@
     <div class="PersonalCalendarLayout">
         <div class="left">
             <div class="tabHeader">
-                <div class="currentTab">
+                <div class="Tab">
                     <div class="t1">
                     </div>
                     <div class="t2">
@@ -18,7 +18,7 @@
                     <div class="t3">
                     </div>
                 </div>
-                <div class="Tab">
+                <div class="currentTab">
                     <div class="t1">
                     </div>
                     <div class="t2">
