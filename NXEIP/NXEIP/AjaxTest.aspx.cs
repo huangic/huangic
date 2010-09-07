@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
 using System.Data.SqlClient;
+using Microsoft.Practices.EnterpriseLibrary.Caching;
 
 
 public partial class AjaxTest : System.Web.UI.Page
@@ -42,6 +43,15 @@ public partial class AjaxTest : System.Web.UI.Page
             this.jQueryDepartTree1.Add("1");
            
         }
+
+
+        //測試CACHE 項目
+
+        
+
+        Response.Write(CacheUtil.GetItem("AAA"));
+
+
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

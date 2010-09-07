@@ -12,21 +12,25 @@
 
  .block-1 .header
 {
+  
   text-align:center;
   position:relative;
   background-image:url(../image/a44.gif);
   height:30px;
+  
 }
 
 
  .block-1 .header div
 {
-  display:inline-block;    
+  display:inline-block;
+  *display: inline;
+    
 }
 
  .block-1 .header .h1
 {
-     float:left;
+   float:left;
    width:24px;
    background-image:url(../image/a43.gif);
   height:30px;
@@ -36,8 +40,8 @@
 {
  
  
- vertical-align:middle;
- color:#ffffff;
+  vertical-align:middle;
+  color:#ffffff;
   line-height:30px;
   font-size:16px;
   
@@ -64,7 +68,7 @@
     float:right;
     width:24px;
     background-image:url(../image/a45.gif);
-   height:30px;
+    height:30px;
 }
 
 /*FOOTER*/
@@ -76,10 +80,10 @@
 
  .block-1 .footer .f1
 {
-     float:left;
+   float:left;
    width:17px;
    background-image:url(../image/b02-3.gif);
-  height:17px;
+   height:17px;
 }
  .block-1 .footer .f2
 {

@@ -6,6 +6,8 @@ using Entity;
 
 /// <summary>
 /// JqGridJSON 的摘要描述
+/// 
+/// JqGrid使用的物件項目(用來轉換JSON)
 /// </summary>
 /// 
 namespace FileManager
@@ -28,12 +30,17 @@ namespace FileManager
 
     }
 
+    /// <summary>
+    /// 表格欄位
+    /// </summary>
     public class JqGridItem
     {
         public string id;
         public string[] cell;
     }
-
+    /// <summary>
+    /// 將檔案項目的INSTANCE直接轉成JqGrid的欄位
+    /// </summary>
     public class FileItem : JqGridItem
     {
 

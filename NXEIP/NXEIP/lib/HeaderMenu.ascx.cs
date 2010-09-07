@@ -17,7 +17,7 @@ using Entity;
 
 public partial class lib_HeaderMenu : System.Web.UI.UserControl
 {
-
+    private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     SessionObject sessionUtil = new SessionObject();
     private NXEIPEntities model = new NXEIPEntities();
 
@@ -25,23 +25,28 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
+        if (!Page.IsPostBack)
+        {
+
+            //ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "JQuery", ResolveClientUrl("~/js/jquery-1.4.1.js"));
+            //ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Menu", ResolveClientUrl("~/js/jquery.menu.js"));
+            ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Hover", ResolveClientUrl("~/js/jquery.hoverIntent.js"));
+            ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Menu", ResolveClientUrl("~/js/superfish.js"));
+
+
+            String MenuScript = "$(\".mainmenu\").superfish();";
+
+            ScriptManager.RegisterStartupScript(this, typeof(UserControl), "MenuStart", MenuScript, true);
+
+            //取快取MENU
+            
+           
+                generateMenu();
+            
+
+        }
         
-        
-        
-        //ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "JQuery", ResolveClientUrl("~/js/jquery-1.4.1.js"));
-        //ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Menu", ResolveClientUrl("~/js/jquery.menu.js"));
-        ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Hover", ResolveClientUrl("~/js/jquery.hoverIntent.js"));
-        ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Menu", ResolveClientUrl("~/js/superfish.js"));
-
-
-        String MenuScript="$(\".mainmenu\").superfish();";
-
-        ScriptManager.RegisterStartupScript(this, typeof(UserControl), "MenuStart", MenuScript,true);
-
-
-
-
-        generateMenu();
     }
 
     protected override void OnPreRender(EventArgs e)
@@ -60,16 +65,33 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
     //產生MENU
     private void generateMenu() {
 
+
+
+
+
+
+
        
         //取使用者
         String user_login=sessionUtil.sessionUserAccount;
 
+        DataSet menudataset;
 
-        //資料庫連線
-        Database db = DatabaseFactory.CreateDatabase("NXEIPConnectionString");
+        //從快取中拿DATESET
+        if (CacheUtil.GetItem("menu_" + user_login) != null)
+        {
+            menudataset = (DataSet)CacheUtil.GetItem("menu_" + user_login);
+            GetMenuFromCache();
+            logger.Debug("MENU使用快取");
+        }
+        else
+        {
 
-        //直接把帳號的角色權限功能全列
-        String sqlCmd = @"SELECT DISTINCT sysfunc.sfu_no, sysfunc.sys_no, sysfunc.sfu_name, sysfunc.sfu_catalog, sysfunc.sfu_order, sysfunc.sfu_path, sysfunc.sfu_defaltpic, sysfunc.sfu_overpicture, sysfunc.sfu_parent, sysfunc.sfu_status, sysfunc.sfu_createuid, sysfunc.sfu_createtime 
+            //資料庫連線
+            Database db = DatabaseFactory.CreateDatabase("NXEIPConnectionString");
+
+            //直接把帳號的角色權限功能全列
+            String sqlCmd = @"SELECT DISTINCT sysfunc.sfu_no, sysfunc.sys_no, sysfunc.sfu_name, sysfunc.sfu_catalog, sysfunc.sfu_order, sysfunc.sfu_path, sysfunc.sfu_defaltpic, sysfunc.sfu_overpicture, sysfunc.sfu_parent, sysfunc.sfu_status, sysfunc.sfu_createuid, sysfunc.sfu_createtime 
                         FROM sysfuction AS sysfunc 
                         INNER JOIN accounts AS acc 
                         INNER JOIN roleaccount AS racco 
@@ -80,13 +102,13 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
                         ON sysfunc.sfu_no = rauth.sfu_no 
                         WHERE (acc.acc_login = @user_id) AND (sysfunc.sfu_status = 1)";
 
-        DbCommand cmd=db.GetSqlStringCommand(sqlCmd);
-        db.AddInParameter(cmd, "user_id", DbType.String, user_login);
+            DbCommand cmd = db.GetSqlStringCommand(sqlCmd);
+            db.AddInParameter(cmd, "user_id", DbType.String, user_login);
 
-        //放到DataSET之後用LINQ排內容
-        DataSet menudataset=db.ExecuteDataSet(cmd);
+            //放到DataSET之後用LINQ排內容
+            menudataset = db.ExecuteDataSet(cmd);
 
-
+        }
       
      
 
@@ -173,6 +195,10 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
         mlmenu.Controls.Add(MainMenu);
 
+
+        CacheUtil.AddItem("menu_" + user_login, menudataset);
+        CacheUtil.AddItem("menuCss_" + user_login, this.CssLiteral.Text);
+
         menudataset.Dispose();
     
     }
@@ -231,4 +257,19 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
                   
 
         }
+
+
+    private void  GetMenuFromCache(){
+        String user_login = sessionUtil.sessionUserAccount;
+        //String menuHtml = (String)CacheUtil.GetItem("menu_" + user_login);
+        
+        //mlmenu.InnerHtml=menuHtml;
+
+        String css = (String)CacheUtil.GetItem("menuCss_" + user_login);
+        this.CssLiteral.Text = css;
+
+    }
+
+
+   
 }

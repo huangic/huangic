@@ -7,6 +7,7 @@ using Entity;
 
 /// <summary>
 /// EntityFolderJSON 的摘要描述
+/// 資料表Doc01所對應的JSON欄位
 /// </summary>
 public class EntityFolderJSON:FolderJSON
 {

@@ -42,8 +42,7 @@
         
         <div class="logo"><span>台南市員工入口網</span></div>
         
-        <asp:Image ID="logo" runat="server" Height="76px" ImageUrl="~/image/logo.jpg" 
-            Width="169px" />
+        
       </td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
