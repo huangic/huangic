@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100105.aspx.cs" Inherits="_10_100100_100105" %>
 
+<%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link rel="stylesheet" type="text/css" media="screen" href="../../css/jquery-ui-1.8.2.custom.css" /> 
-    <link rel="stylesheet" type="text/css" media="screen" href="../../css/ui.jqgrid.css" /> 
-    <link rel="stylesheet" type="text/css" media="screen" href="../../css/ui.accordion.css" />
+
      <script type="text/javascript" src="../../js/jquery-ui-1.8.2.custom.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
@@ -54,6 +54,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
+<uc1:Navigator ID="Navigator1" runat="server"  SysFuncNo="100105" SubFunc="測試"/>
+
+
 <div>
     <div class="folderTree">
         <div id="accordion">
@@ -82,6 +85,11 @@
             </table>
     </div>
 </div>
+
+
+
+
+    
 
 
 

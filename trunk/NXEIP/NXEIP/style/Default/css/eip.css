@@ -17,7 +17,10 @@
 @import url(eip-color.css);
 @import url(eip-calendar.css); /*¤é®ß*/
 @import url(eip-Page-PersonalCalendar.css);
-@import url(eip-Page-Place.css);
+@import url(jquery-ui-1.8.2.custom.css);
+@import url(ui.jqgrid.css);
+@import url(ui.accordion.css);
+
 
 
 

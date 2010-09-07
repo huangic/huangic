@@ -84,6 +84,8 @@
   {
     
         display:inline-block;   
+        *display: inline;
+
    }
   
   .monthHeader .m1

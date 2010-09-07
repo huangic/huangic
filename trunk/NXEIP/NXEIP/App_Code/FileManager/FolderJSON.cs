@@ -5,7 +5,7 @@ using System.Web;
 
 
 /// <summary>
-/// FileJSON 的摘要描述
+/// 樹狀的目錄JSON
 /// </summary>
 /// 
 

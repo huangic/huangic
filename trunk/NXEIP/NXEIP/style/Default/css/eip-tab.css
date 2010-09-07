@@ -82,26 +82,33 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
 {
      display:inline;
      margin:0px 0px 0px 0px;
+     position:relative;
     }
     
 .tabHeader .currentTab,.tabHeader .Tab
 {
   display:inline-block;
+  *display: inline;
+
   position:relative;
   
   height:29px;
   
-  margin:0px 0px 0px 0px;   
+  margin:0px 0px 0px 0px;
+  *margin:0px 0px 0px 4px;  
+  width:auto; 
+  
  }
  
  .tabHeader .currentTab
  {
      
-     background-image:url(../image/b02-1.gif);
+     
+     background:url(../image/b02-1.gif) ;
      }
  .tabHeader .Tab
  {
-     background-image:url(../image/b02-1-a.gif);
+       background:url(../image/b02-1-a.gif);
  }
  
  
@@ -109,7 +116,8 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
  .tabHeader .currentTab div,.tabHeader .Tab div
  {
       display:inline-block;
-     }
+      *display: inline;
+ }
      
      
    .tabHeader .t1
@@ -121,16 +129,19 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
    
     .tabHeader .t2
    {
+    float:left;
     vertical-align:middle;
     font-size:13px;
     line-height :29px;
+    background-color:transparent;
    }  
    
    
    .tabHeader .t2 a
    {
-       color:#999999;
         
+        color:#999999;
+
         font-size:15px;
         font-weight:bold;
         text-decoration:none;
@@ -138,7 +149,8 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不重複*/}
    
     .tabHeader .t3
    {
-    float:right;
+    /*float:right;*/
+    float:left;
     width:14px;
   
     height:29px;
