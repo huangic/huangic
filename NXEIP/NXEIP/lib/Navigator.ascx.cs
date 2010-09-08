@@ -36,40 +36,48 @@ public partial class lib_Navigator : System.Web.UI.UserControl
        {
             ///取代碼的群組
             ///
-        
+            
             using(NXEIPEntities model=new NXEIPEntities() ){
-                //取群組代碼
-                int sfu_no=int.Parse(SysFuncNo);
 
-               // StringBuilder sb = new StringBuilder();
-                List<String> navItem=new List<string>();
+                try
+                {
+                    //取群組代碼
+                    int sfu_no = int.Parse(SysFuncNo);
 
-
-                var sysfunction =(from f in model.sysfuction where f.sfu_no ==sfu_no select f).First();
-
-                //正向寫入
-                navItem.Add(sysfunction.sfu_name);
+                    // StringBuilder sb = new StringBuilder();
+                    List<String> navItem = new List<string>();
 
 
-                int parent_no = sysfunction.sfu_parent.Value;
-                
+                    var sysfunction = (from f in model.sysfuction where f.sfu_no == sfu_no select f).First();
 
-                while (parent_no!=0) {
-                    var sysfun_child = (from f in model.sysfuction where f.sfu_no == parent_no select f).First();
-                    parent_no = sysfun_child.sfu_parent.Value;
+                    //正向寫入
+                    navItem.Add(sysfunction.sfu_name);
 
-                    
-                    navItem.Add(sysfun_child.sfu_name);
+
+                    int parent_no = sysfunction.sfu_parent.Value;
+
+
+                    while (parent_no != 0)
+                    {
+                        var sysfun_child = (from f in model.sysfuction where f.sfu_no == parent_no select f).First();
+                        parent_no = sysfun_child.sfu_parent.Value;
+
+
+                        navItem.Add(sysfun_child.sfu_name);
+                    }
+
+
+
+
+                    var sys = (from s in model.sys where s.sys_no == sysfunction.sys_no select s).First();
+
+
+                    navItem.Add(sys.sys_name);
+                    CacheUtil.AddItem(CacheKey, navItem);
                 }
-                
-
-
-
-                var sys =(from s in model.sys where s.sys_no==sysfunction.sys_no select s).First();
-
-              
-                navItem.Add(sys.sys_name);
-                CacheUtil.AddItem(CacheKey, navItem);
+                catch (Exception ex) { 
+                 
+                }
             }
 
            
