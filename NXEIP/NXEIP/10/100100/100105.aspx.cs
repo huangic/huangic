@@ -13,6 +13,7 @@ public partial class _10_100100_100105 : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Navigator1.SysFuncNo = "100105";
         logger.Debug("TEST");
     }
 }

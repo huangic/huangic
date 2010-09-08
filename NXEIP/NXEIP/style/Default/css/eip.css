@@ -6,6 +6,7 @@
 @import url(eip-treeView.css); /*版型配置*/
 @import url(eip-header.css);  /*版型配置*/
 @import url(eip-tab.css); 
+@import url(eip-nav.css); 
 @import url(swfupload.css);  /*版型配置*/
 @import url(thickbox.css);
 @import url(eip-widget.css);  /*widget*/
@@ -15,7 +16,7 @@
 @import url(eip-image.css);
 @import url(eip-block.css);  /*區塊類配置*/
 @import url(eip-color.css);
-@import url(eip-calendar.css); /*日栗*/
+@import url(eip-table-calendar.css); /*日栗*/
 @import url(eip-Page-PersonalCalendar.css);
 @import url(jquery-ui-1.8.2.custom.css);
 @import url(ui.jqgrid.css);

@@ -21,11 +21,12 @@ public partial class lib_Navigator : System.Web.UI.UserControl
     /// 附加的子功能說明(如果有設定會出現在導覽的後端)
     /// </summary>
     public String SubFunc { get; set; }
-    
-    
-    
-    protected void Page_Load(object sender, EventArgs e)
+
+
+
+    public override void RenderControl(HtmlTextWriter writer)
     {
+        
         String CacheKey="nav_"+this.SysFuncNo;
 
         //判斷快取
@@ -102,5 +103,12 @@ public partial class lib_Navigator : System.Web.UI.UserControl
         span.InnerHtml = sb.ToString();
 
         this.nav.Controls.Add(span);
+    
+        
+        base.RenderControl(writer);
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
     }
 }
