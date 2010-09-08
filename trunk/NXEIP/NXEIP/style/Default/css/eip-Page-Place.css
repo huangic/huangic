@@ -20,6 +20,23 @@
 
 
 
+.layoutDiv .top,.layoutDiv .center ,.layoutDiv .bottom
+ {
+   width:97%;
+  
+  padding:2px 2px 2px 2px; 
+  
+  border:#dddddd 1px solid; 
+      
+ }
+ 
+ .layoutDiv .center
+ {
+     font-size:14px;
+     text-align:center;   
+  }
+
+
 
 
 

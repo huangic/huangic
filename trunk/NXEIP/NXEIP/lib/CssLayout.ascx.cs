@@ -10,14 +10,27 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        String layout = "Default";
         
-        
-        HtmlLink link = new HtmlLink();
-        link.Href = Context.Request.ApplicationPath + "/"+layout+"/css/eip.css";
-        link.Attributes.Add("type", "text/css");
-        link.Attributes.Add("rel", "stylesheet");
-        Page.Header.Controls.Add(link);
 
     }
+
+   
+
+    protected override void Render(HtmlTextWriter writer)
+    {
+
+        String layout = "Default";
+
+        HtmlLink link = new HtmlLink();
+        link.Href = Context.Request.ApplicationPath + "/style/" + layout + "/css/eip.css";
+        link.Attributes.Add("type", "text/css");
+        link.Attributes.Add("rel", "stylesheet");
+        this.Controls.Clear();
+        this.Controls.Add(link);
+        base.Render(writer);
+    }
+
+   
+
+    
 }
