@@ -19,7 +19,7 @@ public partial class _35_350200_350204 : System.Web.UI.Page
 
     private void ShowMSG(string msg)
     {
-        this.Page.RegisterStartupScript("msg", "<script>alert('" + msg + "');</script>");
+        this.ClientScript.RegisterStartupScript(this.GetType(),"MyScript", "<script>alert('" + msg + "');</script>");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ public partial class _35_350200_350204 : System.Web.UI.Page
             //部門
             if (this.cbox_dearp.Checked)
             {
-                if (this.jQueryDepartTree1.Items.Count == 0)
+                if (this.jQueryDepartTree1.Items == null || this.jQueryDepartTree1.Items.Count == 0)
                 {
                     this.ShowMSG("請選擇任一部門!");
                     return;
@@ -120,7 +120,7 @@ public partial class _35_350200_350204 : System.Web.UI.Page
             //人員
             if (this.cbox_people.Checked)
             {
-                if (this.jQueryPeopleTree1.Items.Count == 0)
+                if (this.jQueryPeopleTree1.Items == null || this.jQueryPeopleTree1.Items.Count == 0)
                 {
                     this.ShowMSG("請選擇任一人員!");
                     return;
@@ -149,8 +149,10 @@ public partial class _35_350200_350204 : System.Web.UI.Page
 
 
     }
+
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        string url = "350204.aspx?Count=" + new Random().Next(1000);
+        Response.Write("<script>location.replace('" + url + "')</script>");
     }
 }

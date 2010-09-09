@@ -15,6 +15,8 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            this.Navigator1.SubFunc = "人員修改";
+
             this.calendar3.Visible = false;
 
             int peo_uid = Convert.ToInt32(Request["peo_uid"]);
@@ -133,12 +135,8 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             //操作記錄
             new OperatesObject().ExecuteOperates(350205, new SessionObject().sessionUserID, 3, "修改人員 姓名:" + peopleData.peo_name);
 
-            this.ShowMSG("人員修改完成!");
-
             string url = "350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + Request["pageIndex"];
-            Response.Write("<script>location.replace('" + url + "')</script>");
-
-            //Response.Redirect("350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + Request["pageIndex"]);
+            this.ShowMsg_URL("人員修改完成!", url);
         }
     }
 
@@ -228,6 +226,13 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
     }
     private void ShowMSG(string msg)
     {
-        this.Page.RegisterStartupScript("msg", "<script>alert('" + msg + "');</script>");
+        string script = "<script>alert('" + msg + "');</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(),"msg", script);
+    }
+
+    private void ShowMsg_URL(string msg, string url)
+    {
+        string script = "<script>window.alert('" + msg + "');location.href='" + url + "'</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
     }
 }

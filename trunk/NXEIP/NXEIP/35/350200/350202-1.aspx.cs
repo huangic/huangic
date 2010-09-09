@@ -29,19 +29,17 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
             if (mode != null && mode.Equals("edit"))
             {
                 logger.Info("mode:edit");
-                this.lab_mode.Text = "修改";
+                this.Navigator1.SubFunc = "修改";
                 //取資料
                 types t = dao.GetTypes(System.Convert.ToInt32(this.hidden_typ_no.Value));
 
                 this.tbx_typ_number.Text = t.typ_number;
                 this.tbx_typ_cname.Text = t.typ_cname;
-                //this.tbx_typ_order.Text = t.typ_order.ToString();
-                //this.tbx_typ_ename.Text = t.typ_ename;
             }
             else
             {
                 //新增模式
-                this.lab_mode.Text = "新增";
+                this.Navigator1.SubFunc = "新增";
                 logger.Info("mode:new");
 
             }
@@ -57,7 +55,6 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
 
         if (this.hidden_typ_no.Value != "")
         {
-
             //修改模式
             logger.Debug("EDIT");
             Edit(this.hidden_typ_no.Value);
@@ -66,15 +63,9 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         }
         else
         {
-
-
-
             Add();
             msg = "新增成功";
         }
-
-       
-
 
         //呼叫UPATE()關閉此頁面 並且更新updatepanel (parent page 必須做一個UPDATE的FUNCTION)
         this.Page.ClientScript.RegisterStartupScript(typeof(_35_350200_350201_1), "closeThickBox", "self.parent.update('" + msg + "');", true);
@@ -88,8 +79,6 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         String typ_code = "ptype";
         String typ_number = this.tbx_typ_number.Text;
         String typ_cname = this.tbx_typ_cname.Text;
-       // String typ_ename = this.tbx_typ_ename.Text;
-        //String typ_order = this.tbx_typ_order.Text;
 
 
         //新增模式
@@ -99,7 +88,6 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         newType.typ_cname = typ_cname;
         newType.typ_number = typ_number;
         newType.typ_status = "1";
-        //newType.typ_ename = typ_ename;
         newType.typ_createtime = DateTime.Now;
         try
         {
@@ -107,20 +95,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         }
         catch
         {
-
         }
-
-
-        try
-        {
-           // newType.typ_order = System.Convert.ToInt32(typ_order);
-        }
-        catch
-        {
-
-        }
-
-
 
         //Dao
         TypesDAO dao = new TypesDAO();
@@ -128,26 +103,19 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         dao.Update();
     }
 
-
-
-    public void Edit(String id) {
-
-
+    public void Edit(String id)
+    {
         TypesDAO dao = new TypesDAO();
         SessionObject sessionObj = new SessionObject();
         //String typ_number = "profess";
         String typ_number = this.tbx_typ_number.Text;
         String typ_cname = this.tbx_typ_cname.Text;
-        String typ_ename = this.tbx_typ_ename.Text;
-        String typ_order = this.tbx_typ_order.Text;
-
 
         //新增模式
         Entity.types newType = dao.GetTypes(System.Convert.ToInt32(id));
 
         newType.typ_number = typ_number;
         newType.typ_cname = typ_cname;
-        newType.typ_ename = typ_ename;
         newType.typ_createtime = DateTime.Now;
         try
         {
@@ -155,23 +123,8 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         }
         catch
         {
-
         }
 
-
-        try
-        {
-            newType.typ_order = System.Convert.ToInt32(typ_order);
-        }
-        catch
-        {
-
-        }
-
-
-
-        //Dao
-       
         //dao.AddTypes(newType);
         dao.Update();
     }

@@ -143,9 +143,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
                 //操作記錄
                 new OperatesObject().ExecuteOperates(350205, peo_uid, 1, "新增人員-peo_uid:" + newPeople.peo_uid);
 
-                this.ShowMSG("人員新增完成!");
-
-                Response.Redirect("350205.aspx?Count="+new Random().Next(1000));
+                this.ShowMsg_URL("人員新增完成!", "350205.aspx?Count=" + new Random().Next(1000));
             }
         }
 
@@ -185,7 +183,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             this.ShowMSG("請輸入人事編號!");
             ret = false;
         }
-        if (this.jQueryDepartTree1.Items.Count == 0)
+        if (this.jQueryDepartTree1.Items == null || this.jQueryDepartTree1.Items.Count == 0)
         {
             this.ShowMSG("請選擇部門!");
             ret = false;
@@ -238,7 +236,14 @@ public partial class _35_350200_350205 : System.Web.UI.Page
 
     private void ShowMSG(string msg)
     {
-        //ClientScript.RegisterStartupScript(typeof(_35_350200_350205), "msg", "<script>alert('" + msg + "');</script>",true);
-        this.Page.RegisterStartupScript("msg", "<script>alert('" + msg + "');</script>");
+        string script = "<script>alert('" + msg + "');</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
     }
+
+    private void ShowMsg_URL(string msg, string url)
+    {
+        string script = "<script>window.alert('" + msg + "');location.href='" + url + "'</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+    }
+    
 }
