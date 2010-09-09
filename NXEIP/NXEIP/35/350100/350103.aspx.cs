@@ -62,7 +62,7 @@ public partial class _35_350100_350103 : System.Web.UI.Page
 
     protected void but_cancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("350103.aspx");
+
     }
 
     /// <summary>
@@ -113,11 +113,13 @@ public partial class _35_350100_350103 : System.Web.UI.Page
         //狀態
         dbo.ExecuteNonQuery("update accounts set acc_status = '" + this.ddl_status.SelectedValue + "' where acc_no = " + this.lab_accno.Text);
 
-        Response.Redirect("350103.aspx");
+        this.Panel2.Visible = false;
+        this.Panel1.Visible = true;
     }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
+
         this.Panel2.Visible = false;
         this.Panel1.Visible = true;
     }
