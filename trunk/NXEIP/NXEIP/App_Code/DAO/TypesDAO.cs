@@ -48,7 +48,6 @@ namespace NXEIP.DAO
 
         }
 
-
         public void AddTypes(types type)
         {
             model.AddTotypes(type);
