@@ -6,6 +6,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
     Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
+<%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
@@ -36,86 +37,72 @@
             <asp:Parameter DefaultValue="profess" Name="type_code" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
-   
-   
-   <div class="nav"><span>帳號管理 / 人員管理 /<strong> 職稱管理 </strong></span></div>
-
-   <div class="tableDiv">
-    <div class="header">
-        <div class="h1"></div>
-         <div class="h2">
-         <div class="name">職稱管理</div>
-         <div class="function"><input type="button" class="thickbox b-input" alt="350201-1.aspx?height=250&TB_iframe=true&modal=true"
-                                            value="新增職稱"></div>
-         </div>
-          <div class="h3"></div>   
-     </div>
-
-                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <cc1:GridView ID="GridView1" runat="server" DataSourceID="TypesDataSource" AutoGenerateColumns="False"
-                                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3"
-                                    GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no" EnableViewState="False"
-                                    EmptyDataText="目前無資料" OnRowDataBound="GridView1_RowDataBound">
-                                    <Columns>
-                                        <asp:BoundField DataField="typ_number" HeaderText="職稱代號" SortExpression="typ_number" />
-                                        <asp:BoundField DataField="typ_cname" HeaderText="職稱 " SortExpression="typ_cname" />
-                                        <asp:BoundField DataField="typ_order" HeaderText="排列順序" SortExpression="typ_order" />
-                                        <asp:BoundField DataField="typ_createuid" HeaderText="修建者" SortExpression="typ_createuid" />
-                                        <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" SortExpression="typ_createtime"
-                                            DataFormatString="{0:yyyy-MM-dd hh:mm}" />
-                                        <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                               <!--
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="350201" />
+    <div class="tableDiv">
+        <div class="header">
+            <div class="h1">
+            </div>
+            <div class="h2">
+                <div class="function">
+                    <input type="button" class="thickbox b-input" alt="350201-1.aspx?height=250&TB_iframe=true&modal=true"
+                        value="新增職稱" /></div>
+            </div>
+            <div class="h3">
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <cc1:GridView ID="GridView1" runat="server" DataSourceID="TypesDataSource" AutoGenerateColumns="False"
+                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
+                    OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no" EnableViewState="False"
+                    EmptyDataText="目前無資料" OnRowDataBound="GridView1_RowDataBound">
+                    <Columns>
+                        <asp:BoundField DataField="typ_number" HeaderText="職稱代號" SortExpression="typ_number" />
+                        <asp:BoundField DataField="typ_cname" HeaderText="職稱 " SortExpression="typ_cname" />
+                        <asp:BoundField DataField="typ_order" HeaderText="排列順序" SortExpression="typ_order" />
+                        <asp:BoundField DataField="typ_createuid" HeaderText="修建者" SortExpression="typ_createuid" />
+                        <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" SortExpression="typ_createtime"
+                            DataFormatString="{0:yyyy-MM-dd hh:mm}" />
+                        <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <!--
                                                 <input  type="button" class="thickbox edit" name='<%# Eval("typ_cname", "修改{0}") %>'
                                                 alt='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'
                                                 </input>
                                                -->
-                                               
-                                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("typ_cname", "修改{0}") %>'
-                                                    href='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'>
-                                                    <span><span>修改</span></span>
-                                                </a>
-                                               
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="刪除">
-                                            <ItemTemplate>
-                                                <asp:Button ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                                    CommandName="disable" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </cc1:GridView>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-
-
-
-   
-    <div class="footer">
-        <div class="f1"></div>
-        <div class="f2"></div>
-        <div class="f3"></div>
+                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("typ_cname", "修改{0}") %>'
+                                    href='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'>
+                                    <span><span>修改</span></span> </a>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="刪除">
+                            <ItemTemplate>
+                                <asp:Button ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                                    CommandName="disable" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                    </Columns>
+                </cc1:GridView>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
+        <div class="pager">
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                <Fields>
+                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
+                    <asp:NumericPagerField />
+                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
+                </Fields>
+            </asp:DataPager>
+        </div>
     </div>
-   
-   <div class="pager">
-                            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                                <Fields>
-                                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                                    <asp:NumericPagerField />
-                                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                                </Fields>
-                            </asp:DataPager>
-                        </div>
-   
-   
-   </div>
-
-
-
-   
-   
 </asp:Content>

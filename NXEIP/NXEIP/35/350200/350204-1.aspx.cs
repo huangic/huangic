@@ -16,6 +16,7 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            this.Navigator1.SubFunc = "人員列表";
             //Response.Redirect("350204-1.aspx?jobtype=" + jobtype + "&ptype=" + ptype + "&workid=" + workid + "&name=" + name + "&account=" + account + "&profess=" + profess + "&depar=" + depar + "&people=" + people);
             string sql = "";
 
@@ -67,6 +68,7 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
 
             string sql_order = " order by departments.dep_order";
             this.SqlDataSource1.SelectCommand += sql + sql_order;
+            this.lab_sql.Text = this.SqlDataSource1.SelectCommand;
             this.GridView1.DataBind();
 
             if (Request["pageIndex"] != null)
@@ -150,5 +152,9 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
         new OperatesObject().ExecuteOperates(350204, new SessionObject().sessionUserID, 2, "匯出人員Excel");
     }
 
-   
+    protected void GridView1_PageIndexChanged(object sender, EventArgs e)
+    {
+        this.SqlDataSource1.SelectCommand = this.lab_sql.Text;
+        this.GridView1.DataBind();
+    }
 }

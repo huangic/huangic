@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using NXEIP.DAO;
 using Entity;
 using NLog;
@@ -29,6 +28,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
 
             if (mode != null && mode.Equals("edit"))
             {
+                this.Navigator1.SubFunc = "修改部門";
                 //設定要變更的欄位
                 DepartmentsDAO dao = new DepartmentsDAO();
 
@@ -60,6 +60,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             {
                 //新增模式
                 logger.Info("mode:new");
+                this.Navigator1.SubFunc = "新增部門";
             }
         }
     }
