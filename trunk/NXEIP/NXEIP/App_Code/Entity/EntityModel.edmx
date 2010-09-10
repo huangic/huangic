@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
@@ -914,8 +914,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NXEIPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -1097,7 +1096,7 @@
           <Property Name="blo_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="pag_no" Type="Int32" Nullable="false" />
           <Property Name="wid_no" Type="Int32" Nullable="false" />
-          <Property Name="blo_layout" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="blo_layout" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
           <Property Name="blo_order" Type="Int32" Nullable="false" />
           <Property Name="blo_setting" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="blo_createuid" Type="Int32" />
@@ -2230,7 +2229,7 @@
       <Diagram Name="EntityModel">
         <EntityTypeShape EntityType="NXEIPModel.accounts" Width="1.5" PointX="5.25" PointY="11.25" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.arguments" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="NXEIPModel.block" Width="1.5" PointX="11" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="NXEIPModel.block" Width="1.5" PointX="11.375" PointY="0.875" Height="2.9417936197916661" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.c01" Width="1.5" PointX="5.25" PointY="14.75" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.c02" Width="1.5" PointX="8.25" PointY="19.625" Height="3.903300781249996" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.c03" Width="1.5" PointX="6" PointY="7.375" Height="2.5571907552083317" IsExpanded="true" />
@@ -2272,12 +2271,12 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_BLCOK_RELATIONS_PAGE" ManuallyRouted="false">
           <ConnectorPoint PointX="10.25" PointY="2.4324446614583337" />
-          <ConnectorPoint PointX="11" PointY="2.4324446614583337" />
+          <ConnectorPoint PointX="11.375" PointY="2.4324446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_BLCOK_RELATIONS_WIDGET" ManuallyRouted="false">
           <ConnectorPoint PointX="10.25" PointY="6.499746093749998" />
-          <ConnectorPoint PointX="11.75" PointY="6.499746093749998" />
-          <ConnectorPoint PointX="11.75" PointY="3.9417936197916656" />
+          <ConnectorPoint PointX="12.125" PointY="6.499746093749998" />
+          <ConnectorPoint PointX="12.125" PointY="3.8167936197916661" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_C01_RELATIONS_PEOPLE" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="21.876152846153843" />

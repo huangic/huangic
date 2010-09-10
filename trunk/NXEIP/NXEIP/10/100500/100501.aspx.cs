@@ -13,7 +13,7 @@ using NXEIP.Widget;
 
 
 public partial class _10_100500_100501 : WidgetPageTemplate
-{
+{   
 
     //需要OVERRIDE 
 

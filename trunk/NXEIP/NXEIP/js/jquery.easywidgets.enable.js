@@ -26,8 +26,8 @@ function widget_init() {
       },
 
       callbacks: {
-          onCloseQuery: widgetClose,
-          onChangePositions: widgetTmpSave
+          onCloseQuery: widgetClose
+          //onChangePositions: widgetTmpSave
       }
 
 
@@ -43,7 +43,7 @@ function widgetClose(link,widget) {
     if (widget != null) {
         $(widget).remove();
     }
-    widgetTmpSave();
+    //widgetTmpSave();
 
 }
 
@@ -136,7 +136,7 @@ function WidgetSaveOnFail() {
 
 var widgetRemoteUrl = "/NXEIP/widget/WidgetMethod.aspx";
 var widgetSetting = {"SessionName": "WidgetObj", "SessionTmpName": "TmpWidgetObj", "Uid": "1", "PageType": "P" };
-
+var WidgetWrapPage = "/NXEIP/widget/WidgetWrapPage.aspx";
 
 
 
@@ -169,3 +169,20 @@ function widgetSaveSession(widgetObj) {
 }
 
 
+function AddWidgetBlock(WidgetNo) {
+
+    $.ajax({
+        type: "POST",
+        url: WidgetWrapPage,
+        data: { "widget": WidgetNo },
+        //contentType: "application/json; charset=utf-8",
+        //dataType: "html",
+        cache: "false",
+        success: function (data) {
+            $(".leftbg").append(data);
+            widget_init();
+        },
+        error: WidgetSaveOnFail
+    });
+    
+}

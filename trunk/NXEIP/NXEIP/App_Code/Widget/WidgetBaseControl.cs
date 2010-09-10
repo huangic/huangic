@@ -106,6 +106,7 @@ namespace NXEIP.Widget
             base.Render(writer);
             writer.Write("</div>");
             writer.Write("</div>");
+           
         }
 
     }
