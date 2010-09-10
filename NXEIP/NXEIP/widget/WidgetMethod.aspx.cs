@@ -63,8 +63,7 @@ public partial class WidgetMethod : System.Web.UI.Page
 
 
 
-                String InsertSql = @"INSERT INTO block(wid_no, pag_no, blo_layout, blo_order, blo_createuid, blo_createtime) 
-                                        VALUES (@wid_no, @pag_no, @blo_layout, @blo_order, @blo_createuid, @blo_createtime)";
+                String InsertSql = @"INSERT INTO block(wid_no, pag_no, blo_layout, blo_order, blo_createuid, blo_createtime) VALUES (@wid_no, @pag_no, @blo_layout, @blo_order, @blo_createuid, @blo_createtime)";
                 DbCommand InsertCmd = db.GetSqlStringCommand(InsertSql);
 
                 //設定參數
@@ -76,6 +75,10 @@ public partial class WidgetMethod : System.Web.UI.Page
                 db.AddInParameter(InsertCmd, "@blo_createtime", DbType.DateTime, DateTime.Now);
 
                 db.ExecuteNonQuery(InsertCmd);
+
+
+
+
 
 
             }

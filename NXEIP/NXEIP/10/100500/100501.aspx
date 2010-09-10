@@ -3,6 +3,16 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
+<script type="text/javascript">
+ function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                //  reapply the thick box stuff
+                tb_init('a.thickbox');
+                widget_init();
+            }
+        }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -87,6 +97,9 @@
             </div>
 
     </asp:Panel>
+
+
+    
 
 
 

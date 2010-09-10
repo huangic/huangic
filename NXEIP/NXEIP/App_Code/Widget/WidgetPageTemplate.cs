@@ -47,6 +47,9 @@ namespace NXEIP.Widget
         public abstract String SessionTmpName { get ; }
 
 
+
+        
+
         /// <summary>
         /// 此頁面的UID 子代OVERRIDE
         /// </summary>
@@ -75,6 +78,8 @@ namespace NXEIP.Widget
         protected virtual String RemoteUrl { get { return "~/widget/WidgetMethod.aspx"; } }
 
 
+
+        protected virtual String WidgetWrapPage { get { return "~/widget/WidgetWrapPage.aspx"; } }
         Logger logger = LogManager.GetCurrentClassLogger();
 
 
@@ -82,9 +87,6 @@ namespace NXEIP.Widget
         {
 
      
-
-
-
 
             InitWidget();
 
@@ -284,9 +286,11 @@ namespace NXEIP.Widget
         /// <returns></returns>
         protected Entity.widget GetWidget(int wid_no)
         {
-            NXEIPEntities model = new NXEIPEntities();
-
-            return (from w in model.widget where w.wid_no == wid_no select w).FirstOrDefault();
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+                
+                return (from w in model.widget where w.wid_no == wid_no select w).FirstOrDefault();
+            }
         }
 
         #region 讀取物件放置於SESSION
@@ -375,6 +379,18 @@ namespace NXEIP.Widget
                 lb.Text = w.wid_name;
                 HtmlLi.Controls.Add(lb);
                 HtmlUl.Controls.Add(HtmlLi);
+
+                //TODO: ajax
+                //*加上ajax的新增方式*
+                HtmlGenericControl HtmlLi2 = new HtmlGenericControl("li");
+                HtmlAnchor alb = new HtmlAnchor();
+                alb.HRef="javascript:AddWidgetBlock(" + w.wid_no + ")";
+                alb.ID = "Widget-" + w.wid_no;
+               
+                alb.InnerText = w.wid_name + "(ajax)";
+                HtmlLi2.Controls.Add(alb);
+                HtmlUl.Controls.Add(HtmlLi2);
+
 
             }
 

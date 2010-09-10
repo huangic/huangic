@@ -118,5 +118,6 @@ public partial class lib_Navigator : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
     }
 }

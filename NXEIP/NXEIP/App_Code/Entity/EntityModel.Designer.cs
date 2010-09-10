@@ -62,7 +62,7 @@ namespace Entity
         #region 建構函式
     
         /// <summary>
-        /// 使用在應用程式組態檔的 'Entities' 區段中找到的連接字串，初始化新的 Entities 物件。
+        /// 使用在應用程式組態檔的 'NXEIPEntities' 區段中找到的連接字串，初始化新的 NXEIPEntities 物件。
         /// </summary>
         public NXEIPEntities() : base("name=NXEIPEntities", "NXEIPEntities")
         {
@@ -71,7 +71,7 @@ namespace Entity
         }
     
         /// <summary>
-        /// 初始化新的 Entities 物件。
+        /// 初始化新的 NXEIPEntities 物件。
         /// </summary>
         public NXEIPEntities(string connectionString) : base(connectionString, "NXEIPEntities")
         {
@@ -80,10 +80,9 @@ namespace Entity
         }
     
         /// <summary>
-        /// 初始化新的 Entities 物件。
+        /// 初始化新的 NXEIPEntities 物件。
         /// </summary>
-        public NXEIPEntities(EntityConnection connection)
-            : base(connection, "NXEIPEntities")
+        public NXEIPEntities(EntityConnection connection) : base(connection, "NXEIPEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
