@@ -3,33 +3,34 @@
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
     TagPrefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
+<%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../../css/eip.css" rel="stylesheet" type="text/css" />
+    <uc1:CssLayout ID="CssLayout1" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-        </asp:ToolkitScriptManager>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-                <td width="17">
-                    <img src="../../image/b02.gif" width="17" height="29" />
-                </td>
-                <td background="../../image/b02-1.gif" class="a02-15">
-                    人員明細
-                </td>
-                <td background="../../image/b02-1.gif">
-                    &nbsp;
-                </td>
-                <td width="17">
-                    <img src="../../image/b02-2.gif" width="17" height="29" />
-                </td>
-            </tr>
-        </table>
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
+        SelectCommand="SELECT people.peo_name, departments.dep_name, types.typ_cname FROM roleaccount INNER JOIN accounts ON roleaccount.acc_no = accounts.acc_no INNER JOIN people ON accounts.peo_uid = people.peo_uid INNER JOIN departments ON people.dep_no = departments.dep_no INNER JOIN types ON people.peo_pfofess = types.typ_no WHERE (people.peo_jobtype = '1') AND (roleaccount.rol_no = @rol_no)">
+        <SelectParameters>
+            <asp:Parameter Name="rol_no" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="350101" />
+    <div class="tableDiv">
+        <div class="header">
+            <div class="h1">
+            </div>
+            <div class="h2">
+            </div>
+            <div class="h3">
+            </div>
+        </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
@@ -41,25 +42,14 @@
                         <asp:BoundField DataField="peo_name" HeaderText="姓名" SortExpression="peo_name" />
                     </Columns>
                 </cc1:GridView>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="17">
-                            <img src="../../image/b02-3.gif" width="17" height="17" />
-                        </td>
-                        <td background="../../image/b02-4.gif">
-                            &nbsp;
-                        </td>
-                        <td width="17">
-                            <img src="../../image/b02-5.gif" width="17" height="17" />
-                        </td>
-                    </tr>
-                </table>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-                    SelectCommand="SELECT people.peo_name, departments.dep_name, types.typ_cname FROM roleaccount INNER JOIN accounts ON roleaccount.acc_no = accounts.acc_no INNER JOIN people ON accounts.peo_uid = people.peo_uid INNER JOIN departments ON people.dep_no = departments.dep_no INNER JOIN types ON people.peo_pfofess = types.typ_no WHERE (people.peo_jobtype = '1') AND (roleaccount.rol_no = @rol_no)">
-                    <SelectParameters>
-                        <asp:Parameter Name="rol_no" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
+                <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
                 <div class="pager">
                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                         <Fields>
@@ -71,16 +61,10 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#FFFFFF">
-            <tr>
-                <td>
-                    <div align="center">
-                        &nbsp;<asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="關閉視窗" OnClientClick="self.parent.tb_remove()"
-                            UseSubmitBehavior="False" />
-                        &nbsp;</div>
-                </td>
-            </tr>
-        </table>
+        <div class="bottom">
+            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="關閉視窗" OnClientClick="self.parent.tb_remove()"
+                UseSubmitBehavior="False" />
+        </div>
     </div>
     </form>
 </body>

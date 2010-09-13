@@ -36,9 +36,6 @@ public partial class _35_350100_350101 : System.Web.UI.Page
         //設定角色為預設值
         if (e.CommandName.Equals("default"))
         {
-            //加為預設值
-            new DBObject().ExecuteNonQuery("update role set rol_default='1' where rol_no = " + rol_no);
-
             //消除原有預設值
             for (int i = 0; i < this.GridView1.Rows.Count; i++)
             {
@@ -47,6 +44,9 @@ public partial class _35_350100_350101 : System.Web.UI.Page
                     new DBObject().ExecuteNonQuery("update role set rol_default = '2' where rol_no = " + this.GridView1.DataKeys[i].Value.ToString());
                 }
             }
+
+            //加為預設值
+            new DBObject().ExecuteNonQuery("update role set rol_default='1' where rol_no = " + rol_no);
 
             this.GridView1.DataBind();
         }

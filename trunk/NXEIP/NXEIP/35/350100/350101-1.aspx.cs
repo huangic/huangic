@@ -27,12 +27,12 @@ public partial class _35_350100_350101_1 : System.Web.UI.Page
                 this.tbx_role_name.Text = mytable.Rows[0]["rol_name"].ToString();
                 this.tbx_role_memo.Text = mytable.Rows[0]["rol_memo"].ToString();
 
-                this.lab_headermode.Text = "修改";
+                this.Navigator1.SubFunc = "修改角色";
             }
             else
             {
                 //新增模式
-                this.lab_headermode.Text = "新增";
+                this.Navigator1.SubFunc = "新增角色";
             }
         }
     }

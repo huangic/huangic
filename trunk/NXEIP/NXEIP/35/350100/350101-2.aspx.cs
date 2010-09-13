@@ -11,6 +11,7 @@ public partial class _35_350100_350101_2 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            this.Navigator1.SubFunc = "人員明細";
             this.SqlDataSource1.SelectParameters["rol_no"].DefaultValue = Request["rol_no"];
             this.GridView1.DataBind();
         }

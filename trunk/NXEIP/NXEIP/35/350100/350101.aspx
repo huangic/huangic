@@ -6,8 +6,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
     Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
+<%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-
     <script type="text/javascript">
         function update(msg) {
 
@@ -23,145 +23,95 @@
                 tb_init('a.thickbox');
             }
         }
-    
-    
     </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    &nbsp;<table width="100%" cellspacing="20" cellpadding="0" border="0">
-        <tbody>
-            <tr>
-                <td valign="top" class="style1">
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td width="17">
-                                    <img width="17" height="22" src="../../image/b01.gif">
-                                </td>
-                                <td background="../../image/b01-1.gif" class="b01">
-                                    帳號管理 / 權限管理 /<strong> 角色設定 </strong>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top">
-                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                            <tr>
-                                <td width="17">
-                                    <img width="17" height="29" src="../../image/b02.gif">
-                                </td>
-                                <td background="../../image/b02-1.gif" class="a02-15">
-                                    角色設定
-                                </td>
-                                <td background="../../image/b02-1.gif">
-                                    <div align="right">
-                                        <input type="button" class="thickbox b-input" alt="350101-1.aspx?modal=true&TB_iframe=true&height=378&width=600"
-                                            value="新增角色資料">
-                                        &nbsp;</div>
-                                </td>
-                                <td width="17">
-                                    <img width="17" height="29" src="../../image/b02-2.gif">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <strong>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <cc1:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False"
-                                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" CssClass="tableData"
-                                    GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="rol_no" EnableViewState="False"
-                                    OnRowDataBound="GridView1_RowDataBound">
-                                    <Columns>
-                                        <asp:BoundField DataField="rol_name" HeaderText="角色名稱" SortExpression="rol_no" />
-                                        <asp:BoundField DataField="rol_memo" HeaderText="角色備註" SortExpression="rol_memo" />
-                                        <asp:BoundField DataField="rol_createuid" HeaderText="修建者" SortExpression="rol_createuid" />
-                                        <asp:BoundField DataField="rol_createtime" HeaderText="修建時間" SortExpression="rol_createtime"
-                                            DataFormatString="{0:yyyy-MM-dd HH:mm}" />
-                                        
-                                        <asp:BoundField DataField="rol_default" HeaderText="預設值" 
-                                            SortExpression="rol_default">
-                                        <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:BoundField>
-                                        
-                                        <asp:TemplateField HeaderText="預設角色">
-                                            <ItemTemplate>
-                                                <a title='<%# Eval("rol_name", "設定{0}為預設角色") %>'>
-                                                <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                                    CommandName="default" ImageUrl="~/image/v02.gif"  />
-                                                </a>    
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:TemplateField>
-                                            
-                                        <asp:TemplateField HeaderText="人員明細" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <a class="thickbox" href='<%# Eval("rol_no", "350101-2.aspx?rol_no={0}&modal=true&TB_iframe=true") %>'>
-                                                    <img alt="" src="../../image/v05.gif" />
-                                                </a>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:TemplateField>
-                                        <asp:ButtonField Text="設定權限" ButtonType="Image" DataTextField="rol_no" HeaderText="設定權限"
-                                            ImageUrl="~/image/alter.gif" CommandName="set">
-                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:ButtonField>
-                                        <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <a class="thickbox" title='<%# Eval("rol_name", "修改{0}") %>'
-                                                    href='<%# Eval("rol_no", "350101-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=450&width=600") %>'>
-                                                    <img alt="" src="../../image/edit.gif" />
-                                                </a>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="刪除">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                                    CommandName="disable" ImageUrl="~/image/delete.gif" OnClientClick=" return confirm('確定要刪除?')" />
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </cc1:GridView>
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td width="17">
-                                            <img src="../../image/b02-3.gif" width="17" height="17" />
-                                        </td>
-                                        <td background="../../image/b02-4.gif">
-                                            &nbsp;
-                                        </td>
-                                        <td width="17">
-                                            <img src="../../image/b02-5.gif" width="17" height="17" />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-                                    SelectCommand="SELECT rol_no, rol_name, rol_memo, rol_createuid, rol_createtime, rol_default FROM role">
-                                </asp:SqlDataSource>
-                                <div class="pager">
-                                    
-                                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                                        <Fields>
-                                            <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                                            <asp:NumericPagerField />
-                                            <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                                        </Fields>
-                                    </asp:DataPager>
-                                </div>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </strong>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
+        SelectCommand="SELECT rol_no, rol_name, rol_memo, rol_createuid, rol_createtime, rol_default FROM role">
+    </asp:SqlDataSource>
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="350101" />
+    <div class="tableDiv">
+        <div class="header">
+            <div class="h1">
+            </div>
+            <div class="h2">
+                <div class="function">
+                    <input type="button" class="thickbox b-input" alt="350101-1.aspx?modal=true&TB_iframe=true&height=378&width=600"
+                        value="新增角色資料" />
+                </div>
+            </div>
+            <div class="h3">
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <cc1:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False"
+                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" CssClass="tableData"
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="rol_no" EnableViewState="False"
+                    OnRowDataBound="GridView1_RowDataBound">
+                    <Columns>
+                        <asp:BoundField DataField="rol_name" HeaderText="角色名稱" SortExpression="rol_no" />
+                        <asp:BoundField DataField="rol_memo" HeaderText="角色備註" SortExpression="rol_memo" />
+                        <asp:BoundField DataField="rol_createuid" HeaderText="修建者" SortExpression="rol_createuid" />
+                        <asp:BoundField DataField="rol_createtime" HeaderText="修建時間" SortExpression="rol_createtime"
+                            DataFormatString="{0:yyyy-MM-dd HH:mm}" />
+                        <asp:BoundField DataField="rol_default" HeaderText="預設值" SortExpression="rol_default">
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="預設角色">
+                            <ItemTemplate>
+                                <asp:Button ID="Button1" runat="server" CssClass="alter" CommandName="default"
+                                    CommandArgument="<%# Container.DataItemIndex %>" ToolTip='<%# Eval("rol_name", "設定{0}為預設角色") %>' />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="人員明細" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <a class="thickbox imageButton people" href='<%# Eval("rol_no", "350101-2.aspx?rol_no={0}&modal=true&TB_iframe=true") %>'>
+                                    <span>人員</span> </a>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:TemplateField>
+                        <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="alter" HeaderText="設定權限"
+                            CommandName="set">
+                            <ControlStyle CssClass="alter" />
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:ButtonField>
+                        <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <a class="thickbox imageButton edit" title='<%# Eval("rol_name", "修改{0}") %>' href='<%# Eval("rol_no", "350101-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=450&width=600") %>'>
+                                    <span>修改</span> </a>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="刪除">
+                            <ItemTemplate>
+                                <asp:Button ID="Button2" runat="server" CommandName="disable" CssClass="delete" CommandArgument="<%# Container.DataItemIndex %>" OnClientClick=" return confirm('確定要刪除?')" />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:TemplateField>
+                    </Columns>
+                </cc1:GridView>
+                <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
+                <div class="pager">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                        <Fields>
+                            <asp:NextPreviousPagerField ShowNextPageButton="False" />
+                            <asp:NumericPagerField />
+                            <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
 </asp:Content>
