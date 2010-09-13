@@ -92,14 +92,21 @@ public partial class WidgetMethod : System.Web.UI.Page
         //幹掉 SESSION 讓PAGE 重新生
         HttpContext.Current.Session[widgetPage.SessionName] = null;
 
-        //保留TMP的免得又在編輯
-        HttpContext.Current.Session[widgetPage.SessionTmpName] = widgetObj;
+        //保留TMP的免得又在編輯(改為使用AJAX)
+        //HttpContext.Current.Session[widgetPage.SessionTmpName] = widgetObj;
 
 
 
         return 1;
     }
 
+
+
+    /// <summary>
+    /// 取回現在的page_no; //如果沒有就新建一個回傳
+    /// </summary>
+    /// <param name="widgetPage"></param>
+    /// <returns></returns>
     public static int GetCurrentPage(WidgetJson widgetPage)
     {
         //取回現在的page_no; //如果沒有就新建一個回傳

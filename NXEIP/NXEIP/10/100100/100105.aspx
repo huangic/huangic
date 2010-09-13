@@ -2,8 +2,10 @@
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%@ Register src="../../lib/SubMenuControl.ascx" tagname="SubMenuControl" tagprefix="uc2" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    
      <script type="text/javascript" src="../../js/jquery-ui-1.8.2.custom.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
@@ -53,7 +55,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
+<uc2:SubMenuControl ID="SubMenuControl1" runat="server" SysFuncCode="100105"/>
 <uc1:Navigator ID="Navigator1" runat="server"/>
 
 
@@ -85,6 +87,16 @@
             </table>
     </div>
 </div>
+
+
+
+
+    
+
+
+
+
+    
 
 
 

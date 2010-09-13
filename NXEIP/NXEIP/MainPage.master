@@ -1,15 +1,13 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+Ôªø<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="MainPage" %>
 
 <%@ Register src="lib/HeaderMenu.ascx" tagname="HeaderMenu" tagprefix="uc1" %>
 
 <%@ Register src="lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc2" %>
 
-<%@ Register src="lib/SubHeaderMenu.ascx" tagname="SubHeaderMenu" tagprefix="uc3" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
     <title></title>
     <uc2:CssLayout ID="CssLayout1" runat="server" />
@@ -42,7 +40,7 @@
         
         <div class="logo"><span>
             
-            •x´n•´≠˚§u§J§f∫Ù</span></div>
+            Âè∞ÂçóÂ∏ÇÂì°Â∑•ÂÖ•Âè£Á∂≤</span></div>
         
         
       </td>
@@ -54,7 +52,7 @@
         
         
        
-		 
+		    <uc1:HeaderMenu ID="HeaderMenu1" runat="server" />
         
         
        
@@ -66,11 +64,11 @@
               <tr>
                 <td  bgcolor="#FFFFFF" class="a01-13">
                     <asp:HyperLink ID="Home" runat="server" CssClass="home" 
-                        NavigateUrl="~/index.aspx"><span>≠∫≠∂</span></asp:HyperLink>
+                        NavigateUrl="~/index.aspx"><span>È¶ñÈ†Å</span></asp:HyperLink>
                     </td>
                 <td bgcolor="#FFFFFF" class="a01-13"><div align="right">
                 <asp:HyperLink ID="Logout" runat="server" CssClass="logout" 
-                        NavigateUrl="~/index.aspx"><span>µn•X</span></asp:HyperLink>
+                        NavigateUrl="~/index.aspx"><span>ÁôªÂá∫</span></asp:HyperLink>
                         
                         </div></td>
                 <td bgcolor="#FFFFFF" class="a01-13">&nbsp;</td>
@@ -81,10 +79,10 @@
           <tr>
             <td><table border="0" align="right" cellpadding="0" cellspacing="0">
               <tr>
-                <td valign="bottom" bgcolor="#FFFFFF" class="a01-13">¶rØ≈≥]©w°G</td>
-                <td bgcolor="#FFFFFF" class="a01-13"><a class="small" href="index.htm" ><span>§Â¶r§p</span></a></td>
-                <td bgcolor="#FFFFFF" class="a01-13"><a class="middle" href="index-2.htm"><span>§Â¶r§§</span></a></td>
-                <td bgcolor="#FFFFFF" class="a01-13"><a class="big" href="index-3.htm" ><span>§Â¶r§j</span></a></td>
+                <td valign="bottom" bgcolor="#FFFFFF" class="a01-13">Â≠óÁ¥öË®≠ÂÆöÔºö</td>
+                <td bgcolor="#FFFFFF" class="a01-13"><a class="small" href="index.htm" ><span>ÊñáÂ≠óÂ∞è</span></a></td>
+                <td bgcolor="#FFFFFF" class="a01-13"><a class="middle" href="index-2.htm"><span>ÊñáÂ≠ó‰∏≠</span></a></td>
+                <td bgcolor="#FFFFFF" class="a01-13"><a class="big" href="index-3.htm" ><span>ÊñáÂ≠óÂ§ß</span></a></td>
                 </tr>
             </table></td>
           </tr>
@@ -97,8 +95,6 @@
 
 
 <div class="HeaderMenuBar">
-
-   <uc3:SubHeaderMenu ID="SubHeaderMenu1" runat="server" />
 
 </div>
 
@@ -115,3 +111,4 @@
     </form>
 </body>
 </html>
+
