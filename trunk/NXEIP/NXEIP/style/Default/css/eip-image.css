@@ -34,6 +34,46 @@
      text-decoration:none;
 }
 
+.alter
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/alter.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.people
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v05.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.add
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/Add.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.peruse
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/peruse.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
 .icon
 {
      background:url("../image/a14.gif");  
