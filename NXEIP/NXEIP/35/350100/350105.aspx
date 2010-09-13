@@ -43,15 +43,13 @@
                             DataFormatString="{0:yyyy-MM-dd HH:mm}" />
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
-                                <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="modify" ImageUrl="~/image/edit.gif" />
+                                    <asp:Button ID="Button2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="modify" CssClass="edit" />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
-                                <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="del" ImageUrl="~/image/delete.gif" />
+                                <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:TemplateField>

@@ -99,11 +99,21 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        int rowIndex = System.Convert.ToInt32(e.CommandArgument);
+
         if (e.CommandName.Equals("modify"))
         {
-            string peo_uid = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
+            string peo_uid = this.GridView1.DataKeys[rowIndex].Value.ToString();
             string pageIndex = this.GridView1.PageIndex.ToString();
             Response.Redirect("350204-2.aspx?peo_uid=" + peo_uid + "&jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + pageIndex);
+        }
+
+        //檢視
+        if (e.CommandName.Equals("peruse"))
+        {
+            string peo_uid = this.GridView1.DataKeys[rowIndex].Value.ToString();
+            string pageIndex = this.GridView1.PageIndex.ToString();
+            //Response.Redirect("350204-2.aspx?peo_uid=" + peo_uid + "&jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + pageIndex);
         }
     }
 

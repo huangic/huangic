@@ -46,20 +46,17 @@
                             SortExpression="peo_arrivedate" />
                         <asp:BoundField DataField="peo_leave" DataFormatString="{0:yyyy-MM-dd}" HeaderText="離職日"
                             SortExpression="peo_leave" />
-                        <asp:TemplateField HeaderText="修改">
-                            <ItemTemplate>
-                                <asp:ImageButton ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="modify" ImageUrl="~/image/edit.gif" />
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="檢視">
-                            <ItemTemplate>
-                                <asp:ImageButton ID="ImageButton2" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="look" ImageUrl="~/image/peruse.gif" />
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                        </asp:TemplateField>
+
+                        <asp:ButtonField CommandName="modify" HeaderText="修改" ControlStyle-CssClass="edit" ButtonType="Button" >
+                        <ControlStyle CssClass="edit" />
+                        <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:ButtonField>
+
+                        <asp:ButtonField CommandName="peruse" HeaderText="檢視" ControlStyle-CssClass="peruse" ButtonType="Button" >
+                        <ControlStyle CssClass="peruse" />
+                        <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:ButtonField>
+
                     </Columns>
                 </cc1:GridView>
             </ContentTemplate>

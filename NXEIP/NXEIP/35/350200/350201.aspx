@@ -78,8 +78,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
-                                <asp:Button ID="ImageButton1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="disable" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
+                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="disable" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
