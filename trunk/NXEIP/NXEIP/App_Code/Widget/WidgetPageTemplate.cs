@@ -239,7 +239,10 @@ namespace NXEIP.Widget
           
                 //從暫存取WIDGET物件
 
-                widgetObj = Session[SessionTmpName] != null && IsEditable ? (WidgetObj)Session[SessionTmpName] : (WidgetObj)Session[SessionName];
+                //widgetObj = Session[SessionTmpName] != null && IsEditable ? (WidgetObj)Session[SessionTmpName] : (WidgetObj)Session[SessionName];
+
+                widgetObj = (WidgetObj)Session[SessionName];
+
 
           
                 //widgetObj 應該不可能為NULL 
@@ -408,7 +411,7 @@ namespace NXEIP.Widget
             ParentDiv.Controls.Add(htmlDiv);
 
         }
-        #region 新增WIDGET
+        #region 新增WIDGET(廢棄)
         void lb_Command(object sender, CommandEventArgs e)
         {
             widget widget = GetWidget(System.Convert.ToInt32(e.CommandArgument));
