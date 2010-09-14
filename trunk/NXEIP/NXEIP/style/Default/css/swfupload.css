@@ -269,7 +269,7 @@ a.swfupload_pic_del
 	margin: 6px auto 0px;
 	width: 17px;
 	display: block;
-	background: url(../lib/SWFUpload/images/icon.gif) no-repeat 5px -475px;
+	background: url(SWFUpload/icon.gif) no-repeat 5px -475px;
 	height: 0px;
 	overflow: hidden;
 	padding-top: 16px;
