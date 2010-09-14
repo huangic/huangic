@@ -24,7 +24,7 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 
     public void Clear()
     {
-        Session["selectDepart"] = null;
+        Session["selectPeople"] = null;
     }
 
 
