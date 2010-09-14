@@ -1,12 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="JQueryPeopleTree.aspx.cs" Inherits="lib_tree_JQueryPeopleTree" %>
 <%@ Register Assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
     Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
+    <%@ Register src="../../lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     
-    <link href="../../css/eip.css" rel="stylesheet" type="text/css" />
+   <uc2:CssLayout ID="CssLayout1" runat="server" />
     
     <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
