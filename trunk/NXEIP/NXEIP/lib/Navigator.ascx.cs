@@ -136,9 +136,6 @@ public partial class lib_Navigator : System.Web.UI.UserControl
     }
 
 
-    protected override void Render(HtmlTextWriter writer)
-    {
-      
-    }
+   
 
 }
