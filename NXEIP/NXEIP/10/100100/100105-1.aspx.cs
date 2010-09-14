@@ -86,7 +86,10 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
         SWFUploadFile uf = new SWFUploadFile();
 
         foreach (var f in UC_SWFUpload1.SWFUploadFileInfoList) {
-            logger.Debug(uf.Delete(f.Path,f.FileName,true));
+
+            String del_msg = uf.Delete(f.Path, f.FileName, true);
+
+            logger.Debug(del_msg);
         
         }
 
@@ -130,7 +133,14 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
             doc01 newStruts = new doc01();
 
-            newStruts.peo_uid = parentFolder.peo_uid;
+
+            if (pid != 0)
+            {
+                newStruts.peo_uid = parentFolder.peo_uid;
+            }
+            else {
+                newStruts.peo_uid = int.Parse(sessionObj.sessionUserID);
+            }
             newStruts.d01_parentid = pid;
             newStruts.d01_file = f.OriginalFileName;
             newStruts.d01_createuid = int.Parse(sessionObj.sessionUserID);
