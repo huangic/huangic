@@ -55,7 +55,6 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<uc2:SubMenuControl ID="SubMenuControl1" runat="server" SysFuncCode="100105"/>
 <uc1:Navigator ID="Navigator1" runat="server"/>
 
 
