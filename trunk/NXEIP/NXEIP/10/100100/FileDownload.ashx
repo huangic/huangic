@@ -4,8 +4,11 @@ using System;
 using System.Web;
 using Entity;
 using System.Linq;
+using System.IO;
 
 public class FileDownload : IHttpHandler {
+
+   private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
    public void ProcessRequest(HttpContext context)
 	    {
@@ -13,38 +16,44 @@ public class FileDownload : IHttpHandler {
 	        //讀取DB
 	        using (NXEIPEntities model=new NXEIPEntities())
 	        {
-	          
+	          try{
                 //權限判斷
                 
                 
                 //取檔案資訊
-                doc02 file = (from d1 in model.doc01
+                var file = (from d1 in model.doc01
                             where d1.d01_url == downloadCode
                             from d2 in model.doc02
                             where d2.d01_no == d1.d01_no && d2.d02_public == "1"
-                            select d2).First();
+                            select new {File=d1,Detail=d2}).First();
                 
-                
-                
-                
-                
-               // string sql = "select * from [fileupload] where guid=@guid";
-	           // SqlCommand cmd = new SqlCommand(sql, conn);
-	           // cmd.Parameters.Add("guid", SqlDbType.Char, 36).Value = guid;
-	           // conn.Open();
-	            //SqlDataReader dr = cmd.ExecuteReader();
-	           // if (dr.Read())
-	           // {
-	           //     string filename = dr["filename"].ToString();
-	 	                context.Response.Buffer = true;
+               
+                    string filename = file.File.d01_file;
+	 	            context.Response.Buffer = true;
 	                context.Response.Clear();
 	                context.Response.ContentType = "application/download";
 	                context.Response.AddHeader("Content-Disposition", "attachment;   filename=" + HttpUtility.UrlEncode(filename, System.Text.Encoding.UTF8) + ";");
-	                context.Response.BinaryWrite(File.ReadAllBytes(context.Server.MapPath(string.Format(@"file\{0}.{1}", guid, Path.GetExtension(filename)))));
+	                
+                
+                    //取資料庫的檔案根目錄參數
+                    //取上傳目錄
+                    ArgumentsObject args = new ArgumentsObject();
+
+                    string path = args.Get_argValue("upload_dir");
+                    string fileabspath=path+file.Detail.d02_path;
+                
+                    if (string.IsNullOrEmpty(path))
+                    {
+                        fileabspath = context.Server.MapPath(file.Detail.d02_path);
+                    }
+                
+                    context.Response.BinaryWrite(File.ReadAllBytes(fileabspath));
 	                context.Response.Flush();
 	                context.Response.End();
-	            //}
-	           // dr.Close();
+	          }catch(Exception ex){
+               logger.Debug(ex.Message);
+               //context.Response.StatusCode=300;
+              }
 	        }
    }
  

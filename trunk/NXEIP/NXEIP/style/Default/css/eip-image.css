@@ -91,3 +91,24 @@
      padding: 0px 0px 0px 20px;
     
      }
+     
+     
+     .ver
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/c01.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+     .download
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/b010.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}

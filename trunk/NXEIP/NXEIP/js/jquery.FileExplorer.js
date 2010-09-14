@@ -239,22 +239,33 @@ jquery.jqGrid
             datatype: "json",
             width: 740,
             height: 350,
-            colNames: ['名稱', '修改日期', '檔案大小', '類型', '動作'],
+            colNames: ['名稱', '修改日期', '檔案大小', '類型','編碼', '動作'],
             colModel: [{ name: 'name', index: 'name', width: 400, align: "left", editable: true },
                       { name: 'date', index: 'date', width: 100, align: "left" },
                       { name: 'size', index: 'size', width: 100, align: "right" },
                       { name: 'type', index: 'type', width: 100, align: "left",sortable: false },
+                      {name:'code',index:'code',hidden:true},
                       { name: 'act', index: 'act', width: 100, sortable: false },
                       ],
             multiselect: true,
 
             loadComplete: function () {
                 var ids = jQuery( _setting.fileDiv).getDataIDs();
+
+               
+
                 for (var i = 0; i < ids.length; i++) {
                     var cl = ids[i];
-                    be = "<input class='a-input' type='button' value='修改' onclick=jQuery('#filelist').editRow(" + cl + "); ></ids>";
-                    ce = "<input class='a-input' type='button' value='版本' onclick=jQuery('#filelist').editRow(" + cl + "); ></ids>";
-                    jQuery("#filelist").setRowData(ids[i], { act: be + ce })
+
+                     //ret就是ROW資料
+                     var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
+                     //alert("id="+ret.id+" code="+ret.code);
+                     dlUrl="FileDownload.ashx?code="+ret.code;
+
+                    be = "<a class='edit imageButton' href='#' alt='修改'><span>修改</span></a>";
+                    ce = "<a class='ver imageButton' href='#' alt='版本'><span>版本</span></a>";
+                    dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載'><span>下載</span></a>";
+                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be + ce+dl })
                 }
 
                 //無資料寫是空值

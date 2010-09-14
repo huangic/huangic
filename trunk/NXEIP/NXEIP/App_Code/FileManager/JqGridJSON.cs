@@ -47,12 +47,13 @@ namespace FileManager
 
         public FileItem(doc01 file, doc02 fileDetial)
         {
-            this.cell = new string[4];
+            this.cell = new string[5];
             cell[0] = file.d01_file;
             cell[1] = fileDetial.d02_date.ToString();
             cell[2] = fileDetial.d02_KB.ToString();
 
             cell[3] = fileDetial.d02_format;
+            cell[4] = file.d01_url;
             this.id = file.d01_no.ToString();
 
         }
