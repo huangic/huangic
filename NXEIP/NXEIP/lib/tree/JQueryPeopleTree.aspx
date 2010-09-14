@@ -125,17 +125,17 @@
     <div>
     <asp:Panel ID="Panel1" runat="server"  CssClass="DepartView" Width="530px">
   
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                     <td class="leftheaderbg"/>
-                    <td class="a02-15 headerbg"">
-                       人員選取
-                    </td>
-                   
-                    < <td class="rightheaderbg">
-                       </td>
-                </tr>
-            </table>
+             
+
+                 <div class="header">
+                    <div class="h1">
+                    </div>
+                    <div class="h2">
+                        <div class="name">人員選取</div>
+                    </div>
+                    <div class="h3">
+                    </div>
+                </div>
             <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
                 <tr>
                     <td bgcolor="#eeeeee" class="a-letter-2">
@@ -172,21 +172,14 @@
                     </td>
                 </tr>
             </table>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                   
-                    <td class="leftfootbg">
-                       
-                    </td>
-                    <td class="footbg">
-                        &nbsp;
-                    </td>
-                    <td class="rightfootbg">
-                        
-                    </td>
-                </tr>
-               
-            </table>
+         <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
             <table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#FFFFFF">
                 <tr>
                     <td>
