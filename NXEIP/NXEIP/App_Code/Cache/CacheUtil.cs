@@ -35,10 +35,16 @@ public class CacheUtil
     /// <param name="key"></param>
     /// <returns></returns>
     public static Object GetItem(String key){
-        ICacheManager cache = CacheFactory.GetCacheManager();
 
-        return  cache.GetData(key);
+        try
+        {
+            ICacheManager cache = CacheFactory.GetCacheManager();
 
+            return cache.GetData(key);
+        }
+        catch {
+            return null;
+        }
        
     }
 

@@ -12,20 +12,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="addForm">
-        <table  width="100%" cellspacing="0" cellpadding="0" border="0">
-            <tbody>
-                <tr>
-                    
-                    <td class="leftheaderbg" />
-                    <td class="a02-15 headerbg">
-                        檔案上傳
-                    </td>
-                   
-                    <td class="rightheaderbg" />
-                </tr>
-            </tbody>
-        </table>
+    <div class="tableDiv">
+         <div class="header">
+                    <div class="h1">
+                    </div>
+                    <div class="h2">
+                        <div class="name">檔案上傳</div>
+                    </div>
+                    <div class="h3">
+                    </div>
+                </div>
+
+
         <div align="center">
         目前目錄:<asp:Literal ID="path" runat="server"></asp:Literal>
         <uc1:UC_SWFUpload ID="UC_SWFUpload1" runat="server" />
@@ -34,21 +32,14 @@
         
         
         </div>
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                
-                   <tr>
-                    <td class="leftfootbg">
-                       
-                    </td>
-                    <td class="footbg">
-                        &nbsp;
-                    </td>
-                    <td class="rightfootbg">
-                        
-                    </td>
-                </tr>
-               
-            </table>
+            <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
 
             <div align="center">
                 

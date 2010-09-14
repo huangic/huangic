@@ -103,9 +103,16 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 
-        //取COOKIES 的父代目錄
-        int pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23",""));
+        //TODO: 根目錄要處理一下
 
+        //取COOKIES 的父代目錄
+        int pid = 0;
+        try
+        {
+            pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
+        }catch{
+        
+        }
         using(NXEIPEntities model = new NXEIPEntities()){
 
         //取父代目錄
