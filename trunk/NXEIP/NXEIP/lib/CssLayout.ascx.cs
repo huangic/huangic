@@ -22,7 +22,15 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
         String layout = "Default";
 
         HtmlLink link = new HtmlLink();
-        link.Href = Context.Request.ApplicationPath + "/style/" + layout + "/css/eip.css";
+
+        String rootDir = Context.Request.ApplicationPath;
+
+        if (rootDir.Length == 1) {
+            rootDir = "";
+        }
+
+
+        link.Href = rootDir + "/style/" + layout + "/css/eip.css";
         link.Attributes.Add("type", "text/css");
         link.Attributes.Add("rel", "stylesheet");
         this.Controls.Clear();

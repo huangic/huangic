@@ -74,6 +74,7 @@ public partial class lib_Navigator : System.Web.UI.UserControl
 
                     navItem.Add(sys.sys_name);
                     CacheUtil.AddItem(CacheKey, navItem);
+                    cache = navItem;
                 }
                 catch (Exception ex) { 
                  
@@ -83,8 +84,8 @@ public partial class lib_Navigator : System.Web.UI.UserControl
            
         }
 
-        //沒值就見鬼了
-        cache = CacheUtil.GetItem(CacheKey);
+        //沒值就見鬼了(快取掛掉)
+        //cache = CacheUtil.GetItem(CacheKey);
 
         List<String> navs=(List<String>)cache; 
 
