@@ -14,7 +14,7 @@ jquery.jqGrid
     var _init=function(_setting) {
         tb_init('a.thickbox input.thickbox');
 
-        $.ajaxSetup({ cache: false });
+    $.ajaxSetup({ cache: false });
    
         
 

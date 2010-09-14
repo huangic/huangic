@@ -69,6 +69,18 @@ namespace lib.SWFUpload
 
                     SWFUploadFile uf = new SWFUploadFile();
 
+                    
+                    //上傳抓資料庫
+                    //取上傳目錄
+                    ArgumentsObject args = new ArgumentsObject();
+
+                    string path = args.Get_argValue("upload_dir");
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        uf.Path = path;
+                    }
+
+
 
                     //判斷重復檔名
                     NXEIPEntities model = new NXEIPEntities();
