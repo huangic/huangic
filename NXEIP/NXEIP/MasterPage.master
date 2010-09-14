@@ -66,11 +66,11 @@
               <tr>
                 <td  bgcolor="#FFFFFF" class="a01-13">
                     <asp:HyperLink ID="Home" runat="server" CssClass="home" 
-                        NavigateUrl="~/index.aspx"><span>首頁</span></asp:HyperLink>
+                        NavigateUrl="~/Default.aspx"><span>首頁</span></asp:HyperLink>
                     </td>
                 <td bgcolor="#FFFFFF" class="a01-13"><div align="right">
                 <asp:HyperLink ID="Logout" runat="server" CssClass="logout" 
-                        NavigateUrl="~/index.aspx"><span>登出</span></asp:HyperLink>
+                        NavigateUrl="~/Logout.aspx"><span>登出</span></asp:HyperLink>
                         
                         </div></td>
                 <td bgcolor="#FFFFFF" class="a01-13">&nbsp;</td>

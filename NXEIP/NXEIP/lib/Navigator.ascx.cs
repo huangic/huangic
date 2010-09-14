@@ -116,8 +116,28 @@ public partial class lib_Navigator : System.Web.UI.UserControl
         base.RenderControl(writer);
     }
 
-    protected void Page_Load(object sender, EventArgs e)
+
+
+    protected override void OnPreRender(EventArgs e)
     {
+        try
+        {
+
+            //因為該死的USERCONTROL不能互相傳直 需要用INTERFACE
+            ISubMenuControl uc = (ISubMenuControl)Page.Master.FindControl("SubHeaderMenu1");
+
+            uc.SetCode(this.SysFuncNo);
+        }catch{
+        
+        }
+        base.OnPreRender(e);
 
     }
+
+
+    protected override void Render(HtmlTextWriter writer)
+    {
+      
+    }
+
 }
