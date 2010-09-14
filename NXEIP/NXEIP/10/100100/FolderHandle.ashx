@@ -177,7 +177,10 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
                     model.doc01.DeleteObject(newFolder);
 
-
+                    //TODO 目錄下的所有檔案 要怎麼處理?
+                    
+                    
+                    
 
                     context.Response.Write("{'process':'success','id':" + id + "}");
                     return;
