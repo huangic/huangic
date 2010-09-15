@@ -23,12 +23,17 @@ namespace NXEIP.DAO
 
         public IQueryable<sysfuction> GetAll()
         {
-            return (from s in model.sysfuction where s.sfu_parent > 0 orderby s.sys_no, s.sfu_order select s);
+            return (from s in model.sysfuction where s.sfu_parent > 0 orderby s.sys_no, s.sfu_no, s.sfu_order select s);
         }
 
         public IQueryable<sysfuction> GetAll(int startRowIndex, int maximumRows)
         {
             return GetAll().Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public IQueryable<sysfuction> GetSubBySysNo(int sys_no)
+        {
+            return (from s in model.sysfuction where s.sys_no == sys_no && s.sfu_parent == 0 orderby s.sfu_no select s);
         }
 
         public int GetAllCount()
