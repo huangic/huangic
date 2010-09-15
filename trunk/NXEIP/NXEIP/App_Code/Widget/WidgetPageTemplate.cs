@@ -80,7 +80,7 @@ namespace NXEIP.Widget
 
 
         protected virtual String WidgetWrapPage { get { return "~/widget/WidgetWrapPage.aspx"; } }
-        Logger logger = LogManager.GetCurrentClassLogger();
+        static Logger logger = LogManager.GetCurrentClassLogger();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -372,16 +372,6 @@ namespace NXEIP.Widget
             {
 
 
-                HtmlGenericControl HtmlLi = new HtmlGenericControl("li");
-
-                LinkButton lb = new LinkButton();
-                lb.CommandArgument = w.wid_no.ToString();
-                lb.CommandName = "AddWidget";
-                lb.Command += new CommandEventHandler(lb_Command);
-                lb.ID = "Widget-" + w.wid_no;
-                lb.Text = w.wid_name;
-                HtmlLi.Controls.Add(lb);
-                HtmlUl.Controls.Add(HtmlLi);
 
                 //TODO: ajax
                 //*加上ajax的新增方式*
@@ -390,7 +380,7 @@ namespace NXEIP.Widget
                 alb.HRef="javascript:AddWidgetBlock(" + w.wid_no + ")";
                 alb.ID = "Widget-" + w.wid_no;
                
-                alb.InnerText = w.wid_name + "(ajax)";
+                alb.InnerText = w.wid_name + "";
                 HtmlLi2.Controls.Add(alb);
                 HtmlUl.Controls.Add(HtmlLi2);
 
@@ -411,58 +401,7 @@ namespace NXEIP.Widget
             ParentDiv.Controls.Add(htmlDiv);
 
         }
-        #region 新增WIDGET(廢棄)
-        void lb_Command(object sender, CommandEventArgs e)
-        {
-            widget widget = GetWidget(System.Convert.ToInt32(e.CommandArgument));
-
-
-
-            WidgetBaseControl control = (WidgetBaseControl)Page.LoadControl("~/" + widget.wid_url);
-            control.Title = widget.wid_name;
-            control.WidgetID = widget.wid_no;
-            control.IsEditable = true;
-            Master.FindControl("ContentPlaceHolder1").FindControl(Divs[0]).Controls.Add(control);
-
-
-
-
-            //寫入給SESSION WidgetOBJ
-
-
-
-            WidgetObj widgetObj = (WidgetObj)Session[SessionTmpName];
-            int size = 1;
-            if (widgetObj == null)
-            {
-                widgetObj = WidgetObj.GetInstance(this.Divs);
-            }
-            else {
-                size = widgetObj.Place[0].Block.Length + 1;
-            }
-               
-
-
-                WidgetBlock[] newBlock = new WidgetBlock[size];
-
-                for (int i = 0; i < size - 1; i++)
-                {
-                    newBlock[i] = widgetObj.Place[0].Block[i];
-                }
-                newBlock[size - 1] = new WidgetBlock(System.Convert.ToInt32(e.CommandArgument));
-
-                widgetObj.Place[0].Block = newBlock;
-
-            
-                
-                
-                Session[SessionTmpName] = widgetObj;
-
-
-        }
-        #endregion
-
-
+  
 
 
 

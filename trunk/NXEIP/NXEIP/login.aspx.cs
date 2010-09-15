@@ -79,7 +79,7 @@ public partial class login : SessionObject
 
 
                         //go index
-                        Server.Transfer("index.aspx");
+                        Server.Transfer("Default.aspx");
                     }
                 }
                 catch

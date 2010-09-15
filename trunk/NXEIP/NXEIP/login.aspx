@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><%Response.Write(System.Configuration.ConfigurationManager.AppSettings["WebName"]); %></title>
-    <link href=".\css\login.css" rel="stylesheet" type="text/css" />
+    <link href="./style/Default/css/login.css" rel="stylesheet" type="text/css" />
     <script type="text/JavaScript">
 <!--
 function MM_preloadImages() { //v3.0
