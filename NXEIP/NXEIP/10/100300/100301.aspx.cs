@@ -7,10 +7,16 @@ using System.Web.UI.WebControls;
 
 public partial class _10_100300_100301 : System.Web.UI.Page
 {
+    ChangeObject changeobj = new ChangeObject();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
         {
+            this.lab_CYM.Text = System.DateTime.Today.Year.ToString() + "年" + System.DateTime.Today.Month.ToString("0#") + "月";
+            this.lab_today.Text = System.DateTime.Today.ToString("yyyy-MM-dd");
+            this.lab_tweek.Text = "星期"+changeobj.ChangeWeek(System.DateTime.Today.DayOfWeek);
+            this.lab_Pre.Text = "<a href=\"?todays=" + System.DateTime.Today.AddMonths(-1).ToString("yyyy-MM-01") + "\"><div class=\"h1\"></div></a>";
+            this.lab_Nxt.Text = "<a href=\"?todays=" + System.DateTime.Today.AddMonths(1).ToString("yyyy-MM-01") + "\"><div class=\"h3\"></div></a>";
         }
     }
 
