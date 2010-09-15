@@ -24,7 +24,7 @@
             <div class="h3">
             </div>
         </div>
-        <table bgcolor="#ffffff" border="0" cellpadding="3" cellspacing="3" width="100%">
+        <table >
             <tbody>
                 <tr>
                     <th>

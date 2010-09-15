@@ -15,7 +15,8 @@ public partial class _35_350100_350102 : System.Web.UI.Page
             this.Panel1.Visible = true;
             this.Panel2.Visible = false;
 
-
+            this.jQueryDepartTree1.Clear();
+            this.jQueryPeopleTree1.Clear();
         }
     }
     protected void rbl_people_CheckedChanged(object sender, EventArgs e)
@@ -150,11 +151,6 @@ public partial class _35_350100_350102 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('" + msg + "');", true);
         
-        //this.Page.ClientScript.RegisterStartupScript(typeof(_35_350100_350102), "msg", "alert('" + msg + "');", true);
-        //Literal scr = new Literal();
-        //scr.Text = "<script>alert('" + msg + "');</script>";
-        //this.Page.Controls.Add(scr);
     }
 }

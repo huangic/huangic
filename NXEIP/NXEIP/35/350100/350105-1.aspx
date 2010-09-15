@@ -5,6 +5,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetAll_2"
+        TypeName="NXEIP.DAO.SysDAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+        SelectMethod="GetSubBySysNo" TypeName="NXEIP.DAO.SysfuctionDAO">
+        <SelectParameters>
+            <asp:Parameter Name="sys_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc1:navigator ID="navigator1" runat="server" SysFuncNo="350105" />
     <div class="tableDiv">
         <div class="header">
@@ -20,12 +28,20 @@
                 <th>
                     系統分類
                 </th>
-                <td colspan="3">
+                <td>
                     <asp:DropDownList ID="ddl_sys" runat="server" DataSourceID="ObjectDataSource1" DataTextField="sys_name"
-                        DataValueField="sys_no">
+                        DataValueField="sys_no" AutoPostBack="True" 
+                        onselectedindexchanged="ddl_sys_SelectedIndexChanged">
                     </asp:DropDownList>
-                    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetAll_2"
-                        TypeName="NXEIP.DAO.SysDAO"></asp:ObjectDataSource>
+                </td>
+                <th>
+                    系統子分類
+                </th>
+                <td>
+                    <asp:DropDownList ID="ddl_sysfuction" runat="server" 
+                        DataSourceID="ObjectDataSource2" DataTextField="sfu_name" 
+                        DataValueField="sfu_no">
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
