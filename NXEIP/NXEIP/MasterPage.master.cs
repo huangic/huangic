@@ -28,5 +28,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
 
 
-   
+
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        //移除SESSION
+        Session.RemoveAll();
+
+        Response.Redirect("~/Default.aspx");
+
+    }
 }

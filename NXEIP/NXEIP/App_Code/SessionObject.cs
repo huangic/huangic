@@ -27,26 +27,14 @@ public class SessionObject : System.Web.UI.Page
         {
             try
             {
-                if (System.Configuration.ConfigurationManager.AppSettings["DeBUGMode"].Equals("True"))
-                {
-                    return "1";
-                }
-                else
-                {
+         
                     return (string)Session["UserID"];
-                }
-                
+            
             }
             catch
             {
-                if (System.Configuration.ConfigurationManager.AppSettings["DeBUGMode"].Equals("True"))
-                {
-                    return "1";
-                }
-                else
-                {
+                
                     return null;
-                }
             }
         }
         set

@@ -67,8 +67,9 @@
                         NavigateUrl="~/Default.aspx"><span>首頁</span></asp:HyperLink>
                     </td>
                 <td bgcolor="#FFFFFF" class="a01-13"><div align="right">
-                <asp:HyperLink ID="Logout" runat="server" CssClass="logout" 
-                        NavigateUrl="~/Logout.aspx"><span>登出</span></asp:HyperLink>
+               
+                    <asp:LinkButton ID="logout"  CssClass="logout" runat="server" 
+                        onclick="logout_Click"><span>登出</span></asp:LinkButton>
                         
                         </div></td>
                 <td bgcolor="#FFFFFF" class="a01-13">&nbsp;</td>

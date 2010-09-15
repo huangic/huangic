@@ -23,4 +23,11 @@ public partial class MainPage : System.Web.UI.MasterPage
         Page.Header.DataBind();
     }
 
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        //移除SESSION
+        Session.RemoveAll();
+
+        Response.Redirect("~/Default.aspx");
+    }
 }
