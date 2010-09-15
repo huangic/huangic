@@ -1,0 +1,33 @@
+2010-09-14 13:43:32.0305 lib_HeaderMenu.generateMenu Debug MENU使用快取
+2010-09-14 15:28:58.6431 FileDownload.ProcessRequest Debug 序列未包含項目
+2010-09-14 15:32:51.6334 lib_HeaderMenu.generateMenu Debug MENU使用快取
+2010-09-14 15:34:48.8969 FileDownload.ProcessRequest Debug 序列未包含項目
+2010-09-14 15:34:54.1048 FileDownload.ProcessRequest Debug 無法對應路徑 '/upload/1/10819052148015.chk'。
+2010-09-14 15:39:49.7723 FileDownload.ProcessRequest Debug 無法對應路徑 '/upload/1/10819052148015.chk'。
+2010-09-14 15:40:40.4825 FileDownload.ProcessRequest Debug 無法對應路徑 '/upload/1/10819052148015.chk'。
+2010-09-14 15:41:36.8368 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-09-14 15:43:01.4541 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-09-14 15:50:30.9157 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 15:52:01.5708 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 15:56:31.2130 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 15:56:49.2298 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 15:57:36.4214 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:04:38.1389 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:05:09.1086 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:19:28.3302 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:20:27.0527 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:21:04.0402 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:25:42.3440 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:27:06.2266 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:28:11.6436 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:29:15.4245 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:29:42.3554 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:32:33.9410 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:34:01.9008 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:34:37.2825 _10_100100_100105.Page_Load Debug TEST
+2010-09-14 16:34:44.9195 FileDownload.ProcessRequest Debug 找不到檔案 'c:\upload\upload\1\10914103855239.htm'。
+2010-09-14 16:35:09.6128 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-09-14 16:35:24.9552 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-09-14 16:35:51.1894 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-09-14 16:52:25.9409 lib_HeaderMenu.generateMenu Debug MENU使用快取
+2010-09-14 17:11:03.8184 lib_HeaderMenu.generateMenu Debug MENU使用快取
