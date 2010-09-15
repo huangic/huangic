@@ -60,9 +60,10 @@
                     <div class="h3">
                     </div>
                 </div>
-                <asp:Calendar ID="Calendar2" runat="server" CssClass="calendar" DayNameFormat="Shortest"
+                <asp:Calendar ID="Calendar1" runat="server" CssClass="calendar" DayNameFormat="Shortest"
                     BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="&gt;&gt;"
-                    PrevMonthText="&lt;&lt;" ShowTitle="False">
+                    PrevMonthText="&lt;&lt;" ShowTitle="False" 
+                    ondayrender="Calendar1_DayRender">
                     <OtherMonthDayStyle CssClass="othermonth" />
                     <TodayDayStyle CssClass="today" />
                     <WeekendDayStyle CssClass="holiday" />
@@ -78,7 +79,7 @@
                 <asp:TextBox ID="txt_title" runat="server" Columns="20"></asp:TextBox>
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行程日期
-                <uc2:calendar ID="calendar3" runat="server" /><br />
+                <uc2:calendar ID="cal_date" runat="server" /><br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事件時間
                 <asp:DropDownList ID="ddl_stime" runat="server">
                 </asp:DropDownList>&nbsp;~
