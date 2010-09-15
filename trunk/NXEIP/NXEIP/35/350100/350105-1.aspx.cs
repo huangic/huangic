@@ -33,11 +33,23 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
                 this.ddl_sys.DataBind();
                 this.ddl_sys.Items.FindByValue(sysfuData.sys_no.ToString()).Selected = true;
 
+                //子系統
+                this.ObjectDataSource2.SelectParameters["sys_no"].DefaultValue = sysfuData.sys_no.ToString();
+                this.ddl_sysfuction.DataBind();
+                this.ddl_sysfuction.Items.FindByValue(sysfuData.sfu_parent.ToString()).Selected = true;
+
             }
             else
             {
                 this.navigator1.SubFunc = "新增系統";
                 this.lab_sfuNo.Visible = false;
+
+                this.ddl_sys.DataBind();
+                this.ddl_sys.Items[0].Selected = true;
+
+                //子系統
+                this.ObjectDataSource2.SelectParameters["sys_no"].DefaultValue = this.ddl_sys.SelectedValue;
+                this.ddl_sysfuction.DataBind();
             }
         }
     }
@@ -60,10 +72,13 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
             }
 
             sysfucData.sys_no = Convert.ToInt32(this.ddl_sys.SelectedValue);
+            sysfucData.sfu_parent = Convert.ToInt32(this.ddl_sysfuction.SelectedValue);
             sysfucData.sfu_name = this.tbox_name.Text;
             sysfucData.sfu_order = Convert.ToInt32(this.tbox_order.Text);
             sysfucData.sfu_path = this.tbox_path.Text;
             sysfucData.sfu_status = this.rbl_status.SelectedValue;
+            sysfucData.sfu_createtime = System.DateTime.Now;
+            sysfucData.sfu_createuid = Convert.ToInt32(new SessionObject().sessionUserID);
 
             if (Request["mode"].Equals("new"))
             {
@@ -178,5 +193,12 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
     {
         string script = "<script>window.alert('" + msg + "');location.href='" + url + "'</script>";
         this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+    }
+
+    protected void ddl_sys_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //子系統
+        this.ObjectDataSource2.SelectParameters["sys_no"].DefaultValue = this.ddl_sys.SelectedValue;
+        this.ddl_sysfuction.DataBind();
     }
 }
