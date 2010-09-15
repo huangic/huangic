@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 
 public partial class lib_calendar : System.Web.UI.UserControl
 {
+    /// <summary>
+    /// 取得或設定日期
+    /// </summary>
     public DateTime _ADDate
     {
         get
@@ -24,6 +27,17 @@ public partial class lib_calendar : System.Web.UI.UserControl
         set
         {
             this.tbox_date.Text = new ChangeObject()._ADtoROC(value);
+        }
+    }
+
+    /// <summary>
+    /// 不顯示日期格式:false
+    /// </summary>
+    public bool _Show
+    {
+        set
+        {
+            this.span_1.Visible = value;
         }
     }
 
