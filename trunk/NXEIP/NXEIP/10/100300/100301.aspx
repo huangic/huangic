@@ -53,17 +53,14 @@
             </div>
             <div class="block-1">
                 <div class="header">
-                    <div class="h1">
-                    </div>
-                    <div class="h2">
-                        <asp:Label ID="lab_CYM" runat="server"></asp:Label></div>
-                    <div class="h3">
-                    </div>
+                    <asp:Label ID="lab_Pre" runat="server"><div class="h1"></div></asp:Label>
+                    <asp:Label ID="lab_CYM" runat="server" CssClass="h2"></asp:Label>
+                    <asp:Label ID="lab_Nxt" runat="server"><div class="h3"></div></asp:Label>
                 </div>
                 <asp:Calendar ID="Calendar1" runat="server" CssClass="calendar" DayNameFormat="Shortest"
-                    BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="&gt;&gt;"
-                    PrevMonthText="&lt;&lt;" ShowTitle="False" 
-                    ondayrender="Calendar1_DayRender">
+                    BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="&lt;div class=&quot;h3&quot;&gt;&lt;/div&gt;"
+                    PrevMonthText="&lt;div class=&quot;h1&quot;&gt;&lt;/div&gt;" 
+                    ondayrender="Calendar1_DayRender" ShowTitle="False">
                     <OtherMonthDayStyle CssClass="othermonth" />
                     <TodayDayStyle CssClass="today" />
                     <WeekendDayStyle CssClass="holiday" />
