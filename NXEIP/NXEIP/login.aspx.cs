@@ -74,7 +74,7 @@ public partial class login : SessionObject
                         this.sessionUserName = mytable.Rows[0]["peo_name"].ToString();
                         this.sessionUserDepartID = mytable.Rows[0]["dep_no"].ToString();
                         this.sessionUserDepartName = mytable.Rows[0]["dep_name"].ToString();
-
+                        this.sessionUserAccount = this.tbox_id.Text;
                         //login log
 
 
