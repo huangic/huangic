@@ -33,7 +33,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         //移除SESSION
         Session.RemoveAll();
-
+        CacheUtil.Clear();
         Response.Redirect("~/Default.aspx");
 
     }
