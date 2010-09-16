@@ -19,9 +19,9 @@ public partial class login : SessionObject
             this.ImageButton2.Attributes.Add("onmouseover", "MM_swapImage('ImageButton2','','image/login-07-1.gif',1)");
 
             this.Image1.Attributes.Add("onmouseout", "MM_swapImgRestore()");
-            this.Image1.Attributes.Add("onmouseover", "MM_swapImage('Image1','','image/login_ID_1.jpg',1)");
+            this.Image1.Attributes.Add("onmouseover", "MM_swapImage('Image1','','image/login_ID.jpg',1)");
 
-            //CacheUtil.Clear();
+            CacheUtil.Clear();
         }
     }
 

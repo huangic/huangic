@@ -129,7 +129,7 @@
                     </table>
                     <div style="text-align: right">
                         <a href="login2.aspx" >
-                            <img border="0" id="Image1" src="~/image/login_ID.jpg" alt="使用自然人憑證登入" runat="server" />
+                            <img border="0" id="Image1" src="~/image/login_ID_1.jpg" alt="使用自然人憑證登入" runat="server" />
                         </a>
                     </div>
                 </td>
