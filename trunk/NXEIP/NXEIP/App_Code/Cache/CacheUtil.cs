@@ -78,7 +78,7 @@ public class CacheUtil
     /// 清除全部快取
     /// </summary>
     /// <param name="key"></param>
-    public static void Clear(String key)
+    public static void Clear()
     {
 
         try
