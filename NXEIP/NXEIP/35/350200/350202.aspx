@@ -32,7 +32,7 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="typesDataSource" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.TypesDAO"
-        EnablePaging="True" SelectCountMethod="GetAllCount">
+        EnablePaging="True" SelectCountMethod="GetAllCount" >
         <SelectParameters>
             <asp:Parameter DefaultValue="ptype" Name="type_code" Type="String" />
         </SelectParameters>
