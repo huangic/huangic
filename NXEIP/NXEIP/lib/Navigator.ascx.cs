@@ -26,7 +26,17 @@ public partial class lib_Navigator : System.Web.UI.UserControl
 
     public override void RenderControl(HtmlTextWriter writer)
     {
-        
+
+        if (String.IsNullOrEmpty(SysFuncNo))
+        {
+            //偷偷抓SESSION的
+            SysFuncNo = (String)Session["SysFuncNo"];
+        }
+        else {
+           Session["SysFuncNo"] = SysFuncNo;
+        }
+
+
         String CacheKey="nav_"+this.SysFuncNo;
 
         //判斷快取

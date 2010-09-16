@@ -35,17 +35,18 @@ namespace NXEIP.HttpModule
             HttpApplication Application = (HttpApplication)source;
 
             String url=Application.Context.Request.AppRelativeCurrentExecutionFilePath;
-
-            if (!url.Equals("~/login.aspx"))
+            if (Application.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
             {
+                 if ((!url.Contains("login")))
+                 {
                 
-                if(Application.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx")){
-                String userID = (String)Application.Context.Session["UserID"];
+                
+                    String userID = (String)Application.Context.Session["UserID"];
             
-                if (String.IsNullOrEmpty(userID))
-                {
-                Application.Response.Redirect("~/login.aspx");
-                }
+                    if (String.IsNullOrEmpty(userID))
+                    {
+                     Application.Response.Redirect("~/login.aspx");
+                    }
                 }
             }
         }
