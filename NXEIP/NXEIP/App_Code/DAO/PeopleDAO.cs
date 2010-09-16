@@ -38,6 +38,11 @@ namespace NXEIP.DAO
             return (from peopleData in model.people where peopleData.peo_uid == peo_uid select peopleData).FirstOrDefault();
         }
 
+        public people GetByPeoCardDN(string cardDN)
+        {
+            return (from peopleData in model.people where peopleData.peo_pincode == cardDN select peopleData).FirstOrDefault();
+        }
+
         public void AddPeople(people people)
         {
             model.AddTopeople(people);
