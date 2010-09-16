@@ -24,10 +24,13 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
 
     protected override void Render(HtmlTextWriter writer)
     {
-        if (String.IsNullOrEmpty(SysFuncCode)) {
-            throw new ArgumentNullException("未指定MENU項目的系統功能編號");
-           
-        }
+
+        this.submenu.Controls.Clear();
+        if (!String.IsNullOrEmpty(SysFuncCode))
+        {
+            //throw new ArgumentNullException("未指定MENU項目的系統功能編號");
+            //base.Render("項目的系統功能編號");
+        
         
         //建立MENU
 
@@ -51,13 +54,13 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
                 htmla.Attributes["title"] = func.sfu_name;
                 htmla.InnerHtml = "<span>"+func.sfu_name+"</span>"; 
             }
-            this.submenu.Controls.Clear();
+            
             this.submenu.Controls.Add(htmlUl);
 
         }
 
 
-
+        }
         
         
         base.Render(writer);

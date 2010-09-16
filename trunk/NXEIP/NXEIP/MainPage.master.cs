@@ -11,8 +11,14 @@ public partial class MainPage : System.Web.UI.MasterPage
     {
         //註冊THICKBOX 的變數
         String ThickboxInit = "var tb_pathToImage = \"" + Page.ResolveUrl("~/image/loadingAnimation.gif") + "\"";
-        ScriptManager.RegisterClientScriptBlock(this, typeof(MasterPage), "ThickBox", ThickboxInit, true);
 
+        try
+        {
+            ScriptManager.RegisterClientScriptBlock(this, typeof(MasterPage), "ThickBox", ThickboxInit, true);
+        }
+        catch { 
+        
+        }
 
         
     }

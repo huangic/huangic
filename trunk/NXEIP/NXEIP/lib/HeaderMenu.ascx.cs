@@ -78,11 +78,11 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         DataSet menudataset;
 
         //從快取中拿DATESET
-        if (CacheUtil.GetItem("menu_" + user_login) != null)
+        if (Session["menu_" + user_login] != null)
         {
-            menudataset = (DataSet)CacheUtil.GetItem("menu_" + user_login);
+            menudataset = (DataSet)Session["menu_" + user_login];
             GetMenuFromCache();
-            logger.Debug("MENU使用快取");
+            logger.Debug("MENU使用Session快取");
         }
         else
         {
@@ -196,8 +196,8 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         mlmenu.Controls.Add(MainMenu);
 
 
-        CacheUtil.AddItem("menu_" + user_login, menudataset);
-        CacheUtil.AddItem("menuCss_" + user_login, this.CssLiteral.Text);
+        Session["menu_" + user_login]= menudataset;
+        Session["menuCss_" + user_login]=this.CssLiteral.Text;
 
         menudataset.Dispose();
     
@@ -265,7 +265,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         
         //mlmenu.InnerHtml=menuHtml;
 
-        String css = (String)CacheUtil.GetItem("menuCss_" + user_login);
+        String css = (String)Session["menuCss_" + user_login];
         this.CssLiteral.Text = css;
 
     }
