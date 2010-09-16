@@ -13,11 +13,9 @@ public partial class _30_300300_300302 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-
+            
         }
     }
-
-    
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -51,10 +49,5 @@ public partial class _30_300300_300302 : System.Web.UI.Page
 
             e.Row.Cells[4].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[4].Text);
         }
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        this.GridView1.DataBind();
     }
 }

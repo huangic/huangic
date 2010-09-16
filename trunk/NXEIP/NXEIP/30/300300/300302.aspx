@@ -5,6 +5,7 @@
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
     TagPrefix="cc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
@@ -41,8 +42,7 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300302-1.aspx?modal=true&model=new&TB_iframe=true"
-                        value="新增課程類別" />
+                    <input type="button" class="thickbox b-input" alt="300302-1.aspx?modal=true&model=new&TB_iframe=true" value="新增課程類別" />
                 </div>
             </div>
             <div class="h3">
@@ -53,7 +53,8 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="typ_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
+                    EnableViewState="False">
                     <Columns>
                         <asp:BoundField DataField="typ_number" HeaderText="課程類別代號" SortExpression="typ_number" />
                         <asp:BoundField DataField="typ_cname" HeaderText="課程類別" SortExpression="typ_cname" />
@@ -76,11 +77,8 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:TemplateField>
-                         
                     </Columns>
                 </cc1:GridView>
-                <asp:Button ID="Button1" runat="server" Text="Button" Visible="true" 
-            onclick="Button1_Click" />
             </ContentTemplate>
         </asp:UpdatePanel>
         <div class="footer">
@@ -102,7 +100,5 @@
         </div>
         <div id="div_msg" runat="server">
         </div>
-        
-
     </div>
 </asp:Content>
