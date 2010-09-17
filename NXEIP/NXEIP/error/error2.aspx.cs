@@ -23,7 +23,10 @@ public partial class error_error2 : System.Web.UI.Page
         }
         else
         {
-            ex = ex.InnerException;
+            if (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
             msg = ex.Message;
             method = ex.TargetSite.ToString();
         }

@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
             //}
             //else {
 
-        throw new Exception("測試錯誤訊息");
+        //throw new Exception("測試錯誤訊息");
 
                 Response.Redirect("~/10/100500/100501.aspx");
             //}  

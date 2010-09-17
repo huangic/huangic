@@ -66,19 +66,27 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
     private void generateMenu() {
 
 
+       
 
 
-
-
+        //sessionObj.g
 
        
         //取使用者
         String user_login=sessionUtil.sessionUserAccount;
 
-        DataSet menudataset;
+        DataSet menudataset=null;
+
+        try { 
+          menudataset = (DataSet)Session["menu_" + user_login];
+        }catch{
+        
+        }
+
+
 
         //從快取中拿DATESET
-        if (Session["menu_" + user_login] != null)
+        if (menudataset != null)
         {
             menudataset = (DataSet)Session["menu_" + user_login];
             GetMenuFromCache();
@@ -195,9 +203,14 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
         mlmenu.Controls.Add(MainMenu);
 
+        try
+        {
+            Session["menu_" + user_login] = menudataset;
+            Session["menuCss_" + user_login] = this.CssLiteral.Text;
+        }
+        catch { 
+        }
 
-        Session["menu_" + user_login]= menudataset;
-        Session["menuCss_" + user_login]=this.CssLiteral.Text;
 
         menudataset.Dispose();
     
