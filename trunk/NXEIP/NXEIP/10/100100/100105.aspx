@@ -2,7 +2,6 @@
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 
-<%@ Register src="../../lib/SubMenuControl.ascx" tagname="SubMenuControl" tagprefix="uc2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     

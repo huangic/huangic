@@ -21,7 +21,11 @@ public partial class error_error : System.Web.UI.Page
             msg = "找不到網頁,請確認網址正確";
         }
         else {
-            ex = ex.InnerException;
+
+            if (ex.InnerException != null) {
+                ex = ex.InnerException;
+            }
+           
             msg = "錯誤Method:"+ex.TargetSite+"<br/>"+ex.Message;
 
         }
