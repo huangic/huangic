@@ -353,53 +353,55 @@ namespace NXEIP.Widget
         protected void CreateWidgetPanel()
         {
 
-            NXEIPEntities model = new NXEIPEntities();
-
-
-            //this.func.Controls.Clear();
-            HtmlGenericControl HtmlUl = new HtmlGenericControl("ul");
-
-            //Control HtmlUl = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv).FindControl("funcUl");
-
-
-
-            //取出可以用的WIDGET(TYPE =P status=1)
-            var widgets = from w in model.widget where w.wid_status.Equals("1") && w.wid_type.Equals(this.PageType) select w;
-
-
-
-            foreach (var w in widgets)
+            using (NXEIPEntities model = new NXEIPEntities())
             {
 
 
+                //this.func.Controls.Clear();
+                HtmlGenericControl HtmlUl = new HtmlGenericControl("ul");
 
-                //TODO: ajax
-                //*加上ajax的新增方式*
-                HtmlGenericControl HtmlLi2 = new HtmlGenericControl("li");
-                HtmlAnchor alb = new HtmlAnchor();
-                alb.HRef="javascript:AddWidgetBlock(" + w.wid_no + ")";
-                alb.ID = "Widget-" + w.wid_no;
-               
-                alb.InnerText = w.wid_name + "";
-                HtmlLi2.Controls.Add(alb);
-                HtmlUl.Controls.Add(HtmlLi2);
+                //Control HtmlUl = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv).FindControl("funcUl");
 
+
+
+                //取出可以用的WIDGET(TYPE =P status=1)
+                var widgets = from w in model.widget where w.wid_status.Equals("1") && w.wid_type.Equals(this.PageType) select w;
+
+
+
+                foreach (var w in widgets)
+                {
+
+
+
+                    //TODO: ajax
+                    //*加上ajax的新增方式*
+                    HtmlGenericControl HtmlLi2 = new HtmlGenericControl("li");
+                    HtmlAnchor alb = new HtmlAnchor();
+                    alb.HRef = "javascript:AddWidgetBlock(" + w.wid_no + ")";
+                    alb.ID = "Widget-" + w.wid_no;
+
+                    alb.InnerText = w.wid_name + "";
+                    HtmlLi2.Controls.Add(alb);
+                    HtmlUl.Controls.Add(HtmlLi2);
+
+
+                }
+
+                Control ParentDiv = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv);
+
+
+
+                ParentDiv.Controls.Add(HtmlUl);
+
+                HtmlGenericControl htmlDiv = new HtmlGenericControl("div");
+                htmlDiv.Attributes["class"] = "footer";
+
+
+
+                ParentDiv.Controls.Add(htmlDiv);
 
             }
-
-            Control ParentDiv = Master.FindControl("ContentPlaceHolder1").FindControl(this.WidgetFuncDiv);
-
-
-
-            ParentDiv.Controls.Add(HtmlUl);
-
-            HtmlGenericControl htmlDiv=new HtmlGenericControl("div");
-            htmlDiv.Attributes["class"]="footer";
-
-
-
-            ParentDiv.Controls.Add(htmlDiv);
-
         }
   
 

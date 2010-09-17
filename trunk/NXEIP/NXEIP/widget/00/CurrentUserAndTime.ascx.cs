@@ -8,6 +8,9 @@ using NXEIP.Widget;
 
 public partial class widget_00_CurrentUserAndTime : WidgetBaseControl
 {
+    public override String SettingUrl{ get{return "AAA";}}
+    
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 

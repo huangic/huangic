@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="MainPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="MainPage"  %>
 
 <%@ Register src="lib/HeaderMenu.ascx" tagname="HeaderMenu" tagprefix="uc1" %>
 
