@@ -577,6 +577,22 @@ namespace Entity
             }
         }
         private ObjectSet<widget> _widget;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<spot> spot
+        {
+            get
+            {
+                if ((_spot == null))
+                {
+                    _spot = base.CreateObjectSet<spot>("spot");
+                }
+                return _spot;
+            }
+        }
+        private ObjectSet<spot> _spot;
 
         #endregion
         #region AddTo 方法
@@ -819,6 +835,14 @@ namespace Entity
         public void AddTowidget(widget widget)
         {
             base.AddObject("widget", widget);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 spot EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTospot(spot spot)
+        {
+            base.AddObject("spot", spot);
         }
 
         #endregion
@@ -8613,6 +8637,159 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="spot")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class spot : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 spot 物件。
+        /// </summary>
+        /// <param name="spo_no">spo_no 屬性的初始值。</param>
+        /// <param name="spo_status">spo_status 屬性的初始值。</param>
+        public static spot Createspot(global::System.Int32 spo_no, global::System.String spo_status)
+        {
+            spot spot = new spot();
+            spot.spo_no = spo_no;
+            spot.spo_status = spo_status;
+            return spot;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 spo_no
+        {
+            get
+            {
+                return _spo_no;
+            }
+            set
+            {
+                if (_spo_no != value)
+                {
+                    Onspo_noChanging(value);
+                    ReportPropertyChanging("spo_no");
+                    _spo_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("spo_no");
+                    Onspo_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _spo_no;
+        partial void Onspo_noChanging(global::System.Int32 value);
+        partial void Onspo_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String spo_name
+        {
+            get
+            {
+                return _spo_name;
+            }
+            set
+            {
+                Onspo_nameChanging(value);
+                ReportPropertyChanging("spo_name");
+                _spo_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("spo_name");
+                Onspo_nameChanged();
+            }
+        }
+        private global::System.String _spo_name;
+        partial void Onspo_nameChanging(global::System.String value);
+        partial void Onspo_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String spo_status
+        {
+            get
+            {
+                return _spo_status;
+            }
+            set
+            {
+                Onspo_statusChanging(value);
+                ReportPropertyChanging("spo_status");
+                _spo_status = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("spo_status");
+                Onspo_statusChanged();
+            }
+        }
+        private global::System.String _spo_status;
+        partial void Onspo_statusChanging(global::System.String value);
+        partial void Onspo_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> spo_createuid
+        {
+            get
+            {
+                return _spo_createuid;
+            }
+            set
+            {
+                Onspo_createuidChanging(value);
+                ReportPropertyChanging("spo_createuid");
+                _spo_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("spo_createuid");
+                Onspo_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _spo_createuid;
+        partial void Onspo_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onspo_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> spo_createtime
+        {
+            get
+            {
+                return _spo_createtime;
+            }
+            set
+            {
+                Onspo_createtimeChanging(value);
+                ReportPropertyChanging("spo_createtime");
+                _spo_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("spo_createtime");
+                Onspo_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _spo_createtime;
+        partial void Onspo_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onspo_createtimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

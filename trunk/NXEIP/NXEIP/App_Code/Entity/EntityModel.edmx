@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
@@ -32,6 +32,7 @@
           <EntitySet Name="search02" EntityType="NXEIPModel.Store.search02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="search03" EntityType="NXEIPModel.Store.search03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="search04" EntityType="NXEIPModel.Store.search04" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="spot" EntityType="NXEIPModel.Store.spot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys" EntityType="NXEIPModel.Store.sys" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysfuction" EntityType="NXEIPModel.Store.sysfuction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="types" EntityType="NXEIPModel.Store.types" store:Type="Tables" Schema="dbo" />
@@ -181,7 +182,7 @@
           <Property Name="blo_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="pag_no" Type="int" Nullable="false" />
           <Property Name="wid_no" Type="int" Nullable="false" />
-          <Property Name="blo_layout" Type="char" MaxLength="1" />
+          <Property Name="blo_layout" Type="varchar" MaxLength="10" />
           <Property Name="blo_order" Type="int" Nullable="false" />
           <Property Name="blo_setting" Type="text" />
           <Property Name="blo_createuid" Type="int" />
@@ -507,6 +508,16 @@
           <Property Name="s01_no" Type="int" Nullable="false" />
           <Property Name="s04_no" Type="int" Nullable="false" />
           <Property Name="typ_no" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="spot">
+          <Key>
+            <PropertyRef Name="spo_no" />
+          </Key>
+          <Property Name="spo_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="spo_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="spo_status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="spo_createuid" Type="int" />
+          <Property Name="spo_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="sys">
           <Key>
@@ -1065,6 +1076,7 @@
             <End Role="sys" EntitySet="sys" />
             <End Role="sysfuction" EntitySet="sysfuction" />
           </AssociationSet>
+          <EntitySet Name="spot" EntityType="NXEIPModel.spot" />
         </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -1885,6 +1897,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="spot">
+          <Key>
+            <PropertyRef Name="spo_no" />
+          </Key>
+          <Property Type="Int32" Name="spo_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="spo_name" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="spo_status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="spo_createuid" />
+          <Property Type="DateTime" Name="spo_createtime" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2206,6 +2228,17 @@
             <ScalarProperty Name="wid_status" ColumnName="wid_status" />
             <ScalarProperty Name="wid_type" ColumnName="wid_type" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="spot">
+            <EntityTypeMapping TypeName="NXEIPModel.spot">
+              <MappingFragment StoreEntitySet="spot">
+                <ScalarProperty Name="spo_createtime" ColumnName="spo_createtime" />
+                <ScalarProperty Name="spo_createuid" ColumnName="spo_createuid" />
+                <ScalarProperty Name="spo_status" ColumnName="spo_status" />
+                <ScalarProperty Name="spo_name" ColumnName="spo_name" />
+                <ScalarProperty Name="spo_no" ColumnName="spo_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2436,6 +2469,7 @@
           <ConnectorPoint PointX="2.25" PointY="35.595896809895834" />
           <ConnectorPoint PointX="3" PointY="35.595896809895834" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.spot" Width="1.5" PointX="0.75" PointY="4.75" Height="1.8494270833333246" />
       </Diagram>
     </Diagrams>
   </Designer>
