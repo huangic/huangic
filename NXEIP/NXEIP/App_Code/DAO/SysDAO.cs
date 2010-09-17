@@ -31,6 +31,11 @@ namespace NXEIP.DAO
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
 
+        public int GetAllCount()
+        {
+            return GetAll().Count();
+        }
+
         /// <summary>
         /// 選取使用中的系統分類
         /// </summary>
@@ -40,10 +45,7 @@ namespace NXEIP.DAO
             return (from s in model.sys where s.sys_status == "1" orderby s.sys_order select s);
         }
 
-        public int GetAllCount()
-        {
-            return GetAll().Count();
-        }
+        
 
         public sys GetBySysNo(int sys_no)
         {
