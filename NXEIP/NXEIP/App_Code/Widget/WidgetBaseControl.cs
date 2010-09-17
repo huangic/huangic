@@ -30,6 +30,9 @@ namespace NXEIP.Widget
         }
 
 
+
+        public virtual String SettingUrl { get { return "";} }
+
         private String _Title;
 
         public String Title
@@ -86,11 +89,11 @@ namespace NXEIP.Widget
             if (IsEditable)
             {
                 sb.Append("<strong>" + Title + "</strong>");
-
+                
                 //sb.Append("<a class=\"delete\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.removeWidget('" + WidgetID + "');return false\" title=\"移除\">X</a>");
-
-                //sb.Append("<a class=\"edit\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.editWidget('" + Name + "', '" + WidgetID + "');return false\" title=\"修改 widget\">修改</a>");
-                //sb.Append("<a class=\"move\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.initiateMoveWidget('" + WidgetID + "');return false\" title=\"搬移 widget\">搬移</a>");
+                if(!String.IsNullOrEmpty(SettingUrl)){
+                sb.Append("<a class=\"edit\" href=\""+SettingUrl+" title=\"設定\">設定</a>");
+                }//sb.Append("<a class=\"move\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.initiateMoveWidget('" + WidgetID + "');return false\" title=\"搬移 widget\">搬移</a>");
             }
 
             //if (ShowTitle)
