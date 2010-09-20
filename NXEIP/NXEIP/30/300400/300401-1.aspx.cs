@@ -27,7 +27,7 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
 
             if (this.lab_mode.Text.Equals("modify"))
             {
-                this.Navigator1.SubFunc = "所在地-修改";
+                this.Navigator1.SubFunc = "修改";
                 string sqlstr = "select spo_name from spot where spo_no="+this.lab_no.Text;
                 DataTable dt = new DataTable();
                 dt = dbo.ExecuteQuery(sqlstr);
@@ -38,17 +38,10 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
             }
             else
             {
-                this.Navigator1.SubFunc = "所在地-新增";
+                this.Navigator1.SubFunc = "新增";
             }
         }
     }
-
-    #region 顯示回應訊息
-    private void ShowMsg(string msg)
-    {
-        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('" + msg + "');", true);
-    }
-    #endregion
 
     #region 確定
     protected void btn_submit_Click(object sender, EventArgs e)
@@ -57,14 +50,14 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
         try
         {
             #region 輸入值檢查--所在地
-            if (string.IsNullOrEmpty(this.txt_name.Text.Trim()))
+            if (string.IsNullOrEmpty(this.txt_name.Text))
             {
-                this.ShowMsg("請輸入 所在地");
+                Response.Write("<script>alert(\"請輸入 所在地\");</script>");
                 return;
             }
             else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 60))
             {
-                this.ShowMsg("所在地 長度不可超過20個數文字");
+                Response.Write("<script>alert(\"所在地 長度不可超過20個數文字\");</script>");
                 return;
             }
             #endregion
@@ -72,12 +65,12 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
             if (this.lab_mode.Text.Equals("modify"))
             {
                 #region 修改
-                string sqlstr = "select spo_no from spot where spo_name=N'"+this.txt_name.Text+"' and spo_no<>"+this.lab_no.Text;
+                string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_no<>" + this.lab_no.Text + " and spo_status='1'";
                 DataTable dt = new DataTable();
                 dt = dbo.ExecuteQuery(sqlstr);
                 if (dt.Rows.Count > 0)
                 {
-                    this.ShowMsg("此 所在地 已存在");
+                    Response.Write("<script>alert(\"此 所在地[" + this.txt_name.Text + "] 已存在\");</script>");
                     return;
                 }
                 else
@@ -93,12 +86,12 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
             else
             {
                 #region 新增
-                string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "'";
+                string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_status='1'";
                 DataTable dt = new DataTable();
                 dt = dbo.ExecuteQuery(sqlstr);
                 if (dt.Rows.Count > 0)
                 {
-                    this.ShowMsg("此 所在地 已存在");
+                    Response.Write("<script>alert(\"此 所在地["+this.txt_name.Text+"] 已存在\");</script>");
                     return;
                 }
                 else
