@@ -67,19 +67,42 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
 
        
-
-
-        //sessionObj.g
-
-       
         //取使用者
-        String user_login=sessionUtil.sessionUserAccount;
+        //String user_login=sessionUtil.sessionUserAccount;
+
+       String user_login=null;
 
         DataSet menudataset=null;
 
-        try { 
-          menudataset = (DataSet)Session["menu_" + user_login];
-        }catch{
+        
+            user_login = (String)sessionUtil.sessionUserAccount;
+
+            if (String.IsNullOrEmpty(user_login))
+            {
+                //從COOKIE拿一下(錯誤轉頁"CustomErrors mode="RedirecrReWrite""的部分不支援SESSION
+                try
+                {
+                    user_login = (String)Request.Cookies["UserAccount"].Value;
+                }catch{
+                }
+            }else{
+                try
+                {
+                    Response.Cookies.Add(new HttpCookie("UserAccount",user_login));
+                }
+                catch (Exception ex) {
+                    logger.Debug(ex.Message);
+                }
+            }
+
+            try
+            {
+
+
+            menudataset = (DataSet)HttpContext.Current.Session["menu"];
+        }
+        catch
+        {
         
         }
 
@@ -88,7 +111,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         //從快取中拿DATESET
         if (menudataset != null)
         {
-            menudataset = (DataSet)Session["menu_" + user_login];
+            menudataset = (DataSet)HttpContext.Current.Session["menu"];
             GetMenuFromCache();
             logger.Debug("MENU使用Session快取");
         }
@@ -205,8 +228,8 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
         try
         {
-            Session["menu_" + user_login] = menudataset;
-            Session["menuCss_" + user_login] = this.CssLiteral.Text;
+            Session["menu"] = menudataset;
+            Session["menuCss"] = this.CssLiteral.Text;
         }
         catch { 
         }
@@ -278,7 +301,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         
         //mlmenu.InnerHtml=menuHtml;
 
-        String css = (String)Session["menuCss_" + user_login];
+        String css = (String)HttpContext.Current.Session["menuCss"];
         this.CssLiteral.Text = css;
 
     }

@@ -32,6 +32,7 @@ public partial class error_error2 : System.Web.UI.Page
         }
 
 
+
         StringBuilder sb = new StringBuilder();
 
         sb.Append("錯誤網頁:" + url);
@@ -47,7 +48,11 @@ public partial class error_error2 : System.Web.UI.Page
             detail.Text = ex.StackTrace.Replace(Environment.NewLine, "<br/>");
         }
 
+       
 
-        Server.ClearError();
+      
     }
+
+  
+   
 }
