@@ -59,7 +59,8 @@ public partial class _30_300400_300401 : System.Web.UI.Page
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "查詢 所在地 編號:" + pkno);
-            Response.Write(PCalendarUtil.ShowMsg_URL("", "300401-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString()));
+            string urls = "300401-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString();
+            Response.Redirect(urls);
         }
         else if (e.CommandName.Equals("del"))
         {
@@ -71,7 +72,7 @@ public partial class _30_300400_300401 : System.Web.UI.Page
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "刪除 所在地 編號:" + pkno);
-            Response.Write(PCalendarUtil.ShowMsg_URL("", "300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString()));
+            Response.Redirect("300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
         }
     }
     #endregion
