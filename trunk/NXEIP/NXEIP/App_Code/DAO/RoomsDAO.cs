@@ -7,14 +7,14 @@ using Entity;
 namespace NXEIP.DAO
 {
     /// <summary>
-    /// 功能名稱：LINQ spot
-    /// 功能描述：取得、設定所在地spot資料表的內容
+    /// 功能名稱：rooms
+    /// 功能描述：取得、設定場地資料rooms資料表的內容
     /// 撰寫者：Lina
-    /// 撰寫時間：2010/09/17
+    /// 撰寫時間：2010/09/23
     /// </summary>
-    public class SpotDAO
+    public class RoomsDAO
     {
-        public SpotDAO()
+        public RoomsDAO()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -24,15 +24,12 @@ namespace NXEIP.DAO
         private NXEIPEntities model = new NXEIPEntities();
 
         #region 分頁列表使用
-        public IQueryable<spot> GetAll()
+        public IQueryable<rooms> GetAll()
         {
-            return (from tb in model.spot where tb.spo_status == "1" orderby tb.spo_no select tb);
-            //return (from tb1 in model.spot join tb2 in model.people on tb1.spo_createuid equals tb2.peo_uid
-            //        where tb1.spo_status == "1"
-            //        select tb1);
+            return (from tb in model.rooms where tb.roo_status == "1" orderby tb.roo_floor,tb.roo_no select tb);
         }
 
-        public IQueryable<spot> GetAll(int startRowIndex, int maximumRows)
+        public IQueryable<rooms> GetAll(int startRowIndex, int maximumRows)
         {
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
@@ -44,9 +41,9 @@ namespace NXEIP.DAO
         #endregion
 
         #region 新增&修改
-        public void AddSpot(spot spot)
+        public void AddRooms(rooms rooms)
         {
-            model.AddTospot(spot);
+            model.AddTorooms(rooms);
         }
 
         public int Update()
@@ -61,35 +58,34 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="no">編號</param>
         /// <returns>整筆資料</returns>
-        public spot GetBySpotNo(int no)
+        public rooms GetByRoomsNo(int no)
         {
-            return (from tb in model.spot where tb.spo_no == no select tb).FirstOrDefault();
+            return (from tb in model.rooms where tb.roo_no == no select tb).FirstOrDefault();
         }
         #endregion
 
-        #region 由[編號]取得[所在地]
+        #region 由[編號]取得[場地]
         /// <summary>
-        /// 由[編號]取得[所在地]
+        /// 由[編號]取得[場地]
         /// </summary>
         /// <param name="no">編號</param>
-        /// <returns>所在地</returns>
-        public string GetNameBySpoNo(int no)
+        /// <returns>場地</returns>
+        public string GetNameByRooNo(int no)
         {
-            return (from tb in model.spot where tb.spo_no == no select tb.spo_name).FirstOrDefault();
+            return (from tb in model.rooms where tb.roo_no == no select tb.roo_name).FirstOrDefault();
         }
         #endregion
 
-        #region 由[所在地]取得[編號]
+        #region 由[場地]取得[編號]
         /// <summary>
-        /// 由[所在地]取得[編號]
+        /// 由[場地]取得[編號]
         /// </summary>
-        /// <param name="name">所在地</param>
+        /// <param name="name">場地</param>
         /// <returns>編號</returns>
         public int GetNoByName(string name)
         {
-            return (from tb in model.spot where tb.spo_name == name select tb.spo_no).FirstOrDefault();
+            return (from tb in model.rooms where tb.roo_name == name select tb.roo_no).FirstOrDefault();
         }
         #endregion
-
     }
 }
