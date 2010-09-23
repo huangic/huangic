@@ -1,16 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300401-1.aspx.cs" Inherits="_30_300400_300401_1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300402-1.aspx.cs" Inherits="_30_300400_300402_1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300401" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300402" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
-            <div class="h2">
-            </div>
+            <div class="h2"></div>
             <div class="h3">
             </div>
         </div>

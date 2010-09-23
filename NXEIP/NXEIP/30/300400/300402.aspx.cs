@@ -8,17 +8,16 @@ using NXEIP.DAO;
 using Entity;
 
 /// <summary>
-/// 功能名稱：管理作業 / 場地管理 / 所在地管理
-/// 功能編號：30/300400/300401
+/// 功能名稱：管理作業 / 場地管理 / 場地資料管理
+/// 功能編號：30/300400/300402
 /// 撰寫者：Lina
-/// 撰寫時間：2010/09/17
+/// 撰寫時間：2010/09/23
 /// </summary>
-public partial class _30_300400_300401 : System.Web.UI.Page
+public partial class _30_300400_300402 : System.Web.UI.Page
 {
     ChangeObject changeobj = new ChangeObject();
     DBObject dbo = new DBObject();
     SessionObject sobj = new SessionObject();
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -28,8 +27,9 @@ public partial class _30_300400_300401 : System.Web.UI.Page
                 this.GridView1.DataBind();
                 this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
             }
+
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "所在地 列表");
+            new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "場地資料列表");
         }
     }
 
@@ -38,8 +38,8 @@ public partial class _30_300400_300401 : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Cells[1].Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(e.Row.Cells[1].Text));
-            e.Row.Cells[2].Text = changeobj.ADDTtoROCDT(e.Row.Cells[2].Text);
+            e.Row.Cells[0].Text = new SpotDAO().GetNameBySpoNo(Convert.ToInt32(e.Row.Cells[0].Text));
+            e.Row.Cells[3].Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(e.Row.Cells[3].Text));
         }
     }
     #endregion
@@ -47,7 +47,7 @@ public partial class _30_300400_300401 : System.Web.UI.Page
     #region 新增
     protected void btn_add_Click(object sender, EventArgs e)
     {
-        Response.Write(PCalendarUtil.ShowMsg_URL("", "300401-1.aspx?mode=new&count="+new System.Random().Next(10000).ToString()));
+        Response.Write(PCalendarUtil.ShowMsg_URL("", "300402-1.aspx?mode=new&count=" + new System.Random().Next(10000).ToString()));
     }
     #endregion
 
@@ -60,8 +60,8 @@ public partial class _30_300400_300401 : System.Web.UI.Page
             string pageIndex = this.GridView1.PageIndex.ToString();
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "查詢 所在地 編號:" + pkno);
-            string urls = "300401-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString();
+            new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "查詢 場地資料 編號:" + pkno);
+            string urls = "300402-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString();
             Response.Redirect(urls);
         }
         else if (e.CommandName.Equals("del"))
@@ -69,14 +69,13 @@ public partial class _30_300400_300401 : System.Web.UI.Page
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
             string pageIndex = this.GridView1.PageIndex.ToString();
 
-            string sqlstr = "update spot set spo_status='2' where spo_no=" + pkno;
+            string sqlstr = "update rooms set roo_status='2' where roo_no=" + pkno;
             dbo.ExecuteNonQuery(sqlstr);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "刪除 所在地 編號:" + pkno);
-            Response.Redirect("300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
+            new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 3, "刪除 場地資料 編號:" + pkno);
+            Response.Redirect("300402.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
         }
     }
     #endregion
-
 }
