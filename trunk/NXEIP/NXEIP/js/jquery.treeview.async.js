@@ -29,11 +29,11 @@
 
                 }
 
-                //加上判斷指有結點可以DBCLICK
+                //加上判斷指有結點可以CLICK
 
                 if (settings.treedblclick) {
 
-                    current.children("span").bind('dblclick', settings.treedblclick);
+                    current.children("span").bind('click', settings.treedblclick);
                     //current.children("span").unbind('click');
                 }
                 // current.children("span").unbind('click');
