@@ -15,7 +15,7 @@
 @import url(eip-image.css);
 @import url(eip-block-calendar.css);
 @import url(eip-color.css);
-
+@import url(jquery.autocomplete.css);
 
 body {
 	margin-left: 0px;
