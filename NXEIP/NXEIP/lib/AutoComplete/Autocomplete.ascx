@@ -38,7 +38,7 @@
 
                 autoFill: false,
 
-                mustMatch: true //是否允許輸入提示清單上沒有的值?
+                mustMatch: false //是否允許輸入提示清單上沒有的值?
 
             });
 
