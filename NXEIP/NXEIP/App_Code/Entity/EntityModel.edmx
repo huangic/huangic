@@ -19,6 +19,7 @@
           <EntitySet Name="doc03" EntityType="NXEIPModel.Store.doc03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc04" EntityType="NXEIPModel.Store.doc04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc05" EntityType="NXEIPModel.Store.doc05" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="e01" EntityType="NXEIPModel.Store.e01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="government" EntityType="NXEIPModel.Store.government" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
@@ -357,6 +358,17 @@
           <Property Name="d03_no" Type="int" Nullable="false" />
           <Property Name="d05_no" Type="int" Nullable="false" />
           <Property Name="d05_peouid" Type="int" />
+        </EntityType>
+        <EntityType Name="e01">
+          <Key>
+            <PropertyRef Name="e01_no" />
+          </Key>
+          <Property Name="e01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="e01_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="e01_status" Type="char" MaxLength="1" />
+          <Property Name="e01_order" Type="int" />
+          <Property Name="e01_createuid" Type="int" />
+          <Property Name="e01_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="government">
           <Key>
@@ -1232,6 +1244,7 @@
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
           </AssociationSet>
+          <EntitySet Name="e01" EntityType="NXEIPModel.e01" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -2181,6 +2194,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="e01">
+          <Key>
+            <PropertyRef Name="e01_no" />
+          </Key>
+          <Property Type="Int32" Name="e01_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="e01_name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="e01_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="e01_order" />
+          <Property Type="Int32" Name="e01_createuid" />
+          <Property Type="DateTime" Name="e01_createtime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2563,6 +2587,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="e01">
+            <EntityTypeMapping TypeName="NXEIPModel.e01">
+              <MappingFragment StoreEntitySet="e01">
+                <ScalarProperty Name="e01_createtime" ColumnName="e01_createtime" />
+                <ScalarProperty Name="e01_createuid" ColumnName="e01_createuid" />
+                <ScalarProperty Name="e01_order" ColumnName="e01_order" />
+                <ScalarProperty Name="e01_status" ColumnName="e01_status" />
+                <ScalarProperty Name="e01_name" ColumnName="e01_name" />
+                <ScalarProperty Name="e01_no" ColumnName="e01_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2827,6 +2863,7 @@
           <ConnectorPoint PointX="10.25" PointY="24.422587890624982" />
           <ConnectorPoint PointX="10.25" PointY="24.172587890624982" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.e01" Width="1.5" PointX="5.375" PointY="3.75" Height="2.1725878906250102" />
         </Diagram>
     </Diagrams>
   </Designer>
