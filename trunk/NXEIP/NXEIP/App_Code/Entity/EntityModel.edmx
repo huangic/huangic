@@ -2023,7 +2023,7 @@
           <Property Type="String" Name="roo_planetype" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="roo_describe" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="roo_status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="root_dep" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="roo_dep" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="roo_createuid" />
           <Property Type="DateTime" Name="roo_createtime" />
           <NavigationProperty Name="government" Relationship="NXEIPModel.FK_GOVERNME_RELATIONS_ROOMS" FromRole="rooms" ToRole="government" />
@@ -2399,7 +2399,7 @@
               <MappingFragment StoreEntitySet="rooms">
                 <ScalarProperty Name="roo_createtime" ColumnName="roo_createtime" />
                 <ScalarProperty Name="roo_createuid" ColumnName="roo_createuid" />
-                <ScalarProperty Name="root_dep" ColumnName="root_dep" />
+                <ScalarProperty Name="roo_dep" ColumnName="root_dep" />
                 <ScalarProperty Name="roo_status" ColumnName="roo_status" />
                 <ScalarProperty Name="roo_describe" ColumnName="roo_describe" />
                 <ScalarProperty Name="roo_planetype" ColumnName="roo_planetype" />
