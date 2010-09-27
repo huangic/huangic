@@ -26,6 +26,17 @@ namespace NXEIP.DAO
             return (from data in model.accounts where data.peo_uid == peo_uid select data).FirstOrDefault();
         }
 
+        /// <summary>
+        /// 驗證帳號密碼
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="pw"></param>
+        /// <returns></returns>
+        public accounts GetByIDPW(string login, string pw)
+        {
+            return (from d in model.accounts where d.acc_login == login && d.acc_passwd == pw select d).FirstOrDefault();
+        }
+
         public void Addaccounts(accounts accounts)
         {
             model.AddToaccounts(accounts);

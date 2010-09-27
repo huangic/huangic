@@ -16,6 +16,28 @@ public class SessionObject : System.Web.UI.Page
 		
 	}
 
+    #region 取得SessionID
+    /// <summary>
+    ///		取得SessionID
+    /// </summary>
+    public string SessionID
+    {
+        get
+        {
+            try
+            {
+                return Session.SessionID;
+
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+    }
+    #endregion
+
     #region 存取設定Session UserID
     /// <summary>
     ///		存取設定Session UserID
