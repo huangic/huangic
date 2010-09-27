@@ -11,8 +11,13 @@ using Entity;
 public partial class lib_Autocomplete : System.Web.UI.UserControl
 {
     public static string SrcUrl;
-    
+
     public string _value { get; set; }
+   
+    public string GetInputVal()
+    {
+        return this.tbox_str.Text;
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
