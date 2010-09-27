@@ -5,9 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using NXEIP.DAO;
+using Entity;
 
 public partial class _35_350100_350102 : System.Web.UI.Page
 {
+
+    private NXEIPEntities model = new NXEIPEntities();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -19,6 +24,7 @@ public partial class _35_350100_350102 : System.Web.UI.Page
             this.jQueryPeopleTree1.Clear();
         }
     }
+    
     protected void rbl_people_CheckedChanged(object sender, EventArgs e)
     {
         if (((System.Web.UI.WebControls.RadioButton)sender).ID.Equals("rbl_people"))
@@ -60,15 +66,22 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         {
             foreach (var depart in this.jQueryDepartTree1.Items)
             {
-                string dep_no = depart.Key;
+                int dep_no = Convert.ToInt32(depart.Key);
 
                 //部門人員
-                DataTable mytable = new DBObject().ExecuteQuery("select peo_uid from people where dep_no = " + dep_no);
-                for (int p = 0; p < mytable.Rows.Count; p++)
+                var data = (from d in model.people where d.dep_no == dep_no select d);
+                foreach (var item in data)
                 {
-                    this.Accounts_process(mytable.Rows[p]["peo_uid"].ToString());
+                    this.Accounts_process(item.peo_uid.ToString());
                     showMsg = true;
                 }
+
+                //DataTable mytable = new DBObject().ExecuteQuery("select peo_uid from people where dep_no = " + dep_no);
+                //for (int p = 0; p < mytable.Rows.Count; p++)
+                //{
+                //    this.Accounts_process(mytable.Rows[p]["peo_uid"].ToString());
+                //    showMsg = true;
+                //}
             }
         }
 
