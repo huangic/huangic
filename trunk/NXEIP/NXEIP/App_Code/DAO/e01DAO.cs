@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Dynamic;
 using System.Web;
 using Entity;
 
 namespace NXEIP.DAO
 {
     /// <summary>
-    /// OperatesDAO 的摘要描述
+    /// e01DAO 的摘要描述
     /// </summary>
-    public class OperatesDAO
+    public class e01DAO
     {
-        public OperatesDAO()
+        public e01DAO()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -25,9 +24,9 @@ namespace NXEIP.DAO
         /// 查詢所有資料
         /// </summary>
         /// <returns></returns>
-        public IQueryable<operates> GetAll()
+        public IQueryable<e01> GetAll()
         {
-            return (from data in model.operates orderby data.ope_logintime descending select data);
+            return (from data in model.e01 where data.e01_status == "1" orderby data.e01_order select data);
         }
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace NXEIP.DAO
         /// <param name="startRowIndex">起始筆數</param>
         /// <param name="maximumRows">結束筆數</param>
         /// <returns></returns>
-        public IQueryable<operates> GetAll(int startRowIndex, int maximumRows)
+        public IQueryable<e01> GetAll(int startRowIndex, int maximumRows)
         {
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
@@ -50,9 +49,14 @@ namespace NXEIP.DAO
             return GetAll().Count();
         }
 
-        public void Addoperates(operates operates)
+        public e01 GetBye01NO(int e01_no)
         {
-            model.AddTooperates(operates);
+            return (from d in model.e01 where d.e01_no == e01_no select d).FirstOrDefault();
+        }
+
+        public void Adde01(e01 e01)
+        {
+            model.AddToe01(e01);
         }
 
         public int Update()
