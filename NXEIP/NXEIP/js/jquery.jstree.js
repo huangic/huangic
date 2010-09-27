@@ -784,10 +784,14 @@
 			move_node : function (obj, ref, position, is_copy, is_prepared, skip_check) {
 				if(!is_prepared) { 
 					return this.prepare_move(obj, ref, position, function (p) {
+                    
 						this.move_node(p, false, false, is_copy, true, skip_check);
 					});
 				}
 				if(!skip_check && !this.check_move()) { return false; }
+
+                if(!confirm("確定要搬移")){return false;}
+
 
 				this.__rollback();
 				var o = false;
@@ -3536,5 +3540,57 @@
 			}
 		}
 	});
+})(jQuery);
+//*/
+
+ 
+
+(function ($) {
+    $.jstree.plugin("confirm", {
+        __init: function () {
+            this.get_container()
+				.bind("before.jstree", $.proxy(function (e, data) {
+				    var nms = [], res = true, p, t;
+				    //$.log(data.func);
+                   
+                    if (data.func == "move_node") {
+				        // obj, ref, position, is_copy, is_prepared, skip_check
+                        	if(data.args[4] == true) {
+								if(data.args[1]==false ) {
+								
+									$.log(data.plugin);
+                                   $.log("MOVE");
+                                    res = confirm("確定要搬移");
+                                    
+
+								}
+							}
+
+                         
+				       
+				    }
+				    if (data.func == "create_node") {
+				        
+				    }
+				    if (data.func == "rename_node") {
+				       
+				    }
+				    if (!res) {
+				        e.stopPropagation();
+				        return false;
+				    }
+				}, this));
+        },
+        _fn: {
+            _confirmActive: function (msg) {
+               
+                    //alert("資料夾("+nms+")名稱重複");
+                if(confirm(msg)){
+                    return true;
+                }
+                return false;
+            }
+        }
+    });
 })(jQuery);
 //*/

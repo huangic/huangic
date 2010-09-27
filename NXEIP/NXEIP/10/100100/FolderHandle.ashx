@@ -38,13 +38,16 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
         String handle = context.Request["handle"];
         string newname = context.Request["name"];
-
-        int id, pid;
+         
+        
+        
+        int id, pid,depid,folderType;
         
         
         int.TryParse(context.Request["id"],out id);
         int.TryParse(context.Request["pid"],out pid);
-        
+        int.TryParse(context.Request["depid"], out depid);
+        int.TryParse(context.Request["folderType"], out folderType);
        
         
         
@@ -68,6 +71,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 folder.d01_createuid=System.Convert.ToInt32(sessionObj.sessionUserID); 
                 
                 folder.d01_createtime=DateTime.Now;
+
+                folder.dep_no = depid;
+                folder.d01_type = folderType.ToString();
                 
                 
                 model.SaveChanges();
@@ -105,6 +111,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
         if (!String.IsNullOrEmpty(handle) && handle.Equals("create")) {
             try
             {
+                
+                //TODO:要多加部門目錄的判斷
+                
                 //新增一個目錄節點
                 doc01 newFolder = new doc01();
                
@@ -114,6 +123,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 newFolder.d01_createtime = DateTime.Now;
                 newFolder.d01_son = 2;
                 newFolder.peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                newFolder.dep_no = depid;
+                newFolder.d01_type = folderType.ToString();
+                
                 model.doc01.AddObject(newFolder);
                 model.SaveChanges();
                 String new_id = newFolder.d01_no.ToString();
@@ -228,16 +240,17 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
     /// <param name="pid"></param>
     /// <returns></returns>
     private void resetChildFolder(int pid){
+        if (pid != 0)
+        {
+            doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).First();
 
-        doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).First();
+            //計算屬於下屬的目錄   
+            int count = (from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f).Count();
 
-        //計算屬於下屬的目錄   
-        int count = (from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f).Count();
+            parentFolder.d01_son = count > 0 ? 1 : 2;
 
-        parentFolder.d01_son = count > 0 ? 1 : 2;
-
-        model.SaveChanges();
-
+            model.SaveChanges();
+        }
 
 
     }

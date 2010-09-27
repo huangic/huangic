@@ -24,6 +24,8 @@ public class EntityFolderJSON:FolderJSON
             this.state = "closed";
         }
         this.attr.id = doc.d01_no.ToString();
-
+        this.attr.depid = doc.dep_no.ToString();
+        this.attr.folderType = doc.d01_type.ToString();
+        
     }
 }
