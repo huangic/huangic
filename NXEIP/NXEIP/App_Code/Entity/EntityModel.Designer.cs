@@ -8567,24 +8567,24 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String root_dep
+        public global::System.String roo_dep
         {
             get
             {
-                return _root_dep;
+                return _roo_dep;
             }
             set
             {
-                Onroot_depChanging(value);
-                ReportPropertyChanging("root_dep");
-                _root_dep = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("root_dep");
-                Onroot_depChanged();
+                Onroo_depChanging(value);
+                ReportPropertyChanging("roo_dep");
+                _roo_dep = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("roo_dep");
+                Onroo_depChanged();
             }
         }
-        private global::System.String _root_dep;
-        partial void Onroot_depChanging(global::System.String value);
-        partial void Onroot_depChanged();
+        private global::System.String _roo_dep;
+        partial void Onroo_depChanging(global::System.String value);
+        partial void Onroo_depChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
