@@ -11,10 +11,16 @@ using Entity;
 public partial class lib_Autocomplete : System.Web.UI.UserControl
 {
     public static string SrcUrl;
+    
+    public string _value { get; set; }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         SrcUrl = this.ResolveClientUrl("~/lib/AutoComplete/ACDataSrc.aspx");
+        if (this._value != null)
+        {
+            this.tbox_str.Text = this._value;
+        }
     }
 
     /// <summary>
