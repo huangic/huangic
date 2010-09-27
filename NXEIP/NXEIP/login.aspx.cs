@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using NXEIP.DAO;
+using Entity;
 
 public partial class login : SessionObject
 {
@@ -40,51 +42,51 @@ public partial class login : SessionObject
     {
         if (this.CheckCode())
         {
-            if (this.tbox_id.Text.Trim().Length > 0 && this.tbox_pw.Text.Trim().Length > 0)
+            if (!string.IsNullOrEmpty(this.tbox_id.Text) && !string.IsNullOrEmpty(this.tbox_pw.Text))
             {
-                string sql = "", peo_uid = "";
-                
-                using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection())
-                {
-                    conn.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["NXEIPConnectionString"].ConnectionString;
-                    using (System.Data.SqlClient.SqlCommand com = new System.Data.SqlClient.SqlCommand())
-                    {
-                        sql = "select peo_uid from accounts where acc_login = @acc_login and acc_passwd = @acc_passwd and acc_status='1'";
-
-                        com.Connection = conn;
-                        com.Connection.Open();
-                        com.CommandText = sql;
-                        com.Parameters.Add("@acc_login", System.Data.SqlDbType.VarChar).Value = this.tbox_id.Text;
-                        com.Parameters.Add("@acc_passwd", System.Data.SqlDbType.VarChar).Value = this.tbox_pw.Text;
-                        try
-                        {
-                            peo_uid = com.ExecuteScalar().ToString();
-                        }
-                        catch { }
-                        com.Connection.Close();
-
-                    }
-                }
-
                 try
                 {
-                    if (Convert.ToInt32(peo_uid) > 0)
+                    accounts accData = new AccountsDAO().GetByIDPW(this.tbox_id.Text, this.tbox_pw.Text);
+
+                    if (accData != null)
                     {
-                        //取回人員資料
-                        sql = "SELECT people.peo_uid, people.dep_no, people.peo_workid, people.peo_name, departments.dep_name FROM people INNER JOIN departments ON people.dep_no = departments.dep_no WHERE (people.peo_uid = " + peo_uid + ")";
-                        System.Data.DataTable mytable = new DBObject().ExecuteQuery(sql);
+                        if (accData.acc_status.Equals("1"))
+                        {
+                            //取回人員資料
+                            people peoData = new PeopleDAO().GetByPeoUID(accData.peo_uid);
 
-                        //save session data
-                        this.sessionUserID = mytable.Rows[0]["peo_uid"].ToString();
-                        this.sessionUserName = mytable.Rows[0]["peo_name"].ToString();
-                        this.sessionUserDepartID = mytable.Rows[0]["dep_no"].ToString();
-                        this.sessionUserDepartName = mytable.Rows[0]["dep_name"].ToString();
-                        this.sessionUserAccount = this.tbox_id.Text;
-                        //login log
+                            //save session data
+                            this.sessionUserID = peoData.peo_uid.ToString();
+                            this.sessionUserName = peoData.peo_name;
+                            this.sessionUserDepartID = peoData.departments.dep_no.ToString();
+                            this.sessionUserDepartName = peoData.departments.dep_name;
+                            this.sessionUserAccount = accData.acc_login;
 
+                            //login log
+                            new OperatesObject().ExecuteLoginLog(peoData.peo_uid, accData.acc_no, this.GetIpAddress(),this.SessionID);
 
-                        //go index
-                        Server.Transfer("Default.aspx");
+                            //goto index
+                            Server.Transfer("Default.aspx");
+                        }
+
+                        //未啟用
+                        if (accData.acc_status.Equals("2"))
+                        {
+
+                            this.ShowMessage("您的帳號尚未啟用，請洽貴單位系統管理員：，公務電話：");
+                        }
+
+                        //已停用
+                        if (accData.acc_status.Equals("3"))
+                        {
+
+                            this.ShowMessage("您的帳號已被停用，請洽貴單位系統管理員：，公務電話：");
+                        }
+                        
+                    }
+                    else
+                    {
+                        this.ShowMessage("帳號密碼錯誤!");
                     }
                 }
                 catch
