@@ -45,7 +45,8 @@ namespace NXEIP.HttpModule
             
                     if (String.IsNullOrEmpty(userID))
                     {
-                     Application.Response.Redirect("~/login.aspx");
+                     Application.Response.Redirect("~/login.aspx",false);
+                     HttpContext.Current.ApplicationInstance.CompleteRequest();
                     }
                 }
             }

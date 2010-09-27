@@ -20,14 +20,14 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// <param name="pid"></param>
     /// <param name="peo_uid"></param>
     /// <returns></returns>
-     private ICollection<FolderJSON> getRootFilder(int pid,int peo_uid){
+     private ICollection<FolderJSON> getPersonRootFilder(int pid,int peo_uid){
 
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
              ICollection<FolderJSON> fs = new List<FolderJSON>();
-
-             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid select f;
+             //取自己的檔案目錄
+             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid && f.d01_type=="1" select f;
              try
              {
                  foreach (var folder in folders)
@@ -46,6 +46,43 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
              return fs;
          }
         }
+
+
+
+     /// <summary>
+     /// get Depart Root dir
+     /// </summary>
+     /// <param name="pid"></param>
+     /// <param name="peo_uid"></param>
+     /// <returns></returns>
+     private ICollection<FolderJSON> getDepartRootFilder(int pid, int peo_uid)
+     {
+
+         using (NXEIPEntities model = new NXEIPEntities())
+         {
+
+             ICollection<FolderJSON> fs = new List<FolderJSON>();
+             //取自己的檔案目錄
+             var folders = from f in model.doc01 where f.d01_parentid == pid && f.d01_type == "2" select f;
+             try
+             {
+                 foreach (var folder in folders)
+                 {
+
+                     FolderJSON f = new EntityFolderJSON(folder);
+
+                     fs.Add(f);
+
+                 }
+             }
+             catch
+             {
+             }
+
+             return fs;
+         }
+     }
+    
     
     /// <summary>
     /// get child dir
@@ -116,10 +153,12 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
             f.data = "使用者文件夾";
             
             f.attr.id = "0";
+            f.attr.depid = sessionObj.sessionUserDepartID;
+            f.attr.folderType = "1";
         
             
             //取第一層目錄
-            f.children=getRootFilder(pid,System.Convert.ToInt32(sessionObj.sessionUserID));
+            f.children = getPersonRootFilder(pid, System.Convert.ToInt32(sessionObj.sessionUserID));
 
             if (f.children.Count > 0) {
                 f.state = "closed";
@@ -130,9 +169,29 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
             fs.Add(f);
 
 
+            //取部門文件夾
 
-          
-            
+
+            FolderJSON dep_f = new FolderJSON();
+
+
+            dep_f.data = "部門文件夾";
+
+            dep_f.attr.id = "0";
+            dep_f.attr.depid = sessionObj.sessionUserDepartID;
+            dep_f.attr.folderType = "2";
+
+
+            //取第一層目錄
+            dep_f.children = getDepartRootFilder(pid, System.Convert.ToInt32(sessionObj.sessionUserDepartID));
+
+            if (dep_f.children.Count > 0)
+            {
+                dep_f.state = "closed";
+            }
+
+
+            fs.Add(dep_f);
             
             
             

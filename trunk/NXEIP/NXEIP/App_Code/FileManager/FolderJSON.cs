@@ -32,5 +32,7 @@ namespace FileManager
     public class AttrJson
     {
         public String id { get; set; }
+        public String depid { get; set; }
+        public String folderType { get; set; }
     }
 }

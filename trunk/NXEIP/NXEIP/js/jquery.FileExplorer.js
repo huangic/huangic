@@ -184,10 +184,10 @@ jquery.jqGrid
 
 
                .bind("select_node.jstree", reloadNodeFile)
-               .bind("move_node.jstree", moveNode)
-               .bind("create_node.jstree", addNode)
-               .bind("rename_node.jstree", renameNode)
-               .bind("delete_node.jstree", deleteNode)
+               .bind("move_node.jstree", moveNode) //移動目錄
+               .bind("create_node.jstree", addNode) //建立目錄
+               .bind("rename_node.jstree", renameNode) //變更名稱
+               .bind("delete_node.jstree", deleteNode) //刪除節點
 
 
         // JSTREE 設定
@@ -216,16 +216,21 @@ jquery.jqGrid
 
         //目錄搬移
 
-
+       
         //alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
 
 
         url = "FolderHandle.ashx"
         data = { handle: "move",
             id: ref.rslt.o.attr("id"),
-            pid: ref.rslt.r.attr("id")
+            pid: ref.rslt.r.attr("id"),
+            depid:ref.rslt.r.attr("depid"),
+            folderType:ref.rslt.r.attr("folderType")
         };
         AjaxHandle(url, data, $.noop(), $.noop());
+
+      
+
 
     };
 
@@ -316,7 +321,9 @@ jquery.jqGrid
         url = "FolderHandle.ashx"
         data = { handle: "create",
             //id: position.rslt.obj.attr("id"),
-            pid: position.rslt.parent.attr("id")
+            pid: position.rslt.parent.attr("id"),
+            depid:position.rslt.parent.attr("depid"),
+            folderType:position.rslt.parent.attr("folderType")
         };
         AjaxHandle(url, data, handleAddNode);
 
@@ -324,6 +331,9 @@ jquery.jqGrid
             //alert(position.rslt.obj);
             //寫入新ID
             position.rslt.obj.attr("id", data.id);
+            position.rslt.obj.attr("depid", position.rslt.parent.attr("depid"));
+            position.rslt.obj.attr("folderType", position.rslt.parent.attr("folderType"));
+
         }
 
     };
@@ -345,6 +355,9 @@ jquery.jqGrid
     function deleteNode(obj, val) {
         //alert("New");
 
+        if(confirm("確定要刪除?")){
+
+
         if (val.rslt.obj.attr("id") == 0) {
             return false;
         }
@@ -357,8 +370,10 @@ jquery.jqGrid
             "id": val.rslt.obj.attr("id")
 
         };
-        AjaxHandle(url, data, $.noop());
+        AjaxHandle(url, data, function(){ alert("刪除成功!")});
 
+        }
+        
 
     };
 
