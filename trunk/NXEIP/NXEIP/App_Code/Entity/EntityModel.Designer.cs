@@ -49,6 +49,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_SYSFUCTI_RELATIONS_SYS", "sys", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sys), "sysfuction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.sysfuction), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_GOVERNME_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "government", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.government), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ROOMS_RELATIONS_SPOT", "spot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.spot), "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rooms), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC01_RELATIONS_DEPARTME", "departments", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "doc01", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc01), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_DEPARTME", "departments", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.departments), "manager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.manager), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "manager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.manager), true)]
 
 #endregion
 
@@ -627,6 +630,22 @@ namespace Entity
             }
         }
         private ObjectSet<rooms> _rooms;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<manager> manager
+        {
+            get
+            {
+                if ((_manager == null))
+                {
+                    _manager = base.CreateObjectSet<manager>("manager");
+                }
+                return _manager;
+            }
+        }
+        private ObjectSet<manager> _manager;
 
         #endregion
         #region AddTo 方法
@@ -893,6 +912,14 @@ namespace Entity
         public void AddTorooms(rooms rooms)
         {
             base.AddObject("rooms", rooms);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 manager EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTomanager(manager manager)
+        {
+            base.AddObject("manager", manager);
         }
 
         #endregion
@@ -3059,6 +3086,50 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC01_RELATIONS_DEPARTME", "doc01")]
+        public EntityCollection<doc01> doc01
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "doc01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc01>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "doc01", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_DEPARTME", "manager")]
+        public EntityCollection<manager> manager
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<manager>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "manager");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<manager>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "manager", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -3080,13 +3151,15 @@ namespace Entity
         /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
         /// <param name="d01_parentid">d01_parentid 屬性的初始值。</param>
         /// <param name="d01_son">d01_son 屬性的初始值。</param>
-        public static doc01 Createdoc01(global::System.Int32 d01_no, global::System.Int32 peo_uid, global::System.Int32 d01_parentid, global::System.Int32 d01_son)
+        /// <param name="dep_no">dep_no 屬性的初始值。</param>
+        public static doc01 Createdoc01(global::System.Int32 d01_no, global::System.Int32 peo_uid, global::System.Int32 d01_parentid, global::System.Int32 d01_son, global::System.Int32 dep_no)
         {
             doc01 doc01 = new doc01();
             doc01.d01_no = d01_no;
             doc01.peo_uid = peo_uid;
             doc01.d01_parentid = d01_parentid;
             doc01.d01_son = d01_son;
+            doc01.dep_no = dep_no;
             return doc01;
         }
 
@@ -3335,6 +3408,54 @@ namespace Entity
         private global::System.String _d01_url;
         partial void Ond01_urlChanging(global::System.String value);
         partial void Ond01_urlChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 dep_no
+        {
+            get
+            {
+                return _dep_no;
+            }
+            set
+            {
+                Ondep_noChanging(value);
+                ReportPropertyChanging("dep_no");
+                _dep_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dep_no");
+                Ondep_noChanged();
+            }
+        }
+        private global::System.Int32 _dep_no;
+        partial void Ondep_noChanging(global::System.Int32 value);
+        partial void Ondep_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d01_type
+        {
+            get
+            {
+                return _d01_type;
+            }
+            set
+            {
+                Ond01_typeChanging(value);
+                ReportPropertyChanging("d01_type");
+                _d01_type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d01_type");
+                Ond01_typeChanged();
+            }
+        }
+        private global::System.String _d01_type;
+        partial void Ond01_typeChanging(global::System.String value);
+        partial void Ond01_typeChanged();
 
         #endregion
     
@@ -3418,6 +3539,44 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc03>("NXEIPModel.FK_DOC03_RELATIONS_DOC01", "doc03", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC01_RELATIONS_DEPARTME", "departments")]
+        public departments departments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "departments").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "departments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<departments> departmentsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "departments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_DOC01_RELATIONS_DEPARTME", "departments", value);
                 }
             }
         }
@@ -5065,6 +5224,221 @@ namespace Entity
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="manager")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class manager : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 manager 物件。
+        /// </summary>
+        /// <param name="dep_no">dep_no 屬性的初始值。</param>
+        /// <param name="man_no">man_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        /// <param name="man_type">man_type 屬性的初始值。</param>
+        public static manager Createmanager(global::System.Int32 dep_no, global::System.Int32 man_no, global::System.Int32 peo_uid, global::System.String man_type)
+        {
+            manager manager = new manager();
+            manager.dep_no = dep_no;
+            manager.man_no = man_no;
+            manager.peo_uid = peo_uid;
+            manager.man_type = man_type;
+            return manager;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 dep_no
+        {
+            get
+            {
+                return _dep_no;
+            }
+            set
+            {
+                if (_dep_no != value)
+                {
+                    Ondep_noChanging(value);
+                    ReportPropertyChanging("dep_no");
+                    _dep_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("dep_no");
+                    Ondep_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _dep_no;
+        partial void Ondep_noChanging(global::System.Int32 value);
+        partial void Ondep_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 man_no
+        {
+            get
+            {
+                return _man_no;
+            }
+            set
+            {
+                if (_man_no != value)
+                {
+                    Onman_noChanging(value);
+                    ReportPropertyChanging("man_no");
+                    _man_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("man_no");
+                    Onman_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _man_no;
+        partial void Onman_noChanging(global::System.Int32 value);
+        partial void Onman_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String man_type
+        {
+            get
+            {
+                return _man_type;
+            }
+            set
+            {
+                Onman_typeChanging(value);
+                ReportPropertyChanging("man_type");
+                _man_type = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("man_type");
+                Onman_typeChanged();
+            }
+        }
+        private global::System.String _man_type;
+        partial void Onman_typeChanging(global::System.String value);
+        partial void Onman_typeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_DEPARTME", "departments")]
+        public departments departments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "departments").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "departments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<departments> departmentsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<departments>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "departments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<departments>("NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME", "departments", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="operates")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -6391,6 +6765,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<search02>("NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE", "search02", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_PEOPLE", "manager")]
+        public EntityCollection<manager> manager
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<manager>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "manager");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<manager>("NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE", "manager", value);
                 }
             }
         }
