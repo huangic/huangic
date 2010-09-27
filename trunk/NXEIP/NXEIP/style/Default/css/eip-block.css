@@ -142,10 +142,10 @@
 .tableDiv .header .h2,.layoutDiv .header .h2
 {
  
-  
-vertical-align:middle;
+  vertical-align:middle;
   font-size:16px;
   line-height:25px;
+  text-align:center;
 
 }
 .tableDiv .header .h2 .name,.layoutDiv .header .h2 .name
