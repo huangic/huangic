@@ -48,8 +48,9 @@ public partial class login2 : SessionObject
                         this.sessionUserAccount = accData.acc_login;
 
                         //login log
-
-                        //go index
+                        new OperatesObject().ExecuteLoginLog(peoData.peo_uid, accData.acc_no, this.GetIpAddress(),this.SessionID);
+                        
+                        //goto index
                         Server.Transfer("Default.aspx");
                     }
                     else
