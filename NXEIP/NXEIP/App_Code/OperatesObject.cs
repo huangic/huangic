@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NXEIP.DAO;
+using Entity;
 
 /// <summary>
 /// Operates 的摘要描述
@@ -25,8 +27,44 @@ public class OperatesObject
     public void ExecuteOperates(int sfu_no, string peo_uid, int fuction, string memo)
     {
         string ope_no = Guid.NewGuid().ToString("N");
-        string strSQL = "insert into operates (ope_no,sfu_no,peo_uid,ope_logintime,ope_fuction,ope_memo) values ('" + ope_no + "'," + sfu_no + "," + peo_uid + ",GETDATE()," + fuction + ",'" + memo + "')";
+        
+        operates data = new operates();
+        data.ope_no = ope_no;
+        data.sfu_no = sfu_no;
+        data.peo_uid = Convert.ToInt32(peo_uid);
+        data.ope_logintime = System.DateTime.Now;
+        data.ope_fuction = fuction;
+        data.ope_memo = memo;
 
-        new DBObject().ExecuteNonQuery(strSQL);
+        //新增
+        OperatesDAO oDao = new OperatesDAO();
+        oDao.Addoperates(data);
+        oDao.Update();
+
+    }
+
+    /// <summary>
+    /// 新增人員登入記錄
+    /// </summary>
+    /// <param name="peo_uid"></param>
+    /// <param name="acc_no"></param>
+    /// <param name="loginIP"></param>
+    /// <param name="sessionID"></param>
+    public void ExecuteLoginLog(int peo_uid,int acc_no,string loginIP,string sessionID)
+    {
+        loginlog log = new loginlog();
+
+        log.log_no = Guid.NewGuid().ToString("N");
+        log.log_sessionid = sessionID;
+        log.log_peouid = peo_uid;
+        log.log_logintime = System.DateTime.Now;
+        log.log_accno = acc_no;
+        log.log_ip = loginIP;
+        log.log_status = "1";
+
+        loginlogDAO logDao = new loginlogDAO();
+        logDao.Addloginlog(log);
+        logDao.Update();
+
     }
 }
