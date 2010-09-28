@@ -33,6 +33,13 @@
         EnablePaging="True" SelectCountMethod="GetAllCount"></asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="350302" />
     <div class="tableDiv">
+        <div>
+            關鍵字查詢：<asp:TextBox ID="tbox_key" runat="server"></asp:TextBox>&nbsp;<asp:Button ID="Button2"
+                runat="server" Text="查詢關鍵字" CssClass="b-input" onclick="Button2_Click" />
+            &nbsp;
+            <asp:Button ID="Button3" runat="server" Text="查詢全部" CssClass="b-input" 
+                onclick="Button3_Click" />
+        </div>
         <div class="header">
             <div class="h1">
             </div>
@@ -44,7 +51,7 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" onload="UpdatePanel1_Load">
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ODS_arguments" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
