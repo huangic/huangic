@@ -16,7 +16,6 @@
   background-color:#dddddd;
 }
 
-
 .tableDiv table th,.tableDiv table td,.tableData th,.tableData td
 {
  color:#333333;
@@ -28,10 +27,6 @@
  padding:2px;
 }
 
-.tableDiv table th
-{
-text-align:right;   
-}
 
 .tableDiv table td,.tableData td
 {
