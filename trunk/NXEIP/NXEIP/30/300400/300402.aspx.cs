@@ -47,7 +47,8 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     #region 新增
     protected void btn_add_Click(object sender, EventArgs e)
     {
-        Response.Write(PCalendarUtil.ShowMsg_URL("", "300402-1.aspx?mode=new&count=" + new System.Random().Next(10000).ToString()));
+        string pageIndex = this.GridView1.PageIndex.ToString();
+        Response.Write(PCalendarUtil.ShowMsg_URL("", "300402-1.aspx?mode=new&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString()));
     }
     #endregion
 

@@ -55,7 +55,7 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
                 Response.Write("<script>alert(\"請輸入 所在地\");</script>");
                 return;
             }
-            else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 60))
+            else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 20))
             {
                 Response.Write("<script>alert(\"所在地 長度不可超過20個數文字\");</script>");
                 return;
