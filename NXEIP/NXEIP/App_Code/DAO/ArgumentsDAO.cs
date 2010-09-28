@@ -61,6 +61,11 @@ namespace NXEIP.DAO
             return (from data in model.arguments where data.arg_describe.Contains(str) select data);
         }
 
+        public IQueryable<arguments> GetBySearch(string str, int startRowIndex, int maximumRows)
+        {
+            return GetBySearch(str).Skip(startRowIndex).Take(maximumRows);
+        }
+
         /// <summary>
         /// 查詢是否有相同arg_var之資料
         /// </summary>
