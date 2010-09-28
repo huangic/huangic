@@ -50,7 +50,7 @@ ORDER BY  sfu_order, sfu_no">
         </table>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                <cc1:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" CssClass="tableData" DataSourceID="SqlDataSource1"
                     GridLines="None" Width="100%" DataKeyNames="sys_no,sfu_no" OnRowDataBound="GridView1_RowDataBound"
                     OnDataBound="GridView1_DataBound" OnRowCommand="GridView1_RowCommand">
