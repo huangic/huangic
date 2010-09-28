@@ -1,10 +1,8 @@
 
-
-
 .layoutDiv
 {
     width:100%; 
-    }
+}
 
 
 
@@ -21,23 +19,26 @@
 
 .tableDiv table th,.tableDiv table td,.tableData th,.tableData td
 {
- color:#888888;
+ color:#333333;
  font-size:13px;
  font-weight:bold;
  line-height:20px;
  text-decoration:none;
- background-color:#eeeeee;
+ background-color:#EFEFEF;
  padding:2px;
+}
+
+.tableDiv table th
+{
+text-align:right;   
 }
 
 .tableDiv table td,.tableData td
 {
-
 font-weight:normal;
-    
+background-color:#EFEFEF;
+   
 }
-
-
 
 
 
@@ -51,9 +52,9 @@ font-weight:normal;
 .tableDiv .bottom
 {
     
-       margin:10px auto;
-     text-align:center;
-    }
+	margin:10px auto;
+     	text-align:center;
+}
     
  /*場地表格*/
  .place
