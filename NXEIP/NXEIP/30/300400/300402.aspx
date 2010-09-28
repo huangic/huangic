@@ -47,16 +47,17 @@
                                 <asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>" CssClass="edit" />
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="40" />
+                            <ItemStyle HorizontalAlign="Center" Width="35px" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
                                 <asp:Button ID="Button3" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>" CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" />
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="40" />
+                            <ItemStyle HorizontalAlign="Center" Width="35px" />
                         </asp:TemplateField>
                     </Columns>
+                    <HeaderStyle HorizontalAlign="Left" />
                 </cc1:GridView>
                 <div class="footer">
                     <div class="f1">
