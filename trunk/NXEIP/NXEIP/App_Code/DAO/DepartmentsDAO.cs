@@ -60,7 +60,7 @@ namespace NXEIP.DAO{
         }
 
         /// <summary>
-        /// 取遞迴父帶目錄
+        /// 取遞迴父帶目錄(有Detach)
         /// </summary>
         /// <param name="dep_id">目錄標號</param>
         /// <returns></returns>
@@ -74,6 +74,8 @@ namespace NXEIP.DAO{
             while (dep == null || dep.dep_parentid.Value != 0) {
                 dep = (from d in model.departments where d.dep_no == depNo select d).First();
                 depNo = dep.dep_parentid.Value;
+                model.Detach(dep);
+
                 deparCollection.Add(dep);
             }
             
