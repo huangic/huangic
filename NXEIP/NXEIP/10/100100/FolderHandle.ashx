@@ -41,14 +41,27 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
          
         
         
-        int id, pid,depid,folderType;
+        int id, pid,depid;
+        string folderType;
         
         
         int.TryParse(context.Request["id"],out id);
         int.TryParse(context.Request["pid"],out pid);
         int.TryParse(context.Request["depid"], out depid);
-        int.TryParse(context.Request["folderType"], out folderType);
-       
+        folderType=context.Request["folderType"]??"";
+
+
+        //如果PID=0那就用傳過來的參數DEP_NO 跟FOLDER TYPR 不然就要抓資料庫目前的值 
+
+        if (pid != 0)
+        {
+            doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).First();
+
+            depid = parentFolder.dep_no;
+            folderType = parentFolder.d01_type;
+        }
+        
+        
         
         
         if(!String.IsNullOrEmpty(handle)&&handle.Equals("move")){
@@ -57,8 +70,11 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
            
              //目錄搬移
                 
-              
-              
+             
+                
+                
+                
+                
                 
               doc01 folder=(from f in model.doc01 where f.d01_no==id select f).First();  
                 
@@ -82,21 +98,24 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 //判斷舊目錄的有沒有下層目錄
                 if (oldPid != 0)
                 {
-                    resetChildFolder(oldPid);
+                    ResetChildFolder(oldPid);
                 }
                 
                 
                    //pid =0 表示他是根目路 不需要處理子目錄判斷
-                if(!pid.Equals("0")){
+                if(pid!=0){
                       
                 doc01 parentFolder=(from f in model.doc01 where f.d01_no==pid select f).First();  
                     
                  //計算屬於下屬的目錄   
-                resetChildFolder(pid);
+                ResetChildFolder(pid);
+                    
+                    
                
-              } 
-                
-                
+              }
+
+                ChangeFolderType(id, depid, folderType.ToString());
+                model.SaveChanges();
                 
                 
             context.Response.Write("success");
@@ -130,7 +149,7 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                 model.SaveChanges();
                 String new_id = newFolder.d01_no.ToString();
 
-                resetChildFolder(pid);
+                ResetChildFolder(pid);
                 context.Response.Write("{\"process\":\"success\",\"id\":\"" + new_id + "\"}");
                 return;
             }
@@ -189,6 +208,7 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
                     model.doc01.DeleteObject(newFolder);
 
+                    model.SaveChanges();
                     //TODO 目錄下的所有檔案 要怎麼處理?
                     
                     
@@ -239,7 +259,7 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
     /// </summary>
     /// <param name="pid"></param>
     /// <returns></returns>
-    private void resetChildFolder(int pid){
+    private void ResetChildFolder(int pid){
         if (pid != 0)
         {
             doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).First();
@@ -255,5 +275,37 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
     }
     #endregion
+    
+    
+    
+    /// <summary>
+    /// 遞迴改變子代目錄的屬性項目(目錄所屬部門 與目錄型態)
+    /// </summary>
+    /// <param name="docNo"></param>
+    /// <param name="depNo"></param>
+    /// <param name="type"></param>
+    private void ChangeFolderType(int parentDocNo,int depNo,string docType) { 
+        //取工作目錄
+        // currentDoc = (from d in model.doc01 where d.d01_no == docNo select d).First();
 
+        //currentDoc.d01_type = type;
+        //currentDoc.dep_no = depNo;
+        
+        //取子代
+        var childs = (from d in model.doc01 where d.d01_parentid == parentDocNo select d);
+
+        foreach (doc01 child in childs) {
+            child.d01_type = docType;
+            child.dep_no = depNo;
+
+            if (child.d01_son != 2)
+            {
+                ChangeFolderType(child.d01_no, depNo, docType);
+            }
+            
+        }
+
+
+        
+    }
 }

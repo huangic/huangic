@@ -691,6 +691,8 @@
                 if($(obj).attr("id")==0){return false}
 
 				if(!obj.length) { return false; }
+
+                if(!confirm("確定要刪除?")){return false;}
 				this.__rollback();
 				var p = this._get_parent(obj), prev = this._get_prev(obj);
 				obj = obj.remove();

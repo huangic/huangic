@@ -19,21 +19,45 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
         
 
 
+         string uploadDir=null;
+         using (NXEIPEntities model = new NXEIPEntities())
+         {
 
-            this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
-            {
-                UploadMode = UpMode.LIST,
-                File_size_limit = 1,
-                Path="/upload/"+sessionObj.sessionUserID+"/",
-                  
-                Upload_url="~/lib/SWFUpload/uploadFileManager.aspx",
-                
-                SubmitButtonId = this.Button1.ClientID
-            };
+             //取父代目錄
+             int pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
+             doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
+             if (parentFolder.d01_type== "2") {
+                 uploadDir = "/upload/department/" + parentFolder.dep_no;
+             }
 
+
+         }
+
+
+        this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
+        {
+            UploadMode = UpMode.LIST,
+            File_size_limit = 1,
+
+
+
+            //人員目錄
+            Path = uploadDir??"/upload/people/" + sessionObj.sessionUserID + "/",
+            //部門目錄  
+
+
+            Upload_url = "~/lib/SWFUpload/uploadFileManager.aspx",
+
+            SubmitButtonId = this.Button1.ClientID
+        };
+
+
+            
 
 
             SWFUploadFileInfo uf = new SWFUploadFileInfo();
@@ -145,6 +169,9 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             newStruts.d01_file = f.OriginalFileName;
             newStruts.d01_createuid = int.Parse(sessionObj.sessionUserID);
             newStruts.d01_createtime = DateTime.Now;
+            newStruts.d01_type = parentFolder.d01_type;
+            newStruts.dep_no = parentFolder.dep_no;
+
 
 
             //網址做MD5編碼

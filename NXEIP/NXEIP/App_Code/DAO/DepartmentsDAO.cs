@@ -59,5 +59,31 @@ namespace NXEIP.DAO{
             return (from depart in model.departments where depart.dep_no == dep_no select depart).FirstOrDefault();
         }
 
+        /// <summary>
+        /// 取遞迴父帶目錄
+        /// </summary>
+        /// <param name="dep_id">目錄標號</param>
+        /// <returns></returns>
+        public ICollection<departments> GetRecursiveParentDeprtment(int dep_id)
+        {
+            ICollection<departments> deparCollection = new LinkedList<departments>();
+            //取自己的目錄
+            departments dep=null;
+            int depNo=dep_id;
+
+            while (dep == null || dep.dep_parentid.Value != 0) {
+                dep = (from d in model.departments where d.dep_no == depNo select d).First();
+                depNo = dep.dep_parentid.Value;
+                deparCollection.Add(dep);
+            }
+            
+
+
+
+            return deparCollection;
+        }
+
+       
+        
     }
 }
