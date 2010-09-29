@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
@@ -647,6 +647,7 @@
           <Property Name="typ_status" Type="char" MaxLength="1" />
           <Property Name="typ_createuid" Type="int" />
           <Property Name="typ_createtime" Type="datetime" />
+          <Property Name="typ_parent" Type="int" />
         </EntityType>
         <EntityType Name="widget">
           <Key>
@@ -1708,6 +1709,7 @@
           <Property Name="typ_createuid" Type="Int32" />
           <Property Name="typ_createtime" Type="DateTime" />
           <NavigationProperty Name="search04" Relationship="NXEIPModel.FK_SEARCH04_RELATIONS_TYPES" FromRole="types" ToRole="search04" />
+          <Property Type="Int32" Name="typ_parent" />
         </EntityType>
         <EntityType Name="widget">
           <Key>
@@ -2508,7 +2510,8 @@
             <ScalarProperty Name="sfu_createtime" ColumnName="sfu_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="types"><EntityTypeMapping TypeName="NXEIPModel.types"><MappingFragment StoreEntitySet="types">
-            <ScalarProperty Name="typ_no" ColumnName="typ_no" />
+            <ScalarProperty Name="typ_parent" ColumnName="typ_parent" />
+                <ScalarProperty Name="typ_no" ColumnName="typ_no" />
             <ScalarProperty Name="typ_code" ColumnName="typ_code" />
             <ScalarProperty Name="typ_number" ColumnName="typ_number" />
             <ScalarProperty Name="typ_cname" ColumnName="typ_cname" />
@@ -2648,7 +2651,7 @@
         <EntityTypeShape EntityType="NXEIPModel.search04" Width="1.5" PointX="8.25" PointY="14.625" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.sys" Width="1.5" PointX="0.5" PointY="35.625" Height="2.7291471354166674" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.sysfuction" Width="1.5" PointX="0.5" PointY="31.25" Height="3.6088671875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="NXEIPModel.types" Width="1.5" PointX="10.5" PointY="11.25" Height="2.7291471354166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="NXEIPModel.types" Width="1.5" PointX="10.5" PointY="11.25" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.widget" Width="1.5" PointX="8.875" PointY="4" Height="2.5532031249999996" IsExpanded="true" />
         <AssociationConnector Association="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" ManuallyRouted="false">
           <ConnectorPoint PointX="5.40625" PointY="20.25" />
@@ -2824,8 +2827,8 @@
           <ConnectorPoint PointX="8.25" PointY="15.70312525" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SEARCH04_RELATIONS_TYPES" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.5" PointY="13.758037109375" />
-          <ConnectorPoint PointX="9.40625" PointY="13.758037109375" />
+          <ConnectorPoint PointX="10.5" PointY="13.929790039062503" />
+          <ConnectorPoint PointX="9.40625" PointY="13.929790039062503" />
           <ConnectorPoint PointX="9.40625" PointY="14.625" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" ManuallyRouted="false">

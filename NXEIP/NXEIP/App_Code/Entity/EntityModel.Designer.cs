@@ -11189,6 +11189,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _typ_createtime;
         partial void Ontyp_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ontyp_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> typ_parent
+        {
+            get
+            {
+                return _typ_parent;
+            }
+            set
+            {
+                Ontyp_parentChanging(value);
+                ReportPropertyChanging("typ_parent");
+                _typ_parent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("typ_parent");
+                Ontyp_parentChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _typ_parent;
+        partial void Ontyp_parentChanging(Nullable<global::System.Int32> value);
+        partial void Ontyp_parentChanged();
 
         #endregion
     
