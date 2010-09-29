@@ -160,13 +160,6 @@ jquery.jqGrid
 
                         "label": "刪除"
 
-                    }, "moveFile": {
-                        "label": "檔案搬移",
-                        "action": moveFile
-                    },
-                    "copyFile": {
-                        "label": "檔案複製",
-                        "action": copyFile
                     }
 
                 }
@@ -212,27 +205,7 @@ jquery.jqGrid
   
 
 
-    function moveNode(obj, ref, position, is_copy, is_prepared, skip_check) {
-
-        //目錄搬移
-
-       
-        //alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
-
-
-        url = "FolderHandle.ashx"
-        data = { handle: "move",
-            id: ref.rslt.o.attr("id"),
-            pid: ref.rslt.r.attr("id"),
-            depid:ref.rslt.r.attr("depid"),
-            folderType:ref.rslt.r.attr("folderType")
-        };
-        AjaxHandle(url, data, $.noop(), $.noop());
-
-      
-
-
-    };
+  
 
 
 
@@ -267,10 +240,11 @@ jquery.jqGrid
                      //alert("id="+ret.id+" code="+ret.code);
                      dlUrl="FileDownload.ashx?code="+ret.code;
 
-                    be = "<a class='edit imageButton' href='#' alt='修改'><span>修改</span></a>";
-                    ce = "<a class='ver imageButton' href='#' alt='版本'><span>版本</span></a>";
-                    dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載'><span>下載</span></a>";
-                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be + ce+dl })
+                    be = "<a class='edit imageButton' href='#' alt='修改' title='修改' ><span>修改</span></a>";
+                    ce = "<a class='ver imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
+                    dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
+                    del = "<a class='delete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
+                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be + ce+dl+del })
                 }
 
                 //無資料寫是空值
@@ -293,6 +267,7 @@ jquery.jqGrid
 
 
      function AjaxHandle(url, data, onSuccess) {
+         $.ajaxSetup({ cache: false });
         $.post(url, data, onSuccess, "json");
     };
 
@@ -352,10 +327,35 @@ jquery.jqGrid
 
     };
 
+
+      function moveNode(obj, ref, position, is_copy, is_prepared, skip_check) {
+
+        //目錄搬移
+
+       
+        //alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
+
+
+        url = "FolderHandle.ashx"
+        data = { handle: "move",
+            id: ref.rslt.o.attr("id"),
+            pid: ref.rslt.r.attr("id"),
+            depid:ref.rslt.r.attr("depid"),
+            folderType:ref.rslt.r.attr("folderType")
+        };
+        AjaxHandle(url, data,  $.noop(), $.noop());
+
+       //目錄搬移後 更新舊節點的部門編號跟目錄樣式
+
+       
+
+    };
+
+
     function deleteNode(obj, val) {
         //alert("New");
 
-        if(confirm("確定要刪除?")){
+      
 
 
         if (val.rslt.obj.attr("id") == 0) {
@@ -372,7 +372,7 @@ jquery.jqGrid
         };
         AjaxHandle(url, data, function(){ alert("刪除成功!")});
 
-        }
+        
         
 
     };

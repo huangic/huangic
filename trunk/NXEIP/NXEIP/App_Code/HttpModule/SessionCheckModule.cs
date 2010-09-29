@@ -35,6 +35,11 @@ namespace NXEIP.HttpModule
             HttpApplication Application = (HttpApplication)source;
 
             String url=Application.Context.Request.AppRelativeCurrentExecutionFilePath;
+
+            //在LIB內的網頁略過檢查
+            if (!url.Contains("~/lib")) {
+                
+
             if (Application.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
             {
                  if ((!url.Contains("login")))
@@ -50,6 +55,8 @@ namespace NXEIP.HttpModule
                     }
                 }
             }
+            }
+
         }
     }
 }

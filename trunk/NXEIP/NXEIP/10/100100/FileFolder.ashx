@@ -8,6 +8,7 @@ using Entity;
 using System.Linq;
 using System.Web.SessionState;
 using FileManager;
+using NXEIP.DAO;
 /// <summary>
 /// 檔案處理
 /// </summary>
@@ -55,15 +56,15 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
      /// <param name="pid"></param>
      /// <param name="peo_uid"></param>
      /// <returns></returns>
-     private ICollection<FolderJSON> getDepartRootFilder(int pid, int peo_uid)
+     private ICollection<FolderJSON> getDepartRootFilder(int parent_id,int dep_id)
      {
 
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
              ICollection<FolderJSON> fs = new List<FolderJSON>();
-             //取自己的檔案目錄
-             var folders = from f in model.doc01 where f.d01_parentid == pid && f.d01_type == "2" select f;
+             //取部門的的檔案目錄
+             var folders = from f in model.doc01 where f.d01_parentid==parent_id && f.dep_no == dep_id && f.d01_type == "2" select f;
              try
              {
                  foreach (var folder in folders)
@@ -171,29 +172,36 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
             //取部門文件夾
 
+            DepartmentsDAO depDao = new DepartmentsDAO();
 
-            FolderJSON dep_f = new FolderJSON();
+            ICollection<departments> departs=depDao.GetRecursiveParentDeprtment(int.Parse(sessionObj.sessionUserDepartID));
 
-
-            dep_f.data = "部門文件夾";
-
-            dep_f.attr.id = "0";
-            dep_f.attr.depid = sessionObj.sessionUserDepartID;
-            dep_f.attr.folderType = "2";
-
-
-            //取第一層目錄
-            dep_f.children = getDepartRootFilder(pid, System.Convert.ToInt32(sessionObj.sessionUserDepartID));
-
-            if (dep_f.children.Count > 0)
+            foreach (departments dep in departs)
             {
-                dep_f.state = "closed";
+               // if (dep.dep_parentid != 0)
+               // {
+                    FolderJSON dep_f = new FolderJSON();
+
+
+                    dep_f.data = dep.dep_name + "文件夾";
+
+                    dep_f.attr.id = "0";
+                    dep_f.attr.depid = dep.dep_no.ToString();
+                    dep_f.attr.folderType = "2";
+
+
+                    //取第一層目錄
+                    dep_f.children = getDepartRootFilder(pid, dep.dep_no);
+
+                    if (dep_f.children.Count > 0)
+                    {
+                        dep_f.state = "closed";
+                    }
+
+
+                    fs.Add(dep_f);
+               // }
             }
-
-
-            fs.Add(dep_f);
-            
-            
             
 
             context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(fs));
