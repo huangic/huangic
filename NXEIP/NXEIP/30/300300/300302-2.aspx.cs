@@ -7,13 +7,23 @@ using System.Web.UI.WebControls;
 using Entity;
 using NXEIP.DAO;
 
-public partial class _30_300300_300302 : System.Web.UI.Page
+public partial class _30_300300_300302_2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
         {
-            
+
+            if (Request["typ_no"] != null)
+            {
+                this.HiddenField1.Value = Request["typ_no"];
+                this.div_title.InnerHtml = "課程名稱:" + Request["typ_cname"];
+                this.ObjectDataSource1.SelectParameters["typ_parent"].DefaultValue = this.HiddenField1.Value;
+            }
+            else
+            {
+                this.ObjectDataSource1.SelectParameters["typ_no"].DefaultValue = "-1";
+            }
         }
     }
 
@@ -21,7 +31,6 @@ public partial class _30_300300_300302 : System.Web.UI.Page
     {
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
         int typ_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
-        string typ_cname = this.GridView1.Rows[rowIndex].Cells[1].Text;
 
         if (e.CommandName.Equals("del"))
         {
@@ -33,10 +42,6 @@ public partial class _30_300300_300302 : System.Web.UI.Page
             dao.Update();
 
             this.GridView1.DataBind();
-        }
-        if (e.CommandName.Equals("sel"))
-        {
-            Response.Redirect("300302-2.aspx?typ_no=" + typ_no + "&typ_cname=" + typ_cname, true);
         }
     }
 
@@ -52,5 +57,9 @@ public partial class _30_300300_300302 : System.Web.UI.Page
 
             e.Row.Cells[4].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[4].Text);
         }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("300302.aspx");
     }
 }

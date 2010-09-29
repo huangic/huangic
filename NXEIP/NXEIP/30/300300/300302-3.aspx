@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="300302-1.aspx.cs"
-    Inherits="_30_300300_300302_1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="300302-3.aspx.cs" Inherits="_30_300300_300302_3" %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Src="../../lib/navigator.ascx" TagName="navigator" TagPrefix="uc1" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc2" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,7 +62,8 @@
         <div id="div_msg" runat="server">
         </div>
     </div>
-    <asp:HiddenField ID="HiddenField1" runat="server" />
+    <asp:HiddenField ID="hidd_parent" runat="server" />
+    <asp:HiddenField ID="hidd_typno" runat="server" />
     </form>
 </body>
 </html>

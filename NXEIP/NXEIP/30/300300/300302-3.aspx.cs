@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using NXEIP.DAO;
 using Entity;
 
-public partial class _30_300300_300302_1 : System.Web.UI.Page
+public partial class _30_300300_300302_3 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -22,35 +22,38 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
             if (mode != null && mode.Equals("modify"))
             {
                 this.navigator1.SubFunc = "修改";
-                this.HiddenField1.Value = typ_no;
+                this.hidd_typno.Value = typ_no;
 
                 //取資料
                 types t = dao.GetTypes(System.Convert.ToInt32(typ_no));
                 this.tbox_number.Text = t.typ_number;
                 this.tbox_name.Text = t.typ_cname;
                 this.tbox_order.Text = t.typ_order.ToString();
+                this.hidd_parent.Value = t.typ_parent.ToString();
             }
             else
             {
                 //新增模式
                 this.navigator1.SubFunc = "新增";
-
+                this.hidd_parent.Value = Request["typ_parent"];
             }
         }
     }
+
     protected void btn_ok_Click(object sender, EventArgs e)
     {
         string msg = "";
 
         SessionObject sessionObj = new SessionObject();
 
-        if (this.HiddenField1.Value != "")
+        if (this.hidd_typno.Value != "")
         {
+            //修改模式
             TypesDAO dao = new TypesDAO();
             String typ_number = this.tbox_number.Text;
             String typ_cname = this.tbox_name.Text;
 
-            Entity.types newType = dao.GetTypes(System.Convert.ToInt32(this.HiddenField1.Value));
+            Entity.types newType = dao.GetTypes(System.Convert.ToInt32(this.hidd_typno.Value));
 
             newType.typ_number = typ_number;
             newType.typ_cname = typ_cname;
@@ -70,7 +73,7 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
         }
         else
         {
-            
+
             String typ_code = "class";
             String typ_number = this.tbox_number.Text;
             String typ_cname = this.tbox_name.Text;
@@ -84,7 +87,7 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
             newType.typ_number = typ_number;
             newType.typ_order = Convert.ToInt32(this.tbox_order.Text);
             newType.typ_status = "1";
-            newType.typ_parent = 0;
+            newType.typ_parent = Convert.ToInt32(this.hidd_parent.Value);
             newType.typ_createtime = DateTime.Now;
             try
             {
@@ -102,7 +105,6 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
             msg = "新增完成!";
         }
 
-        this.Page.ClientScript.RegisterStartupScript(typeof(_30_300300_300302_1), "closeThickBox", "self.parent.update('" + msg + "');", true);
+        this.Page.ClientScript.RegisterStartupScript(typeof(_30_300300_300302_3), "closeThickBox", "self.parent.update('" + msg + "');", true);
     }
-    
 }
