@@ -1,48 +1,47 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="300302.aspx.cs" Inherits="_30_300300_300302" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300302-2.aspx.cs" Inherits="_30_300300_300302_2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
     TagPrefix="cc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script type="text/javascript">
-        function update(msg) {
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<script type="text/javascript">
+    function update(msg) {
 
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
-            tb_remove();
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        tb_remove();
+        alert(msg);
+    }
 
-
-            alert(msg);
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+            //  reapply the thick box stuff
+            tb_init('a.thickbox');
         }
-
-        function pageLoad(sender, args) {
-            if (args.get_isPartialLoad()) {
-                //  reapply the thick box stuff
-                tb_init('a.thickbox');
-            }
-        }
+    }
     
     </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetClassDataCount"
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetClassDataCount"
         SelectMethod="GetClassData" TypeName="NXEIP.DAO.TypesDAO">
         <SelectParameters>
-            <asp:Parameter DefaultValue="0" Name="typ_parent" Type="Int32" />
+            <asp:Parameter DefaultValue="" Name="typ_parent" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300302" />
+    <div id="div_title" runat="server"></div>
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300302-1.aspx?modal=true&model=new&TB_iframe=true" value="新增課程類別" />
+                    <input type="button" class="thickbox b-input" alt="300302-3.aspx?modal=true&mode=new&typ_no=&typ_parent=<%Response.Write(Request["typ_no"]); %>&TB_iframe=true" value="新增子類別課程" />
                 </div>
             </div>
             <div class="h3">
@@ -62,13 +61,10 @@
                         <asp:BoundField DataField="typ_createuid" HeaderText="修建者" SortExpression="typ_createuid" />
                         <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" SortExpression="typ_createtime"
                             DataFormatString="{0:yyyy-MM-dd HH:mm}" />
-                        <asp:ButtonField ButtonType="Button" ControlStyle-CssClass="alter" CommandName="sel" HeaderText="管理子課程">
-                        <ItemStyle HorizontalAlign="Center" Width="10%" />
-                        </asp:ButtonField>
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("typ_cname", "修改{0}") %>'
-                                    href='<%# Eval("typ_no", "300302-1.aspx?modal=true&mode=modify&typ_no={0}&TB_iframe=true&height=250&width=600") %>'>
+                                    href='<%# Eval("typ_no", "300302-3.aspx?modal=true&mode=modify&typ_no={0}&TB_iframe=true&height=250&width=600") %>'>
                                     <span>修改</span> </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
@@ -101,7 +97,12 @@
                 </Fields>
             </asp:DataPager>
         </div>
+        <div class="bottom">
+            <asp:Button ID="Button1" runat="server" Text="回課程類別管理" CssClass="a-input" 
+                onclick="Button1_Click" />
+        </div>
         <div id="div_msg" runat="server">
         </div>
     </div>
 </asp:Content>
+
