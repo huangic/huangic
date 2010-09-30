@@ -44,28 +44,18 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
              }
 
              item.Add(value);
-
-
              Session["selectDepart"]=item;
         }
-
-
-
     }
 
 
     public void Clear() {
         Session["selectDepart"] = null;
     }
-
-
-
-
+    
     protected override void OnPreRender(EventArgs e)
     {
         //base.OnPreRender(e);
-
-
         try
         {
             List<KeyValuePair<String, String>> departs = this.Items;
@@ -78,20 +68,14 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
             {
                 lb.Items.Add(new ListItem(value.Value, value.Key));
             }
-
         }
         catch
         {
-
         }
     }
 
-  
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
-       
 
         //註冊THICKBOX INIT事件
 
