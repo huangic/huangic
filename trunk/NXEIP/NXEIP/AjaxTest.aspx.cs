@@ -40,7 +40,7 @@ public partial class AjaxTest : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.jQueryDepartTree1.Clear();
-            this.jQueryDepartTree1.Add("1");
+            this.jQueryDepartTree1.Add("7");
            
         }
 
