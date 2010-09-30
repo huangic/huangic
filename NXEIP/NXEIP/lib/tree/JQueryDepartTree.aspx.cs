@@ -12,13 +12,20 @@ public partial class lib_tree_JQueryDepartTree : System.Web.UI.Page
 
     private static Logger logger = LogManager.GetCurrentClassLogger();
     
-    
+
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+       
+        
+        
         if (!Page.IsPostBack)
         {
 
-
+            string SessionName = Request["session"];
             TreeJson node = new TreeJson();
             using (Entity.NXEIPEntities model = new Entity.NXEIPEntities())
             {
@@ -37,7 +44,7 @@ public partial class lib_tree_JQueryDepartTree : System.Web.UI.Page
 
             try
             {
-                List<KeyValuePair<String, String>> list = (List<KeyValuePair<String, String>>)Session["selectDepart"];
+                List<KeyValuePair<String, String>> list = (List<KeyValuePair<String, String>>)Session[SessionName];
                 foreach(KeyValuePair<String,String> key in list){
                     this.ListBox2.Items.Add(new ListItem(key.Value,key.Key));
                 }
@@ -46,6 +53,9 @@ public partial class lib_tree_JQueryDepartTree : System.Web.UI.Page
             catch { 
             
             }
+            String AjaxUrl="var ajaxUrl='TreeMethod.ashx?session="+SessionName+"';";
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "AjaxUrl", AjaxUrl, true);
 
         }
     }

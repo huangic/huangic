@@ -18,7 +18,7 @@ public partial class lib_tree_JQueryPeopleTree : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
 
-
+            string SessionName = Request["session"];
            
             using (Entity.NXEIPEntities model = new Entity.NXEIPEntities())
             {
@@ -37,7 +37,7 @@ public partial class lib_tree_JQueryPeopleTree : System.Web.UI.Page
 
             try
             {
-                List<KeyValuePair<String, String>> list = (List<KeyValuePair<String, String>>)Session["selectPeople"];
+                List<KeyValuePair<String, String>> list = (List<KeyValuePair<String, String>>)Session[SessionName];
                 foreach(KeyValuePair<String,String> key in list){
                     this.ListBox2.Items.Add(new ListItem(key.Value,key.Key));
                 }
@@ -46,6 +46,11 @@ public partial class lib_tree_JQueryPeopleTree : System.Web.UI.Page
             catch { 
             
             }
+
+            String AjaxUrl = "var ajaxUrl='TreePeopleMethod.ashx?session=" + SessionName + "';";
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "AjaxUrl", AjaxUrl, true);
+
 
         }
     }

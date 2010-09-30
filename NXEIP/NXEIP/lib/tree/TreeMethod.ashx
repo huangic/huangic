@@ -14,7 +14,7 @@ using System.Web.SessionState;
 public class TreeMethod : IHttpHandler,IRequiresSessionState {
 
     
-    private static String SessionName="SelectDepart";
+    //private static String SessionName{get{return }};
 
     private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
@@ -25,6 +25,8 @@ public class TreeMethod : IHttpHandler,IRequiresSessionState {
 
         String root=context.Request["root"];
         String mode = context.Request["mode"];
+        String SessionName = context.Request["session"];
+        
         //String json = context.Request.Params["para"];
 
        // context.Request.InputStream;

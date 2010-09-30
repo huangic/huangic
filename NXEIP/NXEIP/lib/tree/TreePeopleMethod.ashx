@@ -13,7 +13,7 @@ using System.Web.SessionState;
 public class TreePeopleMethod : IHttpHandler,IRequiresSessionState {
 
     
-    private static String SessionName="selectPeople";
+   
 
     private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
@@ -24,6 +24,7 @@ public class TreePeopleMethod : IHttpHandler,IRequiresSessionState {
 
         String root=context.Request["root"];
         String mode = context.Request["mode"];
+        String SessionName = context.Request["session"];
         //String json = context.Request.Params["para"];
 
        // context.Request.InputStream;
