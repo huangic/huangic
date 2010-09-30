@@ -31,6 +31,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void logout_Click(object sender, EventArgs e)
     {
+        //登出記錄
+        new OperatesObject().ExecuteLogOutLog(new SessionObject().sessionLogInID);
+
         //移除SESSION
         Session.RemoveAll();
         CacheUtil.Clear();
