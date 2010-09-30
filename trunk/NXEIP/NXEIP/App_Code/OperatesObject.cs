@@ -50,11 +50,11 @@ public class OperatesObject
     /// <param name="acc_no"></param>
     /// <param name="loginIP"></param>
     /// <param name="sessionID"></param>
-    public void ExecuteLoginLog(int peo_uid,int acc_no,string loginIP,string sessionID)
+    public void ExecuteLogInLog(string loginID,int peo_uid,int acc_no,string loginIP,string sessionID)
     {
         loginlog log = new loginlog();
 
-        log.log_no = Guid.NewGuid().ToString("N");
+        log.log_no = loginID;
         log.log_sessionid = sessionID;
         log.log_peouid = peo_uid;
         log.log_logintime = System.DateTime.Now;
@@ -66,5 +66,18 @@ public class OperatesObject
         logDao.Addloginlog(log);
         logDao.Update();
 
+    }
+
+    /// <summary>
+    /// 登出記錄
+    /// </summary>
+    /// <param name="loginID"></param>
+    public void ExecuteLogOutLog(string loginID)
+    {
+        loginlogDAO logDao = new loginlogDAO();
+        loginlog log = logDao.GetByLogNo(loginID);
+        log.log_loginout = System.DateTime.Now;
+        log.log_status = "2";
+        logDao.Update();
     }
 }

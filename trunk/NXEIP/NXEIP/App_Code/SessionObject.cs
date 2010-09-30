@@ -38,6 +38,33 @@ public class SessionObject : System.Web.UI.Page
     }
     #endregion
 
+    #region 存取設定session LogInID
+    /// <summary>
+    ///		存取設定sessionLogInID
+    /// </summary>
+    public string sessionLogInID
+    {
+        get
+        {
+            try
+            {
+
+                return (string)Session["sessionLogInID"];
+
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+        set
+        {
+            Session.Add("sessionLogInID", value);
+        }
+    }
+    #endregion
+
     #region 存取設定Session UserID
     /// <summary>
     ///		存取設定Session UserID
