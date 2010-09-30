@@ -189,13 +189,23 @@ jquery.jqGrid
 
      //重新整理檔案
     function reloadNodeFile(event, data) {
-        reloadFile(data.rslt.obj.attr("id"));
+      
+        id=data.rslt.obj.attr("id");
+        depid=data.rslt.obj.attr("depid");
+        folderType=data.rslt.obj.attr("folderType");
+        
+        reloadFile(id,depid,folderType);
+
+        //屬性寫入COOKIES
+        $.cookie("depid",depid);
+        $.cookie("folderType",folderType);
+
     };
 
-    var reloadFile=function(id) {
+    var reloadFile=function(id,depid,folderType) {
         
        
-        $( _setting.fileDiv).setGridParam({ url: "FilesGrid.ashx?id=" + id });
+        $( _setting.fileDiv).setGridParam({ url: "FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType });
 
         $( _setting.fileDiv).trigger("reloadGrid");
 

@@ -21,20 +21,33 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
     {
 
 
-        
+        int depid = int.Parse(Request.Cookies["depid"].Value);
+             string folderType = Request.Cookies["folderType"].Value;
 
 
          string uploadDir=null;
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
+
+             
+
              //取父代目錄
              int pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
-             doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
-             if (parentFolder.d01_type== "2") {
-                 uploadDir = "/upload/department/" + parentFolder.dep_no;
+             
+             
+             
+             if (pid != 0)
+             {
+                 doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
+                 depid = parentFolder.dep_no;
+                 folderType = parentFolder.d01_type;
              }
 
+             if (folderType == "2")
+             {
+                 uploadDir = "/upload/department/" + depid;
+             }
 
          }
 
@@ -74,20 +87,42 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
                     using (NXEIPEntities model = new NXEIPEntities())
                     {
-
-                        //取父代目錄
-
-                        doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
-
-                        string work_path = "/" + parentFolder.d01_name;
-
-                        while (parentFolder.d01_parentid != 0)
+                        if (pid != 0)
                         {
-                            parentFolder = (from f in model.doc01 where f.d01_no == parentFolder.d01_parentid select f).FirstOrDefault();
+                            //取父代目錄
 
-                            work_path = "/" + parentFolder.d01_name + work_path;
+                            doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
+
+                            string work_path = "/" + parentFolder.d01_name;
+
+                            while (parentFolder.d01_parentid != 0)
+                            {
+                                parentFolder = (from f in model.doc01 where f.d01_no == parentFolder.d01_parentid select f).FirstOrDefault();
+
+                                work_path = "/" + parentFolder.d01_name + work_path;
+                            }
+                            this.path.Text = work_path;
+
                         }
-                        this.path.Text = work_path;
+                        
+                         //根目錄顯示
+                            if (folderType == "1")
+                            {
+                                this.path.Text = "使用者文件夾/"+this.path.Text;
+                            }
+                            else { 
+                                //
+                                departments dep = (from d in model.departments where d.dep_no == depid select d).First();
+
+                                this.path.Text = dep.dep_name + "文件夾/" + this.path.Text;
+
+
+                            }
+
+
+                       
+
+
                     }
                 }
                 catch { 
@@ -134,9 +169,14 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
         //取COOKIES 的父代目錄
         int pid = 0;
+         int depid = int.Parse(Request.Cookies["depid"].Value);
+         string folderType = Request.Cookies["folderType"].Value;
+             
         try
         {
             pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
+
+           
         }catch{
         
         }
@@ -147,7 +187,10 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
         doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).FirstOrDefault();
 
 
-        
+        if (pid != 0) {
+            depid = parentFolder.dep_no;
+            folderType = parentFolder.d01_type;
+        }
         
         //存檔
         //UC_SWFUpload1.
@@ -169,8 +212,8 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             newStruts.d01_file = f.OriginalFileName;
             newStruts.d01_createuid = int.Parse(sessionObj.sessionUserID);
             newStruts.d01_createtime = DateTime.Now;
-            newStruts.d01_type = parentFolder.d01_type;
-            newStruts.dep_no = parentFolder.dep_no;
+            newStruts.d01_type = folderType;
+            newStruts.dep_no = depid;
 
 
 
@@ -185,7 +228,7 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             //存檔
             model.doc01.AddObject(newStruts);
 
-            model.SaveChanges();
+           
 
 
             //文檔內文 
@@ -208,6 +251,8 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             model.SaveChanges();
 
         }
+        model.SaveChanges();
+
         }
 
 

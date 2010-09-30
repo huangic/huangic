@@ -59,6 +59,13 @@
 
     <br />
     <br />
+    <uc4:jQueryDepartTree ID="jQueryDepartTree2" runat="server" />
+
+    
+
+    <br />
+    <uc5:jQueryPeopleTree ID="jQueryPeopleTree2" runat="server" />
+    <br />
     <uc2:UC_SWFUpload ID="UC_SWFUpload1" runat="server" />
     <br />
 

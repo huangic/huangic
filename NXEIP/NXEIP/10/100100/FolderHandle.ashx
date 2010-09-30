@@ -298,10 +298,12 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
             child.d01_type = docType;
             child.dep_no = depNo;
 
-            if (child.d01_son != 2)
-            {
+            
+            //連檔案也要改屬性
+            //if (child.d01_son != 2)
+            //{
                 ChangeFolderType(child.d01_no, depNo, docType);
-            }
+            //}
             
         }
 
