@@ -4,7 +4,6 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc2" %>
-<%@ Register src="../../lib/AutoComplete/Autocomplete.ascx" tagname="Autocomplete" tagprefix="uc3" %>
 <%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -33,8 +32,7 @@
             <tr>
                 <th><span class="a-letter-Red">*</span> 第一保管人</th>
                 <td>
-                    <uc3:Autocomplete ID="Autocomplete1" runat="server" />
-                </td>
+                    &nbsp;</td>
                 <th><span class="a-letter-Red">*</span> 第一保管人電話</th>
                 <td><asp:TextBox ID="txt_tel1" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
                         ID="txt_ext1" runat="server" Columns="5"></asp:TextBox></td>
@@ -42,8 +40,7 @@
             <tr>
                 <th>第二保管人</th>
                 <td>
-                    <uc3:Autocomplete ID="Autocomplete2" runat="server" />
-                </td>
+                    &nbsp;</td>
                 <th>第二保管人電話</th>
                 <td><asp:TextBox ID="txt_tel2" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
                         ID="txt_ext2" runat="server" Columns="5"></asp:TextBox></td>
