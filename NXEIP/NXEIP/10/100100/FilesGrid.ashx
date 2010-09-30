@@ -161,15 +161,25 @@ public class Files : IHttpHandler,IRequiresSessionState
             JqGridJSON file=null;
 
 
-            if (pid != 0) { 
-                using(NXEIPEntities model=new NXEIPEntities()){
+            if (pid != 0)
+            {
+                using (NXEIPEntities model = new NXEIPEntities())
+                {
                     doc01 parent = (from d in model.doc01 where d.d01_no == pid select d).First();
 
                     depid = parent.dep_no;
                     folderType = parent.d01_type;
                 }
             }
+            else {
+                if (folderType == "1") {
+                    depid = int.Parse(sessionObj.sessionUserDepartID);
+                }
             
+            }
+            
+            
+            //if(pid)
             
 
             file = getFiles(pid,depid,folderType,field,order);

@@ -77,7 +77,7 @@
             <div id="toolbar" style="text-align:right">
                 <input id="addFile" type="button" alt="100105-1.aspx?modal=true&TB_iframe=true" title="上傳" value="上傳" class="thickbox b-input" />
                 <input id="delFile" type="button" title="刪除" value="刪除" class="b-input" />
-                <input id="moveFile" type="button" title="搬移" value="搬移" class="thickbox b-input" />
+                <input id="moveFile" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true" title="搬移" value="搬移" class="thickbox b-input" />
                 <input id="copyFile" type="button" title="複製" value="複製" class="thickbox b-input" />
     
                 <input id="Button3" type="button"  title="權限"  value="權限" class="thickbox b-input" />

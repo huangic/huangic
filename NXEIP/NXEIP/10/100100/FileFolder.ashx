@@ -28,7 +28,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
              ICollection<FolderJSON> fs = new List<FolderJSON>();
              //取自己的檔案目錄
-             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid && f.d01_type=="1" select f;
+             var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid && f.d01_type=="1" && !String.IsNullOrEmpty(f.d01_name) select f;
              try
              {
                  foreach (var folder in folders)
