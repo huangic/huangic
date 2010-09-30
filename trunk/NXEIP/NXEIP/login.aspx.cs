@@ -55,15 +55,19 @@ public partial class login : SessionObject
                             //取回人員資料
                             people peoData = new PeopleDAO().GetByPeoUID(accData.peo_uid);
 
+                            string loginID = Guid.NewGuid().ToString("N");
+
                             //save session data
                             this.sessionUserID = peoData.peo_uid.ToString();
                             this.sessionUserName = peoData.peo_name;
                             this.sessionUserDepartID = peoData.departments.dep_no.ToString();
                             this.sessionUserDepartName = peoData.departments.dep_name;
                             this.sessionUserAccount = accData.acc_login;
+                            this.sessionLogInID = loginID;
+                            
 
                             //login log
-                            new OperatesObject().ExecuteLoginLog(peoData.peo_uid, accData.acc_no, this.GetIpAddress(),this.SessionID);
+                            new OperatesObject().ExecuteLogInLog(loginID,peoData.peo_uid, accData.acc_no, this.GetIpAddress(), this.SessionID);
 
                             //goto index
                             Server.Transfer("Default.aspx");

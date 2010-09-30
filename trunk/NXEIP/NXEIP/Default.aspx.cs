@@ -12,26 +12,23 @@ public partial class _Default : System.Web.UI.Page
     {
         //this.WebPartManager1.DisplayMode=this.WebPartManager1.DisplayModes["Design"];
         //CacheUtil.AddItem("AAA", "BBB");
-       // SessionObject sessionObj = new SessionObject();
-       
-            //作SESSION
+        // SessionObject sessionObj = new SessionObject();
 
-         
+        //作SESSION
 
-            //沒有登入就轉登入頁
-            //if (String.IsNullOrEmpty(sessionObj.sessionUserID))
-            //{
-               // Response.Redirect("~/login.aspx");
-            //}
-            //else {
+        //沒有登入就轉登入頁
+        //if (String.IsNullOrEmpty(sessionObj.sessionUserID))
+        //{
+        // Response.Redirect("~/login.aspx");
+        //}
+        //else {
 
         //throw new Exception("測試錯誤訊息");
 
-                Response.Redirect("~/10/100500/100501.aspx");
-            //}  
+        Response.Redirect("~/10/100500/100501.aspx");
+        //}  
 
-            //登入過就轉
-        }
-    
-    
+        //登入過就轉
+
+    }
 }
