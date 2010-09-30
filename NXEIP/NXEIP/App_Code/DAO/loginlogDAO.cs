@@ -42,6 +42,11 @@ namespace NXEIP.DAO
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
 
+        public loginlog GetByLogNo(string logNo)
+        {
+            return (from d in model.loginlog where d.log_no == logNo select d).FirstOrDefault();
+        }
+
         /// <summary>
         /// 查詢總筆數
         /// </summary>
