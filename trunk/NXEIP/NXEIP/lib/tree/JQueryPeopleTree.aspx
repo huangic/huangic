@@ -22,7 +22,7 @@
         $(document).ready(
         function() {
             $('#DepartTree').treeview({
-                url: "TreePeopleMethod.ashx?mode=select",
+                url: ajaxUrl + "&mode=select",
                 treedblclick: treedblclick
             });
             // $('#DepartTree').treeview({ url: "TreeService.asmx/getTreeNode" });
@@ -52,7 +52,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "TreePeopleMethod.ashx?mode=save",
+                url: ajaxUrl+"&mode=save",
                 data: "{\"para\":" + JSON.stringify(getOptions()) + "}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",

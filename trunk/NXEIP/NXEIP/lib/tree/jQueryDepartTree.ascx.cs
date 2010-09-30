@@ -10,10 +10,14 @@ using Entity;
 
 public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 {
+
+   
     
+
+
     public List<KeyValuePair<String,String>> Items{
         get{
-           return (List<KeyValuePair<String,String>>)Session["selectDepart"];
+            return (List<KeyValuePair<String, String>>)Session[SessionName];
         }
     }
 
@@ -44,17 +48,27 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
              }
 
              item.Add(value);
-             Session["selectDepart"]=item;
+             Session[SessionName] = item;
         }
     }
 
 
+
+    private string SessionName {get{ 
+        
+        return this.ClientID;}
+    }
+
+
     public void Clear() {
-        Session["selectDepart"] = null;
+        Session[SessionName] = null;
     }
     
     protected override void OnPreRender(EventArgs e)
     {
+       
+        
+        
         //base.OnPreRender(e);
         try
         {
@@ -92,8 +106,8 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 
 
 
-        
-        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryDepartTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID=" + this.UpdatePanel1.ClientID;
+
+        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryDepartTree.aspx?clientID=" + this.UpdatePanel1.ClientID + "&session=" + this.SessionName + "&TB_iframe=true&height=420&width=540&modal=true";
         
         
     }

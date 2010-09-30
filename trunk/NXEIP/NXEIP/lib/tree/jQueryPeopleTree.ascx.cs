@@ -12,7 +12,7 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 {
     public List<KeyValuePair<String,String>> Items{
         get{
-           return (List<KeyValuePair<String,String>>)Session["selectPeople"];
+            return (List<KeyValuePair<String, String>>)Session[SessionName];
         }
     }
 
@@ -37,7 +37,7 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
                     item = new List<KeyValuePair<string, string>>();
                 }
                 item.Add(value);
-                Session["selectPeople"] = item;
+                Session[SessionName] = item;
             }
         }
     }
@@ -45,7 +45,17 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 
     public void Clear()
     {
-        Session["selectPeople"] = null;
+        Session[SessionName] = null;
+    }
+
+
+    private string SessionName
+    {
+        get
+        {
+
+            return this.ClientID;
+        }
     }
 
     protected void Page_Init(object sender, EventArgs e)
@@ -68,11 +78,7 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryPeopleTree.aspx?TB_iframe=true&height=420&width=540&modal=true&clientID=" + this.UpdatePanel1.ClientID;
-        //String  tbInit="<script>tb_init('a.thickbox, area.thickbox, input.thickbox,');//pass where to apply thickbox</script>";
-       // Page.ClientScript.RegisterStartupScript(typeof(lib_tree_jQueryDepartTree), "tbInit", tbInit);
-        //if (UpdatePanel1.IsInPartialRendering) { 
-                //更新值
-       // }
+        this.HyperLink1.NavigateUrl = "~/lib/tree/JQueryPeopleTree.aspx?clientID=" + this.UpdatePanel1.ClientID + "&session=" + this.SessionName + "&TB_iframe=true&height=420&width=540&modal=true";
+      
     }
 }

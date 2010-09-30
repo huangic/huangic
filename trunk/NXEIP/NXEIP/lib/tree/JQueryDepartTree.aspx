@@ -18,13 +18,13 @@
     
     <script type="text/javascript">
 
-
+       
 
 
         $(document).ready(
         function() {
             $('#DepartTree').treeview({
-                url: "TreeMethod.ashx?mode=select",
+                url:ajaxUrl+"&mode=select",
                 treedblclick: treedblclick
             });
             // $('#DepartTree').treeview({ url: "TreeService.asmx/getTreeNode" });
@@ -54,7 +54,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "TreeMethod.ashx?mode=save",
+                url: ajaxUrl+"&mode=save",
                 data: "{\"para\":" + JSON.stringify(getOptions()) + "}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
