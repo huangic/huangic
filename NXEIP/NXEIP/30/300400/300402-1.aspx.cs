@@ -47,6 +47,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             {
                 this.Navigator1.SubFunc = "修改";
                 this.jQueryDepartTree1.Clear();
+                this.jQueryPeopleTree1.Clear();
+                this.jQueryPeopleTree2.Clear();
                 Entity.rooms roomsData = new RoomsDAO().GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
 
                 #region textbox
@@ -99,25 +101,45 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 保管人
                 if (roomsData.roo_oneuid.HasValue)
                 {
-                    sqlstr = "select peo_name from people where peo_uid=" + roomsData.roo_oneuid.ToString();
-                    dt.Clear();
-                    dt = dbo.ExecuteQuery(sqlstr);
-                    if (dt.Rows.Count > 0)
-                    {
-                        this.Autocomplete1._value = dt.Rows[0]["peo_name"].ToString();
-                        this.lab_uid1.Text = roomsData.roo_oneuid.ToString();
-                    }
+                    this.jQueryPeopleTree1.Add(roomsData.roo_oneuid.ToString());
                 }
                 if (roomsData.roo_twouid.HasValue)
                 {
-                    sqlstr = "select peo_name from people where peo_uid=" + roomsData.roo_twouid.ToString();
-                    dt.Clear();
-                    dt = dbo.ExecuteQuery(sqlstr);
-                    if (dt.Rows.Count > 0)
-                    {
-                        this.Autocomplete2._value = dt.Rows[0]["peo_name"].ToString();
-                        this.lab_uid2.Text = roomsData.roo_twouid.ToString();
-                    }
+                    this.jQueryPeopleTree2.Add(roomsData.roo_twouid.ToString());
+                }
+                #endregion
+
+                #region 場地圖片
+                if (roomsData.roo_pictype!=null && roomsData.roo_pictype.Length>0)
+                {
+                    this.HyperLink1.Visible = true;
+                    string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=1&pkno=" + this.lab_no.Text;
+                    this.HyperLink1.Text = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\"><img src=\"" + src + "\" width=\"60\" height=\"50\" /></a>";
+                    this.lbtn_delpic1.Visible = true;
+                    this.ImageUpload1.Visible = false;
+                }
+                else
+                {
+                    this.HyperLink1.Visible = false;
+                    this.lbtn_delpic1.Visible = false;
+                    this.ImageUpload1.Visible = true;
+                }
+                #endregion
+
+                #region 場地平面圖
+                if (roomsData.roo_planetype != null && roomsData.roo_planetype.Length > 0)
+                {
+                    this.HyperLink2.Visible = true;
+                    string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
+                    this.HyperLink2.Text = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\"><img src=\"" + src + "\" width=\"60\" height=\"50\" /></a>";
+                    this.lbtn_delpic2.Visible = true;
+                    this.ImageUpload2.Visible = false;
+                }
+                else
+                {
+                    this.HyperLink2.Visible = false;
+                    this.lbtn_delpic2.Visible = false;
+                    this.ImageUpload2.Visible = true;
                 }
                 #endregion
             }
@@ -125,10 +147,15 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             {
                 this.Navigator1.SubFunc = "新增";
                 this.rb_01.Checked = true;
-                this.Image1.Visible = false;
-                this.Image2.Visible = false;
-                //this.FileUpload1.Visible = true;
-                //this.FileUpload2.Visible = true;
+
+                this.HyperLink2.Visible = false;
+                this.lbtn_delpic1.Visible = false;
+                this.ImageUpload1.Visible = true;
+
+                this.HyperLink2.Visible = false;
+                this.lbtn_delpic2.Visible = false;
+                this.ImageUpload2.Visible = true;
+                
             }
         }
     }
@@ -159,25 +186,11 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             }
             #endregion
             #region 輸入值檢查--第一保管人
-            string uid1 = this.Autocomplete1.GetValue();
-            string[] uid1s;
-
-            if (uid1.Trim().Length <= 0)
+            if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items==null)
             {
-                this.Autocomplete1._value = "";
                 Response.Write("<script>alert(\"請選擇 第一保管人\");</script>");
                 return;
             }
-            else
-            {
-                uid1s = uid1.Split(',');
-                if (uid1s.Length != 5)
-                {
-                    Response.Write("<script>alert(\"請選擇 第一保管人\");</script>");
-                    return;
-                }
-            }
-            
             #endregion
             #region 輸入值檢查--第一保管人電話&分機
             if (string.IsNullOrEmpty(this.txt_tel1.Text))
@@ -194,24 +207,6 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             {
                 Response.Write("<script>alert(\"第一保管人電話分機 長度不可超過10個數字\");</script>");
                 return;
-            }
-            #endregion
-            #region 輸入值檢查--第二保管人
-            string uid2 = this.Autocomplete2.GetValue();
-            Response.Write(uid2);
-            string[] uid2s=null;
-            if (uid2.Trim().Length <= 0)
-            {
-                this.Autocomplete2._value = "";
-            }
-            else
-            {
-                uid2s = uid2.Split(',');
-                if (uid2s.Length != 5)
-                {
-                    Response.Write("<script>alert(\"請選擇 第二保管人\");</script>");
-                    return;
-                }
             }
             #endregion
             #region 輸入值檢查--第二保管人電話&分機
@@ -278,6 +273,38 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 return;
             }
             #endregion
+            #region 輸入值檢查-- 場地圖片
+            this.ImageUpload1.UploadPic();
+            if (this.ImageUpload1.HasFile)
+            {
+                if (!this.ImageUpload1.CheckFileType)
+                {
+                    Response.Write("<script>alert(\"場地圖片 檔案類型錯誤\");</script>");
+                    return;
+                }
+                if (!this.ImageUpload1.CheckFileSize)
+                {
+                    Response.Write("<script>alert(\"場地圖片 檔案大小錯誤\");</script>");
+                    return;
+                }
+            }
+            #endregion
+            #region 輸入值檢查-- 場地平面圖
+            this.ImageUpload2.UploadPic();
+            if (this.ImageUpload2.HasFile)
+            {
+                if (!this.ImageUpload2.CheckFileType)
+                {
+                    Response.Write("<script>alert(\"場地平面圖 檔案類型錯誤\");</script>");
+                    return;
+                }
+                if (!this.ImageUpload2.CheckFileSize)
+                {
+                    Response.Write("<script>alert(\"場地平面圖 檔案大小錯誤\");</script>");
+                    return;
+                }
+            }
+            #endregion
             #region 輸入值檢查-- 場地描述
             if (!checkobj.IsValidLen(this.txt_describe.Text.Trim(), 500))
             {
@@ -288,7 +315,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             #region 場地開放單位
             if (this.rb_02.Checked)
             {
-                if (this.jQueryDepartTree1.Items.Count <= 0)
+                if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items==null)
                 {
                     Response.Write("<script>alert(\"請選擇 場地開放單位\");</script>");
                     return;
@@ -326,17 +353,23 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                     newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                     newRow.roo_name = this.txt_name.Text;
-                    newRow.roo_oneuid = Convert.ToInt32(uid1s[3]);
-                    //newRow.roo_picture = "";
-                    //newRow.roo_pictype = "";
-                    //newRow.roo_plane = "";
-                    //newRow.roo_planetype = "";
+                    newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                    if (this.ImageUpload1.HasFile)
+                    {
+                        newRow.roo_picture = this.ImageUpload1.GetFileBytes;
+                        newRow.roo_pictype = this.ImageUpload1.GetExtension;
+                    }
+                    if (this.ImageUpload2.HasFile)
+                    {
+                        newRow.roo_plane = this.ImageUpload2.GetFileBytes;
+                        newRow.roo_planetype = this.ImageUpload2.GetExtension;
+                    }
                     newRow.roo_stime = this.ddl_stime.SelectedValue;
                     newRow.roo_tel = this.txt_tel1.Text;
                     newRow.roo_twoext = this.txt_ext2.Text;
                     newRow.roo_twotel = this.txt_tel2.Text;
-                    if (uid2.Length > 0)
-                        newRow.roo_twouid = Convert.ToInt32(uid2s[3]);
+                    if (this.jQueryPeopleTree2.Items.Count > 0)
+                        newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                     else
                         newRow.roo_twouid = 0;
                     RoomsDAO1.Update();
@@ -391,18 +424,24 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                     newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                     newRow.roo_name = this.txt_name.Text;
-                    newRow.roo_oneuid = Convert.ToInt32(uid1s[3]);
-                    //newRow.roo_picture = "";
-                    //newRow.roo_pictype = "";
-                    //newRow.roo_plane = "";
-                    //newRow.roo_planetype = "";
+                    newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                    if (this.ImageUpload1.HasFile)
+                    {
+                        newRow.roo_picture = this.ImageUpload1.GetFileBytes;
+                        newRow.roo_pictype = this.ImageUpload1.GetExtension;
+                    }
+                    if (this.ImageUpload2.HasFile)
+                    {
+                        newRow.roo_plane = this.ImageUpload2.GetFileBytes;
+                        newRow.roo_planetype = this.ImageUpload2.GetExtension;
+                    }
                     newRow.roo_status = "1";
                     newRow.roo_stime = this.ddl_stime.SelectedValue;
                     newRow.roo_tel = this.txt_tel1.Text;
                     newRow.roo_twoext = this.txt_ext2.Text;
                     newRow.roo_twotel = this.txt_tel2.Text;
-                    if (uid2.Length > 0)
-                        newRow.roo_twouid = Convert.ToInt32(uid2s[3]);
+                    if (this.jQueryPeopleTree2.Items.Count > 0)
+                        newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                     else
                         newRow.roo_twouid = 0;
                     RoomsDAO1.AddRooms(newRow);
@@ -440,6 +479,56 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
         Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+    }
+    #endregion
+
+    #region 刪除檔案
+    protected void lbtn_delpic1_Click(object sender, EventArgs e)
+    {
+        string aMSG = "";
+        try
+        {
+            #region rooms
+            RoomsDAO RoomsDAO1 = new RoomsDAO();
+            rooms newRow = RoomsDAO1.GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
+            newRow.roo_createtime = System.DateTime.Now;
+            newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
+            newRow.roo_picture = null;
+            newRow.roo_pictype = "";
+            RoomsDAO1.Update();
+            #endregion
+
+            Response.Write(PCalendarUtil.ShowMsg_URL("", "300402-1.aspx?no="+this.lab_no.Text+"&mode="+this.lab_mode.Text+"&pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
+    }
+    
+    protected void lbtn_delpic2_Click(object sender, EventArgs e)
+    {
+        string aMSG = "";
+        try
+        {
+            #region rooms
+            RoomsDAO RoomsDAO1 = new RoomsDAO();
+            rooms newRow = RoomsDAO1.GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
+            newRow.roo_createtime = System.DateTime.Now;
+            newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
+            newRow.roo_plane = null;
+            newRow.roo_planetype = "";
+            RoomsDAO1.Update();
+            #endregion
+
+            Response.Write(PCalendarUtil.ShowMsg_URL("", "300402-1.aspx?no=" + this.lab_no.Text + "&mode=" + this.lab_mode.Text + "&pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
     }
     #endregion
 }
