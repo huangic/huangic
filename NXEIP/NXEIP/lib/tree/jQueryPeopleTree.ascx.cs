@@ -58,7 +58,7 @@ public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
         }
     }
 
-    protected void Page_Init(object sender, EventArgs e)
+    protected override void OnPreRender(EventArgs e)
     {
         try
         {
