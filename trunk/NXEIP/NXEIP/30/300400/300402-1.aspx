@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="300402-1.aspx.cs" Inherits="_30_300400_300402_1" %>
 
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc2" %>
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc4" %>
+<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc3" %>
+<%@ Register src="../../lib/tree/jQueryPeopleTree.ascx" tagname="jQueryPeopleTree" tagprefix="uc4" %>
+<%@ Register src="../../lib/ImageUpload.ascx" tagname="ImageUpload" tagprefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -23,8 +25,6 @@
                 <td>
                     <asp:DropDownList ID="ddl_spot" runat="server">
                     </asp:DropDownList>
-                    <asp:Label ID="lab_uid1" runat="server" Visible="False"></asp:Label>
-                    <asp:Label ID="lab_uid2" runat="server" Visible="False"></asp:Label>
                 </td>
                 <th style="width:120px"><span class="a-letter-Red">*</span> 場地名稱</th>
                 <td><asp:TextBox ID="txt_name" runat="server"></asp:TextBox></td>
@@ -32,7 +32,8 @@
             <tr>
                 <th><span class="a-letter-Red">*</span> 第一保管人</th>
                 <td>
-                    &nbsp;</td>
+                    <uc4:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                </td>
                 <th><span class="a-letter-Red">*</span> 第一保管人電話</th>
                 <td><asp:TextBox ID="txt_tel1" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
                         ID="txt_ext1" runat="server" Columns="5"></asp:TextBox></td>
@@ -40,7 +41,8 @@
             <tr>
                 <th>第二保管人</th>
                 <td>
-                    &nbsp;</td>
+                    <uc4:jQueryPeopleTree ID="jQueryPeopleTree2" runat="server" />
+                </td>
                 <th>第二保管人電話</th>
                 <td><asp:TextBox ID="txt_tel2" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
                         ID="txt_ext2" runat="server" Columns="5"></asp:TextBox></td>
@@ -94,15 +96,20 @@
             <tr>
                 <th>場地圖片</th>
                 <td>
-                    <asp:FileUpload ID="FileUpload1" runat="server" Visible="False" />
-                    <asp:Image ID="Image1" runat="server" ImageAlign="AbsMiddle" Visible="False" />
-                    <asp:LinkButton ID="lbtn_del1" runat="server" Visible="False">[刪除]</asp:LinkButton>
+                    <uc5:ImageUpload ID="ImageUpload1" runat="server" PicHeight="350" 
+                        PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
+                        ThumbnailMode="CUT" PicTitle="場地圖片" />
+                    <asp:HyperLink ID="HyperLink1" runat="server">[HyperLink1]</asp:HyperLink>
+                    <asp:LinkButton ID="lbtn_delpic1" runat="server" onclick="lbtn_delpic1_Click">[刪除]</asp:LinkButton>
                 </td>
                 <th>場地平面圖</th>
                 <td>
-                    <asp:FileUpload ID="FileUpload2" runat="server" Visible="False" />
-                    <asp:Image ID="Image2" runat="server" ImageAlign="AbsMiddle" Visible="False" />
-                    <asp:LinkButton ID="lbtn_del2" runat="server" Visible="False">[刪除]</asp:LinkButton>
+                    <uc5:ImageUpload ID="ImageUpload2" runat="server" PicHeight="350" 
+                        PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
+                        PicTitle="場地平面圖" ThumbnailMode="CUT" />
+                    <asp:HyperLink ID="HyperLink2" runat="server">[HyperLink2]</asp:HyperLink>
+                    <asp:LinkButton ID="lbtn_delpic2" runat="server" Visible="False" 
+                        onclick="lbtn_delpic2_Click">[刪除]</asp:LinkButton>
                 </td>
             </tr>
             <tr>
@@ -121,7 +128,7 @@
                     <tr>
                       <td style="width:80px"><asp:RadioButton ID="rb_02" runat="server" GroupName="rb" Text="限制單位" /></td>
                       <td>
-                          <uc4:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                          <uc3:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
                         </td>
                     </tr>
                   </table>
