@@ -22,16 +22,11 @@
 @import url(ui.jqgrid.css);
 @import url(ui.accordion.css);
 @import url(jquery.autocomplete.css);
+@import url("lytebox.css") screen;
 
 
+body { margin: 0 auto; }
 
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	
-}
 .input-login-1 {
 	
 	font-size: 13px;
