@@ -5731,6 +5731,78 @@ namespace Entity
         private Nullable<global::System.Int32> _e02_flag;
         partial void One02_flagChanging(Nullable<global::System.Int32> value);
         partial void One02_flagChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String e02_check
+        {
+            get
+            {
+                return _e02_check;
+            }
+            set
+            {
+                One02_checkChanging(value);
+                ReportPropertyChanging("e02_check");
+                _e02_check = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("e02_check");
+                One02_checkChanged();
+            }
+        }
+        private global::System.String _e02_check;
+        partial void One02_checkChanging(global::System.String value);
+        partial void One02_checkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> e02_openuid
+        {
+            get
+            {
+                return _e02_openuid;
+            }
+            set
+            {
+                One02_openuidChanging(value);
+                ReportPropertyChanging("e02_openuid");
+                _e02_openuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("e02_openuid");
+                One02_openuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _e02_openuid;
+        partial void One02_openuidChanging(Nullable<global::System.Int32> value);
+        partial void One02_openuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> e02_applydate
+        {
+            get
+            {
+                return _e02_applydate;
+            }
+            set
+            {
+                One02_applydateChanging(value);
+                ReportPropertyChanging("e02_applydate");
+                _e02_applydate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("e02_applydate");
+                One02_applydateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _e02_applydate;
+        partial void One02_applydateChanging(Nullable<global::System.DateTime> value);
+        partial void One02_applydateChanged();
 
         #endregion
     
