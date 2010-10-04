@@ -27,14 +27,17 @@ namespace NXEIP.DAO
 
         public types GetTypes(int typ_no)
         {
-            return (from t in model.types where t.typ_no == typ_no select t).FirstOrDefault();
-
+            return (from t in model.types 
+                    where t.typ_no == typ_no 
+                    select t).FirstOrDefault();
         }
 
         public IQueryable<types> GetAll(String type_code)
         {
             return (from t in model.types
-                    where t.typ_status == "1" && t.typ_code == type_code orderby t.typ_order select t);
+                    where t.typ_status == "1" && t.typ_code == type_code 
+                    orderby t.typ_order 
+                    select t);
         }
 
         public IQueryable<types> GetAll(String type_code, int startRowIndex, int maximumRows)
@@ -49,6 +52,18 @@ namespace NXEIP.DAO
         }
 
         #region 課程類別
+        /// <summary>
+        /// 查詢課程父類別資料
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<types> GetClassParentData()
+        {
+            return (from t in model.types
+                    where t.typ_code == "class" && t.typ_parent == 0
+                    orderby t.typ_order
+                    select t);
+        }
+
         /// <summary>
         /// 查詢課程類別資料
         /// </summary>
