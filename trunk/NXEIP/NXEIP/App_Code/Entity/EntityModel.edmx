@@ -20,6 +20,7 @@
           <EntitySet Name="doc04" EntityType="NXEIPModel.Store.doc04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc05" EntityType="NXEIPModel.Store.doc05" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e01" EntityType="NXEIPModel.Store.e01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="e02" EntityType="NXEIPModel.Store.e02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="government" EntityType="NXEIPModel.Store.government" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
@@ -92,6 +93,14 @@
           <AssociationSet Name="FK_DOC05_RELATIONS_DOC03" Association="NXEIPModel.Store.FK_DOC05_RELATIONS_DOC03">
             <End Role="doc03" EntitySet="doc03" />
             <End Role="doc05" EntitySet="doc05" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E02_RELATIONS_E01" Association="NXEIPModel.Store.FK_E02_RELATIONS_E01">
+            <End Role="e01" EntitySet="e01" />
+            <End Role="e02" EntitySet="e02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E02_RELATIONS_TYPES" Association="NXEIPModel.Store.FK_E02_RELATIONS_TYPES">
+            <End Role="types" EntitySet="types" />
+            <End Role="e02" EntitySet="e02" />
           </AssociationSet>
           <AssociationSet Name="FK_GOVERNME_RELATIONS_ROOMS" Association="NXEIPModel.Store.FK_GOVERNME_RELATIONS_ROOMS">
             <End Role="rooms" EntitySet="rooms" />
@@ -369,6 +378,36 @@
           <Property Name="e01_order" Type="int" />
           <Property Name="e01_createuid" Type="int" />
           <Property Name="e01_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="e02">
+          <Key>
+            <PropertyRef Name="e02_no" />
+          </Key>
+          <Property Name="e02_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="typ_no" Type="int" Nullable="false" />
+          <Property Name="e01_no" Type="int" Nullable="false" />
+          <Property Name="e02_code" Type="varchar" MaxLength="20" />
+          <Property Name="e02_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="e02_memo" Type="text" />
+          <Property Name="e02_limit" Type="text" />
+          <Property Name="e02_people" Type="int" />
+          <Property Name="e02_hour" Type="int" />
+          <Property Name="e02_money" Type="int" />
+          <Property Name="e02_mechani" Type="nvarchar" MaxLength="40" />
+          <Property Name="e02_teacher" Type="nvarchar" MaxLength="20" />
+          <Property Name="e02_type" Type="char" MaxLength="1" />
+          <Property Name="e02_city" Type="int" />
+          <Property Name="e02_food" Type="char" MaxLength="1" />
+          <Property Name="e02_other" Type="text" />
+          <Property Name="e02_signdate" Type="datetime" />
+          <Property Name="e02_signedate" Type="datetime" />
+          <Property Name="e02_sdate" Type="datetime" />
+          <Property Name="e02_opendate" Type="datetime" />
+          <Property Name="e02_edate" Type="datetime" />
+          <Property Name="e02_status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="e02_createuid" Type="int" />
+          <Property Name="e02_createtime" Type="datetime" />
+          <Property Name="e02_flag" Type="int" />
         </EntityType>
         <EntityType Name="government">
           <Key>
@@ -818,6 +857,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_E02_RELATIONS_E01">
+          <End Role="e01" Type="NXEIPModel.Store.e01" Multiplicity="1" />
+          <End Role="e02" Type="NXEIPModel.Store.e02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="e01">
+              <PropertyRef Name="e01_no" />
+            </Principal>
+            <Dependent Role="e02">
+              <PropertyRef Name="e01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E02_RELATIONS_TYPES">
+          <End Role="types" Type="NXEIPModel.Store.types" Multiplicity="1" />
+          <End Role="e02" Type="NXEIPModel.Store.e02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="typ_no" />
+            </Principal>
+            <Dependent Role="e02">
+              <PropertyRef Name="typ_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GOVERNME_RELATIONS_ROOMS">
           <End Role="rooms" Type="NXEIPModel.Store.rooms" Multiplicity="1" />
           <End Role="government" Type="NXEIPModel.Store.government" Multiplicity="*" />
@@ -1246,6 +1309,15 @@
             <End Role="manager" EntitySet="manager" />
           </AssociationSet>
           <EntitySet Name="e01" EntityType="NXEIPModel.e01" />
+          <EntitySet Name="e02" EntityType="NXEIPModel.e02" />
+          <AssociationSet Name="FK_E02_RELATIONS_E01" Association="NXEIPModel.FK_E02_RELATIONS_E01">
+            <End Role="e01" EntitySet="e01" />
+            <End Role="e02" EntitySet="e02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E02_RELATIONS_TYPES" Association="NXEIPModel.FK_E02_RELATIONS_TYPES">
+            <End Role="types" EntitySet="types" />
+            <End Role="e02" EntitySet="e02" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -1710,6 +1782,7 @@
           <Property Name="typ_createtime" Type="DateTime" />
           <NavigationProperty Name="search04" Relationship="NXEIPModel.FK_SEARCH04_RELATIONS_TYPES" FromRole="types" ToRole="search04" />
           <Property Type="Int32" Name="typ_parent" />
+          <NavigationProperty Name="e02" Relationship="NXEIPModel.FK_E02_RELATIONS_TYPES" FromRole="types" ToRole="e02" />
         </EntityType>
         <EntityType Name="widget">
           <Key>
@@ -2206,7 +2279,64 @@
           <Property Type="Int32" Name="e01_order" />
           <Property Type="Int32" Name="e01_createuid" />
           <Property Type="DateTime" Name="e01_createtime" />
+          <NavigationProperty Name="e02" Relationship="NXEIPModel.FK_E02_RELATIONS_E01" FromRole="e01" ToRole="e02" />
         </EntityType>
+        <EntityType Name="e02">
+          <Key>
+            <PropertyRef Name="e02_no" />
+          </Key>
+          <Property Type="Int32" Name="e02_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="typ_no" Nullable="false" />
+          <Property Type="Int32" Name="e01_no" Nullable="false" />
+          <Property Type="String" Name="e02_code" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="e02_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="e02_memo" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="e02_limit" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="e02_people" />
+          <Property Type="Int32" Name="e02_hour" />
+          <Property Type="Int32" Name="e02_money" />
+          <Property Type="String" Name="e02_mechani" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="e02_teacher" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="e02_type" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="e02_city" />
+          <Property Type="String" Name="e02_food" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="e02_other" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="e02_signdate" />
+          <Property Type="DateTime" Name="e02_signedate" />
+          <Property Type="DateTime" Name="e02_sdate" />
+          <Property Type="DateTime" Name="e02_opendate" />
+          <Property Type="DateTime" Name="e02_edate" />
+          <Property Type="String" Name="e02_status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="e02_createuid" />
+          <Property Type="DateTime" Name="e02_createtime" />
+          <NavigationProperty Name="e01" Relationship="NXEIPModel.FK_E02_RELATIONS_E01" FromRole="e02" ToRole="e01" />
+          <NavigationProperty Name="types" Relationship="NXEIPModel.FK_E02_RELATIONS_TYPES" FromRole="e02" ToRole="types" />
+          <Property Type="Int32" Name="e02_flag" />
+        </EntityType>
+        <Association Name="FK_E02_RELATIONS_E01">
+          <End Type="NXEIPModel.e01" Role="e01" Multiplicity="1" />
+          <End Type="NXEIPModel.e02" Role="e02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="e01">
+              <PropertyRef Name="e01_no" />
+            </Principal>
+            <Dependent Role="e02">
+              <PropertyRef Name="e01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E02_RELATIONS_TYPES">
+          <End Type="NXEIPModel.types" Role="types" Multiplicity="1" />
+          <End Type="NXEIPModel.e02" Role="e02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="types">
+              <PropertyRef Name="typ_no" />
+            </Principal>
+            <Dependent Role="e02">
+              <PropertyRef Name="typ_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2602,6 +2732,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="e02">
+            <EntityTypeMapping TypeName="NXEIPModel.e02">
+              <MappingFragment StoreEntitySet="e02">
+                <ScalarProperty Name="e02_flag" ColumnName="e02_flag" />
+                <ScalarProperty Name="e02_createtime" ColumnName="e02_createtime" />
+                <ScalarProperty Name="e02_createuid" ColumnName="e02_createuid" />
+                <ScalarProperty Name="e02_status" ColumnName="e02_status" />
+                <ScalarProperty Name="e02_edate" ColumnName="e02_edate" />
+                <ScalarProperty Name="e02_opendate" ColumnName="e02_opendate" />
+                <ScalarProperty Name="e02_sdate" ColumnName="e02_sdate" />
+                <ScalarProperty Name="e02_signedate" ColumnName="e02_signedate" />
+                <ScalarProperty Name="e02_signdate" ColumnName="e02_signdate" />
+                <ScalarProperty Name="e02_other" ColumnName="e02_other" />
+                <ScalarProperty Name="e02_food" ColumnName="e02_food" />
+                <ScalarProperty Name="e02_city" ColumnName="e02_city" />
+                <ScalarProperty Name="e02_type" ColumnName="e02_type" />
+                <ScalarProperty Name="e02_teacher" ColumnName="e02_teacher" />
+                <ScalarProperty Name="e02_mechani" ColumnName="e02_mechani" />
+                <ScalarProperty Name="e02_money" ColumnName="e02_money" />
+                <ScalarProperty Name="e02_hour" ColumnName="e02_hour" />
+                <ScalarProperty Name="e02_people" ColumnName="e02_people" />
+                <ScalarProperty Name="e02_limit" ColumnName="e02_limit" />
+                <ScalarProperty Name="e02_memo" ColumnName="e02_memo" />
+                <ScalarProperty Name="e02_name" ColumnName="e02_name" />
+                <ScalarProperty Name="e02_code" ColumnName="e02_code" />
+                <ScalarProperty Name="e01_no" ColumnName="e01_no" />
+                <ScalarProperty Name="typ_no" ColumnName="typ_no" />
+                <ScalarProperty Name="e02_no" ColumnName="e02_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2667,7 +2828,7 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_BLCOK_RELATIONS_WIDGET" ManuallyRouted="false">
           <ConnectorPoint PointX="9.625" PointY="4" />
-          <ConnectorPoint PointX="9.625" PointY="3.2291471354166661" />
+          <ConnectorPoint PointX="9.625" PointY="3.4417936197916661" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_C01_RELATIONS_PEOPLE" ManuallyRouted="false">
           <ConnectorPoint PointX="4.96093875" PointY="20.25" />
@@ -2827,8 +2988,8 @@
           <ConnectorPoint PointX="8.25" PointY="15.70312525" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SEARCH04_RELATIONS_TYPES" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.5" PointY="13.929790039062503" />
-          <ConnectorPoint PointX="9.40625" PointY="13.929790039062503" />
+          <ConnectorPoint PointX="10.5" PointY="14.122091471354169" />
+          <ConnectorPoint PointX="9.40625" PointY="14.122091471354169" />
           <ConnectorPoint PointX="9.40625" PointY="14.625" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" ManuallyRouted="false">
@@ -2867,6 +3028,18 @@
           <ConnectorPoint PointX="10.25" PointY="24.172587890624982" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.e01" Width="1.5" PointX="5.375" PointY="3.75" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="NXEIPModel.e02" Width="1.5" PointX="12.75" PointY="6.125" Height="6.0186165364583335" IsExpanded="true" />
+        <AssociationConnector Association="NXEIPModel.FK_E02_RELATIONS_E01" >
+          <ConnectorPoint PointX="6.875" PointY="3.84375" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="3.8437499999999996" />
+          <ConnectorPoint PointX="9.7083333333333339" PointY="3.84375" />
+          <ConnectorPoint PointX="13.5" PointY="3.84375" />
+          <ConnectorPoint PointX="13.5" PointY="6.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_E02_RELATIONS_TYPES" >
+          <ConnectorPoint PointX="12" PointY="11.696808268229166" />
+          <ConnectorPoint PointX="12.75" PointY="11.696808268229166" />
+        </AssociationConnector>
         </Diagram>
     </Diagrams>
   </Designer>
