@@ -408,6 +408,9 @@
           <Property Name="e02_createuid" Type="int" />
           <Property Name="e02_createtime" Type="datetime" />
           <Property Name="e02_flag" Type="int" />
+          <Property Name="e02_check" Type="char" MaxLength="1" />
+          <Property Name="e02_openuid" Type="int" />
+          <Property Name="e02_applydate" Type="datetime" />
         </EntityType>
         <EntityType Name="government">
           <Key>
@@ -2312,6 +2315,9 @@
           <NavigationProperty Name="e01" Relationship="NXEIPModel.FK_E02_RELATIONS_E01" FromRole="e02" ToRole="e01" />
           <NavigationProperty Name="types" Relationship="NXEIPModel.FK_E02_RELATIONS_TYPES" FromRole="e02" ToRole="types" />
           <Property Type="Int32" Name="e02_flag" />
+          <Property Type="String" Name="e02_check" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="e02_openuid" />
+          <Property Type="DateTime" Name="e02_applydate" />
         </EntityType>
         <Association Name="FK_E02_RELATIONS_E01">
           <End Type="NXEIPModel.e01" Role="e01" Multiplicity="1" />
@@ -2735,6 +2741,9 @@
           <EntitySetMapping Name="e02">
             <EntityTypeMapping TypeName="NXEIPModel.e02">
               <MappingFragment StoreEntitySet="e02">
+                <ScalarProperty Name="e02_applydate" ColumnName="e02_applydate" />
+                <ScalarProperty Name="e02_openuid" ColumnName="e02_openuid" />
+                <ScalarProperty Name="e02_check" ColumnName="e02_check" />
                 <ScalarProperty Name="e02_flag" ColumnName="e02_flag" />
                 <ScalarProperty Name="e02_createtime" ColumnName="e02_createtime" />
                 <ScalarProperty Name="e02_createuid" ColumnName="e02_createuid" />
