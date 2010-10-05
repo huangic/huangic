@@ -113,14 +113,16 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 if (roomsData.roo_pictype!=null && roomsData.roo_pictype.Length>0)
                 {
                     string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=1&pkno=" + this.lab_no.Text;
-                    this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
+                    this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic1.Visible = true;
                     this.ImageUpload1.Visible = false;
+                    this.Panel1.Visible = true;
                 }
                 else
                 {
                     this.lbtn_delpic1.Visible = false;
                     this.ImageUpload1.Visible = true;
+                    this.Panel1.Visible = false;
                 }
                 #endregion
 
@@ -128,14 +130,16 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 if (roomsData.roo_planetype != null && roomsData.roo_planetype.Length > 0)
                 {
                     string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
-                    this.div_pic2.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
+                    this.div_pic2.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic2.Visible = true;
                     this.ImageUpload2.Visible = false;
+                    this.Panel2.Visible = true;
                 }
                 else
                 {
                     this.lbtn_delpic2.Visible = false;
                     this.ImageUpload2.Visible = true;
+                    this.Panel2.Visible = false;
                 }
                 #endregion
             }
@@ -154,312 +158,333 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         }
     }
 
+    #region 顯示錯誤訊息
+    private void ShowMsg(string msg)
+    {
+        string script = "<script>window.alert('" + msg + "');</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('" + msg + "');", true);
+    }
+    #endregion
+
+    #region 檢查輸入值
+    private bool CheckInputValue()
+    {
+        bool feedback=true;
+
+        #region 所在地
+        if (this.ddl_spot.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 所在地");
+            feedback = false;
+        }
+        #endregion
+        #region 場地名稱
+        if (string.IsNullOrEmpty(this.txt_name.Text))
+        {
+            ShowMsg("請輸入 場地名稱");
+            feedback = false;
+        }
+        else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 30))
+        {
+            ShowMsg("場地名稱 長度不可超過30個數文字");
+            feedback = false;
+        }
+        #endregion
+        #region 第一保管人
+        if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items == null)
+        {
+            ShowMsg("請選擇 第一保管人");
+            feedback = false;
+        }
+        #endregion
+        #region 第一保管人電話&分機
+        if (string.IsNullOrEmpty(this.txt_tel1.Text))
+        {
+            ShowMsg("請輸入 第一保管人電話");
+            feedback = false;
+        }
+        else if (!checkobj.IsValidLen(this.txt_tel1.Text.Trim(), 20))
+        {
+            ShowMsg("第一保管人電話 長度不可超過20個數字");
+            feedback = false;
+        }
+        if (!checkobj.IsValidLen(this.txt_ext1.Text.Trim(), 10))
+        {
+            ShowMsg("第一保管人電話分機 長度不可超過10個數字");
+            feedback = false;
+        }
+        #endregion
+        #region 第二保管人電話&分機
+        if (!checkobj.IsValidLen(this.txt_tel2.Text.Trim(), 20))
+        {
+            ShowMsg("第二保管人電話 長度不可超過20個數字");
+            feedback = false;
+        }
+        if (!checkobj.IsValidLen(this.txt_ext2.Text.Trim(), 10))
+        {
+            ShowMsg("第二保管人電話分機 長度不可超過10個數字");
+            feedback = false;
+        }
+        #endregion
+        #region 容納人數
+        if (string.IsNullOrEmpty(this.txt_human.Text))
+        {
+            ShowMsg("請輸入  容納人數");
+            feedback = false;
+        }
+        else if (!checkobj.IsInt(this.txt_human.Text))
+        {
+            ShowMsg("容納人數 需為數字");
+            feedback = false;
+        }
+        #endregion
+        #region 所在樓層
+        if (string.IsNullOrEmpty(this.txt_floor.Text))
+        {
+            ShowMsg("請輸入 所在樓層");
+            feedback = false;
+        }
+        else if (!checkobj.IsInt(this.txt_floor.Text))
+        {
+            ShowMsg("所在樓層 需為數字");
+            feedback = false;
+        }
+        #endregion
+        #region 可借用時間
+        if (this.ddl_stime.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 可借用時間-起");
+            feedback = false;
+        }
+        if (this.ddl_etime.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 可借用時間-迄");
+            feedback = false;
+        }
+        if (this.ddl_stime.SelectedIndex >= this.ddl_etime.SelectedIndex)
+        {
+            ShowMsg("可借用時間-起 不可大於等於 可借用時間-迄");
+            feedback = false;
+        }
+        #endregion
+        #region 最低與會人數
+        if (string.IsNullOrEmpty(this.txt_count.Text))
+        {
+            this.txt_count.Text = "0";
+        }
+        else if (!checkobj.IsInt(this.txt_count.Text))
+        {
+            ShowMsg("最低與會人數 需為數字");
+            feedback = false;
+        }
+        #endregion
+        #region 場地圖片
+        this.ImageUpload1.UploadPic();
+        if (this.ImageUpload1.HasFile)
+        {
+            if (!this.ImageUpload1.CheckFileType)
+            {
+                ShowMsg("場地圖片 檔案類型錯誤");
+                feedback = false;
+            }
+            if (!this.ImageUpload1.CheckFileSize)
+            {
+                ShowMsg("場地圖片 檔案大小錯誤");
+                feedback = false;
+            }
+        }
+        #endregion
+        #region 場地平面圖
+        this.ImageUpload2.UploadPic();
+        if (this.ImageUpload2.HasFile)
+        {
+            if (!this.ImageUpload2.CheckFileType)
+            {
+                ShowMsg("場地平面圖 檔案類型錯誤");
+                feedback = false;
+            }
+            if (!this.ImageUpload2.CheckFileSize)
+            {
+                ShowMsg("場地平面圖 檔案大小錯誤");
+                feedback = false;
+            }
+        }
+        #endregion
+        #region 場地描述
+        if (!checkobj.IsValidLen(this.txt_describe.Text.Trim(), 500))
+        {
+            ShowMsg("場地描述 長度不可超過500個數文字");
+            feedback = false;
+        }
+        #endregion
+        #region 場地開放單位
+        if (this.rb_02.Checked)
+        {
+            if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items == null)
+            {
+                ShowMsg("請選擇 場地開放單位");
+                feedback = false;
+            }
+        }
+        #endregion
+
+        return feedback;
+    }
+    #endregion
+
     #region 確定
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         string aMSG = "";
         try
         {
-            #region 輸入值檢查--所在地
-            if (this.ddl_spot.SelectedValue.Equals("0"))
+            if (CheckInputValue())
             {
-                Response.Write("<script>alert(\"請選擇 所在地\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查--場地名稱
-            if (string.IsNullOrEmpty(this.txt_name.Text))
-            {
-                Response.Write("<script>alert(\"請輸入 場地名稱\");</script>");
-                return;
-            }
-            else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 30))
-            {
-                Response.Write("<script>alert(\"場地名稱 長度不可超過30個數文字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查--第一保管人
-            if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items==null)
-            {
-                Response.Write("<script>alert(\"請選擇 第一保管人\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查--第一保管人電話&分機
-            if (string.IsNullOrEmpty(this.txt_tel1.Text))
-            {
-                Response.Write("<script>alert(\"請輸入 第一保管人電話\");</script>");
-                return;
-            }
-            else if (!checkobj.IsValidLen(this.txt_tel1.Text.Trim(), 20))
-            {
-                Response.Write("<script>alert(\"第一保管人電話 長度不可超過20個數字\");</script>");
-                return;
-            }
-            if (!checkobj.IsValidLen(this.txt_ext1.Text.Trim(), 10))
-            {
-                Response.Write("<script>alert(\"第一保管人電話分機 長度不可超過10個數字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查--第二保管人電話&分機
-            if (!checkobj.IsValidLen(this.txt_tel2.Text.Trim(), 20))
-            {
-                Response.Write("<script>alert(\"第二保管人電話 長度不可超過20個數字\");</script>");
-                return;
-            }
-            if (!checkobj.IsValidLen(this.txt_ext2.Text.Trim(), 10))
-            {
-                Response.Write("<script>alert(\"第二保管人電話分機 長度不可超過10個數字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查-- 容納人數
-            if (string.IsNullOrEmpty(this.txt_human.Text))
-            {
-                Response.Write("<script>alert(\"請輸入  容納人數\");</script>");
-                return;
-            }
-            else if (!checkobj.IsInt(this.txt_human.Text))
-            {
-                Response.Write("<script>alert(\"容納人數 需為數字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查-- 所在樓層
-            if (string.IsNullOrEmpty(this.txt_floor.Text))
-            {
-                Response.Write("<script>alert(\"請輸入 所在樓層\");</script>");
-                return;
-            }
-            else if (!checkobj.IsInt(this.txt_floor.Text))
-            {
-                Response.Write("<script>alert(\"所在樓層 需為數字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查-- 可借用時間
-            if (this.ddl_stime.SelectedValue.Equals("0"))
-            {
-                Response.Write("<script>alert(\"請選擇 可借用時間-起\");</script>");
-                return;
-            }
-            if (this.ddl_etime.SelectedValue.Equals("0"))
-            {
-                Response.Write("<script>alert(\"請選擇 可借用時間-迄\");</script>");
-                return;
-            }
-            if (this.ddl_stime.SelectedIndex >= this.ddl_etime.SelectedIndex)
-            {
-                Response.Write("<script>alert(\"可借用時間-起 不可大於等於 可借用時間-迄\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查-- 最低與會人數
-            if (string.IsNullOrEmpty(this.txt_count.Text))
-            {
-                this.txt_count.Text = "0";
-            }
-            else if (!checkobj.IsInt(this.txt_count.Text))
-            {
-                Response.Write("<script>alert(\"最低與會人數 需為數字\");</script>");
-                return;
-            }
-            #endregion
-            #region 輸入值檢查-- 場地圖片
-            this.ImageUpload1.UploadPic();
-            if (this.ImageUpload1.HasFile)
-            {
-                if (!this.ImageUpload1.CheckFileType)
+                if (this.lab_mode.Text.Equals("modify"))
                 {
-                    Response.Write("<script>alert(\"場地圖片 檔案類型錯誤\");</script>");
-                    return;
-                }
-                if (!this.ImageUpload1.CheckFileSize)
-                {
-                    Response.Write("<script>alert(\"場地圖片 檔案大小錯誤\");</script>");
-                    return;
-                }
-            }
-            #endregion
-            #region 輸入值檢查-- 場地平面圖
-            this.ImageUpload2.UploadPic();
-            if (this.ImageUpload2.HasFile)
-            {
-                if (!this.ImageUpload2.CheckFileType)
-                {
-                    Response.Write("<script>alert(\"場地平面圖 檔案類型錯誤\");</script>");
-                    return;
-                }
-                if (!this.ImageUpload2.CheckFileSize)
-                {
-                    Response.Write("<script>alert(\"場地平面圖 檔案大小錯誤\");</script>");
-                    return;
-                }
-            }
-            #endregion
-            #region 輸入值檢查-- 場地描述
-            if (!checkobj.IsValidLen(this.txt_describe.Text.Trim(), 500))
-            {
-                Response.Write("<script>alert(\"場地描述 長度不可超過500個數文字\");</script>");
-                return;
-            }
-            #endregion
-            #region 場地開放單位
-            if (this.rb_02.Checked)
-            {
-                if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items==null)
-                {
-                    Response.Write("<script>alert(\"請選擇 場地開放單位\");</script>");
-                    return;
-                }
-            }
-            #endregion
+                    #region 修改
+                    string sqlstr = "select roo_no from rooms where roo_name=N'" + this.txt_name.Text + "' and roo_status='1' and roo_no<>" + this.lab_no.Text;
+                    DataTable dt = new DataTable();
+                    dt = dbo.ExecuteQuery(sqlstr);
+                    if (dt.Rows.Count > 0)
+                    {
+                        Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
+                        return;
+                    }
+                    else
+                    {
+                        #region rooms
+                        RoomsDAO RoomsDAO1 = new RoomsDAO();
+                        rooms newRow = RoomsDAO1.GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
+                        newRow.spo_no = Convert.ToInt32(this.ddl_spot.SelectedValue);
+                        newRow.roo_count = Convert.ToInt32(this.txt_count.Text);
+                        newRow.roo_createtime = System.DateTime.Now;
+                        newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
+                        if (this.rb_01.Checked)
+                            newRow.roo_dep = "1";
+                        else
+                            newRow.roo_dep = "2";
+                        newRow.roo_describe = this.txt_describe.Text;
+                        newRow.roo_etime = this.ddl_etime.SelectedValue;
+                        newRow.roo_ext = this.txt_ext1.Text;
+                        newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
+                        newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
+                        newRow.roo_name = this.txt_name.Text;
+                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                        if (this.ImageUpload1.HasFile)
+                        {
+                            newRow.roo_picture = this.ImageUpload1.GetFileBytes;
+                            newRow.roo_pictype = this.ImageUpload1.GetExtension;
+                        }
+                        if (this.ImageUpload2.HasFile)
+                        {
+                            newRow.roo_plane = this.ImageUpload2.GetFileBytes;
+                            newRow.roo_planetype = this.ImageUpload2.GetExtension;
+                        }
+                        newRow.roo_stime = this.ddl_stime.SelectedValue;
+                        newRow.roo_tel = this.txt_tel1.Text;
+                        newRow.roo_twoext = this.txt_ext2.Text;
+                        newRow.roo_twotel = this.txt_tel2.Text;
+                        if (this.jQueryPeopleTree2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
+                        else
+                            newRow.roo_twouid = 0;
+                        RoomsDAO1.Update();
+                        #endregion
 
-            if (this.lab_mode.Text.Equals("modify"))
-            {
-                #region 修改
-                string sqlstr = "select roo_no from rooms where roo_name=N'" + this.txt_name.Text + "' and roo_status='1' and roo_no<>"+this.lab_no.Text;
-                DataTable dt = new DataTable();
-                dt = dbo.ExecuteQuery(sqlstr);
-                if (dt.Rows.Count > 0)
-                {
-                    Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
-                    return;
+                        #region government
+                        string DelStr = "delete from government where roo_no=" + this.lab_no.Text;
+                        dbo.ExecuteNonQuery(DelStr);
+
+                        if (this.rb_02.Checked)
+                        {
+                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                            {
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
+                                dbo.ExecuteNonQuery(InsStr);
+                            }
+                        }
+                        #endregion
+                    }
+                    #endregion
+
+                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                    new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",所在地：" + this.ddl_spot.SelectedItem.Text + ",場所名稱：" + this.txt_name.Text.Trim() + "...等");
                 }
                 else
                 {
-                    #region rooms
-                    RoomsDAO RoomsDAO1 = new RoomsDAO();
-                    rooms newRow = RoomsDAO1.GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
-                    newRow.spo_no = Convert.ToInt32(this.ddl_spot.SelectedValue);
-                    newRow.roo_count = Convert.ToInt32(this.txt_count.Text);
-                    newRow.roo_createtime = System.DateTime.Now;
-                    newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
-                    if (this.rb_01.Checked)
-                        newRow.roo_dep = "1";
-                    else
-                        newRow.roo_dep = "2";
-                    newRow.roo_describe = this.txt_describe.Text;
-                    newRow.roo_etime = this.ddl_etime.SelectedValue;
-                    newRow.roo_ext = this.txt_ext1.Text;
-                    newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
-                    newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
-                    newRow.roo_name = this.txt_name.Text;
-                    newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
-                    if (this.ImageUpload1.HasFile)
+                    #region 新增
+                    string sqlstr = "select roo_no from rooms where roo_name=N'" + this.txt_name.Text + "' and roo_status='1'";
+                    DataTable dt = new DataTable();
+                    dt = dbo.ExecuteQuery(sqlstr);
+                    if (dt.Rows.Count > 0)
                     {
-                        newRow.roo_picture = this.ImageUpload1.GetFileBytes;
-                        newRow.roo_pictype = this.ImageUpload1.GetExtension;
+                        Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
+                        return;
                     }
-                    if (this.ImageUpload2.HasFile)
-                    {
-                        newRow.roo_plane = this.ImageUpload2.GetFileBytes;
-                        newRow.roo_planetype = this.ImageUpload2.GetExtension;
-                    }
-                    newRow.roo_stime = this.ddl_stime.SelectedValue;
-                    newRow.roo_tel = this.txt_tel1.Text;
-                    newRow.roo_twoext = this.txt_ext2.Text;
-                    newRow.roo_twotel = this.txt_tel2.Text;
-                    if (this.jQueryPeopleTree2.Items.Count > 0)
-                        newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                     else
-                        newRow.roo_twouid = 0;
-                    RoomsDAO1.Update();
-                    #endregion
-
-                    #region government
-                    string DelStr = "delete from government where roo_no="+this.lab_no.Text;
-                    dbo.ExecuteNonQuery(DelStr);
-
-                    if (this.rb_02.Checked)
                     {
-                        for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                        #region rooms
+                        RoomsDAO RoomsDAO1 = new RoomsDAO();
+                        rooms newRow = new rooms();
+                        newRow.spo_no = Convert.ToInt32(this.ddl_spot.SelectedValue);
+                        newRow.roo_count = Convert.ToInt32(this.txt_count.Text);
+                        newRow.roo_createtime = System.DateTime.Now;
+                        newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
+                        if (this.rb_01.Checked)
+                            newRow.roo_dep = "1";
+                        else
+                            newRow.roo_dep = "2";
+                        newRow.roo_describe = this.txt_describe.Text;
+                        newRow.roo_etime = this.ddl_etime.SelectedValue;
+                        newRow.roo_ext = this.txt_ext1.Text;
+                        newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
+                        newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
+                        newRow.roo_name = this.txt_name.Text;
+                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                        if (this.ImageUpload1.HasFile)
                         {
-                            string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
-                            dbo.ExecuteNonQuery(InsStr);
+                            newRow.roo_picture = this.ImageUpload1.GetFileBytes;
+                            newRow.roo_pictype = this.ImageUpload1.GetExtension;
                         }
-                    }
-                    #endregion
-                }
-                #endregion
-
-                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",所在地：" + this.ddl_spot.SelectedItem.Text + ",場所名稱：" + this.txt_name.Text.Trim() + "...等");
-            }
-            else
-            {
-                #region 新增
-                string sqlstr = "select roo_no from rooms where roo_name=N'" + this.txt_name.Text + "' and roo_status='1'";
-                DataTable dt = new DataTable();
-                dt = dbo.ExecuteQuery(sqlstr);
-                if (dt.Rows.Count > 0)
-                {
-                    Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
-                    return;
-                }
-                else
-                {
-                    #region rooms
-                    RoomsDAO RoomsDAO1 = new RoomsDAO();
-                    rooms newRow = new rooms();
-                    newRow.spo_no = Convert.ToInt32(this.ddl_spot.SelectedValue);
-                    newRow.roo_count = Convert.ToInt32(this.txt_count.Text);
-                    newRow.roo_createtime = System.DateTime.Now;
-                    newRow.roo_createuid = Convert.ToInt32(sobj.sessionUserID);
-                    if (this.rb_01.Checked)
-                        newRow.roo_dep = "1";
-                    else
-                        newRow.roo_dep = "2";
-                    newRow.roo_describe = this.txt_describe.Text;
-                    newRow.roo_etime = this.ddl_etime.SelectedValue;
-                    newRow.roo_ext = this.txt_ext1.Text;
-                    newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
-                    newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
-                    newRow.roo_name = this.txt_name.Text;
-                    newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
-                    if (this.ImageUpload1.HasFile)
-                    {
-                        newRow.roo_picture = this.ImageUpload1.GetFileBytes;
-                        newRow.roo_pictype = this.ImageUpload1.GetExtension;
-                    }
-                    if (this.ImageUpload2.HasFile)
-                    {
-                        newRow.roo_plane = this.ImageUpload2.GetFileBytes;
-                        newRow.roo_planetype = this.ImageUpload2.GetExtension;
-                    }
-                    newRow.roo_status = "1";
-                    newRow.roo_stime = this.ddl_stime.SelectedValue;
-                    newRow.roo_tel = this.txt_tel1.Text;
-                    newRow.roo_twoext = this.txt_ext2.Text;
-                    newRow.roo_twotel = this.txt_tel2.Text;
-                    if (this.jQueryPeopleTree2.Items.Count > 0)
-                        newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
-                    else
-                        newRow.roo_twouid = 0;
-                    RoomsDAO1.AddRooms(newRow);
-                    RoomsDAO1.Update();
-                    #endregion
-                    int roo_no = newRow.roo_no;
-                    #region government
-                    if (this.rb_02.Checked)
-                    {
-                        for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                        if (this.ImageUpload2.HasFile)
                         {
-                            string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
-                            dbo.ExecuteNonQuery(InsStr);
+                            newRow.roo_plane = this.ImageUpload2.GetFileBytes;
+                            newRow.roo_planetype = this.ImageUpload2.GetExtension;
                         }
+                        newRow.roo_status = "1";
+                        newRow.roo_stime = this.ddl_stime.SelectedValue;
+                        newRow.roo_tel = this.txt_tel1.Text;
+                        newRow.roo_twoext = this.txt_ext2.Text;
+                        newRow.roo_twotel = this.txt_tel2.Text;
+                        if (this.jQueryPeopleTree2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
+                        else
+                            newRow.roo_twouid = 0;
+                        RoomsDAO1.AddRooms(newRow);
+                        RoomsDAO1.Update();
+                        #endregion
+                        int roo_no = newRow.roo_no;
+                        #region government
+                        if (this.rb_02.Checked)
+                        {
+                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                            {
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
+                                dbo.ExecuteNonQuery(InsStr);
+                            }
+                        }
+                        #endregion
                     }
                     #endregion
+
+                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                    new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 1, "所在地：" + this.ddl_spot.SelectedItem.Text + ",場地名稱：" + this.txt_name.Text.Trim() + "....等");
                 }
-                #endregion
 
-                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 1, "所在地：" + this.ddl_spot.SelectedItem.Text + ",場地名稱：" + this.txt_name.Text.Trim() + "....等");
+                Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
             }
-
-            Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
         }
         catch (Exception ex)
         {
@@ -525,4 +550,6 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         }
     }
     #endregion
+
+    
 }
