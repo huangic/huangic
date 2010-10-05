@@ -241,7 +241,7 @@ public partial class lib_ImageUpload : System.Web.UI.UserControl
                     this.lab_filename.Text = filename;
                     this.lab_path.Text = FileSavePath + filename;
                     string src1 = ResolveClientUrl("~/PicTemp/" + filename + "?ran=" + new Random().Next(1000));
-                    this.div_pic.InnerHtml = "<a href=\"" + src1 + "\" rel=\"lytebox\" title=\"" + PicTitle + "\"><img src=" + src1 + " width=\"60\" height=\"50\"  /></a>";
+                    this.div_pic.InnerHtml = "<a href=\"" + src1 + "\" rel=\"lytebox\" title=\"" + PicTitle + "\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src1 + " width=\"60\" height=\"50\"  /></a>";
                 }
                 else
                 {
