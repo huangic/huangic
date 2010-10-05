@@ -99,7 +99,7 @@
                     <uc5:ImageUpload ID="ImageUpload1" runat="server" PicHeight="350" 
                         PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
                         ThumbnailMode="CUT" PicTitle="場地圖片" />
-                    <asp:HyperLink ID="HyperLink1" runat="server">[HyperLink1]</asp:HyperLink>
+                    <div id="div_pic1" runat="server"></div>
                     <asp:LinkButton ID="lbtn_delpic1" runat="server" onclick="lbtn_delpic1_Click">[刪除]</asp:LinkButton>
                 </td>
                 <th>場地平面圖</th>
@@ -107,7 +107,7 @@
                     <uc5:ImageUpload ID="ImageUpload2" runat="server" PicHeight="350" 
                         PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
                         PicTitle="場地平面圖" ThumbnailMode="CUT" />
-                    <asp:HyperLink ID="HyperLink2" runat="server">[HyperLink2]</asp:HyperLink>
+                    <div id="div_pic2" runat="server"></div>
                     <asp:LinkButton ID="lbtn_delpic2" runat="server" Visible="False" 
                         onclick="lbtn_delpic2_Click">[刪除]</asp:LinkButton>
                 </td>
