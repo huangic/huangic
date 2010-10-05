@@ -12,6 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    <script type="text/javascript" src="/NXEIP/js/lytebox.js"></script>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300402" />
     <div class="tableDiv">
         <div class="header">
@@ -99,17 +100,28 @@
                     <uc5:ImageUpload ID="ImageUpload1" runat="server" PicHeight="350" 
                         PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
                         ThumbnailMode="CUT" PicTitle="場地圖片" />
-                    <div id="div_pic1" runat="server"></div>
-                    <asp:LinkButton ID="lbtn_delpic1" runat="server" onclick="lbtn_delpic1_Click">[刪除]</asp:LinkButton>
+                    <asp:Panel ID="Panel1" runat="server">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="60"><div id="div_pic1" runat="server"></div></td>
+                        <td valign="bottom"><asp:LinkButton ID="lbtn_delpic1" runat="server" onclick="lbtn_delpic1_Click">[刪除]</asp:LinkButton></td>
+                      </tr>
+                    </table>
+                    </asp:Panel>
                 </td>
                 <th>場地平面圖</th>
                 <td>
                     <uc5:ImageUpload ID="ImageUpload2" runat="server" PicHeight="350" 
                         PicSize="2048" PicType="jpg,gif,jpge,bmp,png" PicWidth="400" Thumbnail="True" 
                         PicTitle="場地平面圖" ThumbnailMode="CUT" />
-                    <div id="div_pic2" runat="server"></div>
-                    <asp:LinkButton ID="lbtn_delpic2" runat="server" Visible="False" 
-                        onclick="lbtn_delpic2_Click">[刪除]</asp:LinkButton>
+                    <asp:Panel ID="Panel2" runat="server">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="60"><div id="div_pic2" runat="server"></div></td>
+                        <td valign="bottom"><asp:LinkButton ID="lbtn_delpic2" runat="server" Visible="False" onclick="lbtn_delpic2_Click">[刪除]</asp:LinkButton></td>
+                      </tr>
+                    </table>
+                    </asp:Panel>
                 </td>
             </tr>
             <tr>
