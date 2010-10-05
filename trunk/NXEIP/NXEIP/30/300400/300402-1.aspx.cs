@@ -112,15 +112,13 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 場地圖片
                 if (roomsData.roo_pictype!=null && roomsData.roo_pictype.Length>0)
                 {
-                    this.HyperLink1.Visible = true;
                     string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=1&pkno=" + this.lab_no.Text;
-                    this.HyperLink1.Text = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\"><img src=\"" + src + "\" width=\"60\" height=\"50\" /></a>";
+                    this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic1.Visible = true;
                     this.ImageUpload1.Visible = false;
                 }
                 else
                 {
-                    this.HyperLink1.Visible = false;
                     this.lbtn_delpic1.Visible = false;
                     this.ImageUpload1.Visible = true;
                 }
@@ -129,15 +127,13 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 場地平面圖
                 if (roomsData.roo_planetype != null && roomsData.roo_planetype.Length > 0)
                 {
-                    this.HyperLink2.Visible = true;
                     string src = "/NXEIP/lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
-                    this.HyperLink2.Text = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\"><img src=\"" + src + "\" width=\"60\" height=\"50\" /></a>";
+                    this.div_pic2.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic2.Visible = true;
                     this.ImageUpload2.Visible = false;
                 }
                 else
                 {
-                    this.HyperLink2.Visible = false;
                     this.lbtn_delpic2.Visible = false;
                     this.ImageUpload2.Visible = true;
                 }
@@ -148,11 +144,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 this.Navigator1.SubFunc = "新增";
                 this.rb_01.Checked = true;
 
-                this.HyperLink2.Visible = false;
                 this.lbtn_delpic1.Visible = false;
                 this.ImageUpload1.Visible = true;
 
-                this.HyperLink2.Visible = false;
                 this.lbtn_delpic2.Visible = false;
                 this.ImageUpload2.Visible = true;
                 
