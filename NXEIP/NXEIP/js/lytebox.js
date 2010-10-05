@@ -78,14 +78,27 @@ function LyteBox() {
 	this.isLyteframe = false;
 	/*@cc_on
 		/*@if (@_jscript)
-			this.ie = (document.all && !window.opera) ? true : false;
+			this.ie = (document.all && !window.opera) ? checkVersion() : false;
 		/*@else @*/
 			this.ie = false;
 		/*@end
 	@*/
 	this.ie7 = (this.ie && window.XMLHttpRequest);	
+	this.ie8 = (this.ie && window.XMLHttpRequest);
 	this.initialize();
 }
+
+function checkVersion() {
+         if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+                  var ieversion = new Number(RegExp.$1)
+                  if (ieversion >= 8 )
+                           return false;
+                  else if (ieversion < 8 )
+                           return true;
+         }
+         return false;
+}
+
 LyteBox.prototype.initialize = function() {
 	this.updateLyteboxItems();
 	var objBody = this.doc.getElementsByTagName("body").item(0);	
@@ -96,7 +109,7 @@ LyteBox.prototype.initialize = function() {
 	var objOverlay = this.doc.createElement("div");
 		objOverlay.setAttribute('id','lbOverlay');
 		objOverlay.setAttribute((this.ie ? 'className' : 'class'), this.theme);
-		if ((this.ie && !this.ie7) || (this.ie7 && this.doc.compatMode == 'BackCompat')) {
+		if ((this.ie && !this.ie7) || (this.ie7 && this.doc.compatMode == 'BackCompat') || (this.ie8 && this.doc.compatMode == 'BackCompat')) {
 			objOverlay.style.position = 'absolute';
 		}
 		objOverlay.style.display = 'none';
