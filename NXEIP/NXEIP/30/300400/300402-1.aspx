@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <script type="text/javascript" src="/NXEIP/js/lytebox.js"></script>
+    <script type="text/javascript" src="../..//js/lytebox.js"></script>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300402" />
     <div class="tableDiv">
         <div class="header">
