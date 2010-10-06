@@ -54,6 +54,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MANAGER_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "manager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.manager), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_E02_RELATIONS_E01", "e01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.e01), "e02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.e02), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_E02_RELATIONS_TYPES", "types", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.types), "e02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.e02), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "petition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.petition), true)]
 
 #endregion
 
@@ -9163,6 +9164,47 @@ namespace Entity
 
         #endregion
     
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms")]
+        public rooms rooms
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "rooms").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "rooms").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<rooms> roomsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "rooms");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<rooms>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "rooms", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -10641,6 +10683,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<spot>("NXEIPModel.FK_ROOMS_RELATIONS_SPOT", "spot", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "petition")]
+        public EntityCollection<petition> petition
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition", value);
                 }
             }
         }
