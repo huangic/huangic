@@ -64,7 +64,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
              ICollection<FolderJSON> fs = new List<FolderJSON>();
              //取部門的的檔案目錄
-             var folders = from f in model.doc01 where f.d01_parentid==parent_id && f.dep_no == dep_id && f.d01_type == "2" select f;
+             var folders = from f in model.doc01 where f.d01_parentid==parent_id && f.dep_no == dep_id && f.d01_type == "2" && !String.IsNullOrEmpty(f.d01_name) select f;
              try
              {
                  foreach (var folder in folders)
@@ -90,7 +90,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// </summary>
     /// <param name="pid"></param>
     /// <returns></returns>
-     private ICollection<FolderJSON> getFilder(int pid)
+     private ICollection<FolderJSON> getFolder(int pid)
      {
 
          using (NXEIPEntities model = new NXEIPEntities())
@@ -210,11 +210,11 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
         else {
 
             ICollection<FolderJSON> fs;
-           
-            
-            
-                
-            fs=getFilder(pid);
+
+
+
+
+            fs = getFolder(pid);
             
             //取使用者的目錄結構
 

@@ -17,57 +17,47 @@
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
      <script type="text/javascript" src="../../js/jquery.jstree.js"></script>
-     <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
-     <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
-     <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
+     <script type="text/javascript" src="../../js/jquery.FileExplorer-handle.js"></script>
 
      <script type="text/javascript">
-         $("#userFolder").fileManager(
-              { treeDiv: "#userFolder"
-              });
+       
      </script>
 
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="addForm">
-        <div class="header">
-            <div class="h1"></div>
-            <div class="h2">檔案搬移</div>
-            <div class="h3"></div>
-        </div>
-        <div>
-        
-        <div class="folderTree">
-        
-	    
-	    <div id="userFolder"></div>
-	   
-	    
-        </div>
-    </div>
-        
-        
-        
-        
-        </div>
-             <div class="footer">
-                <div class="f1"></div>
-                <div class="f2"></div>
-                <div class="f3"></div>
-             </div>
+  
+ <div class="tableDiv" >
+ <div class="header">
+   <div class="h1"></div>
+   <div class="h2"><div class="name">檔案搬移</div></div>
+   <div class="h3"></div>
+ </div>
+ <div id="accordion2">
+  <h3 ><a href="#" >使用者資料夾</a></h3>
+ <div id="handleTree">
+ 
+ 
+ </div>
+ </div>
 
-            <div align="center">
-                
-            
-                <asp:Button ID="Button1" runat="server" CssClass="b-input" 
-                    Text="確定" />
-                <asp:Button ID="Button2" runat="server" CssClass="a-input" 
-                     Text="取消"  OnClientClick="self.parent.update()"/>
-                
-            
-             </div>
-    </div>
+ 
+
+ <div class="footer">
+   <div class="f1"></div>
+   <div class="f2"></div>
+   <div class="f3"></div>
+ </div>
+
+ <div style="text-align:center">
+    <input id="handleOK" type="button"  title="確定"  value="確定" class=" b-input" />
+    <input id="CancelButton" type="button"  title="取消"  value="取消"  onclick="self.parent.update()" class="b-input" />
+ 
+ </div>
+
+ </div>
+
+
     
     </form>
 </body>
