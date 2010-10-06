@@ -12,30 +12,123 @@ jquery.jqGrid
 ;(function ($) {
 
     var _init=function(_setting) {
-        tb_init('a.thickbox input.thickbox');
+    tb_init('a.thickbox input.thickbox');
 
     $.ajaxSetup({ cache: false });
    
         
 
-    var del=$(_setting.fileDeleteButton);
-    //alert(del);
+   
+    
 
-    $(del).bind("click",
-        delFile
-    );
+    $(_setting.fileDeleteButton).bind("click",delFile);
+
+    $(_setting.fileMoveButton).bind("click",OpenMoveTree);
+    $(_setting.fileCopyButton).bind("click",OpenCopyTree);
 
 
     function test(){
-        $.log("TEST");
-        alert("test");
+       
+        //alert($.jstree._focused().get_selected());
     }
+
+
+
+
+    //檔案搬移
+    function OpenMoveTree(){
+        $.log("MoveTree");
+        
+        var s;
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
+
+        if(s.length==0){
+         alert("請選擇檔案");
+         return;
+        }
+
+
+
+        showHandleTree();
+
+        
+        //建立樹狀
+        $(_setting.dialog).dialog({
+         modal:true,
+         title:"檔案搬移",
+         autoOpen:false,
+         buttons: {
+         "取消":function(){$(_setting.dialog).dialog('close')},
+         "搬移":function(){
+            node=$.jstree._focused().get_selected();
+            moveFile(node);
+            $(_setting.dialog).dialog("close");
+         }}
+
+
+        });
+
+
+        $(_setting.dialog).dialog("open");
+        //改變確定紐
+
+
+    }
+
+     //檔案複製
+    function OpenCopyTree(){
+        $.log("MoveTree");
+        //jQuery(_setting.handleTree).show();
+         var s;
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
+
+        if(s.length==0){
+         alert("請選擇檔案");
+         return;
+        }
+
+
+         showHandleTree();
+
+        
+        //建立樹狀
+        $(_setting.dialog).dialog({
+         modal:true,
+         title:"檔案複製",
+         autoOpen:false,
+         buttons: {
+         "取消":function(){$(_setting.dialog).dialog('close')},
+         "複製":function(){
+            node=$.jstree._focused().get_selected();
+            copyFile(node);
+            $(_setting.dialog).dialog("close");
+         }}
+
+
+        });
+
+
+        $(_setting.dialog).dialog("open");
+
+
+    }
+
+
+
     //檔案刪除
     function delFile(){
-         $.log("DelFile");
+         //$.log("DelFile");
         //取GRID的SELECTED
         var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
+
+        if(s.length==0){
+        alert("請選擇檔案");
+         return ;
+        }
+
+        if(confirm("確定要刪除?")){
+
         var data = { 
             "handle":"delete",
             "files": s
@@ -44,7 +137,7 @@ jquery.jqGrid
         var url = "FileHandle.ashx";
         var jsonData = JSON.stringify(data) ;
         AjaxHandle(url, ""+jsonData, success);
-
+        }
         //讀取 FILE 傳入 FOLDER
         //檢查節點
         function success(data){
@@ -57,6 +150,9 @@ jquery.jqGrid
         };        
 
     };
+
+
+    
 
 
 
@@ -391,11 +487,15 @@ jquery.jqGrid
     function moveFile(obj) {
         //設定要搬移的目的地
         var folder_id = $(obj).attr("id");
+        var depid=$(obj).attr("depid");
+        var folderType=$(obj).attr("folderType");
         var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
         var data = { 
             "handle":"move",
             "folderId": folder_id,
+            "depid":depid,
+            "folderType":folderType,
             "files": s
 
         };
@@ -406,8 +506,11 @@ jquery.jqGrid
         //讀取 FILE 傳入 FOLDER
         //檢查節點
         function moveSuccess(data){
+          
+          
           if(data.msg=="success"){
           $( _setting.fileDiv).trigger("reloadGrid");
+          alert("搬移成功");
           }else{
            alert(data.msg);
           }
@@ -419,11 +522,16 @@ jquery.jqGrid
     function copyFile(obj) {
         //設定要搬移的目的地
         var folder_id = $(obj).attr("id");
+        var depid=$(obj).attr("depid");
+        var folderType=$(obj).attr("folderType");
+
         var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
         var data = { 
             "handle":"copy",
             "folderId": folder_id,
+            "depid":depid,
+            "folderType":folderType,
             "files": s
 
         };
@@ -436,6 +544,7 @@ jquery.jqGrid
         function success(data){
           if(data.msg=="success"){
             $( _setting.fileDiv).trigger("reloadGrid");
+            alert("複製成功!");
           }else{
             alert(data.msg);
           }
@@ -445,6 +554,53 @@ jquery.jqGrid
     };
     
     
+    function showHandleTree(){
+    
+    $(_setting.handleTree).jstree({
+
+            "json_data": {
+                "ajax": {
+                    "type": "POST",
+                    "url": "FileFolder.ashx",
+                    //"contentType": "application/json; charset=utf-8",
+                    "dataType": "json",
+                    "async": "true",
+                    "data":
+                        function (n) {
+                            return {
+                                "operation": "get_children",
+                                "id": n.attr ? n.attr("id") : 0
+                            };
+                        }
+                }
+            },
+            "core": { strings: {
+                "loading": "讀取目錄中……",
+                "new_node": "新資料夾"
+
+            }
+            },
+
+            "themes": {
+                "theme": "classic"
+            },
+           
+
+            
+          
+
+
+
+            "plugins": ["themes", "json_data", "core", "ui"]
+
+
+
+
+
+        })
+    }
+   
+
 
 
     }//_init end
@@ -455,8 +611,12 @@ jquery.jqGrid
             treeDiv:"#treeDiv",
             publicDiv:"#publicDiv",
             fileDiv:"#fileDiv",
-            fileDeleteButton:"#deleteButton"
-           
+            handleTree:"#handleTree",
+            dialog:"#dialog",
+            fileDeleteButton:"#deleteFile",
+            fileMoveButton:"#moveFile",
+            fileCopyButton:"#copyFile",
+            fileHandleOKButton:"#handleOK"
         };
 
 

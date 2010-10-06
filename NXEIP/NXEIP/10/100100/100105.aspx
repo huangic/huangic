@@ -38,7 +38,12 @@
               {   treeDiv: "#userFolder",
                   fileDiv: "#filelist",
                   publicDiv:"#publicFolder",
-                  fileDeleteButton: "#delFile"
+                  fileDeleteButton: "#delFile",
+                   fileMoveButton: "#moveFile",
+                   fileCopyButton: "#copyFile",
+                   dialog:"#dialog",
+                    handleTree:"#handleTree"
+
               });
 
              
@@ -77,8 +82,8 @@
             <div id="toolbar" style="text-align:right">
                 <input id="addFile" type="button" alt="100105-1.aspx?modal=true&TB_iframe=true" title="上傳" value="上傳" class="thickbox b-input" />
                 <input id="delFile" type="button" title="刪除" value="刪除" class="b-input" />
-                <input id="moveFile" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true" title="搬移" value="搬移" class="thickbox b-input" />
-                <input id="copyFile" type="button" title="複製" value="複製" class="thickbox b-input" />
+                <input id="moveFile" type="button" title="搬移" value="搬移" class="b-input" />
+                <input id="copyFile" type="button" title="複製" value="複製" class="b-input" />
     
                 <input id="Button3" type="button"  title="權限"  value="權限" class="thickbox b-input" />
                 <input id="Button4" type="button"  title="公開"  value="公開" class="thickbox b-input" />
@@ -86,26 +91,15 @@
             <table id="filelist">
             </table>
     </div>
-   <!--
+   
 
- <div class="tableDiv">
- <div class="header">
-  <div class="h1"></div>
-   <div class="h2"></div>
-    <div class="h3"></div>
- </div>
-
- <div class="footer">
-  <div class="f1"></div>
-   <div class="f2"></div>
-    <div class="f3"></div>
- </div>
- </div>
 </div>
--->
 
 
 
+<div id="dialog" class="tableDiv dialog">
+ <div id="handleTree"></div>
+ </div>
 
 
     

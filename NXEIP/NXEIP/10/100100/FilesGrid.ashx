@@ -147,9 +147,19 @@ public class Files : IHttpHandler,IRequiresSessionState
         
        
         String id = context.Request["id"];
+       
+        int depid=0; 
+        String folderType="";
 
-        int depid = int.Parse(context.Request["depid"]);
-        String folderType = context.Request["folderType"];
+        try
+        {
+            depid = int.Parse(context.Request["depid"]);
+            folderType = context.Request["folderType"];
+        }
+        catch { 
+        
+        }
+        
         
          int pid;
         

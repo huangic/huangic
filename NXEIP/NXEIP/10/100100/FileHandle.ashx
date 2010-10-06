@@ -95,18 +95,61 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
        int parent_id = int.Parse((string)json["folderId"]);
+      
+       int depid = int.Parse((string)json["depid"]);
+       
+       string folderType = (string)json["folderType"];
 
-       
-       using(NXEIPEntities model=new NXEIPEntities()){
-       
-          foreach (var fid in files) {
-             int id = int.Parse((string)fid);
-             var file = (from f in model.doc01 where f.d01_no == id select f).First();
-             file.d01_parentid = parent_id;
+
+       if (parent_id != 0) { 
+          //取節點資料
+           using (NXEIPEntities model = new NXEIPEntities()) {
+               var doc = (from d in model.doc01 where d.d01_no == parent_id select d).First();
+               depid=doc.dep_no;
+               folderType = doc.d01_type;
+               
+           }
+       }
+
+       string Msg = "";
+
+
+       using (NXEIPEntities model = new NXEIPEntities())
+       {
+
+
+           foreach (var fid in files)
+           {
+
+
+
+
+               int id = int.Parse((string)fid);
+               var file = (from f in model.doc01 where f.d01_no == id select f).First();
+
+               //找重複黨名(重複就跳出迴圈)
+               int countfile = (from f in model.doc01 where f.d01_file == file.d01_file && f.d01_parentid == parent_id && f.dep_no == depid && f.d01_type == folderType select f).Count();
+               if (countfile > 0)
+               {
+                   Msg += file.d01_file + "檔案重複\\n";
+                   continue;
+               }
+
+
+               file.d01_parentid = parent_id;
+               file.dep_no = depid;
+               file.d01_type = folderType;
            }
 
-       model.SaveChanges();
-       context.Response.Write("{\"msg\":\"success\"}");
+           model.SaveChanges();
+
+           if (String.IsNullOrEmpty(Msg))
+           {
+               context.Response.Write("{\"msg\":\"success\"}");
+           }
+           else {
+               context.Response.Write("{\"msg\":\""+Msg+"\"}");
+           }
        }
        
    }
@@ -119,6 +162,26 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
        int parent_id = int.Parse((string)json["folderId"]);
+
+       int depid = int.Parse((string)json["depid"]);
+       string folderType = (string)json["folderType"];
+
+
+       if (parent_id != 0)
+       {
+           //取節點資料
+           using (NXEIPEntities model = new NXEIPEntities())
+           {
+               var doc = (from d in model.doc01 where d.d01_no == parent_id select d).First();
+               depid = doc.dep_no;
+               folderType = doc.d01_type;
+
+           }
+       }
+       
+       
+       
+       
        string Msg = String.Empty;
 
        string upload_dir = GetPathArg();
@@ -126,11 +189,28 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
            using (NXEIPEntities model = new NXEIPEntities())
            {
 
-               //取父帶目錄資料
+               //取父帶目錄資料(判斷部門或是人員)
+               int FolderPeopleUid = 0;
+               try
+               {
+                   var parentFolder = (from f in model.doc01 where f.d01_no == parent_id select f).First();
+                   FolderPeopleUid = parentFolder.peo_uid;
+               }
+               catch {
+                   FolderPeopleUid = int.Parse(sessionObj.sessionUserID);
+               }
+               String newPath ="";
                
-               var parentFolder=(from f in model.doc01 where f.d01_no==parent_id select f).First();
-               int FolderPeopleUid=parentFolder.peo_uid;
-               String newPath = "/upload/" + FolderPeopleUid;
+               if (folderType == "2")
+               {
+                newPath="/upload/depart/"+depid;
+               }
+               else { 
+                newPath= "/upload/people/" + FolderPeopleUid;
+               }
+               
+               
+              
                
                foreach (var fid in files)
                {
@@ -148,7 +228,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
 
 
                    //找重複黨名(重複就跳出迴圈)
-                     int countfile=(from f in model.doc01 where f.d01_file==fileDetail.file.d01_file &&f.d01_parentid==parent_id select f).Count();
+                     int countfile=(from f in model.doc01 where f.d01_file==fileDetail.file.d01_file &&f.d01_parentid==parent_id &&f.dep_no==depid &&f.d01_type==folderType select f).Count();
                      if (countfile > 0) {
                          Msg += fileDetail.file.d01_file+"檔案重複\\n";
                          continue;
@@ -169,6 +249,8 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                        String distPath = upload_dir + filePath;
                        //複製檔案
 
+                       Directory.CreateDirectory(upload_dir+newPath);
+                       
                        File.Copy(sourcePath,distPath,true);
 
 
@@ -192,7 +274,8 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                        newFileDoc.peo_uid=FolderPeopleUid;
                        newFileDoc.d01_createuid = int.Parse(sessionObj.sessionUserID);
                        newFileDoc.d01_createtime = DateTime.Now;
-                       
+                       newFileDoc.dep_no = depid;
+                       newFileDoc.d01_type = folderType;
                        //網址做MD5編碼
                        MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
                        String md5String = BitConverter.ToString(md5.ComputeHash(Encoding.UTF8.GetBytes(newFilename)));
@@ -228,7 +311,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
 
                        
                    }catch(Exception ex){
-                       context.Response.Write("{\"msg\":\""+ex.Message+"\"}");
+                       Msg = ex.Message;
                    }
                }
 
