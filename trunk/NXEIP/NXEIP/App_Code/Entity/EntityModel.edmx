@@ -131,6 +131,10 @@
             <End Role="people" EntitySet="people" />
             <End Role="per01" EntitySet="per01" />
           </AssociationSet>
+          <AssociationSet Name="FK_PETITION_RELATIONS_ROOMS" Association="NXEIPModel.Store.FK_PETITION_RELATIONS_ROOMS">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
           <AssociationSet Name="FK_RAUTHORI_RELATIONS_ROLE" Association="NXEIPModel.Store.FK_RAUTHORI_RELATIONS_ROLE">
             <End Role="role" EntitySet="role" />
             <End Role="rauthority" EntitySet="rauthority" />
@@ -993,6 +997,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PETITION_RELATIONS_ROOMS">
+          <End Role="rooms" Type="NXEIPModel.Store.rooms" Multiplicity="1" />
+          <End Role="petition" Type="NXEIPModel.Store.petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="roo_no" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="roo_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RAUTHORI_RELATIONS_ROLE">
           <End Role="role" Type="NXEIPModel.Store.role" Multiplicity="1" />
           <End Role="rauthority" Type="NXEIPModel.Store.rauthority" Multiplicity="*" />
@@ -1347,6 +1363,10 @@
             <End Role="e02" EntitySet="e02" />
           </AssociationSet>
           <EntitySet Name="petition" EntityType="NXEIPModel.petition" />
+          <AssociationSet Name="FK_PETITION_RELATIONS_ROOMS" Association="NXEIPModel.FK_PETITION_RELATIONS_ROOMS">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="petition" EntitySet="petition" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -2225,6 +2245,7 @@
           <Property Type="DateTime" Name="roo_createtime" />
           <NavigationProperty Name="government" Relationship="NXEIPModel.FK_GOVERNME_RELATIONS_ROOMS" FromRole="rooms" ToRole="government" />
           <NavigationProperty Name="spot" Relationship="NXEIPModel.FK_ROOMS_RELATIONS_SPOT" FromRole="rooms" ToRole="spot" />
+          <NavigationProperty Name="petition" Relationship="NXEIPModel.FK_PETITION_RELATIONS_ROOMS" FromRole="rooms" ToRole="petition" />
         </EntityType>
         <Association Name="FK_GOVERNME_RELATIONS_ROOMS">
           <End Type="NXEIPModel.rooms" Role="rooms" Multiplicity="1" />
@@ -2392,7 +2413,20 @@
           <Property Type="DateTime" Name="pet_meeting" />
           <Property Type="Int32" Name="pet_createuid" />
           <Property Type="DateTime" Name="pet_createtime" />
+          <NavigationProperty Name="rooms" Relationship="NXEIPModel.FK_PETITION_RELATIONS_ROOMS" FromRole="petition" ToRole="rooms" />
         </EntityType>
+        <Association Name="FK_PETITION_RELATIONS_ROOMS">
+          <End Type="NXEIPModel.rooms" Role="rooms" Multiplicity="1" />
+          <End Type="NXEIPModel.petition" Role="petition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="roo_no" />
+            </Principal>
+            <Dependent Role="petition">
+              <PropertyRef Name="roo_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3085,6 +3119,8 @@
         <EntityTypeShape EntityType="NXEIPModel.rooms" Width="1.5" PointX="0.5" PointY="3.125" Height="5.8263151041666656" />
         <AssociationConnector Association="NXEIPModel.FK_GOVERNME_RELATIONS_ROOMS" >
           <ConnectorPoint PointX="2" PointY="6.8939925130208337" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.8939925130208328" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="6.8939925130208337" />
           <ConnectorPoint PointX="2.875" PointY="6.8939925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROOMS_RELATIONS_SPOT" >
@@ -3121,10 +3157,21 @@
           <ConnectorPoint PointX="13.5" PointY="6.125" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_E02_RELATIONS_TYPES" >
-          <ConnectorPoint PointX="12" PointY="11.696808268229166" />
-          <ConnectorPoint PointX="12.75" PointY="11.696808268229166" />
+          <ConnectorPoint PointX="12" PointY="12.081411132812498" />
+          <ConnectorPoint PointX="12.416666666666666" PointY="12.081411132812498" />
+          <ConnectorPoint PointX="12.583333333333334" PointY="12.081411132812498" />
+          <ConnectorPoint PointX="12.75" PointY="12.081411132812498" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.petition" Width="1.5" PointX="13.375" PointY="13.75" Height="4.6725065104166674" />
+        <AssociationConnector Association="NXEIPModel.FK_PETITION_RELATIONS_ROOMS" >
+          <ConnectorPoint PointX="2" PointY="5.6151432291666667" />
+          <ConnectorPoint PointX="2.625" PointY="5.6151432291666667" />
+          <ConnectorPoint PointX="2.625" PointY="8.0379850260416674" />
+          <ConnectorPoint PointX="12.5" PointY="8.0379850260416674" />
+          <ConnectorPoint PointX="12.5" PointY="13.162822265624996" />
+          <ConnectorPoint PointX="14.125" PointY="13.162822265624996" />
+          <ConnectorPoint PointX="14.125" PointY="13.75" />
+        </AssociationConnector>
         </Diagram>
     </Diagrams>
   </Designer>
