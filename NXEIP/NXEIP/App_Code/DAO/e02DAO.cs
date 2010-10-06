@@ -57,7 +57,7 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="e01_no"></param>
         /// <returns></returns>
-        public e02 GetBye01NO(int e02_no)
+        public e02 GetBye02NO(int e02_no)
         {
             return (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
         }
