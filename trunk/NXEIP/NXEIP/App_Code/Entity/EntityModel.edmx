@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
@@ -28,6 +28,7 @@
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="per01" EntityType="NXEIPModel.Store.per01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="petition" EntityType="NXEIPModel.Store.petition" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rauthority" EntityType="NXEIPModel.Store.rauthority" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="roldefault" EntityType="NXEIPModel.Store.roldefault" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="role" EntityType="NXEIPModel.Store.role" store:Type="Tables" Schema="dbo" />
@@ -532,6 +533,30 @@
           <Property Name="p01_boss" Type="int" />
           <Property Name="p01_major" Type="int" />
           <Property Name="p01_plevel" Type="int" />
+        </EntityType>
+        <EntityType Name="petition">
+          <Key>
+            <PropertyRef Name="pet_no" />
+          </Key>
+          <Property Name="pet_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="roo_no" Type="int" Nullable="false" />
+          <Property Name="pet_applydate" Type="datetime" />
+          <Property Name="pet_stime" Type="datetime" />
+          <Property Name="pet_etime" Type="datetime" />
+          <Property Name="pet_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="pet_applyuid" Type="int" />
+          <Property Name="pet_depno" Type="int" />
+          <Property Name="pet_tel" Type="varchar" MaxLength="20" />
+          <Property Name="pet_host" Type="nvarchar" MaxLength="30" />
+          <Property Name="pet_count" Type="int" />
+          <Property Name="pet_reason" Type="nvarchar" MaxLength="200" />
+          <Property Name="pet_apply" Type="char" MaxLength="1" />
+          <Property Name="pet_open" Type="char" MaxLength="1" />
+          <Property Name="pet_signuid" Type="int" />
+          <Property Name="pet_signdate" Type="datetime" />
+          <Property Name="pet_meeting" Type="datetime" />
+          <Property Name="pet_createuid" Type="int" />
+          <Property Name="pet_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="rauthority">
           <Key>
@@ -1321,6 +1346,7 @@
             <End Role="types" EntitySet="types" />
             <End Role="e02" EntitySet="e02" />
           </AssociationSet>
+          <EntitySet Name="petition" EntityType="NXEIPModel.petition" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -2343,6 +2369,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="petition">
+          <Key>
+            <PropertyRef Name="pet_no" />
+          </Key>
+          <Property Type="Int32" Name="pet_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="roo_no" Nullable="false" />
+          <Property Type="DateTime" Name="pet_applydate" />
+          <Property Type="DateTime" Name="pet_stime" />
+          <Property Type="DateTime" Name="pet_etime" />
+          <Property Type="String" Name="pet_name" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="pet_applyuid" />
+          <Property Type="Int32" Name="pet_depno" />
+          <Property Type="String" Name="pet_tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pet_host" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="pet_count" />
+          <Property Type="String" Name="pet_reason" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pet_apply" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="pet_open" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="pet_signuid" />
+          <Property Type="DateTime" Name="pet_signdate" />
+          <Property Type="DateTime" Name="pet_meeting" />
+          <Property Type="Int32" Name="pet_createuid" />
+          <Property Type="DateTime" Name="pet_createtime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2772,6 +2822,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="petition">
+            <EntityTypeMapping TypeName="NXEIPModel.petition">
+              <MappingFragment StoreEntitySet="petition">
+                <ScalarProperty Name="pet_createtime" ColumnName="pet_createtime" />
+                <ScalarProperty Name="pet_createuid" ColumnName="pet_createuid" />
+                <ScalarProperty Name="pet_meeting" ColumnName="pet_meeting" />
+                <ScalarProperty Name="pet_signdate" ColumnName="pet_signdate" />
+                <ScalarProperty Name="pet_signuid" ColumnName="pet_signuid" />
+                <ScalarProperty Name="pet_open" ColumnName="pet_open" />
+                <ScalarProperty Name="pet_apply" ColumnName="pet_apply" />
+                <ScalarProperty Name="pet_reason" ColumnName="pet_reason" />
+                <ScalarProperty Name="pet_count" ColumnName="pet_count" />
+                <ScalarProperty Name="pet_host" ColumnName="pet_host" />
+                <ScalarProperty Name="pet_tel" ColumnName="pet_tel" />
+                <ScalarProperty Name="pet_depno" ColumnName="pet_depno" />
+                <ScalarProperty Name="pet_applyuid" ColumnName="pet_applyuid" />
+                <ScalarProperty Name="pet_name" ColumnName="pet_name" />
+                <ScalarProperty Name="pet_etime" ColumnName="pet_etime" />
+                <ScalarProperty Name="pet_stime" ColumnName="pet_stime" />
+                <ScalarProperty Name="pet_applydate" ColumnName="pet_applydate" />
+                <ScalarProperty Name="roo_no" ColumnName="roo_no" />
+                <ScalarProperty Name="pet_no" ColumnName="pet_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3049,6 +3124,7 @@
           <ConnectorPoint PointX="12" PointY="11.696808268229166" />
           <ConnectorPoint PointX="12.75" PointY="11.696808268229166" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.petition" Width="1.5" PointX="13.375" PointY="13.75" Height="4.6725065104166674" />
         </Diagram>
     </Diagrams>
   </Designer>

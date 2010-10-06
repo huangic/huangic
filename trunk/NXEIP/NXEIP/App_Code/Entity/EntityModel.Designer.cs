@@ -680,6 +680,22 @@ namespace Entity
             }
         }
         private ObjectSet<e02> _e02;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<petition> petition
+        {
+            get
+            {
+                if ((_petition == null))
+                {
+                    _petition = base.CreateObjectSet<petition>("petition");
+                }
+                return _petition;
+            }
+        }
+        private ObjectSet<petition> _petition;
 
         #endregion
         #region AddTo 方法
@@ -970,6 +986,14 @@ namespace Entity
         public void AddToe02(e02 e02)
         {
             base.AddObject("e02", e02);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 petition EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTopetition(petition petition)
+        {
+            base.AddObject("petition", petition);
         }
 
         #endregion
@@ -8650,6 +8674,495 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="petition")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class petition : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 petition 物件。
+        /// </summary>
+        /// <param name="pet_no">pet_no 屬性的初始值。</param>
+        /// <param name="roo_no">roo_no 屬性的初始值。</param>
+        public static petition Createpetition(global::System.Int32 pet_no, global::System.Int32 roo_no)
+        {
+            petition petition = new petition();
+            petition.pet_no = pet_no;
+            petition.roo_no = roo_no;
+            return petition;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 pet_no
+        {
+            get
+            {
+                return _pet_no;
+            }
+            set
+            {
+                if (_pet_no != value)
+                {
+                    Onpet_noChanging(value);
+                    ReportPropertyChanging("pet_no");
+                    _pet_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("pet_no");
+                    Onpet_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _pet_no;
+        partial void Onpet_noChanging(global::System.Int32 value);
+        partial void Onpet_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 roo_no
+        {
+            get
+            {
+                return _roo_no;
+            }
+            set
+            {
+                Onroo_noChanging(value);
+                ReportPropertyChanging("roo_no");
+                _roo_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("roo_no");
+                Onroo_noChanged();
+            }
+        }
+        private global::System.Int32 _roo_no;
+        partial void Onroo_noChanging(global::System.Int32 value);
+        partial void Onroo_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_applydate
+        {
+            get
+            {
+                return _pet_applydate;
+            }
+            set
+            {
+                Onpet_applydateChanging(value);
+                ReportPropertyChanging("pet_applydate");
+                _pet_applydate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_applydate");
+                Onpet_applydateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_applydate;
+        partial void Onpet_applydateChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_applydateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_stime
+        {
+            get
+            {
+                return _pet_stime;
+            }
+            set
+            {
+                Onpet_stimeChanging(value);
+                ReportPropertyChanging("pet_stime");
+                _pet_stime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_stime");
+                Onpet_stimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_stime;
+        partial void Onpet_stimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_stimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_etime
+        {
+            get
+            {
+                return _pet_etime;
+            }
+            set
+            {
+                Onpet_etimeChanging(value);
+                ReportPropertyChanging("pet_etime");
+                _pet_etime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_etime");
+                Onpet_etimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_etime;
+        partial void Onpet_etimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_etimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_name
+        {
+            get
+            {
+                return _pet_name;
+            }
+            set
+            {
+                Onpet_nameChanging(value);
+                ReportPropertyChanging("pet_name");
+                _pet_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_name");
+                Onpet_nameChanged();
+            }
+        }
+        private global::System.String _pet_name;
+        partial void Onpet_nameChanging(global::System.String value);
+        partial void Onpet_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pet_applyuid
+        {
+            get
+            {
+                return _pet_applyuid;
+            }
+            set
+            {
+                Onpet_applyuidChanging(value);
+                ReportPropertyChanging("pet_applyuid");
+                _pet_applyuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_applyuid");
+                Onpet_applyuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pet_applyuid;
+        partial void Onpet_applyuidChanging(Nullable<global::System.Int32> value);
+        partial void Onpet_applyuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pet_depno
+        {
+            get
+            {
+                return _pet_depno;
+            }
+            set
+            {
+                Onpet_depnoChanging(value);
+                ReportPropertyChanging("pet_depno");
+                _pet_depno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_depno");
+                Onpet_depnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pet_depno;
+        partial void Onpet_depnoChanging(Nullable<global::System.Int32> value);
+        partial void Onpet_depnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_tel
+        {
+            get
+            {
+                return _pet_tel;
+            }
+            set
+            {
+                Onpet_telChanging(value);
+                ReportPropertyChanging("pet_tel");
+                _pet_tel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_tel");
+                Onpet_telChanged();
+            }
+        }
+        private global::System.String _pet_tel;
+        partial void Onpet_telChanging(global::System.String value);
+        partial void Onpet_telChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_host
+        {
+            get
+            {
+                return _pet_host;
+            }
+            set
+            {
+                Onpet_hostChanging(value);
+                ReportPropertyChanging("pet_host");
+                _pet_host = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_host");
+                Onpet_hostChanged();
+            }
+        }
+        private global::System.String _pet_host;
+        partial void Onpet_hostChanging(global::System.String value);
+        partial void Onpet_hostChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pet_count
+        {
+            get
+            {
+                return _pet_count;
+            }
+            set
+            {
+                Onpet_countChanging(value);
+                ReportPropertyChanging("pet_count");
+                _pet_count = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_count");
+                Onpet_countChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pet_count;
+        partial void Onpet_countChanging(Nullable<global::System.Int32> value);
+        partial void Onpet_countChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_reason
+        {
+            get
+            {
+                return _pet_reason;
+            }
+            set
+            {
+                Onpet_reasonChanging(value);
+                ReportPropertyChanging("pet_reason");
+                _pet_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_reason");
+                Onpet_reasonChanged();
+            }
+        }
+        private global::System.String _pet_reason;
+        partial void Onpet_reasonChanging(global::System.String value);
+        partial void Onpet_reasonChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_apply
+        {
+            get
+            {
+                return _pet_apply;
+            }
+            set
+            {
+                Onpet_applyChanging(value);
+                ReportPropertyChanging("pet_apply");
+                _pet_apply = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_apply");
+                Onpet_applyChanged();
+            }
+        }
+        private global::System.String _pet_apply;
+        partial void Onpet_applyChanging(global::System.String value);
+        partial void Onpet_applyChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_open
+        {
+            get
+            {
+                return _pet_open;
+            }
+            set
+            {
+                Onpet_openChanging(value);
+                ReportPropertyChanging("pet_open");
+                _pet_open = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_open");
+                Onpet_openChanged();
+            }
+        }
+        private global::System.String _pet_open;
+        partial void Onpet_openChanging(global::System.String value);
+        partial void Onpet_openChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pet_signuid
+        {
+            get
+            {
+                return _pet_signuid;
+            }
+            set
+            {
+                Onpet_signuidChanging(value);
+                ReportPropertyChanging("pet_signuid");
+                _pet_signuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_signuid");
+                Onpet_signuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pet_signuid;
+        partial void Onpet_signuidChanging(Nullable<global::System.Int32> value);
+        partial void Onpet_signuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_signdate
+        {
+            get
+            {
+                return _pet_signdate;
+            }
+            set
+            {
+                Onpet_signdateChanging(value);
+                ReportPropertyChanging("pet_signdate");
+                _pet_signdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_signdate");
+                Onpet_signdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_signdate;
+        partial void Onpet_signdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_signdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_meeting
+        {
+            get
+            {
+                return _pet_meeting;
+            }
+            set
+            {
+                Onpet_meetingChanging(value);
+                ReportPropertyChanging("pet_meeting");
+                _pet_meeting = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_meeting");
+                Onpet_meetingChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_meeting;
+        partial void Onpet_meetingChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_meetingChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pet_createuid
+        {
+            get
+            {
+                return _pet_createuid;
+            }
+            set
+            {
+                Onpet_createuidChanging(value);
+                ReportPropertyChanging("pet_createuid");
+                _pet_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_createuid");
+                Onpet_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pet_createuid;
+        partial void Onpet_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onpet_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pet_createtime
+        {
+            get
+            {
+                return _pet_createtime;
+            }
+            set
+            {
+                Onpet_createtimeChanging(value);
+                ReportPropertyChanging("pet_createtime");
+                _pet_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pet_createtime");
+                Onpet_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pet_createtime;
+        partial void Onpet_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onpet_createtimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
