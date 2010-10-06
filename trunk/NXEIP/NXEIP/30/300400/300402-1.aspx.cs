@@ -112,7 +112,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 場地圖片
                 if (roomsData.roo_pictype!=null && roomsData.roo_pictype.Length>0)
                 {
-                    string src = "../..//lib/ShowPic.aspx?tb=rooms&picorder=1&pkno=" + this.lab_no.Text;
+                    string src = "../../lib/ShowPic.aspx?tb=rooms&picorder=1&pkno=" + this.lab_no.Text;
                     this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地圖片\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic1.Visible = true;
                     this.ImageUpload1.Visible = false;
@@ -129,7 +129,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 場地平面圖
                 if (roomsData.roo_planetype != null && roomsData.roo_planetype.Length > 0)
                 {
-                    string src = "../..//lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
+                    string src = "../../lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
                     this.div_pic2.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
                     this.lbtn_delpic2.Visible = true;
                     this.ImageUpload2.Visible = false;
@@ -386,7 +386,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_tel = this.txt_tel1.Text;
                         newRow.roo_twoext = this.txt_ext2.Text;
                         newRow.roo_twotel = this.txt_tel2.Text;
-                        if (this.jQueryPeopleTree2.Items.Count > 0)
+                        if (this.jQueryPeopleTree2.Items != null && this.jQueryPeopleTree2.Items.Count > 0)
                             newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
