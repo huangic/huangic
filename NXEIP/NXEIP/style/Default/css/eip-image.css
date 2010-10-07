@@ -76,11 +76,12 @@
 
 .icon
 {
-     background:url("../image/a14.gif");  
-      background-repeat:no-repeat;
-     line-height:1.3em;
+     background-image:url("../image/a14.gif");  
+     background-repeat:no-repeat;
+     background-position:left center;
      padding: 0px 0px 0px 20px;
      font-size:13px;
+     vertical-align:middle;
  }
  
  .icon-event
