@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="100402.aspx.cs" Inherits="_10_100400_100402" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
+<%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="nav">
-        <span>個人應用 / 線上申請 /<strong> 場地申請 </strong></span>
-    </div>
+    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </ajaxtoolkit:ToolkitScriptManager>
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100402" />
     <div class="placeLayout">
         <div class="left">
             <div class="layoutDiv">
@@ -14,7 +16,8 @@
                     <div class="h1">
                     </div>
                     <div class="h2">
-                        <div class="name">請先選擇場所與日期</div>
+                        <div class="name1">
+                            請先選擇場所</div>
                     </div>
                     <div class="h3">
                     </div>
@@ -22,184 +25,21 @@
                 <div class="top">
                     <div align="left">
                         <span class="icon">所在地</span>
-                        <select name="select4">
-                            <option selected="selected">請選擇</option>
-                        </select>
-                        <br>
+                        <asp:DropDownList ID="ddl_spot" runat="server" CssClass="select4">
+                        </asp:DropDownList>
+                        <ajaxtoolkit:CascadingDropDown ID="ddl_spot_CascadingDropDown" runat="server" Category="spot"
+                            LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" ServiceMethod="GetSpot"
+                            TargetControlID="ddl_spot" ServicePath="../../WebService/place.asmx">
+                        </ajaxtoolkit:CascadingDropDown>
+                        <br />
                         <span class="icon">場地</span>
-                        <select name="select4">
-                            <option selected="selected">請選擇</option>
-                        </select>
+                        <asp:DropDownList ID="ddl_rooms" runat="server" CssClass="select4">
+                        </asp:DropDownList>
+                        <ajaxtoolkit:CascadingDropDown ID="ddl_rooms_CascadingDropDown" runat="server" TargetControlID="ddl_rooms"
+                            Category="rooms" ContextKey="" LoadingText="讀取中..." ParentControlID="ddl_spot"
+                            PromptText="請選擇" PromptValue="0" ServiceMethod="GetRooms" ServicePath="../../WebService/place.asmx">
+                        </ajaxtoolkit:CascadingDropDown>
                     </div>
-                    <div class="block-1">
-                        <div class="header">
-                            <div class="h1">
-                            </div>
-                            <div class="h2">
-                                <div class="name">
-                                    2010年4月</div>
-                            </div>
-                            <div class="h3">
-                            </div>
-                        </div>
-                        <table class="calendar">
-                            <tbody>
-                                <tr>
-                                    <td class="holiday">
-                                        日
-                                    </td>
-                                    <td>
-                                        一
-                                    </td>
-                                    <td>
-                                        二
-                                    </td>
-                                    <td>
-                                        三
-                                    </td>
-                                    <td>
-                                        四
-                                    </td>
-                                    <td>
-                                        五
-                                    </td>
-                                    <td class="holiday">
-                                        六
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday">
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td class="holiday">
-                                        <a href="#">1</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday">
-                                        <a href="#">2</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">3</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">4</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">5</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">6</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">7</a>
-                                    </td>
-                                    <td class="holiday">
-                                        <a href="#">8</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday">
-                                        <a href="#">9</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">10</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">11</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">12</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">13</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">14</a>
-                                    </td>
-                                    <td class="holiday">
-                                        <a href="#">15</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday">
-                                        <a href="#">16</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">17</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">18</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">19</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">20</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">21</a>
-                                    </td>
-                                    <td class="holiday">
-                                        <a href="#">22</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday">
-                                        <a href="#">23</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">24</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">25</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">26</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">27</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">28</a>
-                                    </td>
-                                    <td class="holiday">
-                                        <a href="#">29</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="holiday today">
-                                        <a href="#">30</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">31</a>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td class="holiday">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                 <div class="center">
-                    今天是2010-05-01星期六
                 </div>
                 <div class="bottom">
                     <table class="place">
@@ -275,97 +115,81 @@
                 <table class="big-calendar-time">
                     <tbody>
                         <tr>
-                            <th >
-                                    時間
-                            </th>
-                            <th >
-                                
-                                    日
-                            </th>
-                            <th >
-                               
-                                    一
-                            </th>
-                            <th >
-                                
-                                    二
-                            </th>
-                            <th >
-                               
-                                    三
-                            </th>
-                            <th >
-                               
-                                    四
+                            <th>
+                                時間
                             </th>
                             <th>
-                                
-                                    五
+                                日
                             </th>
-                            <th >
-                                
-                                    六
+                            <th>
+                                一
+                            </th>
+                            <th>
+                                二
+                            </th>
+                            <th>
+                                三
+                            </th>
+                            <th>
+                                四
+                            </th>
+                            <th>
+                                五
+                            </th>
+                            <th>
+                                六
                             </th>
                         </tr>
                         <tr>
                             <td class="time">
-                               
-                                    <a href="a03-01-new.htm">06：00</a>
+                                <a href="a03-01-new.htm">06：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td>
-                               
-                                    <a  href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td>
-                                
-                                    <a  href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
-                                
-                                    <a  href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
-                                
-                                    <a  href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td>
-                               
-                                    <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td class="holiday">
-                                
-                                    <a  href="a04-02-new.htm">申請</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">07：00</a>
-                            </td>
-                            <td class="holiday">
-                                 <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                 <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="time">
+                                <a class="a-letter-1" href="#">07：00</a>
+                            </td>
+                            <td class="holiday">
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td class="holiday">
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
@@ -379,17 +203,17 @@
                                 人事室：<br>
                                 鄭英法
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
@@ -397,49 +221,48 @@
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">09：00</a>
+                                <a class="a-letter-1" href="#">09：00</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
+                            <td>
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                               <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                               <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                 <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                 <a href="a04-02-new.htm">10：00</a>
+                                <a href="a04-02-new.htm">10：00</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
-                            </td>
-                            <td >
+                            <td>
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
+                            </td>
+                            <td>
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                 <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
@@ -449,17 +272,17 @@
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                 <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                               <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
                                 <a href="a04-02-new.htm">申請</a>
@@ -467,397 +290,306 @@
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">12：00</a>
+                                <a class="a-letter-1" href="#">12：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td rowspan="4">
                                 人事室：<br>
                                 鄭英法
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">13：00</a>
+                                <a class="a-letter-1" href="#">13：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">14：00</a>
+                                <a class="a-letter-1" href="#">14：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">15：00</a>
+                                <a class="a-letter-1" href="#">15：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a class="a-letter-1" href="#">16：00</a>
+                                <a class="a-letter-1" href="#">16：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a  href="#">17：00</a>
+                                <a href="#">17：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a href="#">18：00</a>
+                                <a href="#">18：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a  href="#">19：00</a>
+                                <a href="#">19：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a  href="#">20：00</a>
+                                <a href="#">20：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a  href="#">21：00</a>
+                                <a href="#">21：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a href="#">22：00</a>
+                                <a href="#">22：00</a>
                             </td>
                             <td class="holiday">
-                               <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                         <tr>
                             <td class="time">
-                                
-                                    <a  href="#">23：00</a>
+                                <a href="#">23：00</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
-                            <td >
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                            <td>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                             <td class="holiday">
-                                
-                                    <a href="a04-02-new.htm">申請</a>
+                                <a href="a04-02-new.htm">申請</a>
                             </td>
                         </tr>
                     </tbody>
