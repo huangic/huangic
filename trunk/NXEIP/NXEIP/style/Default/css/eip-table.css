@@ -1,7 +1,7 @@
 
 .layoutDiv
 {
-    width:100%; 
+    width:100%;
 }
 
 
@@ -9,7 +9,7 @@
 
 /*表格*/
 
-.tableDiv table,.tableData 
+.tableDiv table,.tableData
 {
   width:100%;
   border-spacing:1px;
@@ -32,13 +32,13 @@
 {
 font-weight:normal;
 background-color:#EFEFEF;
-   
+
 }
 
 
 
 .tableData tr:hover,.tableData tr:hover td,.tableDiv table tr:hover,.tableDiv table tr:hover td
-{ 
+{
        /*
        background-color:Yellow;
     */
@@ -46,41 +46,34 @@ background-color:#EFEFEF;
 
 .tableDiv .bottom
 {
-    
 	margin:10px auto;
-     	text-align:center;
+    text-align:center;
 }
-    
+
  /*場地表格*/
- .place
- {
-  width:100%; 
-   border-spacing:1px;
-  
-  
-   
+.place
+{
+    width:100%;
+    border-spacing:1px;
     border:0;
-    background-color:#cccccc;    
- } 
- 
- .place td
- {
-      padding:1px;
-       background-color:#ffffff;
-       font-size: 13px;
-	color: #666666;
-     }
-     
-     .place th
-     {
-         width:70px; 
-          background-color:#eeeeee;
-          padding:1px;
-          text-align:right;
-          font-size: 13px;
-	  color: #666666;
-         }
-         
-         
- 
- 
+    background-color:#cccccc;
+}
+.place th
+{
+    width:70px;
+    background-color:#eeeeee;
+    padding:1px;
+    text-align:right;
+    font-size: 13px;
+    color: #666666;
+    font-weight:normal;
+    height:23px
+}
+.place td
+{
+    padding:1px;
+    background-color:#ffffff;
+    font-size: 13px;
+    color: #666666;
+}
+
