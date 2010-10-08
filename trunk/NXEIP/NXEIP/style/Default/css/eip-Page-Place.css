@@ -29,14 +29,92 @@
      text-align:center;   
  }
  
- .layoutDiv .header .h2 .name1
+.layoutDiv .header .h21
+{
+    vertical-align:middle;
+    text-align:center;
+    line-height:25px;
+}
+.layoutDiv .header .h2 .name1
 {
     float:left;
     font-size:15px; 
 }
+.layoutDiv .header .h21 .name2
+{
+    float:left;
+    font-size:15px; 
+    width:27%;
+    text-align:left;
+    text-decoration:none;
+}
 
+.layoutDiv .header .h21 .name2 a ,.layoutDiv .header .h21 .name3 a ,.layoutDiv .header .h21 .name4 a
+{
+    text-decoration:none;
+    color:#888888;
+}
+.layoutDiv .header .h21 .name3
+{
+    float:left;
+    font-size:15px; 
+    width:40%;
+}
+.layoutDiv .header .h21 .name4
+{
+    float:left;
+    font-size:15px; 
+    width:27%;
+    text-align:right;
+    text-decoration:none;
+}
 
+.place-calendar-time
+ {
+     width:100%;
+     border-spacing:1px;
+     background-color:#dddddd; 
+     text-align:center;
+     font-size:13px;
+     line-height:20px;
+     text-decoration:none;
+     
+  }
+  
+.place-calendar-time .title
+  {
+      background-color:#EBEBEB;
+      color:#888888;
+      font-weight:bold;
+      width:12%;
+      height:20px;
+      text-align:center;
+  }
+  
+ .place-calendar-time .time
+  {
+       background-color:#eeeeee;
+       font-family:Arial;
+       text-align:center;
+  }
 
-
-
-
+.place-calendar-time td
+  {
+      padding:4px;
+      background-color:#ffffff;
+      height:20px; 
+      text-align:left;
+  }
+  
+  .place-calendar-time .holiday
+   {
+        background-color:#e8f3ff;
+   }
+   
+ .place-calendar-time a
+   {
+     color:#888888;
+     font-size:13px;
+     line-height:20px;
+     text-decoration:none;
+   }
