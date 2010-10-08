@@ -23,12 +23,14 @@ public class place : System.Web.Services.WebService {
     }
 
     [WebMethod]
-    public CascadingDropDownNameValue[] GetSpot(string knownCategoryValues, string category)
+    public CascadingDropDownNameValue[] GetSpot(string knownCategoryValues, string category, string contextKey)
     {
-        DBObject dbo = new DBObject();
         List<CascadingDropDownNameValue> values = new List<CascadingDropDownNameValue>();
+        DBObject dbo = new DBObject();
         DataTable dt = new DataTable();
-        string sqlstr = "select spo_no,spo_name from spot where spo_status='1' order by spo_no";
+        string sqlstr = "SELECT DISTINCT spot.spo_no, spot.spo_name FROM spot INNER JOIN rooms ON spot.spo_no = rooms.spo_no INNER JOIN government ON rooms.roo_no = government.roo_no "
+            + "WHERE (rooms.roo_status='1') AND (rooms.roo_dep='1') AND (spot.spo_status='1') OR (rooms.roo_status='1') AND (rooms.roo_dep='2') AND (spot.spo_status='1') AND (government.gov_depno=" + contextKey + ")"
+            +"ORDER BY spot.spo_no";
         dt = dbo.ExecuteQuery(sqlstr);
         for (int i = 0; i < dt.Rows.Count; i++)
         {
@@ -43,35 +45,42 @@ public class place : System.Web.Services.WebService {
         DBObject dbo = new DBObject();
         StringDictionary kv = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
         List<CascadingDropDownNameValue> values = new List<CascadingDropDownNameValue>();
-        if (contextKey.Length > 0)
+
+        if (!kv.ContainsKey("spot"))
         {
-            string[] ckey = contextKey.Split(',');
+            return null;
+        }
+        else
+        {
+
             DataTable dt = new DataTable();
-            string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + ckey[1] + " order by roo_no";
+            string sqlstr1 = "SELECT DISTINCT rooms.roo_no, rooms.roo_name FROM rooms INNER JOIN government ON rooms.roo_no = government.roo_no"
+                + " WHERE (rooms.roo_status = '1') AND (rooms.roo_dep = '1') AND (rooms.spo_no = " + kv["spot"] + ") "
+                + " OR (rooms.roo_status = '1') AND (rooms.roo_dep = '2') AND (government.gov_depno = " + contextKey + ") AND (rooms.spo_no =" + kv["spot"] + ")"
+                + " order by rooms.roo_no";
+            string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + kv["spot"] + " order by roo_no";
             dt = dbo.ExecuteQuery(sqlstr);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 values.Add(new CascadingDropDownNameValue(dt.Rows[i]["roo_name"].ToString(), dt.Rows[i]["roo_no"].ToString()));
             }
         }
-        else
-        {
-            if (!kv.ContainsKey("spot"))
-            {
-                return null;
-            }
-            else
-            {
 
-                DataTable dt = new DataTable();
-                string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + kv["spot"] + " order by roo_no";
-                dt = dbo.ExecuteQuery(sqlstr);
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    values.Add(new CascadingDropDownNameValue(dt.Rows[i]["roo_name"].ToString(), dt.Rows[i]["roo_no"].ToString()));
-                }
-            }
-        }
+        //if (contextKey.Length > 0)
+        //{
+        //    string[] ckey = contextKey.Split(',');
+        //    DataTable dt = new DataTable();
+        //    string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + ckey[1] + " order by roo_no";
+        //    dt = dbo.ExecuteQuery(sqlstr);
+        //    for (int i = 0; i < dt.Rows.Count; i++)
+        //    {
+        //        values.Add(new CascadingDropDownNameValue(dt.Rows[i]["roo_name"].ToString(), dt.Rows[i]["roo_no"].ToString()));
+        //    }
+        //}
+        //else
+        //{
+            
+        //}
 
         return values.ToArray();
     }
