@@ -23,6 +23,7 @@ public class DBObject
         connStr = System.Configuration.ConfigurationManager.ConnectionStrings["NXEIPConnectionString"].ConnectionString;
 	}
 
+    #region 回傳DataTable
     /// <summary>
     /// 回傳DataTable
     /// </summary>
@@ -78,8 +79,9 @@ public class DBObject
 
         return mytable;
     }
+    #endregion
 
-
+    #region Delete,Update,Insert
     /// <summary>
     /// Delete,Update,Insert
     /// </summary>
@@ -106,7 +108,9 @@ public class DBObject
             com.Dispose();
         }
     }
+    #endregion
 
+    #region 回傳受影響的資料列數目
     /// <summary>
     /// 回傳受影響的資料列數目
     /// </summary>
@@ -136,7 +140,9 @@ public class DBObject
 
         return ret;
     }
+    #endregion
 
+    #region 傳回第一個資料列裡的第一個資料行
     /// <summary>
     /// 傳回第一個資料列裡的第一個資料行
     /// </summary>
@@ -173,7 +179,26 @@ public class DBObject
 
         return ret;
     }
+    #endregion
 
-    
-
+    #region 取得資料庫參數值
+    /// <summary>
+    /// 取得資料庫參數值
+    /// </summary>
+    /// <param name="VarName">參數名稱</param>
+    /// <returns>參數值</returns>
+    public string GetArguments(string VarName)
+    {
+        string sqlstr = "select arg_value from arguments where arg_variable='" + VarName + "'";
+        DataTable dt = ExecuteQuery(sqlstr);
+        if (dt.Rows.Count > 0)
+        {
+            return dt.Rows[0][0].ToString();
+        }
+        else
+        {
+            return null;
+        }
+    }
+    #endregion
 }
