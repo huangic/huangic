@@ -6,6 +6,14 @@
 
 
 
+<%@ Register assembly="MattBerseth.WebControls" namespace="MattBerseth.WebControls" tagprefix="cc1" %>
+
+
+
+<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -25,21 +33,24 @@
 
 </head>
 <body>
+
     <form id="form1" runat="server">
+  
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
   
  <div class="tableDiv" >
  <div class="header">
    <div class="h1"></div>
-   <div class="h2"><div class="name">檔案搬移</div></div>
+   <div class="h2"><div class="name">檔案權限</div></div>
    <div class="h3"></div>
  </div>
- <div id="accordion2">
-  <h3 ><a href="#" >使用者資料夾</a></h3>
- <div id="handleTree">
  
  
- </div>
- </div>
+  <cc1:GridView ID="GridView1" runat="server">
+
+ </cc1:GridView>
+
 
  
 
@@ -49,15 +60,16 @@
    <div class="f3"></div>
  </div>
 
- <div style="text-align:center">
-    <input id="handleOK" type="button"  title="確定"  value="確定" class=" b-input" />
-    <input id="CancelButton" type="button"  title="取消"  value="取消"  onclick="self.parent.update()" class="b-input" />
  
- </div>
 
  </div>
 
-
+ <div style="text-align:center">
+     
+     <uc2:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+     
+    <input id="CancelButton" type="button"  title="取消"  value="關閉"  onclick="self.parent.tb_remove()" class="b-input" />
+ </div>
     
     </form>
 </body>

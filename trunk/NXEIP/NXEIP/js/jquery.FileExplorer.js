@@ -26,12 +26,39 @@ jquery.jqGrid
     $(_setting.fileMoveButton).bind("click",OpenMoveTree);
     $(_setting.fileCopyButton).bind("click",OpenCopyTree);
 
+    $(_setting.permissionButton).bind("click",openPermissionDialog);
+
 
     function test(){
        
         //alert($.jstree._focused().get_selected());
     }
 
+   
+
+   //檔案權限
+   function openPermissionDialog(){
+     $.log("permission");
+        
+        var s;
+        s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
+
+        if(s.length==0){
+         alert("請選擇檔案");
+         return;
+        }
+
+        //寫到cookies去
+
+        //顯示權限視窗
+        var t = this.title || this.name || null;
+	    var a = this.href || this.alt;
+	    var g = this.rel || false;
+	    tb_show(t,a,g);
+	    this.blur();
+        return false;
+
+   }
 
 
 
@@ -345,12 +372,14 @@ jquery.jqGrid
                      var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
                      //alert("id="+ret.id+" code="+ret.code);
                      dlUrl="FileDownload.ashx?code="+ret.code;
+                    
 
-                    be = "<a class='edit imageButton' href='#' alt='修改' title='修改' ><span>修改</span></a>";
-                    ce = "<a class='ver imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
+                    be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
+                    
                     dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
-                    del = "<a class='delete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
-                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be + ce+dl+del })
+                    
+                    del = "<a class='fileDelete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
+                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be +dl+del })
                 }
 
                 //無資料寫是空值
@@ -359,7 +388,7 @@ jquery.jqGrid
                 else
                     DisplayEmptyText(false);
 
-
+                
             },
 
             caption: "檔案清單",
@@ -613,6 +642,8 @@ jquery.jqGrid
             fileDiv:"#fileDiv",
             handleTree:"#handleTree",
             dialog:"#dialog",
+            permissionDialog:"#permissionDialog",
+            permissionButton:"#permissionButton",
             fileDeleteButton:"#deleteFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",

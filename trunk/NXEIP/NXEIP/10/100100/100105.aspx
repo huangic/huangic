@@ -37,10 +37,13 @@
               $("#userFolder").fileManager(
               {   treeDiv: "#userFolder",
                   fileDiv: "#filelist",
-                  publicDiv:"#publicFolder",
+                  publicDiv: "#publicFolder",
+                  permissionDialog: "#permissionDialog",
+                  permissionButton: "#permissionButton",
                   fileDeleteButton: "#delFile",
                    fileMoveButton: "#moveFile",
                    fileCopyButton: "#copyFile",
+                 
                    dialog:"#dialog",
                     handleTree:"#handleTree"
 
@@ -85,7 +88,7 @@
                 <input id="moveFile" type="button" title="搬移" value="搬移" class="b-input" />
                 <input id="copyFile" type="button" title="複製" value="複製" class="b-input" />
     
-                <input id="Button3" type="button"  title="權限"  value="權限" class="thickbox b-input" />
+                <input id="permissionButton" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true" title="權限"  value="權限" class="b-input" />
                 <input id="Button4" type="button"  title="公開"  value="公開" class="thickbox b-input" />
             </div>
             <table id="filelist">
@@ -97,10 +100,13 @@
 
 
 
-<div id="dialog" class="tableDiv dialog">
+<div id="dialog" class="dialog">
  <div id="handleTree"></div>
  </div>
 
+ <div id="permissionDialog" class="dialog">
+ <div id="permissionGrid"></div>
+ </div>
 
     
 

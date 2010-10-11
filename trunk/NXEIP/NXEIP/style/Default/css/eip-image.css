@@ -94,15 +94,7 @@
      }
      
      
-     .ver
-{
-    border:0 none;
-    height:22px;
-    width:22px;
-    background:url(../image/c01.gif) no-repeat;  
-     cursor:hand;
-     text-decoration:none;
-}
+
 
      .download
 {
@@ -110,6 +102,25 @@
     height:22px;
     width:22px;
     background:url(../image/b010.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+     .fileDelete
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/close.png) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+     .permission
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/v05.gif) no-repeat;  
      cursor:hand;
      text-decoration:none;
 }
