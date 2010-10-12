@@ -392,8 +392,11 @@
 					});
 					if(current.length) {
 						this.data.core.to_open = remaining;
-						$.each(current, function (i, val) { 
+						$.each(current, function (i, val) {
+                        
+                            //if(val!="#0"){
 							_this.open_node(val, function () { _this.reopen(true); }, true); 
+                            //}
 						});
 						done = false;
 					}
@@ -1732,7 +1735,16 @@
 			}
 			if(!!s.save_selected) {
 				tmp = $.cookie(s.save_selected);
-				if(tmp && tmp.length && this.data.ui) { this.data.ui.to_select = tmp.split(","); }
+               
+				if(tmp && tmp.length && this.data.ui) { 
+                
+                //tmp=tmp.replace("#0","");
+                this.data.ui.to_select = tmp.split(",");
+                 
+                 
+                 this.data.ui.to_select
+                 }
+               
 			}
 			this.get_container()
 				.one( ( this.data.ui ? "reselect" : "reopen" ) + ".jstree", $.proxy(function () {
@@ -2379,7 +2391,9 @@
 						s = this.data.ui.to_select;
 					s = $.map($.makeArray(s), function (n) { return "#" + n.toString().replace(/^#/,"").replace('\\/','/').replace('/','\\/'); });
 					this.deselect_all();
-					$.each(s, function (i, val) { _this.check_node(val); });
+					$.each(s, function (i, val) { 
+                    
+                    _this.check_node(val); });
 					this.__callback();
 				}
 			}

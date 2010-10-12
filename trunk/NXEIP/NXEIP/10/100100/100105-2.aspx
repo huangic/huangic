@@ -25,7 +25,7 @@
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
      <script type="text/javascript" src="../../js/jquery.jstree.js"></script>
-     <script type="text/javascript" src="../../js/jquery.FileExplorer-handle.js"></script>
+     <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
 
      <script type="text/javascript">
        
@@ -39,17 +39,37 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
   
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        SelectMethod="GetAll" TypeName="NXEIP.DAO.DocPermissionDAO" 
+        OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:Parameter Name="docNoString" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+  
  <div class="tableDiv" >
  <div class="header">
    <div class="h1"></div>
    <div class="h2"><div class="name">檔案權限</div></div>
    <div class="h3"></div>
  </div>
- 
- 
-  <cc1:GridView ID="GridView1" runat="server">
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+      <ContentTemplate>
 
- </cc1:GridView>
+      <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
+         AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id" 
+              EnableViewState="False" onrowcommand="GridView1_RowCommand">
+      <Columns>
+          <asp:BoundField DataField="value" HeaderText="群組名稱" />
+          <asp:ButtonField CommandName="disable" Text="刪除" />
+      </Columns>
+       </cc1:GridView>
+      </ContentTemplate>
+     </asp:UpdatePanel>
+ 
+  
+
+
 
 
  
@@ -65,8 +85,6 @@
  </div>
 
  <div style="text-align:center">
-     
-     <uc2:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
      
     <input id="CancelButton" type="button"  title="取消"  value="關閉"  onclick="self.parent.tb_remove()" class="b-input" />
  </div>

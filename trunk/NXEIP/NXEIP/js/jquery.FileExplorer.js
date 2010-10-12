@@ -48,13 +48,25 @@ jquery.jqGrid
          return;
         }
 
+        if(s.length>0){
+         alert("只可設定一個檔案");
+         return;
+        }
+
         //寫到cookies去
+
+        $.cookie("permissionFiles",s);
+
 
         //顯示權限視窗
         var t = this.title || this.name || null;
 	    var a = this.href || this.alt;
 	    var g = this.rel || false;
-	    tb_show(t,a,g);
+	    
+       
+        
+        
+        tb_show(t,a,g);
 	    this.blur();
         return false;
 
