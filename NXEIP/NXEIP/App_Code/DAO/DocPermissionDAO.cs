@@ -7,6 +7,8 @@ using Entity;
 using NLog;
 using NXEIP.FileManager;
 using System.ComponentModel;
+using System.Data.Objects.SqlClient;
+using System.Data.Objects;
 
 
 namespace NXEIP.DAO
@@ -22,6 +24,10 @@ namespace NXEIP.DAO
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
+
+        private NXEIPEntities model = new NXEIPEntities();
+            
+
         public DocPermissionDAO()
         {
             //
@@ -29,17 +35,18 @@ namespace NXEIP.DAO
             //
         }
 
-        public IQueryable GetAll(int doc_no)
+        public IQueryable<PermissionObj> GetAll(string docNoString)
         {
 
-            int value = Convert.ToInt32("110", 2);
-            logger.Debug(value);
+            //doc_no 轉陣列;
+
+            string[] docArray = docNoString.Split(',');
+            int[] doc_no = Array.ConvertAll(docArray, new Converter<string, int>(StringToInt));
 
 
 
-            using (NXEIPEntities model = new NXEIPEntities())
-            {
 
+           
                 //檔案權限的物件
 
                 //部門授權
@@ -48,27 +55,36 @@ namespace NXEIP.DAO
                     from c in model.departments
                     from b in model.doc04
                     from a in model.doc03
-                    where a.d01_no == doc_no && Convert.ToInt32(a.d03_type, 2) >= 2 && a.d01_no == b.d03_no
+                    where doc_no.Contains(a.d01_no) && a.d03_type.Substring(1,1)== "1" && a.d03_no == b.d03_no
                     && c.dep_no == b.d04_depno
                     select new PermissionObj { id = a.d03_no, value = c.dep_name });
+
+                
+
                 //個人授權
                 var groupB =
                     (
                       from c in model.people
                       from b in model.doc05
                       from a in model.doc03
-                      where a.d01_no == doc_no && Convert.ToInt32(a.d03_type, 2) >= 1 && a.d01_no == b.d03_no && c.peo_uid == b.d05_peouid
+                      where doc_no.Contains(a.d01_no) && a.d03_type.Substring(2, 1) == "1" && a.d03_no == b.d03_no && c.peo_uid == b.d05_peouid
                       select new PermissionObj { id = a.d03_no, value = c.peo_name });
 
                 var group = groupA.Union(groupB);
 
 
+
+                logger.Debug((group as ObjectQuery).ToTraceString());
+
                 return group;
-            }
+            
         }
 
 
 
-      
+        private static int StringToInt(string s)
+        {
+            return int.Parse(s);
+        }
     }
 }
