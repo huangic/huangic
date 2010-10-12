@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Entity;
+using System.ComponentModel;
 
 
 namespace NXEIP.DAO
@@ -10,6 +11,7 @@ namespace NXEIP.DAO
     /// <summary>
     /// WidgetDAO 的摘要描述
     /// </summary>
+    [DataObject(true)]
     public class WidgetDAO
     {
         public WidgetDAO()

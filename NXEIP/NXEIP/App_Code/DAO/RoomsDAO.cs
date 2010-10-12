@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Entity;
+using System.ComponentModel;
 
 namespace NXEIP.DAO
 {
@@ -12,6 +13,7 @@ namespace NXEIP.DAO
     /// 撰寫者：Lina
     /// 撰寫時間：2010/09/23
     /// </summary>
+    [DataObject(true)]
     public class RoomsDAO
     {
         public RoomsDAO()
