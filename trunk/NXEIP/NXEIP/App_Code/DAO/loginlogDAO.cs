@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Dynamic;
 using System.Web;
 using Entity;
+using System.ComponentModel;
 
 namespace NXEIP.DAO
 {
@@ -11,6 +12,7 @@ namespace NXEIP.DAO
     /// <summary>
     /// loginlogDAO 的摘要描述
     /// </summary>
+    [DataObject(true)]
     public class loginlogDAO
     {
         public loginlogDAO()

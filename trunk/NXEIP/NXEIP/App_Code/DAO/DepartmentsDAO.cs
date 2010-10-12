@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Entity;
+using System.ComponentModel;
 
 /// <summary>
 /// DepartmentsDAO 的摘要描述
@@ -12,6 +13,7 @@ using Entity;
 
 namespace NXEIP.DAO{
 
+    [DataObject(true)]
     public partial class DepartmentsDAO
     {
         public DepartmentsDAO()

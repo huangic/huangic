@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using Entity;
 using System.Linq.Dynamic;
+using System.ComponentModel;
 
 namespace NXEIP.DAO
 {
     /// <summary>
     /// ArgumentsDAO 的摘要描述
     /// </summary>
+    [DataObject(true)]
     public class ArgumentsDAO
     {
         public ArgumentsDAO()
