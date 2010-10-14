@@ -10,7 +10,7 @@ using Entity;
 /// JqGrid使用的物件項目(用來轉換JSON)
 /// </summary>
 /// 
-namespace FileManager
+namespace NXEIP.FileManager.Json
 {
     public class JqGridJSON
     {

@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using NXEIP.DAO;
 using NLog;
+using NXEIP.Widget.Json;
 
 
 

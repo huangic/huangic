@@ -7,7 +7,7 @@ using System.Web;
 
 
 
-namespace NXEIP.Widget
+namespace NXEIP.Widget.Json
 {
     /// <summary>
     /// WidgetJson 的摘要描述

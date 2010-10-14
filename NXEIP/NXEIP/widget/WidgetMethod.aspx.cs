@@ -9,6 +9,7 @@ using Entity;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using System.Data;
+using NXEIP.Widget.Json;
 using NXEIP.Widget;
 
 public partial class WidgetMethod : System.Web.UI.Page
