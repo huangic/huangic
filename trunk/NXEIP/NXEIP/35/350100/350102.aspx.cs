@@ -75,21 +75,16 @@ public partial class _35_350100_350102 : System.Web.UI.Page
                     this.Accounts_process(item.peo_uid.ToString());
                     showMsg = true;
                 }
-
-                //DataTable mytable = new DBObject().ExecuteQuery("select peo_uid from people where dep_no = " + dep_no);
-                //for (int p = 0; p < mytable.Rows.Count; p++)
-                //{
-                //    this.Accounts_process(mytable.Rows[p]["peo_uid"].ToString());
-                //    showMsg = true;
-                //}
             }
         }
 
         if (showMsg)
         {
-            this.ShowMsg("設定完成!");
-            Response.Redirect("350102.aspx");
-            
+            this.ShowMsg_URL("設定完成!", "350102.aspx");
+        }
+        else
+        {
+            this.ShowMsg("設定失敗!");
         }
     }
 
@@ -134,12 +129,13 @@ public partial class _35_350100_350102 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if (this.lbox_set.SelectedIndex >= 0)
+        if (this.lbox_set.SelectedItem != null)
         {
             this.lbox_noset.Items.Add(this.lbox_set.SelectedItem);
             this.lbox_set.Items.Remove(this.lbox_set.SelectedItem);
 
-            
+            //取消選擇狀態
+            this.lbox_noset.SelectedItem.Selected = false;
         }
     }
 
@@ -150,10 +146,14 @@ public partial class _35_350100_350102 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button2_Click(object sender, EventArgs e)
     {
-        if (this.lbox_noset.SelectedIndex >= 0)
+        if (this.lbox_noset.SelectedItem != null)
         {
             this.lbox_set.Items.Add(this.lbox_noset.SelectedItem);
             this.lbox_noset.Items.Remove(this.lbox_noset.SelectedItem);
+
+            //取消選擇狀態
+            this.lbox_set.SelectedItem.Selected = false;
+
         }
     }
 
@@ -164,6 +164,13 @@ public partial class _35_350100_350102 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        
+        string script = "<script>window.alert('" + msg + "');</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+    }
+
+    private void ShowMsg_URL(string msg, string url)
+    {
+        string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
     }
 }
