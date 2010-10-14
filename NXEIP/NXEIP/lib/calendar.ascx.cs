@@ -41,9 +41,18 @@ public partial class lib_calendar : System.Web.UI.UserControl
         }
     }
 
+    public string _GetID
+    {
+        get
+        {
+            return this.tbox_date.ClientID;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "calendar_js", ResolveClientUrl("~/js/calendar.js"));
+        
         
     }
     
