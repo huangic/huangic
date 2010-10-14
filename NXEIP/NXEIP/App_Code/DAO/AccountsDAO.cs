@@ -11,6 +11,7 @@ namespace NXEIP.DAO
     /// <summary>
     /// AccountsDAO 的摘要描述
     /// </summary>
+    [DataObject(true)]
     public class AccountsDAO
     {
         public AccountsDAO()
