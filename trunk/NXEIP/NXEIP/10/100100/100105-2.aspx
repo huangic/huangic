@@ -32,7 +32,7 @@
      </script>
 
 </head>
-<body>
+<body style=" width:480px">
 
     <form id="form1" runat="server">
   
@@ -40,10 +40,10 @@
     </asp:ScriptManager>
   
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="GetAll" TypeName="NXEIP.DAO.DocPermissionDAO" 
+        SelectMethod="GetFilePermission" TypeName="NXEIP.DAO.DocPermissionDAO" 
         OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
-            <asp:Parameter Name="docNoString" Type="String" />
+            <asp:Parameter Name="doc_no" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
   
@@ -57,7 +57,7 @@
       <ContentTemplate>
 
       <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
-         AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id" 
+         AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id,type" 
               EnableViewState="False" onrowcommand="GridView1_RowCommand">
       <Columns>
           <asp:BoundField DataField="value" HeaderText="群組名稱" />
@@ -87,6 +87,7 @@
  <div style="text-align:center">
      
     <input id="CancelButton" type="button"  title="取消"  value="關閉"  onclick="self.parent.tb_remove()" class="b-input" />
+    <input id="AddPermission" type="button" title="新增" value="新增" alt="PermissionTree.aspx?modal=true&TB_iframe=true"  class="thickbox b-input" />
  </div>
     
     </form>

@@ -38,7 +38,7 @@ jquery.jqGrid
 
    //檔案權限
    function openPermissionDialog(){
-     $.log("permission");
+     //$.log("permission");
         
         var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
@@ -48,7 +48,7 @@ jquery.jqGrid
          return;
         }
 
-        if(s.length>0){
+        if(s.length>1){
          alert("只可設定一個檔案");
          return;
         }
@@ -76,7 +76,7 @@ jquery.jqGrid
 
     //檔案搬移
     function OpenMoveTree(){
-        $.log("MoveTree");
+        //$.log("MoveTree");
         
         var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');
@@ -116,7 +116,7 @@ jquery.jqGrid
 
      //檔案複製
     function OpenCopyTree(){
-        $.log("MoveTree");
+       // $.log("MoveTree");
         //jQuery(_setting.handleTree).show();
          var s;
         s = jQuery(_setting.fileDiv).jqGrid('getGridParam', 'selarrrow');

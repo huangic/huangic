@@ -10,6 +10,7 @@ using Entity;
 using System.Security.Cryptography;
 using System.Text;
 using NXEIP.DAO;
+using System.Data.Objects;
 
 public partial class _10_100100_100105_2 : System.Web.UI.Page
 {
@@ -26,12 +27,18 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
        // this.ObjectDataSource1.SelectParameters.Add();
        //取Cookies String //Cookie %2C取代成,
 
-        string permissionFile=(Request.Cookies["PermissionFiles"].Value).Replace("%2C",",");
+        string permissionFile=(Request.Cookies["PermissionFiles"].Value);
         //int[] permissionFileValue = Array.ConvertAll(permissionFile,new Converter<string,int>(StringToInt));
 
-        
 
-        this.ObjectDataSource1.SelectParameters["docNoString"].DefaultValue = permissionFile;
+
+        //取單一檔案權限 //如果他沒有權限職的話就直接建立一個空的
+
+
+
+
+
+        this.ObjectDataSource1.SelectParameters["doc_no"].DefaultValue = permissionFile;
 
         
 
@@ -77,8 +84,8 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
 
 
-        int doc03_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
-
+        string  type = this.GridView1.DataKeys[rowIndex]["type"].ToString();
+        int id = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["id"].ToString());
 
         if (e.CommandName.Equals("modify"))
         {
@@ -90,43 +97,42 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
         {
             // delete(dep_no);
             logger.Debug("disable");
-            delete(doc03_no);
+            delete(id,type);
             return;
         };
     }
 
-    private void delete(int doc03_no) { 
-        using(EntityBatchUpdater<NXEIPEntities> model=new EntityBatchUpdater<NXEIPEntities>()){
+    private void delete(int id,String type) { 
+        using(NXEIPEntities model=new NXEIPEntities()){
            
-            doc04 d4=new doc04();
-            doc05 d5=new doc05();
-            doc03 d3=new doc03();
-
-            
-          
-           
-
-            model.TrackEntity(d4);
-            model.ObjectContext.DeleteObject(d4);
-            model.UpdateBatch(d4, from d in model.ObjectContext.doc04 where d.d03_no == doc03_no select d);
-
-            model.TrackEntity(d5);
-            model.ObjectContext.DeleteObject(d5);
-            model.UpdateBatch(d5, from d in model.ObjectContext.doc05 where d.d03_no == doc03_no select d);
-
-
-            model.TrackEntity(d3);
-            model.ObjectContext.DeleteObject(d3);
-            model.UpdateBatch(d3, from d in model.ObjectContext.doc03 where d.d03_no == doc03_no select d);
+           //remove selected permission item
+      
+            //type mean people or department
 
            
 
-            
-            
-            
+            if (type == "P")
+            {
+                var deleteItem = (from d in model.doc05 where d.d05_no == id select d);
 
-            
+                foreach (var item in deleteItem) {
+                    model.doc05.DeleteObject(item);
+                }
 
+            }
+            if(type=="D"){
+                var deleteItem = (from d in model.doc04 where d.d04_no == id select d);
+                foreach (var item in deleteItem)
+                {
+                    model.doc04.DeleteObject(item);
+                }
+            }
+
+            model.SaveChanges();
+
+            this.GridView1.DataBind();
+            //string js = "刪除成功";
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "", js, true);
 
         }
     }

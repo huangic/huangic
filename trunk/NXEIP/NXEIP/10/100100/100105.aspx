@@ -15,7 +15,7 @@
 
       <script type="text/javascript">
           function update() {
-
+         
               tb_remove();
 
               $('#filelist').trigger("reloadGrid");
@@ -88,7 +88,7 @@
                 <input id="moveFile" type="button" title="搬移" value="搬移" class="b-input" />
                 <input id="copyFile" type="button" title="複製" value="複製" class="b-input" />
     
-                <input id="permissionButton" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true" title="權限"  value="權限" class="b-input" />
+                <input id="permissionButton" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true&width=470" title="權限"  value="權限" class="b-input" />
                 <input id="Button4" type="button"  title="公開"  value="公開" class="thickbox b-input" />
             </div>
             <table id="filelist">

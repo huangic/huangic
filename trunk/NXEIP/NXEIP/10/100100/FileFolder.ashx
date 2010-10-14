@@ -7,8 +7,10 @@ using Newtonsoft.Json;
 using Entity;
 using System.Linq;
 using System.Web.SessionState;
-using FileManager;
+using NXEIP.FileManager;
+using NXEIP.FileManager.Json;
 using NXEIP.DAO;
+using NXEIP.JsTree;
 /// <summary>
 /// 檔案處理
 /// </summary>
@@ -21,12 +23,13 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// <param name="pid"></param>
     /// <param name="peo_uid"></param>
     /// <returns></returns>
-     private ICollection<FolderJSON> getPersonRootFilder(int pid,int peo_uid){
+    private ICollection<JsTreeJson> getPersonRootFilder(int pid, int peo_uid)
+    {
 
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
-             ICollection<FolderJSON> fs = new List<FolderJSON>();
+             ICollection<JsTreeJson> fs = new List<JsTreeJson>();
              //取自己的檔案目錄
              var folders = from f in model.doc01 where f.d01_parentid == pid && f.people.peo_uid == peo_uid && f.d01_type=="1" && !String.IsNullOrEmpty(f.d01_name) select f;
              try
@@ -34,7 +37,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
                  foreach (var folder in folders)
                  {
 
-                     FolderJSON f = new EntityFolderJSON(folder);
+                     JsTreeJson f = new EntityFolderJSON(folder);
 
                      fs.Add(f);
 
@@ -56,13 +59,13 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
      /// <param name="pid"></param>
      /// <param name="peo_uid"></param>
      /// <returns></returns>
-     private ICollection<FolderJSON> getDepartRootFilder(int parent_id,int dep_id)
+     private ICollection<JsTreeJson> getDepartRootFilder(int parent_id,int dep_id)
      {
 
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
-             ICollection<FolderJSON> fs = new List<FolderJSON>();
+             ICollection<JsTreeJson> fs = new List<JsTreeJson>();
              //取部門的的檔案目錄
              var folders = from f in model.doc01 where f.d01_parentid==parent_id && f.dep_no == dep_id && f.d01_type == "2" && !String.IsNullOrEmpty(f.d01_name) select f;
              try
@@ -70,7 +73,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
                  foreach (var folder in folders)
                  {
 
-                     FolderJSON f = new EntityFolderJSON(folder);
+                     JsTreeJson f = new EntityFolderJSON(folder);
 
                      fs.Add(f);
 
@@ -90,20 +93,20 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
     /// </summary>
     /// <param name="pid"></param>
     /// <returns></returns>
-     private ICollection<FolderJSON> getFolder(int pid)
+     private ICollection<JsTreeJson> getFolder(int pid)
      {
 
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
-             ICollection<FolderJSON> fs = new List<FolderJSON>();
+             ICollection<JsTreeJson> fs = new List<JsTreeJson>();
 
              var folders = from f in model.doc01 where f.d01_parentid == pid && !String.IsNullOrEmpty(f.d01_name) select f;
 
              foreach (var folder in folders)
              {
 
-                 FolderJSON f = new EntityFolderJSON(folder);
+                 JsTreeJson f = new EntityFolderJSON(folder);
 
 
                  fs.Add(f);
@@ -140,22 +143,28 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
         if (id == "0")
         {
             //取使用者的目錄結構
-            
 
-           
-            ICollection<FolderJSON> fs = new List<FolderJSON>();
+
+
+            ICollection<JsTreeJson> fs = new List<JsTreeJson>();
 
             //回傳
 
 
-            FolderJSON f = new FolderJSON();
+            JsTreeJson f = new JsTreeJson();
             
            
             f.data = "使用者文件夾";
+
+            FolderAttrJson attr = new FolderAttrJson();
             
-            f.attr.id = "0";
-            f.attr.depid = sessionObj.sessionUserDepartID;
-            f.attr.folderType = "1";
+            
+            
+            attr.id = "0";
+            attr.depid = sessionObj.sessionUserDepartID;
+            attr.folderType = "1";
+
+            f.attr = attr;
         
             
             //取第一層目錄
@@ -180,15 +189,20 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
             {
                // if (dep.dep_parentid != 0)
                // {
-                    FolderJSON dep_f = new FolderJSON();
+                JsTreeJson dep_f = new JsTreeJson();
 
 
                     dep_f.data = dep.dep_name + "文件夾";
 
-                    dep_f.attr.id = "0";
-                    dep_f.attr.depid = dep.dep_no.ToString();
-                    dep_f.attr.folderType = "2";
+                    FolderAttrJson newAttr = new FolderAttrJson();
 
+
+                    newAttr.id = "0";
+                    newAttr.depid = dep.dep_no.ToString();
+                    newAttr.folderType = "2";
+
+                    dep_f.attr = newAttr;
+                
 
                     //取第一層目錄
                     dep_f.children = getDepartRootFilder(pid, dep.dep_no);
@@ -209,7 +223,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
         }
         else {
 
-            ICollection<FolderJSON> fs;
+            ICollection<JsTreeJson> fs;
 
 
 

@@ -35,15 +35,31 @@ namespace NXEIP.DAO
             //
         }
 
-        public IQueryable<PermissionObj> GetAll(string docNoString)
+        public IQueryable<PermissionObj> GetFilePermission(int doc_no)
         {
 
             //doc_no 轉陣列;
 
-            string[] docArray = docNoString.Split(',');
-            int[] doc_no = Array.ConvertAll(docArray, new Converter<string, int>(StringToInt));
+            //string[] docArray = docNoString.Split(',');
+            //int[] doc_no = Array.ConvertAll(docArray, new Converter<string, int>(StringToInt));
 
+                
+                //找檔案對應的權限設定
+            var permisssion = (from d in model.doc03 where d.d01_no == doc_no select d);
 
+            //沒有權限檔就見一個
+            if (permisssion.Count() == 0) {
+
+                doc03 newPermission = new doc03();
+                newPermission.d01_no = doc_no;
+                newPermission.d03_authority = "1000";
+                newPermission.d03_type = "001";
+
+                model.doc03.AddObject(newPermission);
+                model.SaveChanges();
+
+                return null;
+            }
 
 
            
@@ -55,9 +71,9 @@ namespace NXEIP.DAO
                     from c in model.departments
                     from b in model.doc04
                     from a in model.doc03
-                    where doc_no.Contains(a.d01_no) && a.d03_type.Substring(1,1)== "1" && a.d03_no == b.d03_no
+                    where doc_no==a.d01_no && a.d03_type.Substring(1, 1) == "1" && a.d03_no == b.d03_no
                     && c.dep_no == b.d04_depno
-                    select new PermissionObj { id = a.d03_no, value = c.dep_name });
+                    select new PermissionObj { id = b.d04_no, type="D", value = c.dep_name });
 
                 
 
@@ -67,8 +83,8 @@ namespace NXEIP.DAO
                       from c in model.people
                       from b in model.doc05
                       from a in model.doc03
-                      where doc_no.Contains(a.d01_no) && a.d03_type.Substring(2, 1) == "1" && a.d03_no == b.d03_no && c.peo_uid == b.d05_peouid
-                      select new PermissionObj { id = a.d03_no, value = c.peo_name });
+                      where doc_no==a.d01_no && a.d03_type.Substring(2, 1) == "1" && a.d03_no == b.d03_no && c.peo_uid == b.d05_peouid
+                      select new PermissionObj { id = b.d05_no, type = "P", value = c.peo_name });
 
                 var group = groupA.Union(groupB);
 
@@ -82,9 +98,6 @@ namespace NXEIP.DAO
 
 
 
-        private static int StringToInt(string s)
-        {
-            return int.Parse(s);
-        }
+       
     }
 }
