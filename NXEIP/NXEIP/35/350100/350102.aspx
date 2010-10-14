@@ -21,24 +21,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="350102" />
-            <div class="tableDiv">
-                <div class="header">
-                    <div class="h1">
-                    </div>
-                    <div class="h2">
-                    </div>
-                    <div class="h3">
-                    </div>
-                </div>
-                <table>
-                    <tr>
-                        <th>
-                            請選擇帳號及角色
-                        </th>
-                        <td>
+    <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="350102" />
+    <div class="tableDiv">
+        <div class="header">
+            <div class="h1">
+            </div>
+            <div class="h2">
+            </div>
+            <div class="h3">
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>
+                    請選擇帳號及角色
+                </th>
+                <td>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
                             <table width="72%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td width="112">
@@ -64,10 +64,12 @@
                                     <td rowspan="2">
                                         <table border="0" align="center" cellpadding="0" cellspacing="3">
                                             <tr>
-                                                <td>
+                                                <td height="120px">
                                                     <asp:Panel ID="Panel1" runat="server">
                                                         <uc2:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
                                                     </asp:Panel>
+                                                </td>
+                                                <td height="120px">
                                                     <asp:Panel ID="Panel2" runat="server">
                                                         <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
                                                     </asp:Panel>
@@ -103,16 +105,15 @@
                                     </td>
                                 </tr>
                             </table>
-                            <br />
-                        </td>
-                    </tr>
-                </table>
-                <div class="bottom">
-                    <asp:Button ID="but_ok" runat="server" CssClass="b-input" Text="確定" OnClick="but_ok_Click" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="but_cancel" runat="server" CssClass="a-input" Text="取消" OnClick="but_cancel_Click" />
-                </div>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
+            </tr>
+        </table>
+        <div class="bottom">
+            <asp:Button ID="but_ok" runat="server" CssClass="b-input" Text="確定" OnClick="but_ok_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="but_cancel" runat="server" CssClass="a-input" Text="取消" OnClick="but_cancel_Click" />
+        </div>
+    </div>
 </asp:Content>
