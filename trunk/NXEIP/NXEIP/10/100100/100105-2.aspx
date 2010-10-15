@@ -28,7 +28,10 @@
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
 
      <script type="text/javascript">
-       
+         function update() {
+             __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+             tb_remove();
+         }
      </script>
 
 </head>
@@ -57,7 +60,7 @@
       <ContentTemplate>
 
       <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
-         AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id,type" 
+         AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id,type,d03_no" 
               EnableViewState="False" onrowcommand="GridView1_RowCommand">
       <Columns>
           <asp:BoundField DataField="value" HeaderText="群組名稱" />

@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using System.Web.SessionState;
 using NXEIP.JsTree;
 using NXEIP.FileManager.Json;
+using NXEIP.DAO;
 
 public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
 
@@ -29,7 +30,7 @@ public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
         String id = context.Request["id"];
         
         String mode = context.Request["mode"];
-        String SessionName = context.Request["session"];
+        //String SessionName = context.Request["session"];
         //String json = context.Request.Params["para"];
 
        // context.Request.InputStream;
@@ -73,18 +74,37 @@ public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
         if (mode == "save") {
             //   
 
+            DocPermissionDAO dao=new DocPermissionDAO();
 
-
+            int value;
+            int doc03_no=dao.GetDoc03NoFromDoc01NO(int.Parse(context.Request.Cookies["PermissionFiles"].Value)).Value;
+            string type;
 
 
             JObject o = JsonLib.GetRequestJsonObject(context.Request);
             JArray jsonarray = (JArray)o["para"];
-            List<KeyValuePair<String, String>> departs = new List<KeyValuePair<string, string>>();
             foreach(JObject jobj in jsonarray){
-              KeyValuePair<String,String> key=new KeyValuePair<string,string>((String)jobj["value"],(String)jobj["text"]);
+              //KeyValuePair<String,String> key=new KeyValuePair<string,string>((String)jobj["value"],(String)jobj["text"]);
+                value = int.Parse((String)jobj["value"]);
+                type = (String)jobj["type"];
 
-              
+
+                if (type == "depart")
+                {
+                    dao.AddDocDepartmentAndSetPK(new doc04 { d03_no = doc03_no, d04_depno = value });
+                }
+
+                if (type == "people")
+                {
+                    dao.AddDocPeopleAndSetPK(new doc05 { d03_no = doc03_no, d05_peouid = value });
+                }
+
+
+               
               //departs.Add(key);
+                
+                //寫入權限
+               
             }
             
             //context.Session[SessionName]=departs;
