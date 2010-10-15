@@ -82,7 +82,7 @@
 
             //.bind("select_node.jstree", select_node); // 選擇節點
 
-               .delegate("li", "click", select_node);
+               .delegate("a", "click", select_node);
 
 
 
@@ -98,11 +98,20 @@
             //id = data.rslt.obj.attr("id");
             //nodeType = data.rslt.obj.attr("nType");
             //nodeName = data.rslt.obj.attr("nName");
+            item = $(this).parent();
 
-            id = $(this).attr("id");
-            nodeType = $(this).attr("nType");
-            nodeName = $(this).attr("nName");
-           
+
+
+            id = $(item).attr("id");
+            nodeType = $(item).attr("nType");
+            nodeName = $(item).attr("nName");
+
+
+            if (nodeType=="depart") {
+                return;
+            }
+
+
             itemReduplicate = false;
             //id = $(this).parent().attr("id");
 
@@ -127,10 +136,10 @@
         function getOptions() {
             options = new Array();
 
-            
 
-            $("#ListBox2").children().each(function(e) {
-                options.push({value: $(this).val(), text: $(this).html() });
+
+            $("#ListBox2").children().each(function (e) {
+                options.push({value: $(this).val(), text: $(this).html(),type:$(this).attr("nType") });
 
             });
             return options;
@@ -147,16 +156,15 @@
 
             $.ajax({
                 type: "POST",
-                url: ajaxUrl+"?mode=save",
+                url: ajaxUrl + "?mode=save",
                 data: "{\"para\":" + JSON.stringify(getOptions()) + "}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                complete: function() {
+                complete: function () {
 
                     //self.parent.updateClientID("test");
 
-                self.parent.__doPostBack(self.parent.tb_ClientID, '')
-                self.parent.tb_remove();
+                    self.parent.update();
                 }
             });
 

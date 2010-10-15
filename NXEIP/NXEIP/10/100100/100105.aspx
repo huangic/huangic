@@ -3,6 +3,9 @@
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 
 
+<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     
      <script type="text/javascript" src="../../js/jquery-ui-1.8.2.custom.min.js"></script>
@@ -12,6 +15,7 @@
      <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
      <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
+      <script type="text/javascript" src="../../js/jquery.FileExplorerPublic.js"></script>
 
       <script type="text/javascript">
           function update() {
@@ -49,7 +53,20 @@
 
               });
 
-             
+                $("#publicFolder").publicfileManager(
+              { treeDiv: "#publicFolder",
+                  fileDiv: "#filelist",
+                  publicDiv: "#publicFolder",
+                  permissionDialog: "#permissionDialog",
+                  permissionButton: "#permissionButton",
+                  fileDeleteButton: "#delFile",
+                  fileMoveButton: "#moveFile",
+                  fileCopyButton: "#copyFile",
+
+                  dialog: "#dialog",
+                  handleTree: "#handleTree"
+
+              });
 
               
           });

@@ -24,6 +24,6 @@ namespace NXEIP.FileManager
         public int id { get; set; }
         public string type { get; set; }
         public string value { get; set; }
-
+        public int d03_no { get; set; }
     }
 }

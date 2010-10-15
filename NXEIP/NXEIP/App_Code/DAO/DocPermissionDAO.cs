@@ -73,7 +73,7 @@ namespace NXEIP.DAO
                     from a in model.doc03
                     where doc_no==a.d01_no && a.d03_type.Substring(1, 1) == "1" && a.d03_no == b.d03_no
                     && c.dep_no == b.d04_depno
-                    select new PermissionObj { id = b.d04_no, type="D", value = c.dep_name });
+                    select new PermissionObj { id = b.d04_no, type="D", value = c.dep_name, d03_no=a.d03_no});
 
                 
 
@@ -84,7 +84,7 @@ namespace NXEIP.DAO
                       from b in model.doc05
                       from a in model.doc03
                       where doc_no==a.d01_no && a.d03_type.Substring(2, 1) == "1" && a.d03_no == b.d03_no && c.peo_uid == b.d05_peouid
-                      select new PermissionObj { id = b.d05_no, type = "P", value = c.peo_name });
+                      select new PermissionObj { id = b.d05_no, type = "P", value = c.peo_name, d03_no = a.d03_no });
 
                 var group = groupA.Union(groupB);
 
@@ -96,7 +96,73 @@ namespace NXEIP.DAO
             
         }
 
+        /// <summary>
+        /// 用DOC01 NO 取DOC03
+        /// </summary>
+        /// <param name="doc01_no"></param>
+        /// <returns></returns>
+        public int? GetDoc03NoFromDoc01NO(int doc01_no) {
+            try {
+                return (from d in model.doc03 where d.d01_no == doc01_no select d.d03_no).FirstOrDefault();
+            }catch{
+                logger.Debug("無符合資料");
+                return null; 
+            }
+            
+          
+            
+            
+            
+        }
 
+        private int GetDocDepartmentMax(int doc03_no)
+        {
+            int max = 1;
+             try
+            {
+            int nowValue = (from d in model.doc04 where d.d03_no == doc03_no select d.d04_no).Max();
+            max = nowValue+1;
+             }
+             catch
+             {
+
+             }
+            return max;
+        }
+
+
+        private int GetDocPeopleMax(int doc03_no)
+        {
+            int max = 1;
+            try
+            {
+                int nowValue = (from d in model.doc05 where d.d03_no == doc03_no select d.d05_no).Max();
+                max = nowValue+1;
+            }
+            catch { 
+            
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// 新增物件並加上PK流水號(因為是用計算的)
+        /// </summary>
+        /// <param name="doc"></param>
+        public void AddDocPeopleAndSetPK(doc05 doc) {
+            doc.d05_no = GetDocPeopleMax(doc.d03_no);
+            
+            model.doc05.AddObject(doc);
+            model.SaveChanges();
+        }
+
+        public void AddDocDepartmentAndSetPK(doc04 doc)
+        {
+            doc.d04_no = GetDocDepartmentMax(doc.d03_no);
+
+            model.doc04.AddObject(doc);
+            model.SaveChanges();
+        }
 
        
     }

@@ -86,6 +86,8 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
 
         string  type = this.GridView1.DataKeys[rowIndex]["type"].ToString();
         int id = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["id"].ToString());
+        int doc03_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["d03_no"].ToString());
+
 
         if (e.CommandName.Equals("modify"))
         {
@@ -97,12 +99,12 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
         {
             // delete(dep_no);
             logger.Debug("disable");
-            delete(id,type);
+            delete(id, type, doc03_no);
             return;
         };
     }
 
-    private void delete(int id,String type) { 
+    private void delete(int id,String type,int doc03_no) { 
         using(NXEIPEntities model=new NXEIPEntities()){
            
            //remove selected permission item
@@ -113,7 +115,7 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
 
             if (type == "P")
             {
-                var deleteItem = (from d in model.doc05 where d.d05_no == id select d);
+                var deleteItem = (from d in model.doc05 where d.d05_no == id && d.d03_no==doc03_no select d);
 
                 foreach (var item in deleteItem) {
                     model.doc05.DeleteObject(item);
@@ -121,7 +123,7 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
 
             }
             if(type=="D"){
-                var deleteItem = (from d in model.doc04 where d.d04_no == id select d);
+                var deleteItem = (from d in model.doc04 where d.d04_no == id && d.d03_no==doc03_no select d);
                 foreach (var item in deleteItem)
                 {
                     model.doc04.DeleteObject(item);
