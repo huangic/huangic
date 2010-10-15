@@ -11,9 +11,15 @@ using Entity;
 public partial class lib_tree_jQueryDepartTree : System.Web.UI.UserControl
 {
 
-   
-    
 
+
+    public string ListBoxClientID
+    {
+        get
+        {
+            return this.ListBox1.ClientID;
+        }
+    }
 
     public List<KeyValuePair<String,String>> Items{
         get{
