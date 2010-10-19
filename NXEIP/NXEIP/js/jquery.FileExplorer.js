@@ -5,8 +5,6 @@
 thickbox
 jstree1.0套件
 jquery.jqGrid
-
-
 */
 
 ;(function ($) {
@@ -25,7 +23,6 @@ jquery.jqGrid
 
     $(_setting.fileMoveButton).bind("click",OpenMoveTree);
     $(_setting.fileCopyButton).bind("click",OpenCopyTree);
-
     $(_setting.permissionButton).bind("click",openPermissionDialog);
 
 
@@ -34,7 +31,13 @@ jquery.jqGrid
         //alert($.jstree._focused().get_selected());
     }
 
-   
+   function initButton(){
+     $(_setting.fileDeleteButton).show();
+     $(_setting.fileMoveButton).show();
+     $(_setting.permissionButton).show();
+     $(_setting.fileUploadButton).show();
+      $(_setting.filePublicButton).show();
+   }
 
    //檔案權限
    function openPermissionDialog(){
@@ -340,11 +343,15 @@ jquery.jqGrid
     var reloadFile=function(id,depid,folderType) {
         
        
-        $( _setting.fileDiv).setGridParam({ url: "FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType });
+        $( _setting.fileDiv).setGridParam({ 
+        loadComplete:loadComplete,
+        url: "FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType 
+        
+        });
 
         $( _setting.fileDiv).trigger("reloadGrid");
 
-
+        initButton();
     };
 
   
@@ -372,8 +379,20 @@ jquery.jqGrid
                       ],
             multiselect: true,
 
-            loadComplete: function () {
-                var ids = jQuery( _setting.fileDiv).getDataIDs();
+            loadComplete: loadComplete,
+
+            caption: "檔案清單",
+            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
+
+        });
+
+        //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
+
+    };
+
+
+        function loadComplete(){
+             var ids = jQuery( _setting.fileDiv).getDataIDs();
 
                
 
@@ -401,16 +420,7 @@ jquery.jqGrid
                     DisplayEmptyText(false);
 
                 
-            },
-
-            caption: "檔案清單",
-            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
-
-        });
-
-        //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
-
-    };
+        }
 
 
      function AjaxHandle(url, data, onSuccess) {
@@ -659,7 +669,9 @@ jquery.jqGrid
             fileDeleteButton:"#deleteFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",
-            fileHandleOKButton:"#handleOK"
+            fileUploadButton:"#addFile",
+            fileHandleOKButton:"#handleOK",
+            filePublicButton:"#publicFile"
         };
 
 

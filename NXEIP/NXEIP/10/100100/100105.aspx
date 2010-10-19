@@ -47,7 +47,8 @@
                   fileDeleteButton: "#delFile",
                    fileMoveButton: "#moveFile",
                    fileCopyButton: "#copyFile",
-                 
+                   fileUploadButton:"addFile",
+                   filePublicButton: "#publicFile",
                    dialog:"#dialog",
                     handleTree:"#handleTree"
 
@@ -62,7 +63,7 @@
                   fileDeleteButton: "#delFile",
                   fileMoveButton: "#moveFile",
                   fileCopyButton: "#copyFile",
-
+                  filePublicButton: "#publicFile",
                   dialog: "#dialog",
                   handleTree: "#handleTree"
 
@@ -106,7 +107,7 @@
                 <input id="copyFile" type="button" title="複製" value="複製" class="b-input" />
     
                 <input id="permissionButton" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true&width=470" title="權限"  value="權限" class="b-input" />
-                <input id="Button4" type="button"  title="公開"  value="公開" class="thickbox b-input" />
+                <input id="publicFile" type="button"  title="公開"  value="公開" class="thickbox b-input" />
             </div>
             <table id="filelist">
             </table>

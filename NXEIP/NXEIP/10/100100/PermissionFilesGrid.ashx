@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="FilesGrid"%>
+﻿<%@ WebHandler Language="C#" Class="PermissionFilesGrid" %>
 
 using System;
 using System.Web;
@@ -10,19 +10,97 @@ using System.Web.SessionState;
 using NXEIP.FileManager;
 using NXEIP.FileManager.Json;
 
-public class FilesGrid : IHttpHandler,IRequiresSessionState
+public class PermissionFilesGrid : IHttpHandler, IRequiresSessionState
 {
+
+    SessionObject sessionObj = new SessionObject();
+
+
+
     
-  
-    
-    /// <summary>
-    /// get child dir
-    /// </summary>
-    /// <param name="pid"></param>
-    /// <returns></returns>
-    private JqGridJSON getFiles(int pid,int depNo,string folderType,String field,String order)
+
+
+    public void ProcessRequest(HttpContext context)
     {
 
+
+
+        SessionObject sessionObj = new SessionObject();
+
+        context.Response.ContentType = "text/plain";
+
+        //取參數
+        //operation=get_children&id=1
+
+
+        String order = context.Request["sord"];
+        String field = context.Request["sidx"];
+
+
+        String id = context.Request["id"];
+
+        int peo_id = 0;
+        
+       
+        try
+        {
+            peo_id = int.Parse(context.Request["peo_id"]);
+            
+        }
+        catch
+        {
+
+        }
+
+
+        int folderid; //目錄ID
+
+
+        if (int.TryParse(id, out folderid))
+        {
+
+
+
+            JqGridJSON file = null;
+
+
+          
+            //if(pid)
+
+
+            file = getFiles(peo_id, folderid, field, order);
+
+            //取使用者的目錄結構
+
+
+            context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(file));
+
+        }
+
+    }
+
+
+    public bool IsReusable
+    {
+        get
+        {
+            return false;
+        }
+
+    }
+
+
+   /// <summary>
+   /// getChildFile
+   /// </summary>
+   /// <param name="pid">人員編號</param>
+   /// <param name="folderId">目錄ID</param>
+   /// <param name="field">欄位</param>
+   /// <param name="order">順序</param>
+   /// <returns></returns>
+    private JqGridJSON getFiles(int peo_id, int folderId, String field, String order)
+    {
+        int peo_uid = int.Parse(sessionObj.sessionUserID);
         using (NXEIPEntities model = new NXEIPEntities())
         {
 
@@ -30,17 +108,26 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
             JqGridJSON grid = new JqGridJSON();
 
 
-            
 
-            //取目錄的所有檔案 (少欄位)
+
+            //取使用者分享的所有檔案
             var files = from f in model.doc01
                         from f2 in model.doc02
+                        from f3 in model.doc03
+                        from f5 in model.doc05
 
                         where
-                        f.d01_no == f2.d01_no &&
-                        f2.d02_open == "2" &&
-                        f.d01_parentid == pid 
-                        &&f.d01_type==folderType &&f.dep_no==depNo 
+                        f.d01_createuid==peo_id
+                        
+                        && f.d01_no == f2.d01_no
+                        && f3.d01_no == f.d01_no
+                        && f3.d03_no == f5.d03_no
+                        && f5.d05_peouid == peo_uid
+
+                        && f2.d02_open == "2"
+                            //&& f.d01_parentid == pid 
+                        && f.d01_type == "1"
+                            //&&f.dep_no==depNo 
                         && !String.IsNullOrEmpty(f.d01_file)
                         select new { doc1 = f, doc2 = f2 };
 
@@ -128,89 +215,6 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
 
             return grid;
         }
-        }
-    
-    
-    public void ProcessRequest (HttpContext context) {
-        
-        
-       
-        SessionObject sessionObj=new SessionObject();
-        
-        context.Response.ContentType = "text/plain";
-        
-        //取參數
-        //operation=get_children&id=1
-
-
-        String order = context.Request["sord"];
-        String field = context.Request["sidx"];
-        
-       
-        String id = context.Request["id"];
-       
-        int depid=0; 
-        String folderType="";
-
-        try
-        {
-            depid = int.Parse(context.Request["depid"]);
-            folderType = context.Request["folderType"];
-        }
-        catch { 
-        
-        }
-        
-        
-         int pid;
-        
-        
-        if(int.TryParse(id,out pid)){
-
-
-
-            JqGridJSON file=null;
-
-
-            if (pid != 0)
-            {
-                using (NXEIPEntities model = new NXEIPEntities())
-                {
-                    doc01 parent = (from d in model.doc01 where d.d01_no == pid select d).First();
-
-                    depid = parent.dep_no;
-                    folderType = parent.d01_type;
-                }
-            }
-            else {
-                if (folderType == "1") {
-                    depid = int.Parse(sessionObj.sessionUserDepartID);
-                }
-            
-            }
-            
-            
-            //if(pid)
-            
-
-            file = getFiles(pid,depid,folderType,field,order);
-            
-            //取使用者的目錄結構
-
-
-                context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(file));
-            
-        }
-       
     }
-
-
-    public bool IsReusable
-    {
-        get
-        {
-            return false;
-        }
-
-    }
+    
 }

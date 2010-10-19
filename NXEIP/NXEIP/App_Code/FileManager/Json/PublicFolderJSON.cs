@@ -22,13 +22,16 @@ namespace NXEIP.FileManager.Json
         }
 
         public PublicFolderJSON(people people) {
-            this.data = people.peo_name;
+            this.data = people.peo_name+"的文件夾";
 
-            this.state = "closed";
+            //this.state = "closed";
 
             PublicFolderAttrJson attr = new PublicFolderAttrJson();
             attr.peo_id = people.peo_uid.ToString();
-            //attr.id=
+            attr.id = "0";
+            
+            
+            this.attr = attr;
             
         
         }

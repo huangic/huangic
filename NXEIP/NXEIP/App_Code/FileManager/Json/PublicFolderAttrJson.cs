@@ -19,5 +19,8 @@ namespace NXEIP.FileManager.Json
         
         public String peo_id { get; set; }
         
+
+
+
     }
 }
