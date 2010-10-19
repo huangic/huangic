@@ -25,7 +25,7 @@ public class ChangeObject
     {
         TaiwanCalendar tc = new TaiwanCalendar( );
         
-        return tc.GetYear(dt)+"-"+tc.GetMonth(dt)+"-"+tc.GetDayOfMonth(dt);
+        return tc.GetYear(dt)+"-"+dt.ToString("MM-dd");
     }
 
     /// <summary>
@@ -36,6 +36,16 @@ public class ChangeObject
     public DateTime _ROCtoAD(string roc)
     {
         return Convert.ToDateTime(ROCDTtoADDT(roc));
+    }
+
+    /// <summary>
+    /// 回傳 XX年XX月XX日
+    /// </summary>
+    /// <param name="roc"></param>
+    /// <returns></returns>
+    public string _ROCtoROCYMD(string roc)
+    {
+        return roc.Split('-')[0] + "年" + roc.Split('-')[1] + "月" + roc.Split('-')[2] + "日";
     }
 
     #region 民國 轉西元年 ROCDTtoADDT
