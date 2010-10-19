@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="100102.ascx.cs" Inherits="widget_10_100100_100102" %>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
                         <asp:Image  ID="image1" ImageUrl="~/image/a07.jpg" width="211" height="46" runat="server" />
@@ -38,3 +39,9 @@
                     </td>
                 </tr>
             </table>      
+
+
+    
+ 
+
+    

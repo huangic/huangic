@@ -18,7 +18,13 @@ jquery.jqGrid
    
         
 
-   
+   function initButton(){
+     $(_setting.fileDeleteButton).hide();
+     $(_setting.fileMoveButton).hide();
+     $(_setting.permissionButton).hide();
+     $(_setting.fileUploadButton).hide();
+      $(_setting.filePublicButton).hide();
+   }
     
 
     //$(_setting.fileDeleteButton).bind("click",delFile);
@@ -98,10 +104,10 @@ jquery.jqGrid
     function reloadNodeFile(event, data) {
       
         id=data.rslt.obj.attr("id");
-        depid=data.rslt.obj.attr("depid");
-        folderType=data.rslt.obj.attr("folderType");
+        peoid=data.rslt.obj.attr("peo_id");
         
-        reloadFile(id,depid,folderType);
+        
+        reloadFile(id,peoid);
 
         //屬性寫入COOKIES
         //$.cookie("depid",depid);
@@ -109,14 +115,20 @@ jquery.jqGrid
 
     };
 
-    var reloadFile=function(id,depid,folderType) {
+    var reloadFile=function(id,peoid) {
         
        
-        $( _setting.fileDiv).setGridParam({ url: "FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType });
+        $( _setting.fileDiv).setGridParam({ 
+        loadComplete:loadComplete,
+        url: "PermissionFilesGrid.ashx?id=" + id+"&peo_id="+peoid
+        
+        });
+
+       
 
         $( _setting.fileDiv).trigger("reloadGrid");
 
-
+         initButton();
     };
 
   
@@ -144,8 +156,21 @@ jquery.jqGrid
                       ],
             multiselect: true,
 
-            loadComplete: function () {
-                var ids = jQuery( _setting.fileDiv).getDataIDs();
+            loadComplete: loadComplate,
+
+            caption: "檔案清單",
+            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
+
+        });
+
+        //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
+
+    };
+
+
+
+        function loadComplete(){
+             var ids = jQuery( _setting.fileDiv).getDataIDs();
 
                
 
@@ -158,12 +183,12 @@ jquery.jqGrid
                      dlUrl="FileDownload.ashx?code="+ret.code;
                     
 
-                    be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
+                    //be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
                     
                     dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
                     
-                    del = "<a class='fileDelete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
-                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be +dl+del })
+                    //del = "<a class='fileDelete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
+                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: dl })
                 }
 
                 //無資料寫是空值
@@ -171,18 +196,7 @@ jquery.jqGrid
                     DisplayEmptyText(true);
                 else
                     DisplayEmptyText(false);
-
-                
-            },
-
-            caption: "檔案清單",
-            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
-
-        });
-
-        //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
-
-    };
+        }
 
 
      function AjaxHandle(url, data, onSuccess) {
@@ -275,7 +289,10 @@ jquery.jqGrid
             fileDeleteButton:"#deleteFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",
-            fileHandleOKButton:"#handleOK"
+            fileUploadButton:"#addFile",
+            fileHandleOKButton:"#handleOK",
+            filePublicButton:"#publicFile"
+        
         };
 
 

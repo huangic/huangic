@@ -62,7 +62,10 @@ public class PublicFolderTree : IHttpHandler,IRequiresSessionState
 
              var folder_people = (from d03 in model.doc03
                                   from d01 in model.doc01
-                                  where d01.d01_no == d03.d01_no && d01.d01_type == "1" && d01.peo_uid!=peo_id && doc3_nos.Contains(d03.d03_no)
+                                  where d01.d01_no == d03.d01_no 
+                                  && d01.d01_type == "1" 
+                                  //&& d01.peo_uid!=peo_id  測試註解
+                                  && doc3_nos.Contains(d03.d03_no)
                                   select d01.peo_uid).Distinct(); 
               var people=from p in model.people where folder_people.Contains(p.peo_uid) select p;
 
