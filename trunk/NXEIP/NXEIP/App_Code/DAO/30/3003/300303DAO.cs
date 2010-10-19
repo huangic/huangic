@@ -37,7 +37,7 @@ namespace NXEIP.DAO
                      select data);
             
             //課程父類別
-            if (type_1 != "請選擇" && type_2.Equals("請選擇"))
+            if (type_1 != "0" && type_2.Equals("0"))
             {
                 int typ_parent = Convert.ToInt32(type_1);
                 int[] tdata = (from t in model.types where t.typ_parent == typ_parent select t.typ_no).ToArray();
@@ -45,14 +45,14 @@ namespace NXEIP.DAO
             }
 
             //課程子類別
-            if (type_2 != "請選擇")
+            if (type_2 != "0")
             {
                 //條件值
                 d = d.Where("typ_no = @0", Convert.ToInt32(type_2));
             }
 
             //上課地點
-            if (e01_no != null && e01_no != "請選擇")
+            if (e01_no != null && e01_no != "0")
             {
                 //條件值
                 d = d.Where("e01_no = @0", Convert.ToInt32(e01_no));
@@ -92,6 +92,48 @@ namespace NXEIP.DAO
         public int GetDataCount(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int openuid)
         {
             return GetData(sdate, edate, type_1, type_2, e01_no, e02_name, openuid).Count();
+        }
+
+        /// <summary>
+        /// 查詢所有資料
+        /// </summary>
+        /// <param name="e02_no"></param>
+        /// <returns></returns>
+        public IQueryable<e04> Get_e04Data(int e02_no)
+        {
+            //未審核,審核通過,審核未通過
+            string[] check = { "0", "1", "2" };
+            return (from d in model.e04 where d.e02_no == e02_no && check.Contains(d.e04_check) orderby d.e04_check,d.e04_depno,d.e04_applydate select d);
+        }
+
+        public IQueryable<e04> Get_e04Data(int e02_no, int startRowIndex, int maximumRows)
+        {
+            return Get_e04Data(e02_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int Get_e04DataCount(int e02_no)
+        {
+            return Get_e04Data(e02_no).Count();
+        }
+
+        /// <summary>
+        /// 查詢已審核資料
+        /// </summary>
+        /// <param name="e02_no"></param>
+        /// <returns></returns>
+        public IQueryable<e04> Get_e04Data_pass(int e02_no)
+        {
+            return (from d in model.e04 where d.e02_no == e02_no && d.e04_check == "1" orderby d.e04_check, d.e04_depno, d.e04_applydate select d);
+        }
+
+        public IQueryable<e04> Get_e04Data_pass(int e02_no, int startRowIndex, int maximumRows)
+        {
+            return Get_e04Data_pass(e02_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int Get_e04DataCount_pass(int e02_no)
+        {
+            return Get_e04Data_pass(e02_no).Count();
         }
 
         /// <summary>
