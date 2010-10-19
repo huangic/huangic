@@ -11,7 +11,7 @@ jquery.jqGrid
 
 ;(function ($) {
 
-    var _init=function(_setting) {
+    init=function(element,_setting) {
     tb_init('a.thickbox input.thickbox');
 
     $.ajaxSetup({ cache: false });
@@ -47,7 +47,7 @@ jquery.jqGrid
         
         
 
-        $(_setting.treeDiv).jstree({
+        $(element).jstree({
 
             "json_data": {
                 "ajax": {
@@ -279,14 +279,12 @@ jquery.jqGrid
 
     $.fn.publicfileManager=function(settings){
         var _defaultSettings={
-            treeDiv:"#treeDiv",
-            publicDiv:"#publicDiv",
-            fileDiv:"#fileDiv",
+            treeDiv:"#publicFolder",
+            fileDiv:"#filelist",
             handleTree:"#handleTree",
             dialog:"#dialog",
-            permissionDialog:"#permissionDialog",
             permissionButton:"#permissionButton",
-            fileDeleteButton:"#deleteFile",
+            fileDeleteButton:"#delFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",
             fileUploadButton:"#addFile",
@@ -297,7 +295,7 @@ jquery.jqGrid
 
 
         var _settings = $.extend(_defaultSettings, settings);
-        _init(_settings);
+        return new init(this,_settings);
         
     };
 })(jQuery); 

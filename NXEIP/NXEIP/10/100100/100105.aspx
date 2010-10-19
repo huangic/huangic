@@ -16,6 +16,7 @@
      <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
       <script type="text/javascript" src="../../js/jquery.FileExplorerPublic.js"></script>
+      <script type="text/javascript" src="../../js/jquery.FileExplorerSearch.js"></script>
 
       <script type="text/javascript">
           function update() {
@@ -37,39 +38,14 @@
               $("#accordion").accordion({
                   fillSpace: true
               });
-              
-              $("#userFolder").fileManager(
-              {   treeDiv: "#userFolder",
-                  fileDiv: "#filelist",
-                  publicDiv: "#publicFolder",
-                  permissionDialog: "#permissionDialog",
-                  permissionButton: "#permissionButton",
-                  fileDeleteButton: "#delFile",
-                   fileMoveButton: "#moveFile",
-                   fileCopyButton: "#copyFile",
-                   fileUploadButton:"addFile",
-                   filePublicButton: "#publicFile",
-                   dialog:"#dialog",
-                    handleTree:"#handleTree"
 
-              });
+              $("#userFolder").fileManager();
 
-                $("#publicFolder").publicfileManager(
-              { treeDiv: "#publicFolder",
-                  fileDiv: "#filelist",
-                  publicDiv: "#publicFolder",
-                  permissionDialog: "#permissionDialog",
-                  permissionButton: "#permissionButton",
-                  fileDeleteButton: "#delFile",
-                  fileMoveButton: "#moveFile",
-                  fileCopyButton: "#copyFile",
-                  filePublicButton: "#publicFile",
-                  dialog: "#dialog",
-                  handleTree: "#handleTree"
+              $("#publicFolder").publicfileManager();
 
-              });
-
-              
+              $("#searchButton").searchfileManager();
+            
+               
           });
     
     </script>
@@ -92,8 +68,9 @@
 	    <div id="publicFolder"></div>
 	    <h3><a href="#">搜尋</a></h3>
 	    <div id="shereFolder">
-	     檔名<input type="text" />	
-	          
+	     檔名<input id="searchName" type="text" /><br/>
+         關鍵字<input id="searchContext" type="text" />	<br/>
+	       <input id="searchButton" type="button" title="搜尋" value="搜尋" />   
 	    
 	    </div>
         </div>
@@ -122,9 +99,7 @@
  <div id="handleTree"></div>
  </div>
 
- <div id="permissionDialog" class="dialog">
- <div id="permissionGrid"></div>
- </div>
+
 
     
 
