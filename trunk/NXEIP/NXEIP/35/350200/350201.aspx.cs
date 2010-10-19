@@ -31,10 +31,7 @@ public partial class _35_350200_350201 : System.Web.UI.Page
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
-
-
         int typ_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
-
 
         if (e.CommandName.Equals("modify"))
         {
@@ -67,8 +64,6 @@ public partial class _35_350200_350201 : System.Web.UI.Page
     {
 
         // 置換UID 為PEOPLE_NAME
-
-
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             PeopleDAO dao = new PeopleDAO();
