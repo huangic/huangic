@@ -9,7 +9,7 @@ jquery.jqGrid
 
 ;(function ($) {
 
-    var _init=function(_setting) {
+    var _init=function(element,_setting) {
     tb_init('a.thickbox input.thickbox');
 
     $.ajaxSetup({ cache: false });
@@ -36,7 +36,8 @@ jquery.jqGrid
      $(_setting.fileMoveButton).show();
      $(_setting.permissionButton).show();
      $(_setting.fileUploadButton).show();
-      $(_setting.filePublicButton).show();
+     $(_setting.filePublicButton).show();
+     $(_setting.fileCopyButton).show();
    }
 
    //檔案權限
@@ -206,7 +207,7 @@ jquery.jqGrid
         showFile("0");
 
 
-        $(_setting.treeDiv).jstree({
+        $(element).jstree({
 
             "json_data": {
                 "ajax": {
@@ -282,26 +283,7 @@ jquery.jqGrid
                     alert("DRAG OK");
                 }
             },
-            "contextmenu": {
-                items: {
-                    "create": {
-                        "label": "新增資料夾"
-                    },
-                    "rename": {
-
-                        "label": "更名"
-
-                    },
-                    "remove": {
-
-
-
-                        "label": "刪除"
-
-                    }
-
-                }
-            },
+            "contextmenu": {items:checkContextMenu},
 
 
 
@@ -323,6 +305,30 @@ jquery.jqGrid
 
         // JSTREE 設定
     
+
+    function checkContextMenu(node){
+      
+      //alert(node);
+      menu={"create": {
+               "label": "新增資料夾"
+               },
+               "rename": {
+                  "label": "更名"
+                    },
+                    "remove": {
+                    "label": "刪除"
+                    }
+                }
+                
+                if($(node).attr("foldertype")==2){
+                   alert("無目錄操作權限!!"); 
+                  return null;
+                  
+                }
+                
+      return menu;
+    }
+
 
 
      //重新整理檔案
@@ -659,12 +665,10 @@ jquery.jqGrid
 
     $.fn.fileManager=function(settings){
         var _defaultSettings={
-            treeDiv:"#treeDiv",
-            publicDiv:"#publicDiv",
-            fileDiv:"#fileDiv",
+            
+            fileDiv:"#filelist",
             handleTree:"#handleTree",
             dialog:"#dialog",
-            permissionDialog:"#permissionDialog",
             permissionButton:"#permissionButton",
             fileDeleteButton:"#deleteFile",
             fileMoveButton:"#moveFile",
@@ -676,7 +680,7 @@ jquery.jqGrid
 
 
         var _settings = $.extend(_defaultSettings, settings);
-        _init(_settings);
+        return new _init(this,_settings);
         
     };
 })(jQuery); 
