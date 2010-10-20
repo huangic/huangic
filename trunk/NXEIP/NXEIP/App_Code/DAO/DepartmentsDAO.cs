@@ -87,7 +87,18 @@ namespace NXEIP.DAO{
             return deparCollection;
         }
 
-       
-        
+
+
+        public IQueryable<departments> GetLevelOneDepartment() {
+            var departments = from d in model.departments where d.dep_level == 1 && d.dep_status == "1" select d;
+            return departments;
+        }
+
+        public IQueryable<departments> GetChildDepartment(int parentId)
+        {
+            var departments = from d in model.departments where d.dep_parentid == parentId && d.dep_status == "1" select d;
+            return departments;
+        }
+
     }
 }

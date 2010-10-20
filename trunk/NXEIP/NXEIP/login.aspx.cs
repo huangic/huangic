@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using NXEIP.DAO;
 using Entity;
+using NXEIP.Lib;
 
 public partial class login : SessionObject
 {

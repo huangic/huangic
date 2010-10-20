@@ -61,7 +61,8 @@
 
       <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
          AutoGenerateColumns="False" EmptyDataText="無資料" DataKeyNames="id,type,d03_no" 
-              EnableViewState="False" onrowcommand="GridView1_RowCommand">
+              EnableViewState="False" onrowcommand="GridView1_RowCommand" 
+              GridLines="None" CellSpacing="2">
       <Columns>
           <asp:BoundField DataField="value" HeaderText="群組名稱" />
           <asp:ButtonField CommandName="disable" Text="刪除" />

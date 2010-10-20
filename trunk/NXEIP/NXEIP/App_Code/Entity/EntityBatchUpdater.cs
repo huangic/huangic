@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Collections;
 
 
-namespace Entity
+namespace Entity.Lib
 {
     public class EntityBatchUpdater<T> : IDisposable where T : ObjectContext
     {

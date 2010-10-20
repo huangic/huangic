@@ -9,6 +9,7 @@ using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
 using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
+using NXEIP.Lib;
 
 
 public partial class AjaxTest : System.Web.UI.Page
