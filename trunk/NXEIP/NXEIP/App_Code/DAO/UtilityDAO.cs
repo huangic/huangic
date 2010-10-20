@@ -39,6 +39,28 @@ public class UtilityDAO
     }
 
     /// <summary>
+    /// 使用員工UID取得部門名稱
+    /// </summary>
+    /// <param name="dep_no">部門ID</param>
+    /// <returns></returns>
+    public string Get_DepartmentNameByUID(int peo_uid)
+    {
+        int dep_no = (from p in model.people where p.peo_uid == peo_uid select p.dep_no).FirstOrDefault();
+        return Get_DepartmentName(dep_no);
+    }
+
+    /// <summary>
+    /// 取得員工職稱
+    /// </summary>
+    /// <param name="peo_uid"></param>
+    /// <returns></returns>
+    public string Get_PeopleProName(int peo_uid)
+    {
+        int pro_no = (from p in model.people where p.peo_uid == peo_uid select p.peo_pfofess.Value).FirstOrDefault();
+        return Get_TypesCName(pro_no);
+    }
+
+    /// <summary>
     /// 取得部門名稱
     /// </summary>
     /// <param name="dep_no">部門ID</param>
