@@ -16,6 +16,7 @@
     }
 
     function chang(str) {
+        //將底線換成$符號
         var regex=/\_/g;
         return str.replace(regex, '$');
     }
