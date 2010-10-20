@@ -12,6 +12,7 @@ using System.IO;
 using ComLib.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using NXEIP.Lib;
 
 
 public class FileHandle : IHttpHandler, IRequiresSessionState

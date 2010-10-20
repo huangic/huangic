@@ -12,6 +12,7 @@ using System.Web.SessionState;
 using NXEIP.JsTree;
 using NXEIP.FileManager.Json;
 using NXEIP.DAO;
+using NXEIP.Lib;
 
 public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
 

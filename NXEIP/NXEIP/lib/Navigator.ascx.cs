@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Entity;
 using System.Text;
 using System.Web.UI.HtmlControls;
+using NXEIP.Lib;
 
 public partial class lib_Navigator : System.Web.UI.UserControl
 {
