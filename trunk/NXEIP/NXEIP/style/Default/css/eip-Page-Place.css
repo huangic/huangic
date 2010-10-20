@@ -7,14 +7,14 @@
 {
     float:left;
     width:210px;
- }
+}
 
- .placeLayout .right
- {
-     float:left;
-     width:755px;
-     margin:0px 0px 0px 20px   
-  }
+.placeLayout .right
+{
+    float:left;
+    width:755px;
+    margin:0px 0px 0px 20px   
+}
 
 .layoutDiv .top,.layoutDiv .center ,.layoutDiv .bottom
  {
