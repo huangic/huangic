@@ -29,8 +29,8 @@ namespace NXEIP.DAO
         /// <returns></returns>
         public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int openuid)
         {
-            DateTime sd = Convert.ToDateTime(sdate);
-            DateTime ed = Convert.ToDateTime(edate);
+            DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
+            DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
 
             var d = (from data in model.e02
                      where data.e02_status == "1" && data.e02_sdate >= sd && data.e02_edate <= ed
