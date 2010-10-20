@@ -137,11 +137,11 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
             }
             if (check.Equals("1"))
             {
-                e.Row.Cells[6].Text = "審核通過";
+                e.Row.Cells[6].Text = "核可";
             }
             if (check.Equals("2"))
             {
-                e.Row.Cells[6].Text = "審核未通過";
+                e.Row.Cells[6].Text = "未核可";
             }
             if (check.Equals("3"))
             {
