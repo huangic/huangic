@@ -399,7 +399,7 @@
             <PropertyRef Name="d06_no" />
           </Key>
           <Property Name="d06_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="d06_number" Type="varchar" MaxLength="100" />
+          <Property Name="d06_number" Type="nvarchar" MaxLength="100" />
           <Property Name="d06_depno" Type="int" />
           <Property Name="d06_peouid" Type="int" />
           <Property Name="d06_date" Type="datetime" />
