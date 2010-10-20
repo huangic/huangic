@@ -58,8 +58,8 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="e04_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                    EnableViewState="False" ondatabound="GridView1_DataBound">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" EnableViewState="False"
+                    OnDataBound="GridView1_DataBound">
                     <Columns>
                         <asp:TemplateField HeaderText="選取">
                             <ItemTemplate>
@@ -69,8 +69,7 @@
                         </asp:TemplateField>
                         <asp:BoundField DataField="e04_depno" HeaderText="單位" SortExpression="e04_depno" />
                         <asp:BoundField DataField="e04_prono" HeaderText="職稱" SortExpression="e04_prono" />
-                        <asp:BoundField DataField="e04_peouid" HeaderText="姓名" 
-                            SortExpression="e04_peouid" />
+                        <asp:BoundField DataField="e04_peouid" HeaderText="姓名" SortExpression="e04_peouid" />
                         <asp:BoundField DataField="e04_applydate" HeaderText="報名日期" SortExpression="e04_applydate"
                             DataFormatString="{0:yyyy-MM-dd}" />
                         <asp:BoundField DataField="e04_checkdate" HeaderText="審核日期" SortExpression="e04_checkdate"
@@ -95,22 +94,22 @@
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
+                <div class="pager">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                        <Fields>
+                            <asp:NextPreviousPagerField ShowNextPageButton="False" />
+                            <asp:NumericPagerField />
+                            <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                <Fields>
-                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                </Fields>
-            </asp:DataPager>
-        </div>
         <div class="bottom">
             <asp:Button ID="btn_pass" runat="server" CssClass="b-input" Text="核可報名" 
                 onclick="btn_pass_Click"  />
             &nbsp;
-            <input id="Button1" type="button" value="報名未核可" class="thickbox b-input" alt="../../lib/Reason.aspx?model=new&modal=true&TB_iframe=true&height=250&width=450" />
+            <input id="Button1" type="button" value="報名未核可" class="thickbox b-input" alt="../../lib/Reason.aspx?uid=&modal=true&TB_iframe=true&height=350&width=450" />
             &nbsp;
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="回管理課程" OnClick="btn_cancel_Click" />
             &nbsp;
