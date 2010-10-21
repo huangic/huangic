@@ -19,7 +19,7 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
             {
                 this.hidd_no.Value = Request["e02_no"];
                 int e02_no = Convert.ToInt32(this.hidd_no.Value);
-                string arg = "0,1,1,1,0";//Request["arg"];
+                string arg = Request["arg"];
                 string[] isShow = arg.Split(',');
                 string[] colname = { "單位", "姓名", "職稱", "身分證字號", "電話" };
                 int colSpan = 6;
@@ -34,7 +34,7 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                 //資料總筆數
                 int rowCount = (from x in model.e04 where x.e02_no == e02_no && x.e04_check == "1" select x).Count();
                 //列印一頁所需筆數
-                int pageCount = 20;
+                int pageCount = 33;
                 //頁數
                 int page = 1;
                 if (rowCount > pageCount)
@@ -58,13 +58,13 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                 ChangeObject cboj = new ChangeObject();
                 string date = cboj._ROCtoROCYMD(cboj._ADtoROC(e02Data.e02_sdate.Value));
                 string place = (from t in model.e01 where t.e01_no == e02Data.e01_no select t.e01_name).FirstOrDefault();
-                table_place = @"<tr><td colspan='" + colSpan + "'>"+
+                table_place = @"<tr style='height:25px'><td colspan='" + colSpan + "'>"+
                                     "<span style='float:left'>日期：" + date + "</span>" +
                                     "<span style='float:right'>上課地點：" + place + "</span>"+
                                 "</td></tr>";
 
                 //欄位表頭
-                table_coltilte = "<tr>";
+                table_coltilte = "<tr style='height:25px'>";
                 for (int i = 0; i < isShow.Length; i++)
                 {
                     if (isShow[i].Equals("1"))
@@ -130,7 +130,7 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                     where t.typ_no == p.peo_pfofess
                     select new { name = p.peo_name, depname = d.dep_name, proname = t.typ_cname, idcard = p.peo_idcard, tel = p.peo_tel }).FirstOrDefault();
 
-        string data = "<tr>";
+        string data = "<tr style='height:25px'>";
         //單位
         if (isShow[0].Equals("1"))
         {

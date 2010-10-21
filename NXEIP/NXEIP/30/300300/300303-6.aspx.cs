@@ -55,8 +55,10 @@ public partial class _30_300300_300303_6 : System.Web.UI.Page
         {
             model.SaveChanges();
             this.GridView1.DataBind();
-            new OperatesObject().ExecuteOperates(300303, new SessionObject().sessionUserID, 3, "更新點名資料 e02_no:" + this.hidd_no.Value);
+            OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新點名資料 e02_no:" + this.hidd_no.Value);
             this.ShowMsg("點名完成!");
+
+            
         }
     }
 
