@@ -21,6 +21,7 @@
           <EntitySet Name="doc05" EntityType="NXEIPModel.Store.doc05" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc06" EntityType="NXEIPModel.Store.doc06" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc07" EntityType="NXEIPModel.Store.doc07" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc08" EntityType="NXEIPModel.Store.doc08" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e01" EntityType="NXEIPModel.Store.e01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e02" EntityType="NXEIPModel.Store.e02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e03" EntityType="NXEIPModel.Store.e03" store:Type="Tables" Schema="dbo" />
@@ -103,6 +104,10 @@
           <AssociationSet Name="FK_DOC07_RELATIONS_DOC06" Association="NXEIPModel.Store.FK_DOC07_RELATIONS_DOC06">
             <End Role="doc06" EntitySet="doc06" />
             <End Role="doc07" EntitySet="doc07" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC08_RELATIONS_DOC07" Association="NXEIPModel.Store.FK_DOC08_RELATIONS_DOC07">
+            <End Role="doc07" EntitySet="doc07" />
+            <End Role="doc08" EntitySet="doc08" />
           </AssociationSet>
           <AssociationSet Name="FK_E02_RELATIONS_E01" Association="NXEIPModel.Store.FK_E02_RELATIONS_E01">
             <End Role="e01" EntitySet="e01" />
@@ -418,6 +423,19 @@
           <Property Name="d07_no" Type="int" Nullable="false" />
           <Property Name="d07_path" Type="nvarchar" MaxLength="200" />
           <Property Name="d07_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="d07_count" Type="int" />
+        </EntityType>
+        <EntityType Name="doc08">
+          <Key>
+            <PropertyRef Name="d06_no" />
+            <PropertyRef Name="d07_no" />
+            <PropertyRef Name="d08_no" />
+          </Key>
+          <Property Name="d06_no" Type="int" Nullable="false" />
+          <Property Name="d07_no" Type="int" Nullable="false" />
+          <Property Name="d08_no" Type="int" Nullable="false" />
+          <Property Name="d08_peouid" Type="int" />
+          <Property Name="d08_downloadtime" Type="datetime" />
         </EntityType>
         <EntityType Name="e01">
           <Key>
@@ -988,6 +1006,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DOC08_RELATIONS_DOC07">
+          <End Role="doc07" Type="NXEIPModel.Store.doc07" Multiplicity="1" />
+          <End Role="doc08" Type="NXEIPModel.Store.doc08" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc07">
+              <PropertyRef Name="d06_no" />
+              <PropertyRef Name="d07_no" />
+            </Principal>
+            <Dependent Role="doc08">
+              <PropertyRef Name="d06_no" />
+              <PropertyRef Name="d07_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_E02_RELATIONS_E01">
           <End Role="e01" Type="NXEIPModel.Store.e01" Multiplicity="1" />
           <End Role="e02" Type="NXEIPModel.Store.e02" Multiplicity="*" />
@@ -1522,6 +1554,11 @@
           <AssociationSet Name="FK_DOC07_RELATIONS_DOC06" Association="NXEIPModel.FK_DOC07_RELATIONS_DOC06">
             <End Role="doc06" EntitySet="doc06" />
             <End Role="doc07" EntitySet="doc07" />
+          </AssociationSet>
+          <EntitySet Name="doc08" EntityType="NXEIPModel.doc08" />
+          <AssociationSet Name="FK_DOC08_RELATIONS_DOC07" Association="NXEIPModel.FK_DOC08_RELATIONS_DOC07">
+            <End Role="doc07" EntitySet="doc07" />
+            <End Role="doc08" EntitySet="doc08" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
@@ -2692,6 +2729,8 @@
           <Property Type="String" Name="d07_path" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="d07_type" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="doc06" Relationship="NXEIPModel.FK_DOC07_RELATIONS_DOC06" FromRole="doc07" ToRole="doc06" />
+          <Property Type="Int32" Name="d07_count" />
+          <NavigationProperty Name="doc08" Relationship="NXEIPModel.FK_DOC08_RELATIONS_DOC07" FromRole="doc07" ToRole="doc08" />
         </EntityType>
         <Association Name="FK_DOC07_RELATIONS_DOC06">
           <End Type="NXEIPModel.doc06" Role="doc06" Multiplicity="1" />
@@ -2702,6 +2741,33 @@
             </Principal>
             <Dependent Role="doc07">
               <PropertyRef Name="d06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="doc08">
+          <Key>
+            <PropertyRef Name="d06_no" />
+            <PropertyRef Name="d07_no" />
+            <PropertyRef Name="d08_no" />
+          </Key>
+          <Property Type="Int32" Name="d06_no" Nullable="false" />
+          <Property Type="Int32" Name="d07_no" Nullable="false" />
+          <Property Type="Int32" Name="d08_no" Nullable="false" />
+          <Property Type="Int32" Name="d08_peouid" />
+          <Property Type="DateTime" Name="d08_downloadtime" />
+          <NavigationProperty Name="doc07" Relationship="NXEIPModel.FK_DOC08_RELATIONS_DOC07" FromRole="doc08" ToRole="doc07" />
+        </EntityType>
+        <Association Name="FK_DOC08_RELATIONS_DOC07">
+          <End Type="NXEIPModel.doc07" Role="doc07" Multiplicity="1" />
+          <End Type="NXEIPModel.doc08" Role="doc08" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc07">
+              <PropertyRef Name="d06_no" />
+              <PropertyRef Name="d07_no" />
+            </Principal>
+            <Dependent Role="doc08">
+              <PropertyRef Name="d06_no" />
+              <PropertyRef Name="d07_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3219,8 +3285,20 @@
           <EntitySetMapping Name="doc07">
             <EntityTypeMapping TypeName="NXEIPModel.doc07">
               <MappingFragment StoreEntitySet="doc07">
+                <ScalarProperty Name="d07_count" ColumnName="d07_count" />
                 <ScalarProperty Name="d07_type" ColumnName="d07_type" />
                 <ScalarProperty Name="d07_path" ColumnName="d07_path" />
+                <ScalarProperty Name="d07_no" ColumnName="d07_no" />
+                <ScalarProperty Name="d06_no" ColumnName="d06_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc08">
+            <EntityTypeMapping TypeName="NXEIPModel.doc08">
+              <MappingFragment StoreEntitySet="doc08">
+                <ScalarProperty Name="d08_downloadtime" ColumnName="d08_downloadtime" />
+                <ScalarProperty Name="d08_peouid" ColumnName="d08_peouid" />
+                <ScalarProperty Name="d08_no" ColumnName="d08_no" />
                 <ScalarProperty Name="d07_no" ColumnName="d07_no" />
                 <ScalarProperty Name="d06_no" ColumnName="d06_no" />
               </MappingFragment>
@@ -3540,8 +3618,13 @@
         <EntityTypeShape EntityType="NXEIPModel.doc06" Width="1.5" PointX="11.375" PointY="1" Height="3.134095052083353" />
         <EntityTypeShape EntityType="NXEIPModel.doc07" Width="1.5" PointX="13.625" PointY="1.5" Height="1.980286458333353" />
         <AssociationConnector Association="NXEIPModel.FK_DOC07_RELATIONS_DOC06" >
-          <ConnectorPoint PointX="12.875" PointY="2.4901432291666765" />
-          <ConnectorPoint PointX="13.625" PointY="2.4901432291666765" />
+          <ConnectorPoint PointX="12.875" PointY="2.6824446614583328" />
+          <ConnectorPoint PointX="13.625" PointY="2.6824446614583328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.doc08" Width="1.5" PointX="16.625" PointY="1.625" Height="2.1725878906250102" />
+        <AssociationConnector Association="NXEIPModel.FK_DOC08_RELATIONS_DOC07" >
+          <ConnectorPoint PointX="15.125" PointY="2.7112939453125051" />
+          <ConnectorPoint PointX="16.625" PointY="2.7112939453125051" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
