@@ -5104,6 +5104,30 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String d06_number
+        {
+            get
+            {
+                return _d06_number;
+            }
+            set
+            {
+                Ond06_numberChanging(value);
+                ReportPropertyChanging("d06_number");
+                _d06_number = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d06_number");
+                Ond06_numberChanged();
+            }
+        }
+        private global::System.String _d06_number;
+        partial void Ond06_numberChanging(global::System.String value);
+        partial void Ond06_numberChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public Nullable<global::System.Int32> d06_depno
         {
             get
@@ -5290,30 +5314,6 @@ namespace Entity
         private Nullable<global::System.DateTime> _d06_createtime;
         partial void Ond06_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ond06_createtimeChanged();
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String d06_number
-        {
-            get
-            {
-                return _d06_number;
-            }
-            set
-            {
-                Ond06_numberChanging(value);
-                ReportPropertyChanging("d06_number");
-                _d06_number = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("d06_number");
-                Ond06_numberChanged();
-            }
-        }
-        private global::System.String _d06_number;
-        partial void Ond06_numberChanging(global::System.String value);
-        partial void Ond06_numberChanged();
 
         #endregion
     

@@ -2671,6 +2671,7 @@
             <PropertyRef Name="d06_no" />
           </Key>
           <Property Type="Int32" Name="d06_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="d06_number" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="d06_depno" />
           <Property Type="Int32" Name="d06_peouid" />
           <Property Type="DateTime" Name="d06_date" />
@@ -2680,7 +2681,6 @@
           <Property Type="Int32" Name="d06_createuid" />
           <Property Type="DateTime" Name="d06_createtime" />
           <NavigationProperty Name="doc07" Relationship="NXEIPModel.FK_DOC07_RELATIONS_DOC06" FromRole="doc06" ToRole="doc07" />
-          <Property Type="String" Name="d06_number" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="doc07">
           <Key>
@@ -3203,7 +3203,6 @@
           <EntitySetMapping Name="doc06">
             <EntityTypeMapping TypeName="NXEIPModel.doc06">
               <MappingFragment StoreEntitySet="doc06">
-                <ScalarProperty Name="d06_number" ColumnName="d06_number" />
                 <ScalarProperty Name="d06_createtime" ColumnName="d06_createtime" />
                 <ScalarProperty Name="d06_createuid" ColumnName="d06_createuid" />
                 <ScalarProperty Name="d06_open" ColumnName="d06_open" />
@@ -3212,6 +3211,7 @@
                 <ScalarProperty Name="d06_date" ColumnName="d06_date" />
                 <ScalarProperty Name="d06_peouid" ColumnName="d06_peouid" />
                 <ScalarProperty Name="d06_depno" ColumnName="d06_depno" />
+                <ScalarProperty Name="d06_number" ColumnName="d06_number" />
                 <ScalarProperty Name="d06_no" ColumnName="d06_no" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3537,11 +3537,11 @@
           <ConnectorPoint PointX="4.78125" PointY="39.268992513020834" />
           <ConnectorPoint PointX="7" PointY="39.268992513020834" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="NXEIPModel.doc06" Width="1.5" PointX="11.375" PointY="1" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="NXEIPModel.doc07" Width="1.5" PointX="13.625" PointY="1.5" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="NXEIPModel.doc06" Width="1.5" PointX="11.375" PointY="1" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="NXEIPModel.doc07" Width="1.5" PointX="13.625" PointY="1.5" Height="1.980286458333353" />
         <AssociationConnector Association="NXEIPModel.FK_DOC07_RELATIONS_DOC06" >
-          <ConnectorPoint PointX="12.875" PointY="2.4901432291666623" />
-          <ConnectorPoint PointX="13.625" PointY="2.4901432291666623" />
+          <ConnectorPoint PointX="12.875" PointY="2.4901432291666765" />
+          <ConnectorPoint PointX="13.625" PointY="2.4901432291666765" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
