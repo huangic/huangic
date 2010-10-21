@@ -15,14 +15,12 @@
                     <div class="h1">
                     </div>
                     <div class="h2">
-                        <div class="name1">
-                            請先選擇場所</div>
+                        <div class="name1">請先選擇場所</div>
                     </div>
                     <div class="h3">
                     </div>
                 </div>
                 <div class="top">
-                    <div align="left">
                         <span class="icon">所在地</span>
                         <asp:DropDownList ID="ddl_spot" runat="server" CssClass="select4">
                         </asp:DropDownList>
@@ -40,7 +38,6 @@
                             Category="rooms" ContextKey="" LoadingText="讀取中..." ParentControlID="ddl_spot"
                             PromptText="請選擇" PromptValue="0" ServiceMethod="GetRooms" ServicePath="../../WebService/place.asmx">
                         </ajaxtoolkit:CascadingDropDown>
-                    </div>
                 </div>
                 <div class="bottom">
                     <table class="place">
@@ -83,14 +80,16 @@
                     </div>
                     <div class="h21">
                         <div class="name2">
-                            <asp:LinkButton ID="LinkButton1" runat="server">&lt;&lt;上個月</asp:LinkButton>&nbsp;<asp:LinkButton ID="LinkButton2" runat="server">&lt;&lt;上星期</asp:LinkButton>
+                            <asp:LinkButton ID="lbtn_premonth" runat="server" onclick="lbtn_premonth_Click">&lt;&lt;上個月</asp:LinkButton>&nbsp;<asp:LinkButton 
+                                ID="lbtn_preweek" runat="server" onclick="lbtn_preweek_Click">&lt;&lt;上星期</asp:LinkButton>
                         </div>
                         <div class="name3">&nbsp;
                             <asp:Label ID="lab_today" runat="server" Visible="False"></asp:Label>
                             <asp:Label ID="lab_PetitionSignType" runat="server" Visible="False"></asp:Label>
                          </div>
                         <div class="name4">
-                            <asp:LinkButton ID="LinkButton4" runat="server">下星期&gt;&gt;</asp:LinkButton>&nbsp;<asp:LinkButton ID="LinkButton3" runat="server">下個月&gt;&gt;</asp:LinkButton>
+                            <asp:LinkButton ID="lbtn_nextweek" runat="server" onclick="lbtn_nextweek_Click">下星期&gt;&gt;</asp:LinkButton>&nbsp;<asp:LinkButton 
+                                ID="lbtn_nextmonth" runat="server" onclick="lbtn_nextmonth_Click">下個月&gt;&gt;</asp:LinkButton>
                         </div>
                     </div>
                     <div class="h3">
@@ -123,8 +122,8 @@
                         <asp:TableCell ID="TableCell18" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell19" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell20" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell21" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell22" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell21" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell22" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow1" runat="server">
                         <asp:TableCell ID="TableCell23" runat="server" CssClass="time">07:00</asp:TableCell>
@@ -133,8 +132,8 @@
                         <asp:TableCell ID="TableCell26" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell27" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell28" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell29" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell30" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell29" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell30" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow2" runat="server">
                         <asp:TableCell ID="TableCell31" runat="server" CssClass="time">08:00</asp:TableCell>
@@ -143,8 +142,8 @@
                         <asp:TableCell ID="TableCell34" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell35" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell36" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell37" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell38" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell37" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell38" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow3" runat="server">
                         <asp:TableCell ID="TableCell39" runat="server" CssClass="time">09:00</asp:TableCell>
@@ -153,8 +152,8 @@
                         <asp:TableCell ID="TableCell42" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell43" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell44" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell45" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell46" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell45" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell46" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow4" runat="server">
                         <asp:TableCell ID="TableCell47" runat="server" CssClass="time">10:00</asp:TableCell>
@@ -163,8 +162,8 @@
                         <asp:TableCell ID="TableCell50" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell51" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell52" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell53" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell54" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell53" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell54" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow5" runat="server">
                         <asp:TableCell ID="TableCell55" runat="server" CssClass="time">11:00</asp:TableCell>
@@ -173,8 +172,8 @@
                         <asp:TableCell ID="TableCell58" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell59" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell60" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell61" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell62" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell61" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell62" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow6" runat="server">
                         <asp:TableCell ID="TableCell63" runat="server" CssClass="time">12:00</asp:TableCell>
@@ -183,8 +182,8 @@
                         <asp:TableCell ID="TableCell66" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell67" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell68" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell69" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell70" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell69" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell70" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow7" runat="server">
                         <asp:TableCell ID="TableCell71" runat="server" CssClass="time">13:00</asp:TableCell>
@@ -193,8 +192,8 @@
                         <asp:TableCell ID="TableCell74" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell75" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell76" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell77" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell78" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell77" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell78" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow8" runat="server">
                         <asp:TableCell ID="TableCell79" runat="server" CssClass="time">14:00</asp:TableCell>
@@ -203,8 +202,8 @@
                         <asp:TableCell ID="TableCell82" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell83" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell84" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell85" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell86" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell85" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell86" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow9" runat="server">
                         <asp:TableCell ID="TableCell87" runat="server" CssClass="time">15:00</asp:TableCell>
@@ -213,8 +212,8 @@
                         <asp:TableCell ID="TableCell90" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell91" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell92" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell93" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell94" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell93" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell94" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow10" runat="server">
                         <asp:TableCell ID="TableCell95" runat="server" CssClass="time">16:00</asp:TableCell>
@@ -223,8 +222,8 @@
                         <asp:TableCell ID="TableCell98" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell99" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell100" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell101" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell102" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell101" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell102" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow11" runat="server">
                         <asp:TableCell ID="TableCell103" runat="server" CssClass="time">17:00</asp:TableCell>
@@ -233,8 +232,8 @@
                         <asp:TableCell ID="TableCell106" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell107" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell108" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell109" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell110" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell109" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell110" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow12" runat="server">
                         <asp:TableCell ID="TableCell111" runat="server" CssClass="time">18:00</asp:TableCell>
@@ -243,8 +242,8 @@
                         <asp:TableCell ID="TableCell114" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell115" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell116" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell117" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell118" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell117" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell118" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow13" runat="server">
                         <asp:TableCell ID="TableCell119" runat="server" CssClass="time">19:00</asp:TableCell>
@@ -253,8 +252,8 @@
                         <asp:TableCell ID="TableCell122" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell123" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell124" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell125" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell126" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell125" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell126" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow14" runat="server">
                         <asp:TableCell ID="TableCell127" runat="server" CssClass="time">20:00</asp:TableCell>
@@ -263,8 +262,8 @@
                         <asp:TableCell ID="TableCell130" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell131" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell132" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell133" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell134" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell133" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell134" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow15" runat="server">
                         <asp:TableCell ID="TableCell135" runat="server" CssClass="time">21:00</asp:TableCell>
@@ -273,8 +272,8 @@
                         <asp:TableCell ID="TableCell138" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell139" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell140" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell141" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell142" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell141" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell142" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow16" runat="server">
                         <asp:TableCell ID="TableCell143" runat="server" CssClass="time">22:00</asp:TableCell>
@@ -283,8 +282,8 @@
                         <asp:TableCell ID="TableCell146" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell147" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell148" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell149" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell150" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell149" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell150" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow ID="TableRow17" runat="server">
                         <asp:TableCell ID="TableCell151" runat="server" CssClass="time">23:00</asp:TableCell>
@@ -293,8 +292,8 @@
                         <asp:TableCell ID="TableCell154" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell155" runat="server"></asp:TableCell>
                         <asp:TableCell ID="TableCell156" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell157" class="holiday" runat="server"></asp:TableCell>
-                        <asp:TableCell ID="TableCell158" class="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell157" CssClass="holiday" runat="server"></asp:TableCell>
+                        <asp:TableCell ID="TableCell158" CssClass="holiday" runat="server"></asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
                 <div class="footer">
