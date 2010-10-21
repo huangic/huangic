@@ -58,7 +58,15 @@ namespace lib.SWFUpload
                         extension = fileName.Substring(fileName.LastIndexOf(".") + 1, fileName.Length - fileName.LastIndexOf(".") - 1);
 
                     SWFUploadFile uf = new SWFUploadFile();
-                    
+
+                    //取上傳目錄
+                    ArgumentsObject args = new ArgumentsObject();
+
+                    string path = args.Get_argValue("upload_dir");
+                    if (!string.IsNullOrEmpty(path))
+                    {
+                        uf.Path = path;
+                    }
 
                     if (isSmall)
                     {

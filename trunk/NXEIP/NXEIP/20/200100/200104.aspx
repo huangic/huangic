@@ -7,6 +7,25 @@
 <%@ Register assembly="MattBerseth.WebControls" namespace="MattBerseth.WebControls" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+ <script type="text/javascript">
+     function update(msg) {
+
+         __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+         tb_remove();
+
+
+         //alert(msg);
+     }
+
+     function pageLoad(sender, args) {
+         if (args.get_isPartialLoad()) {
+             //  reapply the thick box stuff
+             //tb_init('a.thickbox');
+         }
+     }
+    </script>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
@@ -19,7 +38,7 @@
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" 
         OldValuesParameterFormatString="original_{0}" SelectCountMethod="GetAllCount" 
         SelectMethod="GetAll" TypeName="NXEIP.DAO.Doc06DAO"></asp:ObjectDataSource>
-
+    
 
 <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200104" />
 
@@ -51,42 +70,87 @@
                 </span></span>
 </div>
 
+<br />
 
     <div class="header">
         <div class="h1"></div>
         <div class="h2">
             <div class="function">
-             <input type="button" class="thickbox b-input" alt="200104-1.aspx?modal=true&TB_iframe=true&height=378&width=600"
+             <input type="button" class="thickbox b-input" alt="200104-2.aspx?modal=true&TB_iframe=true&height=378&width=600"
                         value="新增公文附件" />
             </div>
         </div>
         <div class="h3"></div>
     </div>
-
-    <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" 
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+     <ContentTemplate>
+     <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" 
-        DataSourceID="ObjectDataSource1" EmptyDataText="查無資料" GridLines="None">
+        DataSourceID="ObjectDataSource1" EmptyDataText="查無資料" GridLines="None" 
+        onrowdatabound="GridView1_RowDataBound" EnableViewState="False">
         <Columns>
-            <asp:BoundField DataField="d06_depno" HeaderText="發文單位" 
-                SortExpression="d06_depno" />
-            <asp:DynamicField DataField="d06_number" HeaderText="公文文號" />
-            <asp:BoundField DataField="d06_peouid" HeaderText="建檔人員" 
-                SortExpression="d06_peouid" />
-             <asp:TemplateField HeaderText="建檔日期">
+            
+             <asp:TemplateField HeaderText="建檔人員">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" 
+                        Text='<%# GetDepartmentName((Int32)Eval("d06_depno")) %>'></asp:Label>
+                </ItemTemplate>
+                </asp:TemplateField>
+
+
+
+            <asp:BoundField DataField="d06_number" HeaderText="公文文號" />
+                           
+                <asp:TemplateField HeaderText="建檔人員">
+                <ItemTemplate>
+                    <asp:Label ID="Label2" runat="server" 
+                        Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d06_peouid")) %>'></asp:Label>
+                </ItemTemplate>
+                </asp:TemplateField>
+             
+             <asp:TemplateField HeaderText="建檔日期">
+                <ItemTemplate>
+                    <asp:Label ID="Label3" runat="server" 
                         Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d06_date")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             
             <asp:TemplateField HeaderText="電話(分機)">
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" 
+                    <asp:Label ID="Label4" runat="server" 
                         Text='<%# string.Format("電話:{0}<br/>分機:{1}", Eval("d06_tel"), Eval("d06_ext")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
+             <asp:TemplateField HeaderText="附件">
+                 <ItemTemplate>
+                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+                         DataSourceID="ObjectDataSource2" GridLines="None" ShowHeader="False">
+                         <Columns>
+                         <asp:TemplateField ShowHeader="False">
+                            
+                             <ItemTemplate>
+                                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="download imageButton" Target="_blank" NavigateUrl='<%#String.Format("200104-1.ashx?d06={0}&d07={1}",Eval("d06_no"),Eval("d07_no"))  %>'  ><span>下載</span></asp:HyperLink>
+                                 
+                                 <asp:Label ID="Label5" runat="server" Text='<%# String.Format("{0} (下載次數:{1})", Eval("d07_file"),Eval("d07_count")) %>'></asp:Label>
+                             </ItemTemplate>
+                            
+                       </asp:TemplateField>
+                         </Columns>
+                     </asp:GridView>
+                     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+                         OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllWithDoc06No" 
+                         TypeName="NXEIP.DAO.Doc07DAO">
+                         <SelectParameters>
+                             <asp:Parameter Name="doc06_no" Type="Int32" />
+                         </SelectParameters>
+                     </asp:ObjectDataSource>
+                 </ItemTemplate>
+             </asp:TemplateField>
         </Columns>
         </cc1:GridView>
+     </ContentTemplate>
+    </asp:UpdatePanel>
+    
 
 
     <div class="footer">

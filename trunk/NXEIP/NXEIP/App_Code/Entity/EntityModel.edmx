@@ -422,6 +422,7 @@
           <Property Name="d06_no" Type="int" Nullable="false" />
           <Property Name="d07_no" Type="int" Nullable="false" />
           <Property Name="d07_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="d07_file" Type="nvarchar" MaxLength="100" />
           <Property Name="d07_type" Type="nvarchar" MaxLength="20" />
           <Property Name="d07_count" Type="int" />
         </EntityType>
@@ -2731,6 +2732,7 @@
           <NavigationProperty Name="doc06" Relationship="NXEIPModel.FK_DOC07_RELATIONS_DOC06" FromRole="doc07" ToRole="doc06" />
           <Property Type="Int32" Name="d07_count" />
           <NavigationProperty Name="doc08" Relationship="NXEIPModel.FK_DOC08_RELATIONS_DOC07" FromRole="doc07" ToRole="doc08" />
+          <Property Type="String" Name="d07_file" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_DOC07_RELATIONS_DOC06">
           <End Type="NXEIPModel.doc06" Role="doc06" Multiplicity="1" />
@@ -3285,6 +3287,7 @@
           <EntitySetMapping Name="doc07">
             <EntityTypeMapping TypeName="NXEIPModel.doc07">
               <MappingFragment StoreEntitySet="doc07">
+                <ScalarProperty Name="d07_file" ColumnName="d07_file" />
                 <ScalarProperty Name="d07_count" ColumnName="d07_count" />
                 <ScalarProperty Name="d07_type" ColumnName="d07_type" />
                 <ScalarProperty Name="d07_path" ColumnName="d07_path" />

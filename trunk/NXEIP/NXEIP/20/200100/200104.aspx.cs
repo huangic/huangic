@@ -10,6 +10,7 @@ using NXEIP.DAO;
 using System.Data.Objects.SqlClient;
 using Entity;
 using NLog;
+using System.Data;
 
 public partial class _20_200100_200104 : System.Web.UI.Page
 {
@@ -64,5 +65,43 @@ public partial class _20_200100_200104 : System.Web.UI.Page
         catch {
             return default(AjaxControlToolkit.CascadingDropDownNameValue[]);
         }
+    }
+
+    protected static string GetDepartmentName(int dep_no)
+    {
+        using (NXEIPEntities model = new NXEIPEntities()) {
+            var dep = (from d in model.departments where d.dep_no == dep_no select d).First();
+            if (dep.dep_level > 1)
+            {
+                var parent_dep = (from d in model.departments where d.dep_no == dep.dep_parentid select d).First();
+
+                return parent_dep.dep_name + "-" + dep.dep_name;
+            }
+            else {
+                return dep.dep_name;
+            }
+        }
+    
+    }
+
+
+
+   
+
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        //Bind內部的DataSource
+        if (e.Row.RowType == DataControlRowType.DataRow) {
+           ObjectDataSource ods = (ObjectDataSource)e.Row.FindControl("ObjectDataSource2");
+
+           
+
+
+            var v = (doc06)e.Row.DataItem;
+
+            ods.SelectParameters[0].DefaultValue = v.d06_no.ToString();
+
+        }
+
     }
 }
