@@ -8,15 +8,28 @@ using System.Collections.Specialized;
 using AjaxControlToolkit;
 using NXEIP.DAO;
 using System.Data.Objects.SqlClient;
+using Entity;
+using NLog;
 
 public partial class _20_200100_200104 : System.Web.UI.Page
 {
+    //private static Logger logger = LogManager.GetCurrentClassLogger();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
         if (!Page.IsPostBack) { 
             //建立GRID VIEW
-            this.GridView1.DataBind();
+            //this.GridView1.DataBind();
+
+
+            //NXEIPEntities model = new NXEIPEntities();
+
+
+            //var aaa= Eval("from d in model.people select d");
+
+            //logger.Debug(aaa);
+            
         }
     }
 

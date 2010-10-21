@@ -1,0 +1,86 @@
+.wrap {
+	width:1020px;
+	padding:0;
+	z-index:1;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+
+.leftbg {
+    float:left;
+    width:210px;
+    
+   padding:0px 5px 0px 5px;
+}
+
+.center {
+   float:left;
+   width:580px;
+   /*padding-top:20px;*/
+}
+
+.rightbg {
+   float:right;
+   width:210px;
+   padding:0px 5px 0px 5px;
+}
+
+
+
+.activeDrag
+{
+    border: dashed 2px #000000;    
+    z-index:99;
+    filter:alpha(opacity=70);
+    opacity:0.7; 
+    
+}
+
+
+.folderTree
+{
+     float:left;
+    width:250px;
+    
+   padding:0px 5px 0px 5px;
+}
+
+.fileTable
+{
+   float:left;
+  
+   padding:0px 5px 0px 5px;
+    
+    }
+
+
+
+/*
+
+ MODALPOPUP 跳出用的背景
+*/
+.modalBackground
+{
+  background-color:Gray;
+filter:alpha(opacity=70);
+opacity:0.7;   
+    
+}
+
+.modalBackground2
+{
+background-color:Gray;
+filter:alpha(opacity=70);
+opacity:0.7;   
+    
+}
+
+
+
+  
+
+  
+  

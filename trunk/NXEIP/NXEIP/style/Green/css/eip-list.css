@@ -1,0 +1,88 @@
+.center .list ul li
+{
+    background-image: url("../image/a14.gif");
+    background-position: 0 0px;
+    background-repeat: no-repeat;
+    line-height: 30px;
+    padding-left: 10px;
+    position: relative;
+    border-bottom: 1px dotted #999999;
+}
+
+.center .list ul li a
+{
+    color: #888888;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 0px 0 0 15px;
+}
+
+
+.center .list .date
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #888888;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 0px 0 0 15px;
+}
+
+
+.center .list ul li a:hover
+{
+    color: #009966;
+    text-decoration: underline;
+}
+
+
+.page
+{
+    clear: both;
+    color: #999999;
+    line-height: 150%;
+    margin: 0 0 5px;
+    padding: 5px 10px;
+    position: relative;
+    text-align: center;
+}
+
+
+
+
+.page span a
+{
+    color: #999999;
+    font-size: 15px;
+}
+
+
+
+.page ul
+{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.page ul li
+{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.page ul li a
+{
+    color: #999999;
+}
+
+.page .here
+{
+    color: #ff0000;
+}
+

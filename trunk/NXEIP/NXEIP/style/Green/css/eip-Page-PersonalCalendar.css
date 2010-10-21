@@ -1,0 +1,117 @@
+﻿  .PersonalCalendarLayout
+{
+    width:97%;
+    margin: 10px auto;   
+}
+
+
+
+
+.PersonalCalendarLayout .left
+{
+	float:left;
+	width:245px;
+    
+ }
+ 
+ .PersonalCalendarLayout .left .center
+ {
+	text-align:center;
+	width:100%;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-left: 0px;
+ }
+ 
+ 
+ 
+ .PersonalCalendarLayout .right
+ {
+     float:left;
+     width:720px;
+     margin:0px 0px 0px 20px   
+     
+  }
+  
+  .PersonalCalendarLayout .big-calendar-time th
+  {
+       width:auto;
+ }
+  
+  .PersonalCalendarLayout .big-calendar-time .title
+  {
+       width:70px; 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  .PersonalCalendarLayout .big_td  td
+  {
+       height:70px;
+       text-align:left;
+       vertical-align:top;
+	   }
+	   
+
+ .yearLayout 
+ {
+     display:inline;
+     
+ }
+ 
+ .yearLayout .col
+ {
+        float:left;
+        display:inline-block;
+        width:33%;
+        border:1px solid #888888;
+        padding:2px 0px 2px 0px;
+        margin:0px;
+     }
+ 
+  .monthHeader
+  {
+     background-color:#666666; 
+     text-align:center; 
+     position:relative;
+   
+     
+  }  
+  
+  .monthHeader div
+  {
+    
+        display:inline-block;   
+        *display: inline;
+
+   }
+  
+  .monthHeader .m1
+  {
+       background-image:url("../image/a22-1.gif");
+       float:left;
+       width:10px;
+       height:22px;
+      }
+       .monthHeader .m2
+  {
+     line-height:22px;
+          vertical-align:middle;
+         font-size:14px;
+           color:#ffffff;
+      }
+      
+     
+      
+      
+       .monthHeader .m3
+  {
+       background-image:url("../image/a22-2.gif");
+       float:right;
+        width:10px;
+       height:22px;
+      }

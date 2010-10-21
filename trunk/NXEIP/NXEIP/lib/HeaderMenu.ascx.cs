@@ -199,8 +199,13 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
             a.Attributes["class"] ="imageMenu "+"item" + sys_no;
             //CSS handle Level one Pic;
 
-            String pic = Page.ResolveUrl("~/image/"+ MainSys .sys_defaultpic);
-            String overpic = Page.ResolveUrl("~/image/" + MainSys.sys_overpicture);
+            //default image
+
+            String imgPath = "~/style/Green/image/";
+
+
+            String pic = Page.ResolveUrl(imgPath + MainSys.sys_defaultpic);
+            String overpic = Page.ResolveUrl(imgPath + MainSys.sys_overpicture);
 
 
             style.Append("." + a.ClientID + "{ background: url(" + pic + ") no-repeat;}\n");

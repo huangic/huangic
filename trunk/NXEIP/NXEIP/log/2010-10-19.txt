@@ -1,0 +1,157 @@
+2010-10-19 11:00:18.9717 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-10-19 11:00:19.1157 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-10-19 11:00:19.4117 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-10-19 11:00:24.6900 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:03:57.8882 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:14:17.3916 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:14:42.6411 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:14:59.1190 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:15:44.4066 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:16:16.8375 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:16:48.6773 NXEIP.DAO.DocPermissionDAO.GetFilePermission Debug SELECT 
+[Distinct1].[C1] AS [C1], 
+[Distinct1].[C2] AS [C2], 
+[Distinct1].[C3] AS [C3], 
+[Distinct1].[C4] AS [C4], 
+[Distinct1].[C5] AS [C5]
+FROM ( SELECT DISTINCT 
+	[UnionAll1].[C1] AS [C1], 
+	[UnionAll1].[d04_no] AS [C2], 
+	[UnionAll1].[C2] AS [C3], 
+	[UnionAll1].[dep_name] AS [C4], 
+	[UnionAll1].[d03_no] AS [C5]
+	FROM  (SELECT 
+		1 AS [C1], 
+		[Extent2].[d04_no] AS [d04_no], 
+		N'D' AS [C2], 
+		[Extent1].[dep_name] AS [dep_name], 
+		[Extent3].[d03_no] AS [d03_no]
+		FROM   [dbo].[departments] AS [Extent1]
+		INNER JOIN [dbo].[doc04] AS [Extent2] ON [Extent1].[dep_no] = [Extent2].[d04_depno]
+		INNER JOIN [dbo].[doc03] AS [Extent3] ON [Extent3].[d03_no] = [Extent2].[d03_no]
+		WHERE (@p__linq__0 = [Extent3].[d01_no]) AND (N'1' = (SUBSTRING([Extent3].[d03_type], 1 + 1, 1)))
+	UNION ALL
+		SELECT 
+		1 AS [C1], 
+		[Extent5].[d05_no] AS [d05_no], 
+		N'P' AS [C2], 
+		[Extent4].[peo_name] AS [peo_name], 
+		[Extent6].[d03_no] AS [d03_no]
+		FROM   [dbo].[people] AS [Extent4]
+		INNER JOIN [dbo].[doc05] AS [Extent5] ON [Extent4].[peo_uid] = [Extent5].[d05_peouid]
+		INNER JOIN [dbo].[doc03] AS [Extent6] ON [Extent6].[d03_no] = [Extent5].[d03_no]
+		WHERE (@p__linq__1 = [Extent6].[d01_no]) AND (N'1' = (SUBSTRING([Extent6].[d03_type], 2 + 1, 1)))) AS [UnionAll1]
+)  AS [Distinct1]
+2010-10-19 11:16:51.8455 PermissionTreeMethod.ProcessRequest Debug 
+2010-10-19 11:16:52.8625 PermissionTreeMethod.ProcessRequest Debug 
+2010-10-19 11:16:54.2446 PermissionTreeMethod.ProcessRequest Debug 
+2010-10-19 11:16:55.9077 PermissionTreeMethod.ProcessRequest Debug 
+2010-10-19 11:16:55.9507 JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"系統管理員","type":"people"}]}
+2010-10-19 11:16:56.5967 NXEIP.DAO.DocPermissionDAO.GetFilePermission Debug SELECT 
+[Distinct1].[C1] AS [C1], 
+[Distinct1].[C2] AS [C2], 
+[Distinct1].[C3] AS [C3], 
+[Distinct1].[C4] AS [C4], 
+[Distinct1].[C5] AS [C5]
+FROM ( SELECT DISTINCT 
+	[UnionAll1].[C1] AS [C1], 
+	[UnionAll1].[d04_no] AS [C2], 
+	[UnionAll1].[C2] AS [C3], 
+	[UnionAll1].[dep_name] AS [C4], 
+	[UnionAll1].[d03_no] AS [C5]
+	FROM  (SELECT 
+		1 AS [C1], 
+		[Extent2].[d04_no] AS [d04_no], 
+		N'D' AS [C2], 
+		[Extent1].[dep_name] AS [dep_name], 
+		[Extent3].[d03_no] AS [d03_no]
+		FROM   [dbo].[departments] AS [Extent1]
+		INNER JOIN [dbo].[doc04] AS [Extent2] ON [Extent1].[dep_no] = [Extent2].[d04_depno]
+		INNER JOIN [dbo].[doc03] AS [Extent3] ON [Extent3].[d03_no] = [Extent2].[d03_no]
+		WHERE (@p__linq__0 = [Extent3].[d01_no]) AND (N'1' = (SUBSTRING([Extent3].[d03_type], 1 + 1, 1)))
+	UNION ALL
+		SELECT 
+		1 AS [C1], 
+		[Extent5].[d05_no] AS [d05_no], 
+		N'P' AS [C2], 
+		[Extent4].[peo_name] AS [peo_name], 
+		[Extent6].[d03_no] AS [d03_no]
+		FROM   [dbo].[people] AS [Extent4]
+		INNER JOIN [dbo].[doc05] AS [Extent5] ON [Extent4].[peo_uid] = [Extent5].[d05_peouid]
+		INNER JOIN [dbo].[doc03] AS [Extent6] ON [Extent6].[d03_no] = [Extent5].[d03_no]
+		WHERE (@p__linq__1 = [Extent6].[d01_no]) AND (N'1' = (SUBSTRING([Extent6].[d03_type], 2 + 1, 1)))) AS [UnionAll1]
+)  AS [Distinct1]
+2010-10-19 11:17:46.3836 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-10-19 11:17:46.4206 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-10-19 11:17:46.8426 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-10-19 11:17:50.8458 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:18:01.4614 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-10-19 11:22:04.7874 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:23:41.3519 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 11:31:39.9903 FileDownload.ProcessRequest Debug 執行緒已經中止。
+2010-10-19 15:11:00.4594 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-10-19 15:11:00.5594 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-10-19 15:11:00.7694 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-10-19 15:11:02.1994 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-10-19 15:11:02.2194 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-10-19 15:11:02.2394 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-10-19 15:11:02.2394 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-10-19 15:11:15.4414 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:22:21.3197 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:30:04.6622 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:30:05.1722 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:30:44.3205 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:31:34.9004 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:32:18.7369 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:33:39.0965 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:45:55.8476 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:52:33.9064 JsonLib.GetRequestJson Debug {"handle":"copy","folderId":"6","depid":"1","folderType":"2","files":["10"]}
+2010-10-19 15:52:33.9654 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-10-19 15:55:12.5784 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:57:12.8873 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 15:58:08.5075 _10_100100_100105_1.Button1_Click Debug IMMENSITY.SWFUploadAPI.SWFUploadFileInfo
+2010-10-19 16:10:03.5774 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:11:45.6622 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:12:19.0812 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:13:08.9090 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:13:15.6054 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:13:36.5356 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:14:10.3715 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:14:58.8673 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:18:11.4573 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:19:16.9981 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:19:54.5352 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:20:12.2672 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:20:26.0750 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:22:38.2456 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:22:54.7345 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:23:08.8403 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:25:32.1635 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:26:19.1682 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:29:17.0454 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:29:43.6239 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:35:11.0376 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:35:33.2959 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:35:47.8457 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:36:03.9537 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:36:15.8033 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:36:39.1407 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:36:48.4502 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:38:21.7605 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:38:36.6854 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:40:03.2703 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:41:30.2103 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:41:47.8743 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:44:33.3658 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:46:42.6132 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:47:04.5624 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:48:45.4942 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:49:57.4173 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 16:51:27.5935 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:36:16.6443 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:36:57.7016 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:38:52.8692 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:40:09.1486 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:40:53.4181 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:41:19.2406 _10_100100_100105.Page_Load Debug TEST
+2010-10-19 17:46:09.2572 _10_100100_100105.Page_Load Debug TEST

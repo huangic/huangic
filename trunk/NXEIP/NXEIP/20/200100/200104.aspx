@@ -16,10 +16,9 @@
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="GetLevelOneDepartment" TypeName="NXEIP.DAO.DepartmentsDAO">
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ObjectDataSourceDoc06" runat="server" 
-        EnablePaging="True" OldValuesParameterFormatString="original_{0}" 
-        SelectCountMethod="GetAllCount" SelectMethod="GetAll" 
-        TypeName="NXEIP.DAO.Doc06DAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" 
+        OldValuesParameterFormatString="original_{0}" SelectCountMethod="GetAllCount" 
+        SelectMethod="GetAll" TypeName="NXEIP.DAO.Doc06DAO"></asp:ObjectDataSource>
 
 
 <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200104" />
@@ -66,7 +65,7 @@
 
     <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" 
-        DataSourceID="ObjectDataSourceDoc06" EmptyDataText="查無資料" GridLines="None">
+        DataSourceID="ObjectDataSource1" EmptyDataText="查無資料" GridLines="None">
         <Columns>
             <asp:BoundField DataField="d06_depno" HeaderText="發文單位" 
                 SortExpression="d06_depno" />
