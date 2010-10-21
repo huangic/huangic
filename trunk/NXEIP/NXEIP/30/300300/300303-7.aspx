@@ -8,6 +8,8 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:HiddenField ID="hidd_no" runat="server" />
+    <asp:HiddenField ID="hidd_checked" runat="server" />
+    <asp:HiddenField ID="hidd_name" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300303" />
     <div class="tableDiv">
         <div class="header">
@@ -24,19 +26,19 @@
         <table>
             <tr>
                 <td align="center">
-                    <asp:CheckBox ID="cbox_dep" Text="部門" runat="server" />
+                    <asp:CheckBox ID="cbox_1" Text="部門" runat="server" Checked="True" />
                 </td>
                 <td align="center">
-                    <asp:CheckBox ID="cbox_profess" Text="職稱" runat="server" />
+                    <asp:CheckBox ID="cbox_2" Text="職稱" runat="server" Checked="True" />
                 </td>
                 <td align="center">
-                    <asp:CheckBox ID="cbox_name" Text="姓名" runat="server" />
+                    <asp:CheckBox ID="cbox_3" Text="姓名" runat="server" Checked="True" />
                 </td>
                 <td align="center">
-                    <asp:CheckBox ID="cbox_idcard" Text="身份證字號" runat="server" />
+                    <asp:CheckBox ID="cbox_4" Text="身份證字號" runat="server" />
                 </td>
                 <td align="center">
-                    <asp:CheckBox ID="cbox_tel" Text="電話" runat="server" />
+                    <asp:CheckBox ID="cbox_5" Text="電話" runat="server" />
                 </td>
             </tr>
         </table>

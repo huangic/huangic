@@ -6,12 +6,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    
 </head>
 <body onload="print();">
     <form id="form1" runat="server">
     <asp:HiddenField ID="hidd_no" runat="server" />
-    <div id="div_table" runat="server">
+    <div id="div_table" runat="server" class="tableDiv">
     </div>
     </form>
 </body>
