@@ -5520,6 +5520,30 @@ namespace Entity
         private Nullable<global::System.Int32> _d07_count;
         partial void Ond07_countChanging(Nullable<global::System.Int32> value);
         partial void Ond07_countChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d07_file
+        {
+            get
+            {
+                return _d07_file;
+            }
+            set
+            {
+                Ond07_fileChanging(value);
+                ReportPropertyChanging("d07_file");
+                _d07_file = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d07_file");
+                Ond07_fileChanged();
+            }
+        }
+        private global::System.String _d07_file;
+        partial void Ond07_fileChanging(global::System.String value);
+        partial void Ond07_fileChanged();
 
         #endregion
     
