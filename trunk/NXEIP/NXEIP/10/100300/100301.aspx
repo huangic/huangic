@@ -13,42 +13,29 @@
                 <div class="currentTab">
                     <div class="t1">
                     </div>
-                    <div class="t2">
-                        日</div>
+                    <div class="t2">日</div>
                     <div class="t3">
                     </div>
                 </div>
                 <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-1.aspx">週</a></div>
-                    <div class="t3">
-                    </div>
+                    <div class="t1"></div>
+                    <div class="t2"><a href="100301-1.aspx">週</a></div>
+                    <div class="t3"></div>
                 </div>
                 <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-2.aspx">月</a></div>
-                    <div class="t3">
-                    </div>
+                    <div class="t1"></div>
+                    <div class="t2"><a href="100301-2.aspx">月</a></div>
+                    <div class="t3"></div>
                 </div>
                 <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-3.aspx">年</a></div>
-                    <div class="t3">
-                    </div>
+                    <div class="t1"></div>
+                    <div class="t2"><a href="100301-3.aspx">年</a></div>
+                    <div class="t3"></div>
                 </div>
                 <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-4.aspx">列表</a></div>
-                    <div class="t3">
-                    </div>
+                    <div class="t1"></div>
+                    <div class="t2"><a href="100301-4.aspx">列表</a></div>
+                    <div class="t3"></div>
                 </div>
             </div>
             <div class="block-1">
@@ -70,7 +57,8 @@
                 <span class="a-letter-2"><asp:Label ID="lab_today" runat="server">99-09-16</asp:Label>
                 </span></div>
             <div class="border-bottom-block">
-                <span class="icon a-letter-1">新增行事曆<br />
+                <span class="icon a-letter-1">新增行事曆</span><br />
+                <span class="a-letter-1">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事件標題
                     <asp:TextBox ID="txt_title" runat="server" Columns="20"></asp:TextBox>
                     <br />
@@ -83,7 +71,7 @@
                     &nbsp;~
                     <asp:DropDownList ID="ddl_etime" runat="server">
                     </asp:DropDownList>
-                </span>
+                
                 <br />
                 <span class="a-letter-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" />&nbsp;&nbsp;
