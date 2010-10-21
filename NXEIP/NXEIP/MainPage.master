@@ -31,6 +31,47 @@
 
 <form id="form1" runat="server">
    <div class="wrap">
+
+   <div class="headerT">
+         <div class="headerTL">
+            <div class="logo"><span>          
+              台南市員工入口網</span></div>
+            <div class="headerTmenu">
+             <uc1:HeaderMenu ID="HeaderMenu1" runat="server" />
+                              
+            </div>
+         </div>
+       <div class="headerTR">
+      <div class="A1">
+		<ul>
+		<li>
+        <asp:HyperLink ID="Home" runat="server" CssClass="home" 
+                        NavigateUrl="~/Default.aspx"><span class="a01-13">首頁</span></asp:HyperLink>
+        
+        </li>
+		<li><a href="javascript:__doPostBack('ctl00$logout','')" class="logout" id="ctl00_logout"><span class="a01-13">登出</span></a></li>
+		</ul>
+	 </div>
+     <div class="B0">
+           <div class="B1"><span class="a01-13">字級設定:<span></span></span></div>
+           <div class="B2">
+              <ul>
+                 <li><a href="index.htm" class="small"><span class="a01-13">文字小</span></a></li>
+                 <li><a href="index-2.htm" class="middle"><span class="a01-13">文字中</span></a></li>
+                 <li><a href="index-3.htm" class="big"><span class="a01-13">文字大</span></a></li>
+              </ul>   
+           </div>
+     </div>
+</div>
+  </div>
+
+
+
+
+
+
+
+
    <div class="header">
    
     
@@ -52,7 +93,7 @@
         
         
        
-		    <uc1:HeaderMenu ID="HeaderMenu1" runat="server" />
+		    <uc1:HeaderMenu ID="HeaderMenu2" runat="server" />
         
         
        
@@ -63,8 +104,7 @@
             <td><table border="0" align="right" cellpadding="0" cellspacing="0">
               <tr>
                 <td  bgcolor="#FFFFFF" class="a01-13">
-                    <asp:HyperLink ID="Home" runat="server" CssClass="home" 
-                        NavigateUrl="~/Default.aspx"><span>首頁</span></asp:HyperLink>
+                   
                     </td>
                 <td bgcolor="#FFFFFF" class="a01-13"><div align="right">
                

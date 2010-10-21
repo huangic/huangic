@@ -19,7 +19,7 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
     protected override void Render(HtmlTextWriter writer)
     {
 
-        String layout = "Default";
+        String layout = "Green";
 
         HtmlLink link = new HtmlLink();
 
