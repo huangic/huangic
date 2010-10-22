@@ -80,4 +80,13 @@ public class UtilityDAO
         return (from d in model.types where d.typ_no == typ_no select d.typ_cname).FirstOrDefault();
     }
 
+    /// <summary>
+    /// 取得各類別代碼
+    /// </summary>
+    /// <param name="dep_no">類別ID</param>
+    /// <returns></returns>
+    public string Get_TypesNumber(int typ_no)
+    {
+        return (from d in model.types where d.typ_no == typ_no select d.typ_number).FirstOrDefault();
+    }
 }
