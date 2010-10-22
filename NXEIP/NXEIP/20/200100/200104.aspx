@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="200104.aspx.cs" Inherits="_20_200100_200104" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="200104.aspx.cs" Inherits="_20_200100_200104" EnableEventValidation="false" %>
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 
@@ -40,6 +40,17 @@
         SelectMethod="GetAll" TypeName="NXEIP.DAO.Doc06DAO"></asp:ObjectDataSource>
     
 
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" EnablePaging="True" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectCountMethod="GetSearchDataCount" SelectMethod="GetSearchData" 
+        TypeName="NXEIP.DAO.Doc06DAO">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="" Name="dep_no" Type="Int32" />
+            <asp:Parameter DefaultValue="" Name="keyword" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    
+
 <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200104" />
 
 <div class="tableDiv">
@@ -50,7 +61,7 @@
     <asp:DropDownList ID="ddl_unit" runat="server" 
         DataSourceID="ObjectDataSource_Department" DataTextField="dep_name" 
         DataValueField="dep_no" AppendDataBoundItems="True">
-        <asp:ListItem>請選擇</asp:ListItem>
+        <asp:ListItem Value="">請選擇</asp:ListItem>
     </asp:DropDownList>
     
 &nbsp;部門
@@ -65,7 +76,8 @@
 &nbsp;
                 關鍵字：<span class="a-letter-1">
                 <asp:TextBox ID="tb_word" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋"  CssClass="b-input"/>
+&nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋"  CssClass="b-input" 
+        CausesValidation="False" onclick="Button1_Click"/>
 
                 </span></span>
 </div>
@@ -86,11 +98,11 @@
      <ContentTemplate>
      <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" 
         AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" 
-        DataSourceID="ObjectDataSource1" EmptyDataText="查無資料" GridLines="None" 
+        DataSourceID="ObjectDataSource3" EmptyDataText="查無資料" GridLines="None" 
         onrowdatabound="GridView1_RowDataBound" EnableViewState="False">
         <Columns>
             
-             <asp:TemplateField HeaderText="建檔人員">
+             <asp:TemplateField HeaderText="建檔部門">
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" 
                         Text='<%# GetDepartmentName((Int32)Eval("d06_depno")) %>'></asp:Label>
@@ -149,6 +161,9 @@
         </Columns>
         </cc1:GridView>
      </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+        </Triggers>
     </asp:UpdatePanel>
     
 

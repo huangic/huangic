@@ -45,5 +45,64 @@ namespace NXEIP.DAO
         {
             return GetAll().Count();
         }
+
+
+        public IQueryable<doc06> GetSearchData(int? dep_no,string keyword){
+
+            var doc =
+                from p in model.people
+                from d in model.doc06
+                where p.peo_uid == d.d06_peouid
+                orderby d.d06_createtime
+                select new { doc = d, people = p };
+
+            if (dep_no != null) {
+                //判斷單位級
+                var depart=(from dep in model.departments where dep_no==dep.dep_no select dep).First();
+                if (depart.dep_level == 1) {
+                    var deps = (from d in model.departments where d.dep_parentid == depart.dep_no || d.dep_no==dep_no select d.dep_no);
+                    
+
+                doc=doc.Where(x => deps.Contains(x.doc.d06_depno.Value));
+                }else{
+                doc=doc.Where(x => x.doc.d06_depno == dep_no);
+                }
+
+
+
+
+               
+            }
+
+            if (!String.IsNullOrEmpty(keyword)) {
+                 var files = from d07 in model.doc07
+                                  from d in doc
+                                  where d.doc.d06_no == d07.d06_no 
+                                  && d07.d07_file.Contains(keyword)
+                                  || d.people.peo_name.Contains(keyword) 
+                                  || d.doc.d06_number.Contains(keyword)
+                                  select d;
+                
+                
+                
+                //doc = doc.Where(x => x.people.peo_name.Contains(keyword) || x.doc.d06_number.Contains(keyword));
+
+
+                //doc=filenameDoc.Union(doc);
+                 return files.Select(x => x.doc).Distinct().OrderBy(x=>x.d06_createtime);
+            }
+
+            return doc.Select(x=>x.doc);
+           
+    }
+
+        public int GetSearchDataCount(int? dep_no, string keyword) {
+            return GetSearchData(dep_no, keyword).Count();
+        }
+
+        public IQueryable<doc06> GetSearchData(int? dep_no, string keyword, int startRowIndex, int maximumRows) {
+            return GetSearchData(dep_no, keyword).Skip(startRowIndex).Take(maximumRows);
+        }
+
     }
 }
