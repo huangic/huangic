@@ -11,7 +11,10 @@ public partial class _30_300300_300301 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!this.IsPostBack)
+        {
+            OperatesObject.OperatesExecute(300301, new SessionObject().sessionUserID, 2, "查詢上課地點");
+        }
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)

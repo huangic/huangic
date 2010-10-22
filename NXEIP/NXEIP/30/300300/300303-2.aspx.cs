@@ -17,6 +17,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
 
         if (!this.IsPostBack)
         {
+            this.Navigator1.SubFunc = "課程新增";
 
             this.ddl_e01.DataBind();
             this.ddl_e01.Items.Insert(0, new ListItem("請選擇", "0"));
@@ -179,7 +180,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         }
     }
 
-    private void saveData(string model,int? flag,DateTime? sign_sdate,DateTime? sign_edate,DateTime? sdate,DateTime? edate)
+    private void saveData(string type,int? flag,DateTime? sign_sdate,DateTime? sign_edate,DateTime? sdate,DateTime? edate)
     {
         e02 data = new e02();
 
@@ -203,7 +204,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         //開始報名日期
         data.e02_opendate = this.cal_opendate._ADDate;
 
-        if (model.Equals("1"))
+        if (type.Equals("1"))
         {
             //期別,報名日期,上課日期
             data.e02_flag = Convert.ToInt32(this.tbox_flag.Text);
@@ -240,11 +241,25 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         data.e01_no = Convert.ToInt32(this.ddl_e01.SelectedValue);
         //課程類別
         data.typ_no = Convert.ToInt32(this.ddl_type_2.SelectedValue);
+        //上課縣市代碼
+        try
+        {
+            int typ_no = (from d in model.arguments
+                          where d.arg_variable == "city_code"
+                          from t in model.types
+                          where t.typ_number == d.arg_value
+                          select t.typ_no).FirstOrDefault();
+            data.e02_city = typ_no;
+        }
+        catch { }
+        
 
         //存資料庫
         e02DAO dao = new e02DAO();
         dao.Adde02(data);
         dao.Update();
+
+        OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 1, "新增課程");
     }
 
     private void ModifyData()
@@ -290,6 +305,8 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         data.typ_no = Convert.ToInt32(this.ddl_type_2.SelectedValue);
 
         dao.Update();
+
+        OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新課程 e02_no:" + this.hidd_no.Value);
     }
 
     /// <summary>

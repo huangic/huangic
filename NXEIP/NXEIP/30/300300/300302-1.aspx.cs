@@ -65,7 +65,7 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
             }
 
             dao.Update();
-
+            OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 3, "修改課程類別 typ_no:" + this.HiddenField1.Value);
             msg = "修改完成!";
         }
         else
@@ -98,7 +98,7 @@ public partial class _30_300300_300302_1 : System.Web.UI.Page
             TypesDAO dao = new TypesDAO();
             dao.AddTypes(newType);
             dao.Update();
-
+            OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 1, "新增課程類別");
             msg = "新增完成!";
         }
 

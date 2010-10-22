@@ -39,6 +39,8 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             {
                 this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID,"0");
             }
+
+            OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程管理");
         }
     }
 
@@ -105,6 +107,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             e02 edata = dao.GetBye02NO(e02_no);
             edata.e02_status = "2";
             dao.Update();
+            OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 4, "刪除課程 e02_no:" + e02_no);
 
             int pgIndex = this.GridView1.PageIndex;
             this.GridView1.DataBind();

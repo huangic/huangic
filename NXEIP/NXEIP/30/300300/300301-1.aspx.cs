@@ -64,6 +64,8 @@ public partial class _30_300300_300301_1 : System.Web.UI.Page
 
                 dao.Update();
 
+                OperatesObject.OperatesExecute(300301, new SessionObject().sessionUserID, 3, "修改上課地點 e01_no:" + this.HiddenField1.Value);
+
                 msg = "修改完成!";
             }
             else
@@ -85,7 +87,7 @@ public partial class _30_300300_300301_1 : System.Web.UI.Page
 
                 dao.Adde01(_e01);
                 dao.Update();
-
+                OperatesObject.OperatesExecute(300301, new SessionObject().sessionUserID, 1, "新增上課地點");
                 msg = "新增完成!";
             }
 

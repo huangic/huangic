@@ -27,6 +27,8 @@ public partial class _30_300300_300303_6 : System.Web.UI.Page
                 int e02_no = Convert.ToInt32(this.hidd_no.Value);
                 var e02data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
                 this.lab_titile.Text = "以下為報名『" + e02data.e02_name + "第" + e02data.e02_flag + "期』已核可之" + this.GridView1.Rows.Count + "位成員列表";
+
+                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢線上點名 e02_no:" + this.hidd_no.Value);
             }
         }
     }
