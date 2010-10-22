@@ -13,7 +13,7 @@ public partial class _30_300300_300302 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            
+            OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 2, "查詢課程類別");
         }
     }
 
@@ -33,6 +33,7 @@ public partial class _30_300300_300302 : System.Web.UI.Page
             dao.Update();
 
             this.GridView1.DataBind();
+            OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 4, "刪除課程類別 typ_no:" + typ_no);
         }
         if (e.CommandName.Equals("sel"))
         {

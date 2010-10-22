@@ -19,10 +19,11 @@ public partial class _30_300300_300302_2 : System.Web.UI.Page
                 this.HiddenField1.Value = Request["typ_no"];
                 this.div_title.InnerHtml = "課程名稱:" + Request["typ_cname"];
                 this.ObjectDataSource1.SelectParameters["typ_parent"].DefaultValue = this.HiddenField1.Value;
+                OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 2, "查詢子類別課程 typ_parent:" + this.HiddenField1.Value);
             }
             else
             {
-                this.ObjectDataSource1.SelectParameters["typ_no"].DefaultValue = "-1";
+                this.ObjectDataSource1.SelectParameters["typ_parent"].DefaultValue = "-1";
             }
         }
     }
@@ -36,12 +37,10 @@ public partial class _30_300300_300302_2 : System.Web.UI.Page
         {
             TypesDAO dao = new TypesDAO();
             types t = dao.GetTypes(typ_no);
-
             t.typ_status = "2";
-
             dao.Update();
-
             this.GridView1.DataBind();
+            OperatesObject.OperatesExecute(300302, new SessionObject().sessionUserID, 4, "刪除課程 typ_no:" + typ_no);
         }
     }
 

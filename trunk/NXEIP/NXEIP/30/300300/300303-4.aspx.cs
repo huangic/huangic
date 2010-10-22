@@ -23,6 +23,8 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
 
                 this.ObjectDataSource1.SelectParameters["e02_no"].DefaultValue = this.hidd_no.Value;
                 this.GridView1.DataBind();
+
+                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢報名審核 e02_no:" + this.hidd_no.Value);
             }
         }
     }
@@ -103,7 +105,7 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
             //e04Data.e04_checkdate = ;
         }
         model.SaveChanges();
-        
+        OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新報名審核狀態 e04_no:" + id);
     }
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

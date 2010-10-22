@@ -60,6 +60,8 @@ public partial class _30_300300_300303_1 : System.Web.UI.Page
 
                     idnum++;
                 }
+
+                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程部門限制 e02_no:" + e02no);
             }
         }
     }
@@ -96,7 +98,7 @@ public partial class _30_300300_300303_1 : System.Web.UI.Page
             }
 
             model.SaveChanges();
-            new OperatesObject().ExecuteOperates(300303, new SessionObject().sessionUserID, 3, "更新部門限制 e02_no:" + e02no);
+            OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新部門限制 e02_no:" + e02no);
             this.ShowMsg_URL("部門限制完成!", this.GetUrl());
         }
     }

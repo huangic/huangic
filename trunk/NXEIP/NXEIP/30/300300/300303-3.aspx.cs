@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.DAO;
 using Entity;
+using System.Data;
 
 public partial class _30_300300_300303_3 : System.Web.UI.Page
 {
@@ -50,6 +51,8 @@ public partial class _30_300300_300303_3 : System.Web.UI.Page
                 this.lab_opendate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_opendate.ToString())));
                 this.lab_signdate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signdate.ToString()))) + "至" + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signedate.ToString())));
                 this.lab_date.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_sdate.ToString()))) + "至" + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_edate.ToString())));
+
+                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "檢視課程 e02_no:" + this.hidd_no.Value);
             }
         }
     }
@@ -89,7 +92,87 @@ public partial class _30_300300_300303_3 : System.Web.UI.Page
         //檔案下載
         if (arg.Equals("5"))
         {
+            ChangeObject cobj = new ChangeObject();
+            UtilityDAO udao = new UtilityDAO();
+            int e02_no = Convert.ToInt32(this.hidd_no.Value);
+            //課程資料
+            e02 e02Data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("*身份證字號");
+            dt.Columns.Add("*名稱");
+            dt.Columns.Add("*起始日期");
+            dt.Columns.Add("*姓名");
+            dt.Columns.Add("*學位學分");
+            dt.Columns.Add("*課程類別代碼");
+            dt.Columns.Add("*上課縣市");
+            dt.Columns.Add("期別");
+            dt.Columns.Add("*終迄日期");
+            dt.Columns.Add("*訓練總數");
+            dt.Columns.Add("*訓練總數單位");
+            dt.Columns.Add("訓練成績");
+            dt.Columns.Add("證件字號");
+            dt.Columns.Add("出勤上課狀況");
+            dt.Columns.Add("生日");
+            dt.Columns.Add("*學習性質");
+            dt.Columns.Add("*數位時數");
+            dt.Columns.Add("*實體時數");
+            dt.Columns.Add("課程代碼");
+
+            //此課程核可人員資料
+            var data = (from dd in model.e04
+                        where dd.e02_no == e02_no && dd.e04_check == "1"
+                        orderby dd.e04_no
+                        from p in model.people
+                        where p.peo_uid == dd.e04_peouid
+                        select new { dd,p.peo_idcard,p.peo_name,p.peo_birthday });
+            foreach (var d in data)
+            {
+                DataRow row = dt.NewRow();
+                row["*身份證字號"] = d.peo_idcard;
+                row["*名稱"] = e02Data.e02_name;
+                row["*起始日期"] = cobj.ROCto3ROC(cobj._ADtoROC(e02Data.e02_sdate.Value));
+                row["*姓名"] = d.peo_name;
+                row["*學位學分"] = "6";
+                try
+                {
+                    row["*課程類別代碼"] = udao.Get_TypesNumber(e02Data.typ_no);
+                }
+                catch
+                {
+                    row["*課程類別代碼"] = "70";
+                }
+                row["*上課縣市"] = udao.Get_TypesNumber(e02Data.e02_city.Value);
+                row["期別"] = e02Data.e02_flag.Value.ToString();
+                row["*終迄日期"] = cobj.ROCto3ROC(cobj._ADtoROC(e02Data.e02_edate.Value));
+                row["*訓練總數"] = e02Data.e02_hour.Value.ToString();
+                row["*訓練總數單位"] = "1";
+                if (d.dd.e04_result.HasValue)
+                {
+                    row["訓練成績"] = d.dd.e04_result.Value.ToString();
+                }
+                row["證件字號"] = "";
+                row["出勤上課狀況"] = "";
+                if (d.peo_birthday.HasValue)
+                {
+                    row["生日"] = cobj.ROCto3ROC(cobj._ADtoROC( d.peo_birthday.Value));
+                }
+                row["*學習性質"] = "2";
+                row["*數位時數"] = "0";
+                row["*實體時數"] = e02Data.e02_hour.Value.ToString();
+                row["課程代碼"] = e02Data.e02_code;
+
+                dt.Rows.Add(row);
+            }
+
+            string filename = e02Data.e02_name + "第" + e02Data.e02_flag + "期名冊.xls";
+
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", filename));
+            Response.Clear();
+
+            Response.BinaryWrite(new ExcelObject().ExportExcel(dt).GetBuffer());
+            Response.End();
         }
     }
 

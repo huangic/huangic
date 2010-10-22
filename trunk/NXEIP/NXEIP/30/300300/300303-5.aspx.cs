@@ -28,6 +28,8 @@ public partial class _30_300300_300303_5 : System.Web.UI.Page
                 var e02data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
                 int count = (from dd in model.e04 where dd.e04_sign == "1" && dd.e02_no == e02_no select dd).Count();
                 this.lab_titile.Text = "以下為報名『" + e02data.e02_name + "第" + e02data.e02_flag + "期』的成員列表(目前此班報名" + this.GridView1.Rows.Count + "人，出席" + count + "人)";
+
+                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢成績輸入 e02_no:" + this.hidd_no.Value);
             }
         }
     }
@@ -69,7 +71,7 @@ public partial class _30_300300_300303_5 : System.Web.UI.Page
                 _e.e04_result = tmp;
             }
             model.SaveChanges();
-            new OperatesObject().ExecuteOperates(300303, sobj.sessionUserID, 3, "更新課程成績資料-e02_no:"+this.hidd_no.Value);
+            new OperatesObject().ExecuteOperates(300303, sobj.sessionUserID, 3, "更新課程成績資料 e02_no:"+this.hidd_no.Value);
             this.ShowMsg("成績儲存完成!!");
         }
     }

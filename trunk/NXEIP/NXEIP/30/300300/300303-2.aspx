@@ -299,6 +299,10 @@
                     c = false;
                 }
             }
+            if (c && $('#<%=tbox_hour.ClientID%>').val() == '') {
+                alert('請輸入認證時數!');
+                c = false;
+            } 
             if (c && $('#<%=tbox_hour.ClientID%>').val() != '') {
                 if (isNaN($('#<%=tbox_hour.ClientID%>').val())) {
                     alert('認證時數只可輸入數字字元!');
