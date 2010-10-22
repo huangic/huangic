@@ -104,4 +104,32 @@ public partial class _20_200100_200104 : System.Web.UI.Page
         }
 
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        String dep_no = "";
+        String keyword = "";
+        
+
+
+        //使用父部門
+        if (this.ddl_department.SelectedValue!="")
+        {
+            dep_no = this.ddl_department.SelectedValue;
+                
+           
+        }
+        else {
+
+         
+            dep_no = this.ddl_unit.SelectedValue;
+           
+        }
+
+        keyword = this.tb_word.Text;
+
+        this.ObjectDataSource3.SelectParameters[0].DefaultValue = dep_no;
+        this.ObjectDataSource3.SelectParameters[1].DefaultValue = keyword;
+
+        this.GridView1.DataBind();
+    }
 }
