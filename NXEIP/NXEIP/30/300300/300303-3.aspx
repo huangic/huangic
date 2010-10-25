@@ -5,31 +5,31 @@
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:HiddenField ID="hidd_no" runat="server" />
-<uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300303" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300303" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
                 <div class="function">
-                    <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="報名審核" 
-                        CommandArgument="1" onclick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="報名審核" CommandArgument="1"
+                        OnClick="Button1_Click" />
                     &nbsp;
-                    <asp:Button ID="Button2" runat="server" CssClass="b-input" Text="簽到表" 
-                        CommandArgument="2" onclick="Button1_Click" />
+                    <asp:Button ID="Button2" runat="server" CssClass="b-input" Text="簽到表" CommandArgument="2"
+                        OnClick="Button1_Click" />
                     &nbsp;
-                    <asp:Button ID="Button3" runat="server" CssClass="b-input" Text="線上點名" 
-                        CommandArgument="3" onclick="Button1_Click" />
+                    <asp:Button ID="Button3" runat="server" CssClass="b-input" Text="線上點名" CommandArgument="3"
+                        OnClick="Button1_Click" />
                     &nbsp;
-                    <asp:Button ID="Button4" runat="server" CssClass="b-input" Text="成績輸入" 
-                        CommandArgument="4" onclick="Button1_Click" />
+                    <asp:Button ID="Button4" runat="server" CssClass="b-input" Text="成績輸入" CommandArgument="4"
+                        OnClick="Button1_Click" />
                     &nbsp;
-                    <asp:Button ID="Button5" runat="server" CssClass="b-input" Text="檔案下載" 
-                        CommandArgument="5" onclick="Button1_Click" />
+                    <asp:Button ID="Button5" runat="server" CssClass="b-input" Text="檔案下載" CommandArgument="5"
+                        OnClick="Button1_Click" />
                 </div>
             </div>
             <div class="h3">

@@ -16,7 +16,7 @@ public partial class _30_300300_300303_3 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            this.Navigator1.SubFunc = "課程檢視";
+            //this.Navigator1.SubFunc = "";
 
             if (Request["e02_no"] != null)
             {
