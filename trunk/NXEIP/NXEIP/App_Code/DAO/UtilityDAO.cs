@@ -81,6 +81,16 @@ public class UtilityDAO
     }
 
     /// <summary>
+    /// 取得員工職稱編號typ_no
+    /// </summary>
+    /// <param name="dep_no">員工UID</param>
+    /// <returns></returns>
+    public int Get_TypesNo(int peo_uid)
+    {
+        return (from d in model.people where d.peo_uid == peo_uid select d.peo_pfofess.Value).FirstOrDefault();
+    }
+
+    /// <summary>
     /// 取得各類別代碼
     /// </summary>
     /// <param name="dep_no">類別ID</param>
