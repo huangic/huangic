@@ -5,6 +5,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
     TagPrefix="cc1" %>
+<%@ Register src="../../lib/people/PeopleDetail.ascx" tagname="PeopleDetail" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
@@ -87,7 +88,7 @@
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None" OnRowDataBound="GridView1_RowDataBound" EnableViewState="False">
                     <Columns>
-                        <asp:TemplateField HeaderText="建檔部門">
+                        <asp:TemplateField HeaderText="發文單位">
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d06_depno")) %>'></asp:Label>
                             </ItemTemplate>
@@ -96,6 +97,13 @@
                         <asp:TemplateField HeaderText="建檔人員">
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d06_peouid")) %>'></asp:Label>
+
+                               
+
+                                <uc2:PeopleDetail ID="PeopleDetail1" runat="server" peo_uid='<%# Eval("d06_peouid") %>'/>
+
+                               
+
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="建檔日期">
