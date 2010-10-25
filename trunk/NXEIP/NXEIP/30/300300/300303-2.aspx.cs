@@ -209,7 +209,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
             //期別,報名日期,上課日期
             data.e02_flag = Convert.ToInt32(this.tbox_flag.Text);
             data.e02_signdate = this.cal_signsdate._ADDate;
-            data.e02_signedate = this.cal_signedate._ADDate;
+            data.e02_signedate = Convert.ToDateTime(this.cal_signedate._ADDate.ToString("yyyy-MM-dd 23:59:59"));
             data.e02_sdate = Convert.ToDateTime(this.cal_sdate._ADDate.ToString("yyyy-MM-dd") + " " + this.ddl_sh.SelectedValue + ":" + this.ddl_sm.SelectedValue);
             data.e02_edate = Convert.ToDateTime(this.cal_edate._ADDate.ToString("yyyy-MM-dd") + " " + this.ddl_eh.SelectedValue + ":" + this.ddl_em.SelectedValue);
         }
@@ -218,7 +218,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
             //批次開班
             data.e02_flag = flag;
             data.e02_signdate = sign_sdate;
-            data.e02_signedate = sign_edate;
+            data.e02_signedate = Convert.ToDateTime(sign_edate.Value.ToString("yyyy-MM-dd 23:59:59"));
             data.e02_sdate = sdate;
             data.e02_edate = edate;
         }
