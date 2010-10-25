@@ -12,7 +12,7 @@ using lib.SWFUpload;
 
 namespace lib.SWFUpload
 {
-    public partial class upload : System.Web.UI.Page
+    public partial class uploadDocument : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace lib.SWFUpload
                     //取上傳目錄
                     ArgumentsObject args = new ArgumentsObject();
 
-                    string path = args.Get_argValue("upload_dir");
+                    string path = args.Get_argValue("doc_upload_dir");
                     if (!string.IsNullOrEmpty(path))
                     {
                         uf.Path = path;
