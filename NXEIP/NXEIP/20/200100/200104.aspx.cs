@@ -106,7 +106,8 @@ public partial class _20_200100_200104 : System.Web.UI.Page
     {
         String dep_no = "";
         String keyword = "";
-        
+        String number = "";
+            String file="";
 
 
         //使用父部門
@@ -123,10 +124,14 @@ public partial class _20_200100_200104 : System.Web.UI.Page
            
         }
 
-        keyword = this.tb_word.Text;
+        //keyword = this.tb_word.Text;
+
+        number=this.tb_number.Text;
+        file=this.tb_file.Text;
 
         this.ObjectDataSource3.SelectParameters[0].DefaultValue = dep_no;
-        this.ObjectDataSource3.SelectParameters[1].DefaultValue = keyword;
+        this.ObjectDataSource3.SelectParameters[1].DefaultValue = number;
+        this.ObjectDataSource3.SelectParameters[2].DefaultValue = file;
 
         this.GridView1.DataBind();
     }
