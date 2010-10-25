@@ -14,7 +14,7 @@ using System.Data;
 
 public partial class _20_200100_200104 : System.Web.UI.Page
 {
-    //private static Logger logger = LogManager.GetCurrentClassLogger();
+    private static Logger logger = LogManager.GetCurrentClassLogger();
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,9 +27,7 @@ public partial class _20_200100_200104 : System.Web.UI.Page
             //NXEIPEntities model = new NXEIPEntities();
 
 
-            //var aaa= Eval("from d in model.people select d");
 
-            //logger.Debug(aaa);
             
         }
     }
