@@ -82,7 +82,13 @@ public partial class _20_200100_200104 : System.Web.UI.Page
     
     }
 
-
+    protected static bool GetModifyVisible(int peo_uid) { 
+        //HttpContext.Current.Session[""]
+        SessionObject session = new SessionObject();
+        return (int.Parse(session.sessionUserID) == peo_uid);
+            
+        
+    }
 
    
 
@@ -110,7 +116,7 @@ public partial class _20_200100_200104 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         String dep_no = "";
-        String keyword = "";
+        //String keyword = "";
         String number = "";
             String file="";
 

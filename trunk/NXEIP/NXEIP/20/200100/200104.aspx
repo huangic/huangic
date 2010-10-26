@@ -20,7 +20,7 @@
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
                 //  reapply the thick box stuff
-                //tb_init('a.thickbox');
+                tb_init('a.thickbox');
             }
         }
     </script>
@@ -124,9 +124,11 @@
                                 <asp:Label ID="Label5" runat="server" Text='<%# ((string)Eval("d06_open")).Equals("1")?"否":"是" %>'></asp:Label>
                             </ItemTemplate>
 
-
-
                         </asp:TemplateField>
+
+
+
+
 
 
                         <asp:TemplateField HeaderText="附件">
@@ -149,6 +151,11 @@
                                         <asp:Parameter Name="doc06_no" Type="Int32" />
                                     </SelectParameters>
                                 </asp:ObjectDataSource>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200104-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d06_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>'><span>修改</span></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

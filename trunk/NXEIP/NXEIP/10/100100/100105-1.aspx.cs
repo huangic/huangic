@@ -52,11 +52,16 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
          }
 
 
+         int size = 0;
+
+         int.TryParse(new ArgumentsObject().Get_argValue("upload_file_size_limit"),out size);
+         this.tb_size.Text = String.Format("(單一檔案限制{0}MB)",size);
+
         this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
         {
             UploadMode = UpMode.LIST,
-            File_size_limit = 1,
-
+            File_size_limit = size,
+            
 
 
             //人員目錄

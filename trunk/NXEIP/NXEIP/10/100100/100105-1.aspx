@@ -17,7 +17,7 @@
                     <div class="h1">
                     </div>
                     <div class="h2">
-                        <div class="name">檔案上傳</div>
+                        <div class="name">檔案上傳<asp:Label ID="tb_size" runat="server" Text="Label"></asp:Label></div>
                     </div>
                     <div class="h3">
                     </div>
@@ -47,7 +47,7 @@
                 <asp:Button ID="Button1" runat="server" CssClass="b-input" 
                     onclick="Button1_Click" Text="確定" />
                 <asp:Button ID="Button2" runat="server" CssClass="a-input" 
-                    onclick="Button2_Click" Text="取消" />
+                    onclick="Button2_Click" Text="放棄" />
                 
             
              </div>
