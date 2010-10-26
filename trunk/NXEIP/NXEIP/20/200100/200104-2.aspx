@@ -81,7 +81,7 @@
                 </tr>
                  <tr>
                     <th>
-                        附件
+                        附件<br/><asp:Label ID="lb_size" runat="server" Text="Label"></asp:Label>
                     </th>
                     <td colspan="3">
                         

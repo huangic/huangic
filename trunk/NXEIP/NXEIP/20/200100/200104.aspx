@@ -115,7 +115,20 @@
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# string.Format("電話:{0}<br/>分機:{1}", Eval("d06_tel"), Eval("d06_ext")) %>'></asp:Label>
                             </ItemTemplate>
+
+
+
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="是否公開">
+                            <ItemTemplate>
+                                <asp:Label ID="Label5" runat="server" Text='<%# ((string)Eval("d06_open")).Equals("1")?"否":"是" %>'></asp:Label>
+                            </ItemTemplate>
+
+
+
+                        </asp:TemplateField>
+
+
                         <asp:TemplateField HeaderText="附件">
                             <ItemTemplate>
                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource2"

@@ -13,10 +13,14 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int size = 0;
+
+        int.TryParse(new ArgumentsObject().Get_argValue("upload_file_size_limit"), out size);
+        
         this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
         {
             UploadMode = UpMode.LIST,
-            File_size_limit = 10,
+            File_size_limit = size,
             SubmitButtonId = this.btn_ok.ClientID,
             Path="/upload/document/"
         };
@@ -33,6 +37,7 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
         if (!Page.IsPostBack) {
             this.Label2.Text = sessionObj.sessionUserName;
             this.Label1.Text = sessionObj.sessionUserDepartName;
+            this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
         }
 
     }
