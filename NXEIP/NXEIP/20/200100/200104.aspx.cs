@@ -26,7 +26,7 @@ public partial class _20_200100_200104 : System.Web.UI.Page
 
             //NXEIPEntities model = new NXEIPEntities();
 
-
+            
 
             
         }
@@ -102,6 +102,11 @@ public partial class _20_200100_200104 : System.Web.UI.Page
         }
 
     }
+    /// <summary>
+    /// 依條件查詢
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
         String dep_no = "";
