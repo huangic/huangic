@@ -64,7 +64,7 @@ jquery.jqGrid
        
         $( _setting.fileDiv).setGridParam({ 
         loadComplete:loadComplete,
-        url: "SearchFilesGrid.ashx?n=" + name+"&c="+context
+        url: "100105/SearchFilesGrid.ashx?n=" + name+"&c="+context
         
         });
 
@@ -98,7 +98,7 @@ jquery.jqGrid
                      //ret就是ROW資料
                      var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
                      //alert("id="+ret.id+" code="+ret.code);
-                     dlUrl="FileDownload.ashx?code="+ret.code;
+                     dlUrl="100105/FileDownload.ashx?code="+ret.code;
                     
 
                     //be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";

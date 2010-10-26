@@ -91,7 +91,7 @@
  <div style="text-align:center">
      
     <input id="CancelButton" type="button"  title="取消"  value="關閉"  onclick="self.parent.tb_remove()" class="b-input" />
-    <input id="AddPermission" type="button" title="新增" value="新增" alt="PermissionTree.aspx?modal=true&TB_iframe=true"  class="thickbox b-input" />
+    <input id="AddPermission" type="button" title="新增" value="新增" alt="100105/PermissionTree.aspx?modal=true&TB_iframe=true"  class="thickbox b-input" />
  </div>
     
     </form>

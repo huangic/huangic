@@ -177,7 +177,7 @@ jquery.jqGrid
             "files": s
 
         };
-        var url = "FileHandle.ashx";
+        var url = "100105/FileHandle.ashx";
         var jsonData = JSON.stringify(data) ;
         AjaxHandle(url, ""+jsonData, success);
         }
@@ -212,7 +212,7 @@ jquery.jqGrid
             "json_data": {
                 "ajax": {
                     "type": "POST",
-                    "url": "FileFolder.ashx",
+                    "url": "100105/FileFolder.ashx",
                     //"contentType": "application/json; charset=utf-8",
                     "dataType": "json",
                     "async": "true",
@@ -351,7 +351,7 @@ jquery.jqGrid
        
         $( _setting.fileDiv).setGridParam({ 
         loadComplete:loadComplete,
-        url: "FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType 
+        url: "100105/FilesGrid.ashx?id=" + id+"&depid="+depid+"&folderType="+folderType 
         
         });
 
@@ -371,7 +371,7 @@ jquery.jqGrid
     function showFile(id) {
 
         $( _setting.fileDiv).jqGrid({
-            url: "FilesGrid.ashx?id=" + id,
+            url: "100105/FilesGrid.ashx?id=" + id,
             datatype: "json",
             width: 740,
             height: 350,
@@ -408,7 +408,7 @@ jquery.jqGrid
                      //ret就是ROW資料
                      var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
                      //alert("id="+ret.id+" code="+ret.code);
-                     dlUrl="FileDownload.ashx?code="+ret.code;
+                     dlUrl="100105/FileDownload.ashx?code="+ret.code;
                     
 
                     be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
@@ -456,7 +456,7 @@ jquery.jqGrid
     function addNode(obj, position, js, callback, is_loaded) {
         //alert("New");
 
-        url = "FolderHandle.ashx"
+        url = "100105/FolderHandle.ashx"
         data = { handle: "create",
             //id: position.rslt.obj.attr("id"),
             pid: position.rslt.parent.attr("id"),
@@ -479,7 +479,7 @@ jquery.jqGrid
     function renameNode(obj, val) {
         //alert("New");
 
-        url = "FolderHandle.ashx"
+        url = "100105/FolderHandle.ashx"
         data = { handle: "rename",
             //id: position.rslt.obj.attr("id"),
             "id": val.rslt.obj.attr("id"),
@@ -499,7 +499,7 @@ jquery.jqGrid
         //alert(ref.rslt.o.attr("id")+" MOVE TO "+ref.rslt.r.attr("id")); 
 
 
-        url = "FolderHandle.ashx"
+        url = "100105/FolderHandle.ashx"
         data = { handle: "move",
             id: ref.rslt.o.attr("id"),
             pid: ref.rslt.r.attr("id"),
@@ -527,7 +527,7 @@ jquery.jqGrid
 
 
 
-        url = "FolderHandle.ashx"
+        url = "100105/FolderHandle.ashx"
         data = { handle: "delete",
             //id: position.rslt.obj.attr("id"),
             "id": val.rslt.obj.attr("id")
@@ -556,7 +556,7 @@ jquery.jqGrid
             "files": s
 
         };
-        var url = "FileHandle.ashx";
+        var url = "100105/FileHandle.ashx";
         var jsonData = JSON.stringify(data) ;
         AjaxHandle(url, ""+jsonData, moveSuccess);
 
@@ -592,7 +592,7 @@ jquery.jqGrid
             "files": s
 
         };
-        var url = "FileHandle.ashx";
+        var url = "100105/FileHandle.ashx";
         var jsonData = JSON.stringify(data) ;
         AjaxHandle(url, ""+jsonData, success);
 
@@ -618,7 +618,7 @@ jquery.jqGrid
             "json_data": {
                 "ajax": {
                     "type": "POST",
-                    "url": "FileFolder.ashx",
+                    "url": "100105/FileFolder.ashx",
                     //"contentType": "application/json; charset=utf-8",
                     "dataType": "json",
                     "async": "true",
@@ -670,7 +670,7 @@ jquery.jqGrid
             handleTree:"#handleTree",
             dialog:"#dialog",
             permissionButton:"#permissionButton",
-            fileDeleteButton:"#deleteFile",
+            fileDeleteButton:"#delFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",
             fileUploadButton:"#addFile",

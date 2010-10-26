@@ -52,7 +52,7 @@ jquery.jqGrid
             "json_data": {
                 "ajax": {
                     "type": "POST",
-                    "url": "PublicFolderTree.ashx",
+                    "url": "100105/PublicFolderTree.ashx",
                     //"contentType": "application/json; charset=utf-8",
                     "dataType": "json",
                     "async": "true",
@@ -120,7 +120,7 @@ jquery.jqGrid
        
         $( _setting.fileDiv).setGridParam({ 
         loadComplete:loadComplete,
-        url: "PermissionFilesGrid.ashx?id=" + id+"&peo_id="+peoid
+        url: "100105/PermissionFilesGrid.ashx?id=" + id+"&peo_id="+peoid
         
         });
 
@@ -142,7 +142,7 @@ jquery.jqGrid
     function showFile(id) {
 
         $( _setting.fileDiv).jqGrid({
-            url: "FilesGrid.ashx?id=" + id,
+            url: "100105/FilesGrid.ashx?id=" + id,
             datatype: "json",
             width: 740,
             height: 350,
@@ -180,7 +180,7 @@ jquery.jqGrid
                      //ret就是ROW資料
                      var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
                      //alert("id="+ret.id+" code="+ret.code);
-                     dlUrl="FileDownload.ashx?code="+ret.code;
+                     dlUrl="100105/FileDownload.ashx?code="+ret.code;
                     
 
                     //be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
@@ -232,7 +232,7 @@ jquery.jqGrid
             "json_data": {
                 "ajax": {
                     "type": "POST",
-                    "url": "FileFolder.ashx",
+                    "url": "100105/FileFolder.ashx",
                     //"contentType": "application/json; charset=utf-8",
                     "dataType": "json",
                     "async": "true",
