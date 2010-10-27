@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Entity;
+using NXEIP.DAO;
 
 /// <summary>
 /// ArgumentsObject 的摘要描述
@@ -17,26 +19,13 @@ public class ArgumentsObject
 
     public string Get_argValue(string var)
     {
-        string argValue = string.Empty;
-
         try
         {
-
-            using (System.Data.DataTable mytable = new DBObject().ExecuteQuery("select arg_value from arguments where arg_variable = '" + var + "'"))
-            {
-
-                if (mytable.Rows.Count > 0)
-                {
-                    argValue = mytable.Rows[0]["arg_value"].ToString();
-                }
-            }
+            return new ArgumentsDAO().GetValueByVariable(var);
         }
         catch
         {
+            return null;
         }
-        
-
-        
-        return argValue;
     }
 }
