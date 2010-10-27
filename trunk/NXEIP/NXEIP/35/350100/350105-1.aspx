@@ -82,8 +82,18 @@
                 <th>
                     系統路徑
                 </th>
-                <td colspan="3">
-                    <asp:TextBox ID="tbox_path" runat="server" Width="330px"></asp:TextBox>
+                <td>
+                    <asp:TextBox ID="tbox_path" runat="server" Width="250px"></asp:TextBox>
+                </td>
+                <th>
+                    系統類別開放
+                </th>
+                <td>
+                    <asp:RadioButtonList ID="rbl_open" runat="server" RepeatDirection="Horizontal"
+                        RepeatLayout="Flow">
+                        <asp:ListItem Value="1">開放</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="2">不開放</asp:ListItem>
+                    </asp:RadioButtonList>
                 </td>
             </tr>
         </table>
