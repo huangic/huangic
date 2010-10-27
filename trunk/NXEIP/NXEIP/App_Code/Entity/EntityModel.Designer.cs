@@ -60,6 +60,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_TERMS_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "terms", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.terms), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC07_RELATIONS_DOC06", "doc06", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc06), "doc07", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc07), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC08_RELATIONS_DOC07", "doc07", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc07), "doc08", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc08), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.sysfuction), "sys06", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.sys06), true)]
 
 #endregion
 
@@ -798,6 +799,22 @@ namespace Entity
             }
         }
         private ObjectSet<doc08> _doc08;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<sys06> sys06
+        {
+            get
+            {
+                if ((_sys06 == null))
+                {
+                    _sys06 = base.CreateObjectSet<sys06>("sys06");
+                }
+                return _sys06;
+            }
+        }
+        private ObjectSet<sys06> _sys06;
 
         #endregion
         #region AddTo 方法
@@ -1144,6 +1161,14 @@ namespace Entity
         public void AddTodoc08(doc08 doc08)
         {
             base.AddObject("doc08", doc08);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 sys06 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTosys06(sys06 sys06)
+        {
+            base.AddObject("sys06", sys06);
         }
 
         #endregion
@@ -13546,6 +13571,272 @@ namespace Entity
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sys06")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class sys06 : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 sys06 物件。
+        /// </summary>
+        /// <param name="s06_no">s06_no 屬性的初始值。</param>
+        /// <param name="sfu_no">sfu_no 屬性的初始值。</param>
+        public static sys06 Createsys06(global::System.Int32 s06_no, global::System.Int32 sfu_no)
+        {
+            sys06 sys06 = new sys06();
+            sys06.s06_no = s06_no;
+            sys06.sfu_no = sfu_no;
+            return sys06;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 s06_no
+        {
+            get
+            {
+                return _s06_no;
+            }
+            set
+            {
+                if (_s06_no != value)
+                {
+                    Ons06_noChanging(value);
+                    ReportPropertyChanging("s06_no");
+                    _s06_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("s06_no");
+                    Ons06_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _s06_no;
+        partial void Ons06_noChanging(global::System.Int32 value);
+        partial void Ons06_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 sfu_no
+        {
+            get
+            {
+                return _sfu_no;
+            }
+            set
+            {
+                Onsfu_noChanging(value);
+                ReportPropertyChanging("sfu_no");
+                _sfu_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("sfu_no");
+                Onsfu_noChanged();
+            }
+        }
+        private global::System.Int32 _sfu_no;
+        partial void Onsfu_noChanging(global::System.Int32 value);
+        partial void Onsfu_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String s06_name
+        {
+            get
+            {
+                return _s06_name;
+            }
+            set
+            {
+                Ons06_nameChanging(value);
+                ReportPropertyChanging("s06_name");
+                _s06_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("s06_name");
+                Ons06_nameChanged();
+            }
+        }
+        private global::System.String _s06_name;
+        partial void Ons06_nameChanging(global::System.String value);
+        partial void Ons06_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> s06_parent
+        {
+            get
+            {
+                return _s06_parent;
+            }
+            set
+            {
+                Ons06_parentChanging(value);
+                ReportPropertyChanging("s06_parent");
+                _s06_parent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("s06_parent");
+                Ons06_parentChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _s06_parent;
+        partial void Ons06_parentChanging(Nullable<global::System.Int32> value);
+        partial void Ons06_parentChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> s06_level
+        {
+            get
+            {
+                return _s06_level;
+            }
+            set
+            {
+                Ons06_levelChanging(value);
+                ReportPropertyChanging("s06_level");
+                _s06_level = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("s06_level");
+                Ons06_levelChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _s06_level;
+        partial void Ons06_levelChanging(Nullable<global::System.Int32> value);
+        partial void Ons06_levelChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String s06_status
+        {
+            get
+            {
+                return _s06_status;
+            }
+            set
+            {
+                Ons06_statusChanging(value);
+                ReportPropertyChanging("s06_status");
+                _s06_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("s06_status");
+                Ons06_statusChanged();
+            }
+        }
+        private global::System.String _s06_status;
+        partial void Ons06_statusChanging(global::System.String value);
+        partial void Ons06_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> s06_createuid
+        {
+            get
+            {
+                return _s06_createuid;
+            }
+            set
+            {
+                Ons06_createuidChanging(value);
+                ReportPropertyChanging("s06_createuid");
+                _s06_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("s06_createuid");
+                Ons06_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _s06_createuid;
+        partial void Ons06_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Ons06_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> s06_createtime
+        {
+            get
+            {
+                return _s06_createtime;
+            }
+            set
+            {
+                Ons06_createtimeChanging(value);
+                ReportPropertyChanging("s06_createtime");
+                _s06_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("s06_createtime");
+                Ons06_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _s06_createtime;
+        partial void Ons06_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Ons06_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction")]
+        public sysfuction sysfuction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<sysfuction> sysfuctionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sysfuction>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<sysfuction>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sysfuction", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="sysfuction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -13861,6 +14152,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _sfu_createtime;
         partial void Onsfu_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onsfu_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sys_open
+        {
+            get
+            {
+                return _sys_open;
+            }
+            set
+            {
+                Onsys_openChanging(value);
+                ReportPropertyChanging("sys_open");
+                _sys_open = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sys_open");
+                Onsys_openChanged();
+            }
+        }
+        private global::System.String _sys_open;
+        partial void Onsys_openChanging(global::System.String value);
+        partial void Onsys_openChanged();
 
         #endregion
     
@@ -13944,6 +14259,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<sys>("NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS", "sys", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SYS06_RELATIONS_SYSFUCTI", "sys06")]
+        public EntityCollection<sys06> sys06
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<sys06>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sys06");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<sys06>("NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI", "sys06", value);
                 }
             }
         }
