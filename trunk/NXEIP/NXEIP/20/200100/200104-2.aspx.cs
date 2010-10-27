@@ -35,9 +35,21 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
 
         //init
         if (!Page.IsPostBack) {
+            int peo_uid=int.Parse(sessionObj.sessionUserID);
+            
+            
             this.Label2.Text = sessionObj.sessionUserName;
             this.Label1.Text = sessionObj.sessionUserDepartName;
             this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
+            
+            using(NXEIPEntities model=new NXEIPEntities()){
+                var people =(from p in model.people where p.peo_uid==peo_uid select p).First();
+                this.tb_tel.Text = people.peo_tel;
+                this.tb_ext.Text = people.peo_extension;
+
+            }
+
+
         }
 
     }

@@ -13,10 +13,25 @@
 <head runat="server">
     <title></title>
      <uc1:CssLayout ID="CssLayout1" runat="server" />
+      <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
+     <script type="text/javascript">
+         function file_delete(d06, d07) {
+             if (confirm("確定要刪除?")) {
+                 //ajax
+                 $.ajaxSetup({ "cache": false });
+                 $.ajax({});
+
+             }
+        };
+     
+     </script>
+
 </head>
 <body>
     
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:HiddenField ID="hidden_d06_no" runat="server" />
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllWithDoc06No" 
@@ -93,10 +108,23 @@
                         附件<br/><asp:Label ID="lb_size" runat="server" Text="Label"></asp:Label>
                     </th>
                     <td colspan="3">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1" 
+                            DataKeyNames="d06_no,d07_no" onitemcommand="ListView1_ItemCommand">
+                            <ItemTemplate>
+                                <li><asp:Label ID="Label3" runat="server" Text='<%# Eval("d07_file") %>'></asp:Label>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick=" return confirm('確定要刪除?')" CssClass="imageButton delete"   CommandName="del" ><span>刪除</span></asp:LinkButton>
+                                </li>
+                            </ItemTemplate>
+                        </asp:ListView>
+
+                            
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
+
                         
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                            DataSourceID="ObjectDataSource1" GridLines="None" ShowHeader="False">
-                        </asp:GridView>
                         
                         <br />
                         

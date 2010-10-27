@@ -152,4 +152,41 @@ public partial class _20_200100_200104_3 : System.Web.UI.Page
 
        
     }
+
+
+   
+    protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        int index=Convert.ToInt32(e.Item.DisplayIndex);
+        
+        
+        if (e.CommandName.Equals("del")) {
+            int d06=0;
+            int d07=0;
+            d06 = Convert.ToInt32(this.ListView1.DataKeys[index][0]);
+            d07 = Convert.ToInt32(this.ListView1.DataKeys[index][1]);
+
+            doc07 doc07 = new doc07();
+            doc07.d06_no = d06;
+            doc07.d07_no = d07;
+             using (NXEIPEntities model = new NXEIPEntities()) {
+               
+                //找DOC08
+
+
+                 var d08 = (from d in model.doc08 where d.d06_no == d06 && d.d07_no == d07 select d);
+                 foreach(var d in d08){
+                     model.doc08.DeleteObject(d);
+                 }
+
+                 
+                 
+                model.doc07.Attach(doc07);
+                model.doc07.DeleteObject(doc07);
+                model.SaveChanges();
+               }
+
+        this.ListView1.DataBind();
+        }
+    }
 }
