@@ -30,6 +30,9 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
                 this.rbl_status.SelectedItem.Selected = false;
                 this.rbl_status.Items.FindByValue(sysfuData.sfu_status).Selected = true;
 
+                this.rbl_open.SelectedItem.Selected = false;
+                this.rbl_open.Items.FindByValue(sysfuData.sys_open).Selected = true;
+
                 this.ddl_sys.DataBind();
                 this.ddl_sys.Items.FindByValue(sysfuData.sys_no.ToString()).Selected = true;
 
@@ -79,6 +82,7 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
             sysfucData.sfu_status = this.rbl_status.SelectedValue;
             sysfucData.sfu_createtime = System.DateTime.Now;
             sysfucData.sfu_createuid = Convert.ToInt32(new SessionObject().sessionUserID);
+            sysfucData.sys_open = this.rbl_open.SelectedValue;
 
             if (Request["mode"].Equals("new"))
             {
