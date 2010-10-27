@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
@@ -45,6 +45,7 @@
           <EntitySet Name="search04" EntityType="NXEIPModel.Store.search04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="spot" EntityType="NXEIPModel.Store.spot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys" EntityType="NXEIPModel.Store.sys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sys06" EntityType="NXEIPModel.Store.sys06" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysfuction" EntityType="NXEIPModel.Store.sysfuction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="terms" EntityType="NXEIPModel.Store.terms" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="types" EntityType="NXEIPModel.Store.types" store:Type="Tables" Schema="dbo" />
@@ -208,6 +209,10 @@
           <AssociationSet Name="FK_SEARCH04_RELATIONS_TYPES" Association="NXEIPModel.Store.FK_SEARCH04_RELATIONS_TYPES">
             <End Role="types" EntitySet="types" />
             <End Role="search04" EntitySet="search04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS06_RELATIONS_SYSFUCTI" Association="NXEIPModel.Store.FK_SYS06_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="sys06" EntitySet="sys06" />
           </AssociationSet>
           <AssociationSet Name="FK_SYSFUCTI_RELATIONS_SYS" Association="NXEIPModel.Store.FK_SYSFUCTI_RELATIONS_SYS">
             <End Role="sys" EntitySet="sys" />
@@ -785,6 +790,19 @@
           <Property Name="sys_createuid" Type="int" />
           <Property Name="sys_createtime" Type="datetime" />
         </EntityType>
+        <EntityType Name="sys06">
+          <Key>
+            <PropertyRef Name="s06_no" />
+          </Key>
+          <Property Name="s06_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sfu_no" Type="int" Nullable="false" />
+          <Property Name="s06_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="s06_parent" Type="int" />
+          <Property Name="s06_level" Type="int" />
+          <Property Name="s06_status" Type="char" MaxLength="1" />
+          <Property Name="s06_createuid" Type="int" />
+          <Property Name="s06_createtime" Type="datetime" />
+        </EntityType>
         <EntityType Name="sysfuction">
           <Key>
             <PropertyRef Name="sfu_no" />
@@ -801,6 +819,7 @@
           <Property Name="sfu_status" Type="char" MaxLength="1" />
           <Property Name="sfu_createuid" Type="int" />
           <Property Name="sfu_createtime" Type="datetime" />
+          <Property Name="sys_open" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="terms">
           <Key>
@@ -1321,6 +1340,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SYS06_RELATIONS_SYSFUCTI">
+          <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="1" />
+          <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sysfuction">
+              <PropertyRef Name="sfu_no" />
+            </Principal>
+            <Dependent Role="sys06">
+              <PropertyRef Name="sfu_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SYSFUCTI_RELATIONS_SYS">
           <End Role="sys" Type="NXEIPModel.Store.sys" Multiplicity="1" />
           <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="*" />
@@ -1560,6 +1591,11 @@
           <AssociationSet Name="FK_DOC08_RELATIONS_DOC07" Association="NXEIPModel.FK_DOC08_RELATIONS_DOC07">
             <End Role="doc07" EntitySet="doc07" />
             <End Role="doc08" EntitySet="doc08" />
+          </AssociationSet>
+          <EntitySet Name="sys06" EntityType="NXEIPModel.sys06" />
+          <AssociationSet Name="FK_SYS06_RELATIONS_SYSFUCTI" Association="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI">
+            <End Role="sysfuction" EntitySet="sysfuction" />
+            <End Role="sys06" EntitySet="sys06" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
@@ -2010,6 +2046,8 @@
           <NavigationProperty Name="operates" Relationship="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="operates" />
           <NavigationProperty Name="rauthority" Relationship="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="rauthority" />
           <NavigationProperty Name="sys" Relationship="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" FromRole="sysfuction" ToRole="sys" />
+          <Property Type="String" Name="sys_open" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="sys06" />
         </EntityType>
         <EntityType Name="types">
           <Key>
@@ -2773,6 +2811,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="sys06">
+          <Key>
+            <PropertyRef Name="s06_no" />
+          </Key>
+          <Property Type="Int32" Name="s06_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="sfu_no" Nullable="false" />
+          <Property Type="String" Name="s06_name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="s06_parent" />
+          <Property Type="Int32" Name="s06_level" />
+          <Property Type="String" Name="s06_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="s06_createuid" />
+          <Property Type="DateTime" Name="s06_createtime" />
+          <NavigationProperty Name="sysfuction" Relationship="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" FromRole="sys06" ToRole="sysfuction" />
+        </EntityType>
+        <Association Name="FK_SYS06_RELATIONS_SYSFUCTI">
+          <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="1" />
+          <End Type="NXEIPModel.sys06" Role="sys06" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sysfuction">
+              <PropertyRef Name="sfu_no" />
+            </Principal>
+            <Dependent Role="sys06">
+              <PropertyRef Name="sfu_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3062,7 +3126,8 @@
             <ScalarProperty Name="sys_createtime" ColumnName="sys_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="sysfuction"><EntityTypeMapping TypeName="NXEIPModel.sysfuction"><MappingFragment StoreEntitySet="sysfuction">
-            <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
+            <ScalarProperty Name="sys_open" ColumnName="sys_open" />
+                <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
             <ScalarProperty Name="sys_no" ColumnName="sys_no" />
             <ScalarProperty Name="sfu_name" ColumnName="sfu_name" />
             <ScalarProperty Name="sfu_catalog" ColumnName="sfu_catalog" />
@@ -3307,6 +3372,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sys06">
+            <EntityTypeMapping TypeName="NXEIPModel.sys06">
+              <MappingFragment StoreEntitySet="sys06">
+                <ScalarProperty Name="s06_createtime" ColumnName="s06_createtime" />
+                <ScalarProperty Name="s06_createuid" ColumnName="s06_createuid" />
+                <ScalarProperty Name="s06_status" ColumnName="s06_status" />
+                <ScalarProperty Name="s06_level" ColumnName="s06_level" />
+                <ScalarProperty Name="s06_parent" ColumnName="s06_parent" />
+                <ScalarProperty Name="s06_name" ColumnName="s06_name" />
+                <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
+                <ScalarProperty Name="s06_no" ColumnName="s06_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3412,11 +3491,17 @@
         <AssociationConnector Association="NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME" ManuallyRouted="false">
           <ConnectorPoint PointX="7.2511528461538459" PointY="24.922506510416667" />
           <ConnectorPoint PointX="6.875" PointY="25.298659356570511" />
-          <ConnectorPoint PointX="6.875" PointY="28.244455400688778" />
-          <ConnectorPoint PointX="4" PointY="28.244455400688778" />
+          <ConnectorPoint PointX="6.875" PointY="28.509553160707597" />
+          <ConnectorPoint PointX="5.6145808333333331" PointY="28.509553160707597" />
+          <ConnectorPoint PointX="5.4479141666666671" PointY="28.509553160707597" />
+          <ConnectorPoint PointX="4.864583333333333" PointY="28.509553160707597" />
+          <ConnectorPoint PointX="4.697916666666667" PointY="28.509553160707597" />
+          <ConnectorPoint PointX="4" PointY="28.509553160707597" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" ManuallyRouted="false">
           <ConnectorPoint PointX="6.25" PointY="28.191630859374996" />
+          <ConnectorPoint PointX="6.791666666666667" PointY="28.191630859374996" />
+          <ConnectorPoint PointX="6.958333333333333" PointY="28.191630859374996" />
           <ConnectorPoint PointX="7.2511528461538459" PointY="28.191630859374996" />
           <ConnectorPoint PointX="7.2511528461538459" PointY="29.25" />
         </AssociationConnector>
@@ -3444,7 +3529,7 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_OPERATES_RELATIONS_SYSFUCTI" ManuallyRouted="false">
           <ConnectorPoint PointX="1.25" PointY="31.25" />
-          <ConnectorPoint PointX="1.25" PointY="28.303203125" />
+          <ConnectorPoint PointX="1.25" PointY="28.4994921875" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" ManuallyRouted="false">
           <ConnectorPoint PointX="5.5312475" PointY="28.191630859375" />
@@ -3467,8 +3552,8 @@
           <ConnectorPoint PointX="12.25" PointY="30.375" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_RAUTHORI_RELATIONS_SYSFUCTI" ManuallyRouted="false">
-          <ConnectorPoint PointX="2" PointY="33.201650390625005" />
-          <ConnectorPoint PointX="4.625" PointY="33.201650390625005" />
+          <ConnectorPoint PointX="2" PointY="33.393951822916662" />
+          <ConnectorPoint PointX="4.625" PointY="33.393951822916662" />
           <ConnectorPoint PointX="4.625" PointY="28.875" />
           <ConnectorPoint PointX="4.697916666666667" PointY="28.875" />
           <ConnectorPoint PointX="4.864583333333333" PointY="28.875" />
@@ -3482,8 +3567,8 @@
           <ConnectorPoint PointX="8.875" PointY="30.25" />
           <ConnectorPoint PointX="11.25" PointY="30.25" />
           <ConnectorPoint PointX="11.25" PointY="30.125" />
-          <ConnectorPoint PointX="11.9707020625" PointY="30.125" />
-          <ConnectorPoint PointX="11.9707020625" PointY="30.375" />
+          <ConnectorPoint PointX="11.977049765624999" PointY="30.125" />
+          <ConnectorPoint PointX="11.977049765624999" PointY="30.375" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="18.874492187500003" />
@@ -3538,7 +3623,7 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" ManuallyRouted="false">
           <ConnectorPoint PointX="1.25" PointY="35.625" />
-          <ConnectorPoint PointX="1.25" PointY="34.8588671875" />
+          <ConnectorPoint PointX="1.25" PointY="35.537903645833332" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.spot" Width="1.5" PointX="2.875" PointY="3.25" Height="2.0253710937499996" />
         <EntityTypeShape EntityType="NXEIPModel.government" Width="1.5" PointX="2.875" PointY="6" Height="1.6734830729166674" />
@@ -3628,6 +3713,12 @@
         <AssociationConnector Association="NXEIPModel.FK_DOC08_RELATIONS_DOC07" >
           <ConnectorPoint PointX="15.125" PointY="2.7112939453125051" />
           <ConnectorPoint PointX="16.625" PointY="2.7112939453125051" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.sys06" Width="1.5" PointX="2.75" PointY="38" Height="2.7494921875000102" />
+        <AssociationConnector Association="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" >
+          <ConnectorPoint PointX="2" PointY="34.497180234374987" />
+          <ConnectorPoint PointX="3.5" PointY="34.497180234374987" />
+          <ConnectorPoint PointX="3.5" PointY="38" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
