@@ -1,278 +1,125 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="100301-1.aspx.cs" Inherits="_10_100300_100301_1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100301-1.aspx.cs" Inherits="_10_100300_100301_1" %>
+
+<%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
+
+<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="nav">
-        <span>個人應用 / 行事曆 /<strong> 個人行事曆 </strong></span>
-    </div>
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100301" />
     <div class="PersonalCalendarLayout">
         <div class="left">
             <div class="tabHeader">
-                <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        日</div>
-                    <div class="t3">
-                    </div>
-                </div>
-                <div class="currentTab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-1.aspx">周</a></div>
-                    <div class="t3">
-                    </div>
-                </div>
-                <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-2.aspx">月</a></div>
-                    <div class="t3">
-                    </div>
-                </div>
-                <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-3.aspx">年</a></div>
-                    <div class="t3">
-                    </div>
-                </div>
-                <div class="Tab">
-                    <div class="t1">
-                    </div>
-                    <div class="t2">
-                        <a href="100301-4.aspx">列表</a></div>
-                    <div class="t3">
-                    </div>
+                <div class="tabHead">
+                    <ul>
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="100301.aspx">日</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="current" runat="server" NavigateUrl="100301-1.aspx">週</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="100301-2.aspx">月</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="100301-3.aspx">年</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="100301-4.aspx">列表</asp:HyperLink></li>
+                    </ul>
                 </div>
             </div>
             <div class="block-1">
                 <div class="header">
                     <div class="h1">
-                    </div>
+                        <asp:HyperLink ID="hl_Pre" runat="server" NavigateUrl="?todays=2010-08-01"><span>箭頭</span></asp:HyperLink></div>
                     <div class="h2">
-                        2010年4月</div>
+                        <asp:Label ID="lab_CYM" runat="server" CssClass="name">2010年09月</asp:Label></div>
                     <div class="h3">
-                    </div>
+                        <asp:HyperLink ID="hl_Nxt" runat="server" NavigateUrl="?todays=2010-08-01"><span>箭頭</span></asp:HyperLink></div>
                 </div>
-                <table class="calendar">
-                    <tbody>
-                        <tr>
-                            <th class="holiday">
-                                日
-                            </th>
-                            <th>
-                                一
-                            </th>
-                            <th>
-                                二
-                            </th>
-                            <th>
-                                三
-                            </th>
-                            <th>
-                                四
-                            </th>
-                            <th>
-                                五
-                            </th>
-                            <th class="holiday">
-                                六
-                            </th>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                26
-                            </td>
-                            <td>
-                                27
-                            </td>
-                            <td>
-                                28
-                            </td>
-                            <td>
-                                29
-                            </td>
-                            <td>
-                                30
-                            </td>
-                            <td>
-                                31
-                            </td>
-                            <td class="holiday">
-                                <a href="#">1</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                <a href="#">2</a>
-                            </td>
-                            <td class="today">
-                                <a href="#">3</a>
-                            </td>
-                            <td>
-                                <a href="#">4</a>
-                            </td>
-                            <td>
-                                <a href="#">5</a>
-                            </td>
-                            <td>
-                                <a href="#">6</a>
-                            </td>
-                            <td>
-                                <a href="#">7</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="#">8</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                <a href="#">9</a>
-                            </td>
-                            <td>
-                                <a href="#">10</a>
-                            </td>
-                            <td>
-                                <a href="#">11</a>
-                            </td>
-                            <td>
-                                <a href="#">12</a>
-                            </td>
-                            <td>
-                                <a href="#">13</a>
-                            </td>
-                            <td>
-                                <a href="#">14</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="#">15</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                <a href="#">16</a>
-                            </td>
-                            <td>
-                                <a href="#">17</a>
-                            </td>
-                            <td>
-                                <a href="#">18</a>
-                            </td>
-                            <td>
-                                <a href="#">19</a>
-                            </td>
-                            <td>
-                                <a href="#">20</a>
-                            </td>
-                            <td>
-                                <a href="#">21</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="#">22</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                <a href="#">23</a>
-                            </td>
-                            <td>
-                                <a href="#">24</a>
-                            </td>
-                            <td>
-                                <a href="#">25</a>
-                            </td>
-                            <td>
-                                <a href="#">26</a>
-                            </td>
-                            <td>
-                                <a href="#">27</a>
-                            </td>
-                            <td>
-                                <a href="#">28</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="#">29</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="holiday">
-                                <a href="#">30</a>
-                            </td>
-                            <td>
-                                <a href="#">31</a>
-                            </td>
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                3
-                            </td>
-                            <td>
-                                4
-                            </td>
-                            <td class="holiday">
-                                5
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="block-0">
+                    <asp:Calendar ID="Calendar1" runat="server" CssClass="calendar" DayNameFormat="Shortest"
+                        BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="&lt;div class=&quot;h3&quot;&gt;&lt;/div&gt;"
+                        PrevMonthText="&lt;div class=&quot;h1&quot;&gt;&lt;/div&gt;" OnDayRender="Calendar1_DayRender"
+                        ShowTitle="False" onvisiblemonthchanged="Calendar1_VisibleMonthChanged">
+                        <DayHeaderStyle CssClass="headtitle" />
+                        <DayStyle CssClass="Nholiday_bg" />
+                        <TodayDayStyle CssClass="today" />
+                        <WeekendDayStyle CssClass="holiday_bg" />
+                    </asp:Calendar>
+                </div>
             </div>
             <div class="center">
-                <span class="a-letter-2">今天是2010-05-01星期六</span>
+                <span class="a-letter-2"><asp:Label ID="lab_today" runat="server">今天是 99-10-20 星期三</asp:Label></span>
             </div>
-            <div class="border-bottom-block">
-                <span class="icon a-letter-1">新增行事曆<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事件標題
-                    <input type="text" size="20" name="textfield222">
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行程日期
-                    <input type="text" size="8" name="textfield">
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;事件時間 </span>
-                <select name="select5">
-                    <option>08：00</option>
-                </select>
-                ~
-                <select name="select4">
-                    <option>08：00</option>
-                </select>
-                <br>
-                <span class="a-letter-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="button" value="確定" onclick="MM_goToURL('parent','a03-01.htm');return document.MM_returnValue"
-                    class="b-input" name="Submit3">
-                &nbsp;
-                <input type="button" value="取消" class="a-input" name="Submit22">
+            <div class="block-2">
+                <div class="border-bottom-block">
+                    <div class="header">
+                        <div class="h1"></div>
+                        <div class="h2 a-letter-1">新增行事曆</div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">事件標題</div>
+                        <div class="h2"><asp:TextBox ID="txt_title" runat="server" Columns="20"></asp:TextBox></div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">行程日期</div>
+                        <div class="h2">
+                            <uc2:calendar ID="cl_date" runat="server" _Show="False" />
+                        </div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">事件時間</div>
+                        <div class="h2">
+                            <asp:DropDownList ID="ddl_stime" runat="server">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="hd a-letter-1">&nbsp;</div>
+                        <div class="h2">
+                            <asp:DropDownList ID="ddl_etime" runat="server">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1"></div>
+                        <div class="h3"></div>
+                        <div class="h3"><asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click" /></div>
+                    </div>
+                </div>
             </div>
-            <div class="border-bottom-block">
-                <span class="icon a-letter-1">可查看之他人行事曆
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 部門
-                    <select name="select">
-                        <option selected="selected">請選擇</option>
-                    </select>
-                    <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 姓名 </span>
-                <select name="select2">
-                    <option selected="selected">請選擇</option>
-                </select>
-                <input type="button" value="搜尋" class="b-input" name="Submit">
+            <div class="block-2">
+                <div class="border-bottom-block">
+                    <div class="header">
+                        <div class="h1"></div>
+                        <div class="h2 a-letter-1">可查看之他人行事曆</div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">部門</div>
+                        <div class="h2">
+                            <asp:DropDownList ID="ddl_QryDepart" runat="server" AutoPostBack="True" 
+                                onselectedindexchanged="ddl_QryDepart_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="h3"></div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">姓名</div>
+                        <div class="h2">
+                            <asp:DropDownList ID="ddl_QryPeople" runat="server">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="h3"><asp:Button ID="btn_QrySubmit" runat="server" CssClass="b-input" Text="搜尋" onclick="btn_QrySubmit_Click" /></div>
+                    </div>
+                </div>
             </div>
-            <div class="border-bottom-block">
-                <span class="icon a-letter-1">可設定之他人行事曆<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名</span>
-                <select name="select3">
-                    <option selected="selected">請選擇</option>
-                </select>
-                <input type="button" value="搜尋" class="b-input" name="Submit2">
+            <div class="block-2">
+                <div class="border-bottom-block">
+                    <div class="header">
+                        <div class="h1"></div>
+                        <div class="h2 a-letter-1">可設定之他人行事曆</div>
+                    </div>
+                    <div class="headerW">
+                        <div class="h1 a-letter-1">姓名</div>
+                        <div class="h2">
+                            <asp:DropDownList ID="ddl_c01" runat="server">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="h3"><asp:Button ID="btn_SetSubmit0" runat="server" CssClass="b-input" Text="搜尋" onclick="btn_SetSubmit0_Click" /></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="right">
@@ -282,541 +129,78 @@
                     </div>
                     <div class="h2">
                         <div class="name">
-                            2010年4月 / 管理者</div>
+                            <asp:Label ID="lab_date" runat="server"></asp:Label>&nbsp;/
+                            <asp:Label ID="lab_name" runat="server"></asp:Label>
+                            <asp:Label ID="lab_people" runat="server" Visible="False"></asp:Label>
+                        </div>
                         <div class="function">
-                            <input type="button" value="列印" class="b-input" name="Submit32">
+                            <asp:Button ID="btn_print" runat="server" CssClass="b-input" Text="列印" 
+                                onclick="btn_print_Click" />&nbsp;
+                            <asp:Button ID="btn_back" runat="server" CssClass="b-input" Text="返回使用者" 
+                                onclick="btn_back_Click" />
                         </div>
                     </div>
                     <div class="h3">
                     </div>
                 </div>
                 <table class="big-calendar-time">
-                                        <tbody>
-                                            <tr>
-                                                <th >
-                                                   
-                                                        時間
-                                                </th>
-                                                <th>
-                                                    
-                                                        05-01(日)
-                                                </th>
-                                                <th>
-                                                    
-                                                        05-01(一)
-                                                </th>
-                                                <th>
-                                                    
-                                                        05-01(二)
-                                                </th>
-                                                <th>
-                                                   
-                                                        05-01(三)
-                                                </th>
-                                                <th>
-                                                   
-                                                        05-01(四)
-                                                </th>
-                                                <th>
-                                                   
-                                                        05-01(五)
-                                                </th>
-                                                <th>
-                                                    
-                                                        05-01(六)
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a  href="a03-01-new.htm">06：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a href="#">07：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                   
-                                                        <a href="#">08：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                  
-                                                        <a  href="#">09：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                   
-                                                        <a  href="#">10：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                   
-                                                        <a  href="#">11：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                   
-                                                        <a  href="#">12：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                   
-                                                        <a  href="#">13：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                  
-                                                        <ath href="#">14：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                   
-                                                        <a  href="#">15：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                   
-                                                        <a  href="#">16：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a href="#">17：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                  
-                                                        <a  href="#">18：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a href="#">19：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a  href="#">20：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                    
-                                                        <a  href="#">21：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th >
-                                                 
-                                                        <a  href="#">22：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                   
-                                                        <a  href="#">23：00</a>
-                                                </th>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td >
-                                                    &nbsp;
-                                                </td>
-                                                <td class="holiday">
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                 
-                 
-                
-                
+                    <tbody>
+                        <tr>
+                            <td class="title_time_bg"><span class="title_time">星期</span></td>
+                            <td class="title_week_bg"><span class="title_time">行程</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg" style="width:10%"><span class="row_time">(日)</span></td>
+                            <td class="row_holiday_bg" align="left">
+                                <asp:HyperLink ID="hl_0" runat="server" CssClass="thickbox">[hl_0]</asp:HyperLink>
+                                <br />
+                                <asp:Label ID="lab_0" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(一)</span></td>
+                            <td class="row_Nholiday_bg" align="left">
+                                <asp:HyperLink ID="hl_1" runat="server" CssClass="thickbox">[hl_1]</asp:HyperLink>
+                                <br />
+                                <asp:Label ID="lab_1" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(二)</span></td>
+                            <td class="row_Nholiday_bg" align="left">
+                                <asp:HyperLink ID="hl_2" runat="server" CssClass="thickbox">[hl_2]</asp:HyperLink><br />
+                                <asp:Label ID="lab_2" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(三)</span></td>
+                            <td class="row_Nholiday_bg" align="left">
+                                <asp:HyperLink ID="hl_3" runat="server" CssClass="thickbox">[hl_3]</asp:HyperLink><br />
+                                <asp:Label ID="lab_3" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(四)</span></td>
+                            <td class="row_Nholiday_bg" align="left">
+                                <asp:HyperLink ID="hl_4" runat="server" CssClass="thickbox">[hl_4]</asp:HyperLink><br />
+                                <asp:Label ID="lab_4" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(五)</span></td>
+                            <td class="row_Nholiday_bg" align="left">
+                                <asp:HyperLink ID="hl_5" runat="server" CssClass="thickbox">[hl_5]</asp:HyperLink><br />
+                                <asp:Label ID="lab_5" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="title_time_bg"><span class="row_time">(六)</span></td>
+                            <td class="row_holiday_bg" align="left">
+                                <asp:HyperLink ID="hl_6" runat="server" CssClass="thickbox">[hl_6]</asp:HyperLink><br />
+                                <asp:Label ID="lab_6" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <div class="footer">
                     <div class="f1">
@@ -829,5 +213,4 @@
             </div>
         </div>
     </div>
-    
 </asp:Content>
