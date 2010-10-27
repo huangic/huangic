@@ -42,8 +42,8 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200104" />
-    <div class="tableDiv">
-        <div>
+    
+    <div class="select">
             <span class="a-letter-2">單位：
                 <asp:DropDownList ID="ddl_unit" runat="server" DataSourceID="ObjectDataSource_Department"
                     DataTextField="dep_name" DataValueField="dep_no" AppendDataBoundItems="True">
@@ -69,7 +69,12 @@
                 
                 </span>
         </div>
-        <br />
+    
+    
+    
+    
+    <div class="tableDiv">
+        
         <div class="header">
             <div class="h1">
             </div>
