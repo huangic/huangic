@@ -16,7 +16,7 @@ public partial class lib_PeopleDetail : System.Web.UI.UserControl
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "jquery_popup", ResolveClientUrl("~/js/jquery.open.js"));
 
 
-        string script = @"$(function(){$('.popup').popupWindow({'centerBrowser':1,'width':400,'height':300 });    })";
+        string script = @"$(function(){$('.popup').popupWindow({'centerBrowser':1,'width':300,'height':160 });    })";
 
         ScriptManager.RegisterClientScriptBlock(this, typeof(UserControl), "Popup", script, true);
     }
