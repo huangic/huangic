@@ -78,6 +78,11 @@ namespace NXEIP.DAO
             return (from data in model.arguments where data.arg_variable == arg_var select data).Count();
         }
 
+        public string GetValueByVariable(string arg_variable)
+        {
+            return (from data in model.arguments where data.arg_variable == arg_variable select data.arg_value).FirstOrDefault();
+        }
+
         public int GetAllCount()
         {
             return GetAll().Count();

@@ -33,15 +33,34 @@ namespace NXEIP.DAO
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
 
+        public int GetAllCount()
+        {
+            return GetAll().Count();
+        }
+
         public IQueryable<sysfuction> GetSubBySysNo(int sys_no)
         {
             return (from s in model.sysfuction where s.sys_no == sys_no && s.sfu_parent == 0 orderby s.sfu_no select s);
         }
 
-        public int GetAllCount()
+        #region 類別管理
+
+        public IQueryable<sysfuction> GetOpenData()
         {
-            return GetAll().Count();
+            return (from s in model.sysfuction where s.sys_open == "1" orderby s.sys_no, s.sfu_no, s.sfu_order select s);
         }
+
+        public IQueryable<sysfuction> GetOpenData(int startRowIndex, int maximumRows)
+        {
+            return GetOpenData().Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetOpenDataCount()
+        {
+            return GetOpenData().Count();
+        }
+
+        #endregion
 
         public sysfuction GetBySfuNo(int sfu_no)
         {
