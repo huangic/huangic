@@ -604,7 +604,7 @@ public class ChangeObject
     /// <returns>代表星期的數字(1~7)</returns>
     public int ChangeWeek(DateTime DT)
     {
-        int feedback = 7;
+        int feedback = 0;
         if (DT.DayOfWeek == System.DayOfWeek.Monday)
         {
             feedback = 1;
@@ -631,7 +631,7 @@ public class ChangeObject
         }
         else if (DT.DayOfWeek == System.DayOfWeek.Sunday)
         {
-            feedback = 7;
+            feedback = 0;
         }
         return feedback;
     }
