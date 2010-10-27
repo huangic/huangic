@@ -40,7 +40,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         try
         {
-            new OperatesObject().ExecuteLogOutLog(new SessionObject().sessionLogInID);
+            //new OperatesObject().ExecuteLogOutLog(new SessionObject().sessionLogInID);
 
         }catch{
             logger.Error("登出LOG錯誤");
