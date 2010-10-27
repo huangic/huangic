@@ -27,21 +27,24 @@
  
  .PersonalCalendarLayout .right
  {
-     float:left;
-     width:720px;
-     margin:0px 0px 0px 20px   
+	float:left;
+	width:720px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
      
   }
   
-  .PersonalCalendarLayout .big-calendar-time th
+ /* .PersonalCalendarLayout .big-calendar-time th
   {
        width:auto;
- }
+ }*/
   
-  .PersonalCalendarLayout .big-calendar-time .title
+/*  .PersonalCalendarLayout .big-calendar-time .title
   {
        width:70px; 
- }
+ }*/
  
  
  
@@ -49,12 +52,12 @@
  
  
  
-  .PersonalCalendarLayout .big_td  td
+/*  .PersonalCalendarLayout .big_td  td
   {
        height:70px;
        text-align:left;
        vertical-align:top;
-	   }
+	   }*/
 	   
 
  .yearLayout 

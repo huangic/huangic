@@ -78,9 +78,9 @@
 
 .home span,.logout span,.big span,.middle span,.small span
 {
- 
-  visibility:hidden;
-  overflow:hidden;    
+	visibility:hidden;
+	overflow:hidden;
+	text-decoration: none;
 }
 
 
@@ -110,7 +110,16 @@
 	height: 22px;
 	width: 60px;
 	padding-top: 7px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
 }
+.headerTR .B1 a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+}
+
 .headerTR .B2 {
 	float: left;
 	height: 29px;
