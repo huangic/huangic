@@ -68,7 +68,7 @@ public partial class login : SessionObject
                             
 
                             //login log
-                            //new OperatesObject().ExecuteLogInLog(loginID,peoData.peo_uid, accData.acc_no, this.GetIpAddress(), this.SessionID);
+                            new OperatesObject().ExecuteLogInLog(loginID,peoData.peo_uid, accData.acc_no, this.GetIpAddress(), this.SessionID);
 
                             //goto index
                             Server.Transfer("Default.aspx");
@@ -94,7 +94,7 @@ public partial class login : SessionObject
                         this.ShowMessage("帳號密碼錯誤!");
                     }
                 }
-                catch
+                catch(System.Exception ex)
                 {
                     this.ShowMessage("帳號或密碼錯誤!");
                 }
