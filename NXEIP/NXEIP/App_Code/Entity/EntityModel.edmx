@@ -22,13 +22,22 @@
           <EntitySet Name="doc06" EntityType="NXEIPModel.Store.doc06" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc07" EntityType="NXEIPModel.Store.doc07" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc08" EntityType="NXEIPModel.Store.doc08" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc09" EntityType="NXEIPModel.Store.doc09" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc10" EntityType="NXEIPModel.Store.doc10" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc11" EntityType="NXEIPModel.Store.doc11" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc12" EntityType="NXEIPModel.Store.doc12" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="doc13" EntityType="NXEIPModel.Store.doc13" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e01" EntityType="NXEIPModel.Store.e01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e02" EntityType="NXEIPModel.Store.e02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e03" EntityType="NXEIPModel.Store.e03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e04" EntityType="NXEIPModel.Store.e04" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="e05" EntityType="NXEIPModel.Store.e05" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="government" EntityType="NXEIPModel.Store.government" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="new03" EntityType="NXEIPModel.Store.new03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
@@ -110,6 +119,26 @@
             <End Role="doc07" EntitySet="doc07" />
             <End Role="doc08" EntitySet="doc08" />
           </AssociationSet>
+          <AssociationSet Name="FK_DOC09_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_DOC09_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="doc09" EntitySet="doc09" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC10_RELATIONS_DOC09" Association="NXEIPModel.Store.FK_DOC10_RELATIONS_DOC09">
+            <End Role="doc09" EntitySet="doc09" />
+            <End Role="doc10" EntitySet="doc10" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC11_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_DOC11_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="doc11" EntitySet="doc11" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC12_RELATIONS_DOC11" Association="NXEIPModel.Store.FK_DOC12_RELATIONS_DOC11">
+            <End Role="doc11" EntitySet="doc11" />
+            <End Role="doc12" EntitySet="doc12" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC13_RELATIONS_DOC11" Association="NXEIPModel.Store.FK_DOC13_RELATIONS_DOC11">
+            <End Role="doc11" EntitySet="doc11" />
+            <End Role="doc13" EntitySet="doc13" />
+          </AssociationSet>
           <AssociationSet Name="FK_E02_RELATIONS_E01" Association="NXEIPModel.Store.FK_E02_RELATIONS_E01">
             <End Role="e01" EntitySet="e01" />
             <End Role="e02" EntitySet="e02" />
@@ -126,6 +155,10 @@
             <End Role="e02" EntitySet="e02" />
             <End Role="e04" EntitySet="e04" />
           </AssociationSet>
+          <AssociationSet Name="FK_E05_RELATIONS_E02" Association="NXEIPModel.Store.FK_E05_RELATIONS_E02">
+            <End Role="e02" EntitySet="e02" />
+            <End Role="e05" EntitySet="e05" />
+          </AssociationSet>
           <AssociationSet Name="FK_GOVERNME_RELATIONS_ROOMS" Association="NXEIPModel.Store.FK_GOVERNME_RELATIONS_ROOMS">
             <End Role="rooms" EntitySet="rooms" />
             <End Role="government" EntitySet="government" />
@@ -137,6 +170,18 @@
           <AssociationSet Name="FK_MANAGER_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_MANAGER_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="new01" EntitySet="new01" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW02_RELATIONS_NEW01" Association="NXEIPModel.Store.FK_NEW02_RELATIONS_NEW01">
+            <End Role="new01" EntitySet="new01" />
+            <End Role="new02" EntitySet="new02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW03_RELATIONS_NEW01" Association="NXEIPModel.Store.FK_NEW03_RELATIONS_NEW01">
+            <End Role="new01" EntitySet="new01" />
+            <End Role="new03" EntitySet="new03" />
           </AssociationSet>
           <AssociationSet Name="FK_OPERATES_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_OPERATES_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
@@ -443,6 +488,77 @@
           <Property Name="d08_peouid" Type="int" />
           <Property Name="d08_downloadtime" Type="datetime" />
         </EntityType>
+        <EntityType Name="doc09">
+          <Key>
+            <PropertyRef Name="d09_no" />
+          </Key>
+          <Property Name="d09_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="s06_no" Type="int" Nullable="false" />
+          <Property Name="d09_depno" Type="int" Nullable="false" />
+          <Property Name="d09_peouid" Type="int" Nullable="false" />
+          <Property Name="d09_date" Type="datetime" />
+          <Property Name="d09_note" Type="nvarchar" MaxLength="200" />
+          <Property Name="d09_open" Type="char" MaxLength="1" />
+          <Property Name="d09_createuid" Type="int" />
+          <Property Name="d09_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="doc10">
+          <Key>
+            <PropertyRef Name="d09_no" />
+            <PropertyRef Name="d10_no" />
+          </Key>
+          <Property Name="d09_no" Type="int" Nullable="false" />
+          <Property Name="d10_no" Type="int" Nullable="false" />
+          <Property Name="d10_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="d10_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="d10_count" Type="int" />
+          <Property Name="d10_file" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="doc11">
+          <Key>
+            <PropertyRef Name="d11_no" />
+          </Key>
+          <Property Name="d11_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="s06_no" Type="int" Nullable="false" />
+          <Property Name="d11_depno" Type="int" Nullable="false" />
+          <Property Name="d11_peouid" Type="int" Nullable="false" />
+          <Property Name="d11_date" Type="datetime" />
+          <Property Name="d11_subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="d11_edate" Type="datetime" />
+          <Property Name="d11_use" Type="nvarchar" MaxLength="500" />
+          <Property Name="d11_tel" Type="varchar" MaxLength="20" />
+          <Property Name="d11_ext" Type="varchar" MaxLength="6" />
+          <Property Name="d11_createuid" Type="int" />
+          <Property Name="d11_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="doc12">
+          <Key>
+            <PropertyRef Name="d11_no" />
+            <PropertyRef Name="d12_no" />
+          </Key>
+          <Property Name="d11_no" Type="int" Nullable="false" />
+          <Property Name="d12_no" Type="int" Nullable="false" />
+          <Property Name="d12_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="d12_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="d12_count" Type="int" />
+          <Property Name="d12_file" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="doc13">
+          <Key>
+            <PropertyRef Name="d11_no" />
+            <PropertyRef Name="d13_no" />
+          </Key>
+          <Property Name="d11_no" Type="int" Nullable="false" />
+          <Property Name="d13_no" Type="int" Nullable="false" />
+          <Property Name="d13_depno" Type="int" Nullable="false" />
+          <Property Name="d13_peouid" Type="int" Nullable="false" />
+          <Property Name="d13_tel" Type="varchar" MaxLength="20" />
+          <Property Name="d13_ext" Type="varchar" MaxLength="6" />
+          <Property Name="d13_date" Type="datetime" />
+          <Property Name="d13_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="d13_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="d13_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="e01">
           <Key>
             <PropertyRef Name="e01_no" />
@@ -519,6 +635,15 @@
           <Property Name="e04_resultuid" Type="int" />
           <Property Name="e04_resultdate" Type="datetime" />
         </EntityType>
+        <EntityType Name="e05">
+          <Key>
+            <PropertyRef Name="e02_no" />
+            <PropertyRef Name="e05_no" />
+          </Key>
+          <Property Name="e02_no" Type="int" Nullable="false" />
+          <Property Name="e05_no" Type="int" Nullable="false" />
+          <Property Name="e05_d09no" Type="int" />
+        </EntityType>
         <EntityType Name="government">
           <Key>
             <PropertyRef Name="roo_no" />
@@ -550,6 +675,42 @@
           <Property Name="man_no" Type="int" Nullable="false" />
           <Property Name="peo_uid" Type="int" Nullable="false" />
           <Property Name="man_type" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="new01">
+          <Key>
+            <PropertyRef Name="n01_no" />
+          </Key>
+          <Property Name="n01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="s06_no" Type="int" />
+          <Property Name="n01_depno" Type="int" />
+          <Property Name="n01_peouid" Type="int" />
+          <Property Name="n01_date" Type="datetime" />
+          <Property Name="n01_subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="n01_content" Type="text" />
+          <Property Name="n01_use" Type="char" MaxLength="1" />
+          <Property Name="n01_status" Type="char" MaxLength="1" />
+          <Property Name="n01_createuid" Type="int" />
+          <Property Name="n01_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="new02">
+          <Key>
+            <PropertyRef Name="n01_no" />
+            <PropertyRef Name="n02_no" />
+          </Key>
+          <Property Name="n01_no" Type="int" Nullable="false" />
+          <Property Name="n02_no" Type="int" Nullable="false" />
+          <Property Name="n02_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="n02_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="n02_file" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="new03">
+          <Key>
+            <PropertyRef Name="n01_no" />
+            <PropertyRef Name="n03_no" />
+          </Key>
+          <Property Name="n01_no" Type="int" Nullable="false" />
+          <Property Name="n03_no" Type="int" Nullable="false" />
+          <Property Name="n03_address" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="operates">
           <Key>
@@ -733,7 +894,7 @@
           <Key>
             <PropertyRef Name="s01_no" />
           </Key>
-          <Property Name="s01_no" Type="int" Nullable="false" />
+          <Property Name="s01_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="s01_peouid" Type="int" />
           <Property Name="s01_type" Type="char" MaxLength="1" />
           <Property Name="s01_createuid" Type="int" />
@@ -1040,6 +1201,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DOC09_RELATIONS_SYS06">
+          <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="1" />
+          <End Role="doc09" Type="NXEIPModel.Store.doc09" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="doc09">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC10_RELATIONS_DOC09">
+          <End Role="doc09" Type="NXEIPModel.Store.doc09" Multiplicity="1" />
+          <End Role="doc10" Type="NXEIPModel.Store.doc10" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc09">
+              <PropertyRef Name="d09_no" />
+            </Principal>
+            <Dependent Role="doc10">
+              <PropertyRef Name="d09_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC11_RELATIONS_SYS06">
+          <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="1" />
+          <End Role="doc11" Type="NXEIPModel.Store.doc11" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="doc11">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC12_RELATIONS_DOC11">
+          <End Role="doc11" Type="NXEIPModel.Store.doc11" Multiplicity="1" />
+          <End Role="doc12" Type="NXEIPModel.Store.doc12" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc11">
+              <PropertyRef Name="d11_no" />
+            </Principal>
+            <Dependent Role="doc12">
+              <PropertyRef Name="d11_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC13_RELATIONS_DOC11">
+          <End Role="doc11" Type="NXEIPModel.Store.doc11" Multiplicity="1" />
+          <End Role="doc13" Type="NXEIPModel.Store.doc13" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc11">
+              <PropertyRef Name="d11_no" />
+            </Principal>
+            <Dependent Role="doc13">
+              <PropertyRef Name="d11_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_E02_RELATIONS_E01">
           <End Role="e01" Type="NXEIPModel.Store.e01" Multiplicity="1" />
           <End Role="e02" Type="NXEIPModel.Store.e02" Multiplicity="*" />
@@ -1088,6 +1309,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_E05_RELATIONS_E02">
+          <End Role="e02" Type="NXEIPModel.Store.e02" Multiplicity="1" />
+          <End Role="e05" Type="NXEIPModel.Store.e05" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="e02">
+              <PropertyRef Name="e02_no" />
+            </Principal>
+            <Dependent Role="e05">
+              <PropertyRef Name="e02_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GOVERNME_RELATIONS_ROOMS">
           <End Role="rooms" Type="NXEIPModel.Store.rooms" Multiplicity="1" />
           <End Role="government" Type="NXEIPModel.Store.government" Multiplicity="*" />
@@ -1121,6 +1354,42 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW01_RELATIONS_SYS06">
+          <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="0..1" />
+          <End Role="new01" Type="NXEIPModel.Store.new01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="new01">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW02_RELATIONS_NEW01">
+          <End Role="new01" Type="NXEIPModel.Store.new01" Multiplicity="1" />
+          <End Role="new02" Type="NXEIPModel.Store.new02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="new01">
+              <PropertyRef Name="n01_no" />
+            </Principal>
+            <Dependent Role="new02">
+              <PropertyRef Name="n01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW03_RELATIONS_NEW01">
+          <End Role="new01" Type="NXEIPModel.Store.new01" Multiplicity="1" />
+          <End Role="new03" Type="NXEIPModel.Store.new03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="new01">
+              <PropertyRef Name="n01_no" />
+            </Principal>
+            <Dependent Role="new03">
+              <PropertyRef Name="n01_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1596,6 +1865,51 @@
           <AssociationSet Name="FK_SYS06_RELATIONS_SYSFUCTI" Association="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI">
             <End Role="sysfuction" EntitySet="sysfuction" />
             <End Role="sys06" EntitySet="sys06" />
+          </AssociationSet>
+          <EntitySet Name="doc09" EntityType="NXEIPModel.doc09" />
+          <EntitySet Name="doc10" EntityType="NXEIPModel.doc10" />
+          <EntitySet Name="doc11" EntityType="NXEIPModel.doc11" />
+          <EntitySet Name="doc12" EntityType="NXEIPModel.doc12" />
+          <EntitySet Name="doc13" EntityType="NXEIPModel.doc13" />
+          <EntitySet Name="e05" EntityType="NXEIPModel.e05" />
+          <EntitySet Name="new01" EntityType="NXEIPModel.new01" />
+          <EntitySet Name="new02" EntityType="NXEIPModel.new02" />
+          <EntitySet Name="new03" EntityType="NXEIPModel.new03" />
+          <AssociationSet Name="FK_DOC09_RELATIONS_SYS06" Association="NXEIPModel.FK_DOC09_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="doc09" EntitySet="doc09" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC10_RELATIONS_DOC09" Association="NXEIPModel.FK_DOC10_RELATIONS_DOC09">
+            <End Role="doc09" EntitySet="doc09" />
+            <End Role="doc10" EntitySet="doc10" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC11_RELATIONS_SYS06" Association="NXEIPModel.FK_DOC11_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="doc11" EntitySet="doc11" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC12_RELATIONS_DOC11" Association="NXEIPModel.FK_DOC12_RELATIONS_DOC11">
+            <End Role="doc11" EntitySet="doc11" />
+            <End Role="doc12" EntitySet="doc12" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOC13_RELATIONS_DOC11" Association="NXEIPModel.FK_DOC13_RELATIONS_DOC11">
+            <End Role="doc11" EntitySet="doc11" />
+            <End Role="doc13" EntitySet="doc13" />
+          </AssociationSet>
+          <AssociationSet Name="FK_E05_RELATIONS_E02" Association="NXEIPModel.FK_E05_RELATIONS_E02">
+            <End Role="e02" EntitySet="e02" />
+            <End Role="e05" EntitySet="e05" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.FK_NEW01_RELATIONS_SYS06">
+            <End Role="sys06" EntitySet="sys06" />
+            <End Role="new01" EntitySet="new01" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW02_RELATIONS_NEW01" Association="NXEIPModel.FK_NEW02_RELATIONS_NEW01">
+            <End Role="new01" EntitySet="new01" />
+            <End Role="new02" EntitySet="new02" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NEW03_RELATIONS_NEW01" Association="NXEIPModel.FK_NEW03_RELATIONS_NEW01">
+            <End Role="new01" EntitySet="new01" />
+            <End Role="new03" EntitySet="new03" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
@@ -2600,6 +2914,7 @@
           <Property Type="DateTime" Name="e02_applydate" />
           <NavigationProperty Name="e03" Relationship="NXEIPModel.FK_E03_RELATIONS_E02" FromRole="e02" ToRole="e03" />
           <NavigationProperty Name="e04" Relationship="NXEIPModel.FK_E04_RELATIONS_E02" FromRole="e02" ToRole="e04" />
+          <NavigationProperty Name="e05" Relationship="NXEIPModel.FK_E05_RELATIONS_E02" FromRole="e02" ToRole="e05" />
         </EntityType>
         <Association Name="FK_E02_RELATIONS_E01">
           <End Type="NXEIPModel.e01" Role="e01" Multiplicity="1" />
@@ -2824,6 +3139,9 @@
           <Property Type="Int32" Name="s06_createuid" />
           <Property Type="DateTime" Name="s06_createtime" />
           <NavigationProperty Name="sysfuction" Relationship="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" FromRole="sys06" ToRole="sysfuction" />
+          <NavigationProperty Name="doc09" Relationship="NXEIPModel.FK_DOC09_RELATIONS_SYS06" FromRole="sys06" ToRole="doc09" />
+          <NavigationProperty Name="doc11" Relationship="NXEIPModel.FK_DOC11_RELATIONS_SYS06" FromRole="sys06" ToRole="doc11" />
+          <NavigationProperty Name="new01" Relationship="NXEIPModel.FK_NEW01_RELATIONS_SYS06" FromRole="sys06" ToRole="new01" />
         </EntityType>
         <Association Name="FK_SYS06_RELATIONS_SYSFUCTI">
           <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="1" />
@@ -2834,6 +3152,244 @@
             </Principal>
             <Dependent Role="sys06">
               <PropertyRef Name="sfu_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="doc09">
+          <Key>
+            <PropertyRef Name="d09_no" />
+          </Key>
+          <Property Type="Int32" Name="d09_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="s06_no" Nullable="false" />
+          <Property Type="Int32" Name="d09_depno" Nullable="false" />
+          <Property Type="Int32" Name="d09_peouid" Nullable="false" />
+          <Property Type="DateTime" Name="d09_date" />
+          <Property Type="String" Name="d09_note" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d09_open" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="d09_createuid" />
+          <Property Type="DateTime" Name="d09_createtime" />
+          <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_DOC09_RELATIONS_SYS06" FromRole="doc09" ToRole="sys06" />
+          <NavigationProperty Name="doc10" Relationship="NXEIPModel.FK_DOC10_RELATIONS_DOC09" FromRole="doc09" ToRole="doc10" />
+        </EntityType>
+        <EntityType Name="doc10">
+          <Key>
+            <PropertyRef Name="d09_no" />
+            <PropertyRef Name="d10_no" />
+          </Key>
+          <Property Type="Int32" Name="d09_no" Nullable="false" />
+          <Property Type="Int32" Name="d10_no" Nullable="false" />
+          <Property Type="String" Name="d10_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d10_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="d10_count" />
+          <Property Type="String" Name="d10_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="doc09" Relationship="NXEIPModel.FK_DOC10_RELATIONS_DOC09" FromRole="doc10" ToRole="doc09" />
+        </EntityType>
+        <EntityType Name="doc11">
+          <Key>
+            <PropertyRef Name="d11_no" />
+          </Key>
+          <Property Type="Int32" Name="d11_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="s06_no" Nullable="false" />
+          <Property Type="Int32" Name="d11_depno" Nullable="false" />
+          <Property Type="Int32" Name="d11_peouid" Nullable="false" />
+          <Property Type="DateTime" Name="d11_date" />
+          <Property Type="String" Name="d11_subject" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="d11_edate" />
+          <Property Type="String" Name="d11_use" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d11_tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="d11_ext" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="d11_createuid" />
+          <Property Type="DateTime" Name="d11_createtime" />
+          <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_DOC11_RELATIONS_SYS06" FromRole="doc11" ToRole="sys06" />
+          <NavigationProperty Name="doc12" Relationship="NXEIPModel.FK_DOC12_RELATIONS_DOC11" FromRole="doc11" ToRole="doc12" />
+          <NavigationProperty Name="doc13" Relationship="NXEIPModel.FK_DOC13_RELATIONS_DOC11" FromRole="doc11" ToRole="doc13" />
+        </EntityType>
+        <EntityType Name="doc12">
+          <Key>
+            <PropertyRef Name="d11_no" />
+            <PropertyRef Name="d12_no" />
+          </Key>
+          <Property Type="Int32" Name="d11_no" Nullable="false" />
+          <Property Type="Int32" Name="d12_no" Nullable="false" />
+          <Property Type="String" Name="d12_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d12_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="d12_count" />
+          <Property Type="String" Name="d12_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="doc11" Relationship="NXEIPModel.FK_DOC12_RELATIONS_DOC11" FromRole="doc12" ToRole="doc11" />
+        </EntityType>
+        <EntityType Name="doc13">
+          <Key>
+            <PropertyRef Name="d11_no" />
+            <PropertyRef Name="d13_no" />
+          </Key>
+          <Property Type="Int32" Name="d11_no" Nullable="false" />
+          <Property Type="Int32" Name="d13_no" Nullable="false" />
+          <Property Type="Int32" Name="d13_depno" Nullable="false" />
+          <Property Type="Int32" Name="d13_peouid" Nullable="false" />
+          <Property Type="String" Name="d13_tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="d13_ext" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="d13_date" />
+          <Property Type="String" Name="d13_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d13_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="d13_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="doc11" Relationship="NXEIPModel.FK_DOC13_RELATIONS_DOC11" FromRole="doc13" ToRole="doc11" />
+        </EntityType>
+        <EntityType Name="e05">
+          <Key>
+            <PropertyRef Name="e02_no" />
+            <PropertyRef Name="e05_no" />
+          </Key>
+          <Property Type="Int32" Name="e02_no" Nullable="false" />
+          <Property Type="Int32" Name="e05_no" Nullable="false" />
+          <Property Type="Int32" Name="e05_d09no" />
+          <NavigationProperty Name="e02" Relationship="NXEIPModel.FK_E05_RELATIONS_E02" FromRole="e05" ToRole="e02" />
+        </EntityType>
+        <EntityType Name="new01">
+          <Key>
+            <PropertyRef Name="n01_no" />
+          </Key>
+          <Property Type="Int32" Name="n01_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="s06_no" />
+          <Property Type="Int32" Name="n01_depno" />
+          <Property Type="Int32" Name="n01_peouid" />
+          <Property Type="DateTime" Name="n01_date" />
+          <Property Type="String" Name="n01_subject" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="n01_content" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="n01_use" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="n01_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="n01_createuid" />
+          <Property Type="DateTime" Name="n01_createtime" />
+          <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_NEW01_RELATIONS_SYS06" FromRole="new01" ToRole="sys06" />
+          <NavigationProperty Name="new02" Relationship="NXEIPModel.FK_NEW02_RELATIONS_NEW01" FromRole="new01" ToRole="new02" />
+          <NavigationProperty Name="new03" Relationship="NXEIPModel.FK_NEW03_RELATIONS_NEW01" FromRole="new01" ToRole="new03" />
+        </EntityType>
+        <EntityType Name="new02">
+          <Key>
+            <PropertyRef Name="n01_no" />
+            <PropertyRef Name="n02_no" />
+          </Key>
+          <Property Type="Int32" Name="n01_no" Nullable="false" />
+          <Property Type="Int32" Name="n02_no" Nullable="false" />
+          <Property Type="String" Name="n02_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="n02_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="n02_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="new01" Relationship="NXEIPModel.FK_NEW02_RELATIONS_NEW01" FromRole="new02" ToRole="new01" />
+        </EntityType>
+        <EntityType Name="new03">
+          <Key>
+            <PropertyRef Name="n01_no" />
+            <PropertyRef Name="n03_no" />
+          </Key>
+          <Property Type="Int32" Name="n01_no" Nullable="false" />
+          <Property Type="Int32" Name="n03_no" Nullable="false" />
+          <Property Type="String" Name="n03_address" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="new01" Relationship="NXEIPModel.FK_NEW03_RELATIONS_NEW01" FromRole="new03" ToRole="new01" />
+        </EntityType>
+        <Association Name="FK_DOC09_RELATIONS_SYS06">
+          <End Type="NXEIPModel.sys06" Role="sys06" Multiplicity="1" />
+          <End Type="NXEIPModel.doc09" Role="doc09" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="doc09">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC10_RELATIONS_DOC09">
+          <End Type="NXEIPModel.doc09" Role="doc09" Multiplicity="1" />
+          <End Type="NXEIPModel.doc10" Role="doc10" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc09">
+              <PropertyRef Name="d09_no" />
+            </Principal>
+            <Dependent Role="doc10">
+              <PropertyRef Name="d09_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC11_RELATIONS_SYS06">
+          <End Type="NXEIPModel.sys06" Role="sys06" Multiplicity="1" />
+          <End Type="NXEIPModel.doc11" Role="doc11" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="doc11">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC12_RELATIONS_DOC11">
+          <End Type="NXEIPModel.doc11" Role="doc11" Multiplicity="1" />
+          <End Type="NXEIPModel.doc12" Role="doc12" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc11">
+              <PropertyRef Name="d11_no" />
+            </Principal>
+            <Dependent Role="doc12">
+              <PropertyRef Name="d11_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOC13_RELATIONS_DOC11">
+          <End Type="NXEIPModel.doc11" Role="doc11" Multiplicity="1" />
+          <End Type="NXEIPModel.doc13" Role="doc13" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doc11">
+              <PropertyRef Name="d11_no" />
+            </Principal>
+            <Dependent Role="doc13">
+              <PropertyRef Name="d11_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_E05_RELATIONS_E02">
+          <End Type="NXEIPModel.e02" Role="e02" Multiplicity="1" />
+          <End Type="NXEIPModel.e05" Role="e05" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="e02">
+              <PropertyRef Name="e02_no" />
+            </Principal>
+            <Dependent Role="e05">
+              <PropertyRef Name="e02_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW01_RELATIONS_SYS06">
+          <End Type="NXEIPModel.sys06" Role="sys06" Multiplicity="0..1" />
+          <End Type="NXEIPModel.new01" Role="new01" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys06">
+              <PropertyRef Name="s06_no" />
+            </Principal>
+            <Dependent Role="new01">
+              <PropertyRef Name="s06_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW02_RELATIONS_NEW01">
+          <End Type="NXEIPModel.new01" Role="new01" Multiplicity="1" />
+          <End Type="NXEIPModel.new02" Role="new02" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="new01">
+              <PropertyRef Name="n01_no" />
+            </Principal>
+            <Dependent Role="new02">
+              <PropertyRef Name="n01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NEW03_RELATIONS_NEW01">
+          <End Type="NXEIPModel.new01" Role="new01" Multiplicity="1" />
+          <End Type="NXEIPModel.new03" Role="new03" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="new01">
+              <PropertyRef Name="n01_no" />
+            </Principal>
+            <Dependent Role="new03">
+              <PropertyRef Name="n01_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3386,6 +3942,125 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="doc09">
+            <EntityTypeMapping TypeName="NXEIPModel.doc09">
+              <MappingFragment StoreEntitySet="doc09">
+                <ScalarProperty Name="d09_createtime" ColumnName="d09_createtime" />
+                <ScalarProperty Name="d09_createuid" ColumnName="d09_createuid" />
+                <ScalarProperty Name="d09_open" ColumnName="d09_open" />
+                <ScalarProperty Name="d09_note" ColumnName="d09_note" />
+                <ScalarProperty Name="d09_date" ColumnName="d09_date" />
+                <ScalarProperty Name="d09_peouid" ColumnName="d09_peouid" />
+                <ScalarProperty Name="d09_depno" ColumnName="d09_depno" />
+                <ScalarProperty Name="s06_no" ColumnName="s06_no" />
+                <ScalarProperty Name="d09_no" ColumnName="d09_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc10">
+            <EntityTypeMapping TypeName="NXEIPModel.doc10">
+              <MappingFragment StoreEntitySet="doc10">
+                <ScalarProperty Name="d10_file" ColumnName="d10_file" />
+                <ScalarProperty Name="d10_count" ColumnName="d10_count" />
+                <ScalarProperty Name="d10_type" ColumnName="d10_type" />
+                <ScalarProperty Name="d10_path" ColumnName="d10_path" />
+                <ScalarProperty Name="d10_no" ColumnName="d10_no" />
+                <ScalarProperty Name="d09_no" ColumnName="d09_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc11">
+            <EntityTypeMapping TypeName="NXEIPModel.doc11">
+              <MappingFragment StoreEntitySet="doc11">
+                <ScalarProperty Name="d11_createtime" ColumnName="d11_createtime" />
+                <ScalarProperty Name="d11_createuid" ColumnName="d11_createuid" />
+                <ScalarProperty Name="d11_ext" ColumnName="d11_ext" />
+                <ScalarProperty Name="d11_tel" ColumnName="d11_tel" />
+                <ScalarProperty Name="d11_use" ColumnName="d11_use" />
+                <ScalarProperty Name="d11_edate" ColumnName="d11_edate" />
+                <ScalarProperty Name="d11_subject" ColumnName="d11_subject" />
+                <ScalarProperty Name="d11_date" ColumnName="d11_date" />
+                <ScalarProperty Name="d11_peouid" ColumnName="d11_peouid" />
+                <ScalarProperty Name="d11_depno" ColumnName="d11_depno" />
+                <ScalarProperty Name="s06_no" ColumnName="s06_no" />
+                <ScalarProperty Name="d11_no" ColumnName="d11_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc12">
+            <EntityTypeMapping TypeName="NXEIPModel.doc12">
+              <MappingFragment StoreEntitySet="doc12">
+                <ScalarProperty Name="d12_file" ColumnName="d12_file" />
+                <ScalarProperty Name="d12_count" ColumnName="d12_count" />
+                <ScalarProperty Name="d12_type" ColumnName="d12_type" />
+                <ScalarProperty Name="d12_path" ColumnName="d12_path" />
+                <ScalarProperty Name="d12_no" ColumnName="d12_no" />
+                <ScalarProperty Name="d11_no" ColumnName="d11_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doc13">
+            <EntityTypeMapping TypeName="NXEIPModel.doc13">
+              <MappingFragment StoreEntitySet="doc13">
+                <ScalarProperty Name="d13_name" ColumnName="d13_name" />
+                <ScalarProperty Name="d13_type" ColumnName="d13_type" />
+                <ScalarProperty Name="d13_path" ColumnName="d13_path" />
+                <ScalarProperty Name="d13_date" ColumnName="d13_date" />
+                <ScalarProperty Name="d13_ext" ColumnName="d13_ext" />
+                <ScalarProperty Name="d13_tel" ColumnName="d13_tel" />
+                <ScalarProperty Name="d13_peouid" ColumnName="d13_peouid" />
+                <ScalarProperty Name="d13_depno" ColumnName="d13_depno" />
+                <ScalarProperty Name="d13_no" ColumnName="d13_no" />
+                <ScalarProperty Name="d11_no" ColumnName="d11_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="e05">
+            <EntityTypeMapping TypeName="NXEIPModel.e05">
+              <MappingFragment StoreEntitySet="e05">
+                <ScalarProperty Name="e05_d09no" ColumnName="e05_d09no" />
+                <ScalarProperty Name="e05_no" ColumnName="e05_no" />
+                <ScalarProperty Name="e02_no" ColumnName="e02_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="new01">
+            <EntityTypeMapping TypeName="NXEIPModel.new01">
+              <MappingFragment StoreEntitySet="new01">
+                <ScalarProperty Name="n01_createtime" ColumnName="n01_createtime" />
+                <ScalarProperty Name="n01_createuid" ColumnName="n01_createuid" />
+                <ScalarProperty Name="n01_status" ColumnName="n01_status" />
+                <ScalarProperty Name="n01_use" ColumnName="n01_use" />
+                <ScalarProperty Name="n01_content" ColumnName="n01_content" />
+                <ScalarProperty Name="n01_subject" ColumnName="n01_subject" />
+                <ScalarProperty Name="n01_date" ColumnName="n01_date" />
+                <ScalarProperty Name="n01_peouid" ColumnName="n01_peouid" />
+                <ScalarProperty Name="n01_depno" ColumnName="n01_depno" />
+                <ScalarProperty Name="s06_no" ColumnName="s06_no" />
+                <ScalarProperty Name="n01_no" ColumnName="n01_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="new02">
+            <EntityTypeMapping TypeName="NXEIPModel.new02">
+              <MappingFragment StoreEntitySet="new02">
+                <ScalarProperty Name="n02_file" ColumnName="n02_file" />
+                <ScalarProperty Name="n02_type" ColumnName="n02_type" />
+                <ScalarProperty Name="n02_path" ColumnName="n02_path" />
+                <ScalarProperty Name="n02_no" ColumnName="n02_no" />
+                <ScalarProperty Name="n01_no" ColumnName="n01_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="new03">
+            <EntityTypeMapping TypeName="NXEIPModel.new03">
+              <MappingFragment StoreEntitySet="new03">
+                <ScalarProperty Name="n03_address" ColumnName="n03_address" />
+                <ScalarProperty Name="n03_no" ColumnName="n03_no" />
+                <ScalarProperty Name="n01_no" ColumnName="n01_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3670,10 +4345,10 @@
           <ConnectorPoint PointX="12.75" PointY="9.1127425130208337" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_E02_RELATIONS_TYPES" >
-          <ConnectorPoint PointX="12" PointY="12.143911132812498" />
-          <ConnectorPoint PointX="12.416666666666666" PointY="12.143911132812498" />
-          <ConnectorPoint PointX="12.583333333333334" PointY="12.143911132812498" />
-          <ConnectorPoint PointX="12.75" PointY="12.143911132812498" />
+          <ConnectorPoint PointX="12" PointY="12.369863281249998" />
+          <ConnectorPoint PointX="12.416666666666666" PointY="12.369863281249998" />
+          <ConnectorPoint PointX="12.583333333333334" PointY="12.369863281249998" />
+          <ConnectorPoint PointX="12.75" PointY="12.369863281249998" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.petition" Width="1.5" PointX="13.375" PointY="13.75" Height="4.6725065104166674" />
         <AssociationConnector Association="NXEIPModel.FK_PETITION_RELATIONS_ROOMS" >
@@ -3694,8 +4369,8 @@
           <ConnectorPoint PointX="15" PointY="7.6151432291666623" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_E04_RELATIONS_E02" >
-          <ConnectorPoint PointX="14.25" PointY="11.336212565104166" />
-          <ConnectorPoint PointX="15" PointY="11.336212565104166" />
+          <ConnectorPoint PointX="14.25" PointY="11.432363281249998" />
+          <ConnectorPoint PointX="15" PointY="11.432363281249998" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.terms" Width="1.5" PointX="7" PointY="38.375" Height="1.7879850260416674" />
         <AssociationConnector Association="NXEIPModel.FK_TERMS_RELATIONS_PEOPLE" >
@@ -3716,9 +4391,60 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.sys06" Width="1.5" PointX="2.75" PointY="38" Height="2.7494921875000102" />
         <AssociationConnector Association="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" >
-          <ConnectorPoint PointX="2" PointY="34.497180234374987" />
-          <ConnectorPoint PointX="3.5" PointY="34.497180234374987" />
+          <ConnectorPoint PointX="2" PointY="34.2369996315104" />
+          <ConnectorPoint PointX="3.5" PointY="34.2369996315104" />
           <ConnectorPoint PointX="3.5" PointY="38" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.doc09" Width="1.5" PointX="5" PointY="41.875" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="NXEIPModel.doc10" Width="1.5" PointX="7.25" PointY="42.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="NXEIPModel.doc11" Width="1.5" PointX="5" PointY="46.875" Height="3.9033007812499818" />
+        <EntityTypeShape EntityType="NXEIPModel.doc12" Width="1.5" PointX="7.25" PointY="45.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="NXEIPModel.doc13" Width="1.5" PointX="7.25" PointY="48.875" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="NXEIPModel.e05" Width="1.5" PointX="15" PointY="19.875" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="NXEIPModel.new01" Width="1.5" PointX="5" PointY="53.25" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="NXEIPModel.new02" Width="1.5" PointX="7.25" PointY="52.75" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="NXEIPModel.new03" Width="1.5" PointX="7.25" PointY="55.625" Height="1.7879850260416674" />
+        <AssociationConnector Association="NXEIPModel.FK_DOC09_RELATIONS_SYS06" >
+          <ConnectorPoint PointX="4.25" PointY="40.297694498697915" />
+          <ConnectorPoint PointX="5.75" PointY="40.297694498697915" />
+          <ConnectorPoint PointX="5.75" PointY="41.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC10_RELATIONS_DOC09" >
+          <ConnectorPoint PointX="6.5" PointY="43.432444661458334" />
+          <ConnectorPoint PointX="7.25" PointY="43.432444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC11_RELATIONS_SYS06" >
+          <ConnectorPoint PointX="3.5" PointY="41.326396484374996" />
+          <ConnectorPoint PointX="3.5" PointY="48.826650390624991" />
+          <ConnectorPoint PointX="3.8229191666666664" PointY="48.826650390624991" />
+          <ConnectorPoint PointX="3.9895858333333334" PointY="48.826650390624991" />
+          <ConnectorPoint PointX="5" PointY="48.826650390624991" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC12_RELATIONS_DOC11" >
+          <ConnectorPoint PointX="6.5" PointY="47.494944661458334" />
+          <ConnectorPoint PointX="7.25" PointY="47.494944661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_DOC13_RELATIONS_DOC11" >
+          <ConnectorPoint PointX="6.5" PointY="49.826650390624991" />
+          <ConnectorPoint PointX="7.25" PointY="49.826650390624991" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_E05_RELATIONS_E02" >
+          <ConnectorPoint PointX="13.03125" PointY="13.489726562499998" />
+          <ConnectorPoint PointX="13.03125" PointY="20.768992513020834" />
+          <ConnectorPoint PointX="15" PointY="20.768992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_NEW01_RELATIONS_SYS06" >
+          <ConnectorPoint PointX="3.9062525" PointY="41.326396484374996" />
+          <ConnectorPoint PointX="3.9062525" PointY="55.105499674479162" />
+          <ConnectorPoint PointX="5" PointY="55.105499674479162" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_NEW02_RELATIONS_NEW01" >
+          <ConnectorPoint PointX="6.5" PointY="54.086293945312491" />
+          <ConnectorPoint PointX="7.25" PointY="54.086293945312491" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_NEW03_RELATIONS_NEW01" >
+          <ConnectorPoint PointX="6.5" PointY="56.292999674479162" />
+          <ConnectorPoint PointX="7.25" PointY="56.292999674479162" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
