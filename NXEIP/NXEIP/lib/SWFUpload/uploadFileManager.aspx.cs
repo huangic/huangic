@@ -74,7 +74,7 @@ namespace lib.SWFUpload
                     //取上傳目錄
                     ArgumentsObject args = new ArgumentsObject();
 
-                    string path = args.Get_argValue("upload_dir_file");
+                    string path = args.Get_argValue("100105_dir");
                     if (!string.IsNullOrEmpty(path))
                     {
                         uf.Path = path;

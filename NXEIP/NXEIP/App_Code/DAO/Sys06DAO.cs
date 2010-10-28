@@ -62,6 +62,17 @@ namespace NXEIP.DAO
         {
             return model.SaveChanges();
         }
+
+        public IQueryable<sys06> GetS06FromSufNO(int suf_no) { 
+            return (from d in model.sys06 where d.s06_level==1 && d.sfu_no==suf_no && d.s06_status=="1" select d);
+        }
+        
+        public IQueryable<sys06> GetS06FromParentS06(int s06_no)
+        {
+            return (from d in model.sys06 where d.s06_parent==s06_no && d.s06_status == "1" select d);
+        }
+       
+
     }
 
 }
