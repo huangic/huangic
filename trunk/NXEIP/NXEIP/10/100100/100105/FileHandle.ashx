@@ -204,10 +204,10 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                
                if (folderType == "2")
                {
-                newPath="/upload/depart/"+depid;
+                   newPath = "/upload/100105/department/" + depid;
                }
                else { 
-                newPath= "/upload/people/" + FolderPeopleUid;
+                newPath= "/upload/100105/people/" + FolderPeopleUid;
                }
                
                

@@ -39,8 +39,33 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
             int sfu_no=int.Parse(SysFuncCode);
             var currentFunc=(from f in model.sysfuction where f.sfu_no==sfu_no select f).First();
 
+            //取使用者的可用項目
 
-            var SameLevelFunc = (from f in model.sysfuction where f.sfu_parent == currentFunc.sfu_parent && f.sfu_status == "1" orderby f.sfu_order select f);
+            SessionObject sessionObj = new SessionObject();
+
+
+
+            var sys_fun =( from account in model.accounts
+                              from roleacc in model.roleaccount
+                              from rauth in model.rauthority
+                              where
+                             account.acc_no == roleacc.acc_no
+                             && account.acc_login == sessionObj.sessionUserAccount
+                             && roleacc.rol_no == rauth.rol_no
+                              select rauth.sfu_no);
+           
+
+
+            var SameLevelFunc = (
+                                   
+                                    from f in model.sysfuction
+ 
+
+                                 where
+                                 sys_fun.Contains(f.sfu_no)
+                                 && f.sfu_parent == currentFunc.sfu_parent
+                                 && f.sfu_status == "1" 
+                                 orderby f.sfu_order select f);
 
             HtmlGenericControl htmlUl = new HtmlGenericControl("ul");
 

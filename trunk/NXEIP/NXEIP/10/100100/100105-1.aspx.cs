@@ -46,7 +46,7 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
              if (folderType == "2")
              {
-                 uploadDir = "/upload/department/" + depid;
+                 uploadDir = "/upload/100105/department/" + depid;
              }
 
          }
@@ -54,7 +54,7 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
          int size = 0;
 
-         int.TryParse(new ArgumentsObject().Get_argValue("upload_file_size_limit"),out size);
+         int.TryParse(new ArgumentsObject().Get_argValue("100105_size"),out size);
          this.tb_size.Text = String.Format("(單一檔案限制{0}MB)",size);
 
         this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
@@ -65,7 +65,7 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
 
 
             //人員目錄
-            Path = uploadDir??"/upload/people/" + sessionObj.sessionUserID + "/",
+            Path = uploadDir??"/upload/100105/people/" + sessionObj.sessionUserID + "/",
             //部門目錄  
 
 
