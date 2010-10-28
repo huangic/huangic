@@ -26,7 +26,8 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
             UploadMode = UpMode.LIST,
             File_size_limit = size,
             SubmitButtonId = this.btn_ok.ClientID,
-            Path="/upload/200107/"
+            Path="/upload/200107/",
+            PathArg="200107_dir"
         };
 
 
