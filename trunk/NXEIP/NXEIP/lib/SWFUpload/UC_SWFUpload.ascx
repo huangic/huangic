@@ -18,6 +18,7 @@ Inherits="lib.SWFUpload.UC_SWFUpload"%>
 		                    sw:"<%=SwfUploadInfo.SmallWidth%>",
 		                    sh:"<%=SwfUploadInfo.SmallHeight%>",
 		                    wm:"<%=SwfUploadInfo.IsWaterMark%>",
+                            PathArg:"<%=SwfUploadInfo.PathArg%>",
 		                    data:""
                         },
             file_size_limit: "<%=SwfUploadInfo.File_size_limit%> MB",
