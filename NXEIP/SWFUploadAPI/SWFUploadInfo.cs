@@ -29,6 +29,10 @@ namespace IMMENSITY.SWFUploadAPI
             this.SubmitButtonId = string.Empty;
         }
         #region 与SWFUpload属性相同
+
+        public string PathArg { get; set; }
+        
+        
         /// <summary>
         /// 文件数据处理URL(默认:/Upload/index)
         /// </summary>
