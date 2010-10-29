@@ -1,8 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="300501-1.aspx.cs" Inherits="_30_300500_300501_1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="300501-1.aspx.cs" Inherits="_30_300500_300501_1" EnableEventValidation="false" %>
 
 <%@ Register src="../../lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc1" %>
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc2" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -13,10 +15,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetOpenData" TypeName="NXEIP.DAO.SysfuctionDAO"></asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetParentData" TypeName="NXEIP.DAO.Sys06DAO"></asp:ObjectDataSource>
     <asp:HiddenField ID="HiddenField1" runat="server" />
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="300501" />
     <div class="tableDiv">
@@ -44,9 +46,14 @@
                     上層類別分類
                 </th>
                 <td>
-                    <asp:DropDownList ID="ddl_parent" runat="server" DataSourceID="ObjectDataSource2"
-                        DataTextField="s06_name" DataValueField="s06_no">
+                    <asp:DropDownList ID="ddl_parent" runat="server" AppendDataBoundItems="True">
+                        <asp:ListItem Value="0">無</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:CascadingDropDown ID="ddl_parent_CascadingDropDown" runat="server" Enabled="True"
+                        ParentControlID="ddl_sysfun" ServiceMethod="GetDropDownContents2" TargetControlID="ddl_parent"
+                        UseContextKey="True" LoadingText="載入中" Category="sysfun" PromptText="無" 
+                        PromptValue="0">
+                    </asp:CascadingDropDown>
                 </td>
             </tr>
             <tr>
