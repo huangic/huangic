@@ -18,18 +18,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            this.ddl_e01.DataBind();
-            this.ddl_e01.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_e01.Items[0].Selected = true;
-
-            this.ddl_type_1.DataBind();
-            this.ddl_type_1.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_type_1.Items[0].Selected = true;
-
-            this.ddl_type_2.DataBind();
-            this.ddl_type_2.Items.Clear();
-            this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_type_2.Items[0].Selected = true;
+            this.ODS_type_2.SelectParameters["typ_parent"].DefaultValue = "-1";
 
             this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-01-01"));
             this.calendar2._ADDate = System.DateTime.Now;
@@ -227,7 +216,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             this.ddl_type_2.Items.Clear();
             this.ddl_type_2.DataBind();
             this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_type_2.Items[0].Selected = true;
+
 
             //加入父類別
             this.ddl_type_2.Items.Insert(1, new ListItem(this.ddl_type_1.SelectedItem.Text, this.ddl_type_1.SelectedValue));
@@ -236,7 +225,6 @@ public partial class _20_200400_200402 : System.Web.UI.Page
         {
             this.ddl_type_2.Items.Clear();
             this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_type_2.Items[0].Selected = true;
         }
     }
 }
