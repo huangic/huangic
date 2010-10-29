@@ -147,4 +147,36 @@ public partial class _20_200100_200104 : System.Web.UI.Page
 
         this.GridView1.DataBind();
     }
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "del") {
+            int index = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer).RowIndex;
+
+            int id = Convert.ToInt32(this.GridView1.DataKeys[index].Value);
+
+
+            using (NXEIPEntities model = new NXEIPEntities()) {
+                doc06 d06 = new doc06();
+                d06.d06_no = id;
+                model.doc06.Attach(d06);
+
+                    var d07=(from d in model.doc07 where d.d06_no==id select d);
+                    var d08 = (from d in model.doc08 where d.d06_no == id select d);
+
+
+                    foreach (var d in d08)
+                    {
+                        model.doc08.DeleteObject(d);
+                    }
+
+                    foreach (var d in d07)
+                    {
+                        model.doc07.DeleteObject(d);
+                    }
+                    model.doc06.DeleteObject(d06);
+                    model.SaveChanges();
+            }
+            this.GridView1.DataBind();
+        }
+    }
 }
