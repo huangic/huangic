@@ -117,6 +117,7 @@
                                     <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick=" return confirm('確定要刪除?')" CssClass="imageButton delete"   CommandName="del" ><span>刪除</span></asp:LinkButton>
                                 </li>
                             </ItemTemplate>
+                          
                         </asp:ListView>
 
                             

@@ -69,7 +69,11 @@ namespace NXEIP.DAO
         
         public IQueryable<sys06> GetS06FromParentS06(int s06_no)
         {
+            if (s06_no != 0) { 
+            
             return (from d in model.sys06 where d.s06_parent==s06_no && d.s06_status == "1" select d);
+            }
+            return null;
         }
        
 

@@ -23,6 +23,16 @@
                 tb_init('a.thickbox');
             }
         }
+
+        jQuery(document).ready(function () {
+            jQuery('.show').click(function () {
+                jQuery('.show').removeClass("a-input").addClass("b-input");
+                jQuery(this).removeClass("b-input").addClass("a-input");
+            });
+        });
+
+
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -37,9 +47,69 @@
             <asp:Parameter DefaultValue="" Name="file" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource_CAT" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetS06FromSufNO" 
+        TypeName="NXEIP.DAO.Sys06DAO">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="200107" Name="suf_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    
+    <asp:ObjectDataSource ID="ObjectDataSource_Child" runat="server" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="GetS06FromParentS06" TypeName="NXEIP.DAO.Sys06DAO">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="hidden_cat" Name="s06_no" 
+                PropertyName="Value" Type="Int32" DefaultValue="" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200107" />
     
-    <div class="select">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+
+        <asp:HiddenField ID="hidden_cat" runat="server" />
+        <asp:HiddenField ID="hidden_childcat" runat="server" />
+         <asp:HiddenField ID="hidden_depno" runat="server" />
+           <div class="select-1">
+
+               <asp:ListView ID="lv_cat" runat="server" DataSourceID="ObjectDataSource_CAT"  
+                   DataKeyNames="s06_no" onitemcommand="lv_cat_ItemCommand"
+                   >
+                        <ItemTemplate>
+                            <span><asp:LinkButton ID="lb_cat" runat="server"  Visible='<%# !(hidden_cat.Value.Equals(Eval("s06_no").ToString())) %>'  CommandName="click_cat"><%# Eval("s06_name") %></asp:LinkButton></span>
+                            <asp:Label ID="Label6" runat="server" CssClass="a-letter-s1"  Visible='<%# hidden_cat.Value.Equals(Eval("s06_no").ToString()) %>' Text='<%# Eval("s06_name") %>'></asp:Label>
+                                              
+                        
+                        </ItemTemplate>
+  
+                       
+               </asp:ListView>
+           </div>
+
+           <div class="select-1">
+
+                   <asp:ListView ID="lv_child" runat="server" 
+                       DataSourceID="ObjectDataSource_Child" DataKeyNames="s06_no" 
+                       onitemcommand="lv_child_ItemCommand" >
+                        <ItemTemplate>
+                        <span><asp:LinkButton ID="lb_childcat" runat="server"  Visible='<%# !(hidden_childcat.Value.Equals(Eval("s06_no").ToString())) %>'  CommandName="click_childcat"><%# Eval("s06_name") %></asp:LinkButton></span>
+                            <asp:Label ID="Label7" runat="server" CssClass="a-letter-s1"  Visible='<%# hidden_childcat.Value.Equals(Eval("s06_no").ToString()) %>' Text='<%# Eval("s06_name") %>'></asp:Label>
+                        </ItemTemplate>
+             
+                      
+                   </asp:ListView>
+           </div>
+        
+       
+        
+        </ContentTemplate>
+    </asp:UpdatePanel>
+ 
+    
+    
+     <div class="select">
             <span class="a-letter-2">檔名：<span class="a-letter-1">
                     <asp:TextBox ID="tb_file" runat="server"></asp:TextBox>
                      &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
@@ -49,7 +119,7 @@
                 
                 </span>
         </div>
-    
+   
     
     
     
@@ -60,6 +130,10 @@
             </div>
             <div class="h2">
                 <div class="function">
+                    <asp:Button ID="btn_all" runat="server" Text="全府檔案" CssClass="show b-input" 
+                        onclick="btn_all_Click" />
+                    <asp:Button ID="btn_dep" runat="server" Text="單位檔案" CssClass="show b-input" 
+                        onclick="btn_dep_Click" />
                     <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=600"
                         value="新增檔案" />
                 </div>
@@ -67,8 +141,8 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+            <ContentTemplate> 
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None" OnRowDataBound="GridView1_RowDataBound" EnableViewState="False">
@@ -150,6 +224,10 @@
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+                
+                <asp:AsyncPostBackTrigger ControlID="btn_all" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btn_dep" EventName="Click" />
+                
             </Triggers>
         </asp:UpdatePanel>
         <div class="footer">
@@ -170,4 +248,6 @@
             </asp:DataPager>
         </div>
     </div>
+    
+
 </asp:Content>
