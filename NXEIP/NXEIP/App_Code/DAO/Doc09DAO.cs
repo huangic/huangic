@@ -68,6 +68,8 @@ namespace NXEIP.DAO
 
             if (dep_no != null)
             {
+                doc = doc.Where(x => x.doc.d09_open == "2");
+                
                 //判斷單位級
                 var depart = (from dep in model.departments where dep_no == dep.dep_no select dep).First();
                 if (depart.dep_level == 1)
@@ -86,6 +88,10 @@ namespace NXEIP.DAO
 
 
 
+            }
+            else {
+                doc = doc.Where(x => x.doc.d09_open == "1");
+            
             }
 
             if (cat_no!=null)

@@ -91,7 +91,9 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
-                    GridLines="None" OnRowDataBound="GridView1_RowDataBound" EnableViewState="False">
+                    GridLines="None" OnRowDataBound="GridView1_RowDataBound"
+                    EnableViewState="False" DataKeyNames="d06_no" 
+                    onrowcommand="GridView1_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="發文單位">
                             <ItemTemplate>
@@ -161,7 +163,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200104-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d06_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>'><span>修改</span></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete" Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
                             
                             
                             </ItemTemplate>
