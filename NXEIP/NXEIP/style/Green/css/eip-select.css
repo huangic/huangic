@@ -4,13 +4,12 @@
 	width: 100%;
 	left: 5px;
 	right: 5px;
-	
 	background-image: url(../image/select_bg.gif);
 	background-repeat: repeat;
 	margin-top: 10px;
-	
+	margin-right: auto;
 	margin-bottom: 10px;
-	
+	margin-left: auto;
 }
 .select .b1 {
 	float: left;
@@ -20,6 +19,7 @@
 	font-size: 13px;
 	color: #666666;
 	padding-left: 10px;
+	text-decoration: none;
 }
 .select .b2 {
 	width: 120px;
@@ -29,6 +29,7 @@
 	font-size: 13px;
 	color: #666666;
 	padding-left: 10px;
+	text-decoration: none;
 }
 .select .b3 {
 	font-size: 13px;
@@ -38,7 +39,32 @@
 	padding-top: 4px;
 	padding-left: 10px;
 	float: left;
+	text-decoration: none;
 }
+.select .a-letter-s0 {
+	font-size: 13px;
+	color: #666666;
+	text-align: right;
+}
+.select .center1 {
+	height: 26px;
+	width: 106px;
+	text-align: right;
+	padding-right: 2px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	float: left;
+	padding-top: 4px;
+}
+.select .center2 {
+	text-align: left;
+	height: 26px;
+	width: 170px;
+	float: left;
+	padding-top: 4px;
+}
+
 .select .b4 {
 	float: left;
 	height: 26px;
@@ -47,10 +73,127 @@
 	padding-left: 10px;
 	font-size: 13px;
 	color: #666666;
+	text-decoration: none;
 }
 .select .b5 {
 	height: 26px;
 	width: 60px;
 	padding-top: 3px;
 	float: left;
+	text-decoration: none;
+}
+.select-1 {
+	height: 40px;
+	width: 92%;
+	left: 5px;
+	right: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+	line-height: 20px;
+	text-align: left;
+	padding-top: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	margin-top: 10px;
+	border: 1px solid #CFE985;
+	background-color: #fefef1;
+}
+.select-1 .a-letter-s1 {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
+}
+
+.select-1 a {
+	font-size: 13px;
+	color: #666666;
+	padding-left: 3px;
+	padding-right: 3px;
+	text-decoration: none;
+}
+.select-1 a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+.select-2 {
+	height: 40px;
+	width: 92%;
+	left: 5px;
+	right: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+	line-height: 20px;
+	text-align: left;
+	padding-top: 10px;
+	padding-right: 40px;
+	padding-left: 40px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 1px solid #CFE985;
+	background-color: #fefef1;
+}
+.select-2 a {
+	font-size: 13px;
+	color: #666666;
+	padding-right: 3px;
+	padding-left: 3px;
+	text-decoration: none;
+}
+.select-2 a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.select-2 .a-letter-s2 {
+	color: #009966;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.select-3 {
+	height: 200px;
+	width: 92%;
+	left: 5px;
+	right: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 15px;
+	line-height: 20px;
+	text-align: left;
+	padding-top: 15px;
+	padding-right: 40px;
+	padding-left: 40px;
+	margin-top: 10px;
+	border: 1px solid #CFE985;
+	background-color: #fefef1;
+}
+.select-3 .ins {
+	background-image: url(../image/ins.gif);
+	background-repeat: no-repeat;
+	padding-right: 6px;
+}
+
+
+.select-3 .a-letter-s3 {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
+	padding-left: 20px;
+}
+
+.select-3 a {
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding-left: 20px;
+}
+.select-3 a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
 }

@@ -117,23 +117,84 @@ public partial class _20_200100_200107 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
-        String dep_no = "";
-        //String keyword = "";
-        String number = "";
-            String file="";
+        Search();
+    }
 
 
+    private void Search() {
+       
         
+        String dep_no = this.hidden_depno.Value;
+        //String keyword = "";
+        String cat = "";
+        String file = "";
+
+        cat = String.IsNullOrEmpty(this.hidden_childcat.Value) ? this.hidden_cat.Value : this.hidden_childcat.Value;
+
 
         //keyword = this.tb_word.Text;
 
-        
-        file=this.tb_file.Text;
+
+        file = this.tb_file.Text;
 
         this.ObjectDataSource3.SelectParameters[0].DefaultValue = dep_no;
-        this.ObjectDataSource3.SelectParameters[1].DefaultValue = number;
+        this.ObjectDataSource3.SelectParameters[1].DefaultValue = cat;
         this.ObjectDataSource3.SelectParameters[2].DefaultValue = file;
 
         this.GridView1.DataBind();
+    }
+
+    protected void lv_cat_ItemCommand(object sender, ListViewCommandEventArgs e) {
+        if (e.CommandName == "click_cat") { 
+            int index=Convert.ToInt32(e.Item.DataItemIndex);
+
+
+            this.hidden_cat.Value = this.lv_cat.DataKeys[index].Value.ToString();
+            this.hidden_childcat.Value = "";
+
+            //e.Item
+            //LinkButton lb =(LinkButton)e.Item.Parent;
+
+            //lb.CssClass = "a-letter-s1";
+           
+           this.lv_child.DataBind();
+           this.lv_cat.DataBind();
+        
+        }
+    }
+
+
+    protected void lv_child_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        if (e.CommandName == "click_childcat")
+        {
+            int index = Convert.ToInt32(e.Item.DataItemIndex);
+
+
+            this.hidden_childcat.Value = this.lv_child.DataKeys[index].Value.ToString();
+
+            //e.Item
+            //LinkButton lb =(LinkButton)e.Item.Parent;
+
+            //lb.CssClass = "a-letter-s1";
+            this.lv_child.DataBind();
+
+        }
+    }
+    protected void btn_all_Click(object sender, EventArgs e)
+    {
+        this.hidden_depno.Value = "";
+
+        this.Search();
+      
+    }
+    protected void btn_dep_Click(object sender, EventArgs e)
+    {
+        SessionObject sessionObj = new SessionObject();
+        this.hidden_depno.Value = sessionObj.sessionUserDepartID;
+
+        this.Search();
+      
+       
     }
 }

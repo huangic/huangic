@@ -234,10 +234,11 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 	height: 29px;
 	width: 44px;
 }
-.tabHead ul li a#current {
+.tabHead ul li a#ctl00_ContentPlaceHolder1_current {
 	background-image: url(../image/b1.gif);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 29px;
 	width: 44px;
 	text-decoration: none;
+}

@@ -49,7 +49,13 @@ namespace NXEIP.DAO
 
        
 
-
+        /// <summary>
+        /// 取檔案區檔案
+        /// </summary>
+        /// <param name="dep_no"></param>
+        /// <param name="cat_no"></param>
+        /// <param name="file"></param>
+       /// <returns></returns>
         public IQueryable<doc09> GetSearchData(int? dep_no, int? cat_no,string file)
         {
 
