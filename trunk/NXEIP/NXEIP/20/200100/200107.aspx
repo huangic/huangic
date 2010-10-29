@@ -200,7 +200,7 @@
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="download imageButton" Target="_blank"
-                                                    NavigateUrl='<%#String.Format("200104-1.ashx?d06={0}&d07={1}",Eval("d09_no"),Eval("d10_no"))  %>'><span>下載</span></asp:HyperLink>
+                                                    NavigateUrl='<%#String.Format("200107-1.ashx?d09={0}&d10={1}",Eval("d09_no"),Eval("d10_no"))  %>'><span>下載</span></asp:HyperLink>
                                                 <asp:Label ID="Label5" runat="server" Text='<%# String.Format("{0} (下載次數:{1})", Eval("d10_file"),Eval("d10_count")) %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
