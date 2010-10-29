@@ -149,25 +149,24 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
                 int parentId = int.Parse(kv["undefined"]);
                 var child = (from d in model.sys06 where d.sfu_no == parentId && d.s06_parent == 0 select d);
 
-                List<CascadingDropDownNameValue> sArray = new List<CascadingDropDownNameValue> { };
+                //List<CascadingDropDownNameValue> sArray = new List<CascadingDropDownNameValue> { };
+                //foreach (var d in child)
+                //{
+                //    bool select = false;
+                //    if (d.s06_no == int.Parse(category))
+                //    {
+                //        select = true;
+                //    }
+                //    else
+                //    {
+                //        select = false;
+                //    }
+                //    sArray.Add(new CascadingDropDownNameValue(d.s06_name, d.s06_no.ToString(), select));
+                //}
 
-                foreach (var d in child)
-                {
-                    bool select = false;
-                    if (d.s06_no == int.Parse(category))
-                    {
-                        select = true;
-                    }
-                    else
-                    {
-                        select = false;
-                    }
-                    sArray.Add(new CascadingDropDownNameValue(d.s06_name, d.s06_no.ToString(), select));
-                }
+                List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { isDefaultValue = (d.s06_no == int.Parse(category)), name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
 
-                //List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
-
-                return sArray.ToArray();
+                return sArray2.ToArray();
             }
 
         }
