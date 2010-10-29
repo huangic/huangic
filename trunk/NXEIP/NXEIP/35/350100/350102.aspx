@@ -21,6 +21,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+                                        <asp:SqlDataSource ID="SqlDataSource1" 
+        runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
+                                            
+        SelectCommand="SELECT rol_no, rol_name FROM role"></asp:SqlDataSource>
     <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="350102" />
     <div class="tableDiv">
         <div class="header">
@@ -89,8 +93,6 @@
                                     <td rowspan="2" align="left">
                                         <asp:ListBox ID="lbox_noset" runat="server" Height="120px" Width="120px" DataSourceID="SqlDataSource1"
                                             DataTextField="rol_name" DataValueField="rol_no"></asp:ListBox>
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-                                            SelectCommand="SELECT rol_no, rol_name FROM role"></asp:SqlDataSource>
                                     </td>
                                 </tr>
                                 <tr>
