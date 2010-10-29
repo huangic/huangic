@@ -28,5 +28,27 @@ namespace NXEIP.DAO
             var doc10 = from d in model.doc10 where d.d09_no == doc09_no orderby d.d09_no select d;
             return doc10;
         }
+
+        public IQueryable<doc10> GetDoc10FromE05(int e02_no)
+        {
+            return (from e05d in model.e05
+                    where e05d.e02_no == e02_no
+                    from dc09 in model.doc09
+                    where dc09.d09_no == e05d.e05_d09no
+                    from dc10 in model.doc10
+                    where dc10.d09_no == dc09.d09_no
+                    orderby dc10.d10_no
+                    select dc10);
+        }
+
+        public IQueryable<doc10> GetDoc10FromE05(int e02_no, int startRowIndex, int maximumRows)
+        {
+            return GetDoc10FromE05(e02_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetDoc10FromE05Count(int e02_no)
+        {
+            return GetDoc10FromE05(e02_no).Count();
+        }
     }
 }
