@@ -43,21 +43,15 @@
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <cc1:gridview id="GridView1" runat="server" datasourceid="ObjectDataSource1" allowpaging="True"
-                    autogeneratecolumns="False" cellpadding="3" cellspacing="3" cssclass="tableData"
-                    emptydatatext="查無資料" datakeynames="s06_no" onrowdatabound="GridView1_RowDataBound"
-                    gridlines="None" onrowcommand="GridView1_RowCommand" 
-                    enableviewstate="False">
+                <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
+                    AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
+                    EmptyDataText="查無資料" DataKeyNames="s06_no" OnRowDataBound="GridView1_RowDataBound"
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" EnableViewState="False">
                     <Columns>
                         <asp:BoundField DataField="sfu_no" HeaderText="系統名稱" SortExpression="sfu_no" />
-                        <asp:BoundField DataField="s06_parent" HeaderText="類別大分類" 
-                            SortExpression="s06_parent" />
-
-                        <asp:BoundField DataField="s06_name" HeaderText="類別小分類" 
-                            SortExpression="s06_name" />
-
-                        <asp:BoundField DataField="s06_createuid" HeaderText="修建者" 
-                            SortExpression="s06_createuid" />
+                        <asp:BoundField DataField="s06_parent" HeaderText="類別大分類" SortExpression="s06_parent" />
+                        <asp:BoundField DataField="s06_name" HeaderText="類別小分類" SortExpression="s06_name" />
+                        <asp:BoundField DataField="s06_createuid" HeaderText="修建者" SortExpression="s06_createuid" />
                         <asp:BoundField DataField="s06_createtime" HeaderText="修建時間" SortExpression="s06_createtime"
                             DataFormatString="{0:yyyy-MM-dd HH:mm}" />
                         <asp:TemplateField HeaderText="修改">
@@ -76,18 +70,18 @@
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:TemplateField>
                     </Columns>
-                </cc1:gridview>
+                </cc1:GridView>
+                <div class="pager">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                        <Fields>
+                            <asp:NextPreviousPagerField ShowNextPageButton="False" />
+                            <asp:NumericPagerField />
+                            <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                <Fields>
-                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                </Fields>
-            </asp:DataPager>
-        </div>
     </div>
 </asp:Content>
 
