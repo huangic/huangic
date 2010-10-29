@@ -183,7 +183,7 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
         {
             url = "350105.aspx?pageIndex=" + Request["pageIndex"];
         }
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", "<script>location.href('" + url + "');</script>");
+        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", "<script>location.replace('" + url + "');</script>");
         //Response.Write("<script>location.replace('" + url + "')</script>");
     }
 
@@ -195,7 +195,7 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
 
     private void ShowMsg_URL(string msg, string url)
     {
-        string script = "<script>window.alert('" + msg + "');location.href='" + url + "'</script>";
+        string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
         this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
     }
 
