@@ -17408,6 +17408,30 @@ namespace Entity
         private Nullable<global::System.Int32> _typ_parent;
         partial void Ontyp_parentChanging(Nullable<global::System.Int32> value);
         partial void Ontyp_parentChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String typ_kind
+        {
+            get
+            {
+                return _typ_kind;
+            }
+            set
+            {
+                Ontyp_kindChanging(value);
+                ReportPropertyChanging("typ_kind");
+                _typ_kind = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("typ_kind");
+                Ontyp_kindChanged();
+            }
+        }
+        private global::System.String _typ_kind;
+        partial void Ontyp_kindChanging(global::System.String value);
+        partial void Ontyp_kindChanged();
 
         #endregion
     
