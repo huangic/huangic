@@ -88,7 +88,7 @@
                </asp:ListView>
            </div>
 
-           <div class="select-1">
+           <div id="childDiv" class="select-1" runat="server">
 
                    <asp:ListView ID="lv_child" runat="server" 
                        DataSourceID="ObjectDataSource_Child" DataKeyNames="s06_no" 
@@ -109,7 +109,7 @@
  
     
     
-     <div class="select">
+     <div  class="select" >
             <span class="a-letter-2">檔名：<span class="a-letter-1">
                     <asp:TextBox ID="tb_file" runat="server"></asp:TextBox>
                      &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
@@ -134,7 +134,7 @@
                         onclick="btn_all_Click" />
                     <asp:Button ID="btn_dep" runat="server" Text="單位檔案" CssClass="show b-input" 
                         onclick="btn_dep_Click" />
-                    <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=600"
+                    <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=800"
                         value="新增檔案" />
                 </div>
             </div>
