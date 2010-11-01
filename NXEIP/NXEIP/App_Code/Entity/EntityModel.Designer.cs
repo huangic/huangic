@@ -2118,47 +2118,20 @@ namespace Entity
         /// <summary>
         /// 建立新 c01 物件。
         /// </summary>
-        /// <param name="co1_no">co1_no 屬性的初始值。</param>
         /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
         /// <param name="c01_peouid">c01_peouid 屬性的初始值。</param>
-        public static c01 Createc01(global::System.Int32 co1_no, global::System.Int32 peo_uid, global::System.Int32 c01_peouid)
+        /// <param name="c01_no">c01_no 屬性的初始值。</param>
+        public static c01 Createc01(global::System.Int32 peo_uid, global::System.Int32 c01_peouid, global::System.Int32 c01_no)
         {
             c01 c01 = new c01();
-            c01.co1_no = co1_no;
             c01.peo_uid = peo_uid;
             c01.c01_peouid = c01_peouid;
+            c01.c01_no = c01_no;
             return c01;
         }
 
         #endregion
         #region 基本屬性
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 co1_no
-        {
-            get
-            {
-                return _co1_no;
-            }
-            set
-            {
-                if (_co1_no != value)
-                {
-                    Onco1_noChanging(value);
-                    ReportPropertyChanging("co1_no");
-                    _co1_no = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("co1_no");
-                    Onco1_noChanged();
-                }
-            }
-        }
-        private global::System.Int32 _co1_no;
-        partial void Onco1_noChanging(global::System.Int32 value);
-        partial void Onco1_noChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
@@ -2231,6 +2204,33 @@ namespace Entity
         private Nullable<global::System.DateTime> _c01_createtime;
         partial void Onc01_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onc01_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 c01_no
+        {
+            get
+            {
+                return _c01_no;
+            }
+            set
+            {
+                if (_c01_no != value)
+                {
+                    Onc01_noChanging(value);
+                    ReportPropertyChanging("c01_no");
+                    _c01_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("c01_no");
+                    Onc01_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _c01_no;
+        partial void Onc01_noChanging(global::System.Int32 value);
+        partial void Onc01_noChanged();
 
         #endregion
     
