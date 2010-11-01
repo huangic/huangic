@@ -8,16 +8,15 @@ using System.ComponentModel;
 namespace NXEIP.DAO
 {
     /// <summary>
-    /// 功能名稱：c03
+    /// 功能名稱：c01
     /// 功能描述：
     /// 撰寫者：Lina
-    /// 撰寫時間：2010/10/25
+    /// 撰寫時間：2010/10/31
     /// </summary>
     [DataObject(true)]
-    public class C03DAO
+    public class C01DAO
     {
-        
-        public C03DAO()
+        public C01DAO()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -26,26 +25,26 @@ namespace NXEIP.DAO
         private NXEIPEntities model = new NXEIPEntities();
 
         #region 分頁列表使用
-        public IQueryable<c03> GetAll()
+        public IQueryable<c01> GetAll(String peo_uid)
         {
-            return (from tb in model.c03 orderby tb.c03_no select tb);
+            return (from tb in model.c01 where tb.c01_peouid==Convert.ToInt32(peo_uid) orderby tb.c01_no select tb);
         }
 
-        public IQueryable<c03> GetAll(int startRowIndex, int maximumRows)
+        public IQueryable<c01> GetAll(String peo_uid, int startRowIndex, int maximumRows)
         {
-            return GetAll().Skip(startRowIndex).Take(maximumRows);
+            return GetAll(peo_uid).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public int GetAllCount()
+        public int GetAllCount(String peo_uid)
         {
-            return GetAll().Count();
+            return GetAll(peo_uid).Count();
         }
         #endregion
 
         #region 新增&修改
-        public void AddC03(c03 tb)
+        public void AddC01(c01 tb)
         {
-            model.AddToc03(tb);
+            model.AddToc01(tb);
         }
 
         public int Update()
@@ -60,9 +59,9 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="no">編號</param>
         /// <returns>整筆資料</returns>
-        public c03 GetByC03No(int c03_no)
+        public c01 GetByC01No(int c01_no)
         {
-            return (from tb in model.c03 where tb.c03_no == c03_no select tb).FirstOrDefault();
+            return (from tb in model.c01 where tb.c01_no == c01_no select tb).FirstOrDefault();
         }
         #endregion
     }
