@@ -66,7 +66,7 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
                 order = int.Parse(this.tbox_order.Text);
                 if (order < 0)
                 {
-                    this.ShowMSG("哩系來亂a喔!");
+                    this.ShowMSG("排序數值不得小於0!");
                     return;
                 }
             }
