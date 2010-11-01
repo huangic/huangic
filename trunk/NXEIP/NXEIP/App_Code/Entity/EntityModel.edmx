@@ -1006,6 +1006,7 @@
           <Property Name="typ_createuid" Type="int" />
           <Property Name="typ_createtime" Type="datetime" />
           <Property Name="typ_parent" Type="int" />
+          <Property Name="typ_kind" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="widget">
           <Key>
@@ -2380,6 +2381,7 @@
           <NavigationProperty Name="search04" Relationship="NXEIPModel.FK_SEARCH04_RELATIONS_TYPES" FromRole="types" ToRole="search04" />
           <Property Type="Int32" Name="typ_parent" />
           <NavigationProperty Name="e02" Relationship="NXEIPModel.FK_E02_RELATIONS_TYPES" FromRole="types" ToRole="e02" />
+          <Property Type="String" Name="typ_kind" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="widget">
           <Key>
@@ -3699,7 +3701,8 @@
             <ScalarProperty Name="sfu_createtime" ColumnName="sfu_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="types"><EntityTypeMapping TypeName="NXEIPModel.types"><MappingFragment StoreEntitySet="types">
-            <ScalarProperty Name="typ_parent" ColumnName="typ_parent" />
+            <ScalarProperty Name="typ_kind" ColumnName="typ_kind" />
+                <ScalarProperty Name="typ_parent" ColumnName="typ_parent" />
                 <ScalarProperty Name="typ_no" ColumnName="typ_no" />
             <ScalarProperty Name="typ_code" ColumnName="typ_code" />
             <ScalarProperty Name="typ_number" ColumnName="typ_number" />
