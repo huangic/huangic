@@ -963,6 +963,7 @@
           <Property Name="s06_status" Type="char" MaxLength="1" />
           <Property Name="s06_createuid" Type="int" />
           <Property Name="s06_createtime" Type="datetime" />
+          <Property Name="s06_order" Type="int" />
         </EntityType>
         <EntityType Name="sysfuction">
           <Key>
@@ -3142,6 +3143,7 @@
           <NavigationProperty Name="doc09" Relationship="NXEIPModel.FK_DOC09_RELATIONS_SYS06" FromRole="sys06" ToRole="doc09" />
           <NavigationProperty Name="doc11" Relationship="NXEIPModel.FK_DOC11_RELATIONS_SYS06" FromRole="sys06" ToRole="doc11" />
           <NavigationProperty Name="new01" Relationship="NXEIPModel.FK_NEW01_RELATIONS_SYS06" FromRole="sys06" ToRole="new01" />
+          <Property Type="Int32" Name="s06_order" />
         </EntityType>
         <Association Name="FK_SYS06_RELATIONS_SYSFUCTI">
           <End Type="NXEIPModel.sysfuction" Role="sysfuction" Multiplicity="1" />
@@ -3931,6 +3933,7 @@
           <EntitySetMapping Name="sys06">
             <EntityTypeMapping TypeName="NXEIPModel.sys06">
               <MappingFragment StoreEntitySet="sys06">
+                <ScalarProperty Name="s06_order" ColumnName="s06_order" />
                 <ScalarProperty Name="s06_createtime" ColumnName="s06_createtime" />
                 <ScalarProperty Name="s06_createuid" ColumnName="s06_createuid" />
                 <ScalarProperty Name="s06_status" ColumnName="s06_status" />

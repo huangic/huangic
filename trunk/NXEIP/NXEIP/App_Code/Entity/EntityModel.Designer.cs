@@ -16399,6 +16399,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _s06_createtime;
         partial void Ons06_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ons06_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> s06_order
+        {
+            get
+            {
+                return _s06_order;
+            }
+            set
+            {
+                Ons06_orderChanging(value);
+                ReportPropertyChanging("s06_order");
+                _s06_order = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("s06_order");
+                Ons06_orderChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _s06_order;
+        partial void Ons06_orderChanging(Nullable<global::System.Int32> value);
+        partial void Ons06_orderChanged();
 
         #endregion
     
