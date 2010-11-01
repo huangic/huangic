@@ -21,8 +21,14 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
         if (!Page.IsPostBack)
         {
-             
-               
+
+            this.hidden_cat.Value = "1";
+
+            
+
+
+
+            this.Search();
         }
         else { 
             
@@ -158,6 +164,12 @@ public partial class _20_200100_200107 : System.Web.UI.Page
             //lb.CssClass = "a-letter-s1";
            
            this.lv_child.DataBind();
+
+          //顯示子項目的DIV
+               this.childDiv.Visible = this.lv_child.Items.Count > 0;
+          
+
+
            this.lv_cat.DataBind();
         
         }

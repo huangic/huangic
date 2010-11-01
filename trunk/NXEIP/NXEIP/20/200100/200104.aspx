@@ -80,7 +80,7 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="200104-2.aspx?modal=true&TB_iframe=true&height=378&width=600"
+                    <input type="button" class="thickbox b-input" alt="200104-2.aspx?modal=true&TB_iframe=true&height=378&width=800"
                         value="新增公文附件" />
                 </div>
             </div>
