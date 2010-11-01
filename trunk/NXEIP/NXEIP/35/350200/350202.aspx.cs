@@ -17,10 +17,6 @@ public partial class _35_350200_350202 : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        //this.btn_cancel.OnClientClick = "$find('"+this.Button1_ModalPopupExtender.UniqueID+"').hide()";
-
-        //init Department
         if (!Page.IsPostBack)
         {
             
@@ -65,17 +61,22 @@ public partial class _35_350200_350202 : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        // 置換UID 為PEOPLE_NAME
-
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-
             PeopleDAO dao = new PeopleDAO();
-            int uid = System.Convert.ToInt32(e.Row.Cells[2].Text);
+            int uid = System.Convert.ToInt32(e.Row.Cells[3].Text);
 
-            e.Row.Cells[2].Text = dao.GetPeopleNameByUid(uid);
+            if (e.Row.Cells[2].Text.Equals("1"))
+            {
+                e.Row.Cells[2].Text = "正式人員";
+            }
+            if (e.Row.Cells[2].Text.Equals("2"))
+            {
+                e.Row.Cells[2].Text = "非正式人員";
+            }
 
-            e.Row.Cells[3].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[3].Text);
+            e.Row.Cells[3].Text = dao.GetPeopleNameByUid(uid);
+            e.Row.Cells[4].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[4].Text);
         }
 
     }

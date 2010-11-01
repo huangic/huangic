@@ -47,12 +47,6 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="刪除">
-                            <ItemTemplate>
-                                <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
-                            </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
-                        </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
                 <div class="footer">
