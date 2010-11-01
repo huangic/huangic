@@ -163,8 +163,8 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
                 //    }
                 //    sArray.Add(new CascadingDropDownNameValue(d.s06_name, d.s06_no.ToString(), select));
                 //}
-
-                List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { isDefaultValue = (d.s06_no == int.Parse(category)), name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
+                int i_category = int.Parse(category);
+                List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { isDefaultValue = (d.s06_no == i_category), name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
 
                 return sArray2.ToArray();
             }
