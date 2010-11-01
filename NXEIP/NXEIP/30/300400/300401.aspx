@@ -8,7 +8,8 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount"
-        SelectMethod="GetAll" TypeName="NXEIP.DAO.SpotDAO"></asp:ObjectDataSource>
+        SelectMethod="GetAll" TypeName="NXEIP.DAO.SpotDAO" 
+        OldValuesParameterFormatString="original_{0}"></asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300401" />
     <div class="tableDiv">
         <div class="header">
