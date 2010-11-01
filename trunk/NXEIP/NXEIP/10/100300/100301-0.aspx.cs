@@ -194,9 +194,9 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
         //string url = "";
-        //if (this.lab_source.Text.Equals("3"))
+        //if (this.lab_source.Text.Equals("months"))
         //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-        //else if (this.lab_source.Text.Equals("2"))
+        //else if (this.lab_source.Text.Equals("weeks"))
         //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
         //else
         //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
@@ -569,9 +569,9 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             }
 
             //string url = "";
-            //if (this.lab_source.Text.Equals("3"))
+            //if (this.lab_source.Text.Equals("months"))
             //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else if (this.lab_source.Text.Equals("2"))
+            //else if (this.lab_source.Text.Equals("weeks"))
             //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
             //else
             //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
@@ -1193,9 +1193,9 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 1, "計畫--刪除 peo_uid" + this.lab_peo_uid.Text + ",c03_no=" + this.lab_c03_no.Text + "或c02_no=" + this.lab_no.Text);
 
             //string url = "";
-            //if (this.lab_source.Text.Equals("3"))
+            //if (this.lab_source.Text.Equals("months"))
             //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else if (this.lab_source.Text.Equals("2"))
+            //else if (this.lab_source.Text.Equals("weeks"))
             //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
             //else
             //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;

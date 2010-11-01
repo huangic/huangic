@@ -27,11 +27,16 @@ public partial class _10_100300_100301 : System.Web.UI.Page
 
             #region 左邊版面：月曆、今天日期
             //左上，月曆
-            //Response.Write(Request["today"]);
             if (Request["today"] != null)
+            {
                 this.Calendar1.VisibleDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(Request["today"]));
+                this.lab_date.Text = Request["today"];
+            }
             else
+            {
                 this.Calendar1.VisibleDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
+                this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            }
 
             this.Calendar1.TodaysDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
 
@@ -129,10 +134,9 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            if (Request["today"] != null)
-                this.lab_date.Text = Request["today"];
-            else
-                this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd")); //行事曆(右)
+            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年"
+                + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月"
+                + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Day + "日";
 
             if (Request["peo_uid"] != null)
                 this.lab_people.Text = Request["peo_uid"];
@@ -185,6 +189,10 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                     }
                 }
             }
+            if (isAdd.Equals("1"))
+                this.Panel1.Visible = true;
+            else
+                this.Panel1.Visible = false;
             #endregion
 
             #region 基本表格
@@ -310,10 +318,10 @@ public partial class _10_100300_100301 : System.Web.UI.Page
 
             #region 修正左上切換版之連結參數
             this.current.NavigateUrl = "100301.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink1.NavigateUrl = "100301-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink2.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink3.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink4.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink2.NavigateUrl = "100301-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink3.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink4.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink5.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
             #endregion
 
             #region 快速新增--日期預設值
@@ -452,13 +460,6 @@ public partial class _10_100300_100301 : System.Web.UI.Page
         string aMSG = "";
         try
         {
-            if (e.Day.IsToday)
-                e.Cell.CssClass = "today"; //今日
-            else if (e.Day.IsWeekend)
-                e.Cell.CssClass = "holiday_bg"; //假日
-            else
-                e.Cell.CssClass = "Nholiday_bg"; //非假日
-
             if (e.Day.IsOtherMonth)
             {
                 #region 其他月份
@@ -656,6 +657,4 @@ public partial class _10_100300_100301 : System.Web.UI.Page
         this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
     }
     #endregion
-
-    
 }
