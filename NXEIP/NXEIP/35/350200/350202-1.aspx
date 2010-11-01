@@ -42,6 +42,18 @@
                         <asp:TextBox ID="tbx_typ_cname" runat="server"></asp:TextBox>
                     </td>
                 </tr>
+                <tr>
+                    <th>
+                        行政類別
+                    </th>
+                    <td>
+                        <asp:RadioButtonList ID="rab_kind" runat="server" RepeatDirection="Horizontal" 
+                            RepeatLayout="Flow">
+                            <asp:ListItem Selected="True" Value="1">正式人員</asp:ListItem>
+                            <asp:ListItem Value="2">非正式人員</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="footer">

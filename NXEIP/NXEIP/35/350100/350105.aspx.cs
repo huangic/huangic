@@ -43,6 +43,7 @@ public partial class _35_350100_350105 : System.Web.UI.Page
         if (e.CommandName.Equals("del"))
         {
             string sfu_no = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
+
         }
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -35,6 +35,14 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
 
                 this.tbx_typ_number.Text = t.typ_number;
                 this.tbx_typ_cname.Text = t.typ_cname;
+                try
+                {
+                    //行政類別
+                    this.rab_kind.Items.FindByValue(t.typ_kind).Selected = true;
+                }
+                catch
+                {
+                }
             }
             else
             {
@@ -88,6 +96,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         newType.typ_cname = typ_cname;
         newType.typ_number = typ_number;
         newType.typ_status = "1";
+        newType.typ_kind = this.rab_kind.SelectedValue;
         newType.typ_createtime = DateTime.Now;
         try
         {
@@ -117,6 +126,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         newType.typ_number = typ_number;
         newType.typ_cname = typ_cname;
         newType.typ_createtime = DateTime.Now;
+        newType.typ_kind = this.rab_kind.SelectedValue;
         try
         {
             newType.typ_createuid = System.Convert.ToInt32(sessionObj.sessionUserID);

@@ -60,6 +60,7 @@
                     <Columns>
                         <asp:BoundField DataField="typ_number" HeaderText="類別代號" SortExpression="typ_number" />
                         <asp:BoundField DataField="typ_cname" HeaderText="人員類別 " SortExpression="typ_cname" />
+                        <asp:BoundField DataField="typ_kind" HeaderText="行政類別 " SortExpression="typ_kind" />
                         <asp:BoundField DataField="typ_createuid" HeaderText="修建者" SortExpression="typ_createuid" />
                         <asp:BoundField DataField="typ_createtime" HeaderText="修建時間" SortExpression="typ_createtime"
                             DataFormatString="{0:yyyy-MM-dd hh:mm}" />
