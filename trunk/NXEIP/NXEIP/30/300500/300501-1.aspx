@@ -64,6 +64,14 @@
                     <asp:TextBox ID="tbox_name" runat="server" MaxLength="50" Width="150px"></asp:TextBox>
                 </td>
             </tr>
+            <tr>
+                <th style="width: 15%">
+                    排序位置
+                </th>
+                <td>
+                    <asp:TextBox ID="tbox_order" runat="server" MaxLength="3" Width="75px"></asp:TextBox>
+                </td>
+            </tr>
         </table>
         <div class="bottom">
             <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" OnClick="btn_ok_Click" />

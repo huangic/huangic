@@ -51,6 +51,7 @@
                         <asp:BoundField DataField="sfu_no" HeaderText="系統名稱" SortExpression="sfu_no" />
                         <asp:BoundField DataField="s06_parent" HeaderText="類別大分類" SortExpression="s06_parent" />
                         <asp:BoundField DataField="s06_name" HeaderText="類別小分類" SortExpression="s06_name" />
+                        <asp:BoundField DataField="s06_order" HeaderText="排序位置" SortExpression="s06_order" />
                         <asp:BoundField DataField="s06_createuid" HeaderText="修建者" SortExpression="s06_createuid" />
                         <asp:BoundField DataField="s06_createtime" HeaderText="修建時間" SortExpression="s06_createtime"
                             DataFormatString="{0:yyyy-MM-dd HH:mm}" />

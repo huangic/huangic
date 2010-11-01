@@ -42,6 +42,10 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
                 }
 
                 this.tbox_name.Text = data.s06_name;
+                if (data.s06_order.HasValue)
+                {
+                    this.tbox_order.Text = data.s06_order.Value.ToString();
+                }
             }
             else
             {
@@ -54,6 +58,20 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
 
     protected void btn_ok_Click(object sender, EventArgs e)
     {
+        int order = 0;
+        if (this.tbox_order.Text.Length > 0)
+        {
+            try
+            {
+                order = int.Parse(this.tbox_order.Text);
+            }
+            catch
+            {
+                this.ShowMSG("排序位置請輸入數值!");
+                return;
+            }
+        }
+
         if (this.tbox_name.Text.Trim().Length == 0)
         {
             this.ShowMSG("請輸入類別名稱!");
@@ -83,6 +101,7 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
             data.s06_createuid = int.Parse(new SessionObject().sessionUserID);
             data.s06_name = this.tbox_name.Text;
             data.s06_status = "1";
+            data.s06_order = order;
             data.sfu_no = int.Parse(this.ddl_sysfun.SelectedValue);
             if (this.ddl_parent.SelectedValue.Equals(""))
             {
@@ -148,30 +167,21 @@ public partial class _30_300500_300501_1 : System.Web.UI.Page
                 StringDictionary kv = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
                 int parentId = int.Parse(kv["undefined"]);
                 var child = (from d in model.sys06 where d.sfu_no == parentId && d.s06_parent == 0 select d);
-
-                //List<CascadingDropDownNameValue> sArray = new List<CascadingDropDownNameValue> { };
-                //foreach (var d in child)
-                //{
-                //    bool select = false;
-                //    if (d.s06_no == int.Parse(category))
-                //    {
-                //        select = true;
-                //    }
-                //    else
-                //    {
-                //        select = false;
-                //    }
-                //    sArray.Add(new CascadingDropDownNameValue(d.s06_name, d.s06_no.ToString(), select));
-                //}
-                int i_category = int.Parse(category);
-                List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { isDefaultValue = (d.s06_no == i_category), name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
+                int i_category = -1;
+                if (!category.Equals("sysfun"))
+                {
+                    i_category = int.Parse(category);
+                }
+                
+                List<CascadingDropDownNameValue> sArray2 = (from d in child select new CascadingDropDownNameValue { isDefaultValue = d.s06_no == i_category, name = d.s06_name, value = SqlFunctions.StringConvert((double)d.s06_no) }).ToList();
 
                 return sArray2.ToArray();
             }
 
         }
-        catch
+        catch(System.Exception ex)
         {
+            logger.Debug(ex.ToString());
             return default(AjaxControlToolkit.CascadingDropDownNameValue[]);
         }
     }
