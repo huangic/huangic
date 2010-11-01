@@ -50,9 +50,9 @@ public partial class _30_300500_300501 : System.Web.UI.Page
             }
 
             PeopleDAO dao = new PeopleDAO();
-            int uid = System.Convert.ToInt32(e.Row.Cells[3].Text);
-            e.Row.Cells[3].Text = dao.GetPeopleNameByUid(uid);
-            e.Row.Cells[4].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[4].Text);
+            int uid = System.Convert.ToInt32(e.Row.Cells[4].Text);
+            e.Row.Cells[4].Text = dao.GetPeopleNameByUid(uid);
+            e.Row.Cells[5].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[5].Text);
         }
     }
 }
