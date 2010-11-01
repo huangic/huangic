@@ -30,9 +30,15 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             //左上，月曆
             //Response.Write(Request["today"]);
             if (Request["today"] != null)
+            {
                 this.Calendar1.VisibleDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(Request["today"]));
+                this.lab_date.Text = Request["today"];
+            }
             else
+            {
                 this.Calendar1.VisibleDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
+                this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd"));
+            }
 
             this.Calendar1.TodaysDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
 
@@ -129,10 +135,8 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            if (Request["today"] != null)
-                this.lab_date.Text = Request["today"];
-            else
-                this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd")); //行事曆(右)
+            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年"
+                + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月";
 
             if (Request["peo_uid"] != null)
                 this.lab_people.Text = Request["peo_uid"];
@@ -149,7 +153,6 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                 this.btn_back.Text = "返回" + sobj.sessionUserName;
                 this.btn_back.Visible = true;
             }
-
             Show();
         }
     }
@@ -185,6 +188,10 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                     }
                 }
             }
+            if (isAdd.Equals("1"))
+                this.Panel1.Visible = true;
+            else
+                this.Panel1.Visible = false;
             #endregion
 
             #region 週行事曆初始化--清空
@@ -208,19 +215,20 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                 int weeks = changeobj.ChangeWeek(sdate);
                 ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).Text = sdate1;
                 if (isAdd.Equals("1"))
-                    ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "100301-0.aspx?today=" + sdate1 + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&stime=06:00&source=2&height=480&width=800&TB_iframe=true&modal=true";
+                    ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "100301-0.aspx?today=" + sdate1 + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&stime=06:00&source=weeks&height=480&width=800&TB_iframe=true&modal=true";
 
                 else
                     ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "";
                 #endregion
 
                 #region 行事曆
-                string sdate2 = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 00:00:00";
-                string edate2 = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 23:59:59";
+                string sdate2 = sdate.ToString("yyyy/MM/dd") + " 00:00:00";
+                string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
                 sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
                 + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                dt99.Clear();
                 dt99 = dbo.ExecuteQuery(sqlstr99);
                 if (dt99.Rows.Count > 0)
                 {
@@ -228,21 +236,21 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                     {
                         string stime = "";
                         string etime = "";
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
                         {
                             stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
                         }
                         else
                         {
-                            stime = "06:00";
+                            stime = "00:00";
                         }
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
                         {
                             etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
                         }
                         else
                         {
-                            etime = "23:00";
+                            etime = "24:00";
                         }
                         Display(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
                     }
@@ -256,9 +264,9 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             #region 修正左上切換版之連結參數
             this.HyperLink1.NavigateUrl = "100301.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
             this.current.NavigateUrl = "100301-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink2.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink3.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink4.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink3.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink4.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink5.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
             #endregion
 
             #region 快速新增--日期預設值
@@ -284,7 +292,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             {
                 if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
                 {
-                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=2&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox\">" + txt + "</a>" + "<br />";
+                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox\">" + txt + "</a>" + "<br />";
                 }
                 else
                 {
@@ -295,7 +303,6 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             {
                 txt1 = txt + "<br />";
             }
-
             ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + weeks.ToString())).Text += txt1;
         }
         catch (Exception ex)
@@ -312,13 +319,6 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
         string aMSG = "";
         try
         {
-            if (e.Day.IsToday)
-                e.Cell.CssClass = "today"; //今日
-            else if (e.Day.IsWeekend)
-                e.Cell.CssClass = "holiday_bg"; //假日
-            else
-                e.Cell.CssClass = "Nholiday_bg"; //非假日
-
             if (e.Day.IsOtherMonth)
             {
                 #region 其他月份
