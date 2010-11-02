@@ -49,6 +49,7 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
                               from roleacc in model.roleaccount
                               from rauth in model.rauthority
                               where
+                            
                              account.acc_no == roleacc.acc_no
                              && account.acc_login == sessionObj.sessionUserAccount
                              && roleacc.rol_no == rauth.rol_no
@@ -65,7 +66,7 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
                                  sys_fun.Contains(f.sfu_no)
                                  && f.sfu_parent == currentFunc.sfu_parent
                                  && f.sfu_status == "1" 
-                                 orderby f.sfu_order select f);
+                                 orderby f.sfu_order orderby f.sfu_no select f);
 
             HtmlGenericControl htmlUl = new HtmlGenericControl("ul");
 

@@ -1,0 +1,46 @@
+2010-11-01 14:08:06.2397 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 14:08:06.3287 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 14:08:06.8377 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 14:28:57.6905 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 14:28:57.7435 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 14:28:57.8425 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 14:28:57.9375 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 14:34:43.5938 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 14:34:43.6318 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 14:34:43.9998 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 14:34:43.9998 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 14:44:46.8998 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 14:44:47.2348 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 14:44:47.5918 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 14:44:47.5918 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 14:48:26.6413 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 14:48:26.6533 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 14:48:26.6533 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 14:48:26.6533 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 15:07:24.1604 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 15:07:24.1604 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 15:07:24.1794 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 15:07:24.1794 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 15:11:51.9897 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 15:11:52.0017 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 15:11:52.0017 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 15:11:52.0017 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 15:16:03.6711 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 15:16:03.6811 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 15:16:03.6811 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 15:16:03.6811 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 15:16:33.2758 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 15:16:33.2858 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 15:16:33.3468 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 15:28:57.8234 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 15:28:58.1704 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 15:28:58.5324 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 15:28:58.5324 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 17:41:33.0374 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 17:41:33.0614 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 17:41:33.4214 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 17:41:33.4214 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-01 17:49:21.6002 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-01 17:49:21.6112 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-01 17:49:21.6112 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-01 17:49:21.6112 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
