@@ -82,19 +82,120 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
      margin:0px 0px 0px 0px;
      position:relative;
     }
-    
+.tabHeader-bigmonth1 {
+	height: 32px;
+	width: 960px;
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+}
+.tabHeader-bigmonth {
+	height: 29px;
+	width: 960px;
+	float: left;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.tabHeader-bigmonth a {
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+.tabHeader-bigmonth a:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+
+.tabHeader-bigmonth .t1 {
+	background-image: url(../image/b02.gif);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 17px;
+	float: left;
+}
+.tabHeader-bigmonth .t2 {
+	background-image: url(../image/b02-1.gif);
+	background-repeat: repeat;
+	height: 25px;
+	width: 926px;
+	float: left;
+	padding-top: 4px;
+	font-size: 15px;
+	color: #666666;
+}
+.tabHeader-bigmonth .t21 {
+	height: 29px;
+	width: 140px;
+	float: left;
+}
+.tabHeader-bigmonth .t22 {
+	height: 26px;
+	width: 180px;
+	padding-top: 3px;
+	text-align: center;
+	float: left;
+	padding-left: 220px;
+}
+.tabHeader-bigmonth .t23 {
+	float: right;
+	width: 110px;
+	height: 26px;
+	padding-top: 3px;
+}
+.tabHeader-bigmonth .line {
+	background-image: url(../image/line2.gif);
+	background-repeat: no-repeat;
+	padding-right: 10px;
+	padding-left: 10px;
+	height: 14px;
+}
+.tabHeader-bigmonth ul li {
+	float: left;
+	padding-right: 10px;
+}
+
+.tabHeader-bigmonth .p1 {
+	background-image: url(../image/print.gif);
+	background-repeat: no-repeat;
+	font-size: 15px;
+	color: #333333;
+}
+.tabHeader-bigmonth ul {
+	list-style-type: none;
+}
+
+.tabHeader-bigmonth .a-letter-bm {
+	font-size: 15px;
+	color: #333333;
+	padding-left: 20px;
+}
+
+
+
+
+.tabHeader-bigmonth .t3 {
+	background-image: url(../image/b02-2_square.gif);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 17px;
+	float: left;
+}    
 .tabHeader .currentTab,.tabHeader .Tab
 {
-  display:inline-block;
-  *display: inline;
+	display:inline-block;
 
-  position:relative;
-  
-  height:29px;
-  
-  margin:0px 0px 0px 0px;
+  *display: inline;
+	position:relative;
+	height:29px;
+	margin:0px;
+
   *margin:0px 0px 0px 4px;  
-  width:auto; 
+	width:auto;
   
  }
  
@@ -131,7 +232,7 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 	line-height :29px;
 	background-image: url(../image/b02-1-a.gif);
    }  
-   
+
    
    .tabHeader .t2 a
    {
@@ -162,8 +263,7 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 .tabHeader .currentTab .t2 {
 	background-image: url(../image/b02-1.gif);
 }
-
-  
+ 
    .tabHeader .currentTab .t3
   {
    

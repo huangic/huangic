@@ -46,8 +46,19 @@
 	color: #666666;
 	text-align: right;
 }
+.select .center0 {
+	height: 22px;
+	width: 208px;
+	text-align: right;
+	padding-right: 2px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	float: left;
+	padding-top: 8px;
+}
 .select .center1 {
-	height: 26px;
+	height: 22px;
 	width: 106px;
 	text-align: right;
 	padding-right: 2px;
@@ -55,7 +66,7 @@
 	color: #666666;
 	text-decoration: none;
 	float: left;
-	padding-top: 4px;
+	padding-top: 8px;
 }
 .select .center2 {
 	text-align: left;
@@ -64,6 +75,7 @@
 	float: left;
 	padding-top: 4px;
 }
+
 
 .select .b4 {
 	float: left;
@@ -83,19 +95,18 @@
 	text-decoration: none;
 }
 .select-1 {
-	
 	width: 92%;
 	left: 5px;
 	right: 5px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-bottom: 10px;
+	padding-bottom: 8px;
 	line-height: 20px;
 	text-align: left;
-	padding-top: 10px;
+	padding-top: 8px;
 	padding-right: 40px;
 	padding-left: 40px;
-	margin-top: 10px;
+	margin-top: 8px;
 	border: 1px solid #CFE985;
 	background-color: #fefef1;
 }
@@ -119,42 +130,6 @@
 }
 
 
-.select-2 {
-	height: 40px;
-	width: 92%;
-	left: 5px;
-	right: 5px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-bottom: 10px;
-	line-height: 20px;
-	text-align: left;
-	padding-top: 10px;
-	padding-right: 40px;
-	padding-left: 40px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	border: 1px solid #CFE985;
-	background-color: #fefef1;
-}
-.select-2 a {
-	font-size: 13px;
-	color: #666666;
-	padding-right: 3px;
-	padding-left: 3px;
-	text-decoration: none;
-}
-.select-2 a:hover {
-	font-size: 13px;
-	color: #FF0000;
-	text-decoration: none;
-}
-.select-2 .a-letter-s2 {
-	color: #009966;
-	font-size: 13px;
-	text-decoration: none;
-}
-
 .select-3 {
 	height: 200px;
 	width: 92%;
@@ -162,15 +137,16 @@
 	right: 5px;
 	margin-right: auto;
 	margin-left: auto;
-	padding-bottom: 15px;
+	padding-bottom: 8px;
 	line-height: 20px;
 	text-align: left;
-	padding-top: 15px;
+	padding-top: 8px;
 	padding-right: 40px;
 	padding-left: 40px;
-	margin-top: 10px;
 	border: 1px solid #CFE985;
 	background-color: #fefef1;
+	margin-top: 8px;
+	margin-bottom: 0px;
 }
 .select-3 .ins {
 	background-image: url(../image/ins.gif);
@@ -196,4 +172,112 @@
 	font-size: 13px;
 	color: #FF0000;
 	text-decoration: none;
+}
+.select-I {
+	height: 29px;
+	overflow: hidden;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	width: 92%;
+}
+.select-I ul li {
+	float: left;
+	padding-right: 1px;
+	text-decoration: none;
+}
+.select-I ul li a{
+	background-image: url(../image/icon_2.jpg);
+	background-repeat: no-repeat;
+	font-size: 13px;
+	color: #666666;
+	display: block;
+	height: 21px;
+	width: 82px;
+	background-position: 0px 0px;
+	text-align: center;
+	padding-top: 8px;
+	text-decoration: none;
+}
+.select-I ul li a:hover {
+	background-image: url(../image/icon_3.jpg);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 82px;
+	background-position: 0px 0px;
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.select-I ul li a#current {
+	background-image: url(../image/icon_1.jpg);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 82px;
+	background-position: 0px 0px;
+}
+.select-s {
+	height: 29px;
+	width: 350px;
+	left: 5px;
+	right: 5px;
+	float: left;
+}
+.select-s .p1 {
+	background-image: url(../image/a14.gif);
+	background-repeat: no-repeat;
+	height: 20px;
+}
+.select-s .a-letter-ss {
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding-left: 25px;
+	height: 20px;
+	padding-top: 10px;
+}
+
+
+.select-s .b1 {
+	float: left;
+	height: 20px;
+	width: 70px;
+	padding-top: 9px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+.select-s .b3 {
+	float: left;
+	height: 20px;
+	width: 56px;
+	padding-top: 9px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+.select-s .b2 {
+	float: left;
+	height: 25px;
+	width: 80px;
+	padding-top: 4px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+.select-s2 .b3 {
+	height: 29px;
+	width: 109px;
+	float: right;
+	padding-right: 2px;
+}
+.select-s2 {
+	float: right;
+	height: 29px;
+	width: 96px;
+	padding-top: 3px;
 }

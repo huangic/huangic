@@ -2,7 +2,7 @@
 {
 	width:100%;
 	border-spacing:1px;
-	background-color:#cde985;
+	background-color:#ACD156;
 	text-align:center;
 	margin-top: 0;
 	margin-right: auto;
@@ -10,26 +10,30 @@
 	margin-left: auto;
 }
 
-.calendar-big td a {
+/*.calendar-big td a {
 	font-size: 13px;
 	color: #333333;
 	text-decoration: none;
-}
+}*/
 
 .calendar-big .headtitle {
 	font-size: 15px;
 	color: #333333;
 	text-align: center;
 	font-weight: bold;
-	background-color: #EAF7CA;
+	background-color: #F2F1EE;
 	height: 20px;
-	padding: 4px;
+	padding-top: 4px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	padding-left: 2px;
 }
 .calendar-big .month {
-	font-size: 15px;
+	font-size: 13px;
 	color: #333333;
 	padding-left: 4px;
 	padding-top: 4px;
+	text-decoration: none;
 }
 .calendar-big .month:hover {
 	font-size: 15px;
@@ -38,24 +42,25 @@
 }
 
 .calendar-big .othermonth {
-	font-size: 15px;
+	font-size: 13px;
 	color: #999999;
 	text-align: left;
 	vertical-align: top;
 	padding-top: 4px;
 	padding-left: 4px;
+	text-decoration: none;
 }
 .calendar-big .othermonth:hover {
 }
 
  .calendar-big .holiday_bg
 {
-	background-color: #FDFDD5;
+	background-color: #EAF7CA;
 	height: 50px;
 	text-align: left;
 	vertical-align: top;
-	padding-top: 4px;
-	padding-left: 4px;
+	padding-top: 2px;
+	padding-left: 2px;
 }
 .calendar-big .othermonth:hover {
 	color: #FF0000;
@@ -69,24 +74,107 @@
 	height: 50px;
 	vertical-align: top;
 	text-align: left;
-	padding-top: 4px;
-	padding-left: 4px;
+	padding-top: 2px;
+	padding-left: 2px;
 }
-
 .calendar-big .today
 {
-	height: 17px;
+	background-repeat: repeat;
 	border: 1px solid #666666;
+	background-color: #FDF47F;
 	text-align: left;
 	vertical-align: top;
 }
 
 
+
+
+/* 場地申請-周-右邊*/
+
+.calendar-place-week
+{
+	width:100%;
+	border-spacing:1px;
+	background-color:#ACD156;
+	text-align:center;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+.calendar-place-week .headtitle {
+	font-size: 15px;
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	background-color: #F2F1EE;
+	height: 20px;
+	padding-top: 4px;
+	padding-right: 2px;
+	padding-bottom: 4px;
+	padding-left: 2px;
+}
+.calendar-place-week .month {
+	font-size: 15px;
+	color: #333333;
+	padding-left: 4px;
+	padding-top: 4px;
+	text-decoration: none;
+}
+.calendar-place-week .month:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.calendar-place-week .othermonth {
+	font-size: 15px;
+	color: #999999;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 4px;
+	padding-left: 4px;
+	text-decoration: none;
+}
+.calendar-place-week .othermonth:hover {
+}
+
+.calendar-place-week .holiday_bg
+{
+	background-color: #EAF7CA;
+	height: 50px;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+.calendar-place-week .othermonth:hover {
+	color: #FF0000;
+	font-size: 15px;
+}
+
+
+ .calendar-place-week .Nholiday_bg
+{
+	background-color: #FFFFFF;
+	height: 50px;
+	vertical-align: top;
+	text-align: left;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
+
+
+
+/*小月曆*/
 .calendar
-{	width:239px;
+{
+	width:239px;
 	border-spacing:1px;
 	border:0;
-	background-color:#cde985;
+	background-color:#acd156;
 	text-align:center;
 	margin-top: 0;
 	margin-right: auto;
@@ -120,6 +208,7 @@
 .calendar .month {
 	font-size: 15px;
 	color: #333333;
+	text-decoration: none;
 }
 .calendar .month:hover {
 	font-size: 15px;
@@ -130,6 +219,7 @@
 .calendar .othermonth {
 	font-size: 15px;
 	color: #999999;
+	text-decoration: none;
 }
 .calendar .othermonth:hover {
 }
@@ -164,22 +254,331 @@
 	height: 17px;
 	border: 1px solid #666666;
 }
-    
-    
- .big-calendar-time 
- {
-	width:100%;
+
+
+/*小月曆-月*/
+.calendar-smonth
+{
+	width:237px;
 	border-spacing:1px;
-	background-color:#CDE985;
+	border:0;
+	background-color:#acd156;
 	text-align:center;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	height: 105px;
+}
+.calendar-smonth .smonth_bg
+{
+	background-color: #FFFFFF;
+	height: 25px;
+	width: 78px;
+	vertical-align: middle;
+}
+.calendar-smonth .smonth_bg:hover {
+	background-color: #C1E1C4;
+}
+
+.calendar-smonth .smonth {
+	font-size: 15px;
+	color: #666666;
+	text-decoration: none;
+}
+.calendar-smonth .today
+{
+	border: 1px solid #666666;
+	background-color: #FDF47F;
+}
+
+
+
+
+/*小月曆-12 year */
+.calendar-year
+{
+	width:218px;
+	border-spacing:1px;
+	border:0;
+	background-color:#acd156;
+	text-align:center;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	height: 134px;
+}
+.calendar-year .head {
+	text-align:center;
+	position:relative;
+	height:26px;
+	vertical-align: middle;
+	color: #FFFFFF;
+	background-color: #23743E;
+	width: 218px;
+}
+
+/*.calendar-year td a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+}*/
+
+.calendar-year .headtitle {
+	font-size: 15px;
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	background-color: #F5FCE4;
+}
+.calendar-year .month {
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+.calendar-year .month:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.calendar-year .othermonth {
+	font-size: 15px;
+	color: #999999;
+	text-decoration: none;
+}
+
+.calendar-year .headholiday {
+	font-size: 15px;
+	color: #666666;
+	text-align: center;
+	background-color: #EAF7CA;
+}
+
+.calendar-year .holiday_bg
+{
+	background-color: #F5FCE4;
+	height: 18px;
+}
+.calendar-year .othermonth:hover {
+	color: #FF0000;
+	font-size: 15px;
+}
+
+.calendar-year .Nholiday_bg
+{
+	background-color: #FFFFFF;
+	height: 18px;
+}
+
+.calendar-year .today
+{
+	background-repeat: repeat;
+	height: 16px;
+	border: 1px solid #666666;
+	text-align: center;
+	background-color: #FDF486;
+}
+   
+/*小月曆-12---end*/   
+
+
+/* 場地使用記錄 大月曆-單月  */
+.calendar-bigmonth
+{
+	width:960px;
+	border-spacing:1px;
+	text-align:center;
+	background-color: #acd156;
+	margin-left: auto;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+.calendar-bigmonth .head {
+	text-align:center;
+	position:relative;
+	height:26px;
+	vertical-align: middle;
+	color: #333333;
+	background-color: #eff2ec;
+	width: 125px;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.calendar-bigmonth .headtitle {
+	font-size: 15px;
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	background-color: #F5FCE4;
+}
+.calendar-bigmonth .month {
+	font-size: 16px;
+	color: #333333;
+	text-decoration: none;
+}
+.calendar-bigmonth .month:hover {
+	font-size: 16px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.calendar-bigmonth .othermonth {
+	font-size: 16px;
+	color: #999999;
+	text-decoration: none;
+}
+.calendar-bigmonth .othermonth:hover {
+	color: #FF0000;
+	font-size: 16px;
+}
+
+.calendar-bigmonth .holiday_bg
+{
+	background-color: #ECF9C6;
+	height: 90px;
+	text-align: left;
+	vertical-align: top;
+	width: 125px;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
+.calendar-bigmonth .Nholiday_bg
+{
+	background-color: #FFFFFF;
+	height: 90px;
+	text-align: left;
+	vertical-align: top;
+	padding-left: 4px;
+	padding-top: 4px;
+	width: 125px;
+}
+
+.calendar-bigmonth .today
+{
+	background-repeat: repeat;
+	height: 16px;
+	border: 1px solid #666666;
+	text-align: center;
+	background-color: #FDF486;
+}
+   
+
+
+/*場地使用記錄 周*/
+.calendar-bigweek
+ {
+	width:960px;
+	border-spacing:1px;
+	background-color:#acd156;
+	text-align:center;
+	float: left;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
      
   }
-.big-calendar-time td a {
+/*.big-calendar-time td a {
 	font-size: 13px;
 	color: #333333;
 	text-decoration: none;
 	font-weight: normal;
+}*/
+  
+  
+.calendar-bigweek .title_time
+  {
+	font-size: 15px;
+	color: #666666;
+	font-weight: bold;
+	text-decoration: none;
+   }
+
+.calendar-bigweek .row_time
+   {
+	font-size: 13px;
+	color: #888888;
+   }
+.calendar-bigweek .row_schedule:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
 }
+.calendar-bigweek .row_schedule {
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding-top: 11px;
+	padding-bottom: 1px;
+	line-height: 18px;
+}
+
+.calendar-bigweek .title_time_bg {
+	background-color: #eaf7ca;
+	height: 20px;
+	width: 10%;
+	padding: 4px;
+	text-align: center;
+	vertical-align: middle;
+}
+.calendar-bigweek .title_schedule_bg {
+	background-color: #eaf7ca;
+	height: 20px;
+	width: 90%;
+	padding: 4px;
+}
+.calendar-bigweek .row_scheduleT {
+	font-size: 15px;
+	color: #009966;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.calendar-bigweek .row_holiday_bg {
+	background-color: #fefee7;
+	height: 20px;
+	text-align: left;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+}
+.calendar-bigweek .row_Nholiday_bg {
+	background-color: #ffffff;
+	text-align: left;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+}
+   
+
+
+
+
+
+ 
+ .big-calendar-time 
+ {
+	width:100%;
+	border-spacing:1px;
+	background-color:#acd156;
+	text-align:center;
+     
+  }
+/*.big-calendar-time td a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	font-weight: normal;
+}*/
   
   
  .big-calendar-time .title_time
@@ -187,6 +586,7 @@
 	font-size: 13px;
 	color: #333333;
 	font-weight: bold;
+	text-decoration: none;
    }
 
  
@@ -201,7 +601,7 @@
 
 .big-calendar-time .title_time_bg {
 	background-color: #eaf7ca;
-	height: 50px;
+	height: 20px;
 	width: 12%;
 	padding: 4px;
 }
@@ -214,23 +614,37 @@
 .big-calendar-time .row_schedule {
 	font-size: 13px;
 	color: #333333;
+	text-decoration: none;
 	
 }
+.big-calendar-time .row_schedule:hover {
+	font-size: 13px;
+	color: #FF0000;
+}
+
 .big-calendar-time .row_scheduleT {
 	font-size: 13px;
 	color: #009966;
+	text-decoration: none;
 }
+.big-calendar-time .row_scheduleT:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
 
 .big-calendar-time .row_holiday_bg {
 	background-color: #fefee7;
 	padding: 4px;
-	height: 20px;
+	height: 50px;
 	text-align: left;
 }
 .big-calendar-time .row_Nholiday_bg {
 	background-color: #ffffff;
 	text-align: left;
 	padding: 4px;
+	height: 50px;
 }
    
 
@@ -240,7 +654,7 @@
 	line-height: 20px;
 	width: 100%;
 	text-decoration: none;
-	background-color: #cde985;
+	background-color: #acd156;
 }
 .big-calendar-route .title {
 	color: #333333;
