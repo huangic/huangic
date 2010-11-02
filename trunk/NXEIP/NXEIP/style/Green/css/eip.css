@@ -1,4 +1,4 @@
-@import url(reset.css);
+﻿@import url(reset.css);
 @import url(eip-layout.css); /*版型配置*/
 @import url(eip-menu.css);   /*MENU*/
 @import url(eip-list.css);  /*版型配置*/
@@ -12,6 +12,7 @@
 @import url(thickbox.css);
 @import url(eip-widget.css);  /*widget*/
 @import url(jquery.treeview.css);
+@import url(maintain.css);
 @import url(calendar.css);
 @import url(eip-pager.css);
 @import url(eip-image.css);
@@ -23,7 +24,9 @@
 @import url(ui.jqgrid.css);
 @import url(ui.accordion.css);
 @import url(jquery.autocomplete.css);
-
+@import url("lytebox.css") screen;
+@import url("eip-dialog.css");
+@import url("eip-Page-Place.css");
 
 
 body {
@@ -123,21 +126,13 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
-.a-letter-Red:hover {
-	color: #FFFFFF;
-	text-decoration: none;
-}
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
 	text-decoration: none;
 }
-.a-letter-Blue:hover {
-	
-	color: #FFFFFF;
-	text-decoration: none;
-}
+
 .a02-15 {
 	
 	font-size: 15px;
@@ -329,4 +324,8 @@ body {
 .a-table-a1:hover {
 
 	background-color: #99C2AD;
+}
+.select-I {
+	height: 30px;
+	width: 586px;
 }
