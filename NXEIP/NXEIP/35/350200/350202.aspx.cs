@@ -68,11 +68,11 @@ public partial class _35_350200_350202 : System.Web.UI.Page
 
             if (e.Row.Cells[2].Text.Equals("1"))
             {
-                e.Row.Cells[2].Text = "正式人員";
+                e.Row.Cells[2].Text = "人事管理";
             }
             if (e.Row.Cells[2].Text.Equals("2"))
             {
-                e.Row.Cells[2].Text = "非正式人員";
+                e.Row.Cells[2].Text = "行政管理";
             }
 
             e.Row.Cells[3].Text = dao.GetPeopleNameByUid(uid);

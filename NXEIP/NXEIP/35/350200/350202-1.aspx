@@ -49,8 +49,8 @@
                     <td>
                         <asp:RadioButtonList ID="rab_kind" runat="server" RepeatDirection="Horizontal" 
                             RepeatLayout="Flow">
-                            <asp:ListItem Selected="True" Value="1">正式人員</asp:ListItem>
-                            <asp:ListItem Value="2">非正式人員</asp:ListItem>
+                            <asp:ListItem Selected="True" Value="1">人事管理</asp:ListItem>
+                            <asp:ListItem Value="2">行政管理</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
                 </tr>
