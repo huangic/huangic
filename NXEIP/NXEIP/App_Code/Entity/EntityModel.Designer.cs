@@ -9346,6 +9346,30 @@ namespace Entity
         private Nullable<global::System.Int32> _e05_d09no;
         partial void One05_d09noChanging(Nullable<global::System.Int32> value);
         partial void One05_d09noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> e05_d10no
+        {
+            get
+            {
+                return _e05_d10no;
+            }
+            set
+            {
+                One05_d10noChanging(value);
+                ReportPropertyChanging("e05_d10no");
+                _e05_d10no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("e05_d10no");
+                One05_d10noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _e05_d10no;
+        partial void One05_d10noChanging(Nullable<global::System.Int32> value);
+        partial void One05_d10noChanged();
 
         #endregion
     
