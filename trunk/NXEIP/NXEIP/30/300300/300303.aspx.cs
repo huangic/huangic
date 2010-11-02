@@ -124,7 +124,8 @@ public partial class _30_300300_300303 : System.Web.UI.Page
         //講義
         if (e.CommandName.Equals("book"))
         {
-
+            string url = this.GetUrl("300303-9.aspx", e02_no.ToString(), "");
+            Response.Redirect(url);
         }
 
         //限制條件
