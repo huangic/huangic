@@ -22,6 +22,21 @@ namespace NXEIP.DAO
             //
         }
 
+        public IQueryable<e05> GetDataBye02no(int e02_no)
+        {
+            return (from d in model.e05 where d.e02_no == e02_no orderby d.e05_no select d);
+        }
+
+        public IQueryable<e05> GetDataBye02no(int e02_no, int startRowIndex, int maximumRows)
+        {
+            return GetDataBye02no(e02_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetDataBye02noCount(int e02_no)
+        {
+            return GetDataBye02no(e02_no).Count();
+        }
+
     }
 
     
