@@ -5,6 +5,12 @@
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<style type="text/css">
+.title1
+{
+    width:15%;
+    text-align:right}
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
@@ -46,13 +52,13 @@
             <ContentTemplate>
                 <table id="table1">
                     <tr>
-                        <th>
+                        <th class="title1">
                             學習機構
                         </th>
                         <td>
                             <asp:Label ID="lab_mechani" runat="server"></asp:Label>
                         </td>
-                        <th>
+                        <th class="title1">
                             課程代碼
                         </th>
                         <td>
@@ -60,13 +66,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="title1">
                             課程類別
                         </th>
                         <td>
                             <asp:Label ID="lab_typ_name" runat="server"></asp:Label>
                         </td>
-                        <th>
+                        <th class="title1">
                             課程名稱(期別)
                         </th>
                         <td>
@@ -74,7 +80,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="title1">
                             課程所屬講義
                         </th>
                         <td colspan="3">
@@ -106,7 +112,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="title1">
                             檔案類別
                         </th>
                         <td colspan="3">
@@ -123,7 +129,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>
+                        <th class="title1">
                             講義選取
                         </th>
                         <td colspan="3">
