@@ -87,6 +87,7 @@ function onReadyStateChange() {
         if (xmlHttpRequest.readyState == 4) {
             if (xmlHttpRequest.status == 200) {
                 if (xmlHttpRequest.responseText != "删除成功!") {
+                    //移除FALSH 的物件
                     alert(xmlHttpRequest.responseText);
                 }
             }
@@ -207,6 +208,7 @@ function uploadSuccess(file, serverData, swfObj) {
             sw: swfObj.settings.post_params.sw,
             sh: swfObj.settings.post_params.sh,
             wm: swfObj.settings.post_params.wm,
+            PathArg: swfObj.settings.post_params.PathArg,
             data: serverData
         });
         var dataList = JSON.parse(serverData);
