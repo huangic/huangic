@@ -27,6 +27,7 @@
 	padding-right: 2px;
 	padding-bottom: 4px;
 	padding-left: 2px;
+	width: 14%;
 }
 .calendar-big .month {
 	font-size: 13px;
@@ -34,48 +35,78 @@
 	padding-left: 4px;
 	padding-top: 4px;
 	text-decoration: none;
+	line-height: 19px;
 }
-.calendar-big .month:hover {
+.calendar-big .monthT {
 	font-size: 15px;
+	color: #000000;
+	padding-left: 4px;
+	padding-top: 4px;
+	text-decoration: none;
+	line-height: 19px;
+}
+.calendar-big .monthT:hover {
+	font-size: 15px;
+	line-height: 19px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.calendar-big .month:hover {
+	font-size: 13px;
 	color: #FF0000;
 	text-decoration: none;
 }
 
 .calendar-big .othermonth {
 	font-size: 13px;
+	color: #888888;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 4px;
+	padding-left: 4px;
+	text-decoration: none;
+	line-height: 19px;
+}
+.calendar-big .othermonthT {
+	font-size: 15px;
 	color: #999999;
 	text-align: left;
 	vertical-align: top;
 	padding-top: 4px;
 	padding-left: 4px;
 	text-decoration: none;
+	line-height: 19px;
 }
+.calendar-big .othermonthT:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
 .calendar-big .othermonth:hover {
 }
 
  .calendar-big .holiday_bg
 {
 	background-color: #EAF7CA;
-	height: 50px;
+	height: 80px;
 	text-align: left;
 	vertical-align: top;
-	padding-top: 2px;
-	padding-left: 2px;
 }
 .calendar-big .othermonth:hover {
 	color: #FF0000;
-	font-size: 15px;
+	font-size: 13px;
+	text-decoration: none;
 }
 
 
  .calendar-big .Nholiday_bg
 {
 	background-color: #FFFFFF;
-	height: 50px;
+	height: 80px;
 	vertical-align: top;
 	text-align: left;
-	padding-top: 2px;
-	padding-left: 2px;
 }
 .calendar-big .today
 {
@@ -114,6 +145,7 @@
 	padding-right: 2px;
 	padding-bottom: 4px;
 	padding-left: 2px;
+	width: 12%;
 }
 .calendar-place-week .month {
 	font-size: 15px;
@@ -516,7 +548,7 @@
 	text-decoration: none;
 	padding-top: 11px;
 	padding-bottom: 1px;
-	line-height: 18px;
+	line-height: 20px;
 }
 
 .calendar-bigweek .title_time_bg {
@@ -540,6 +572,12 @@
 	font-weight: bold;
 	line-height: 20px;
 }
+.calendar-bigweek .row_scheduleT:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
 
 .calendar-bigweek .row_holiday_bg {
 	background-color: #fefee7;
@@ -558,8 +596,98 @@
 	padding-bottom: 4px;
 	padding-left: 8px;
 }
-   
+/*行事曆-列表*/ 
+.calendar-biglist {
+	border-spacing:1px;
+	font-size: 13px;
+	line-height: 20px;
+	width: 100%;
+	text-decoration: none;
+	background-color: #acd156;
+}
+.calendar-biglist .B1{
+	width: 100%;
+	float: left;
+}
 
+.calendar-biglist .p1 {
+	background-image: url(../image/c012.gif);
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+.calendar-biglist .title {
+	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+}
+/*.big-calendar-biglist td a {
+	font-size: 13px;
+	color: #888888;
+}*/
+
+.calendar-biglist .row_time
+  {
+	color:#333333;
+	text-decoration: none;
+	font-size: 15px;
+	text-align: center;
+	}
+.calendar-biglist .row_time:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+	
+.calendar-biglist .row_schedule
+  {
+	color:#333333;
+	text-decoration: none;
+	font-size: 13px;
+	text-align: left;
+	padding-left: 18px;
+	line-height: 22px;
+	}	
+.calendar-biglist .row_schedule:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+
+/*.calendar-biglist .title_time_bg {
+	background-color: #EAF7CA;
+	width: 10%;
+	text-align: center;
+}*/
+
+
+/*.calendar-biglist .title_schedule_bg {
+	background-color: #EAF7CA;
+	width: 90%;
+	text-align: center;
+	padding: 1px;
+	height: 20px;
+}*/
+.calendar-biglist .row_bg {
+	background-color: #EAF7CA;
+	text-align: center;
+	padding: 4px;
+	height: 90px;
+}
+
+
+
+.calendar-biglist .row_bgc {
+	text-align: left;
+	padding: 4px;
+	height: 20px;
+	background-color: #FFFFFF;
+	width: 86%;
+}
 
 
 
@@ -613,22 +741,29 @@
 }
 .big-calendar-time .row_schedule {
 	font-size: 13px;
-	color: #333333;
+	color: #666666;
 	text-decoration: none;
+	line-height: 20px;
 	
 }
 .big-calendar-time .row_schedule:hover {
 	font-size: 13px;
 	color: #FF0000;
+	text-decoration: none;
 }
 
 .big-calendar-time .row_scheduleT {
-	font-size: 13px;
+	font-size: 15px;
 	color: #009966;
 	text-decoration: none;
+	line-height: 20px;
+	font-weight: bold;
 }
 .big-calendar-time .row_scheduleT:hover {
-	font-size: 13px;
+}
+
+.big-calendar-time .row_scheduleT:hover {
+	font-size: 15px;
 	color: #FF0000;
 	text-decoration: none;
 }
@@ -636,15 +771,21 @@
 
 .big-calendar-time .row_holiday_bg {
 	background-color: #fefee7;
-	padding: 4px;
-	height: 50px;
+	height: 60px;
 	text-align: left;
+	vertical-align: top;
+	padding-top: 0px;
+	padding-right: 4px;
+	padding-bottom: 0px;
+	padding-left: 4px;
 }
 .big-calendar-time .row_Nholiday_bg {
 	background-color: #ffffff;
 	text-align: left;
-	padding: 4px;
-	height: 50px;
+	height: 60px;
+	vertical-align: top;
+	padding-right: 4px;
+	padding-left: 4px;
 }
    
 
