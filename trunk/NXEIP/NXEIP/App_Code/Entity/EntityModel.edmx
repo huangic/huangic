@@ -643,6 +643,7 @@
           <Property Name="e02_no" Type="int" Nullable="false" />
           <Property Name="e05_no" Type="int" Nullable="false" />
           <Property Name="e05_d09no" Type="int" />
+          <Property Name="e05_d10no" Type="int" />
         </EntityType>
         <EntityType Name="government">
           <Key>
@@ -3247,6 +3248,7 @@
           <Property Type="Int32" Name="e05_no" Nullable="false" />
           <Property Type="Int32" Name="e05_d09no" />
           <NavigationProperty Name="e02" Relationship="NXEIPModel.FK_E05_RELATIONS_E02" FromRole="e05" ToRole="e02" />
+          <Property Type="Int32" Name="e05_d10no" />
         </EntityType>
         <EntityType Name="new01">
           <Key>
@@ -4024,6 +4026,7 @@
           <EntitySetMapping Name="e05">
             <EntityTypeMapping TypeName="NXEIPModel.e05">
               <MappingFragment StoreEntitySet="e05">
+                <ScalarProperty Name="e05_d10no" ColumnName="e05_d10no" />
                 <ScalarProperty Name="e05_d09no" ColumnName="e05_d09no" />
                 <ScalarProperty Name="e05_no" ColumnName="e05_no" />
                 <ScalarProperty Name="e02_no" ColumnName="e02_no" />

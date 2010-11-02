@@ -50,5 +50,15 @@ namespace NXEIP.DAO
         {
             return GetDoc10FromE05(e02_no).Count();
         }
+
+        public IQueryable<doc10> GetDoc10ByS06NO(int s06_no,int peo_uid)
+        {
+            return (from dc09 in model.doc09
+                    where dc09.s06_no == s06_no && dc09.d09_peouid == peo_uid
+                    from dc10 in model.doc10
+                    where dc10.d09_no == dc09.d09_no
+                    orderby dc09.d09_date descending
+                    select dc10);
+        }
     }
 }

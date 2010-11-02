@@ -75,8 +75,20 @@ namespace NXEIP.DAO
             }
             return null;
         }
-       
 
+        public IQueryable<sys06> GetS06_Level1()
+        {
+            return (from d in model.sys06 where d.s06_level == 1 && d.s06_status == "1" select d);
+        }
+
+        public IQueryable<sys06> GetS06_Level2(int s06_no)
+        {
+            if (s06_no != 0)
+            {
+                return (from d in model.sys06 where d.s06_parent == s06_no && d.s06_level == 2 && d.s06_status == "1" select d);
+            }
+            return null;
+        }
     }
 
 }
