@@ -7,9 +7,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript">
     function update(msg) {
-        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
         tb_remove();
         alert(msg);
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
     }
 
     function pageLoad(sender, args) {
@@ -46,7 +46,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="s06_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" EnableViewState="False">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="sfu_no" HeaderText="系統名稱" SortExpression="sfu_no" />
                         <asp:BoundField DataField="s06_parent" HeaderText="類別大分類" SortExpression="s06_parent" />
@@ -72,8 +72,6 @@
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
-                </ContentTemplate>
-        </asp:UpdatePanel>
                 <div class="pager">
                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                         <Fields>
@@ -83,7 +81,9 @@
                         </Fields>
                     </asp:DataPager>
                 </div>
-            
+             </ContentTemplate>
+        </asp:UpdatePanel>
+
     </div>
 </asp:Content>
 
