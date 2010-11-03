@@ -601,11 +601,12 @@ public partial class _10_100300_100301 : System.Web.UI.Page
     #region 列印
     protected void btn_print_Click(object sender, EventArgs e)
     {
-        //string ax = "100";
-        //string ay = "100";
-        //Response.Write("<script>newwindow=window.open('cal0101-print.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&printtype=1','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>");
+        string ax = "100";
+        string ay = "100";
+        string script = "<script>newwindow=window.open('100301-p.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&printtype=days','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
 
-        //Show();
+        Show();
     }
     #endregion
 

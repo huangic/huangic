@@ -175,8 +175,10 @@
                             <asp:Label ID="lab_isAdd" runat="server" Visible="False"></asp:Label>
                         </div>
                         <div class="function">
-                            <asp:Button ID="btn_print" runat="server" CssClass="b-input" Text="列印" OnClick="btn_print_Click" />&nbsp;
-                            <asp:Button ID="btn_back" runat="server" CssClass="b-input" Text="返回使用者" OnClick="btn_back_Click" />
+                           <ul>
+                             <li><asp:LinkButton ID="btn_print" runat="server" CssClass="b-print" onclick="btn_print_Click">列印</asp:LinkButton></li>
+                             <li><asp:LinkButton ID="btn_back" runat="server" CssClass="b-back" onclick="btn_back_Click">返回使用者</asp:LinkButton></li>
+                           </ul>
                         </div>
                     </div>
                     <div class="h3">

@@ -292,7 +292,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             {
                 if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
                 {
-                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox\">" + txt + "</a>" + "<br />";
+                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
                 }
                 else
                 {
@@ -460,11 +460,12 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
     #region 列印
     protected void btn_print_Click(object sender, EventArgs e)
     {
-        //string ax = "100";
-        //string ay = "100";
-        //Response.Write("<script>newwindow=window.open('cal0101-print.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&printtype=1','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>");
+        string ax = "100";
+        string ay = "100";
+        string script = "<script>newwindow=window.open('100301-p.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&printtype=weeks','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
 
-        //Show();
+        Show();
     }
     #endregion
 

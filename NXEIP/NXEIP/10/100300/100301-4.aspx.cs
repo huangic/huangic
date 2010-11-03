@@ -195,6 +195,8 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             #endregion
 
             #region 基本表格
+            this.Table1.Rows.Clear();
+            this.Table1.Dispose();
             int rowcount = -1;
             string sdate = this.Calendar1.VisibleDate.ToString("yyyy/MM/01") + " 00:00:00";
             string edate = this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
@@ -215,22 +217,18 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                         this.Table1.Rows.Add(new System.Web.UI.WebControls.TableRow());
                         this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
                         this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                        this.Table1.Rows[rowcount].Cells[0].CssClass = "style1";
-                        this.Table1.Rows[rowcount].Cells[1].CssClass = "";
-                        this.Table1.Rows[rowcount].Cells[0].VerticalAlign = VerticalAlign.Top;
-                        this.Table1.Rows[rowcount].Cells[0].Width = Unit.Percentage(20);
-                        this.Table1.Rows[rowcount].Cells[0].Width = Unit.Pixel(1);
-                        this.Table1.Rows[rowcount].Cells[1].Width = Unit.Pixel(1);
+                        this.Table1.Rows[rowcount].Cells[0].CssClass = "row_bg";
+                        this.Table1.Rows[rowcount].Cells[1].CssClass = "row_bgc";
 
-                        this.Table1.Rows[rowcount].Cells[0].Text = nowdate.ToString("MM-dd") + "<br />星期" +
-                        changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek);
+                        this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">"+nowdate.ToString("MM-dd") + "<br />星期" +
+                        changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek)+"</span>";
                     }
                     update = nowdate.ToString("MM-dd");
                     //if(this.Table1.Rows[rowcount].Cells[1].Text.Length>0) this.Table1.Rows[rowcount].Cells[1].Text+="<hr>";
                     string stime = nowdate.ToString("HH:mm");
                     string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
 
-                    this.Table1.Rows[rowcount].Cells[1].Text += "<span class=\"icon-event\">" + Display(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</span>";
+                    this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                 }
                 this.Table1.Visible = true;
                 this.btn_print.Visible = true;
@@ -275,7 +273,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             {
                 if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
                 {
-                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=lists&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox\">" + txt + "</a>" + "<br />";
+                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=lists&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
                 }
                 else
                 {
@@ -443,11 +441,11 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
     #region 列印
     protected void btn_print_Click(object sender, EventArgs e)
     {
-        //string ax = "100";
-        //string ay = "100";
-        //Response.Write("<script>newwindow=window.open('cal0101-print.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&printtype=1','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>");
-
-        //Show();
+        string ax = "100";
+        string ay = "100";
+        string script = "<script>newwindow=window.open('100301-p.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&printtype=lists','new_wealthy_calendar','height=580,width=700,toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1');newwindow.focus();newwindow.moveTo(" + ax + "," + ay + ")</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
+        Show();
     }
     #endregion
 

@@ -137,10 +137,10 @@
                             <asp:Label ID="lab_date" runat="server" Visible="False"></asp:Label>
                         </div>
                         <div class="function">
-                            <asp:Button ID="btn_print" runat="server" CssClass="b-input" Text="列印" 
-                                onclick="btn_print_Click" />&nbsp;
-                            <asp:Button ID="btn_back" runat="server" CssClass="b-input" Text="返回使用者" 
-                                onclick="btn_back_Click" />
+                            <ul>
+                             <li><asp:LinkButton ID="btn_print" runat="server" CssClass="b-print" onclick="btn_print_Click">列印</asp:LinkButton></li>
+                             <li><asp:LinkButton ID="btn_back" runat="server" CssClass="b-back" onclick="btn_back_Click">返回使用者</asp:LinkButton></li>
+                           </ul>
                         </div>
                     </div>
                     <div class="h3">
@@ -155,7 +155,7 @@
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期日</span></td>
                             <td class="row_holiday_bg">
-                                <asp:HyperLink ID="hl_0" runat="server" CssClass="thickbox">[hl_0]</asp:HyperLink>
+                                <asp:HyperLink ID="hl_0" runat="server" CssClass="thickbox row_scheduleT">[hl_0]</asp:HyperLink>
                                 <br />
                                 <asp:Label ID="lab_0" runat="server"></asp:Label>
                             </td>
@@ -163,7 +163,7 @@
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期一</span></td>
                             <td class="row_Nholiday_bg">
-                                <asp:HyperLink ID="hl_1" runat="server" CssClass="thickbox">[hl_1]</asp:HyperLink>
+                                <asp:HyperLink ID="hl_1" runat="server" CssClass="thickbox row_scheduleT">[hl_1]</asp:HyperLink>
                                 <br />
                                 <asp:Label ID="lab_1" runat="server"></asp:Label>
                             </td>
@@ -171,35 +171,35 @@
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期二</span></td>
                             <td class="row_Nholiday_bg">
-                                <asp:HyperLink ID="hl_2" runat="server" CssClass="thickbox">[hl_2]</asp:HyperLink><br />
+                                <asp:HyperLink ID="hl_2" runat="server" CssClass="thickbox row_scheduleT">[hl_2]</asp:HyperLink><br />
                                 <asp:Label ID="lab_2" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期三</span></td>
                             <td class="row_Nholiday_bg">
-                                <asp:HyperLink ID="hl_3" runat="server" CssClass="thickbox">[hl_3]</asp:HyperLink><br />
+                                <asp:HyperLink ID="hl_3" runat="server" CssClass="thickbox row_scheduleT">[hl_3]</asp:HyperLink><br />
                                 <asp:Label ID="lab_3" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期四</span></td>
                             <td class="row_Nholiday_bg">
-                                <asp:HyperLink ID="hl_4" runat="server" CssClass="thickbox">[hl_4]</asp:HyperLink><br />
+                                <asp:HyperLink ID="hl_4" runat="server" CssClass="thickbox row_scheduleT">[hl_4]</asp:HyperLink><br />
                                 <asp:Label ID="lab_4" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期五</span></td>
                             <td class="row_Nholiday_bg">
-                                <asp:HyperLink ID="hl_5" runat="server" CssClass="thickbox">[hl_5]</asp:HyperLink><br />
+                                <asp:HyperLink ID="hl_5" runat="server" CssClass="thickbox row_scheduleT">[hl_5]</asp:HyperLink><br />
                                 <asp:Label ID="lab_5" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td class="title_time_bg"><span class="title_time">星期六</span></td>
                             <td class="row_holiday_bg">
-                                <asp:HyperLink ID="hl_6" runat="server" CssClass="thickbox">[hl_6]</asp:HyperLink><br />
+                                <asp:HyperLink ID="hl_6" runat="server" CssClass="thickbox row_scheduleT">[hl_6]</asp:HyperLink><br />
                                 <asp:Label ID="lab_6" runat="server"></asp:Label>
                             </td>
                         </tr>
