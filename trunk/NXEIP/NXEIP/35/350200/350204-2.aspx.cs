@@ -52,16 +52,28 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
 
             //職稱
             this.ddl_profess.DataBind();
-            this.ddl_profess.Items.FindByValue(peopleData.peo_pfofess.ToString()).Selected = true;
+            try
+            {
+                this.ddl_profess.Items.FindByValue(peopleData.peo_pfofess.ToString()).Selected = true;
+            }
+            catch { }
             
             //人員類別
             this.ddl_ptype.DataBind();
-            this.ddl_ptype.Items.FindByValue(peopleData.peo_ptype.ToString()).Selected = true;
+            try
+            {
+                this.ddl_ptype.Items.FindByValue(peopleData.peo_ptype.ToString()).Selected = true;
+            }
+            catch { }
 
             //在職情況
             this.ddl_jobtype.DataBind();
-            this.ddl_jobtype.Items.FindByValue(peopleData.peo_jobtype.ToString()).Selected = true;
-            string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + this.ddl_jobtype.SelectedValue);
+            try
+            {
+                this.ddl_jobtype.Items.FindByValue(peopleData.peo_jobtype.ToString()).Selected = true;
+            }
+            catch { }
+            string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + peopleData.peo_jobtype.ToString());
             if (!code.Equals("1"))
             {
                 this.calendar3.Visible = true;
