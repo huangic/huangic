@@ -126,19 +126,11 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
-.a-letter-Red:hover {
-	color: #FFFFFF;
-	text-decoration: none;
-}
+
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
-	text-decoration: none;
-}
-.a-letter-Blue:hover {
-	
-	color: #FFFFFF;
 	text-decoration: none;
 }
 .a02-15 {
@@ -324,7 +316,8 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
+	text-decoration: none;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -360,7 +353,8 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
+	text-decoration: none;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
