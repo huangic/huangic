@@ -3490,6 +3490,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _dep_createtime;
         partial void Ondep_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ondep_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dep_introduce
+        {
+            get
+            {
+                return _dep_introduce;
+            }
+            set
+            {
+                Ondep_introduceChanging(value);
+                ReportPropertyChanging("dep_introduce");
+                _dep_introduce = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dep_introduce");
+                Ondep_introduceChanged();
+            }
+        }
+        private global::System.String _dep_introduce;
+        partial void Ondep_introduceChanging(global::System.String value);
+        partial void Ondep_introduceChanged();
 
         #endregion
     

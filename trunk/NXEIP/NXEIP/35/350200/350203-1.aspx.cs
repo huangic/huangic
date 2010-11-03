@@ -41,6 +41,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
                 this.tbx_dep_name.Text = modifyDepart.dep_name;
                 this.tbx_dep_order.Text = modifyDepart.dep_order.ToString();
                 this.tbx_dep_tel.Text = modifyDepart.dep_tel;
+                this.tbx_dep_note.Text = modifyDepart.dep_introduce;
 
                 //父代部門
                 this.ddl_depart.DataBind();
@@ -129,6 +130,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             depart.dep_son = "0";
             depart.dep_tel = this.tbx_dep_tel.Text;
             depart.dep_status = "1";
+            depart.dep_introduce = this.tbx_dep_note.Text;
 
             dao.AddDepartment(depart);
             dao.Update();
@@ -171,7 +173,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             depart.dep_level = paretntDepart.dep_level + 1;
             depart.dep_addr = this.tbx_dep_addr.Text;
             depart.dep_tel = this.tbx_dep_tel.Text;
-
+            depart.dep_introduce = this.tbx_dep_note.Text;
             dao.Update();
             DBObject odb = new DBObject();
 

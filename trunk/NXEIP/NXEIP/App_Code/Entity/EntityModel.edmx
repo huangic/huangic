@@ -370,6 +370,7 @@
           <Property Name="dep_status" Type="char" MaxLength="1" />
           <Property Name="dep_createuid" Type="int" />
           <Property Name="dep_createtime" Type="datetime" />
+          <Property Name="dep_introduce" Type="text" />
         </EntityType>
         <EntityType Name="doc01">
           <Key>
@@ -2040,6 +2041,7 @@
           <NavigationProperty Name="search03" Relationship="NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME" FromRole="departments" ToRole="search03" />
           <NavigationProperty Name="doc01" Relationship="NXEIPModel.FK_DOC01_RELATIONS_DEPARTME" FromRole="departments" ToRole="doc01" />
           <NavigationProperty Name="manager" Relationship="NXEIPModel.FK_MANAGER_RELATIONS_DEPARTME" FromRole="departments" ToRole="manager" />
+          <Property Type="String" Name="dep_introduce" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="doc01">
           <Key>
@@ -3486,7 +3488,8 @@
             <ScalarProperty Name="c04_createtime" ColumnName="c04_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="departments"><EntityTypeMapping TypeName="NXEIPModel.departments"><MappingFragment StoreEntitySet="departments">
-            <ScalarProperty Name="dep_no" ColumnName="dep_no" />
+            <ScalarProperty Name="dep_introduce" ColumnName="dep_introduce" />
+                <ScalarProperty Name="dep_no" ColumnName="dep_no" />
             <ScalarProperty Name="dep_parentid" ColumnName="dep_parentid" />
             <ScalarProperty Name="dep_level" ColumnName="dep_level" />
             <ScalarProperty Name="dep_son" ColumnName="dep_son" />
