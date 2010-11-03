@@ -19,9 +19,7 @@ namespace NXEIP.DAO
         
         public Doc12DAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+          
         }
 
         public IQueryable<doc12> GetAllWithDoc11No(int doc11_no) {

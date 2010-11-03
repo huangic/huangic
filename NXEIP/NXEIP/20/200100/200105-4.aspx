@@ -1,13 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200105-3.aspx.cs" Inherits="_20_200100_200105_2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200105-4.aspx.cs" Inherits="_20_200100_200105_2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc2" %>
-<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc5" %>
 
-
+<%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc3" %>
 <%@ Register src="../../lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc4" %>
 
+<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc5" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -19,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
    
-    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="200105" SubFunc="修改回傳檔案" />
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="200105" SubFunc="回傳檔案" />
     
    <div class="tableDiv">
         <asp:HiddenField ID="hidden_doc11no" runat="server" />
@@ -77,7 +77,7 @@
               </tr>
               
 
-               <tr>
+                 <tr>
                
                
                 <th>
@@ -100,19 +100,22 @@
                     </td>
               
               </tr>
-               
-               
-               <tr>
-               <th>
-                 適用單位
-               
-               </th>
-               <td colspan="3">
-                   <asp:TextBox ID="tb_use" runat="server" TextMode="MultiLine"></asp:TextBox>
-               </td>
 
-               </tr>
 
+               
+                <tr>
+                    <th>
+                        適用單位
+                    </th>
+                    <td colspan="3">
+                       
+                        <asp:TextBox ID="tb_use" runat="server" TextMode="MultiLine"></asp:TextBox>
+
+
+                    </td>
+                </tr>
+               
+               
                  <tr>
                     <th>
                         附件<br/><asp:Label ID="lb_size" runat="server" Text="Label"></asp:Label>

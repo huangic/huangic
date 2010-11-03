@@ -12,9 +12,7 @@ public class ArgumentsObject
 {
     public ArgumentsObject()
     {
-        //
-        // TODO: 在此加入建構函式的程式碼
-        //
+      
     }
 
     public string Get_argValue(string var)

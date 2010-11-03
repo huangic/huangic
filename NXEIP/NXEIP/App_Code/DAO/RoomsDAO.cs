@@ -18,9 +18,7 @@ namespace NXEIP.DAO
     {
         public RoomsDAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+            
         }
 
         private NXEIPEntities model = new NXEIPEntities();

@@ -16,9 +16,7 @@ namespace NXEIP.Lib
     {
         public EntityLib()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+            
         }
 
         public static String[] GetAllEntityProperties(Object obj)

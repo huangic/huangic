@@ -5589,6 +5589,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _d06_createtime;
         partial void Ond06_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ond06_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d06_status
+        {
+            get
+            {
+                return _d06_status;
+            }
+            set
+            {
+                Ond06_statusChanging(value);
+                ReportPropertyChanging("d06_status");
+                _d06_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d06_status");
+                Ond06_statusChanged();
+            }
+        }
+        private global::System.String _d06_status;
+        partial void Ond06_statusChanging(global::System.String value);
+        partial void Ond06_statusChanged();
 
         #endregion
     
@@ -6312,6 +6336,102 @@ namespace Entity
         private Nullable<global::System.DateTime> _d09_createtime;
         partial void Ond09_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ond09_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d09_status
+        {
+            get
+            {
+                return _d09_status;
+            }
+            set
+            {
+                Ond09_statusChanging(value);
+                ReportPropertyChanging("d09_status");
+                _d09_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d09_status");
+                Ond09_statusChanged();
+            }
+        }
+        private global::System.String _d09_status;
+        partial void Ond09_statusChanging(global::System.String value);
+        partial void Ond09_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> d09_checkuid
+        {
+            get
+            {
+                return _d09_checkuid;
+            }
+            set
+            {
+                Ond09_checkuidChanging(value);
+                ReportPropertyChanging("d09_checkuid");
+                _d09_checkuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("d09_checkuid");
+                Ond09_checkuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _d09_checkuid;
+        partial void Ond09_checkuidChanging(Nullable<global::System.Int32> value);
+        partial void Ond09_checkuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> d09_checkdate
+        {
+            get
+            {
+                return _d09_checkdate;
+            }
+            set
+            {
+                Ond09_checkdateChanging(value);
+                ReportPropertyChanging("d09_checkdate");
+                _d09_checkdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("d09_checkdate");
+                Ond09_checkdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _d09_checkdate;
+        partial void Ond09_checkdateChanging(Nullable<global::System.DateTime> value);
+        partial void Ond09_checkdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d09_reason
+        {
+            get
+            {
+                return _d09_reason;
+            }
+            set
+            {
+                Ond09_reasonChanging(value);
+                ReportPropertyChanging("d09_reason");
+                _d09_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d09_reason");
+                Ond09_reasonChanged();
+            }
+        }
+        private global::System.String _d09_reason;
+        partial void Ond09_reasonChanging(global::System.String value);
+        partial void Ond09_reasonChanged();
 
         #endregion
     
@@ -6921,6 +7041,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _d11_createtime;
         partial void Ond11_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Ond11_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d11_status
+        {
+            get
+            {
+                return _d11_status;
+            }
+            set
+            {
+                Ond11_statusChanging(value);
+                ReportPropertyChanging("d11_status");
+                _d11_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d11_status");
+                Ond11_statusChanged();
+            }
+        }
+        private global::System.String _d11_status;
+        partial void Ond11_statusChanging(global::System.String value);
+        partial void Ond11_statusChanged();
 
         #endregion
     
@@ -10293,6 +10437,78 @@ namespace Entity
         private Nullable<global::System.DateTime> _n01_createtime;
         partial void Onn01_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onn01_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> n01_checkuid
+        {
+            get
+            {
+                return _n01_checkuid;
+            }
+            set
+            {
+                Onn01_checkuidChanging(value);
+                ReportPropertyChanging("n01_checkuid");
+                _n01_checkuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n01_checkuid");
+                Onn01_checkuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _n01_checkuid;
+        partial void Onn01_checkuidChanging(Nullable<global::System.Int32> value);
+        partial void Onn01_checkuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> n01_checkdate
+        {
+            get
+            {
+                return _n01_checkdate;
+            }
+            set
+            {
+                Onn01_checkdateChanging(value);
+                ReportPropertyChanging("n01_checkdate");
+                _n01_checkdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n01_checkdate");
+                Onn01_checkdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _n01_checkdate;
+        partial void Onn01_checkdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onn01_checkdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String n01_reason
+        {
+            get
+            {
+                return _n01_reason;
+            }
+            set
+            {
+                Onn01_reasonChanging(value);
+                ReportPropertyChanging("n01_reason");
+                _n01_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("n01_reason");
+                Onn01_reasonChanged();
+            }
+        }
+        private global::System.String _n01_reason;
+        partial void Onn01_reasonChanging(global::System.String value);
+        partial void Onn01_reasonChanged();
 
         #endregion
     

@@ -12,9 +12,7 @@ public class PermissionTreeAttr:JsTreeAttr
 {
 	public PermissionTreeAttr()
 	{
-		//
-		// TODO: 在此加入建構函式的程式碼
-		//
+		
 	}
 
     public String rel { get; set; }

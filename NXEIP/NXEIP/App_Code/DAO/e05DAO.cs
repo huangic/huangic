@@ -17,9 +17,7 @@ namespace NXEIP.DAO
 
         public e05DAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
         }
 
         public IQueryable<e05> GetDataBye02no(int e02_no)

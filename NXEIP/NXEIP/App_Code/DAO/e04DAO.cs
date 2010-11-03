@@ -18,9 +18,7 @@ namespace NXEIP.DAO
 
         public e04DAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
         }
 
         public IQueryable<e02> GetPeopleData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int peo_uid)

@@ -11,9 +11,7 @@ public class TreeJson
 {
     public TreeJson()
     {
-        //
-        // TODO: 在此加入建構函式的程式碼
-        //
+       
     }
 
    public String text{ get;set;}

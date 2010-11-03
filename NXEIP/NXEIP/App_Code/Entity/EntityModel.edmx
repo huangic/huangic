@@ -463,6 +463,7 @@
           <Property Name="d06_open" Type="char" MaxLength="1" />
           <Property Name="d06_createuid" Type="int" />
           <Property Name="d06_createtime" Type="datetime" />
+          <Property Name="d06_status" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="doc07">
           <Key>
@@ -501,6 +502,10 @@
           <Property Name="d09_open" Type="char" MaxLength="1" />
           <Property Name="d09_createuid" Type="int" />
           <Property Name="d09_createtime" Type="datetime" />
+          <Property Name="d09_status" Type="char" MaxLength="1" />
+          <Property Name="d09_checkuid" Type="int" />
+          <Property Name="d09_checkdate" Type="datetime" />
+          <Property Name="d09_reason" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="doc10">
           <Key>
@@ -530,6 +535,7 @@
           <Property Name="d11_ext" Type="varchar" MaxLength="6" />
           <Property Name="d11_createuid" Type="int" />
           <Property Name="d11_createtime" Type="datetime" />
+          <Property Name="d11_status" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="doc12">
           <Key>
@@ -692,6 +698,9 @@
           <Property Name="n01_status" Type="char" MaxLength="1" />
           <Property Name="n01_createuid" Type="int" />
           <Property Name="n01_createtime" Type="datetime" />
+          <Property Name="n01_checkuid" Type="int" />
+          <Property Name="n01_checkdate" Type="datetime" />
+          <Property Name="n01_reason" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="new02">
           <Key>
@@ -3076,6 +3085,7 @@
           <Property Type="Int32" Name="d06_createuid" />
           <Property Type="DateTime" Name="d06_createtime" />
           <NavigationProperty Name="doc07" Relationship="NXEIPModel.FK_DOC07_RELATIONS_DOC06" FromRole="doc06" ToRole="doc07" />
+          <Property Type="String" Name="d06_status" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="doc07">
           <Key>
@@ -3175,6 +3185,10 @@
           <Property Type="DateTime" Name="d09_createtime" />
           <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_DOC09_RELATIONS_SYS06" FromRole="doc09" ToRole="sys06" />
           <NavigationProperty Name="doc10" Relationship="NXEIPModel.FK_DOC10_RELATIONS_DOC09" FromRole="doc09" ToRole="doc10" />
+          <Property Type="String" Name="d09_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="d09_checkuid" />
+          <Property Type="DateTime" Name="d09_checkdate" />
+          <Property Type="String" Name="d09_reason" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="doc10">
           <Key>
@@ -3208,6 +3222,7 @@
           <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_DOC11_RELATIONS_SYS06" FromRole="doc11" ToRole="sys06" />
           <NavigationProperty Name="doc12" Relationship="NXEIPModel.FK_DOC12_RELATIONS_DOC11" FromRole="doc11" ToRole="doc12" />
           <NavigationProperty Name="doc13" Relationship="NXEIPModel.FK_DOC13_RELATIONS_DOC11" FromRole="doc11" ToRole="doc13" />
+          <Property Type="String" Name="d11_status" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="doc12">
           <Key>
@@ -3268,6 +3283,9 @@
           <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_NEW01_RELATIONS_SYS06" FromRole="new01" ToRole="sys06" />
           <NavigationProperty Name="new02" Relationship="NXEIPModel.FK_NEW02_RELATIONS_NEW01" FromRole="new01" ToRole="new02" />
           <NavigationProperty Name="new03" Relationship="NXEIPModel.FK_NEW03_RELATIONS_NEW01" FromRole="new01" ToRole="new03" />
+          <Property Type="Int32" Name="n01_checkuid" />
+          <Property Type="DateTime" Name="n01_checkdate" />
+          <Property Type="String" Name="n01_reason" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="new02">
           <Key>
@@ -3899,6 +3917,7 @@
           <EntitySetMapping Name="doc06">
             <EntityTypeMapping TypeName="NXEIPModel.doc06">
               <MappingFragment StoreEntitySet="doc06">
+                <ScalarProperty Name="d06_status" ColumnName="d06_status" />
                 <ScalarProperty Name="d06_createtime" ColumnName="d06_createtime" />
                 <ScalarProperty Name="d06_createuid" ColumnName="d06_createuid" />
                 <ScalarProperty Name="d06_open" ColumnName="d06_open" />
@@ -3953,6 +3972,10 @@
           <EntitySetMapping Name="doc09">
             <EntityTypeMapping TypeName="NXEIPModel.doc09">
               <MappingFragment StoreEntitySet="doc09">
+                <ScalarProperty Name="d09_reason" ColumnName="d09_reason" />
+                <ScalarProperty Name="d09_checkdate" ColumnName="d09_checkdate" />
+                <ScalarProperty Name="d09_checkuid" ColumnName="d09_checkuid" />
+                <ScalarProperty Name="d09_status" ColumnName="d09_status" />
                 <ScalarProperty Name="d09_createtime" ColumnName="d09_createtime" />
                 <ScalarProperty Name="d09_createuid" ColumnName="d09_createuid" />
                 <ScalarProperty Name="d09_open" ColumnName="d09_open" />
@@ -3980,6 +4003,7 @@
           <EntitySetMapping Name="doc11">
             <EntityTypeMapping TypeName="NXEIPModel.doc11">
               <MappingFragment StoreEntitySet="doc11">
+                <ScalarProperty Name="d11_status" ColumnName="d11_status" />
                 <ScalarProperty Name="d11_createtime" ColumnName="d11_createtime" />
                 <ScalarProperty Name="d11_createuid" ColumnName="d11_createuid" />
                 <ScalarProperty Name="d11_ext" ColumnName="d11_ext" />
@@ -4036,6 +4060,9 @@
           <EntitySetMapping Name="new01">
             <EntityTypeMapping TypeName="NXEIPModel.new01">
               <MappingFragment StoreEntitySet="new01">
+                <ScalarProperty Name="n01_reason" ColumnName="n01_reason" />
+                <ScalarProperty Name="n01_checkdate" ColumnName="n01_checkdate" />
+                <ScalarProperty Name="n01_checkuid" ColumnName="n01_checkuid" />
                 <ScalarProperty Name="n01_createtime" ColumnName="n01_createtime" />
                 <ScalarProperty Name="n01_createuid" ColumnName="n01_createuid" />
                 <ScalarProperty Name="n01_status" ColumnName="n01_status" />

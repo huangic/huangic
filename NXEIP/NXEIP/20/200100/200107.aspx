@@ -26,8 +26,8 @@
 
         jQuery(document).ready(function () {
             jQuery('.show').click(function () {
-                jQuery('.show').removeClass("a-input").addClass("b-input");
-                jQuery(this).removeClass("b-input").addClass("a-input");
+                jQuery('.show').removeClass("b-input2").addClass("b-input");
+                jQuery(this).removeClass("b-input").addClass("b-input2");
             });
         });
 
@@ -102,14 +102,7 @@
                    </asp:ListView>
            </div>
         
-       
-        
-        </ContentTemplate>
-    </asp:UpdatePanel>
- 
-    
-    
-     <div  class="select" >
+         <div  class="select" >
             <span class="a-letter-2">檔名：<span class="a-letter-1">
                     <asp:TextBox ID="tb_file" runat="server"></asp:TextBox>
                      &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
@@ -119,6 +112,13 @@
                 
                 </span>
         </div>
+        
+        </ContentTemplate>
+    </asp:UpdatePanel>
+ 
+    
+    
+   
    
     
     
@@ -141,7 +141,7 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" >
             <ContentTemplate> 
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
@@ -244,6 +244,10 @@
             <div class="f3">
             </div>
         </div>
+
+        
+         <asp:UpdatePanel ID="UpdatePanel3" runat="server" >
+            <ContentTemplate> 
         <div class="pager">
             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                 <Fields>
@@ -253,6 +257,8 @@
                 </Fields>
             </asp:DataPager>
         </div>
+        </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     
 

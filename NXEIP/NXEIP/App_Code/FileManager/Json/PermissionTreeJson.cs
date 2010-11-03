@@ -16,9 +16,7 @@ namespace NXEIP.FileManager.Json
     {
         public PermissionTreeJson()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
         }
 
         //部門的節點

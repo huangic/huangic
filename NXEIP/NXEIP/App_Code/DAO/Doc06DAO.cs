@@ -17,9 +17,7 @@ namespace NXEIP.DAO
     {
         public Doc06DAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+            
         }
 
         NXEIPEntities model = new NXEIPEntities();

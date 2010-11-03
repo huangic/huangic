@@ -87,14 +87,14 @@
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_date")) %>'></asp:Label>
                                <br />
-                                <asp:Label ID="Label2" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_edate")) %>'></asp:Label>
+                                <asp:Label ID="Label2"  CssClass="a-letter-Red" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_edate")) %>'></asp:Label>
                             </ItemTemplate>
 
 
                         </asp:TemplateField>
                           <asp:TemplateField HeaderText="上傳單位">
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d06_depno")) %>'></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d11_depno")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -127,14 +127,14 @@
                                                     NavigateUrl='<%#String.Format("200105-1.ashx?d11={0}&d07={1}",Eval("d11_no"),Eval("d12_no"))  %>' 
                                                     Target="_blank"><span>下載</span></asp:HyperLink>
                                                 <asp:Label ID="Label5" runat="server" 
-                                                    Text='<%# String.Format("{0} (下載次數:{1})", Eval("d11_file"),Eval("d11_count")) %>'></asp:Label>
+                                                    Text='<%# String.Format("{0} (下載次數:{1})", Eval("d12_file"),Eval("d12_count")) %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                                 <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
                                     OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllWithDoc11No" 
-                                    TypeName="NXEIP.DAO.Doc11DAO">
+                                    TypeName="NXEIP.DAO.Doc12DAO">
                                     <SelectParameters>
                                         <asp:Parameter Name="doc11_no" Type="Int32" />
                                     </SelectParameters>
@@ -148,8 +148,8 @@
                         </asp:TemplateField>
                        <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200104-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d06_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>'><span>修改</span></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200105-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d11_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d11_peouid"))%>'><span>修改</span></asp:HyperLink>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Enabled='<%# GetModifyVisible((int)Eval("d11_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
                             
                             
                             </ItemTemplate>

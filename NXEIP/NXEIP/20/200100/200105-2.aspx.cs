@@ -98,7 +98,11 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 doc.d11_createtime = DateTime.Now;
                 doc.d11_createuid = int.Parse(sessionObj.sessionUserID);
                 
-                
+                //取第一筆回傳區的類別
+                sys06 sys = (from d in model.sys06 where d.s06_status == "1" && d.sfu_no == 200105 orderby d.s06_order orderby d.s06_no select d).First();
+
+
+                doc.s06_no = sys.s06_no;
                 
 
 
