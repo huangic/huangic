@@ -15,6 +15,10 @@ public partial class _30_300500_300501 : System.Web.UI.Page
         {
             OperatesObject.OperatesExecute(300501, new SessionObject().sessionUserID, 2, "查詢類別管理");
         }
+        else
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
