@@ -10,11 +10,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
-
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
             tb_remove();
-
             alert(msg);
+
+            var str = chang('<%=LinkButton1.ClientID%>');
+            __doPostBack(str, '')
+        }
+        
+        function chang(str) {
+            //將底線換成$符號
+            var regex = /\_/g;
+            return str.replace(regex, '$');
         }
 
         function pageLoad(sender, args) {
@@ -50,7 +56,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" CssClass="tableData"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="rol_no" EnableViewState="False"
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="rol_no"
                     OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="rol_name" HeaderText="角色名稱" SortExpression="rol_no" />
@@ -82,7 +88,7 @@
                         </asp:ButtonField>
                         <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <a class="thickbox imageButton edit" title='<%# Eval("rol_name", "修改{0}") %>' href='<%# Eval("rol_no", "350101-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=450&width=600") %>'>
+                                <a class="thickbox imageButton edit" title='<%# Eval("rol_name", "修改{0}") %>' href='<%# Eval("rol_no", "350101-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=378&width=600") %>'>
                                     <span>修改</span> </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
@@ -112,6 +118,7 @@
                         </Fields>
                     </asp:DataPager>
                 </div>
+                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click1"></asp:LinkButton>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
