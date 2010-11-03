@@ -126,10 +126,19 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
+.a-letter-Red:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
+	text-decoration: none;
+}
+.a-letter-Blue:hover {
+	
+	color: #FFFFFF;
 	text-decoration: none;
 }
 .a02-15 {
@@ -315,7 +324,7 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -351,23 +360,22 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 3px;
 	font-size: 13px;
-	text-decoration:none;
 	background-image: url(../image/a47.gif);
 }
 .b-input2 {
 	font-weight: bold;
-	color: #FFFFFF;
-	border: 1px solid #CCCCCC;
+	color: #333333;
+	border: 1px solid #AB9519;
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;

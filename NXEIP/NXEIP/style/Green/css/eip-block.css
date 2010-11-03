@@ -208,12 +208,19 @@ float:left;
 float:center;   
  
 }
+.tableDiv .header .h2 .function, .layoutDiv .header .h2 .function_print {
+    float:right;
+	position:absolute;
+	right:116px;
+	top: 2px;
+}
+
 .tableDiv .header .h2 .function,.layoutDiv .header .h2 .function
 {
 	float:right;
-   position:absolute;
-   right:30px;
-   top:2px;
+	position:absolute;
+	right:116px;
+	top: 2px;
  /*
   position:absolute;
   right:180px;
@@ -272,7 +279,6 @@ float:center;
 
 .block-2 .header {
 	height: 20px;
-	position: relative;
 }
 .block-2 .header .h1 {
 	background-image: url(../image/a14.gif);
@@ -289,7 +295,6 @@ float:center;
 }
 .block-2 .headerW {
 	height: 23px;
-	position: relative;
 }
 .block-2 .headerW .bh1 {
 	float: left;
@@ -320,7 +325,7 @@ float:center;
 .block-2 .headerW .h2 {
 	float: left;
 	height: 21px;
-	width: 64px;
+	width: 70px;
 }
 .block-2 .headerW .h3 {
 	float: left;
