@@ -175,7 +175,7 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                         }
 
 
-                        file.d11_no = max;
+                        file.d12_no = max;
 
                         model.doc12.AddObject(file);
                         model.SaveChanges();

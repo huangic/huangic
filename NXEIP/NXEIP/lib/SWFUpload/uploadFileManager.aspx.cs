@@ -65,7 +65,7 @@ namespace lib.SWFUpload
                     
                     fileName = file_upload.FileName;
                     if (fileName.IndexOf(".") != -1)
-                        extension = fileName.Substring(fileName.LastIndexOf(".") + 1, fileName.Length - fileName.LastIndexOf(".") - 1);
+                        extension = Path.GetExtension(fileName);
 
                     SWFUploadFile uf = new SWFUploadFile();
 

@@ -61,6 +61,7 @@ namespace NXEIP.DAO
                 from p in model.people
                 from d in model.doc09
                 where p.peo_uid == d.d09_peouid
+                &&d.d09_status=="1"
                 orderby d.d09_createtime
                 select new { doc = d, people = p };
 
@@ -142,6 +143,92 @@ namespace NXEIP.DAO
         {
             return GetSearchData(dep_no, cat_no, file).Skip(startRowIndex).Take(maximumRows);
         }
+
+
+
+        /// <summary>
+        /// 取檔案區檔案
+        /// </summary>
+        /// <param name="dep_no"></param>
+        /// <param name="cat_no"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public IQueryable<doc09> GetSearchMyData(int? peo_uid, int? cat_no, string file,string status)
+        {
+
+
+            
+
+
+            var doc =
+                from p in model.people
+                from d in model.doc09
+                where p.peo_uid == d.d09_peouid
+                && d.d09_peouid==peo_uid.Value
+                orderby d.d09_createtime
+                select new { doc = d, people = p };
+
+            if (String.IsNullOrEmpty(status))
+            {
+                doc = doc.Where(x => x.doc.d09_status != "4");
+            }
+            else
+            {
+                doc = doc.Where(x => x.doc.d09_status == status);
+            }
+
+
+           
+
+            if (cat_no != null)
+            {
+                //判斷類別等級 然後決定要加入那些
+                var cat = (from c in model.sys06 where c.s06_no == cat_no select c).First();
+
+                if (cat.s06_level == 1)
+                {
+                    var cats = (from c in model.sys06 where c.s06_parent == cat_no || c.s06_no == cat_no select c.s06_no);
+                    doc = doc.Where(x => cats.Contains(x.doc.s06_no));
+                }
+                else
+                {
+                    doc = doc.Where(x => x.doc.s06_no == cat_no);
+                }
+
+
+
+            }
+
+
+
+            if (!String.IsNullOrEmpty(file))
+            {
+                var files = from d10 in model.doc10
+                            from d in doc
+                            where d.doc.d09_no == d10.d09_no
+                            && d10.d10_file.Contains(file)
+                            select d;
+
+
+
+               
+                return files.Select(x => x.doc).OrderBy(x => x.d09_createtime);
+            }
+
+            return doc.Select(x => x.doc);
+
+        }
+
+        public int GetSearchMyDataCount(int? peo_uid, int? cat_no, string file, string status)
+        {
+            return GetSearchMyData(peo_uid, cat_no, file, status).Count();
+        }
+
+        public IQueryable<doc09> GetSearchMyData(int? peo_uid, int? cat_no, string file, string status, int startRowIndex, int maximumRows)
+        {
+            return GetSearchMyData(peo_uid, cat_no, file, status).Skip(startRowIndex).Take(maximumRows);
+        }
+
 
 
     }

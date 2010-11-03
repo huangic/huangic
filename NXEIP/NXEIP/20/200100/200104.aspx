@@ -92,7 +92,7 @@
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None" OnRowDataBound="GridView1_RowDataBound"
-                    EnableViewState="False" DataKeyNames="d06_no" 
+                     DataKeyNames="d06_no" 
                     onrowcommand="GridView1_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="發文單位">

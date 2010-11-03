@@ -91,7 +91,7 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
                 d06.d06_open = this.RadioButtonList1.SelectedValue;
                 d06.d06_peouid = int.Parse(sessionObj.sessionUserID);
                 d06.d06_ext = tb_ext.Text;
-
+                d06.d06_status = "1";
 
                 //文檔存檔
                 model.doc06.AddObject(d06);

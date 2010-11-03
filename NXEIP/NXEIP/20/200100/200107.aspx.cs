@@ -39,9 +39,34 @@ public partial class _20_200100_200107 : System.Web.UI.Page
             
         
         }
+
+        ShowStatus();
+       
+
+        this.GridView1.DataBind();
     }
 
-  
+
+
+
+    private void ShowStatus() {
+
+        //判斷
+        if (this.hidden_show_myfile.Value != "1")
+        {
+            this.GridView1.Columns[6].Visible = false;
+            this.GridView1.Columns[7].Visible = false;
+            this.lb_status.Visible = false;
+            this.DropDownList1.Visible = false;
+        }
+        else
+        {
+            this.GridView1.Columns[6].Visible = true;
+            this.GridView1.Columns[7].Visible = true;
+            this.lb_status.Visible = true;
+            this.DropDownList1.Visible = true;
+        }
+    }
   
     protected static string GetDepartmentName(int dep_no)
     {
@@ -131,7 +156,15 @@ public partial class _20_200100_200107 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Search();
+
+        if (this.hidden_show_myfile.Value != "1")
+        {
+
+            Search();
+        }
+        else {
+            SearchMyData();
+        }
     }
 
 
@@ -151,12 +184,51 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
         file = this.tb_file.Text;
 
+
+        this.GridView1.DataSourceID = "ObjectDataSource3";
+
         this.ObjectDataSource3.SelectParameters[0].DefaultValue = dep_no;
         this.ObjectDataSource3.SelectParameters[1].DefaultValue = cat;
         this.ObjectDataSource3.SelectParameters[2].DefaultValue = file;
 
+        ShowStatus();
+
         this.GridView1.DataBind();
     }
+
+    private void SearchMyData()
+    {
+
+
+        SessionObject sessionObj = new SessionObject();
+
+
+        string status = this.DropDownList1.SelectedValue;
+        String cat = "";
+        String file = "";
+
+        cat = String.IsNullOrEmpty(this.hidden_childcat.Value) ? this.hidden_cat.Value : this.hidden_childcat.Value;
+
+
+        //keyword = this.tb_word.Text;
+
+
+        file = this.tb_file.Text;
+
+
+        this.GridView1.DataSourceID = "ObjectDataSource_mydata";
+
+        this.ObjectDataSource_mydata.SelectParameters[0].DefaultValue = sessionObj.sessionUserID;
+        this.ObjectDataSource_mydata.SelectParameters[1].DefaultValue = cat;
+        
+        this.ObjectDataSource_mydata.SelectParameters[2].DefaultValue = file;
+        this.ObjectDataSource_mydata.SelectParameters[3].DefaultValue = status;
+
+        ShowStatus();
+
+        this.GridView1.DataBind();
+    }
+
 
     protected void lv_cat_ItemCommand(object sender, ListViewCommandEventArgs e) {
         if (e.CommandName == "click_cat") { 
@@ -183,8 +255,15 @@ public partial class _20_200100_200107 : System.Web.UI.Page
            this.lv_cat.DataBind();
 
            this.tb_file.Text = "";
-           this.Search();
-          
+
+           if (hidden_show_myfile.Value != "1")
+           {
+
+               this.Search();
+           }
+           else {
+               this.SearchMyData();
+           }
 
         }
     }
@@ -204,13 +283,21 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
             //lb.CssClass = "a-letter-s1";
             this.lv_child.DataBind();
-            this.Search();
+            if (hidden_show_myfile.Value != "1")
+            {
+
+                this.Search();
+            }
+            else
+            {
+                this.SearchMyData();
+            }
         }
     }
     protected void btn_all_Click(object sender, EventArgs e)
     {
         this.hidden_depno.Value = "";
-        
+        this.hidden_show_myfile.Value = "";
         this.Search();
       
     }
@@ -218,7 +305,7 @@ public partial class _20_200100_200107 : System.Web.UI.Page
     {
         SessionObject sessionObj = new SessionObject();
         this.hidden_depno.Value = sessionObj.sessionUserDepartID;
-
+        this.hidden_show_myfile.Value = "";
         this.Search();
       
        
@@ -237,7 +324,10 @@ public partial class _20_200100_200107 : System.Web.UI.Page
                 doc09 d09 = new doc09();
                 d09.d09_no = id;
                 model.doc09.Attach(d09);
+                d09.d09_status = "4";
 
+
+                /*
                 var d10 = (from d in model.doc10 where d.d09_no == id select d);
 
 
@@ -249,9 +339,61 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
 
                 model.doc09.DeleteObject(d09);
+                */
+                
                 model.SaveChanges();
             }
             this.GridView1.DataBind();
         }
+    }
+
+    protected string GetPeopleName(int? peoUid) {
+        if (peoUid.HasValue)
+        {
+            return new PeopleDAO().GetPeopleNameByUid(peoUid.Value);
+        }
+        else {
+            return "";
+        }
+    }
+
+    protected string GetROCDate(DateTime? date)
+    {
+        if (date.HasValue)
+        {
+            return new ChangeObject()._ADtoROC(date.Value).ToString() ;
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+
+    protected string GetStatus(string status) {
+        if (status == "1") {
+            return "通過";
+        }
+        if (status == "2")
+        {
+            return "未通過";
+        }
+        if (status == "3")
+        {
+            return "審核中";
+        }
+        if (status == "4")
+        {
+            return "刪除";
+        }
+        return "";
+    }
+
+    protected void btn_my_Click(object sender, EventArgs e)
+    {
+        this.hidden_show_myfile.Value = "1";
+       
+     
+        this.SearchMyData();
     }
 }

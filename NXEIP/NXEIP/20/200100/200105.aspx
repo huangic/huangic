@@ -77,8 +77,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource_d11" EmptyDataText="查無資料"
-                    GridLines="None" OnRowDataBound="GridView1_RowDataBound"
-                    EnableViewState="False" DataKeyNames="d11_no" 
+                    GridLines="None" OnRowDataBound="GridView1_RowDataBound" DataKeyNames="d11_no" 
                     onrowcommand="GridView1_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="d11_subject" HeaderText="主旨" 
@@ -124,7 +123,7 @@
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="download imageButton" 
-                                                    NavigateUrl='<%#String.Format("200105-1.ashx?d11={0}&d07={1}",Eval("d11_no"),Eval("d12_no"))  %>' 
+                                                    NavigateUrl='<%#String.Format("200105-1.ashx?d11={0}&d12={1}",Eval("d11_no"),Eval("d12_no"))  %>' 
                                                     Target="_blank"><span>下載</span></asp:HyperLink>
                                                 <asp:Label ID="Label5" runat="server" 
                                                     Text='<%# String.Format("{0} (下載次數:{1})", Eval("d12_file"),Eval("d12_count")) %>'></asp:Label>
@@ -178,9 +177,7 @@
                             </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
-            </ContentTemplate>
-            
-        </asp:UpdatePanel>
+           
         <div class="footer">
             <div class="f1">
             </div>
@@ -190,7 +187,8 @@
             </div>
         </div>
         <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" 
+                PageSize="10">
                 <Fields>
                     <asp:NextPreviousPagerField ShowNextPageButton="False" />
                     <asp:NumericPagerField />
@@ -198,5 +196,9 @@
                 </Fields>
             </asp:DataPager>
         </div>
+
+         </ContentTemplate>
+            
+        </asp:UpdatePanel>
     </div>
 </asp:Content>
