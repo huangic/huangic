@@ -6,7 +6,10 @@ using System.Globalization;
 using System.Data;
 
 /// <summary>
-/// PCalendarUtil 的摘要描述
+/// 功能名稱：PCalendarUtil
+/// 功能描述：行事曆專用function
+/// 撰寫者：Lina
+/// 撰寫時間：2010/11/03 修改
 /// </summary>
 public class PCalendarUtil
 {
@@ -104,4 +107,32 @@ public class PCalendarUtil
     }
     #endregion
 
+    #region 取得人員在職狀態的編號
+    public static string GetPeoJobtype()
+    {
+        DBObject dbo_type = new DBObject();
+        DataTable dt_type = new DataTable();
+        string typ_no = "0";
+        string sqlstr = "SELECT typ_no from types where (typ_code = 'work') AND (typ_number = '1') AND (typ_status = '1')";
+        dt_type = dbo_type.ExecuteQuery(sqlstr);
+        if (dt_type.Rows.Count > 0) typ_no = dt_type.Rows[0]["typ_no"].ToString();
+
+        return typ_no;
+    }
+    #endregion
+
+    #region 判斷是否可以新增行事曆
+    public static bool IsAdd(string loginuserid, string setpeouid)
+    {
+        bool isadd = false;
+        DBObject dbo_add = new DBObject();
+        DataTable dt_add = new DataTable();
+        string sqlstr = "SELECT c01.peo_uid, people.peo_name FROM c01 INNER JOIN people ON c01.peo_uid = people.peo_uid INNER JOIN"
+            + " types ON people.peo_jobtype = types.typ_no WHERE (c01.c01_peouid = " + loginuserid + ") AND (types.typ_number = '1') AND (c01.peo_uid = " + setpeouid + ")";
+        dt_add = dbo_add.ExecuteQuery(sqlstr);
+        if (dt_add.Rows.Count > 0) isadd = true;
+
+        return isadd;
+    }
+    #endregion
 }
