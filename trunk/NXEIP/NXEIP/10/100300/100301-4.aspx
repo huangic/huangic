@@ -153,15 +153,16 @@
                             <asp:Label ID="lab_date" runat="server" Visible="False"></asp:Label>
                         </div>
                         <div class="function">
-                            <asp:Button ID="btn_print" runat="server" CssClass="b-input" Text="列印" OnClick="btn_print_Click" />&nbsp;
-                            <asp:Button ID="btn_back" runat="server" CssClass="b-input" Text="返回使用者" OnClick="btn_back_Click" />
+                           <ul>
+                             <li><asp:LinkButton ID="btn_print" runat="server" CssClass="b-print" onclick="btn_print_Click">列印</asp:LinkButton></li>
+                             <li><asp:LinkButton ID="btn_back" runat="server" CssClass="b-back" onclick="btn_back_Click">返回使用者</asp:LinkButton></li>
+                           </ul>
                         </div>
                     </div>
                     <div class="h3">
                     </div>
                 </div>
-                <asp:Table ID="Table1" runat="server" Width="100%" CssClass="event-list" 
-                    BorderColor="#996633" BorderStyle="Solid" BorderWidth="1px">
+                <asp:Table ID="Table1" runat="server" Width="100%" CssClass="calendar-biglist">
                 </asp:Table>
                 <div id="div_msg" runat="server">
                     <asp:Label ID="lab_msg" runat="server"></asp:Label>
