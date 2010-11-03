@@ -30,6 +30,13 @@ public partial class _20_200100_200105 : System.Web.UI.Page
 
             
         }
+
+
+       
+            this.GridView1.DataBind();
+        
+
+        
     }
 
   
@@ -109,8 +116,12 @@ public partial class _20_200100_200105 : System.Web.UI.Page
 
             using (NXEIPEntities model = new NXEIPEntities()) {
                 doc11 d11 = new doc11();
-               // d11.d11_no = id;
-               
+                d11.d11_no = id;
+
+                model.doc11.Attach(d11);
+
+                d11.d11_status = "2";
+
                 model.SaveChanges();
             }
             this.GridView1.DataBind();

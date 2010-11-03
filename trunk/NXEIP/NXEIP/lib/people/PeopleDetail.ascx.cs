@@ -19,12 +19,17 @@ public partial class lib_PeopleDetail : System.Web.UI.UserControl
         string script = @"$(function(){$('.popup').popupWindow({'centerBrowser':1,'width':300,'height':160 });    })";
 
         ScriptManager.RegisterClientScriptBlock(this, typeof(UserControl), "Popup", script, true);
+
+        
     }
 
     protected override void Render(HtmlTextWriter writer)
     {
-       
 
+        if (String.IsNullOrEmpty(peo_uid))
+        {
+            this.hl_detail.Visible = false;
+        }
         
         this.hl_detail.NavigateUrl = String.Format(this.hl_detail.NavigateUrl,peo_uid);
         

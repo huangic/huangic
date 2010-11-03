@@ -96,6 +96,20 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
                 d09.s06_no = cat_no;
                 d09.d09_note = this.tb_note.Text;
 
+                //判斷是否需要審核
+
+                String audit = new ArgumentsDAO().GetValueByVariable("200107_audit");
+
+                if (audit == "1")
+                {
+                    d09.d09_status = "3";
+                }
+                else {
+                    d09.d09_status = "1";
+                    }
+
+
+
                 //文檔存檔
                 model.doc09.AddObject(d09);
                 model.SaveChanges();

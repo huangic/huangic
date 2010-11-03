@@ -64,14 +64,26 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     
+    <asp:ObjectDataSource ID="ObjectDataSource_mydata" runat="server"  EnablePaging="true"
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetSearchMyData" 
+        TypeName="NXEIP.DAO.Doc09DAO" SelectCountMethod="GetSearchMyDataCount">
+        <SelectParameters>
+            <asp:Parameter Name="peo_uid" Type="Int32" />
+            <asp:Parameter Name="cat_no" Type="Int32" />
+            <asp:Parameter Name="file" Type="String" />
+            <asp:Parameter Name="status" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200107" />
     
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
 
         <asp:HiddenField ID="hidden_cat" runat="server" />
         <asp:HiddenField ID="hidden_childcat" runat="server" />
          <asp:HiddenField ID="hidden_depno" runat="server" />
+          <asp:HiddenField ID="hidden_show_myfile" runat="server"/>
            <div class="select-1">
 
                <asp:ListView ID="lv_cat" runat="server" DataSourceID="ObjectDataSource_CAT"  
@@ -105,7 +117,14 @@
          <div  class="select" >
             <span class="a-letter-2">檔名：<span class="a-letter-1">
                     <asp:TextBox ID="tb_file" runat="server"></asp:TextBox>
-                     &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
+                     &nbsp;<asp:Label ID="lb_status" runat="server" Text="狀態:"></asp:Label>
+             <asp:DropDownList ID="DropDownList1" runat="server">
+                 <asp:ListItem Value="">全部</asp:ListItem>
+                 <asp:ListItem Value="1">通過</asp:ListItem>
+                 <asp:ListItem Value="2">未通過</asp:ListItem>
+                 <asp:ListItem Value="3">送審中</asp:ListItem>
+             </asp:DropDownList>
+             <asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
                         OnClick="Button1_Click" />
                 </span>
                 
@@ -134,6 +153,8 @@
                         onclick="btn_all_Click" />
                     <asp:Button ID="btn_dep" runat="server" Text="單位檔案" CssClass="show b-input" 
                         onclick="btn_dep_Click" />
+                        <asp:Button ID="btn_my" runat="server" Text="我的檔案" CssClass="show b-input" onclick="btn_my_Click" 
+                         />
                     <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=800"
                         value="新增檔案" />
                 </div>
@@ -146,7 +167,7 @@
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None" OnRowDataBound="GridView1_RowDataBound" 
-                    EnableViewState="False" onrowcommand="GridView1_RowCommand" 
+                    onrowcommand="GridView1_RowCommand" 
                     DataKeyNames="d09_no">
                     <Columns>
                         <asp:TemplateField HeaderText="檔案類別">
@@ -190,7 +211,29 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="審核人員&lt;br/&gt;退件原因" >
+                          
+                            
+                            
+                            <ItemTemplate>
+                                <asp:Label ID="Label8" runat="server" Text='<%# GetPeopleName((Int32?)Eval("d09_checkuid")) %>'></asp:Label>
+                                <uc2:PeopleDetail ID="PeopleDetail2" runat="server" peo_uid='<%# Eval("d09_checkuid") %>'/>
 
+                                <asp:Label ID="Label9" runat="server" Text='<%# GetROCDate((DateTime?)Eval("d09_checkdate")) %>'></asp:Label>
+                                
+                                <br />
+                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("d09_reason") %>'></asp:Label>
+                            
+                            
+                            
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="狀態">
+                            <ItemTemplate>
+                                <asp:Label ID="Label7" runat="server" Text='<%# GetStatus((String)Eval("d09_status")) %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
 
 
 
@@ -230,7 +273,7 @@
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
-                
+                 <asp:AsyncPostBackTrigger ControlID="btn_my" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btn_all" EventName="Click" />
                 <asp:AsyncPostBackTrigger ControlID="btn_dep" EventName="Click" />
                 

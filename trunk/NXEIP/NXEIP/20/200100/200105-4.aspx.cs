@@ -92,8 +92,11 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
     }
     protected void btn_ok_Click(object sender, EventArgs e)
     {
-      
-            SessionObject sessionObj=new SessionObject();
+
+
+        string mode = "new";
+        
+             SessionObject sessionObj=new SessionObject();
             
 
 
@@ -109,6 +112,14 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 //取使用者ID
 
                 doc13 doc = (from d in model.doc13 where d.d11_no == id && d.d13_peouid == peo_uid select d).FirstOrDefault();
+
+                if (doc == null)
+                {
+                    doc = new doc13();
+                }
+                else {
+                    mode = "edit";
+                }
 
                 doc.d13_depno = int.Parse(sessionObj.sessionUserDepartID);
                 doc.d11_no = id;
@@ -127,7 +138,10 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
 
                 //文檔存檔
-                model.doc13.AddObject(doc);
+                if (mode == "new")
+                {
+                    model.doc13.AddObject(doc);
+                }
                 model.SaveChanges();
 
                 

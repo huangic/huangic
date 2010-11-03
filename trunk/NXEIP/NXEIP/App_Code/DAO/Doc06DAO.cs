@@ -51,6 +51,7 @@ namespace NXEIP.DAO
                 from p in model.people
                 from d in model.doc06
                 where p.peo_uid == d.d06_peouid
+                where d.d06_status=="1"
                 orderby d.d06_createtime
                 select new { doc = d, people = p };
 
@@ -114,6 +115,7 @@ namespace NXEIP.DAO
                 from p in model.people
                 from d in model.doc06
                 where p.peo_uid == d.d06_peouid
+                &&d.d06_status=="1"
                 orderby d.d06_createtime
                 select new { doc = d, people = p };
 

@@ -58,7 +58,7 @@ namespace lib.SWFUpload
                 {
                     fileName = file_upload.FileName;
                     if (fileName.IndexOf(".") != -1)
-                        extension = fileName.Substring(fileName.LastIndexOf(".") + 1, fileName.Length - fileName.LastIndexOf(".") - 1);
+                        extension = Path.GetExtension(fileName);
 
                     SWFUploadFile uf = new SWFUploadFile();
 
@@ -106,7 +106,8 @@ namespace lib.SWFUpload
                         Id = listufi.Count,
                         FileName = newFileName,
                         OriginalFileName = fileName,
-                        Path = savePath
+                        Path = savePath,
+                        Extension = extension
                     });
                     string postData = "";
                     //序列化

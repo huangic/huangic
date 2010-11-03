@@ -30,6 +30,7 @@ public partial class _20_200100_200104 : System.Web.UI.Page
 
             
         }
+        this.GridView1.DataBind();
     }
 
   
@@ -160,6 +161,9 @@ public partial class _20_200100_200104 : System.Web.UI.Page
                 d06.d06_no = id;
                 model.doc06.Attach(d06);
 
+                d06.d06_status = "2";
+
+                /*
                     var d07=(from d in model.doc07 where d.d06_no==id select d);
                     var d08 = (from d in model.doc08 where d.d06_no == id select d);
 
@@ -174,6 +178,9 @@ public partial class _20_200100_200104 : System.Web.UI.Page
                         model.doc07.DeleteObject(d);
                     }
                     model.doc06.DeleteObject(d06);
+                 * 
+                 * 
+                 */
                     model.SaveChanges();
             }
             this.GridView1.DataBind();
