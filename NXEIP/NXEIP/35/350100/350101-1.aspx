@@ -31,7 +31,7 @@
                         角色名稱
                     </th>
                     <td>
-                        <asp:TextBox ID="tbx_role_name" runat="server" Height="20px" Width="200px"></asp:TextBox>
+                        <asp:TextBox ID="tbx_role_name" runat="server" Height="20px" MaxLength="25" Width="200px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -39,7 +39,7 @@
                         角色備註
                     </th>
                     <td>
-                        <asp:TextBox ID="tbx_role_memo" runat="server" Height="60px" MaxLength="250" TextMode="MultiLine"
+                        <asp:TextBox ID="tbx_role_memo" runat="server" Height="60px" MaxLength="50" TextMode="MultiLine"
                             Width="200px"></asp:TextBox>
                     </td>
                 </tr>
