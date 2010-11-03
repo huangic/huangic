@@ -72,6 +72,8 @@
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
+                </ContentTemplate>
+        </asp:UpdatePanel>
                 <div class="pager">
                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                         <Fields>
@@ -81,8 +83,7 @@
                         </Fields>
                     </asp:DataPager>
                 </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+            
     </div>
 </asp:Content>
 
