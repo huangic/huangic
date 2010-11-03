@@ -1,12 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100301-1.aspx.cs" Inherits="_10_100300_100301_1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100301-1.aspx.cs" Inherits="_10_100300_100301_1" EnableEventValidation="false" %>
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
-
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxtoolkit" %>
 <%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </ajaxtoolkit:ToolkitScriptManager>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100301" />
     <div class="PersonalCalendarLayout">
         <div class="left">
@@ -34,7 +35,7 @@
                     <asp:Calendar ID="Calendar1" runat="server" CssClass="calendar" DayNameFormat="Shortest"
                         BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText=""
                         PrevMonthText="" OnDayRender="Calendar1_DayRender"
-                        ShowTitle="False" onvisiblemonthchanged="Calendar1_VisibleMonthChanged">
+                        ShowTitle="False">
                         <DayHeaderStyle CssClass="headtitle" />
                         <DayStyle CssClass="Nholiday_bg" />
                         <TodayDayStyle CssClass="today" />
@@ -67,11 +68,21 @@
                         <div class="h2">
                             <asp:DropDownList ID="ddl_stime" runat="server">
                             </asp:DropDownList>
+                            <ajaxtoolkit:CascadingDropDown ID="ddl_stime_CascadingDropDown" runat="server" 
+                            Category="stime" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                                ServiceMethod="GetTimes" ServicePath="../../WebService/calendar.asmx" UseContextKey="True"
+                                TargetControlID="ddl_stime">
+                            </ajaxtoolkit:CascadingDropDown>
                         </div>
                         <div class="hd a-letter-1">&nbsp;</div>
                         <div class="h2">
                             <asp:DropDownList ID="ddl_etime" runat="server">
                             </asp:DropDownList>
+                            <ajaxtoolkit:CascadingDropDown ID="ddl_etime_CascadingDropDown" runat="server" 
+                            Category="etime" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                                ServiceMethod="GetTimes" ServicePath="../../WebService/calendar.asmx" UseContextKey="True"
+                                TargetControlID="ddl_etime">
+                            </ajaxtoolkit:CascadingDropDown>
                         </div>
                     </div>
                     <div class="headerW">
@@ -91,9 +102,13 @@
                     <div class="headerW">
                         <div class="h1 a-letter-1">部門</div>
                         <div class="h2">
-                            <asp:DropDownList ID="ddl_QryDepart" runat="server" AutoPostBack="True" 
-                                onselectedindexchanged="ddl_QryDepart_SelectedIndexChanged">
+                            <asp:DropDownList ID="ddl_QryDepart" runat="server">
                             </asp:DropDownList>
+                            <ajaxtoolkit:CascadingDropDown ID="ddl_QryDepart_CascadingDropDown" runat="server" 
+                                Category="departs" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                                ServiceMethod="GetViewDepart" TargetControlID="ddl_QryDepart" 
+                                ServicePath="../../WebService/calendar.asmx" UseContextKey="True">
+                            </ajaxtoolkit:CascadingDropDown>
                         </div>
                         <div class="h3"></div>
                     </div>
@@ -102,6 +117,12 @@
                         <div class="h2">
                             <asp:DropDownList ID="ddl_QryPeople" runat="server">
                             </asp:DropDownList>
+                            <ajaxtoolkit:CascadingDropDown ID="ddl_QryPeople_CascadingDropDown" runat="server" 
+                                Category="people" LoadingText="讀取中..." ParentControlID="ddl_QryDepart" 
+                                PromptText="請選擇" PromptValue="0" ServiceMethod="GetViewPeople" 
+                                TargetControlID="ddl_QryPeople" 
+                                ServicePath="../../WebService/calendar.asmx" UseContextKey="True">
+                            </ajaxtoolkit:CascadingDropDown>
                         </div>
                         <div class="h3"><asp:Button ID="btn_QrySubmit" runat="server" CssClass="b-input" Text="搜尋" onclick="btn_QrySubmit_Click" /></div>
                     </div>
@@ -118,6 +139,11 @@
                         <div class="h2">
                             <asp:DropDownList ID="ddl_c01" runat="server">
                             </asp:DropDownList>
+                            <ajaxtoolkit:CascadingDropDown ID="ddl_c01_CascadingDropDown" runat="server" 
+                            Category="c01" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                                ServiceMethod="GetC01" ServicePath="../../WebService/calendar.asmx" UseContextKey="True"
+                                TargetControlID="ddl_c01">
+                            </ajaxtoolkit:CascadingDropDown>
                         </div>
                         <div class="h3"><asp:Button ID="btn_SetSubmit0" runat="server" CssClass="b-input" Text="搜尋" onclick="btn_SetSubmit0_Click" /></div>
                     </div>
@@ -136,10 +162,10 @@
                             <asp:Label ID="lab_people" runat="server" Visible="False"></asp:Label>
                             <asp:Label ID="lab_date" runat="server" Visible="False"></asp:Label>
                         </div>
-                        <div class="function">
-                            <ul>
-                             <li><asp:LinkButton ID="btn_print" runat="server" CssClass="b-print" onclick="btn_print_Click">列印</asp:LinkButton></li>
-                             <li><asp:LinkButton ID="btn_back" runat="server" CssClass="b-back" onclick="btn_back_Click">返回使用者</asp:LinkButton></li>
+                        <div class="function_print">
+                          <ul>
+                             <li><asp:HyperLink ID="hl_print" runat="server" CssClass="b-print">列印</asp:HyperLink></li>
+                             <li><asp:HyperLink ID="hl_back" runat="server" CssClass="b-back">返回使用者</asp:HyperLink></li>
                            </ul>
                         </div>
                     </div>

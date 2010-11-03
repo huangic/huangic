@@ -548,17 +548,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
                 }
                 else
                 {
-                    int newpk = 0;
-                    #region 取得pk
-                    if (new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) !=null)
-                    {
-                        newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
-                    }
-                    else
-                    {
-                        newpk = 1;
-                    }
-                    #endregion
+                    int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
 
                     InsertDB_C02(newpk, sdate, edate, 0); //新增
 
@@ -719,7 +709,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     #region 日循環
     private int InsertCycleDay(int c03_no)
     {
-        int newpk = 0;
+        int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
         int count = 0;
 
         DateTime sdate1 = new DateTime();
@@ -729,17 +719,6 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
 
         int adddays = Convert.ToInt32(this.txt_1.Text);
         int addays1 = PCalendarUtil.DateDiff(Convert.ToDateTime(this.cl_sdate._ADDate), Convert.ToDateTime(this.cl_edate._ADDate));
-
-        #region 取得pk
-        if(new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text))!=null)
-        {
-            newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
-        }
-        else
-        {
-            newpk = 1;
-        }
-        #endregion
 
         if (this.rb_51.Checked)
         {
@@ -778,24 +757,13 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     #region 週循環
     private int InsertCycleWeek(int c03_no)
     {
-        int newpk = 0;
+        int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
         int count = 0;
         DateTime sdate1 = new DateTime();
         DateTime edate1 = new DateTime();
         DateTime c03_sdate = new DateTime();
         c03_sdate = Convert.ToDateTime(this.cl_sdate1._ADDate);
         int addays1 = PCalendarUtil.DateDiff(Convert.ToDateTime(this.cl_sdate._ADDate), Convert.ToDateTime(this.cl_edate._ADDate));
-
-        #region 取得pk
-        if (new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) != null)
-        {
-            newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
-        }
-        else
-        {
-            newpk = 1;
-        }
-        #endregion
 
         if (this.rb_51.Checked)
         {
@@ -856,24 +824,13 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     #region 月循環
     private int InsertCycleMonth(int c03_no)
     {
-        int newpk = 0;
+        int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
         int count = 0;
         DateTime sdate1 = new DateTime();
         DateTime edate1 = new DateTime();
         DateTime c03_sdate = new DateTime();
         c03_sdate = Convert.ToDateTime(this.cl_sdate1._ADDate);
         int addays1 = PCalendarUtil.DateDiff(Convert.ToDateTime(this.cl_sdate._ADDate), Convert.ToDateTime(this.cl_edate._ADDate));
-
-        #region 取得pk
-        if (new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) != null)
-        {
-            newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
-        }
-        else
-        {
-            newpk = 1;
-        }
-        #endregion
 
         if (this.rb_51.Checked)
         {
@@ -1031,23 +988,12 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     private int InsertCycleYear(int c03_no)
     {
         int count = 0;
-        int newpk = 0;
+        int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
         DateTime sdate1 = new DateTime();
         DateTime edate1 = new DateTime();
         DateTime c03_sdate = new DateTime();
         c03_sdate = Convert.ToDateTime(this.cl_sdate1._ADDate);
         int addays1 = PCalendarUtil.DateDiff(Convert.ToDateTime(this.cl_sdate._ADDate), Convert.ToDateTime(this.cl_edate._ADDate));
-
-        #region 取得pk
-        if (new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) != null)
-        {
-            newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
-        }
-        else
-        {
-            newpk = 1;
-        }
-        #endregion
 
         if (this.rb_51.Checked)
         {
