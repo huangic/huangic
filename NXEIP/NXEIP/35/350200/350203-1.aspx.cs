@@ -47,6 +47,10 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
                 this.ddl_depart.DataBind();
                 this.ddl_depart.Items[this.ddl_depart.SelectedIndex].Selected = false;
 
+                //剔除自己的
+                this.ddl_depart.Items.Remove(new ListItem(modifyDepart.dep_name,modifyDepart.dep_no.ToString()));
+
+
                 try
                 {
                     this.ddl_depart.Items.FindByValue(modifyDepart.dep_parentid.ToString()).Selected = true;
