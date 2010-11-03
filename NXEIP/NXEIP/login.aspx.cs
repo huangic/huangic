@@ -61,8 +61,8 @@ public partial class login : SessionObject
                             //save session data
                             this.sessionUserID = peoData.peo_uid.ToString();
                             this.sessionUserName = peoData.peo_name;
-                            this.sessionUserDepartID = peoData.departments.dep_no.ToString();
-                            this.sessionUserDepartName = peoData.departments.dep_name;
+                            this.sessionUserDepartID = peoData.dep_no.ToString();
+                            this.sessionUserDepartName = new UtilityDAO().Get_DepartmentName(peoData.dep_no);
                             this.sessionUserAccount = accData.acc_login;
                             this.sessionLogInID = loginID;
                             
