@@ -32,21 +32,11 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                 return;
             }
             #endregion
-
-            #region 人員資料
-            DataTable dt = new DataTable();
-            string sqlstr = "SELECT peo_uid, peo_name,dep_no FROM people where peo_uid=" + this.lab_people.Text;
-            dt= dbo.ExecuteQuery(sqlstr);
-            if (dt.Rows.Count > 0)
-            {
-                this.lab_name.Text = dt.Rows[0]["peo_name"].ToString();
-                this.lab_dep_no.Text = dt.Rows[0]["dep_no"].ToString();
-            }
-            #endregion
-
+            this.lab_name.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_people.Text)); //姓名
             this.Panel1.Visible = false;
             this.Panel2.Visible = false;
             this.Panel3.Visible = false;
+            this.Panel4.Visible = false;
             this.lab_Month.Visible = false;
 
             if (this.lab_printtype.Text.Equals("days"))
@@ -67,9 +57,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
         try
         {
             this.Panel1.Visible = true;
-
             this.lab_date.Text = this.lab_today.Text;
-
             DataTable dt99 = new DataTable();
             string sqlstr99 = "";
 
@@ -291,7 +279,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             sdate = sdate.AddDays(-(int)changeobj.ChangeWeek(sdate));
             edate = sdate.AddDays(7);
 
-            this.lab_Month.Text = Convert.ToString(sdate.Year-1911)+" 年 "+sdate.Month.ToString("0#")+" 月";
+            this.lab_Month.Text = (Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text)).Year - 1911) + " 年 " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text)).Month.ToString("0#") + " 月";
             this.lab_Month.Visible = true;
 
             while (sdate < edate)
@@ -458,8 +446,99 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
     }
     #endregion
 
-
+    #region PrintList顯示行事曆
     private void PrintList()
     {
+        string aMSG = "";
+        try
+        {
+            this.Panel4.Visible = true;
+            this.lab_date.Visible = false;
+            this.lab_Month.Visible = true;
+
+            DateTime today = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text));
+            this.lab_Month.Text = today.Year.ToString() + "年" + today.Month.ToString() + "月";
+            this.lab_date.Text = this.lab_today.Text;
+
+            DataTable dt99 = new DataTable();
+            string sqlstr99 = "";
+
+            #region 基本表格
+            this.Table2.Rows.Clear();
+            this.Table2.Dispose();
+            int rowcount = -1;
+            string sdate = today.ToString("yyyy/MM/01") + " 00:00:00";
+            string edate = today.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
+            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+            + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+            dt99 = dbo.ExecuteQuery(sqlstr99);
+            if (dt99.Rows.Count > 0)
+            {
+                string update = "";
+                for (int i = 0; i < dt99.Rows.Count; i++)
+                {
+                    DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
+                    if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                    {
+                        rowcount++;
+                        this.Table2.Rows.Add(new System.Web.UI.WebControls.TableRow());
+                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table2.Rows[rowcount].Cells[0].CssClass = "timecss2";
+                        this.Table2.Rows[rowcount].Cells[1].CssClass = "timecss2";
+                        this.Table2.Rows[rowcount].Cells[0].Height = Unit.Pixel(60);
+                        this.Table2.Rows[rowcount].Cells[0].Width = Unit.Pixel(80);
+                        this.Table2.Rows[rowcount].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+
+                        this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
+                        changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                    }
+                    update = nowdate.ToString("MM-dd");
+                    string stime = nowdate.ToString("HH:mm");
+                    string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+
+                    this.Table2.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display3(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
+                }
+            }
+            #endregion
+
+
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱:行事曆-日--顯示出行事曆(右邊版面)<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
     }
+    #endregion
+
+    #region show行程
+    private string Display3(string today, string txt, int no, int setuid)
+    {
+        string aMSG = "";
+        string txt1 = "";
+        try
+        {
+            if (no > 0)
+            {
+                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                    txt1 = "<span class=\"row_schedule\">" + txt + "</span>" + "<br />";
+                else
+                    txt1 = txt + "<br />";
+            }
+            else
+            {
+                txt1 = txt + "<br />";
+            }
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱:行事曆-日--行事曆-日--Display<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
+        return txt1;
+    }
+    #endregion
 }

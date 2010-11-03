@@ -10,10 +10,9 @@
 	.timecss2 { BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; FONT-WEIGHT: bold; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; TEXT-DECORATION: none;font-size:13px }
 	.href1 { COLOR: #000000; TEXT-DECORATION: none;font-size:13px }
 	.table1 { BORDER-RIGHT: medium none; BORDER-TOP: medium none;BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse;font-size:13px}
-    .style1{height: 50px;font-size:13px}
-	 </style>
+     </style>
 </head>
-<body>
+<body onload="print();">
     <form id="form1" runat="server">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
@@ -21,7 +20,6 @@
             <asp:Label ID="lab_people" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="lab_printtype" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="lab_right" runat="server" Visible="False"></asp:Label>
-            <asp:Label ID="lab_dep_no" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="lab_today" runat="server" Visible="False"></asp:Label>
           </td>
       </tr>
@@ -118,6 +116,11 @@
                     </TitleStyle>
                     <WeekendDayStyle CssClass="holiday_bg"></WeekendDayStyle>
                 </asp:Calendar>
+            </asp:panel>
+            <asp:panel id="Panel4" runat="server">
+            <asp:Table ID="Table2" runat="server" bordercolor="Black" BorderWidth="1px" 
+                    CellPadding="2" CellSpacing="0" CssClass="table1" Width="100%">
+                </asp:Table>
             </asp:panel>
         </td>
       </tr>
