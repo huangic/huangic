@@ -46,20 +46,20 @@
 	padding: 2px;
 	cursor: pointer;
 	font-size: 60%;
-	background: #007341;
-	color:#FFFFFF;
+	background: #CEE39B;
+	color:#333;
 }
 #closeCalender:hover {
 	background:  #F0FBD7;
 	color: #333;
 }
 #linksTable {
-	background: #acd156;
+	background: #CBE296;
 }
 
 #linksTable a {
 	display: block;
- 	color: #fff; 
+ 	color: #000; 
 	letter-spacing: 1px;
 	font-weight: bold;
 	font-size: 80%;
@@ -76,5 +76,5 @@
 	float: right;
 }
 #today {
-	background: #acd156;
+	background: #CBE296;
 }
