@@ -45,7 +45,15 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
                 //父代部門
                 this.ddl_depart.DataBind();
                 this.ddl_depart.Items[this.ddl_depart.SelectedIndex].Selected = false;
-                this.ddl_depart.Items.FindByValue(modifyDepart.dep_parentid.ToString()).Selected = true;
+
+                try
+                {
+                    this.ddl_depart.Items.FindByValue(modifyDepart.dep_parentid.ToString()).Selected = true;
+                }
+                catch { 
+                
+                }
+
 
                 //預設角色
                 string sql = "select rol_no from roldefault where dep_no = " + ID;

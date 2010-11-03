@@ -22,9 +22,14 @@ public partial class _20_200100_200107 : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
 
-            this.hidden_cat.Value = "1";
+            using(NXEIPEntities model=new NXEIPEntities()){
 
-            
+            sys06 sys = (from d in model.sys06 where d.s06_status == "1" && d.sfu_no == 200107 orderby d.s06_order orderby d.s06_no select d).First();
+
+
+            this.hidden_cat.Value = sys.s06_no.ToString();
+
+            }
 
 
 
@@ -102,11 +107,14 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+      
+        
+        
         //Bind內部的DataSource
         if (e.Row.RowType == DataControlRowType.DataRow) {
            ObjectDataSource ods = (ObjectDataSource)e.Row.FindControl("ObjectDataSource2");
 
-           
+            
 
 
             var v = (doc09)e.Row.DataItem;
@@ -165,13 +173,19 @@ public partial class _20_200100_200107 : System.Web.UI.Page
            
            this.lv_child.DataBind();
 
+        
+
           //顯示子項目的DIV
                this.childDiv.Visible = this.lv_child.Items.Count > 0;
           
 
 
            this.lv_cat.DataBind();
-        
+
+           this.tb_file.Text = "";
+           this.Search();
+          
+
         }
     }
 
@@ -190,13 +204,13 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
             //lb.CssClass = "a-letter-s1";
             this.lv_child.DataBind();
-
+            this.Search();
         }
     }
     protected void btn_all_Click(object sender, EventArgs e)
     {
         this.hidden_depno.Value = "";
-
+        
         this.Search();
       
     }

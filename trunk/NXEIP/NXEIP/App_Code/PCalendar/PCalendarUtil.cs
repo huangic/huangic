@@ -13,9 +13,7 @@ public class PCalendarUtil
     
 	public PCalendarUtil()
 	{
-		//
-		// TODO: 在此加入建構函式的程式碼
-		//
+		
 	}
 
     #region 取得今天日期

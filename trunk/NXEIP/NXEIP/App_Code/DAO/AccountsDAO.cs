@@ -16,9 +16,7 @@ namespace NXEIP.DAO
     {
         public AccountsDAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+          
         }
 
         private NXEIPEntities model = new NXEIPEntities();

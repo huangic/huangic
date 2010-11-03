@@ -20,9 +20,7 @@ namespace NXEIP.Lib
         static Logger logger = LogManager.GetCurrentClassLogger();
         public CacheUtil()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
 
         }
         /// <summary>

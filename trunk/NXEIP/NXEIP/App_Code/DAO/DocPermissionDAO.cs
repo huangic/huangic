@@ -30,9 +30,7 @@ namespace NXEIP.DAO
 
         public DocPermissionDAO()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+          
         }
 
         public IQueryable<PermissionObj> GetFilePermission(int doc_no)

@@ -13,9 +13,7 @@ namespace NXEIP.HttpModule
     {
         public SessionCheckModule()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
         }
 
         public void Dispose()

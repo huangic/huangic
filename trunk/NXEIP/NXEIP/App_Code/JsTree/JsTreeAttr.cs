@@ -11,9 +11,7 @@ namespace NXEIP.JsTree
     {
         public JsTreeAttr()
         {
-            //
-            // TODO: 在此加入建構函式的程式碼
-            //
+           
         }
 
 
