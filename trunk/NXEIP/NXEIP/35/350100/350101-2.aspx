@@ -16,9 +16,11 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-        SelectCommand="SELECT people.peo_name, departments.dep_name, types.typ_cname FROM roleaccount INNER JOIN accounts ON roleaccount.acc_no = accounts.acc_no INNER JOIN people ON accounts.peo_uid = people.peo_uid INNER JOIN departments ON people.dep_no = departments.dep_no INNER JOIN types ON people.peo_pfofess = types.typ_no WHERE (people.peo_jobtype = '1') AND (roleaccount.rol_no = @rol_no)">
+        
+        SelectCommand="SELECT people.peo_name, departments.dep_name, types.typ_cname FROM roleaccount INNER JOIN accounts ON roleaccount.acc_no = accounts.acc_no INNER JOIN people ON accounts.peo_uid = people.peo_uid INNER JOIN departments ON people.dep_no = departments.dep_no INNER JOIN types ON people.peo_pfofess = types.typ_no WHERE (people.peo_jobtype = @peo_jobtype) AND (roleaccount.rol_no = @rol_no)">
         <SelectParameters>
             <asp:Parameter Name="rol_no" />
+            <asp:Parameter Name="peo_jobtype" />
         </SelectParameters>
     </asp:SqlDataSource>
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="350101" />
