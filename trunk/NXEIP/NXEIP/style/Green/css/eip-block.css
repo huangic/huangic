@@ -211,9 +211,9 @@ float:center;
 .tableDiv .header .h2 .function,.layoutDiv .header .h2 .function
 {
 	float:right;
-	position:absolute;
-	right:116px;
-	top: 2px;
+   position:absolute;
+   right:30px;
+   top:2px;
  /*
   position:absolute;
   right:180px;

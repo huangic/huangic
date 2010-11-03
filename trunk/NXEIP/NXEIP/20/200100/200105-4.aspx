@@ -18,7 +18,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-   
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllWithDoc11No" 
+        TypeName="NXEIP.DAO.Doc12DAO">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="doc11_no" QueryStringField="id" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="200105" SubFunc="回傳檔案" />
     
    <div class="tableDiv">
@@ -35,7 +41,7 @@
             <tbody>
                 <tr>
                     <th>
-                        上傳時間
+                        回傳時間
                     </th>
                     <td>
                                                
@@ -45,7 +51,7 @@
                     
                     
                     <th>
-                        上傳單位
+                        回傳單位
                     </th>
                     <td>
                                                
@@ -58,7 +64,7 @@
                 </tr>
               <tr>
                 <th>
-                        上傳人員
+                        回傳人員
                     </th>
                     <td>
                                                
@@ -67,7 +73,7 @@
                     </td>
 
                          <th>
-                        上傳人員電話
+                        回傳人員電話
                     </th>
                     <td>
                         電話：<asp:TextBox ID="tb_tel" runat="server"></asp:TextBox><br />
@@ -77,40 +83,22 @@
               </tr>
               
 
-                 <tr>
-               
-               
-                <th>
-                        主旨
-                    </th>
-                    <td>
-                                               
-                        <asp:TextBox ID="tb_subject" runat="server"></asp:TextBox>
-                                               
-                    </td>
-             
-
-                         <th>
-                            回傳截止日期
-                    </th>
-                    <td>
-                        
-                        <uc5:calendar ID="calendar1" runat="server" />
-                        
-                    </td>
-              
-              </tr>
+                 
 
 
                
                 <tr>
                     <th>
-                        適用單位
+                        原始檔名
                     </th>
                     <td colspan="3">
                        
-                        <asp:TextBox ID="tb_use" runat="server" TextMode="MultiLine"></asp:TextBox>
-
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1">
+                           
+                            <ItemTemplate>
+                                <li><asp:Label ID="Label1" runat="server" Text='<%# Eval("d12_file") %>'>'></asp:Label></li>
+                            </ItemTemplate>
+                        </asp:ListView>
 
                     </td>
                 </tr>

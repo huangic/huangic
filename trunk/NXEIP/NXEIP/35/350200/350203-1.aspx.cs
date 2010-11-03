@@ -74,6 +74,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
                 //新增模式
                 logger.Info("mode:new");
                 this.Navigator1.SubFunc = "新增部門";
+                this.tbx_dep_order.Text = "0";
             }
         }
     }
@@ -123,7 +124,7 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
 
             depart.dep_name = this.tbx_dep_name.Text;
             depart.dep_parentid = System.Convert.ToInt32(this.ddl_depart.SelectedValue);
-            depart.dep_order = System.Convert.ToInt32(this.tbx_dep_order.Text);
+            depart.dep_order = int.Parse(this.tbx_dep_order.Text);
             depart.dep_fax = this.tbx_dep_fax.Text;
             depart.dep_code = this.tbx_dep_code.Text;
             depart.dep_ename = this.tbx_dep_ename.Text;
