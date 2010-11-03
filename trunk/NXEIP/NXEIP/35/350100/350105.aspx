@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="20">
                         <Fields>
                             <asp:NextPreviousPagerField ShowNextPageButton="False" />
                             <asp:NumericPagerField />
