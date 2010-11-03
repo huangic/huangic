@@ -315,7 +315,7 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -351,12 +351,13 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 3px;
 	font-size: 13px;
+	text-decoration:none;
 	background-image: url(../image/a47.gif);
 }
 .b-input2 {
@@ -366,7 +367,7 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;

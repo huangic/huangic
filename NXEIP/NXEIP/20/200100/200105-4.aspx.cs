@@ -59,9 +59,8 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
                  var d11 = (from d in model.doc11 where d.d11_no == id select d).First();
 
-                 this.tb_subject.Text = d11.d11_subject;
-                 this.tb_use.Text = d11.d11_use;
-                 this.calendar1._ADDate = d11.d11_edate.Value;
+                 
+                 
                 
                 var people =(from p in model.people where p.peo_uid==peo_uid select p).First();
                 this.tb_tel.Text = people.peo_tel;
@@ -105,83 +104,33 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
             
                 
                 int id=int.Parse(this.hidden_doc11no.Value);
-                
-                doc11 doc = new doc11();
+
+                int peo_uid = int.Parse(sessionObj.sessionUserID);
+                //取使用者ID
+
+                doc13 doc = (from d in model.doc13 where d.d11_no == id && d.d13_peouid == peo_uid select d).FirstOrDefault();
+
+                doc.d13_depno = int.Parse(sessionObj.sessionUserDepartID);
                 doc.d11_no = id;
-                model.doc11.Attach(doc);
+                doc.d13_date = DateTime.Now;
+                doc.d13_ext = this.tb_ext.Text;
+                doc.d13_tel = this.tb_tel.Text;
+                doc.d13_peouid=peo_uid;
+                
+                //取第一筆檔案
+                SWFUploadFileInfo file = UC_SWFUpload1.SWFUploadFileInfoList[0];
 
+                doc.d13_path = file.Path+file.FileName;
 
-                doc.d11_date = DateTime.Now;
-                doc.d11_edate = this.calendar1._ADDate;
-                doc.d11_peouid = int.Parse(sessionObj.sessionUserID);
-                doc.d11_ext = this.tb_ext.Text;
-                doc.d11_depno = int.Parse(sessionObj.sessionUserDepartID);
-                doc.d11_subject = this.tb_subject.Text;
-                doc.d11_tel = this.tb_tel.Text;
-                doc.d11_use = this.tb_use.Text;
-                doc.d11_createtime = DateTime.Now;
-                doc.d11_createuid = int.Parse(sessionObj.sessionUserID);
-                
-                
-                
+                doc.d13_type = file.Extension;
+                doc.d13_name = file.OriginalFileName;
 
 
                 //文檔存檔
-                //model.doc11.AddObject(doc);
+                model.doc13.AddObject(doc);
                 model.SaveChanges();
 
-
-                if (UC_SWFUpload1.SWFUploadFileInfoList.Count > 0)
-                {
-                    //移掉之前的檔案
-                    var d12 = (from d in model.doc12 where d.d11_no == id select d);
-
-                    foreach (var d in d12)
-                    {
-                    // TODO 砍黨
-                        
-                        
-                        
-                        model.doc12.DeleteObject(d);
-                    }
-                    model.SaveChanges();
-                   
-                    foreach (var f in UC_SWFUpload1.SWFUploadFileInfoList)
-                    {
-                      
-                     
-
-                        doc12 file = new doc12();
-
-
-                        file.d12_count = 0;
-                        file.d12_file = f.OriginalFileName;
-
-
-
-                        file.d12_path = f.Path + f.FileName;
-                        file.d12_type = f.Extension;
-                        file.d11_no = doc.d11_no;
-                        //取最大值
-                        int max = 1;
-                        try
-                        {
-                            max = (from d in model.doc12 where d.d11_no == doc.d11_no select d.d12_no).Max();
-                            max++;
-                        }
-                        catch
-                        {
-
-                        }
-
-
-                        file.d11_no = max;
-
-                        model.doc12.AddObject(file);
-                        model.SaveChanges();
-
-                    }
-                }
+                
             }
 
 

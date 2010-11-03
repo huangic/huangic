@@ -20,7 +20,7 @@
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
                 //  reapply the thick box stuff
-                tb_init('a.thickbox');
+                tb_init('.thickbox');
             }
         }
     </script>
@@ -142,9 +142,31 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="我要回傳">
-                            
+                          <ItemTemplate>
+                             
+                             
+                              <asp:HyperLink ID="HyperLink3"  CssClass="thickbox b-input" NavigateUrl='<%# string.Format("200105-4.aspx?id={0}&modal=true&TB_iframe=true&height=400&width=700",Eval("d11_no"))%>' runat="server">我要回傳</asp:HyperLink>
+                             
+                             
+                              
+                                                         
+                               
+                              
+                            </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="已回傳">
+                            <ItemTemplate>
+                             
+                             
+                              <asp:HyperLink ID="HyperLink4"  CssClass="thickbox b-input" NavigateUrl='<%# string.Format("200105-5.aspx?id={0}&modal=true&TB_iframe=true&height=400&width=700",Eval("d11_no"))%>' runat="server">已回傳</asp:HyperLink>
+                             
+                             
+                              
+                                                         
+                               
+                              
+                            </ItemTemplate>
+
                         </asp:TemplateField>
                        <asp:TemplateField>
                             <ItemTemplate>
