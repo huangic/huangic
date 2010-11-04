@@ -23,17 +23,17 @@ namespace NXEIP.DAO
         private NXEIPEntities model = new NXEIPEntities();
 
         #region 分頁列表使用
-        public IQueryable<c01> GetAll(String peo_uid)
+        public IQueryable<c01> GetAll(int peo_uid)
         {
-            return (from tb in model.c01 where tb.c01_peouid==Convert.ToInt32(peo_uid) orderby tb.c01_no select tb);
+            return (from tb in model.c01 where tb.c01_peouid==peo_uid orderby tb.c01_no select tb);
         }
 
-        public IQueryable<c01> GetAll(String peo_uid, int startRowIndex, int maximumRows)
+        public IQueryable<c01> GetAll(int peo_uid, int startRowIndex, int maximumRows)
         {
             return GetAll(peo_uid).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public int GetAllCount(String peo_uid)
+        public int GetAllCount(int peo_uid)
         {
             return GetAll(peo_uid).Count();
         }
