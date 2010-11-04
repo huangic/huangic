@@ -3,6 +3,20 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<script type="text/javascript">
+    function update(msg) {
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        tb_remove();
+        alert(msg);
+    }
+
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+            //  reapply the thick box stuff
+            tb_init('a.thickbox');
+        }
+    }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
@@ -11,16 +25,16 @@
         SelectMethod="GetAll" TypeName="NXEIP.DAO.C01DAO" 
         OldValuesParameterFormatString="original_{0}">
     <SelectParameters>
-        <asp:Parameter Name="peo_uid" Type="String" />
+        <asp:SessionParameter Name="peo_uid" SessionField="UserID" Type="Int32" />
     </SelectParameters>
     </asp:ObjectDataSource>
-<uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300402" />
+<uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100302" />
 <div class="tableDiv">
         <div class="header">
             <div class="h1"></div>
             <div class="h2">
                 <div class="function">
-                    <asp:Button ID="btn_add" runat="server" Text="新增開放人員" CssClass="b-input" OnClick="btn_add_Click" />
+                   <input type="button" class="thickbox b-input" alt="100302-1.aspx?height=350&width=600&TB_iframe=true&modal=true"value="新增開放人員" />
                 </div>
             </div>
             <div class="h3"></div>
