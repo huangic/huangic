@@ -24,6 +24,11 @@ public partial class _10_100300_100302 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            if (!string.IsNullOrEmpty(Request["pageIndex"]))
+            {
+                this.GridView1.DataBind();
+                this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
+            }
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 2, "開放他人設定");
         }
