@@ -62,5 +62,29 @@ namespace NXEIP.DAO
             return (from tb in model.c01 where tb.c01_no == c01_no select tb).FirstOrDefault();
         }
         #endregion
+
+        #region 由[c01_peouid、peo_uid]取得[資料]
+        /// <summary>
+        /// 由[c01_peouid、peo_uid]取得[資料]
+        /// </summary>
+        /// <param name="no">編號</param>
+        /// <returns>整筆資料</returns>
+        public c01 GetByC01PeoUid(int c01_peouid,int peo_uid)
+        {
+            return (from tb in model.c01 where tb.c01_peouid == c01_peouid && tb.peo_uid==peo_uid select tb).FirstOrDefault();
+        }
+        #endregion
+
+        #region 由[c01_peouid、peo_uid]取得[資料數量]
+        /// <summary>
+        /// 由[c01_peouid、peo_uid]取得[資料數量]
+        /// </summary>
+        /// <param name="no">編號</param>
+        /// <returns>數量</returns>
+        public int GetCountByC01PeoUid(int c01_peouid, int peo_uid)
+        {
+            return (from tb in model.c01 where tb.c01_peouid == c01_peouid && tb.peo_uid == peo_uid select tb).Count();
+        }
+        #endregion
     }
 }
