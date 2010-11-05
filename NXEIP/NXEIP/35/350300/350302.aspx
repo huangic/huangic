@@ -29,8 +29,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="ODS_arguments" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.ArgumentsDAO"
-        EnablePaging="True" SelectCountMethod="GetAllCount"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ODS_arguments" runat="server" 
+        SelectMethod="GetBySearch" TypeName="NXEIP.DAO.ArgumentsDAO"
+        EnablePaging="True" SelectCountMethod="GetBySearchCount" 
+        OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:Parameter Name="str" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="350302" />
     <div class="tableDiv">
         <div>
@@ -51,11 +57,11 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" onload="UpdatePanel1_Load">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ODS_arguments" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
-                    OnRowCommand="GridView1_RowCommand" DataKeyNames="arg_no" EnableViewState="False"
+                    OnRowCommand="GridView1_RowCommand" DataKeyNames="arg_no"
                     EmptyDataText="目前無資料" OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="arg_describe" HeaderText="參數說明" SortExpression="arg_describe" />
