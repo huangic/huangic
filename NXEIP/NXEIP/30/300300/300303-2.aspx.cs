@@ -13,8 +13,6 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ScriptManager.RegisterClientScriptInclude(this, typeof(_30_300300_300303_2), "calendar_js", ResolveClientUrl("~/js/calendar.js"));
-
         if (!this.IsPostBack)
         {
             this.Navigator1.SubFunc = "課程新增";

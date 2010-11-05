@@ -5,7 +5,7 @@
 <%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc2" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-<link type="text/css" rel="stylesheet" href="../../style/Default/css/calendar.css" />
+
     <script type="text/javascript">
         
         function pageLoad(sender, args) {
