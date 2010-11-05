@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace MattBerseth.WebControls
 {
     /// <summary>
@@ -31,6 +32,13 @@ namespace MattBerseth.WebControls
         protected override int CreateChildControls(IEnumerable dataSource, bool dataBinding)
         {
             int rows = base.CreateChildControls(dataSource, dataBinding);
+
+            //EmptyShowHeader
+            if (rows == 0)
+            {
+                this.Controls.Clear();
+                this.Controls.Add(CreateEmptyTable());
+            }
 
             //  if the paging feature is enabled, determine
             //  the total number of rows in the datasource
@@ -63,6 +71,47 @@ namespace MattBerseth.WebControls
             }
 
             return rows;
+        }
+
+        private Table CreateEmptyTable()
+        {
+            Table oTable;
+            GridViewRow oGridViewRow;
+            TableCell oCell;
+            int iCount;
+            GridViewRowEventArgs e;
+
+            oTable = base.CreateChildTable();
+            iCount = this.Columns.Count - 1;
+
+            //建立標題列
+            oGridViewRow = base.CreateRow(-1, -1, DataControlRowType.Header, DataControlRowState.Normal);
+
+            DataControlField[] oFields = new DataControlField[iCount + 1];
+            this.Columns.CopyTo(oFields, 0);
+
+            //取得目前定義 Columns 複本
+            this.InitializeRow(oGridViewRow, oFields);
+
+            //資料列初始化 
+            e = new GridViewRowEventArgs(oGridViewRow);
+            this.OnRowCreated(e);
+
+            //引發 RowCreated 事件
+            oTable.Rows.Add(oGridViewRow);
+
+            //建立空白的資料列
+
+            oGridViewRow = new GridViewRow(-1, -1, DataControlRowType.DataRow, DataControlRowState.Normal);
+            oCell = new TableCell();
+            oCell.ColumnSpan = oFields.Length;
+            oCell.Width = Unit.Percentage(100);
+            oCell.Text = this.EmptyDataText;
+            oCell.HorizontalAlign = HorizontalAlign.Center;
+            oGridViewRow.Cells.Add(oCell);
+            oTable.Rows.Add(oGridViewRow);
+
+            return oTable;
         }
 
         #region IPageableItemContainer Interface
