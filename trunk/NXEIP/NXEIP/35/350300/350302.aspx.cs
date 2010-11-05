@@ -13,8 +13,13 @@ public partial class _35_350300_350302 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            
+            this.ODS_arguments.SelectParameters["str"].DefaultValue = "all";
         }
+        else
+        {
+            this.reLoad();
+        }
+        
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -35,7 +40,8 @@ public partial class _35_350300_350302 : System.Web.UI.Page
 
             dao.DeleteArguments(data);
             dao.Update();
-            
+
+            this.GridView1.DataBind();
         }
     }
 
@@ -54,15 +60,7 @@ public partial class _35_350300_350302 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button2_Click(object sender, EventArgs e)
     {
-        this.ODS_arguments.SelectMethod = "GetBySearch";
-        this.ODS_arguments.SelectParameters.Clear();
-        this.ODS_arguments.SelectParameters.Add("str", this.tbox_key.Text);
-        this.ODS_arguments.EnablePaging = false;
-
-        this.GridView1.AllowPaging = false;
-        this.GridView1.DataBind();
-
-
+        this.reLoad();
     }
 
     /// <summary>
@@ -72,25 +70,24 @@ public partial class _35_350300_350302 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button3_Click(object sender, EventArgs e)
     {
-        this.ODS_arguments.SelectMethod = "GetAll";
-        this.ODS_arguments.SelectParameters.Clear();
-        this.ODS_arguments.EnablePaging = true;
-
-        this.GridView1.AllowPaging = true;
+        this.ODS_arguments.SelectParameters["str"].DefaultValue = "all";
         this.GridView1.DataBind();
     }
 
-    protected void UpdatePanel1_Load(object sender, EventArgs e)
+    private void reLoad()
     {
-        if (!string.IsNullOrEmpty(this.tbox_key.Text))
+        if (string.IsNullOrEmpty(this.tbox_key.Text))
         {
-            this.ODS_arguments.SelectMethod = "GetBySearch";
-            this.ODS_arguments.SelectParameters.Clear();
-            this.ODS_arguments.SelectParameters.Add("str", this.tbox_key.Text);
-            this.ODS_arguments.EnablePaging = false;
-
-            this.GridView1.AllowPaging = false;
+            this.ODS_arguments.SelectParameters["str"].DefaultValue = "all";
+            this.GridView1.DataBind();
+        }
+        else
+        {
+            this.ODS_arguments.SelectParameters["str"].DefaultValue = this.tbox_key.Text;
             this.GridView1.DataBind();
         }
     }
+
+
+    
 }
