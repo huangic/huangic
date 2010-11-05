@@ -44,7 +44,8 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="c01_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
+                    EnableViewState="False">
                     <Columns>
                         <asp:TemplateField HeaderText="單位"></asp:TemplateField>
                         <asp:TemplateField HeaderText="職稱"></asp:TemplateField>
