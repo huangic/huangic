@@ -162,7 +162,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
                     int _dep_count = (from dt in model.e03 where dt.e03_depno == user_depno && dt.e02_no == e02_no select dt.e03_people.Value).FirstOrDefault();
                     //所屬部門已報名之人數
                     int _dep_app = (from t1 in model.e04 where t1.e02_no == e02_no && t1.e04_depno == user_depno && _check.Contains(t1.e04_check) select t1).Count();
-                    if (_dep_app >= _dep_count)
+                    if (_dep_count > 0  && _dep_app >= _dep_count)
                     {
                         ((Label)e.Row.FindControl("lab_msg")).Text = "部門人數已達上限";
                     }
