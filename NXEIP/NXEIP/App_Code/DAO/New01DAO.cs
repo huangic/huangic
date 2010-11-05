@@ -22,24 +22,37 @@ namespace NXEIP.DAO
             //
         }
 
-        public IQueryable<new01> GetData(string use)
+        public IQueryable<new01> GetData(string use,string key)
         {
-            return (from d in model.new01 where d.n01_status == "1" && d.n01_use == use orderby d.n01_date descending select d);
+            if (!key.Equals("-1"))
+            {
+                return (from d in model.new01
+                        where d.n01_status == "1" && d.n01_use == use && d.n01_subject.Contains(key)
+                        orderby d.n01_date descending
+                        select d);
+            }
+            else
+            {
+                return (from d in model.new01
+                        where d.n01_status == "1" && d.n01_use == use
+                        orderby d.n01_date descending
+                        select d);
+            }
         }
 
-        public IQueryable<new01> GetData(string use,int startRowIndex, int maximumRows)
+        public IQueryable<new01> GetData(string use, string key, int startRowIndex, int maximumRows)
         {
-            return GetData(use).Skip(startRowIndex).Take(maximumRows);
+            return GetData(use, key).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public int GetDataCount(string use)
+        public int GetDataCount(string use, string key)
         {
-            return GetData(use).Count();
+            return GetData(use, key).Count();
         }
 
         public IQueryable<new01> GetPeoData(int peo_uid,string status)
         {
-            if (status == "")
+            if (status == "0")
             {
                 string[] n01_status = {"1","2","3" };
                 return (from d in model.new01 where d.n01_peouid == peo_uid && n01_status.Contains(d.n01_status) 
