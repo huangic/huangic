@@ -41,6 +41,38 @@ namespace NXEIP.DAO
             return GetAll().Skip(startRowIndex).Take(maximumRows);
         }
 
+        public int GetAllCount()
+        {
+            return GetAll().Count();
+        }
+
+        /// <summary>
+        /// 查詢欄位arg_describe值符合字串之資料
+        /// </summary>
+        /// <param name="str">欲查詢之字串</param>
+        /// <returns></returns>
+        public IQueryable<arguments> GetBySearch(string str)
+        {
+            if (str.Equals("all"))
+            {
+                return (from data in model.arguments orderby data.arg_no select data);
+            }
+            else
+            {
+                return (from data in model.arguments where data.arg_describe.Contains(str) orderby data.arg_no select data);
+            }
+        }
+
+        public IQueryable<arguments> GetBySearch(string str, int startRowIndex, int maximumRows)
+        {
+            return GetBySearch(str).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetBySearchCount(string str)
+        {
+            return GetBySearch(str).Count();
+        }
+
         /// <summary>
         /// 查詢符合arg_no欄位的資料
         /// </summary>
@@ -51,20 +83,7 @@ namespace NXEIP.DAO
             return (from data in model.arguments where data.arg_no == arg_no select data).FirstOrDefault();
         }
 
-        /// <summary>
-        /// 查詢欄位arg_describe值符合字串之資料
-        /// </summary>
-        /// <param name="str">欲查詢之字串</param>
-        /// <returns></returns>
-        public IQueryable<arguments> GetBySearch(string str)
-        {
-            return (from data in model.arguments where data.arg_describe.Contains(str) select data);
-        }
-
-        public IQueryable<arguments> GetBySearch(string str, int startRowIndex, int maximumRows)
-        {
-            return GetBySearch(str).Skip(startRowIndex).Take(maximumRows);
-        }
+        
 
         /// <summary>
         /// 查詢是否有相同arg_var之資料
@@ -81,10 +100,7 @@ namespace NXEIP.DAO
             return (from data in model.arguments where data.arg_variable == arg_variable select data.arg_value).FirstOrDefault();
         }
 
-        public int GetAllCount()
-        {
-            return GetAll().Count();
-        }
+        
 
         public void AddArguments(arguments arguments)
         {
