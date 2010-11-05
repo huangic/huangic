@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </ajaxtoolkit:ToolkitScriptManager>
-    <uc1:Navigator ID="Navigator1" runat="server" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100301" />
     <div class="PersonalCalendarLayout">
         <div class="left">
             <div class="tabHeader">
