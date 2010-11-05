@@ -3,13 +3,28 @@
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls" TagPrefix="cc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<script type="text/javascript">
+    function update(msg) {
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        tb_remove();
+
+
+        alert(msg);
+    }
+
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+            //  reapply the thick box stuff
+            tb_init('a.thickbox');
+        }
+    }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount"
-        SelectMethod="GetAll" TypeName="NXEIP.DAO.SpotDAO" 
-        OldValuesParameterFormatString="original_{0}"></asp:ObjectDataSource>
+        SelectMethod="GetAll" TypeName="NXEIP.DAO.SpotDAO"></asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300401" />
     <div class="tableDiv">
         <div class="header">
@@ -17,7 +32,7 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <asp:Button ID="btn_add" runat="server" Text="新增所在地" CssClass="b-input" OnClick="btn_add_Click" />
+                    <input type="button" class="thickbox b-input" alt="300401-1.aspx?height=350&width=600&TB_iframe=true&modal=true"value="新增所在地" />
                 </div>
             </div>
             <div class="h3">
@@ -28,14 +43,17 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="spo_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
+                    EnableViewState="False">
                     <Columns>
                         <asp:BoundField DataField="spo_name" HeaderText="所在地" SortExpression="spo_name" />
                         <asp:BoundField DataField="spo_createuid" HeaderText="修建者" SortExpression="spo_createuid" />
                         <asp:BoundField DataField="spo_createtime" HeaderText="修建時間" SortExpression="spo_createtime" DataFormatString="{0:yyyy-MM-dd HH:mm}" />
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
-                                <asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>" CssClass="edit" />
+                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("spo_name", "修改{0}") %>'
+                                    href='<%# Eval("spo_no", "300401-1.aspx?modal=true&mode=modify&no={0}&TB_iframe=true&height=250&width=600") %>'>
+                                    <span>修改</span></a>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="40" />

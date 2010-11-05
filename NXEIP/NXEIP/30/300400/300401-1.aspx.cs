@@ -21,7 +21,6 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
             if (Request["mode"] != null) this.lab_mode.Text = Request["mode"];
             if (Request["no"] != null) this.lab_no.Text = Request["no"];
 
@@ -43,82 +42,94 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
         }
     }
 
+    private bool CheckInputValue()
+    {
+        #region 輸入值檢查--所在地
+        if (string.IsNullOrEmpty(this.txt_name.Text))
+        {
+            ShowMSG("請輸入 所在地");
+            return false;
+        }
+        else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 20))
+        {
+            ShowMSG("所在地 長度不可超過20個數文字");
+            return false;
+        }
+        #endregion
+
+        #region 檢查是否重複
+        DataTable dt = new DataTable();
+        if (this.lab_mode.Text.Equals("modify"))
+        {
+            string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_no<>" + this.lab_no.Text + " and spo_status='1'";
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                ShowMSG("此 所在地[" + this.txt_name.Text + "] 已存在");
+                return false;
+            }
+        }
+        else
+        {
+            string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_status='1'";
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                ShowMSG("此 所在地[" + this.txt_name.Text + "] 已存在");
+                return false;
+            }
+        }
+        #endregion
+
+        return true;
+    }
+
     #region 確定
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         string aMSG = "";
         try
         {
-            #region 輸入值檢查--所在地
-            if (string.IsNullOrEmpty(this.txt_name.Text))
+            string msg = "";
+            if (CheckInputValue())
             {
-                Response.Write("<script>alert(\"請輸入 所在地\");</script>");
-                return;
-            }
-            else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 20))
-            {
-                Response.Write("<script>alert(\"所在地 長度不可超過20個數文字\");</script>");
-                return;
-            }
-            #endregion
-
-            if (this.lab_mode.Text.Equals("modify"))
-            {
-                #region 修改
-                string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_no<>" + this.lab_no.Text + " and spo_status='1'";
-                DataTable dt = new DataTable();
-                dt = dbo.ExecuteQuery(sqlstr);
-                if (dt.Rows.Count > 0)
+                if (this.lab_mode.Text.Equals("modify"))
                 {
-                    Response.Write("<script>alert(\"此 所在地[" + this.txt_name.Text + "] 已存在\");</script>");
-                    return;
-                }
-                else
-                {
+                    #region 修改
                     string UpdStr = "update spot set spo_name=N'" + this.txt_name.Text + "',spo_createuid=" + sobj.sessionUserID + ",spo_createtime=getdate() where spo_no=" + this.lab_no.Text;
                     dbo.ExecuteNonQuery(UpdStr);
-                }
-                #endregion
-
-                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text+",所在地："+this.txt_name.Text.Trim());
-            }
-            else
-            {
-                #region 新增
-                string sqlstr = "select spo_no from spot where spo_name=N'" + this.txt_name.Text + "' and spo_status='1'";
-                DataTable dt = new DataTable();
-                dt = dbo.ExecuteQuery(sqlstr);
-                if (dt.Rows.Count > 0)
-                {
-                    Response.Write("<script>alert(\"此 所在地["+this.txt_name.Text+"] 已存在\");</script>");
-                    return;
+                    msg = "修改成功";
+                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                    new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",所在地：" + this.txt_name.Text.Trim());
+                    #endregion
                 }
                 else
                 {
-                    string InsStr = "insert into spot (spo_name,spo_status,spo_createuid,spo_createtime) values(N'"+this.txt_name.Text+"','1',"+sobj.sessionUserID+",getdate())";
+                    #region 新增
+                    string InsStr = "insert into spot (spo_name,spo_status,spo_createuid,spo_createtime) values(N'" + this.txt_name.Text + "','1'," + sobj.sessionUserID + ",getdate())";
                     dbo.ExecuteNonQuery(InsStr);
+                    msg = "新增成功";
+                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                    new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 1, "所在地：" + this.txt_name.Text.Trim());
+                    #endregion                    
                 }
-                #endregion
 
-                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 1, "所在地：" + this.txt_name.Text.Trim());
+                this.Page.ClientScript.RegisterStartupScript(typeof(_30_300400_300401_1), "closeThickBox", "self.parent.update('" + msg + "');", true);
             }
-
-            Response.Write(PCalendarUtil.ShowMsg_URL("", "300401.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
         }
         catch (Exception ex)
         {
-            aMSG = "功能名稱："+this.Navigator1.SubFunc+"<br>錯誤訊息:" + ex.ToString();
+            aMSG = "功能名稱：所在地-"+this.Navigator1.SubFunc+"<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
     }
     #endregion
 
-    #region 取消
-    protected void btn_cancel_Click(object sender, EventArgs e)
+    #region 顯示錯誤訊息
+    private void ShowMSG(string msg)
     {
-        Response.Write(PCalendarUtil.ShowMsg_URL("", "300401.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+        string script = "<script>alert('" + msg + "');</script>";
+        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
     }
     #endregion
 }

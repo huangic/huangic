@@ -1,9 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300401-1.aspx.cs" Inherits="_30_300400_300401_1" %>
-
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="300401-1.aspx.cs" Inherits="_30_300400_300401_1" %>
+<%@ Register src="../../lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>新增所在地</title>
+    <uc1:CssLayout ID="CssLayout1" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300401" />
     <div class="tableDiv">
         <div class="header">
@@ -31,15 +36,15 @@
             </div>
         </div>
         <div class="bottom">
-            <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" 
-                OnClick="btn_submit_Click" />
+            <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" 
-                OnClick="btn_cancel_Click" />
+            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.tb_remove()" UseSubmitBehavior="false" />
         </div>
         <div id="div_msg" runat="server">
         </div><asp:Label ID="lab_no" runat="server" Visible="False"></asp:Label>
         <asp:Label ID="lab_mode" runat="server" Visible="False"></asp:Label>
-        <asp:Label ID="lab_pageIndex" runat="server" Visible="False"></asp:Label>
     </div>
-</asp:Content>
+</form>
+</body>
+</html>
+

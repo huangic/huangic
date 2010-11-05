@@ -23,11 +23,11 @@ public partial class _30_300400_300401 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            if (!string.IsNullOrEmpty(Request["pageIndex"]))
-            {
-                this.GridView1.DataBind();
-                this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
-            }
+            //if (!string.IsNullOrEmpty(Request["pageIndex"]))
+            //{
+            //    this.GridView1.DataBind();
+            //    this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
+            //}
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "所在地 列表");
         }
@@ -44,27 +44,10 @@ public partial class _30_300400_300401 : System.Web.UI.Page
     }
     #endregion
 
-    #region 新增
-    protected void btn_add_Click(object sender, EventArgs e)
-    {
-        Response.Write(PCalendarUtil.ShowMsg_URL("", "300401-1.aspx?mode=new&count="+new System.Random().Next(10000).ToString()));
-    }
-    #endregion
-
-    #region 修改、刪除
+    #region 刪除
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        if (e.CommandName.Equals("modify"))
-        {
-            string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
-
-            //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "查詢 所在地 編號:" + pkno);
-            string urls = "300401-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString();
-            Response.Redirect(urls);
-        }
-        else if (e.CommandName.Equals("del"))
+        if (e.CommandName.Equals("del"))
         {
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
             string pageIndex = this.GridView1.PageIndex.ToString();
@@ -74,7 +57,10 @@ public partial class _30_300400_300401 : System.Web.UI.Page
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "刪除 所在地 編號:" + pkno);
-            Response.Redirect("300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
+
+            this.GridView1.DataBind();
+
+            //Response.Redirect("300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
         }
     }
     #endregion
