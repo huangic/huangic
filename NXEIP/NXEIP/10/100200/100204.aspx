@@ -59,7 +59,7 @@
             <div class="select-3">
                 <asp:ListView ID="ListView1" runat="server" DataKeyNames="n01_no" DataSourceID="ObjectDataSource1">
                     <ItemTemplate>
-                        <li class="ins"><a class="thickbox a-letter-s3" href='<%# Eval("n01_no", "100204-2.aspx?modal=true&n01_no={0}&TB_iframe=true") %>'>
+                        <li class="ins"><a title="查看內容" class="thickbox a-letter-s3" href='<%# Eval("n01_no", "100204-2.aspx?modal=true&n01_no={0}&TB_iframe=true") %>'>
                             <%# string.Format("{0} ({1})",Eval("n01_subject"),new ChangeObject()._ADtoROC((DateTime)Eval("n01_date"))) %>
                         </a></li>
                     </ItemTemplate>
