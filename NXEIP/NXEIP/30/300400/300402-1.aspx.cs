@@ -61,6 +61,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 this.txt_floor.Text = roomsData.roo_floor.ToString();
                 this.txt_count.Text = roomsData.roo_count.ToString();
                 this.txt_describe.Text = roomsData.roo_describe;
+                this.txt_telephone.Text = roomsData.roo_telephone;
                 #endregion
 
                 #region 下拉式選單
@@ -188,6 +189,18 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 30))
         {
             ShowMsg("場地名稱 長度不可超過30個數文字");
+            feedback = false;
+        }
+        #endregion
+        #region 場地電話
+        if (string.IsNullOrEmpty(this.txt_telephone.Text))
+        {
+            ShowMsg("請輸入 場地電話");
+            feedback = false;
+        }
+        else if (!checkobj.IsValidLen(this.txt_telephone.Text.Trim(), 20))
+        {
+            ShowMsg("場地電話 長度不可超過20個數字");
             feedback = false;
         }
         #endregion
@@ -390,6 +403,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                             newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
+                        newRow.roo_telephone = this.txt_telephone.Text;
                         RoomsDAO1.Update();
                         #endregion
 
@@ -462,6 +476,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                             newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
+                        newRow.roo_telephone = this.txt_telephone.Text;
                         RoomsDAO1.AddRooms(newRow);
                         RoomsDAO1.Update();
                         #endregion
