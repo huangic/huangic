@@ -44,9 +44,6 @@ namespace NXEIP.DAO
             return GetAll().Count();
         }
 
-
-       
-
         /// <summary>
         /// 取檔案區檔案
         /// </summary>

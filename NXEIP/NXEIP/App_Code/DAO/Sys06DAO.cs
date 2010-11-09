@@ -5,6 +5,7 @@ using System.Web;
 using Entity;
 using System.ComponentModel;
 using System.Linq.Dynamic;
+using System.Data.Objects.SqlClient;
 
 namespace NXEIP.DAO
 {
@@ -91,6 +92,12 @@ namespace NXEIP.DAO
                 return (from d in model.sys06 where d.s06_parent == s06_no && d.s06_level == 2 && d.s06_status == "1" select d);
             }
             return null;
+        }
+
+        public IQueryable<sys06> Get_Data_By_NO(string s06no)
+        {
+            string[] s06_no = s06no.Split(',').ToArray();
+            return (from d in model.sys06 where s06_no.Contains(SqlFunctions.StringConvert((double)d.s06_no)) select d);
         }
     }
 
