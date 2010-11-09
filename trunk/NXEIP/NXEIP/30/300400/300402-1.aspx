@@ -28,7 +28,8 @@
                     </asp:DropDownList>
                 </td>
                 <th style="width:120px"><span class="a-letter-Red">*</span> 場地名稱</th>
-                <td><asp:TextBox ID="txt_name" runat="server"></asp:TextBox></td>
+                <td><asp:TextBox ID="txt_name" runat="server"></asp:TextBox>電話<asp:TextBox 
+                        ID="txt_telephone" runat="server" Columns="18" MaxLength="20"></asp:TextBox></td>
             </tr>
             <tr>
                 <th><span class="a-letter-Red">*</span> 第一保管人</th>
@@ -126,14 +127,10 @@
             </tr>
             <tr>
                 <th>場地描述</th>
-                <td colspan="3">
-                    <asp:TextBox ID="txt_describe" runat="server" Columns="60" Rows="3" 
-                        TextMode="MultiLine"></asp:TextBox></td>
-            </tr>
-            <tr>
+                <td><asp:TextBox ID="txt_describe" runat="server" Columns="40" Rows="6" TextMode="MultiLine"></asp:TextBox></td>
                 <th>場地開放單位</th>
-                <td colspan="3">
-                  <table border="0" cellpadding="0" cellspacing="0" class="">
+                <td>
+                  <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td colspan="2"><asp:RadioButton ID="rb_01" runat="server" GroupName="rb" Text="全部單位" /></td>
                     </tr>
