@@ -105,7 +105,7 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
 
         if (e.CommandName.Equals("modify"))
         {
-            Response.Redirect("350204-2.aspx?peo_uid=" + peo_uid + "&jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + pageIndex);
+            Response.Redirect("350204-2.aspx?peo_uid=" + peo_uid + "&jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex=" + pageIndex);
         }
 
         //檢視

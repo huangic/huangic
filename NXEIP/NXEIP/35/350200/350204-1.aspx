@@ -19,8 +19,6 @@
             <div class="h1">
             </div>
             <div class="h2">
-                <div class="name">
-                    人事資料查修</div>
                 <div class="function">
                     <asp:Button ID="Button1" runat="server" Text="匯出Excel" CssClass="b-input" OnClick="Button1_Click" />
                 </div>
