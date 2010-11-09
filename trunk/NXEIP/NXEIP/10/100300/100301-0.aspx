@@ -293,8 +293,7 @@
             &nbsp;&nbsp;
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClick="btn_cancel_Click" />
             &nbsp;&nbsp;
-            <asp:Button ID="btn_del" runat="server" CssClass="b-input" Text="刪除" 
-                onclick="btn_del_Click" />
+            <asp:Button ID="btn_del" runat="server" CssClass="b-input" Text="刪除" onclick="btn_del_Click" />
         </div>
         <div id="div_msg" runat="server">
         </div>

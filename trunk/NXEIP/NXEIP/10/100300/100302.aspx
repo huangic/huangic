@@ -49,7 +49,8 @@
                     <Columns>
                         <asp:TemplateField HeaderText="單位"></asp:TemplateField>
                         <asp:TemplateField HeaderText="職稱"></asp:TemplateField>
-                        <asp:BoundField DataField="peo_uid" HeaderText="姓名" SortExpression="peo_uid" />
+                        <asp:BoundField DataField="c01_peouid" HeaderText="姓名" 
+                            SortExpression="c01_peouid" />
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
                                 <asp:Button ID="Button3" runat="server" CommandName="del" 

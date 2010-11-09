@@ -82,14 +82,13 @@ public partial class _10_100300_100302_1 : System.Web.UI.Page
                 }
                 else
                 {
-                    string InsStr = "insert into c01 (peo_uid,c01_peouid,c01_createtime) values(" + this.ddl_people.SelectedValue + "," + sobj.sessionUserID + ",getdate())";
+                    string InsStr = "insert into c01 (peo_uid,c01_peouid,c01_createtime) values(" + sobj.sessionUserID + "," + this.ddl_people.SelectedValue + ",getdate())";
                     dbo.ExecuteNonQuery(InsStr);
 
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                     new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 1, "新增開放人員");
 
                     this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.update('新增成功');", true);
-                    //this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
                 }
             }
         }
