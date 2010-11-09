@@ -73,7 +73,8 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
                 this.ddl_jobtype.Items.FindByValue(peopleData.peo_jobtype.ToString()).Selected = true;
             }
             catch { }
-            string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + peopleData.peo_jobtype.ToString());
+
+            string code = new UtilityDAO().Get_TypesNumber(peopleData.peo_jobtype.Value);
             if (!code.Equals("1"))
             {
                 this.calendar3.Visible = true;
@@ -132,7 +133,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
 
 
             peopleData.peo_jobtype = Convert.ToInt32(this.ddl_jobtype.SelectedValue);
-            string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + this.ddl_jobtype.SelectedValue);
+            string code = new UtilityDAO().Get_TypesNumber(int.Parse(this.ddl_jobtype.SelectedValue));
             if (!code.Equals("1"))
             {
                 peopleData.peo_leave = this.calendar3._ADDate;
@@ -147,7 +148,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             //操作記錄
             new OperatesObject().ExecuteOperates(350205, new SessionObject().sessionUserID, 3, "修改人員 姓名:" + peopleData.peo_name);
 
-            string url = "350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + Request["pageIndex"];
+            string url = "350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex=" + Request["pageIndex"];
             this.ShowMsg_URL("人員修改完成!", url);
         }
     }
@@ -201,7 +202,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             ret = false;
         }
 
-        string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + this.ddl_jobtype.SelectedValue);
+        string code = new UtilityDAO().Get_TypesNumber(int.Parse(this.ddl_jobtype.SelectedValue));
         if (!code.Equals("1"))
         {
             try
@@ -221,12 +222,12 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Response.Redirect("350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex" + Request["pageIndex"]);
+        Response.Redirect("350204-1.aspx?jobtype=" + Request["jobtype"] + "&ptype=" + Request["ptype"] + "&workid=" + Request["workid"] + "&name=" + Request["name"] + "&account=" + Request["account"] + "&profess=" + Request["profess"] + "&depar=" + Request["depar"] + "&people=" + Request["people"] + "&pageIndex=" + Request["pageIndex"]);
     }
 
     protected void ddl_jobtype_SelectedIndexChanged(object sender, EventArgs e)
     {
-        string code = new DBObject().ExecuteScalar("select typ_number from types where typ_no =" + this.ddl_jobtype.SelectedValue);
+        string code = new UtilityDAO().Get_TypesNumber(int.Parse(this.ddl_jobtype.SelectedValue)); 
         if (code.Equals("1"))
         {
             this.calendar3.Visible = false;
@@ -236,6 +237,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             this.calendar3.Visible = true;
         }
     }
+
     private void ShowMSG(string msg)
     {
         string script = "<script>alert('" + msg + "');</script>";
