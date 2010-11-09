@@ -25,7 +25,7 @@ namespace NXEIP.DAO
         #region 分頁列表使用
         public IQueryable<c01> GetAll(int peo_uid)
         {
-            return (from tb in model.c01 where tb.c01_peouid==peo_uid orderby tb.c01_no select tb);
+            return (from tb in model.c01 where tb.peo_uid==peo_uid orderby tb.c01_no select tb);
         }
 
         public IQueryable<c01> GetAll(int peo_uid, int startRowIndex, int maximumRows)
@@ -69,9 +69,9 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="no">編號</param>
         /// <returns>整筆資料</returns>
-        public c01 GetByC01PeoUid(int c01_peouid,int peo_uid)
+        public c01 GetByC01PeoUid(int peo_uid, int c01_peouid)
         {
-            return (from tb in model.c01 where tb.c01_peouid == c01_peouid && tb.peo_uid==peo_uid select tb).FirstOrDefault();
+            return (from tb in model.c01 where tb.peo_uid == peo_uid && tb.c01_peouid == c01_peouid  select tb).FirstOrDefault();
         }
         #endregion
 
@@ -81,9 +81,9 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="no">編號</param>
         /// <returns>數量</returns>
-        public int GetCountByC01PeoUid(int c01_peouid, int peo_uid)
+        public int GetCountByC01PeoUid(int peo_uid,int c01_peouid)
         {
-            return (from tb in model.c01 where tb.c01_peouid == c01_peouid && tb.peo_uid == peo_uid select tb).Count();
+            return (from tb in model.c01 where tb.peo_uid == peo_uid && tb.c01_peouid == c01_peouid select tb).Count();
         }
         #endregion
     }
