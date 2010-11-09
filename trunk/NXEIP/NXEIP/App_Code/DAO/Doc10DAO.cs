@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Web;
 using System.ComponentModel;
 using Entity;
@@ -55,6 +56,40 @@ namespace NXEIP.DAO
                     where dc10.d09_no == dc09.d09_no
                     orderby dc09.d09_date descending
                     select dc10);
+        }
+
+        public IQueryable<doc10> GetDataByS06No(int s06_no, string key)
+        {
+            //功能及子功能
+            var s06 = (from s in model.sys06
+                       where s.s06_parent == s06_no || s.s06_no == s06_no
+                       select s);
+            int[] s06ary = s06.Where(o => o.s06_status == "1").Select(x => x.s06_no).ToArray();
+
+            var data = (from d in model.doc09
+                        where s06ary.Contains(d.s06_no) 
+                        from f in model.doc10
+                        where f.d09_no == d.d09_no
+                        orderby d.d09_date descending
+                        select f);
+            
+            if (!string.IsNullOrEmpty(key))
+            {
+                data = data.Where(o => o.d10_file.Contains(key));
+            }
+
+            return data;
+            
+        }
+
+        public IQueryable<doc10> GetDataByS06No(int s06_no, string key, int startRowIndex, int maximumRows)
+        {
+           return GetDataByS06No(s06_no, key).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetDataByS06NoCount(int s06_no, string key)
+        {
+            return GetDataByS06No(s06_no, key).Count();
         }
     }
 }
