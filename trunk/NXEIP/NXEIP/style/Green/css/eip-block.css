@@ -240,6 +240,10 @@
 	text-decoration: none;
 	padding-left: 15px;
 }
+.layoutDiv .header .h2_place ul li {
+	float: left;
+	padding-left: 8px;
+}
 .tableDiv .header, .layoutDiv .header a:hover {
 	font-size: 15px;
 	color: #FF0000;
