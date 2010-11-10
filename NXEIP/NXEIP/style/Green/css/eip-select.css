@@ -41,6 +41,7 @@
 	float: left;
 	text-decoration: none;
 }
+
 .select .a-letter-s0 {
 	font-size: 13px;
 	color: #666666;
@@ -94,6 +95,16 @@
 	float: left;
 	text-decoration: none;
 }
+.select .b6 {
+	height: 26px;
+	width: 210px;
+	padding-top: 5px;
+	float: left;
+	text-decoration: none;
+	font-size: 13px;
+	color: #666666;
+	padding-left: 30px;
+}
 .select-1 {
 	width: 92%;
 	left: 5px;
@@ -131,7 +142,7 @@
 
 
 .select-3 {
-	/*height: 200px;*/
+	height: 200px;
 	width: 92%;
 	left: 5px;
 	right: 5px;
@@ -217,9 +228,12 @@
 	width: 82px;
 	background-position: 0px 0px;
 }
+
+
+
 .select-s {
 	height: 29px;
-	width: 350px;
+	width: 800px;
 	left: 5px;
 	right: 5px;
 	float: left;
@@ -280,4 +294,36 @@
 	height: 29px;
 	width: 96px;
 	padding-top: 3px;
+}
+.select-L {
+	width: 241px;
+	height: 26px;
+	float: left;
+	background-color: #FFFFFF;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.select-L .bp1 {
+	float: left;
+	width:66px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	height: 20px;
+	line-height: 18px;
+	background-image: url(../image/a14.gif);
+	background-repeat: no-repeat;
+	margin-top: 6px;
+	text-indent: 4px;
+	padding-left: 6px;
+	margin-left: 4px;
+}
+.select-L .bp2 {
+	float: left;
+	width: 66px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	line-height: 24px;
+	margin-top: 3px;
 }

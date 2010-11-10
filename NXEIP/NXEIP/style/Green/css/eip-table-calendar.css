@@ -130,12 +130,12 @@
 	text-align:center;
 	margin-top: 0;
 	margin-right: auto;
-	margin-bottom: 0;
+	margin-bottom: 10;
 	margin-left: auto;
 }
 
 .calendar-place-week .headtitle {
-	font-size: 15px;
+	font-size: 13px;
 	color: #333333;
 	text-align: center;
 	font-weight: bold;
@@ -147,20 +147,21 @@
 	padding-left: 2px;
 	width: 12%;
 }
-.calendar-place-week .month {
-	font-size: 15px;
-	color: #333333;
+.calendar-place-week .row {
+	font-size: 13px;
+	color: #666666;
 	padding-left: 4px;
 	padding-top: 4px;
 	text-decoration: none;
+	line-height: 26px;
 }
-.calendar-place-week .month:hover {
-	font-size: 15px;
+.calendar-place-week .row:hover {
+	font-size: 13px;
 	color: #FF0000;
 	text-decoration: none;
 }
 
-.calendar-place-week .othermonth {
+/*.calendar-place-week .othermonth {
 	font-size: 15px;
 	color: #999999;
 	text-align: left;
@@ -168,18 +169,20 @@
 	padding-top: 4px;
 	padding-left: 4px;
 	text-decoration: none;
-}
-.calendar-place-week .othermonth:hover {
-}
-
+}*/
+/*.calendar-place-week .othermonth:hover {
+}*/
 .calendar-place-week .holiday_bg
 {
 	background-color: #EAF7CA;
-	height: 50px;
-	text-align: left;
-	vertical-align: top;
-	padding-top: 4px;
-	padding-left: 4px;
+	height: 28px;
+	text-align: center;
+}
+.calendar-place-week .rowtime_bg
+{
+	background-color: #Fefee7;
+	height: 26px;
+	text-align: center;
 }
 .calendar-place-week .othermonth:hover {
 	color: #FF0000;
@@ -190,11 +193,8 @@
  .calendar-place-week .Nholiday_bg
 {
 	background-color: #FFFFFF;
-	height: 50px;
-	vertical-align: top;
-	text-align: left;
-	padding-top: 4px;
-	padding-left: 4px;
+	height: 28px;
+	text-align: center;
 }
 
 
@@ -324,6 +324,53 @@
 	background-color: #FDF47F;
 }
 
+/*場地申請左邊*/
+.calendar-place 
+{
+	width:241px;
+	border-spacing:1px;
+	border:0;
+	background-color:#acd156;
+	text-align:center;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+.calendar-place .place1_bg
+{
+	background-color: #EEF7CA;
+	height: 25px;
+	width: 74px;
+	font-size: 13px;
+	line-height: 26px;
+	color: #333333;
+	text-decoration: none;
+	text-align: right;
+	padding-right: 4px;
+}
+.calendar-place .place2_bg
+{
+	background-color: #FFFFFF;
+	height: 26px;
+	width: 148px;
+	font-size: 13px;
+	line-height: 26px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+.calendar-place .row:hover {
+	background-color: #C1E1C4;
+}
+
+/*.calendar-place .row {
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}*/
 
 
 

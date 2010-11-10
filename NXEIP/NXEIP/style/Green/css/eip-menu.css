@@ -11,7 +11,7 @@
 .mlmenu img { border: 0; }
  
 .mlmenu li a {
-	color: #FFFFFF;
+	color: #333333;
 	text-decoration: none;
 	height: 2em;
 	font-size:15px;
@@ -101,30 +101,33 @@
 	display: none; }
   /*第三層MENU*/
 	.mlmenu ul li ul li ul {
-		clear:both;
-		
-		background-color: #B7D289;
-		width: 150px;
-		#top: 0px;
-		_top: 0px;
-	/*	top: 20px;*/
-		top: 10px;
-		left: 1px;
-		list-style-type: none;
-		/*margin-top: 2px;*/
-		margin:0px;
-		padding:0px 0px 0px 0px;
-		z-index:1000;
+	background-color: #ecf4db;
+	width: 140px;
+
+	#top: 0px;
+	_top: 0px;
+	left: 1px;
+	list-style-type: none;
+	z-index:1000;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	float: left;
+	clear: both;
 		}
+/*第三層*/ 
+.mlmenu ul li ul li ul li {
+	clear:both;
+	display: block;
+	margin: 0px;
+	padding-top: 2px;
+}
  
-		.mlmenu ul li ul li ul li {
-			 clear:both;
-			display: block;
-			
-			margin: 0px 5px 5px 5px; }
- 
-	/*
-	.mlmenu ul li ul li a span {
+/*
+.mlmenu ul li ul li a span {
 		
 		background-image: url(../image/arrows.gif);
 		background-position: center;
@@ -167,9 +170,9 @@
 }	
 		
 .submenu ul li a{
-			vertical-align:middle;
-			 color:#ffffff;
-			text-decoration:none;
+	vertical-align:middle;
+	color:#333333;
+	text-decoration:none;
  }
  .submenu ul li a:hover{
 			color:#000000;    
