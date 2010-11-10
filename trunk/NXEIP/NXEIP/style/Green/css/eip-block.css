@@ -6,8 +6,39 @@
 	margin-left: auto;
 	background-color: #ecf7ca;
     }
+ .block-1 .header_place
+{
+	height:29px;
+	width: 223px;
+	position: relative;
+	background-image: url(../image/sheader.jpg);
+	background-repeat: no-repeat;
+	font-size: 15px;
+	color: #666666;
+	text-decoration: none;
+	text-align: left;
+	line-height: 29px;
+	padding-left: 22px;
+}
 
+.block-1 .header_place2
+{
+	text-align:center;
+	width: 243px;
+	position: relative;
+	background-color: #FFFFFF;
+}
 
+.block-1 .header_place2 .b1
+{
+	width: 245px;
+	height: 60px;
+}
+.block-1 .header_place2 .b2
+{
+	width: 245px;
+	height: 60px;
+}
 
 
 /*header*/
@@ -17,11 +48,7 @@
 	text-align:center;
 	position:relative;
 	height:30px;
-	
-  
 }
-
-
  .block-1 .header div
 {
 	display:inline-block;
@@ -144,15 +171,26 @@
 .border-bottom-block2
 {
 	border-bottom-style:solid;
-	border-bottom-color:#C5DD93;
+	border-bottom-color:#AFD06C;
 	border-bottom-width: 1px;
 	padding-bottom: 1px;
 	margin-right: 8px;
 	margin-left: 8px;
 	margin-top: 0px;
 	margin-bottom: 3px;
-}    
-    
+}  
+.border-bottom-block3
+{
+	border-bottom-style:solid;
+	border-bottom-color:#CCCCCC;
+	border-bottom-width: 1px;
+	padding-bottom: 1px;
+	margin-right: 8px;
+	margin-left: 8px;
+	margin-top: 0px;
+	margin-bottom: 3px;
+}      
+
 .tableDiv
 {
   
@@ -192,6 +230,41 @@
   font-size:13px;
   line-height:25px;
 
+}
+.layoutDiv .header .h2_place {
+	float: left;
+	height: 25px;
+	width: 185px;
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+	padding-left: 15px;
+}
+.tableDiv .header, .layoutDiv .header a:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.tableDiv .header, .layoutDiv .header a {
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+,.layoutDiv .header .h2_place ul li {
+	float: left;
+	padding-right: 8px;
+}
+.layoutDiv .header .h3_place {
+	float: left;
+	height: 25px;
+	width: 480px;
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+.layoutDiv .header .h3_place ul li {
+	float: right;
+	padding-right: 8px;
 }
 .tableDiv .header .h2 .name,.layoutDiv .header .h2 .name
 {
