@@ -74,7 +74,7 @@ namespace NXEIP.Tree
             return json;
         }
 
-        public override KeyValuePair<string, string> GetKeyValuePair(int id)
+        public override KeyValuePair<string, string>? GetKeyValuePair(int id)
         {
             
 

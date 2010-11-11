@@ -18,6 +18,6 @@ namespace NXEIP.Tree
         public abstract ICollection<JsTreeJson> GetData(int parentID);
 
 
-        public abstract KeyValuePair<String, String> GetKeyValuePair(int id);
+        public abstract KeyValuePair<String, String>? GetKeyValuePair(int id);
     }
 }

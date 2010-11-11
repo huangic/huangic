@@ -25,6 +25,31 @@ public class DepartTreeNodeFactory
             tree = new AllDepartTreeNode();
         }
 
+
+        if (obj.TreeNodeType == DepartTreeEnum.NodeType.Self) { 
+            int dep_id=Convert.ToInt32(HttpContext.Current.Session["UserDepartID"]);
+
+
+            tree = new SelfDepartTreeNode()
+            {
+                CurrentDepId = dep_id
+            };
+        }
+
+
+        if (obj.TreeNodeType == DepartTreeEnum.NodeType.Parallel)
+        {
+            int dep_id = Convert.ToInt32(HttpContext.Current.Session["UserDepartID"]);
+
+
+            tree = new ParallelDepartTreeNode()
+            {
+                CurrentDepId = dep_id
+            };
+        }
+
+
+
         SetChildNode(obj, tree);
        
 

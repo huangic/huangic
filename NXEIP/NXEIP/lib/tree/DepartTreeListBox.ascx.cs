@@ -87,10 +87,16 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
 
         List<KeyValuePair<String, String>> items = this.Items;
 
-        items.Add(ChildNodeStrategy.GetKeyValuePair(id));
+        KeyValuePair<String, String>? item = ChildNodeStrategy.GetKeyValuePair(id);
 
-        this.Items = items;
 
+        if (item.HasValue)
+        {
+
+            items.Add(item.Value);
+
+            this.Items = items;
+        }
 
     }
 
