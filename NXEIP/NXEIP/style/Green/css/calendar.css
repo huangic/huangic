@@ -3,6 +3,7 @@
 	display: none;
 	position: relative;
 	border: 1px solid #009966;
+	z-index:9999;
 }
 #calendarDiv a {
 	cursor: pointer;
