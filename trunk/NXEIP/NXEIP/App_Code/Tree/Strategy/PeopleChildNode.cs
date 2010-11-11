@@ -120,18 +120,23 @@ namespace NXEIP.Tree
             return json;
         }
 
-        public override KeyValuePair<string, string> GetKeyValuePair(int id)
+        public override KeyValuePair<string, string>? GetKeyValuePair(int id)
         {
             using (NXEIPEntities model = new NXEIPEntities())
             {
-                var peo = (from d in model.people where d.peo_uid == id select d).First();
+                try
+                {
+                    var peo = (from d in model.people where d.peo_uid == id select d).First();
 
 
 
-                KeyValuePair<String, String> value = new KeyValuePair<string, string>(id.ToString(), peo.peo_name);
+                    KeyValuePair<String, String> value = new KeyValuePair<string, string>(id.ToString(), peo.peo_name);
 
-                return value;
-
+                    return value;
+                }
+                catch {
+                    return null;
+                }
 
 
             }
