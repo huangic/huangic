@@ -194,11 +194,11 @@ function formatDate(Day, Month, Year) {
 }
 
 function getROCYear(year) {
-    return year - 1911;
+    return year - 1911 + ' 年';
 }
 
 function getMonthName(month) {
-    var monthNames = new Array('一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月');//ORIGINAL: var monthNames = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+    var monthNames = new Array('1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月');//ORIGINAL: var monthNames = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
     return monthNames[month];
 }
 
