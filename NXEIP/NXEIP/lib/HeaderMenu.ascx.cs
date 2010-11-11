@@ -13,7 +13,6 @@ using System.Text;
 using Entity;
 
 
-// TODO:SYS 的排序沒有處理
 
 public partial class lib_HeaderMenu : System.Web.UI.UserControl
 {
@@ -139,6 +138,21 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
             //放到DataSET之後用LINQ排內容
             menudataset = db.ExecuteDataSet(cmd);
 
+           // using (NXEIPEntities model = new NXEIPEntities()) {
+           //     var menu = (from sysfunc in model.sysfuction
+           //                 from account in model.accounts
+           //                 from roleacc in model.roleaccount
+           //                 from rauth in model.rauthority
+           //                 where sysfunc.sfu_status == "1"
+           //                 && roleacc.acc_no == account.acc_no
+           //                 && rauth.rol_no == roleacc.rol_no
+           //                 && sysfunc.sfu_no == rauth.rol_no
+           //                 && account.acc_login == user_login
+           //                 orderby sysfunc.sfu_parent orderby sysfunc.sfu_order
+           //                 select sysfunc);
+           //}
+
+            
         }
       
      
@@ -160,6 +174,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         //get sys_no
         //把DataTable 做Grouping
         var sysNos = from s in dt.AsEnumerable()
+                     orderby s.Field<Int32>("sfu_order")
                      group s by s.Field<Int32>("sys_no") into g
                      select g;
         StringBuilder style = new StringBuilder();

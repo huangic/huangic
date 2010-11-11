@@ -10,6 +10,7 @@ using Entity;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Web.SessionState;
+using NXEIP.Lib;
 
 public class TreeMethod : IHttpHandler,IRequiresSessionState {
 
@@ -62,24 +63,8 @@ public class TreeMethod : IHttpHandler,IRequiresSessionState {
 
         if (mode == "save") {
             //取REQUEST的JSON 字串
-            HttpRequest request = context.Request;
-            Stream stream = request.InputStream;
-            string json = string.Empty;
-            string responseJson = string.Empty;
-            if (stream.Length != 0)
-            {
-                System.IO.StreamReader streamReader = new StreamReader(stream);
-                json = streamReader.ReadToEnd();
-
-                logger.Debug(json);
-                
-                //Person person = JSONHelper.Deserialize<Person>(json);
-                //person.FirstName = "FN";
-                //person.LastName = "LN";
-                //responseJson = JSONHelper.Serialize<Person>(person);
-            }
-
-            JObject o = JObject.Parse(json);
+          
+            JObject o = JsonLib.GetRequestJsonObject(context.Request);
             JArray jsonarray = (JArray)o["para"];
             List<KeyValuePair<String, String>> departs = new List<KeyValuePair<string, string>>();
             foreach(JObject jobj in jsonarray){
