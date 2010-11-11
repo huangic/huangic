@@ -35,7 +35,8 @@ var popUpCal = {
         html += '<td width="50%" align="right"><a id="nextMonth">下一個月 ></a></td>'; //ORIGINAL: html += '	<td><a id="nextMonth">Next >></a></td>';
         html += '</tr></table>';
         html += '<table id="calendar" cellpadding="0" cellspacing="0"><tr>';
-        html += '<th colspan="7" class="calendarHeader">' + popUpCal.selectedYear + ' ' + getMonthName(popUpCal.selectedMonth) + '</th>'; //ORIGINAL: html += '<th colspan="7" class="calendarHeader">'+getMonthName(popUpCal.selectedMonth)+' '+popUpCal.selectedYear+'</th>';
+
+        html += '<th colspan="7" class="calendarHeader">' + getROCYear(popUpCal.selectedYear) + ' ' + getMonthName(popUpCal.selectedMonth) + '</th>'; //ORIGINAL: html += '<th colspan="7" class="calendarHeader">'+getMonthName(popUpCal.selectedMonth)+' '+popUpCal.selectedYear+'</th>';
         html += '</tr><tr class="weekDaysTitleRow">';
         var weekDays = new Array('日', '一', '二', '三', '四', '五', '六'); //ORIGINAL: var weekDays = new Array('S','M','T','W','T','F','S');
         for (var j = 0; j < weekDays.length; j++) {
@@ -190,6 +191,10 @@ function formatDate(Day, Month, Year) {
     var CHYear = Year - 1911;
     var dateString = CHYear + '-' + Month + '-' + Day;
     return dateString;
+}
+
+function getROCYear(year) {
+    return year - 1911;
 }
 
 function getMonthName(month) {
