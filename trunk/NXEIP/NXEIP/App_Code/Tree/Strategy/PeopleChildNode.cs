@@ -16,13 +16,10 @@ namespace NXEIP.Tree
     public class PeopleChildNode : ChildNode
     {
 
+              
 
+        public DepartTreeEnum setting { get; set; }  
 
-        public int status { get; set; }
-
-        public bool showTitle { get; set; }
-        public bool showExt { get; set; }
-        public bool showWorkid { get; set; }
 
 
         public PeopleChildNode()
@@ -47,19 +44,70 @@ namespace NXEIP.Tree
                                    where p.departments.dep_no == pid && p.peo_uid == acc.people.peo_uid && acc.acc_status == "1"
                                    select p;
 
+                int status = (int)setting.TreePeopleStatus;
+
+
                 if (status != 0) {
-                    peopleResult = peopleResult.Where(x => x.peo_jobtype == status).Select(x=>x);
+                    peopleResult = peopleResult.Where(x => x.peo_jobtype == status);
                 }
+
+                int ptype=(int)setting.TreePeopleType;
+                
+                if (ptype != 0) { 
+                    if(ptype==1){
+                        peopleResult=peopleResult.Where(x=>x.peo_ptype==1);
+                    }else{
+                        peopleResult = peopleResult.Where(x => x.peo_ptype != 1);
+                    }
+                
+                }
+
 
 
                 foreach (var peo in peopleResult)
                 {
+                   
+
 
                     //處理一下編號
                     DepartTreeJson node = new DepartTreeJson(peo);
 
+                    String addition = "";
+
+                    if( (setting.TreePeopleColumn & DepartTreeEnum.PeopleColumn.Title) ==DepartTreeEnum.PeopleColumn.Title){
+                        string type_code=peo.peo_pfofess.HasValue?peo.peo_pfofess.Value.ToString():"";
+                        if(!string.IsNullOrEmpty(type_code)){
+                        //取職稱
+                            string title = (from d in model.types where d.typ_code == "profess" && d.typ_number == type_code select d.typ_cname).FirstOrDefault();
+
+                            if (!String.IsNullOrEmpty(title)) {
+                                addition += title;
+                                
+                            }   
+                        
+                        }
+                    }
+
+                    //取員工編號
+
+                    if ((setting.TreePeopleColumn & DepartTreeEnum.PeopleColumn.WorkId) == DepartTreeEnum.PeopleColumn.WorkId)
+                    {
+                        string wid = peo.peo_workid??"";
 
 
+                        if (!String.IsNullOrEmpty(wid))
+                            {
+                                addition += " "+wid;
+
+                            }
+
+                        
+                    }
+
+
+                    if (!String.IsNullOrEmpty(addition)) {
+                        node.data = node.data + "(" + addition + ")";
+                    }
 
 
                     json.Add(node);

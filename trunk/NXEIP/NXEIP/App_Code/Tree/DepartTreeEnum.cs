@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 
 
 
@@ -48,7 +49,14 @@ namespace NXEIP.Tree
         /// 節點類型
         /// </summary>
         public enum NodeType:int{
-            All,Child,SameLevel,Auth
+            [Description("全部")]
+            All,
+            [Description("自己部門")]
+            Self,
+            [Description("平行部門")]
+            Parallel,
+            [Description("根據權限表")]
+            Auth
         }
         /// <summary>
         /// 葉類型
@@ -73,14 +81,15 @@ namespace NXEIP.Tree
 
         
         public enum PeopleType : int {
-            General,Contract 
+            All,General,Contract 
         }
         
         [Flags]
         public enum PeopleColumn : int { 
-            Name=1,
-            Title=2,
-            Ext=4
+            Name=0,
+            Title=1,
+            Ext=2,
+            WorkId=4
         }
 
     }

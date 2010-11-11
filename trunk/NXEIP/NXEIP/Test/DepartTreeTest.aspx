@@ -87,7 +87,7 @@
     <br />
    
     <br />
-    <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" />
+    <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" LeafType="People" runat="server" />
     <br />
 
     
