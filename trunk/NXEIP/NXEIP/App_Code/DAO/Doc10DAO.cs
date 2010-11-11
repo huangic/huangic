@@ -51,7 +51,7 @@ namespace NXEIP.DAO
         public IQueryable<doc10> GetDoc10ByS06NO(int s06_no,int peo_uid)
         {
             return (from dc09 in model.doc09
-                    where dc09.s06_no == s06_no && dc09.d09_peouid == peo_uid
+                    where dc09.s06_no == s06_no && dc09.d09_peouid == peo_uid && dc09.d09_status == "1"
                     from dc10 in model.doc10
                     where dc10.d09_no == dc09.d09_no
                     orderby dc09.d09_date descending
@@ -67,7 +67,7 @@ namespace NXEIP.DAO
             int[] s06ary = s06.Where(o => o.s06_status == "1").Select(x => x.s06_no).ToArray();
 
             var data = (from d in model.doc09
-                        where s06ary.Contains(d.s06_no) 
+                        where s06ary.Contains(d.s06_no) && d.d09_status == "1"
                         from f in model.doc10
                         where f.d09_no == d.d09_no
                         orderby d.d09_date descending
