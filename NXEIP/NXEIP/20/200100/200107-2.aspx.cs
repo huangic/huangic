@@ -126,7 +126,7 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
                     //取最大值
                     int max=1;
                     try{
-                        max=(from d in model.doc10 where d.d09_no==d09.d09_no select d.d09_no).Max();
+                        max=(from d in model.doc10 where d.d09_no==d09.d09_no select d.d10_no).Max();
                         max++;
                     }catch{
                     
