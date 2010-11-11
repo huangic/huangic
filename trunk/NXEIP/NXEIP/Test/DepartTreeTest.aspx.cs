@@ -12,7 +12,7 @@ using Microsoft.Practices.EnterpriseLibrary.Caching;
 using NXEIP.Lib;
 
 
-public partial class AjaxTest : System.Web.UI.Page
+public partial class _Test_DepartTreeTest : System.Web.UI.Page
 {
     private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
@@ -26,10 +26,16 @@ public partial class AjaxTest : System.Web.UI.Page
         {
             this.DepartmentPanel1.Clear();
             this.DepartmentPanel1.Add(7);
+
+
+            this.DepartTreeListBox1.Clear();
+
+            this.DepartTreeTextBox1.Clear();
+
+
         }
 
-        //測試CACHE 項目
-
+       
         
 
 

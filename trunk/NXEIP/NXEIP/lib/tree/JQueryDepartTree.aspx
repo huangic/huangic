@@ -44,6 +44,7 @@
         
         }
 
+
         function save() {
 
 
@@ -77,7 +78,9 @@
             
              $("#ListBox2 option:selected").each(function () {
                 $(this).remove();
-              });
+            });
+
+            
           }
 
 

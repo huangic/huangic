@@ -375,7 +375,7 @@ namespace NXEIP.Widget
 
 
 
-                    //TODO: ajax
+                    
                     //*加上ajax的新增方式*
                     HtmlGenericControl HtmlLi2 = new HtmlGenericControl("li");
                     HtmlAnchor alb = new HtmlAnchor();
