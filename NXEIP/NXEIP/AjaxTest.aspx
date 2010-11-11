@@ -70,7 +70,8 @@
     
 
     <uc1:DepartmentPanel ID="DepartmentPanel1" runat="server" LeafType="Department" 
-        SelectMode="Multi" ShowDeleteButton="False" PeopleColumn="Name,Ext" />
+        SelectMode="Multi" ShowDeleteButton="False" PeopleColumn="Name,Ext" 
+        TreeType="Self" />
 
     
 
@@ -86,7 +87,8 @@
     <br />
    
     <br />
-    <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" />
+    <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" LeafType="People" 
+        PeopleColumn="Name,Title,WorkId" PeopleType="All" />
     <br />
 
     

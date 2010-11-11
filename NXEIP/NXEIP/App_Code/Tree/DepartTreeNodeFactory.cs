@@ -43,11 +43,16 @@ public class DepartTreeNodeFactory
         if (obj.TreeLeafType == DepartTreeEnum.LeafType.People)
         {
             tree.AddChildNodeStrategy(new DepartChildNode() { checkChildPeople = true });
-            tree.AddChildNodeStrategy(new PeopleChildNode() {  status=(int)obj.TreePeopleStatus });
+            tree.AddChildNodeStrategy(new PeopleChildNode() { setting=obj });
         }
     }
 
-
+    /// <summary>
+    /// CHILD NODE 的生成
+    /// LISTBOX 與TEXTBOX使用
+    /// </summary>
+    /// <param name="leaf"></param>
+    /// <returns></returns>
     public static ChildNode CreateChildNode(DepartTreeEnum.LeafType leaf){
         if (leaf == DepartTreeEnum.LeafType.Department)
         {
