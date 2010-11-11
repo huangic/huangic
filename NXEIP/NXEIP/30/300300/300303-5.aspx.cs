@@ -115,7 +115,11 @@ public partial class _30_300300_300303_5 : System.Web.UI.Page
             }
 
             //成績
-            ((TextBox)(e.Row.FindControl("tbox"))).Text = this.GridView1.DataKeys[e.Row.RowIndex].Values[1].ToString();
+            try
+            {
+                ((TextBox)(e.Row.FindControl("tbox"))).Text = this.GridView1.DataKeys[e.Row.RowIndex].Values[1].ToString();
+            }
+            catch { }
         }
 
         
