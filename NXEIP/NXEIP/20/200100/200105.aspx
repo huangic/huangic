@@ -20,7 +20,7 @@
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
                 //  reapply the thick box stuff
-                tb_init('.thickbox');
+                tb_init('a.thickbox');
             }
         }
     </script>
