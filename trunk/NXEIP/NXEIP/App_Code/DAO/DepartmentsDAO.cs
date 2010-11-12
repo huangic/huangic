@@ -28,7 +28,7 @@ namespace NXEIP.DAO{
         public IQueryable<departments> GetAll()
         {
 
-            return (from d in model.departments where d.dep_status == "1"  &&d.dep_no>1 orderby d.dep_no select d);
+            return (from d in model.departments where d.dep_status == "1"  orderby d.dep_no select d);
         }
 
 
