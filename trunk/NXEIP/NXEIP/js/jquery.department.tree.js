@@ -27,9 +27,8 @@
             $(listboxId).find('option').remove();
         }
 
-
-        item = $(this).parent();
-
+          try{  
+            item = $(this).parent();
             id = $(item).attr("id");
             nodeType = $(item).attr("rel");
             nodeName = $(item).attr("nName");
@@ -61,7 +60,8 @@
                 save();
             }
       
-      
+      }catch(err){
+      }
    }
 
 
