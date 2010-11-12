@@ -111,7 +111,25 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
     public void Clear() {
         Session[SessionName] = new List<KeyValuePair<String,String>>();
     }
-    
+
+
+    /// <summary>
+    /// 取所有的VALUE值
+    /// </summary>
+    [Browsable(false)]
+    public List<String> ItemsValue
+    {
+        get
+        {
+
+            List<String> values = Items.Select(x => x.Key).ToList();
+
+            return values;
+
+
+        }
+    }
+
     protected override void OnPreRender(EventArgs e)
     {
        

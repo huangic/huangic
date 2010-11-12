@@ -1,0 +1,43 @@
+﻿
+TreeType(設定部門樹種類)
+	All (全部門)
+	Self (自己部門)
+	Parallel(跨平行部門)
+	Auth (依照權限表)
+
+LeafType(選人員還是選部門)
+    Department
+	People
+
+SelectMode(單選複選 只有Penal有此參數)
+
+ShowDelete(是否顯示刪除按鈕建 只有Penal有此參數)
+	用自己的刪除鈕 在CLASS 中加上"TreeDel"
+	<input  type="button" class="TreeDel" value="刪除"/>
+
+
+(以下是選擇人員才有用)
+PeopleStatus(在職停職)
+	All,
+	OnJob,
+	StopJob,
+
+PeopleColumn(顯示欄位) 設定多個用逗號隔開
+	name (姓名)
+	workid (人事編號)
+	ext (分機)
+	title (職稱)
+
+PeopleType(人員種類)
+	All 全部
+	General	正式人員
+	Contract 非正式人員
+
+
+可用Function
+
+	Clear() 清除值
+	Add(int) 加入值
+	Items 取回選擇的VALUE 與 TEXT項目 沒有值就是回傳一個長度為0的LIST
+	ItemsValue 直接取回List<String> value
+
