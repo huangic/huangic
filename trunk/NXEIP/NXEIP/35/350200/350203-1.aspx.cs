@@ -122,6 +122,9 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             //找父代物件取他的LEVEL
             departments paretntDepart = dao.GetByDepNo(System.Convert.ToInt32(this.ddl_depart.SelectedValue));
 
+
+            paretntDepart.dep_son = "1";
+
             depart.dep_name = this.tbx_dep_name.Text;
             depart.dep_parentid = System.Convert.ToInt32(this.ddl_depart.SelectedValue);
             depart.dep_order = int.Parse(this.tbx_dep_order.Text);
@@ -136,9 +139,15 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             depart.dep_tel = this.tbx_dep_tel.Text;
             depart.dep_status = "1";
             depart.dep_introduce = this.tbx_dep_note.Text;
-
+            
             dao.AddDepartment(depart);
             dao.Update();
+
+
+            //加入修改父代的SON
+
+
+
 
             //預設角色
             if (!this.ddl_role.SelectedValue.Equals("無預設角色"))
@@ -163,12 +172,17 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             int dep_no = System.Convert.ToInt32(this.hidden_dep_no.Value);
 
             depart = dao.GetByDepNo(dep_no);
-
+            int oldParentID = depart.dep_parentid.Value;
             //Saving Department
+            
+                
+            
+
+
 
             //找父代物件取他的LEVEL
             departments paretntDepart = dao.GetByDepNo(System.Convert.ToInt32(this.ddl_depart.SelectedValue));
-
+            paretntDepart.dep_son = "1";
             depart.dep_name = this.tbx_dep_name.Text;
             depart.dep_parentid = System.Convert.ToInt32(this.ddl_depart.SelectedValue);
             depart.dep_order = System.Convert.ToInt32(this.tbx_dep_order.Text);
@@ -179,7 +193,25 @@ public partial class _35_350200_350203_1 : System.Web.UI.Page
             depart.dep_addr = this.tbx_dep_addr.Text;
             depart.dep_tel = this.tbx_dep_tel.Text;
             depart.dep_introduce = this.tbx_dep_note.Text;
+            
             dao.Update();
+            
+            //找他的舊父代看有沒有子代(沒有就改SON);
+            int count = dao.GetChildDepartment(oldParentID).Count();
+            departments oldParentDepart = dao.GetByDepNo(depart.dep_parentid.Value);
+            if (count == 0)
+            {
+
+                oldParentDepart.dep_son = "0";
+            }
+            else
+            {
+                oldParentDepart.dep_son = "1";
+            }
+
+            dao.Update();
+
+
             DBObject odb = new DBObject();
 
             //預設角色
