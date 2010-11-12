@@ -1,4 +1,10 @@
-﻿
+﻿DepartTreePanel
+DepartTreeListBox
+DepartTreeTextBox
+
+
+
+
 TreeType(設定部門樹種類)
 	All (全部門)
 	Self (自己部門)
@@ -9,7 +15,7 @@ LeafType(選人員還是選部門)
     Department
 	People
 
-SelectMode(單選複選 只有Penal有此參數)
+SelectMode(單選複選 只有Panel有此參數)
 
 ShowDelete(是否顯示刪除按鈕建 只有Penal有此參數)
 	用自己的刪除鈕 在CLASS 中加上"TreeDel"
