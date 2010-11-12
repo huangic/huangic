@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.Lib;
+using System.Globalization;
 
 public partial class MainPage : System.Web.UI.MasterPage
 {
@@ -20,6 +21,15 @@ public partial class MainPage : System.Web.UI.MasterPage
         catch { 
         
         }
+        //顯示名稱與日期
+        SessionObject sessionObj = new SessionObject();
+        this.lt_name.Text = sessionObj.sessionUserName;
+
+
+        TaiwanCalendar tc = new TaiwanCalendar();
+
+
+        this.lt_date.Text = tc.GetYear(DateTime.Now) + "年" + tc.GetMonth(DateTime.Now) + "月" + tc.GetDayOfMonth(DateTime.Now) + "日";
 
         
     }

@@ -19,8 +19,7 @@ public partial class _10_100500_100501 : WidgetPageTemplate
 
     //此頁面使用的SESSION;
     public override String SessionName { get { return "WidgetObj"; } }
-    //此頁面使用的編修用SESSION
-    public override String SessionTmpName { get { return "TmpWidgetObj"; } }
+   
     //遠端AJAX使用的頁面
     protected override String RemoteUrl { get { return "~/widget/WidgetMethod.aspx"; } }
     /// <summary>

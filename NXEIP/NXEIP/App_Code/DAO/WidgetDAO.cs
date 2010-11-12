@@ -14,6 +14,7 @@ namespace NXEIP.DAO
     [DataObject(true)]
     public class WidgetDAO
     {
+        NXEIPEntities model = new NXEIPEntities();
         public WidgetDAO()
         {
            
@@ -63,12 +64,12 @@ namespace NXEIP.DAO
         /// <param name="page_no"></param>
         /// <param name="zone"></param>
         /// <returns></returns>
-        public IQueryable<widget> GetZoneWidget(int page_no, String zone)
+        public IQueryable<block> GetZoneWidget(int page_no, String zone)
         {
-            NXEIPEntities model = new NXEIPEntities();
+            
 
 
-            return (from w in model.block where w.blo_layout == zone && w.page.pag_no == page_no orderby w.blo_order select w.widget);
+            return (from w in model.block where w.blo_layout == zone && w.page.pag_no == page_no orderby w.blo_order select w);
         }
         #endregion
     }

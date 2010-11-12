@@ -22,7 +22,7 @@ public partial class WidgetMethod : System.Web.UI.Page
     [System.Web.Services.WebMethod(true)]
     public static int SaveLayout(WidgetObj widgetObj, WidgetJson widgetPage)
     {
-        Database db = DatabaseFactory.CreateDatabase("NXEIPConnectionString");
+        //Database db = DatabaseFactory.CreateDatabase("NXEIPConnectionString");
 
 
 
@@ -36,10 +36,24 @@ public partial class WidgetMethod : System.Web.UI.Page
 
 
         #region 砍掉所有的BLOCK
-        String delSql = "delete from block where pag_no=@pag_no";
-        DbCommand delCmd = db.GetSqlStringCommand(delSql);
-        db.AddInParameter(delCmd, "@pag_no", DbType.Int32, page_no);
-        db.ExecuteNonQuery(delCmd);
+        //String delSql = "delete from block where pag_no=@pag_no";
+        //DbCommand delCmd = db.GetSqlStringCommand(delSql);
+        //db.AddInParameter(delCmd, "@pag_no", DbType.Int32, page_no);
+        //db.ExecuteNonQuery(delCmd);
+
+        using (NXEIPEntities model = new NXEIPEntities()) {
+            var blocks = (from d in model.block where d.pag_no == page_no select d);
+        
+            foreach(var block in blocks){
+                model.block.DeleteObject(block);
+            }
+            model.SaveChanges();
+        }
+
+
+
+
+
 
         logger.Debug("Delete this page_no[" + page_no + "] block");
 
@@ -56,32 +70,44 @@ public partial class WidgetMethod : System.Web.UI.Page
             int order = 0;
 
             #region 存檔每一份BLOCK
-            foreach (var b in p.Block)
+            using (NXEIPEntities model = new NXEIPEntities())
             {
-                order++;
 
-                //存檔BLOCK
+                foreach (var b in p.Block)
+                {
+                    order++;
+
+                    //存檔BLOCK
+
+                   
+
+                    //String InsertSql = @"INSERT INTO block(wid_no, pag_no, blo_layout, blo_order, blo_createuid, blo_createtime) VALUES (@wid_no, @pag_no, @blo_layout, @blo_order, @blo_createuid, @blo_createtime)";
+                    //DbCommand InsertCmd = db.GetSqlStringCommand(InsertSql);
+
+                    //設定參數
+                    //db.AddInParameter(InsertCmd, "@wid_no", DbType.Int32, b.WidgetID);
+                    //db.AddInParameter(InsertCmd, "@pag_no", DbType.Int32, page_no);
+                    //db.AddInParameter(InsertCmd, "@blo_layout", DbType.String, p.Name);
+                    //db.AddInParameter(InsertCmd, "@blo_order", DbType.Int32, order);
+                    //db.AddInParameter(InsertCmd, "@blo_createuid", DbType.Int32, System.Convert.ToInt32(sessionObj.sessionUserID));
+                    //db.AddInParameter(InsertCmd, "@blo_createtime", DbType.DateTime, DateTime.Now);
+
+                    //db.ExecuteNonQuery(InsertCmd);
+                    block bk = new block();
+
+                    bk.wid_no = b.WidgetID;
+                    bk.pag_no = page_no;
+                    bk.blo_layout = p.Name;
+                    bk.blo_order = order;
+                    bk.blo_createuid = System.Convert.ToInt32(sessionObj.sessionUserID);
+                    bk.blo_createtime = DateTime.Now;
+                    bk.blo_setting = b.Param;
+                    model.block.AddObject(bk);
 
 
+                }
 
-                String InsertSql = @"INSERT INTO block(wid_no, pag_no, blo_layout, blo_order, blo_createuid, blo_createtime) VALUES (@wid_no, @pag_no, @blo_layout, @blo_order, @blo_createuid, @blo_createtime)";
-                DbCommand InsertCmd = db.GetSqlStringCommand(InsertSql);
-
-                //設定參數
-                db.AddInParameter(InsertCmd, "@wid_no", DbType.Int32, b.WidgetID);
-                db.AddInParameter(InsertCmd, "@pag_no", DbType.Int32, page_no);
-                db.AddInParameter(InsertCmd, "@blo_layout", DbType.String, p.Name);
-                db.AddInParameter(InsertCmd, "@blo_order", DbType.Int32, order);
-                db.AddInParameter(InsertCmd, "@blo_createuid", DbType.Int32, System.Convert.ToInt32(sessionObj.sessionUserID));
-                db.AddInParameter(InsertCmd, "@blo_createtime", DbType.DateTime, DateTime.Now);
-
-                db.ExecuteNonQuery(InsertCmd);
-
-
-
-
-
-
+                model.SaveChanges();
             }
             #endregion
 
@@ -149,12 +175,7 @@ public partial class WidgetMethod : System.Web.UI.Page
         return Dao.GetPageNo(uid, page_type).Value;
     }
 
-    [System.Web.Services.WebMethod(true)]
-    public static void TmpSaveLayoutToSession(WidgetObj widgetObj, WidgetJson widgetPage)
-    {
-        HttpContext.Current.Session[widgetPage.SessionTmpName] = widgetObj;
-    } 
-
+  
 
    
 }

@@ -8,12 +8,12 @@ using NXEIP.Widget;
 
 public partial class widget_00_CurrentUserAndTime : WidgetBaseControl
 {
-    public override String SettingUrl{ get{return "AAA";}}
+    public override String EditPanel { get { return "Panel1"; } }
     
     
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.TextBox1.Text = this.WidgetParam["BBB"];
     }
 
     public override string Name
@@ -24,6 +24,7 @@ public partial class widget_00_CurrentUserAndTime : WidgetBaseControl
     public override void loadWidget()
     {
        //init Time;
+        this.Literal1.Text = this.WidgetParam["BBB"];
 
         this.Literal2.Text = DateTime.Now.ToShortDateString();
     }

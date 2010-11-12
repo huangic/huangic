@@ -33,7 +33,7 @@ public partial class widget_WidgetWrapPage : System.Web.UI.Page
         control.WidgetID = wid.wid_no;
         control.IsEditable = true;
 
-        this.Controls.Add(control);
+        this.form1.Controls.Add(control);
         }
 
     }

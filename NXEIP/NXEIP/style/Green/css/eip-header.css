@@ -10,12 +10,12 @@
 	margin: 0px;
 	float: left;
 	height: 56px;
-	width: 885px;
+	width: 810px;
 }
 .logo
 {
 	background:url(../image/logo.jpg) no-repeat;
-	width:275px;
+	width:170px;
 	height:56px;
 	float: left;
 }
@@ -25,21 +25,31 @@
    visibility:hidden; 
 }
 .headerTmenu {
-	float: right;
+	float: left;
 	height: 56px;
-	width: 610px;
+	width: 640px;
 }
 .headerTR {
 	float: right;
 	height: 56px;
-	width: 135px;
+	width: 210px;
 	overflow: hidden;
 }
+.headerdate {
+	float: left;
+	height: 28px;
+	width: 210px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 28px;
+}
 .headerTR .A1 {
-	float: right;
-	height: 23px;
+	float: left;
+	height: 28px;
 	width: 72px;
-	padding-top: 4px;
 	overflow: hidden;
 }
 .headerTR .A1 ul li {
@@ -96,6 +106,7 @@
 	float: left;
 	height: 29px;
 	width: 135px;
+	overflow: hidden;
 }
 
 ..headerTR .B1 {

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Threading;
 using System.Text;
+using Entity;
 
 
 namespace NXEIP.Widget
@@ -31,7 +32,7 @@ namespace NXEIP.Widget
 
 
 
-        public virtual String SettingUrl { get { return "";} }
+        public virtual String EditPanel { get { return "";} }
 
         private String _Title;
 
@@ -89,15 +90,30 @@ namespace NXEIP.Widget
             if (IsEditable)
             {
                 sb.Append("<strong>" + Title + "</strong>");
-                
+
                 //sb.Append("<a class=\"delete\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.removeWidget('" + WidgetID + "');return false\" title=\"移除\">X</a>");
-                if(!String.IsNullOrEmpty(SettingUrl)){
-                sb.Append("<a class=\"edit\" href=\""+SettingUrl+" title=\"設定\">設定</a>");
-                }//sb.Append("<a class=\"move\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.initiateMoveWidget('" + WidgetID + "');return false\" title=\"搬移 widget\">搬移</a>");
+                //if(!String.IsNullOrEmpty(SettingUrl)){
+                //sb.Append("<a class=\"edit\" href=\""+SettingUrl+" title=\"設定\">設定</a>");
+                //}//sb.Append("<a class=\"move\" href=\"javascript:void(0)\" onclick=\"BlogEngine.widgetAdmin.initiateMoveWidget('" + WidgetID + "');return false\" title=\"搬移 widget\">搬移</a>");
+
+                //顯示編修的PANEL
+                if (!String.IsNullOrEmpty(this.EditPanel))
+                {
+                    this.FindControl(this.EditPanel).Visible=true;
+
+                }
+
+            }
+            else {
+                //隱藏編修的PANEL
+                if (!String.IsNullOrEmpty(this.EditPanel))
+                {
+
+                    this.FindControl(this.EditPanel).Visible = false;
+                }
             }
 
             //if (ShowTitle)
-
             //else
             //sb.Append("<br />");
 
@@ -112,5 +128,9 @@ namespace NXEIP.Widget
            
         }
 
+
+        public WidgetParam WidgetParam { get; set; }
+
+       
     }
 }

@@ -22,20 +22,11 @@ namespace NXEIP.Widget
             this.Name = name;
         }
 
-        private String _Name;
+        
 
-        public String Name
-        {
-            get { return _Name; }
-            set { _Name = value; }
-        }
-        private WidgetBlock[] _Block;
-
-        public WidgetBlock[] Block
-        {
-            get { return _Block; }
-            set { _Block = value; }
-        }
+        public String Name { get; set; }
+       
+        public WidgetBlock[] Block { get; set; }
 
 
 

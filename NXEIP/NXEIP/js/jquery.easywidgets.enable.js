@@ -47,20 +47,17 @@ function widgetClose(link,widget) {
 
 }
 
-function widgetTmpSave() {
-    widgetSaveSession(getWidgetObj());
-
-}
 
 
 
 //物件
-function WidgetBlock(widgetId,order) { 
+function WidgetBlock(widgetId,order,param) { 
   
   
    
     this.WidgetID=widgetId;
-    this.Order==order;
+    this.Order == order;
+    this.Param = param;
 }
 
 function WidgetPlace(name){
@@ -81,32 +78,34 @@ function getWidgetObj(){
     //取所有的PLACE
 
 
-    $(".widget-place").each(function() {
+    $(".widget-place").each(function () {
         //讀取裡面的所有WIDGET物件
 
-        //如果DISPLAY 為NONE就不管它了
 
-        //if (!$(this).css("display")=="none") {
+        var str = this.id;
+        var place = new WidgetPlace(str.substring(str.lastIndexOf('_') + 1));
 
+
+        var widgets = Array();
+        var order = 0;
+        $(this).children(".widget").each(function () {
+            order = order + 1;
+
+            //ID 處理
             var str = this.id;
-            var place = new WidgetPlace(str.substring(str.lastIndexOf('_') + 1));
 
+            //取裡面的項目轉JSON
 
-            var widgets = Array();
-            var order = 0;
-            $(this).children(".widget").each(function() {
-                order = order+1;
+            var json = $(this).fieldsToJson();
 
-                //ID 處理
-                var str = this.id;
-                widgets.push(new WidgetBlock(str.substring(str.lastIndexOf('-') + 1), order));
+            widgets.push(new WidgetBlock(str.substring(str.lastIndexOf('-') + 1), order,json));
 
-            });
+        });
 
-            place.Block = widgets;
+        place.Block = widgets;
 
-            widgetObj.Place.push(place);
-        //}
+        widgetObj.Place.push(place);
+
 
     });
     
@@ -176,10 +175,13 @@ function AddWidgetBlock(WidgetNo) {
         url: WidgetWrapPage,
         data: { "widget": WidgetNo },
         //contentType: "application/json; charset=utf-8",
-        //dataType: "html",
+        dataType: "html",
         cache: "false",
         success: function (data) {
-            $(".leftbg").append(data);
+            //取DATA的DOM
+            
+            
+            $(".leftbg").append($(data).find(".widget"));
             widget_init();
         },
         error: WidgetSaveOnFail

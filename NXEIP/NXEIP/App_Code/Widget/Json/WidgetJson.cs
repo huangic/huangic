@@ -16,8 +16,7 @@ namespace NXEIP.Widget.Json
     {
         //此頁面使用的SESSION;
         public String SessionName { get; set; }
-        //此頁面使用的編修用SESSION
-        public String SessionTmpName { get;set; } 
+       
         
         //UID
         public String Uid { get; set; }

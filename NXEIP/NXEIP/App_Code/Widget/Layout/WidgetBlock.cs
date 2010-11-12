@@ -24,21 +24,13 @@ namespace NXEIP.Widget
         }
 
 
-        private int _WidgetID;
-        public int WidgetID
-        {
-            get { return _WidgetID; }
-            set { _WidgetID = value; }
-        }
 
-        private String _Order;
-        public String Order
-        {
-            get { return Order; }
-            set { Order = value; }
-        }
+        public int WidgetID { get; set; }
 
 
+        public String Order { get; set; }
+
+        public String Param { get; set; }
 
     }
 }

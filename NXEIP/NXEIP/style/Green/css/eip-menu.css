@@ -3,14 +3,24 @@
 .mlmenu {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0; 
-	
-	
 	}
-    
   
-.mlmenu img { border: 0; }
+.mlmenu img {
+	border: 0;
+	height: 56px;
+	width: 72px;
+}
  
 .mlmenu li a {
+	color: #333;
+	text-decoration: none;
+	font-size:15px;
+	border-top: 5px;
+	line-height: 24px;
+	padding-top: 3px;
+	padding-left: 4px;
+	}
+/*.mlmenu li a {
 	color: #333333;
 	text-decoration: none;
 	height: 2em;
@@ -19,21 +29,22 @@
 	padding-left: 20px;
 	border-top: 5px;
 	line-height: 24px;
-	}
- 
+	}*/
+	
+	 
 .mlmenu li a:hover {
-	color: #000000;
+	color: #FF0000;
 	font-size: 15px;
 	line-height: 24px;
 	text-decoration: none;
 }
     
-	.mlmenu ul {
+.mlmenu ul {
 		margin: 0 0 0 0;
 		padding: 0 0 0 0;
 		display: inline; }
  
-		.mlmenu ul li {
+.mlmenu ul li {
 			display: inline;
    position : relative; }
 
@@ -42,13 +53,10 @@
  .mlmenu .imageMenu
 {
 	height: 56px;
-	width: 101px;
+	width: 72px;
 	/*text-indent: -1px;*/
-	
 	display: inline-block;
 
-	
-	
 	*zoom : 1;
 	*display : inline;
 	/*line-height: 0;*/
@@ -84,14 +92,11 @@
 .mlmenu ul li ul {
 	/**/
 	background-color: Transparent;
-	
-	
-	width: 600px;
-	
-	#top: 81px;
-	_top: 81px;
-	
-	
+	width: 650px;
+	#top: 61px;
+	_top: 61px;
+	/*ie6bug*/
+
 	position: absolute;
 	left: -50px;
 /*	padding-top:5px;*/
@@ -104,8 +109,10 @@
 	background-color: #ecf4db;
 	width: 140px;
 
-	#top: 0px;
-	_top: 0px;
+	#top: 25px;
+	_top: 25px;
+	/*ie6bug*/
+	
 	left: 1px;
 	list-style-type: none;
 	z-index:1000;
@@ -123,7 +130,7 @@
 	clear:both;
 	display: block;
 	margin: 0px;
-	padding-top: 2px;
+	padding-top: 3px;
 }
  
 /*
@@ -135,8 +142,6 @@
 		height: 8px;
 		width: 8px;
 		padding: 0px 3px 0px 5px; }
- 
- 
 */
 
 
@@ -146,7 +151,7 @@
 		clear:both;
 		
 		list-style-type: none;
-		/*margin-top: 2px;*/
+/*margin-top: 2px;*/
 		margin:0px;
 		padding:0px 0px 0px 0px;
 		z-index:1000;
@@ -157,7 +162,6 @@
 .submenu ul li {
 			clear:both;
 			display:inline;
-			
 			margin: 0px 2px 0px 2px; 
 			
 }
