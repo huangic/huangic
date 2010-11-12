@@ -27,11 +27,11 @@
             $(listboxId).find('option').remove();
         }
 
-          try{  
-            item = $(this).parent();
-            id = $(item).attr("id");
-            nodeType = $(item).attr("rel");
-            nodeName = $(item).attr("nName");
+          //try{  
+            itemA = $(this).parent();
+            id = $(itemA).attr("id");
+            nodeType = $(itemA).attr("rel");
+            nodeName = $(itemA).attr("nName");
 
             
             if(settings.params.LeafType!=Enum.LeafType.Department){
@@ -60,8 +60,9 @@
                 save();
             }
       
-      }catch(err){
-      }
+      //}catch(err){
+      //  alert(err)
+      //}
    }
 
 
