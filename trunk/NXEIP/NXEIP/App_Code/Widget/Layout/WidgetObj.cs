@@ -17,13 +17,10 @@ namespace NXEIP.Widget
            
         }
 
-        private WidgetPlace[] _Place;
+       
 
-        public WidgetPlace[] Place
-        {
-            get { return _Place; }
-            set { this._Place = value; }
-        }
+        public WidgetPlace[] Place { get; set; }
+       
 
 
 

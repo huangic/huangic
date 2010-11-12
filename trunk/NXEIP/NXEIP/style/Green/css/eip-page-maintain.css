@@ -260,12 +260,7 @@
 	width: 100%;
 	background-color: #acd156;
 }
-.talk
-/*.box  {
-	width: 100%;
-	background-color: #acd156;
-}*/
- .box .head {
+ .talk .box .head {
 	padding: 4px;
 	height: 20px;
 	font-size: 13px;
@@ -286,50 +281,96 @@
 	padding-bottom: 4px;
 	padding-left: 4px;
 }
-.talk .box .t1 {
-	background-image: url(../image/talk_01.gif);
-	background-repeat: no-repeat;
-	width: 26px;
+.talk .boxA{
 	float: left;
-	height: 24px;
-	padding-bottom: 2px;
 	}
-.talk .box .t2 {
-	width: 186px;
+
+.talk .box .t1 {
+	
+	width: 36px;
 	float: left;
+	height: 20px;
+	}
+
+.talk .box .t11 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	background-image: url(../image/ms01.gif);
+	background-repeat: no-repeat;
+	padding-left: 2px;
+		border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #D7F09B;
 }
-.talk .box .row1 {
-	font-size: 14px;
-	color: #009966;
+.talk .box .t12 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	padding-left: 2px;
+	
+
+	}
+.talk .box .t13 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	padding-left: 2px;
+	border-top-width: 1px;
+	border-top-style: dashed;
+	border-top-color: #d7e09b;	
+	}	
+.talk .box .t2 {
+	width: 325px;
+	float: left;
+	color: #666666;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #D7F09B;
+}
+.talk .box a:hover {
+	font-size: 13px;
+	color: #FF0000;
 	text-decoration: none;
 }
+.talk .box a {
+}
+
+.talk .box .t3 {
+	width: 325px;
+	float: left;
+}
+
 .talk .box .row1_bg {
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
-	width:220px;
+	width:360px;
 	background-color: #FEFEE7;
-	padding: 4px;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
 }
 
-.talk .box .row2_bg {
+/*.talk .box .row2_bg {
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
-	width: 114px;
+	width: 110px;
 	background-color: #FEFEE7;
 	padding: 4px;
-}
+}*/
 
 .talk .box .row3_bg {
-	width: 225px;
+	width: 170px;
 	background-color: #FEFEE7;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
 	padding: 4px;
 }
-.talk .box .row4_bg {
+/*.talk .box .row4_bg {
 	background-color: #FEFEE7;
 	width: 98px;
 	font-size: 13px;
@@ -337,7 +378,7 @@
 	text-decoration: none;
 	padding: 4px;
 	text-align: center;
-}
+}*/
 .talk .box .row5_bg {
 	background-color: #FEFEE7;
 	width: 98px;
@@ -394,9 +435,135 @@
 }
 .talk .box a {
 	font-size: 13px;
-	color: #666666;
+	color: #009966;
 	text-decoration: none;
 }
+
+/*樓層new*/
+/*.floor   {
+	width: 100%;
+	background-color: #acd156;
+}
+.floor .head {
+	padding: 4px;
+	height: 20px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	background-color: #eaf7ca;
+	text-align: center;
+	font-weight: bold;
+}
+.floor  .box .row1_bg {
+	background-color: #fefee7;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	width: 16%;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+}
+.floor  .boxA{
+	float: left;
+	text-align: center;
+	}
+
+.floor .box .t1 {
+	background-image: url(../image/food_4.gif);
+	background-repeat: no-repeat;
+	width: 20px;
+	float: left;
+	height: 22px;
+	padding-left: 10px;
+	}
+.floor  .box .t11 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	padding-left: 2px;
+
+	}
+.floor  .box .t12 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	background-image: url(../image/ms01.gif);
+	background-repeat: no-repeat;
+	padding-left: 2px;
+}
+.floor .box .t13 {
+	width: 32px;
+	float: left;
+	height: 20px;
+	padding-left: 2px;
+	}	
+.floor .box .t2 {
+	width: 60px;
+	float: left;
+	color: #666666;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 2px;
+}
+.floor .box a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.floor .box .t3 {
+	width: 280px;
+	float: left;
+}
+.floor .box .row1_bg {
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	width:140px;
+	background-color: #FEFEE7;
+	padding-top: 4px;
+	padding-right: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+}
+
+.floor  .box .row2_bg {
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	width: 600px;
+	background-color: #FEFEE7;
+	padding: 4px;
+}
+
+.floor .box .row3_bg {
+	width: 100px;
+	background-color: #FEFEE7;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+}
+.floor .box .row4_bg {
+	background-color: #FEFEE7;
+	width: 100px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+
+.floor .box a {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
+}*/
+
+
 
 
 
@@ -580,55 +747,71 @@
 
 /*美食區*/
 .food {
-	width: 97%;
+	width: 92%;
 	margin-right: auto;
 	margin-left: auto;
 }
 .food .boxA {
-	width: 989px;
-	border-right-color: #999999;
-	border-bottom-color: #999999;
-	border-left-color: #999999;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-top-style: solid;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-top-color: #999999;
+	width: 94%;
 	float: left;
 	margin-top: 2px;
+	margin-bottom: 10px;
 	}
 .food .box {
-	width: 987px;
+	width: 890px;
 	float: left;
-	padding-left: 2px;
+	height: 90px;
 }
+
 .food .box .head {
-	height: 29px;
-	width: 970px;
+	width: 130px;
 	vertical-align: middle;
 	text-decoration: none;
 	text-align: center;
-	background-image: url(../image/food_1.gif);
-	background-repeat: repeat;
 	font-size: 15px;
 	line-height: 28px;
-	font-weight: bold;
 	color: #333333;
 	float: left;
 	margin-left: 4px;
 	padding-left: 4px;
 	margin-top: 8px;
+	height: 60px;
+	background-color: #F2F9F2;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #9FC1BB;
 }
 
+.food .box .headfloor {
+	width: 90px;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
+	line-height: 28px;
+	color: #333333;
+	float: left;
+	margin-left: 4px;
+	padding-left: 4px;
+	margin-top: 8px;
+	height: 60px;
+	background-color: #F2F9F2;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #9FC1BB;
+}
 
 .food .box .content {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
+	width: 730px;
+	float: right;
+	margin-top: 8px;
+	height: 59px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #FAEAB1;
+	border-top-width: 1px;
+	border-top-style: dashed;
+	border-top-color: #FAEAB1;
 }
 .food .box .b1 {
 	width: 28px;
@@ -640,27 +823,30 @@
 }
 .food .box .b1_floor {
 	width: 28px;
-	height: 26px;
+	height: 54px;
 	background-image: url(../image/food_4.gif);
 	background-repeat: no-repeat;
 	float: left;
 	margin-left: 8px;
+	margin-top: 4px;
 }
 .food .box .b2 {
-	width: 933px;
+	width: 680px;
 	float: left;
 	padding-right: 10px;
 	margin-top: 3px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 26px;
+	height: 54px;
 }
 .food .box .b3 {
-	width: 932px;
+	width: 670px;
 	float: left;
 	padding-left: 33px;
 	padding-right: 10px;
 	margin-left: 4px;
-	border-top-width: 1px;
-	border-top-style: dashed;
-	border-top-color: #F5D978;
 	margin-top: 2px;
 	margin-bottom: 4px;
 	padding-top: 2px;
@@ -721,10 +907,16 @@
 	padding-left: 26px;
 }
 .food .box .ps2 {
-	background-image: url(../image/app_2.gif);
+	background-image: url(../image/ms02.gif);
 	background-repeat: no-repeat;
 	height: 22px;
 	padding-left: 22px;
 	text-decoration: none;
 	margin-left: 35px;
+}
+.food .box .ps3 {
+	background-image: url(../image/ms03.gif);
+	background-repeat: no-repeat;
+	text-decoration: none;
+	margin-left: 3px;
 }

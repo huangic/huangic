@@ -42,6 +42,22 @@
             </div>
          </div>
        <div class="headerTR">
+        
+     <div class="headerdate"> <asp:Literal ID="lt_name" runat="server"></asp:Literal> ~ 今天是 
+      <asp:Literal ID="lt_date" runat="server"></asp:Literal></div>
+     
+     
+      <div class="B0">
+           <div class="B1"><span class="a01-13">字級設定:<span></span></span></div>
+           <div class="B2">
+              <ul>
+                 <li><a href="index.htm" class="small"><span class="a01-13">文字小</span></a></li>
+                 <li><a href="index-2.htm" class="middle"><span class="a01-13">文字中</span></a></li>
+                 <li><a href="index-3.htm" class="big"><span class="a01-13">文字大</span></a></li>
+              </ul>   
+           </div>
+     </div>
+
       <div class="A1">
 		<ul>
 		<li>
@@ -55,16 +71,7 @@
         </li>
 		</ul>
 	 </div>
-     <div class="B0">
-           <div class="B1"><span class="a01-13">字級設定:<span></span></span></div>
-           <div class="B2">
-              <ul>
-                 <li><a href="index.htm" class="small"><span class="a01-13">文字小</span></a></li>
-                 <li><a href="index-2.htm" class="middle"><span class="a01-13">文字中</span></a></li>
-                 <li><a href="index-3.htm" class="big"><span class="a01-13">文字大</span></a></li>
-              </ul>   
-           </div>
-     </div>
+    
 </div>
   </div>
 

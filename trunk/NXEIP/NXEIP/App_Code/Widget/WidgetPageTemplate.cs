@@ -41,14 +41,6 @@ namespace NXEIP.Widget
         ///    //此頁面使用的SESSION; 子代OVERRIDE
         /// </summary>
         public abstract String SessionName { get; }
-        /// <summary>
-        /// 此頁面使用的編修用SESSION  子代OVERRIDE
-        /// </summary>
-
-        public abstract String SessionTmpName { get ; }
-
-
-
         
 
         /// <summary>
@@ -137,13 +129,14 @@ namespace NXEIP.Widget
                 Page.ClientScript.RegisterClientScriptInclude("Widget", ResolveUrl("~/js/jquery.easywidgets.js"));
                 Page.ClientScript.RegisterClientScriptInclude("WidgetEnable", ResolveUrl("~/js/jquery.easywidgets.enable.js"));
                 Page.ClientScript.RegisterClientScriptInclude("JSON2", ResolveUrl("~/js/json2.js"));
+                Page.ClientScript.RegisterClientScriptInclude("Field2Json", ResolveUrl("~/js/jquery.field2json.js"));
 
                 String WidgetUrl = "var widgetRemoteUrl = \"" + ResolveUrl(this.RemoteUrl) + "\";";
 
                 WidgetJson json = new WidgetJson();
 
                 json.SessionName = this.SessionName;
-                json.SessionTmpName = this.SessionTmpName;
+               
                 json.Uid = this.Uid;
                 json.PageType = this.PageType;
 
@@ -258,11 +251,14 @@ namespace NXEIP.Widget
                 foreach (WidgetBlock b in p.Block)
                 {
                     Entity.widget widget = GetWidget(b.WidgetID);
+                   
+
 
                     WidgetBaseControl control = (WidgetBaseControl)Page.LoadControl("~/" + widget.wid_url);
                     control.Title = widget.wid_name;
                     control.WidgetID = widget.wid_no;
                     control.IsEditable = this.IsEditable;
+                    control.WidgetParam = new WidgetParam(b.Param);
 
                     Master.FindControl("ContentPlaceHolder1").FindControl(p.Name).Controls.Add(control);
 
@@ -297,6 +293,10 @@ namespace NXEIP.Widget
             }
         }
 
+      
+
+
+
         #region 讀取物件放置於SESSION
         /// <summary>
         /// 讀取物件放置於SESSION
@@ -320,13 +320,15 @@ namespace NXEIP.Widget
                 place.Name = div;
 
 
-                var widgets = Dao.GetZoneWidget(page_no, div);
-                place.Block = new WidgetBlock[widgets.Count()];
+                var blocks = Dao.GetZoneWidget(page_no, div);
+                place.Block = new WidgetBlock[blocks.Count()];
 
                 int position = 0;
-                foreach (var w in widgets)
+                foreach (var b in blocks)
                 {
-                    WidgetBlock block = new WidgetBlock(w.wid_no);
+                    WidgetBlock block = new WidgetBlock(b.wid_no);
+                    //取參數
+                    block.Param = b.blo_setting;
                     place.Block[position] = block;
                     position++;
                     //塞到block物件裡面
