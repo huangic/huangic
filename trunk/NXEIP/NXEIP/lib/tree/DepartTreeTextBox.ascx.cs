@@ -63,7 +63,22 @@ public partial class lib_tree_DepartTreeTextBox : System.Web.UI.UserControl
 
 
 
+    /// <summary>
+    /// 取所有的VALUE值
+    /// </summary>
+    [Browsable(false)]
+    public List<String> ItemsValue
+    {
+        get
+        {
 
+            List<String> values = Items.Select(x => x.Key).ToList();
+
+            return values;
+
+
+        }
+    }
      
     [Browsable(false)]
     public List<KeyValuePair<String,String>> Items{
