@@ -226,7 +226,7 @@
 <body>
     <form id="form1" runat="server">
     <div class="tableDiv" >
-    <asp:Panel ID="Panel1" runat="server"  CssClass="DepartView" Width="450px">
+    <asp:Panel ID="Panel1" runat="server"  CssClass="DepartView">
   
              
 
