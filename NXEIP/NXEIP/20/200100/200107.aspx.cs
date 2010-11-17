@@ -192,7 +192,8 @@ public partial class _20_200100_200107 : System.Web.UI.Page
         this.ObjectDataSource3.SelectParameters[2].DefaultValue = file;
 
         ShowStatus();
-
+        OperatesObject.OperatesExecute(200107, 2, String.Format("查詢檔案區 條件 部門:{0},分類:{1},檔名{0}", dep_no, cat, file));
+                
         this.GridView1.DataBind();
     }
 
@@ -225,7 +226,8 @@ public partial class _20_200100_200107 : System.Web.UI.Page
         this.ObjectDataSource_mydata.SelectParameters[3].DefaultValue = status;
 
         ShowStatus();
-
+        OperatesObject.OperatesExecute(200107, 2, String.Format("查詢檔案區我的檔案 條件 狀態:{0},分類:{1},檔名{0}", status, cat, file));
+        
         this.GridView1.DataBind();
     }
 
@@ -340,6 +342,7 @@ public partial class _20_200100_200107 : System.Web.UI.Page
 
                 model.doc09.DeleteObject(d09);
                 */
+                OperatesObject.OperatesExecute(200107, 4, String.Format("刪除檔案區 d09_no:{0}", id));
                 
                 model.SaveChanges();
             }

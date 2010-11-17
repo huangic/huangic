@@ -120,6 +120,7 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
                 foreach (var item in deleteItem) {
                     model.doc05.DeleteObject(item);
                 }
+                OperatesObject.OperatesExecute(100105, 1, String.Format("刪除部門權限 doc03_no:{0},doc05_no", +doc03_no, id));
 
             }
             if(type=="D"){
@@ -128,9 +129,11 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
                 {
                     model.doc04.DeleteObject(item);
                 }
+                OperatesObject.OperatesExecute(100105, 1, String.Format("刪除部門權限 doc03_no:{0},doc04_no", +doc03_no, id));
             }
 
             model.SaveChanges();
+           
 
             this.GridView1.DataBind();
             //string js = "刪除成功";

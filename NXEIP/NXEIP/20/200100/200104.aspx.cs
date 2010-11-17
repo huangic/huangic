@@ -146,6 +146,9 @@ public partial class _20_200100_200104 : System.Web.UI.Page
         this.ObjectDataSource3.SelectParameters[1].DefaultValue = number;
         this.ObjectDataSource3.SelectParameters[2].DefaultValue = file;
 
+        OperatesObject.OperatesExecute(200104, 2, String.Format("查詢公文附件 條件 部門:{0},文號{1},檔名{2}", dep_no, number,file));
+            
+
         this.GridView1.DataBind();
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -181,6 +184,8 @@ public partial class _20_200100_200104 : System.Web.UI.Page
                  * 
                  * 
                  */
+                OperatesObject.OperatesExecute(200104, 4, String.Format("刪除公文附件 d06_no:{0}", id));
+         
                     model.SaveChanges();
             }
             this.GridView1.DataBind();

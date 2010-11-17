@@ -104,6 +104,8 @@ public partial class _20_200100_200105 : System.Web.UI.Page
         this.ObjectDataSource_d11.SelectParameters[0].DefaultValue = subject;
         this.ObjectDataSource_d11.SelectParameters[1].DefaultValue = file;
 
+        OperatesObject.OperatesExecute(200105, 2, String.Format("查詢回傳檔案 主旨:{0},檔名{1}", subject, file));
+         
         this.GridView1.DataBind();
     }
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -124,6 +126,8 @@ public partial class _20_200100_200105 : System.Web.UI.Page
 
                 model.SaveChanges();
             }
+            OperatesObject.OperatesExecute(200105, 4, String.Format("刪除回傳檔案 d11_no:{0}", id));
+        
             this.GridView1.DataBind();
         }
     }

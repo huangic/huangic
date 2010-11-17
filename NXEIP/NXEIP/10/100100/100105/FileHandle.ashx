@@ -140,6 +140,8 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                file.d01_parentid = parent_id;
                file.dep_no = depid;
                file.d01_type = folderType;
+
+               OperatesObject.OperatesExecute(100105, 3, String.Format("檔案搬移 doc01_no:{0}, doc01_parentid:{1}", id, parent_id));
            }
 
            model.SaveChanges();
@@ -300,6 +302,8 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                        newFileDetail.d02_date = DateTime.Now;
                        newFileDoc.doc02.Add(newFileDetail);
 
+
+                       OperatesObject.OperatesExecute(100105, 3, String.Format("檔案複製 doc01_no:{0}, 新檔案doc01_no:{1}", id, newFileDoc.d01_no));
                       
                        model.SaveChanges();
                        
@@ -334,7 +338,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
    private string GetPathArg()
    {
        ArgumentsObject args = new ArgumentsObject();
-       string upload_dir = args.Get_argValue("upload_dir");
+       string upload_dir = args.Get_argValue("100105_dir");
 
        //抓系統上傳路徑(空就用系統根木路)
        if (String.IsNullOrEmpty(upload_dir))
@@ -367,7 +371,10 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                    {
 
                        File.Delete(FilePath + d.d02_path);
+                       OperatesObject.OperatesExecute(100105,4, String.Format("檔案刪除 doc01_no:{0}, doc02_no:{1}", id, d.d02_no));
+                      
                        model.DeleteObject(d);
+                      
                    }
                    //資料庫刪除
                }

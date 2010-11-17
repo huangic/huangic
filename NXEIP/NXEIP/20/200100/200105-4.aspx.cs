@@ -141,6 +141,11 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 if (mode == "new")
                 {
                     model.doc13.AddObject(doc);
+                    OperatesObject.OperatesExecute(200105, 1, String.Format("新增回傳 d11_no:{0},d13_no", doc.d11_no,doc.d13_no));
+                
+                } else{
+                    OperatesObject.OperatesExecute(200105, 3, String.Format("修改回傳 d11_no:{0},d13_no", doc.d11_no, doc.d13_no));
+                
                 }
                 model.SaveChanges();
 
