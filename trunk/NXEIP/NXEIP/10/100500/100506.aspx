@@ -1,6 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainPage.master" AutoEventWireup="true" CodeFile="100501.aspx.cs" Inherits="_10_100500_100501" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100506.aspx.cs" Inherits="_10_100500_100506" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 
 <script type="text/javascript">
@@ -17,7 +20,7 @@
 
 
 
-
+<uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100506" />
 
 
 

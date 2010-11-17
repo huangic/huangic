@@ -25,15 +25,7 @@ public class _200104_1 : IHttpHandler, IRequiresSessionState
 	          try{
                 //權限判斷
                 
-                  //SESSION 判斷 沒有就不用做下面了
-                  SessionObject sessionObj = new SessionObject();
-
-
-                  if (String.IsNullOrEmpty(sessionObj.sessionUserID)) {
-                      context.Response.StatusCode = 403;
-                      context.Response.Flush();
-                      context.Response.End();
-                  }
+                
                 
                 //取檔案資訊
                 var file =(from d in model.doc07 where d.d06_no==doc06_no && d.d07_no==doc07_no select d).First();
@@ -64,24 +56,7 @@ public class _200104_1 : IHttpHandler, IRequiresSessionState
                     //寫入下載人員
                     file.d07_count++;
                   
-                    //取DOC08最大值
-                    int max = 1;
-                  try{      
-                    max=(from d in model.doc08 where d.d06_no==doc06_no && d.d07_no==doc07_no select d.d08_no).Max();
-                    max++;    
-                  }catch{
-                      
-                      }
-
-                  doc08 d8 = new doc08();
-                  d8.d06_no = doc06_no;
-                  d8.d07_no = doc07_no;
-                  d8.d08_downloadtime = DateTime.Now;
-                  d8.d08_no = max;
-                  d8.d08_peouid = int.Parse(sessionObj.sessionUserID);
-
-
-                  model.doc08.AddObject(d8);
+                   
                   
                  
                   model.SaveChanges();

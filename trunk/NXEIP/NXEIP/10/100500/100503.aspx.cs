@@ -33,9 +33,12 @@ public partial class _10_100500_100503 : WidgetPageTemplate
     {
         get { return "0"; }
     }
-    
-   
 
+
+    protected override bool IsEditable
+    {
+        get { return false; }
+    }
 
 
 

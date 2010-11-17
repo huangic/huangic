@@ -180,5 +180,20 @@ namespace NXEIP.DAO
         }
 
 
+        public IQueryable<doc06> GetPublicData(string number,string peo_name) {
+            var doc =
+                   from p in model.people
+                   from d in model.doc06
+                   where p.peo_uid == d.d06_peouid
+                   && d.d06_status == "1"
+                   && d.d06_open=="2"
+                   && d.d06_number.Contains(number)
+                   && p.peo_name.Equals(peo_name)
+                   orderby d.d06_createtime
+                   select d;
+
+            return doc;
+        }
+
     }
 }
