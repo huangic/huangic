@@ -49,12 +49,13 @@ public partial class _20_200100_200105_5 : System.Web.UI.Page
 
                  this.lb_subject.Text = d11.d11_subject;
                  this.lb_use.Text = d11.d11_use;
-                
-                              
+
+                 OperatesObject.OperatesExecute(200105, 2, String.Format("回傳人員列表 d11_no:{0}", id));
+                            
 
             }
-            
 
+         
         }
 
     }

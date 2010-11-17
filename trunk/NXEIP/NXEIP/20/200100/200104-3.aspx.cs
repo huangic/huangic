@@ -112,6 +112,9 @@ public partial class _20_200100_200104_3 : System.Web.UI.Page
 
                 //文檔存檔
                 //model.doc06.AddObject(d06);
+
+                OperatesObject.OperatesExecute(200104, 3, String.Format("修改公文附件 d06_no:{0}", d06.d06_no));
+            
                 model.SaveChanges();
 
 
@@ -137,6 +140,8 @@ public partial class _20_200100_200104_3 : System.Web.UI.Page
 
                     model.doc07.AddObject(file);
                     model.SaveChanges();
+                    OperatesObject.OperatesExecute(200104, 1, String.Format("新增公文附件 d06_no:{0},d07_no", d06.d06_no, max));
+            
 
                 }
 
@@ -170,10 +175,10 @@ public partial class _20_200100_200104_3 : System.Web.UI.Page
             doc07.d06_no = d06;
             doc07.d07_no = d07;
              using (NXEIPEntities model = new NXEIPEntities()) {
-               
-                //找DOC08
 
 
+
+                 //找DOC08
                  var d08 = (from d in model.doc08 where d.d06_no == d06 && d.d07_no == d07 select d);
                  foreach(var d in d08){
                      model.doc08.DeleteObject(d);
@@ -184,6 +189,8 @@ public partial class _20_200100_200104_3 : System.Web.UI.Page
                 model.doc07.Attach(doc07);
                 model.doc07.DeleteObject(doc07);
                 model.SaveChanges();
+                OperatesObject.OperatesExecute(200104, 4, String.Format("刪除附件 d06_no:{0},d07_no:{1}", d06,d07));
+            
                }
 
         this.ListView1.DataBind();

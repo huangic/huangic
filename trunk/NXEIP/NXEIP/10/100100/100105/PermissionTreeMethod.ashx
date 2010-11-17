@@ -93,11 +93,15 @@ public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
                 if (type == "depart")
                 {
                     dao.AddDocDepartmentAndSetPK(new doc04 { d03_no = doc03_no, d04_depno = value });
+                    OperatesObject.OperatesExecute(100105, 1, String.Format("新增部門權限 doc04_no:{0},doc05__peouid:{1}", +doc03_no, value));
+
                 }
 
                 if (type == "people")
                 {
                     dao.AddDocPeopleAndSetPK(new doc05 { d03_no = doc03_no, d05_peouid = value });
+                    OperatesObject.OperatesExecute(100105,1, String.Format("新增人員權限 doc03_no:{0},doc05__peouid:{1}", +doc03_no, value));
+
                 }
 
 

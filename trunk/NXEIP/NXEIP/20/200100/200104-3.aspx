@@ -14,17 +14,7 @@
     <title></title>
      <uc1:CssLayout ID="CssLayout1" runat="server" />
       <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
-     <script type="text/javascript">
-         function file_delete(d06, d07) {
-             if (confirm("確定要刪除?")) {
-                 //ajax
-                 $.ajaxSetup({ "cache": false });
-                 $.ajax({});
-
-             }
-        };
-     
-     </script>
+    
 
 </head>
 <body>

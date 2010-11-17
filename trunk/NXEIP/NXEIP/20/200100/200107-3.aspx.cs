@@ -117,6 +117,8 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
 
                 //文檔存檔
                //odel.doc09.AddObject(d09);
+                OperatesObject.OperatesExecute(200107, 3, String.Format("修改檔案區 d09_no:{0}", d09.d09_no));
+        
                 model.SaveChanges();
 
 
@@ -142,7 +144,8 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
 
                     model.doc10.AddObject(file);
                     model.SaveChanges();
-
+                    OperatesObject.OperatesExecute(200107, 1, String.Format("新增檔案區附件 d09_no:{0},d10_no:{1}", d09.d09_no, max));
+        
                 }
 
             }
@@ -183,7 +186,8 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
                 model.doc10.DeleteObject(doc10);
                 model.SaveChanges();
             }
-
+            OperatesObject.OperatesExecute(200107, 4, String.Format("刪除檔案區附件 d09_no:{0},d10_no:{0}", id1, id2));
+                
             this.ListView1.DataBind();
         }
     }

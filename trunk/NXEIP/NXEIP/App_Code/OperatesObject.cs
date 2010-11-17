@@ -24,6 +24,11 @@ public class OperatesObject
     /// <param name="memo">備註</param>
     public static void OperatesExecute(int sfu_no, string peo_uid, int fuction, string memo)
     {
+        new OperatesObject().ExecuteOperates(sfu_no,peo_uid,fuction,memo);
+        
+        
+        
+        /*
         string ope_no = Guid.NewGuid().ToString("N");
 
         operates data = new operates();
@@ -38,8 +43,21 @@ public class OperatesObject
         OperatesDAO oDao = new OperatesDAO();
         oDao.Addoperates(data);
         oDao.Update();
+         */
     }
 
+    /// <summary>
+    /// 新增操作記錄(目前SESSION 的使用者)
+    /// </summary>
+    /// <param name="sfu_no">功能編號</param>
+    /// <param name="fuction">操作代碼1:新增 2:查詢 3:更新 4:刪除 5:保留</param>
+    /// <param name="memo">備註</param>
+    public static void OperatesExecute(int sfu_no, int fuction, string memo)
+    {
+        string peo_uid = new SessionObject().sessionUserID;
+
+        OperatesExecute(sfu_no, peo_uid, fuction, memo);
+    }
     /// <summary>
     /// 新增操作記錄
     /// </summary>

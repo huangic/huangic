@@ -116,7 +116,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
                 ChangeFolderType(id, depid, folderType.ToString());
                 model.SaveChanges();
-                
+
+                OperatesObject.OperatesExecute(100105, 3, String.Format("目錄搬移 doc01_no:{0}, doc01_parentid:{1}", id, pid));
+                      
                 
             context.Response.Write("success");
             }catch(Exception ex){
@@ -151,6 +153,8 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
                 ResetChildFolder(pid);
                 context.Response.Write("{\"process\":\"success\",\"id\":\"" + new_id + "\"}");
+                OperatesObject.OperatesExecute(100105, 1, String.Format("目錄建立 doc01_no:{0}, doc01_parentid:{1}", id, pid));
+                
                 return;
             }
             catch (Exception ex)
@@ -184,6 +188,8 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                     
 
                     context.Response.Write("{'process':'success','id':" + id + "}");
+                    OperatesObject.OperatesExecute(100105, 3, String.Format("目錄修改名稱 doc01_no:{0}, doc01_name", id, newname));
+                
                     return;
                 }
             }
@@ -210,10 +216,11 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
                     model.SaveChanges();
                     //TODO 目錄下的所有檔案 要怎麼處理?
-                    
-                    
-                    
 
+
+
+                    OperatesObject.OperatesExecute(100105, 3, String.Format("目錄刪除 doc01_no:{0}",id));
+                
                     context.Response.Write("{'process':'success','id':" + id + "}");
                     return;
                 }

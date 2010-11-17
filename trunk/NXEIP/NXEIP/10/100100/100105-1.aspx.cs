@@ -255,6 +255,9 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             model.doc02.AddObject(newFile);
             model.SaveChanges();
 
+
+             OperatesObject.OperatesExecute(100105, 1, String.Format("新增檔案 doc01_no:{0},doc02_no:{1}",+newFile.d01_no,newFile.d02_no));
+
         }
         model.SaveChanges();
 

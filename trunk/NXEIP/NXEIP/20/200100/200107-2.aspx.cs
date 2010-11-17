@@ -109,7 +109,8 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
                     }
 
 
-
+                OperatesObject.OperatesExecute(200107, 1, String.Format("新增檔案區 d09_no:{0}",d09.d09_no));
+        
                 //文檔存檔
                 model.doc09.AddObject(d09);
                 model.SaveChanges();
@@ -137,7 +138,8 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
 
                     model.doc10.AddObject(file);
                     model.SaveChanges();
-
+                    OperatesObject.OperatesExecute(200107, 1, String.Format("新增檔案區附件 d09_no:{0},d10_no:{1}", d09.d09_no,max));
+        
                 }
 
             }

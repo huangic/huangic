@@ -128,6 +128,9 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
                 //文檔存檔
                 //model.doc11.AddObject(doc);
+
+                OperatesObject.OperatesExecute(200105, 3, String.Format("修改回傳檔案 d11_no:{0}", doc.d11_no));
+            
                 model.SaveChanges();
 
 
@@ -179,7 +182,8 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
                         model.doc12.AddObject(file);
                         model.SaveChanges();
-
+                        OperatesObject.OperatesExecute(200105, 3, String.Format("新增回傳檔案附件 d11_no:{0},d11_no", doc.d11_no,max));
+            
                     }
                 }
             }

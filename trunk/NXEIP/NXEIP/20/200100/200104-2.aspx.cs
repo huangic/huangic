@@ -96,8 +96,10 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
                 //文檔存檔
                 model.doc06.AddObject(d06);
                 model.SaveChanges();
-
-
+                OperatesObject.OperatesExecute(200104, 1, String.Format("新增公文附件 d06_no:{0}",d06.d06_no));
+            
+                #region 檔案存檔
+                
                 foreach (var f in UC_SWFUpload1.SWFUploadFileInfoList)
                 {
                     doc07 file = new doc07();
@@ -120,8 +122,11 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
 
                     model.doc07.AddObject(file);
                     model.SaveChanges();
+                    OperatesObject.OperatesExecute(200104, 1, String.Format("新增公文附件 d06_no:{0},d07_no", d06.d06_no,max));
+            
 
                 }
+                #endregion
 
             }
 

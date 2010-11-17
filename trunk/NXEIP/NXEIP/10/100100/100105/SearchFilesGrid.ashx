@@ -49,7 +49,8 @@ public class SearchFilesGrid : IHttpHandler, IRequiresSessionState
             file = getFiles(name, contexts, field, order);
 
             //取使用者的目錄結構
-
+            OperatesObject.OperatesExecute(100105, 2, String.Format("目錄查詢 條件檔名:{0},內容:{1}", name, contexts));
+                
 
             context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(file));
 
