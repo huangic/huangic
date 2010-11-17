@@ -33,8 +33,11 @@ public partial class _10_100500_100502 : WidgetPageTemplate
     {
         get { return new SessionObject().sessionUserDepartID; }
     }
-    
- 
+
+    protected override bool IsEditable
+    {
+        get { return false; }
+    }
 
 
 

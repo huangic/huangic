@@ -31,7 +31,8 @@ namespace NXEIP.Widget
 
 
         //編輯狀態
-        protected bool IsEditable = false;
+        protected abstract bool IsEditable { get; }
+        
         //是否有頁面可以顯示
         protected bool IsHasWidgetPage = true;
 
@@ -76,6 +77,10 @@ namespace NXEIP.Widget
         static Logger logger = LogManager.GetCurrentClassLogger();
 
 
+
+    
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -90,15 +95,15 @@ namespace NXEIP.Widget
 
         protected void InitWidget(){
             logger.Debug("Start Load Widget");
-            try
-            {
-                IsEditable = Boolean.Parse(Request.QueryString["edit"]);
-            }
-            catch
-            {
+           // try
+           // {
+           //     IsEditable = Boolean.Parse(Request.QueryString["edit"]);
+           // }
+           // catch
+           // {
                 
                 //NULL就NULL不管他
-            }
+           // }
 
            
 

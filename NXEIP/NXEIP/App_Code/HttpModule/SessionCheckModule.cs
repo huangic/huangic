@@ -34,9 +34,20 @@ namespace NXEIP.HttpModule
 
             String url=Application.Context.Request.AppRelativeCurrentExecutionFilePath;
 
-            //在LIB內的網頁略過檢查
-            if (!url.Contains("~/lib")) {
-                
+
+            //TODO:取WebConfig 的略過設定
+
+
+
+
+            //在LIB與PUBLIC內的網頁略過檢查
+            if (url.Contains("~/lib")) {
+                 return;
+            }
+             if (url.Contains("~/public")) {
+                return;
+            }
+
 
             if (Application.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
             {
@@ -53,7 +64,7 @@ namespace NXEIP.HttpModule
                     }
                 }
             }
-            }
+            
 
         }
     }

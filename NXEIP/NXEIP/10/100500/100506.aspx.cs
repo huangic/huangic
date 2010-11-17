@@ -12,7 +12,7 @@ using NXEIP.Widget;
 
 
 
-public partial class _10_100500_100501 : WidgetPageTemplate
+public partial class _10_100500_100506 : WidgetPageTemplate
 {   
 
     //需要OVERRIDE 
@@ -34,14 +34,7 @@ public partial class _10_100500_100501 : WidgetPageTemplate
         get { return new SessionObject().sessionUserID; }
     }
 
+    protected override bool IsEditable{get{return true;}}
 
-
-
-
-
-
-    protected override bool IsEditable
-    {
-        get { return false; }
-    }
+   
 }
