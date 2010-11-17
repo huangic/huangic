@@ -17,8 +17,8 @@
 	font-size:15px;
 	border-top: 5px;
 	line-height: 24px;
-	padding-top: 3px;
-	padding-left: 4px;
+	padding-left: 3px;
+	padding-right: 3px;
 	}
 /*.mlmenu li a {
 	color: #333333;
@@ -40,13 +40,15 @@
 }
     
 .mlmenu ul {
-		margin: 0 0 0 0;
-		padding: 0 0 0 0;
-		display: inline; }
+	display: inline;
+}
  
 .mlmenu ul li {
-			display: inline;
-   position : relative; }
+	display: inline;
+	position : relative;
+	margin-right: 2px;
+	margin-left: 2px;
+}
 
 
  /*Level 1 MENU 消除文字連結*/ 
@@ -99,15 +101,16 @@
 
 	position: absolute;
 	left: -50px;
-/*	padding-top:5px;*/
+	/*	padding-top:5px;*/
     padding-top:2px;
 	margin-top: 0px;
-	
-	display: none; }
+	display: none;
+}
   /*第三層MENU*/
 	.mlmenu ul li ul li ul {
-	background-color: #ecf4db;
+	background-color: #d8eeaf;
 	width: 140px;
+
 
 	#top: 25px;
 	_top: 25px;

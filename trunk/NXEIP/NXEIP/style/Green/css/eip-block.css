@@ -59,7 +59,7 @@
 	line-height: 32px;
 	font-size: 15px;
 	color: #333333;
-	margin-top: 20px;
+	margin-top: 16px;
 }
 .block-1 .headerin .more {
 	background-image: url(../image/a12.jpg);
@@ -79,17 +79,16 @@
 
 
 
-.block-1 .in1 {
+.block-1 .headerin .in1 {
 	background-image: url(../image/a07.gif);
 	background-repeat: no-repeat;
 	height: 30px;
-	text-decoration: none;
 	vertical-align: bottom;
-	width: 175px;
+	width: 120px;
 	float: left;
-	padding-left: 35px;
+	padding-left: 45px;
 }
-.block-1 .in2 {
+.block-1 .headerin .in2 {
 	background-image: url(../image/a11.gif);
 	background-repeat: no-repeat;
 	height: 30px;
@@ -99,7 +98,7 @@
 	float: left;
 	padding-left: 50px;
 }
-.block-1 .in3 {
+.block-1 .headerin .in3 {
 	background-image: url(../image/a16.gif);
 	background-repeat: no-repeat;
 	height: 30px;
@@ -109,7 +108,7 @@
 	float: left;
 	padding-left: 50px;
 }
-.block-1 .in4 {
+.block-1 .headerin .in4 {
 	background-image: url(../image/a24.gif);
 	background-repeat: no-repeat;
 	height: 30px;
@@ -119,7 +118,7 @@
 	float: left;
 	padding-left: 50px;
 }
-.block-1 .in5 {
+.block-1 .headerin .in5 {
 	background-image: url(../image/a25.gif);
 	background-repeat: no-repeat;
 	height: 30px;
