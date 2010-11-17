@@ -126,11 +126,19 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
-
+.a-letter-Red:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
+	text-decoration: none;
+}
+.a-letter-Blue:hover {
+	
+	color: #FFFFFF;
 	text-decoration: none;
 }
 .a02-15 {
@@ -257,6 +265,11 @@ body {
 	color: #666666;
 	text-decoration: none;
 }
+.a14 {
+	background-image: url(../image/a14.gif);
+	background-repeat: no-repeat;
+}
+
 .b-print {
 	background-image: url(../image/print.gif);
 	background-repeat: no-repeat;
@@ -316,8 +329,7 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
-	text-decoration: none;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -353,8 +365,7 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
-	text-decoration: none;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;

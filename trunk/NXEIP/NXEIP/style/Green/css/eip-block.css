@@ -49,6 +49,87 @@
 	position:relative;
 	height:30px;
 }
+ .block-1 .headerin
+{
+	text-align:left;
+	position:relative;
+	height:32px;
+	background-image: url(../image/in_bg.gif);
+	background-repeat: repeat;
+	line-height: 32px;
+	font-size: 15px;
+	color: #333333;
+	margin-top: 20px;
+}
+.block-1 .headerin .more {
+	background-image: url(../image/a12.jpg);
+	background-repeat: no-repeat;
+	float: left;
+	width: 40px;
+	height: 28px;
+}
+.block-1 .headerin .more:hover {
+	background-image: url(../image/a12-1.jpg);
+	background-repeat: no-repeat;
+	height: 28px;
+	width: 40px;
+}
+
+
+
+
+
+.block-1 .in1 {
+	background-image: url(../image/a07.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 175px;
+	float: left;
+	padding-left: 35px;
+}
+.block-1 .in2 {
+	background-image: url(../image/a11.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 110px;
+	float: left;
+	padding-left: 50px;
+}
+.block-1 .in3 {
+	background-image: url(../image/a16.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 110px;
+	float: left;
+	padding-left: 50px;
+}
+.block-1 .in4 {
+	background-image: url(../image/a24.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 110px;
+	float: left;
+	padding-left: 50px;
+}
+.block-1 .in5 {
+	background-image: url(../image/a25.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 110px;
+	float: left;
+	padding-left: 50px;
+}
+
  .block-1 .header div
 {
 	display:inline-block;
