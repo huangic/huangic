@@ -8,6 +8,7 @@
     TagPrefix="uc2" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc3" %>
 <%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc4" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -49,18 +50,28 @@
                 </th>
                 <td>
                     主功能&nbsp;
-                    <asp:DropDownList ID="DropDownList2" runat="server">
+                    <asp:DropDownList ID="ddl_sys" runat="server" AppendDataBoundItems="True" 
+                        AutoPostBack="True">
+                        <asp:ListItem Value="0">請選擇</asp:ListItem>
                     </asp:DropDownList>
-                    子功能&nbsp;<asp:DropDownList ID="DropDownList3" runat="server">
+                    次功能&nbsp;
+                    <asp:DropDownList ID="ddl_sfu_parent" runat="server" AutoPostBack="True">
+                    </asp:DropDownList>
+                    子功能&nbsp;<asp:DropDownList ID="ddl_sfu_no" runat="server">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <th style="text-align: right;">
-                    功能狀態
+                    操作狀態
                 </th>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:DropDownList ID="ddl_opt_status" runat="server">
+                        <asp:ListItem Value="0">全部</asp:ListItem>
+                        <asp:ListItem Value="1">新增</asp:ListItem>
+                        <asp:ListItem Value="2">更新</asp:ListItem>
+                        <asp:ListItem Value="3">刪除</asp:ListItem>
+                        <asp:ListItem Value="4">查詢</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -72,7 +83,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="width: 15%">
-                                <asp:RadioButton ID="rb_all" runat="server" Text="全部" />
+                                <asp:RadioButton ID="rb_all" runat="server" Text="全部" GroupName="G1" />
                             </td>
                             <td>
                                 &nbsp;
@@ -80,7 +91,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_workid" runat="server" Text="人事編號：" />
+                                <asp:RadioButton ID="rb_workid" runat="server" Text="人事編號：" GroupName="G1" />
                             </td>
                             <td>
                                 <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
@@ -88,7 +99,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_account" runat="server" Text="員工帳號：" />
+                                <asp:RadioButton ID="rb_account" runat="server" Text="員工帳號：" GroupName="G1" />
                             </td>
                             <td>
                                 <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
@@ -96,40 +107,30 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_people" runat="server" Text="請選擇人員" />
+                                <asp:RadioButton ID="rb_people" runat="server" Text="請選擇人員" GroupName="G1" />
                             </td>
                             <td>
-                                <uc2:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
-                            </td>
+                                <uc5:DepartTreeListBox ID="DTL_peo" runat="server" LeafType="People" 
+                                    PeopleColumn="Name,workid" PeopleType="All" />
+                                </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_depart" runat="server" Text="請選擇單位" />
+                                <asp:RadioButton ID="rb_depart" runat="server" Text="請選擇單位" GroupName="G1" />
                             </td>
                             <td>
-                                <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                                <uc5:DepartTreeListBox ID="DTL_dep" runat="server" />
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-        <div class="footer">
-            <div class="f1">
-            </div>
-            <div class="f2">
-            </div>
-            <div class="f3">
-            </div>
-        </div>
-        <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                <Fields>
-                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                </Fields>
-            </asp:DataPager>
+        <div class="bottom">
+            <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" OnClick="btn_ok_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.tb_remove()"
+                UseSubmitBehavior="false" onclick="btn_cancel_Click" />
         </div>
     </div>
 </asp:Content>

@@ -11,4 +11,12 @@ public partial class _35_350300_350301 : System.Web.UI.Page
     {
 
     }
+    protected void btn_ok_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btn_cancel_Click(object sender, EventArgs e)
+    {
+
+    }
 }
