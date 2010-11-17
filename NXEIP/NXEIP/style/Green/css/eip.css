@@ -126,21 +126,14 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
-.a-letter-Red:hover {
-	color: #FFFFFF;
-	text-decoration: none;
-}
+
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
 	text-decoration: none;
 }
-.a-letter-Blue:hover {
-	
-	color: #FFFFFF;
-	text-decoration: none;
-}
+
 .a02-15 {
 	
 	font-size: 15px;
@@ -268,6 +261,16 @@ body {
 .a14 {
 	background-image: url(../image/a14.gif);
 	background-repeat: no-repeat;
+} 
+.dot_a14-3 {
+	text-decoration: none;
+	width:20px;
+	line-height: 26px;
+	margin-top: 2px;
+	background-image: url(../image/a14-3.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+	float: left;
 }
 
 .b-print {
@@ -329,7 +332,8 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
+	text-decoration: none;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -365,7 +369,8 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+		cursor: pointer;
+	text-decoration: none;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
