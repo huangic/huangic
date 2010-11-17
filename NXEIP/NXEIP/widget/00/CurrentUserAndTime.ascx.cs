@@ -13,7 +13,14 @@ public partial class widget_00_CurrentUserAndTime : WidgetBaseControl
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.TextBox1.Text = this.WidgetParam["BBB"];
+        try
+        {
+            this.TextBox1.Text = this.WidgetParam["BBB"];
+        }
+        catch
+        {
+
+        }
     }
 
     public override string Name
