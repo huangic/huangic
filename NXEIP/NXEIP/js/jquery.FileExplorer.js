@@ -311,14 +311,18 @@ jquery.jqGrid
       //alert(node);
       menu={"create": {
                "label": "新增資料夾"
+               ,"action"			: function (obj) { this.create(obj); }
+               
                },
                "rename": {
                   "label": "更名"
-                    },
-                    "remove": {
-                    "label": "刪除"
-                    }
-                }
+                  ,"action"			: function (obj) { this.rename(obj); }
+               },
+               "remove": {
+                "label": "刪除"
+                ,"action"			: function (obj) { this.remove(obj); }
+               }
+          };
                 
                 if($(node).attr("foldertype")==2){
                    alert("無目錄操作權限!!"); 
