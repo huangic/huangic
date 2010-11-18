@@ -90,9 +90,8 @@
                    DataKeyNames="s06_no" onitemcommand="lv_cat_ItemCommand"
                    >
                         <ItemTemplate>
-                            <span><asp:LinkButton ID="lb_cat" runat="server"  Visible='<%# !(hidden_cat.Value.Equals(Eval("s06_no").ToString())) %>'  CommandName="click_cat"><%# Eval("s06_name") %></asp:LinkButton></span>
-                            <asp:Label ID="Label6" runat="server" CssClass="a-letter-s1"  Visible='<%# hidden_cat.Value.Equals(Eval("s06_no").ToString()) %>' Text='<%# Eval("s06_name") %>'></asp:Label>
-                                              
+                            <span><asp:LinkButton ID="lb_cat" runat="server"  CssClass='<%# hidden_cat.Value.Equals( Eval("s06_no").ToString()) ? "a-letter-s1":""  %>'  CommandName="click_cat"><%# Eval("s06_name") %></asp:LinkButton></span>
+                                      
                         
                         </ItemTemplate>
   
