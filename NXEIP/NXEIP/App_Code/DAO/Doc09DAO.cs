@@ -247,15 +247,12 @@ namespace NXEIP.DAO
                 orderby d.d09_createtime
                 select new { doc = d, people = p };
 
-            if (status=="3")
+            doc = doc.Where(x => x.doc.d09_status == status);
+            if (status!="3")
             {
-                doc = doc.Where(x => x.doc.d09_status == status);
+                doc = doc.Where(x => peo_uid == x.doc.d09_checkuid);
             }
-            else
-            {
-               
-                doc = doc.Where(x => x.doc.d09_status == "1" && peo_uid==x.doc.d09_checkuid);
-            }
+          
 
 
             if (dep_no != null)
