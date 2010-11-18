@@ -341,7 +341,7 @@ public partial class _30_300700_300701 : System.Web.UI.Page
         using (NXEIPEntities model = new NXEIPEntities())
         {
 
-            //核可全部選擇的項目
+            //退回核可全部選擇的項目
             for (int i = 0; i < this.GridView1.Rows.Count; i++)
             {
                 if (((CheckBox)(this.GridView1.Rows[i].FindControl("cbox"))).Checked)
