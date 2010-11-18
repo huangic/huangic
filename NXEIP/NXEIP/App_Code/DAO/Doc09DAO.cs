@@ -226,7 +226,88 @@ namespace NXEIP.DAO
             return GetSearchMyData(peo_uid, cat_no, file, status).Skip(startRowIndex).Take(maximumRows);
         }
 
+        /// <summary>
+        /// 取檔案區檔案
+        /// </summary>
+        /// <param name="dep_no"></param>
+        /// <param name="cat_no"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public IQueryable<doc09> GetSearchAuditData(int? peo_uid,int? dep_no, int? cat_no, string status)
+        {
 
+
+
+
+
+            var doc =
+                from p in model.people
+                from d in model.doc09
+                where p.peo_uid == d.d09_peouid
+                orderby d.d09_createtime
+                select new { doc = d, people = p };
+
+            if (status=="3")
+            {
+                doc = doc.Where(x => x.doc.d09_status == status);
+            }
+            else
+            {
+               
+                doc = doc.Where(x => x.doc.d09_status == "1" && peo_uid==x.doc.d09_checkuid);
+            }
+
+
+            if (dep_no != null)
+            {
+                doc = doc.Where(x => x.doc.d09_open == "2");
+
+                //判斷單位級
+                var depart = (from dep in model.departments where dep_no == dep.dep_no select dep).First();
+                if (depart.dep_level == 1)
+                {
+                    var deps = (from d in model.departments where d.dep_parentid == depart.dep_no || d.dep_no == dep_no select d.dep_no);
+
+
+                    doc = doc.Where(x => deps.Contains(x.doc.d09_depno));
+                }
+                else
+                {
+                    doc = doc.Where(x => x.doc.d09_depno == dep_no);
+                }
+
+            }
+            else
+            {
+                doc = doc.Where(x => x.doc.d09_open == "1");
+
+            }
+
+            if (cat_no != null)
+            {
+                //判斷類別等級 然後決定要加入那些
+                var cat = (from c in model.sys06 where c.s06_no == cat_no select c).First();
+
+                if (cat.s06_level == 1)
+                {
+                    var cats = (from c in model.sys06 where c.s06_parent == cat_no || c.s06_no == cat_no select c.s06_no);
+                    doc = doc.Where(x => cats.Contains(x.doc.s06_no));
+                }
+                else
+                {
+                    doc = doc.Where(x => x.doc.s06_no == cat_no);
+                }
+
+
+
+            }
+
+
+                     
+
+            return doc.Select(x => x.doc);
+
+        }
 
     }
 }
