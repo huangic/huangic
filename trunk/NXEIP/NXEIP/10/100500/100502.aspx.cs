@@ -40,7 +40,13 @@ public partial class _10_100500_100502 : WidgetPageTemplate
     }
 
 
+    protected override int GetCurrentPage()
+    {
+        //取自己的頁面 如果沒有就抓預設值的範本頁面
 
+
+        return 1;
+    }
 
    
 }

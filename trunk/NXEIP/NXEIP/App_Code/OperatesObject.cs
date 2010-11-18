@@ -58,6 +58,15 @@ public class OperatesObject
 
         OperatesExecute(sfu_no, peo_uid, fuction, memo);
     }
+
+    public static void OperatesExecute(int sfu_no, int fuction, string strFormat,params object[] list)
+    {
+        string peo_uid = new SessionObject().sessionUserID;
+
+        OperatesExecute(sfu_no, peo_uid, fuction, String.Format(strFormat, list));
+    }
+
+
     /// <summary>
     /// 新增操作記錄
     /// </summary>

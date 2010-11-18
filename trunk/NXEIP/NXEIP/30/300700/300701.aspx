@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="200107.aspx.cs" Inherits="_20_200100_200107" EnableEventValidation="false" %>
+    CodeFile="300701.aspx.cs" Inherits="_30_300700_300701" EnableEventValidation="false" %>
 
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
@@ -10,24 +10,36 @@
     <script type="text/javascript">
         function update(msg) {
 
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+            $("#" + '<%=hidden_reason.ClientID%>').val(msg);
+            //用隱藏BUTTIN的
+            __doPostBack(chang('<%=LinkButton1.ClientID%>'), '');
             tb_remove();
-
+            
 
             //alert(msg);
+        }
+
+
+        function chang(str) {
+            //將底線換成$符號
+            var regex = /\_/g;
+            return str.replace(regex, '$');
         }
 
         function pageLoad(sender, args) {
             if (args.get_isPartialLoad()) {
                 //  reapply the thick box stuff
-                tb_init('a.thickbox');
+                tb_init('a.thickbox input.thickbox');
             }
         }
 
         jQuery(document).ready(function () {
-            jQuery('.show').click(function () {
-                jQuery('.show').removeClass("b-input2").addClass("b-input");
-                jQuery(this).removeClass("b-input").addClass("b-input2");
+            $('.checkall').click(function () {
+                $("input[type='checkbox']").attr("Checked", true);
+            });
+
+            $('.uncheckall').click(function () {
+                $("input[type='checkbox']").attr("Checked", false);
             });
         });
 
@@ -39,12 +51,13 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     
-    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" EnablePaging="True" OldValuesParameterFormatString="original_{0}"
-        SelectCountMethod="GetSearchDataCount" SelectMethod="GetSearchData" TypeName="NXEIP.DAO.Doc09DAO">
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server"  OldValuesParameterFormatString="original_{0}"
+         SelectMethod="GetSearchAuditData" TypeName="NXEIP.DAO.Doc09DAO">
         <SelectParameters>
+            <asp:Parameter DefaultValue="" Name="peo_uid" Type="Int32" />
             <asp:Parameter DefaultValue="" Name="dep_no" Type="Int32" />
             <asp:Parameter DefaultValue="" Name="cat_no" Type="Int32" />
-            <asp:Parameter DefaultValue="" Name="file" Type="String" />
+            <asp:Parameter DefaultValue="" Name="status" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ObjectDataSource_CAT" runat="server" 
@@ -64,26 +77,17 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     
-    <asp:ObjectDataSource ID="ObjectDataSource_mydata" runat="server"  EnablePaging="true"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetSearchMyData" 
-        TypeName="NXEIP.DAO.Doc09DAO" SelectCountMethod="GetSearchMyDataCount">
-        <SelectParameters>
-            <asp:Parameter Name="peo_uid" Type="Int32" />
-            <asp:Parameter Name="cat_no" Type="Int32" />
-            <asp:Parameter Name="file" Type="String" />
-            <asp:Parameter Name="status" Type="String" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
     
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200107" />
+    
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300701" />
     
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
 
         <asp:HiddenField ID="hidden_cat" runat="server" />
         <asp:HiddenField ID="hidden_childcat" runat="server" />
-         <asp:HiddenField ID="hidden_depno" runat="server" />
-          <asp:HiddenField ID="hidden_show_myfile" runat="server"/>
+         
+        <asp:HiddenField ID="hidden_reason" runat="server"/>
            <div class="select-1">
 
                <asp:ListView ID="lv_cat" runat="server" DataSourceID="ObjectDataSource_CAT"  
@@ -105,23 +109,24 @@
                        DataSourceID="ObjectDataSource_Child" DataKeyNames="s06_no" 
                        onitemcommand="lv_child_ItemCommand" >
                         <ItemTemplate>
-                        <span><asp:LinkButton ID="lb_childcat" runat="server"  Visible='<%# !(hidden_childcat.Value.Equals(Eval("s06_no").ToString())) %>'  CommandName="click_childcat"><%# Eval("s06_name") %></asp:LinkButton></span>
-                            <asp:Label ID="Label7" runat="server" CssClass="a-letter-s1"  Visible='<%# hidden_childcat.Value.Equals(Eval("s06_no").ToString()) %>' Text='<%# Eval("s06_name") %>'></asp:Label>
-                        </ItemTemplate>
+                        <span>
+                        
+                        <asp:LinkButton ID="lb_childcat" runat="server"  CssClass='<%# (hidden_childcat.Value.Equals(Eval("s06_no").ToString()))?"a-letter-s1":"" %>'  CommandName="click_childcat"><%# Eval("s06_name") %></asp:LinkButton></span>
+                            
+                            
+                         </ItemTemplate>
              
                       
                    </asp:ListView>
            </div>
         
          <div  class="select" >
-            <span class="a-letter-2">檔名：<span class="a-letter-1">
-                    <asp:TextBox ID="tb_file" runat="server"></asp:TextBox>
-                     &nbsp;<asp:Label ID="lb_status" runat="server" Text="狀態:"></asp:Label>
+           <asp:Label ID="lb_status" runat="server" Text="狀態:"></asp:Label>
              <asp:DropDownList ID="DropDownList1" runat="server">
-                 <asp:ListItem Value="">全部</asp:ListItem>
+                 <asp:ListItem Value="3" Selected="True">送審中</asp:ListItem>
                  <asp:ListItem Value="1">通過</asp:ListItem>
                  <asp:ListItem Value="2">未通過</asp:ListItem>
-                 <asp:ListItem Value="3">送審中</asp:ListItem>
+                 
              </asp:DropDownList>
              <asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
                         OnClick="Button1_Click" />
@@ -143,32 +148,45 @@
     
     <div class="tableDiv">
         
+        
+
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
                 <div class="function">
-                    <asp:Button ID="btn_all" runat="server" Text="全府檔案" CssClass="show b-input2" 
-                        onclick="btn_all_Click" />
-                    <asp:Button ID="btn_dep" runat="server" Text="單位檔案" CssClass="show b-input" 
-                        onclick="btn_dep_Click" />
-                        <asp:Button ID="btn_my" runat="server" Text="我的檔案" CssClass="show b-input" onclick="btn_my_Click" 
-                         />
-                    <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=800"
-                        value="新增檔案" />
+                     <input type="button" class="checkall b-input" value="全選" />
+                     <input type="button" class="uncheckall b-input" value="取消全選" />
+                    <asp:Button ID="btn_ok" runat="server" Text="核可" CssClass="show b-input" 
+                         onclick="btn_ok_Click"/>
+                       
+                    <input type="button" class="thickbox b-input" alt="../../lib/Reason.aspx?modal=true&TB_iframe=true&height=350&width=450"
+                        value="未核可" />
+
+                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"></asp:LinkButton>
                 </div>
             </div>
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" >
-            <ContentTemplate> 
-                <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+         <asp:UpdatePanel ID="UpdatePanel1" runat="server" >
+            <ContentTemplate>
+                <cc1:GridView ID="GridView1" runat="server"  AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None" OnRowDataBound="GridView1_RowDataBound" 
-                    onrowcommand="GridView1_RowCommand" 
+                     
                     DataKeyNames="d09_no">
                     <Columns>
+                         <asp:TemplateField HeaderText="選取">
+                         
+                            <ItemTemplate>
+                            <asp:CheckBox ID="cbox" runat="server" />
+                            
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="30px" />
+                        </asp:TemplateField>
+                        
+                        
                         <asp:TemplateField HeaderText="檔案類別">
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# GetCatName((Int32)Eval("s06_no")) %>'></asp:Label>
@@ -201,11 +219,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="Label5" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d09_peouid")) %>'></asp:Label>
 
-                               
-
                                 <uc2:PeopleDetail ID="PeopleDetail1" runat="server" peo_uid='<%# Eval("d09_peouid") %>'/>
-
-                               
 
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -227,6 +241,7 @@
                             
                             </ItemTemplate>
                         </asp:TemplateField>
+                        
                         <asp:TemplateField HeaderText="狀態">
                             <ItemTemplate>
                                 <asp:Label ID="Label7" runat="server" Text='<%# GetStatus((String)Eval("d09_status")) %>'></asp:Label>
@@ -244,7 +259,7 @@
                                         <asp:TemplateField ShowHeader="False">
                                             <ItemTemplate>
                                                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="download imageButton" Target="_blank"
-                                                    NavigateUrl='<%#String.Format("200107-1.ashx?d09={0}&d10={1}",Eval("d09_no"),Eval("d10_no"))  %>'><span>下載</span></asp:HyperLink>
+                                                    NavigateUrl='<%#String.Format("~/20/200100/200107-1.ashx?d09={0}&d10={1}",Eval("d09_no"),Eval("d10_no"))  %>'><span>下載</span></asp:HyperLink>
                                                 <asp:Label ID="Label5" runat="server" Text='<%# String.Format("{0} (下載次數:{1})", Eval("d10_file"),Eval("d10_count")) %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -259,26 +274,18 @@
                             </ItemTemplate>
                             <HeaderStyle Width="350px" />
                         </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200107-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d09_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d09_peouid"))%>'><span>修改</span></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete" 
-                                    Enabled='<%# GetModifyVisible((int)Eval("d09_peouid"))%>' 
-                                    OnClientClick="return confirm('確定要刪除?')" CommandName="del"><span>刪除</span></asp:LinkButton>
-                            
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        
                     </Columns>
                 </cc1:GridView>
             </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
-                 <asp:AsyncPostBackTrigger ControlID="btn_my" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btn_all" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btn_dep" EventName="Click" />
-                
-            </Triggers>
+           
+             <Triggers>
+                 <asp:AsyncPostBackTrigger ControlID="btn_ok" EventName="Click" />
+                 <asp:AsyncPostBackTrigger ControlID="LinkButton1" EventName="Click" />
+             </Triggers>
+           
         </asp:UpdatePanel>
+        
         <div class="footer">
             <div class="f1">
             </div>
@@ -289,19 +296,7 @@
         </div>
 
         
-         <asp:UpdatePanel ID="UpdatePanel3" runat="server" >
-            <ContentTemplate> 
-        <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                <Fields>
-                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
-                </Fields>
-            </asp:DataPager>
-        </div>
-        </ContentTemplate>
-        </asp:UpdatePanel>
+        
     </div>
     
 
