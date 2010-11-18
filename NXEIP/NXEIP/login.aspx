@@ -119,10 +119,12 @@
                                     <tr>
                                         <td>
                                             <div align="right">
-                                                <a href="#" class="login-a">公文附件下載</a><img src="image/login-08.gif" width="19" height="19"
+                                                <a href="./public/200104.aspx" class="login-a">公文附件下載</a><img src="image/login-08.gif" width="19" height="19"
                                                     align="absmiddle" /></div>
                                         </td>
                                     </tr>
+                                   
+
                                 </table>
                             </td>
                         </tr>

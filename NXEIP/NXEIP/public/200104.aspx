@@ -63,7 +63,7 @@
     
     <div class="select">
             <span class="a-letter-2">&nbsp;文號：<span class="a-letter-1">
-                    <asp:TextBox ID="tb_number" runat="server" CssClass="required"  minlength="10" MaxLength="10" ToolTip="請輸入10碼公文號"></asp:TextBox>
+                    <asp:TextBox ID="tb_number" runat="server" CssClass="required"  minlength="10" MaxLength="10" ToolTip="請輸入10位數公文號"></asp:TextBox>
                    
                 </span>建檔人員：<span class="a-letter-1">
                    <asp:TextBox ID="tb_peoname" runat="server" CssClass="required" ToolTip="請輸入建檔人員"></asp:TextBox>
