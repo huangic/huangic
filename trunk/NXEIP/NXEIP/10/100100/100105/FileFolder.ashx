@@ -187,8 +187,8 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
             foreach (departments dep in departs)
             {
-               // if (dep.dep_parentid != 0)
-               // {
+                if (dep.dep_parentid != 0)
+                {
                 JsTreeJson dep_f = new JsTreeJson();
 
 
@@ -214,7 +214,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
 
 
                     fs.Add(dep_f);
-               // }
+                }
             }
             
 
