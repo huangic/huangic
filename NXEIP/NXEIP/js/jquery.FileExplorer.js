@@ -419,7 +419,7 @@ jquery.jqGrid
                     
                     dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
                     
-                    del = "<a class='fileDelete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
+                    del = "<a class='delete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
                     jQuery(_setting.fileDiv).setRowData(ids[i], { act: be +dl+del })
                 }
 
