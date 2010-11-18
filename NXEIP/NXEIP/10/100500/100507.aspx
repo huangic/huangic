@@ -10,17 +10,21 @@
     <script type="text/javascript">
         $(function () {
             //先藏CONTENT
-            $(".ps2").hide();
+            //$(".ps2").hide();
 
-            $(".ps1").css("cursor", "pointer");
+            $(".head").css("cursor", "pointer");
 
-            $(".ps1").click(function () {
+            $(".head").click(function () {
 
-                $(this).parent().parent().children("li").toggle('slow');
+                $(this).parent().find(".box .ps2").toggle('slow');
 
             });
 
+           // $(".ps1").click(function () {
 
+           //     $(this).parent().parent().children("li").toggle('slow');
+
+           // });
 
         });
 
@@ -31,7 +35,7 @@
 
  <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100507" />
  
- <div id="application" class="application" runat="server">   
+ <div id="application" class="app" runat="server">   
 	    
         
         

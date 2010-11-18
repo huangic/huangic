@@ -54,8 +54,9 @@ public partial class _10_100500_100507 : System.Web.UI.Page
                 HtmlControl divBoxHeader = new HtmlGenericControl("div");
                 divBoxHeader.Attributes.Add("class", "head");
                 divBoxHeader.Controls.Add(new Literal() { Text = m.Key.sys_name.ToString() });
+                divBoxA.Controls.Add(divBoxHeader);
                 divBoxA.Controls.Add(divBox);
-                divBox.Controls.Add(divBoxHeader);
+               
 
                 HtmlControl divBoxContent=null;
 
@@ -94,7 +95,7 @@ public partial class _10_100500_100507 : System.Web.UI.Page
                         li.Attributes.Add("class", "ps1");
                         li.Controls.Add(a);
 
-                        divBoxB1.Attributes.Add("class", "b1");
+                        divBoxB1.Attributes.Add("class", "b2");
                         divBoxB1.Controls.Add(li);
                         divBoxContent.Controls.Add(divBoxB1);
                         divBox.Controls.Add(divBoxContent);
