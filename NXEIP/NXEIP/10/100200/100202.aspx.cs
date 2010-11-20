@@ -34,20 +34,15 @@ public partial class _10_100200_100202 : System.Web.UI.Page
             
             
         }
-
-
-        if (Page.IsAsync)
-        {
+     
             this.GridView1.DataBind();
-        }
-
-        
+            
     }
 
   
     
     protected static bool GetModifyVisible(int peo_uid) { 
-        //HttpContext.Current.Session[""]
+        
         SessionObject session = new SessionObject();
         return (int.Parse(session.sessionUserID) == peo_uid);
             

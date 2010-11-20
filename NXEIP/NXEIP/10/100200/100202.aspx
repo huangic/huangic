@@ -152,7 +152,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="5em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200105-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Treat.tre_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("Treat.peo_uid"))%>'><span>修改</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100202-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Detail.tde_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("Treat.peo_uid"))%>'><span>修改</span></asp:HyperLink>
                                 
                              </ItemTemplate>
 
@@ -166,7 +166,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="3em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton detail" NavigateUrl='<%# string.Format("200105-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Treat.tre_no"))%>' ><span>檢視</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton detail" NavigateUrl='<%# string.Format("100202-34aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Treat.tre_no"))%>' ><span>檢視</span></asp:HyperLink>
                             
                             </ItemTemplate>
                             </asp:TemplateField>
