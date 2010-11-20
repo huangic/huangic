@@ -10,7 +10,7 @@ using Entity;
 using System.IO;
 using NXEIP.DAO;
 
-public partial class _10_100200_100202_2 : System.Web.UI.Page
+public partial class _10_100200_100202_3 : System.Web.UI.Page
 {
    
     String FilePath="/upload/100202/";

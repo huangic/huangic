@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100202-2.aspx.cs" Inherits="_10_100200_100202_2"   ValidateRequest="false"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100202-3.aspx.cs" Inherits="_10_100200_100202_3"   ValidateRequest="false"%>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
@@ -37,7 +37,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
 
-    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100202" SubFunc="新增待辦事項" />
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100202" SubFunc="回報待辦事項" />
     
    <div class="tableDiv">
         <div class="header">
