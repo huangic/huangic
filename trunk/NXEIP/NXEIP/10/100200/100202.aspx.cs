@@ -49,6 +49,15 @@ public partial class _10_100200_100202 : System.Web.UI.Page
         
     }
 
+    protected static bool GetReportVisible(int peo_uid)
+    {
+
+        SessionObject session = new SessionObject();
+        return (int.Parse(session.sessionUserID) == peo_uid);
+
+
+    }
+
 
     protected static string GetTreatStatus(int tra_peouid, int tde_peouid) {
         if (tra_peouid == tde_peouid)
@@ -59,7 +68,28 @@ public partial class _10_100200_100202 : System.Web.UI.Page
             return "交辦"; 
         }
     }
-   
+
+
+    protected static string GetStatus(string status,DateTime dt) {
+        switch (status) { 
+            case "1":
+                if (dt < DateTime.Now)
+                {
+                    return "執行中(逾期)";
+                }
+                else {
+                    return "執行中";
+                }             
+                
+                
+                
+                
+            case "2":
+                return "已完成";
+            
+        }
+        return "";
+    }
 
    
     /// <summary>
@@ -77,6 +107,10 @@ public partial class _10_100200_100202 : System.Web.UI.Page
          this.ObjectDataSource_treat.SelectParameters[0].DefaultValue = this.DropDownList1.SelectedValue;
          this.ObjectDataSource_treat.SelectParameters[1].DefaultValue = new SessionObject().sessionUserID;
          this.ObjectDataSource_treat.SelectParameters[2].DefaultValue = this.tb_keyword.Text;
+
+
+         this.GridView1.DataSourceID = "ObjectDataSource_treat";
+         this.GridView1.DataBind();
 
          OperatesObject.OperatesExecute(200105, 2, "查詢待辦事項 狀態:{0},關鍵字{1}", status, keyword);
          
@@ -104,5 +138,15 @@ public partial class _10_100200_100202 : System.Web.UI.Page
         
             this.GridView1.DataBind();
         }
+    }
+    protected void ShowPost_Click(object sender, EventArgs e)
+    {
+
+        this.ObjectDataSource_mytreat.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
+        
+        
+        this.GridView1.DataSourceID = "ObjectDataSource_mytreat";
+        this.GridView1.DataBind();
+        OperatesObject.OperatesExecute(200105, 2, "查詢交辦待辦事項");
     }
 }

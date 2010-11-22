@@ -23,6 +23,15 @@
                 tb_init('a.thickbox');
             }
         }
+
+        jQuery(document).ready(function () {
+            jQuery('.show').click(function () {
+                jQuery('.show').removeClass("b-input2").addClass("b-input");
+                jQuery(this).removeClass("b-input").addClass("b-input2");
+            });
+        });
+
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -39,6 +48,17 @@
             <asp:Parameter Name="keyword" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+
+     <asp:ObjectDataSource ID="ObjectDataSource_mytreat" runat="server" 
+        EnablePaging="True" OldValuesParameterFormatString="original_{0}"
+        SelectCountMethod="GetMyExplainDataCount" SelectMethod="GetMyExplainData" 
+        TypeName="NXEIP.DAO._100202DAO">
+        <SelectParameters>
+            <asp:Parameter Name="tre_peouid" Type="Int32" />
+            
+        </SelectParameters>
+    </asp:ObjectDataSource>
+
    
    
    
@@ -53,7 +73,7 @@
             </asp:DropDownList>
 &nbsp;關鍵字：<span class="a-letter-1">
                     <asp:TextBox ID="tb_keyword" runat="server"></asp:TextBox>
-                     &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
+                     &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="show b-input2" CausesValidation="False"
                         OnClick="Button1_Click" />
                 </span>
                 
@@ -74,7 +94,8 @@
                     <input type="button" class="thickbox b-input" alt="100202-2.aspx?modal=true&TB_iframe=true&height=400&width=700"
                         value="新增待辦" />
 
-                    <asp:Button ID="ShowPost" runat="server"  CssClass="b-input" Text="追蹤交辦事項" />   
+                    <asp:Button ID="ShowPost" runat="server"  CssClass="show b-input" Text="追蹤交辦事項" 
+                        onclick="ShowPost_Click" />   
                 </div>
             </div>
             <div class="h3">
@@ -105,7 +126,7 @@
                         
                          <asp:TemplateField HeaderText="執行情況">
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Detail.tde_status") %>'></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# GetStatus((String)Eval("Detail.tde_status"),(DateTime)Eval("Treat.tre_edate")) %>'></asp:Label>
                             </ItemTemplate>
                          </asp:TemplateField>
 
@@ -122,7 +143,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="Label5" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("Treat.tre_sdate")) %>'></asp:Label>
                                 ~
-                                <asp:Label ID="Label6" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("Treat.tre_edate")) %>'></asp:Label>
+                                <asp:Label ID="Label6" runat="server"  Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("Treat.tre_edate")) %>'></asp:Label>
                             </ItemTemplate>
 
 
@@ -152,7 +173,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="5em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100202-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Detail.tde_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("Treat.peo_uid"))%>'><span>修改</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100202-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Detail.tde_no"))%>' Enabled='<%# GetReportVisible((int)Eval("Detail.peo_uid"))%>'><span>回報</span></asp:HyperLink>
                                 
                              </ItemTemplate>
 
@@ -166,7 +187,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="3em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton detail" NavigateUrl='<%# string.Format("100202-34aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Treat.tre_no"))%>' ><span>檢視</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton detail" NavigateUrl='<%# string.Format("100202-4.aspx?id={0}&modal=true&TB_iframe=true&height=500&width=600",Eval("Detail.tde_no"))%>' ><span>檢視</span></asp:HyperLink>
                             
                             </ItemTemplate>
                             </asp:TemplateField>
@@ -204,6 +225,11 @@
         </div>
 
          </ContentTemplate>
+            
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="ShowPost" EventName="Click" />
+            </Triggers>
             
         </asp:UpdatePanel>
     </div>

@@ -69,9 +69,38 @@ namespace NXEIP.DAO
             return GetTreatData(status,tra_peouid,keyword).Skip(startRowIndex).Take(maximumRows);
         }
 
+        /// <summary>
+        /// 取我交辦給別人的資料
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="tra_peouid"></param>
+        /// <returns></returns>
+        public IQueryable<TreatDatailVO> GetMyExplainData(int peo_uid)
+        {
 
-        public IQueryable<TreatDatailVO> GetMyExplainData(string status, string tra_peouid) {
-            return null;
+         
+
+            var data = from t in model.treat
+                       from d in model.treatdetail
+                       where t.tre_no == d.tre_no
+                       && t.peo_uid == peo_uid
+                       && d.tde_status!="3"
+                       orderby t.tre_edate,t.tre_sdate,t.tre_createtime
+                       select new TreatDatailVO { Treat = t, Detail = d };
+
+
+
+            return data;
         }
+
+        public IQueryable<TreatDatailVO> GetMyExplainData(int tre_peouid, int startRowIndex, int maximumRows) {
+            return GetMyExplainData(tre_peouid).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetMyExplainDataCount(int tre_peouid)
+        {
+            return GetMyExplainData(tre_peouid).Count();
+        }
+
     }
 }

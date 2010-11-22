@@ -36,7 +36,7 @@
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-
+    <asp:HiddenField ID="hidden_tde_no" runat="server" />
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100202" SubFunc="回報待辦事項" />
     
    <div class="tableDiv">
@@ -55,7 +55,7 @@
                         工作名稱
                     </th>
                     <td>
-                      <asp:TextBox ID="tb_name" runat="server"></asp:TextBox>
+                        <asp:Label ID="lb_name" runat="server"></asp:Label>
                     </td>
                   
 
@@ -63,46 +63,38 @@
                 </tr>
                 <tr>
                     <th>
-                        工作期間
+                        工作進度
                     </th>
                     <td>
                         
-                        <uc5:calendar ID="calendar1" runat="server" />
-                        至<uc5:calendar ID="calendar2" runat="server" />
-                        
-                    </td>
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem  Selected="True">0</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                            <asp:ListItem>30</asp:ListItem>
+                            <asp:ListItem>40</asp:ListItem>
+                            <asp:ListItem>50</asp:ListItem>
+                            <asp:ListItem>60</asp:ListItem>
+                            <asp:ListItem>70</asp:ListItem>
+                            <asp:ListItem>80</asp:ListItem>
+                            <asp:ListItem>90</asp:ListItem>
+                            <asp:ListItem>100</asp:ListItem>
+                        </asp:DropDownList>
+                        %(前次進度<asp:Label ID="lb_achievedd" runat="server"></asp:Label>
+                        %)</td>
                    
 
                 </tr>
                 <tr>
                     <th>
-                       工作說明
+                        執行情況說明
                     </th>
                     <td >
                         <asp:TextBox ID="tb_work" runat="server" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
                  
-                 <tr>
-                    <th>
-                       執行者
-                    </th>
-                    <td>
-                       
-                     
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
-                            RepeatDirection="Horizontal" RepeatLayout="Flow" 
-                            
-                            Width="100px">
-                            <asp:ListItem Value="0" Selected>待辦</asp:ListItem>
-                            <asp:ListItem Value="1">交辦</asp:ListItem>
-                        </asp:RadioButtonList>
-                        <uc6:DepartTreeListBox ID="DepartTreeListBox1" runat="server"  Visible="True" 
-                            LeafType="People"/>
-                    
-
-                    </td>
-                 </tr>               
+                         
                  
                  
                  
@@ -135,6 +127,9 @@
         <div class="bottom">
             <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" 
                 onclick="btn_ok_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_complete" runat="server" CssClass="b-input" Text="完成進度" onclick="btn_complete_Click" 
+                />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" CssClass="a-input" 
                 onclick="Button1_Click" Text="取消" />
