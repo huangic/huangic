@@ -867,6 +867,7 @@
           <Property Name="peo_createtime" Type="datetime" />
           <Property Name="peo_officetel" Type="varchar" MaxLength="20" />
           <Property Name="peo_extension" Type="varchar" MaxLength="50" />
+          <Property Name="peo_cellphone" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="per01">
           <Key>
@@ -1117,6 +1118,7 @@
           <Property Name="spo_status" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="spo_createuid" Type="int" />
           <Property Name="spo_createtime" Type="datetime" />
+          <Property Name="spo_function" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="sys">
           <Key>
@@ -2613,6 +2615,7 @@
           <NavigationProperty Name="treat" Relationship="NXEIPModel.FK_TREAT_RELATIONS_PEOPLE" FromRole="people" ToRole="treat" />
           <NavigationProperty Name="treatdetail" Relationship="NXEIPModel.FK_TREATDET_RELATIONS_PEOPLE" FromRole="people" ToRole="treatdetail" />
           <NavigationProperty Name="rep02" Relationship="NXEIPModel.FK_REP02_RELATIONS_PEOPLE" FromRole="people" ToRole="rep02" />
+          <Property Type="String" Name="peo_cellphone" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="per01">
           <Key>
@@ -3171,6 +3174,7 @@
           <Property Type="DateTime" Name="spo_createtime" />
           <NavigationProperty Name="rooms" Relationship="NXEIPModel.FK_ROOMS_RELATIONS_SPOT" FromRole="spot" ToRole="rooms" />
           <NavigationProperty Name="floors" Relationship="NXEIPModel.FK_FLOORS_RELATIONS_SPOT" FromRole="spot" ToRole="floors" />
+          <Property Type="String" Name="spo_function" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="government">
           <Key>
@@ -4291,7 +4295,8 @@
             <ScalarProperty Name="pag_createuid" ColumnName="pag_createuid" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="people"><EntityTypeMapping TypeName="NXEIPModel.people"><MappingFragment StoreEntitySet="people">
-            <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+            <ScalarProperty Name="peo_cellphone" ColumnName="peo_cellphone" />
+                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
             <ScalarProperty Name="dep_no" ColumnName="dep_no" />
             <ScalarProperty Name="peo_workid" ColumnName="peo_workid" />
             <ScalarProperty Name="peo_idcard" ColumnName="peo_idcard" />
@@ -4448,6 +4453,7 @@
           <EntitySetMapping Name="spot">
             <EntityTypeMapping TypeName="NXEIPModel.spot">
               <MappingFragment StoreEntitySet="spot">
+                <ScalarProperty Name="spo_function" ColumnName="spo_function" />
                 <ScalarProperty Name="spo_createtime" ColumnName="spo_createtime" />
                 <ScalarProperty Name="spo_createuid" ColumnName="spo_createuid" />
                 <ScalarProperty Name="spo_status" ColumnName="spo_status" />
