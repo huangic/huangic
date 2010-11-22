@@ -12892,6 +12892,30 @@ namespace Entity
         private global::System.String _peo_extension;
         partial void Onpeo_extensionChanging(global::System.String value);
         partial void Onpeo_extensionChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String peo_cellphone
+        {
+            get
+            {
+                return _peo_cellphone;
+            }
+            set
+            {
+                Onpeo_cellphoneChanging(value);
+                ReportPropertyChanging("peo_cellphone");
+                _peo_cellphone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("peo_cellphone");
+                Onpeo_cellphoneChanged();
+            }
+        }
+        private global::System.String _peo_cellphone;
+        partial void Onpeo_cellphoneChanging(global::System.String value);
+        partial void Onpeo_cellphoneChanged();
 
         #endregion
     
@@ -18551,6 +18575,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _spo_createtime;
         partial void Onspo_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onspo_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String spo_function
+        {
+            get
+            {
+                return _spo_function;
+            }
+            set
+            {
+                Onspo_functionChanging(value);
+                ReportPropertyChanging("spo_function");
+                _spo_function = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("spo_function");
+                Onspo_functionChanged();
+            }
+        }
+        private global::System.String _spo_function;
+        partial void Onspo_functionChanging(global::System.String value);
+        partial void Onspo_functionChanged();
 
         #endregion
     
