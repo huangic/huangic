@@ -30,171 +30,183 @@ public partial class _10_100200_100202_3 : System.Web.UI.Page
         //init
         if (!Page.IsPostBack) {
 
-         
+
+            this.hidden_tde_no.Value = Request["id"];
+
             int peo_uid=int.Parse(sessionObj.sessionUserID);
                  
             this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
 
-           this.DepartTreeListBox1.Clear();
+          
+            //取工作項目
+            int id=int.Parse(Request["id"]);
+
+            using(NXEIPEntities model=new NXEIPEntities()){
+                treatdetail d = (from td in model.treatdetail where td.tde_no == id select td).First();
+
+                this.lb_name.Text = d.treat.tre_name;
+                this.tb_work.Text = d.tde_description;
+                this.DropDownList1.SelectedValue = d.tde_achieved.HasValue ?d.tde_achieved.Value.ToString() :"0";
+                this.lb_achievedd.Text = d.tde_achieved.HasValue ? d.tde_achieved.Value.ToString() : "0";
+
+            }
+
+
+
         }
 
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SWFUploadFile uf = new SWFUploadFile();
-
-       
-
-
+        
 
         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
 
     }
     protected void btn_ok_Click(object sender, EventArgs e)
     {
+        this.save("1");
+    }
+
+
+
+    private void save(string status) {
         //if (UC_SWFUpload1.SWFUploadFileInfoList.Count > 0)
         //{
-            SessionObject sessionObj=new SessionObject();
-            
-            
-            //存檔
-            using (NXEIPEntities model = new NXEIPEntities()) {
-               
-                OperatesObject.OperatesExecute(200104, 1, String.Format("新增待辦 d06_no:{0}","1"));
-            
-                //寫入待辦
+        SessionObject sessionObj = new SessionObject();
 
-                treat t = new treat();
+        int id = int.Parse(this.hidden_tde_no.Value);
 
+        //存檔
+        using (NXEIPEntities model = new NXEIPEntities())
+        {
 
-                t.tre_sdate = this.calendar1._ADDate;
+            OperatesObject.OperatesExecute(200104, 1, String.Format("更新待辦 Tde_no:{0}", id));
 
-                t.tre_edate = this.calendar2._ADDate;
+            //寫入待辦
 
-                t.tre_name = this.tb_name.Text;
+            treatdetail td = new treatdetail();
 
-                t.tre_work = this.tb_work.Text;
+            td.tde_no = id;
 
-                t.tre_createtime = DateTime.Now;
-                t.peo_uid = int.Parse(new SessionObject().sessionUserID);
+            model.treatdetail.Attach(td);
 
 
-                model.treat.AddObject(t);
+            td.tde_relydate = DateTime.Now;
 
-                model.SaveChanges();
+            td.tde_achieved = int.Parse(DropDownList1.SelectedValue);
+
+            td.tde_description = this.tb_work.Text;
+
+            td.tde_status = status;
 
 
-                #region 建立TreatDetail
 
-                #endregion
 
-                if (this.RadioButtonList1.SelectedValue == "0")
+
+
+            model.SaveChanges();
+
+
+
+
+
+            #region 檔案存檔
+
+
+            String uploadDir = new ArgumentsObject().Get_argValue("100202_dir");
+
+
+            //check file
+
+            for (int i = 1; i <= 3; i++)
+            {
+                FileUpload fu = (FileUpload)this.FindControl("FileUpload" + i);
+                if (fu.HasFile)
                 {
-                    treatdetail d = new treatdetail();
-                    d.tre_no=t.tre_no;
-                    d.peo_uid = int.Parse(new SessionObject().sessionUserID);
-
-                    d.tde_status = "1";
-
-                    model.treatdetail.AddObject(d);
-                    model.SaveChanges();
-
-                }
-                else {
-                    foreach (var p in DepartTreeListBox1.ItemsValue) {
-                        treatdetail d = new treatdetail();
-                        d.peo_uid = int.Parse(p);
-                        d.tre_no = t.tre_no;
-                        d.tde_status = "1";
-
-                        model.treatdetail.AddObject(d);
+                    //刪除檔案
+                    var fs = (from d in model.goback where d.tde_no == id select d);
+                    foreach (var f in fs)
+                    {
+                        model.goback.Detach(f);
                     }
                     model.SaveChanges();
+                    break;
                 }
-
-               
-
-                #region 檔案存檔
-
-
-                String uploadDir = new ArgumentsObject().Get_argValue("100202_dir");
-
-
-
-                
-
-
-                for (int i = 1; i <= 3; i++)
-                {
-                   
-                    FileUpload fu=(FileUpload)this.FindControl("FileUpload"+i);
-
-                    if(!fu.HasFile)
-                        continue;
-
-                        TreatFile f=new TreatFile(fu);
-
-                        turning file = new turning();
-                    
-                        //存檔
-
-                        Directory.CreateDirectory(uploadDir + FilePath);
-
-                        fu.SaveAs(uploadDir + FilePath + f.FileName);
-
-                        file.tre_no = t.tre_no;
-                        
-                        file.tur_file = f.OriginalFileName;
-                        
-                        file.tur_path = FilePath + f.FileName;
-                        file.tur_type = f.Extension;
-                        
-                    
-                        String desc = String.Empty;
-                        try
-                        {
-                            desc = ((TextBox)this.FindControl("tb_file"+i)).Text;
-                        }
-                        catch
-                        {
-
-                        }
-                        file.tur_subject = desc;
-
-
-                        //file.d06_no = d06.d06_no;
-                        //取最大值
-                        int max = 1;
-                        try
-                        {
-                            max = (from d in model.turning where d.tre_no == t.tre_no select d.tur_no).Max();
-                            max++;
-                        }
-                        catch
-                        {
-
-                        }
-
-
-                        file.tur_no = max;
-
-                        model.turning.AddObject(file);
-                        model.SaveChanges();
-                        OperatesObject.OperatesExecute(200104, 1, "新增待辦附件 tre_no:{0},tur_no", t.tre_no, file.tur_no);
-
-
-                    }
-                #endregion
-                
             }
 
 
+            for (int i = 1; i <= 3; i++)
+            {
 
-            
+                FileUpload fu = (FileUpload)this.FindControl("FileUpload" + i);
+
+                if (!fu.HasFile)
+                    continue;
+
+                TreatFile f = new TreatFile(fu);
+
+                goback file = new goback();
+
+                //存檔
+
+                Directory.CreateDirectory(uploadDir + FilePath);
+
+                fu.SaveAs(uploadDir + FilePath + f.FileName);
+
+                file.tde_no = id;
+
+                file.gob_file = f.OriginalFileName;
+
+                file.gob_path = FilePath + f.FileName;
+                file.gob_type = f.Extension;
+
+
+                String desc = String.Empty;
+                try
+                {
+                    desc = ((TextBox)this.FindControl("tb_file" + i)).Text;
+                }
+                catch
+                {
+
+                }
+                file.gob_subject = desc;
+
+
+                //file.d06_no = d06.d06_no;
+                //取最大值
+                int max = 1;
+                try
+                {
+                    max = (from d in model.goback where d.tde_no == id select d.gob_no).Max();
+                    max++;
+                }
+                catch
+                {
+
+                }
+
+
+                file.gob_no = max;
+
+                model.goback.AddObject(file);
+                model.SaveChanges();
+                OperatesObject.OperatesExecute(200104, 1, "新增待辦回復附件 tde_no:{0},gob_no", id, file.gob_no);
+
+
+            }
+            #endregion
+
+        }
 
 
 
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
+
+
+
+
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
 
         //}
         //else {
@@ -202,6 +214,16 @@ public partial class _10_100200_100202_3 : System.Web.UI.Page
 
         //}
     }
-   
-    
+
+    protected void btn_complete_Click(object sender, EventArgs e)
+    {
+
+        if (this.DropDownList1.SelectedValue == "100")
+        {
+           this.save("2");
+        }
+        else {
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('進度非100%')", true);
+        }
+    }
 }

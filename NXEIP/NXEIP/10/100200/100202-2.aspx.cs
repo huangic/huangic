@@ -95,6 +95,7 @@ public partial class _10_100200_100202_2 : System.Web.UI.Page
                     d.peo_uid = int.Parse(new SessionObject().sessionUserID);
 
                     d.tde_status = "1";
+                    d.tde_achieved = 0;
 
                     model.treatdetail.AddObject(d);
                     model.SaveChanges();
@@ -106,7 +107,7 @@ public partial class _10_100200_100202_2 : System.Web.UI.Page
                         d.peo_uid = int.Parse(p);
                         d.tre_no = t.tre_no;
                         d.tde_status = "1";
-
+                        d.tde_achieved = 0;
                         model.treatdetail.AddObject(d);
                     }
                     model.SaveChanges();
