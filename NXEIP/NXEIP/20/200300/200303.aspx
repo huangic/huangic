@@ -40,10 +40,10 @@
            <div class="select-1">
 
                <asp:ListView ID="lv_spot" runat="server" DataSourceID="ObjectDataSource_spot"  
-                   DataKeyNames="spo_no" 
+                   DataKeyNames="spo_no" onitemcommand="lv_spot_ItemCommand" 
                    >
                         <ItemTemplate>
-                            <span><asp:LinkButton ID="lb_cat" runat="server"  CssClass='<%# hidden_spot.Value.Equals( Eval("spo_no").ToString()) ? "a-letter-s1":""  %>'  CommandName="click_cat"><%# Eval("spo_name") %></asp:LinkButton></span>
+                            <span><asp:LinkButton ID="lb_cat" runat="server"  CssClass='<%# hidden_spot.Value.Equals( Eval("spo_no").ToString()) ? "a-letter-s1":""  %>'  CommandName="click"><%# Eval("spo_name") %></asp:LinkButton></span>
                                       
                         
                         </ItemTemplate>
@@ -55,18 +55,7 @@
           
         <div id="div_floor" class="floor" runat="server">
                    
-          <div class="box">
-           	   <div class="head">14樓</div>
-         	    
-         	      <div class="content">
-                    <div class="b1"></div>
-       		           <div class="b2">
-                    巿政資料中心 (Iinstitute For informatin Industry)、員工圖書室會議室 (Iinstitute For informatin Industry)、員工圖書室 (Iinstitute For informatin Industry)、會議室 (Iinstitute For informatin Industry)、員工圖書室會議室 (Iinstitute For informatin Industry)</div>
          
-                    </div>
-               </div>
-          </div>
-          
           
           
           
