@@ -9,11 +9,20 @@
     <script type="text/javascript">
         function update(msg) {
 
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+            __doPostBack(chang('<%=LinkButton1.ClientID%>'), '');
+            
+            
+            
             tb_remove();
 
 
             alert(msg);
+        }
+
+        function chang(str) {
+            //將底線換成$符號
+            var regex = /\_/g;
+            return str.replace(regex, '$');
         }
 
         function pageLoad(sender, args) {
@@ -48,11 +57,12 @@
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"></asp:LinkButton>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DepartmentsDataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True" 
                     CellPadding="3" CellSpacing="3"
                     CssClass="tableData" GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="flo_no"
-                    EnableViewState="False">
+                    >
                     <Columns>
                         <asp:TemplateField HeaderText="所在地">
                             <ItemTemplate>
@@ -94,7 +104,7 @@
                     </div>
                 </div>
                 <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="5">
                         <Fields>
                             <asp:NextPreviousPagerField ShowNextPageButton="False" />
                             <asp:NumericPagerField />
