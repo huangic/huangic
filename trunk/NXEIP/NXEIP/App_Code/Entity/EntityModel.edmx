@@ -724,7 +724,7 @@
           </Key>
           <Property Name="flo_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="spo_no" Type="int" Nullable="false" />
-          <Property Name="flo_level" Type="int" />
+          <Property Name="flo_level" Type="nvarchar" MaxLength="20" />
           <Property Name="flo_name" Type="nvarchar" MaxLength="40" />
           <Property Name="flo_ename" Type="nvarchar" MaxLength="100" />
           <Property Name="flo_status" Type="char" MaxLength="1" />
@@ -957,7 +957,7 @@
           <Property Name="r02_depno" Type="int" />
           <Property Name="r02_date" Type="datetime" />
           <Property Name="r02_spono" Type="int" />
-          <Property Name="r02_floor" Type="int" />
+          <Property Name="r02_floor" Type="nvarchar" MaxLength="20" />
           <Property Name="r02_reason" Type="nvarchar" MaxLength="200" />
           <Property Name="r02_repairuid" Type="int" />
           <Property Name="r02_rdate" Type="datetime" />
@@ -3969,7 +3969,7 @@
           </Key>
           <Property Type="Int32" Name="flo_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="spo_no" Nullable="false" />
-          <Property Type="Int32" Name="flo_level" />
+          <Property Type="String" Name="flo_level" MaxLength="20" />
           <Property Type="String" Name="flo_name" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="flo_ename" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="flo_status" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -3998,7 +3998,7 @@
           <Property Type="Int32" Name="r02_depno" />
           <Property Type="DateTime" Name="r02_date" />
           <Property Type="Int32" Name="r02_spono" />
-          <Property Type="Int32" Name="r02_floor" />
+          <Property Type="String" Name="r02_floor" MaxLength="20" />
           <Property Type="String" Name="r02_reason" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="r02_repairuid" />
           <Property Type="DateTime" Name="r02_rdate" />
