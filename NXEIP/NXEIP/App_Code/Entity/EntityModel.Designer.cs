@@ -9964,7 +9964,7 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> flo_level
+        public global::System.String flo_level
         {
             get
             {
@@ -9974,13 +9974,13 @@ namespace Entity
             {
                 Onflo_levelChanging(value);
                 ReportPropertyChanging("flo_level");
-                _flo_level = StructuralObject.SetValidValue(value);
+                _flo_level = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("flo_level");
                 Onflo_levelChanged();
             }
         }
-        private Nullable<global::System.Int32> _flo_level;
-        partial void Onflo_levelChanging(Nullable<global::System.Int32> value);
+        private global::System.String _flo_level;
+        partial void Onflo_levelChanging(global::System.String value);
         partial void Onflo_levelChanged();
     
         /// <summary>
@@ -15135,7 +15135,7 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> r02_floor
+        public global::System.String r02_floor
         {
             get
             {
@@ -15145,13 +15145,13 @@ namespace Entity
             {
                 Onr02_floorChanging(value);
                 ReportPropertyChanging("r02_floor");
-                _r02_floor = StructuralObject.SetValidValue(value);
+                _r02_floor = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("r02_floor");
                 Onr02_floorChanged();
             }
         }
-        private Nullable<global::System.Int32> _r02_floor;
-        partial void Onr02_floorChanging(Nullable<global::System.Int32> value);
+        private global::System.String _r02_floor;
+        partial void Onr02_floorChanging(global::System.String value);
         partial void Onr02_floorChanged();
     
         /// <summary>

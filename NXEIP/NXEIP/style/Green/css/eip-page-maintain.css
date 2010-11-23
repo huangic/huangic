@@ -533,25 +533,25 @@
 /*樓層*/
 
 .floor {
-	width: 77%;
+	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 }
-.floor .boxA {
+/*.floor .boxA {
 	width: 580px;
 	float: left;
 	margin-top: 2px;
 	margin-bottom: 10px;
-	}
+	}*/
 .floor .box {
-	width: 782px;
-	float: left;
+	width: 100%;
 	margin-top: 8px;
-	margin-bottom: 8px;
+	margin-bottom: 12px;
+	float: left;
 }
 
 .floor .box .head {
-	width: 158px;
+	width: 70px;
 	vertical-align: middle;
 	text-decoration: none;
 	text-align: center;
@@ -567,7 +567,7 @@
 }
 
 .floor .box .content {
-	width: 620px;
+	width: 946px;
 	float: right;
 	border-bottom-width: 1px;
 	border-bottom-style: dashed;
@@ -575,6 +575,7 @@
 	border-top-width: 1px;
 	border-top-style: dashed;
 	border-top-color: #F3CE4E;
+	margin-left: 4px;
 }
 .floor .box .b1 {
 	height: 36px;
@@ -584,20 +585,21 @@
 	width: 28px;
 }
 .floor .box .b2 {
-	width: 470px;
+	width: 802px;
 	float: left;
 	font-size: 13px;
 	color: #333333;
 	text-decoration: none;
 	line-height: 26px;
 	padding-top: 2px;
+	padding-right: 4px;
 }
 .floor .box .b3 {
-	width: 100px;
+	width: 106px;
 	float: left;
 	height: 30px;
 	padding-top: 2px;
-	padding-left: 10px;
+	padding-left: 6px;
 }
 .floor .box .content .b3 ul li {
 	float: left;
