@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function update(msg) {
 
-            __doPostBack(chang('<%=LinkButton1.ClientID%>'), '');
+            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
             
             
             

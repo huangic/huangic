@@ -18,8 +18,11 @@ public partial class _30_300500_300502 : System.Web.UI.Page
             
         }
 
-       
-
+        
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
