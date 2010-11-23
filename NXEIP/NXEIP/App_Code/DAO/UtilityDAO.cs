@@ -27,6 +27,16 @@ public class UtilityDAO
     }
 
     /// <summary>
+    /// 取得員工分機
+    /// </summary>
+    /// <param name="peo_uid">員工UID</param>
+    /// <returns></returns>
+    public string Get_PeopleExtension(int peo_uid)
+    {
+        return (from p in model.people where p.peo_uid == peo_uid select p.peo_extension).FirstOrDefault();
+    }
+
+    /// <summary>
     /// 取得員工身份證字號
     /// </summary>
     /// <param name="peo_uid">員工UID</param>
