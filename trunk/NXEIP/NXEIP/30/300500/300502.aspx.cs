@@ -18,7 +18,7 @@ public partial class _30_300500_300502 : System.Web.UI.Page
             
         }
 
-     
+       
 
     }
 
@@ -54,6 +54,11 @@ public partial class _30_300500_300502 : System.Web.UI.Page
         //this.OkMessagebox1.showMessagebox("delete"+dep_no);
     }
 
-    
 
+
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        this.GridView1.DataBind();
+    }
 }
