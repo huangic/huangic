@@ -80,6 +80,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP01_RELATIONS_REP05", "rep05", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep05), "rep01", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep01), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP03_RELATIONS_REP02", "rep02", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep02), "rep03", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep03), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP06_RELATIONS_REP05", "rep05", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep05), "rep06", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep06), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP02_RELATIONS_REP05", "rep05", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep05), "rep02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep02), true)]
 
 #endregion
 
@@ -14996,11 +14997,13 @@ namespace Entity
         /// </summary>
         /// <param name="r02_no">r02_no 屬性的初始值。</param>
         /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
-        public static rep02 Createrep02(global::System.Int32 r02_no, global::System.Int32 peo_uid)
+        /// <param name="r05_no">r05_no 屬性的初始值。</param>
+        public static rep02 Createrep02(global::System.Int32 r02_no, global::System.Int32 peo_uid, global::System.Int32 r05_no)
         {
             rep02 rep02 = new rep02();
             rep02.r02_no = r02_no;
             rep02.peo_uid = peo_uid;
+            rep02.r05_no = r05_no;
             return rep02;
         }
 
@@ -15321,6 +15324,54 @@ namespace Entity
         private Nullable<global::System.DateTime> _r02_createtime;
         partial void Onr02_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onr02_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 r05_no
+        {
+            get
+            {
+                return _r05_no;
+            }
+            set
+            {
+                Onr05_noChanging(value);
+                ReportPropertyChanging("r05_no");
+                _r05_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("r05_no");
+                Onr05_noChanged();
+            }
+        }
+        private global::System.Int32 _r05_no;
+        partial void Onr05_noChanging(global::System.Int32 value);
+        partial void Onr05_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> r06_no
+        {
+            get
+            {
+                return _r06_no;
+            }
+            set
+            {
+                Onr06_noChanging(value);
+                ReportPropertyChanging("r06_no");
+                _r06_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("r06_no");
+                Onr06_noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _r06_no;
+        partial void Onr06_noChanging(Nullable<global::System.Int32> value);
+        partial void Onr06_noChanged();
 
         #endregion
     
@@ -15382,6 +15433,44 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<rep03>("NXEIPModel.FK_REP03_RELATIONS_REP02", "rep03", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_REP02_RELATIONS_REP05", "rep05")]
+        public rep05 rep05
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rep05>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep05").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rep05>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep05").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<rep05> rep05Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rep05>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep05");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<rep05>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep05", value);
                 }
             }
         }
@@ -16024,6 +16113,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<rep06>("NXEIPModel.FK_REP06_RELATIONS_REP05", "rep06", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_REP02_RELATIONS_REP05", "rep02")]
+        public EntityCollection<rep02> rep02
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<rep02>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep02");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<rep02>("NXEIPModel.FK_REP02_RELATIONS_REP05", "rep02", value);
                 }
             }
         }
