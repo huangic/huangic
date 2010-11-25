@@ -17,7 +17,11 @@
         TypeName="NXEIP.DAO._100403DAO" 
         OldValuesParameterFormatString="original_{0}">
     </asp:ObjectDataSource>
-    <uc2:Navigator ID="Navigator1" runat="server" SubFunc="我要叫修" />
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetRep05Data"
+        TypeName="NXEIP.DAO._100403DAO" 
+        OldValuesParameterFormatString="original_{0}">
+    </asp:ObjectDataSource>
+    <uc2:Navigator ID="Navigator1" runat="server" SubFunc="我要叫修" SysFuncNo="100403" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
@@ -46,7 +50,7 @@
                 <th style="width: 15%">
                     地點
                 </th>
-                <td colspan="3">
+                <td>
                     <asp:DropDownList ID="ddl_spot" runat="server" 
                         DataSourceID="ObjectDataSource1" DataTextField="spo_name" 
                         DataValueField="spo_no" AppendDataBoundItems="True">
@@ -71,6 +75,17 @@
                         <asp:ListItem>地下2樓</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <th style="width: 15%">
+                    維修類別
+                </th>
+                <td>
+                    <asp:DropDownList ID="ddl_rep05" runat="server" AppendDataBoundItems="True" 
+                        DataSourceID="ObjectDataSource2" DataTextField="r05_name" 
+                        DataValueField="r05_no">
+                        <asp:ListItem Value="0">請選擇</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+
             </tr>
             <tr>
                 <th style="width: 15%">

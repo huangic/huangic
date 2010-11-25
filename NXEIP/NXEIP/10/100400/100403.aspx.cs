@@ -23,6 +23,11 @@ public partial class _10_100400_100403 : System.Web.UI.Page
             this.hidd_type.Value = "3";
             this.LoadData();
         }
+
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     /// <summary>
@@ -67,6 +72,8 @@ public partial class _10_100400_100403 : System.Web.UI.Page
             _100403DAO dao = new _100403DAO();
             rep02 d = dao.GetRep02ByNo(r02_no);
             d.r02_status = "4";
+            d.r02_createuid = int.Parse(new SessionObject().sessionUserID);
+            d.r02_createtime = DateTime.Now;
             dao.UpData();
             OperatesObject.OperatesExecute(100403, 4, "刪除叫修紀錄 r02_no:"+r02_no);
             this.GridView1.DataBind();
@@ -126,8 +133,5 @@ public partial class _10_100400_100403 : System.Web.UI.Page
         this.Navigator1.SubFunc = "全府維修";
         this.LoadData();
     }
-    protected void LinkButton1_Click(object sender, EventArgs e)
-    {
-        this.GridView1.DataBind();
-    }
+   
 }

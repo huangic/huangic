@@ -7,12 +7,11 @@
     <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script type="text/javascript">
+    <script type="text/javascript">
     function update(msg) {
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '')
         tb_remove();
         alert(msg);
-        var str = chang('<%=LinkButton1.ClientID%>');
-        __doPostBack(str, '')
     }
 
     function chang(str) {
@@ -27,6 +26,14 @@
             tb_init('a.thickbox');
         }
     }
+
+    jQuery(document).ready(function () {
+        jQuery('.show').click(function () {
+            jQuery('.show').removeClass("b-input2").addClass("b-input");
+            jQuery(this).removeClass("b-input").addClass("b-input2");
+        });
+    });
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -64,11 +71,11 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <asp:Button ID="Button1" runat="server" Text="個人維修" CssClass="b-input" OnClick="Button1_Click" />
+                    <asp:Button ID="Button1" runat="server" Text="個人維修" CssClass="show b-input2" OnClick="Button1_Click" />
                     &nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" Text="單位維修" CssClass="b-input" OnClick="Button2_Click" />
+                    <asp:Button ID="Button2" runat="server" Text="單位維修" CssClass="show b-input" OnClick="Button2_Click" />
                     &nbsp;&nbsp;
-                    <asp:Button ID="Button3" runat="server" Text="全府維修" CssClass="b-input" OnClick="Button3_Click" />
+                    <asp:Button ID="Button3" runat="server" Text="全府維修" CssClass="show b-input" OnClick="Button3_Click" />
                     &nbsp;&nbsp;
                     <input type="button" class="thickbox b-input" alt="100403-1.aspx?modal=true&TB_iframe=true"
                         value="我要叫修" />
@@ -133,8 +140,12 @@
                     </asp:DataPager>
                 </div>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="Button3" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
-        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"></asp:LinkButton>
     </div>
 </asp:Content>
 
