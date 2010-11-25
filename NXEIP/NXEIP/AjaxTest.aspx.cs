@@ -26,6 +26,8 @@ public partial class AjaxTest : System.Web.UI.Page
         {
             this.DepartmentPanel1.Clear();
             this.DepartmentPanel1.Add(7);
+            this.DepartTreeListBox1.Add(1);
+
         }
 
         //測試CACHE 項目
