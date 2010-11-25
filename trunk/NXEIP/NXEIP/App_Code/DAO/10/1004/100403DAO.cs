@@ -68,6 +68,65 @@ namespace NXEIP.DAO
 
         #endregion
 
+        #region 叫修紀錄 - 管理
+        /// <summary>
+        /// 叫修紀錄
+        /// </summary>
+        /// <param name="r05_no">分類</param>
+        /// <param name="sd">起日期</param>
+        /// <param name="ed">迄日期</param>
+        /// <param name="peo_uid"></param>
+        /// <param name="dep_no"></param>
+        /// <returns></returns>
+        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed)
+        {
+            //全部資料
+            var data = (from d in model.rep02
+                        where d.r02_status != "4" && d.r02_date >= sd && d.r02_date <= ed && d.r05_no == r05_no
+                        orderby d.r02_date descending
+                        select d);
+            return data;
+        }
+
+        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed, int startRowIndex, int maximumRows)
+        {
+            return GetRep02Data2(r05_no, sd, ed).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetRep02DataCount2(int r05_no, DateTime sd, DateTime ed)
+        {
+            return GetRep02Data2(r05_no, sd, ed).Count();
+        }
+
+
+        #endregion
+
+        #region 查詢叫修管理者擁有之分類
+        public IQueryable<rep05> SearchRep05Root(int peo_uid)
+        {
+            int[] r05_no = (from d in model.rep01 where d.r01_peouid == peo_uid select d.r05_no).ToArray();
+
+            return (from d in model.rep05 where r05_no.Contains(d.r05_no) && d.r05_status == "1" orderby d.r05_name select d);
+        }
+
+        public IQueryable<rep05> SearchRep05Root(int peo_uid, int startRowIndex, int maximumRows)
+        {
+            return SearchRep05Root(peo_uid).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int SearchRep05RootCount(int peo_uid)
+        {
+            return SearchRep05Root(peo_uid).Count();
+        }
+
+
+        #endregion
+
+        public IQueryable<rep05> GetRep05Data()
+        {
+            return (from d in model.rep05 where d.r05_status == "1" orderby d.r05_name select d);
+        }
+
         public IQueryable<spot> GetSpot()
         {
             return (from d in model.spot where d.spo_status == "1" && d.spo_function.Substring(3, 1) == "1" select d);
