@@ -31,6 +31,7 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
             SessionObject sobj = new SessionObject();
 
             rep02 data = new rep02();
+            data.r05_no = int.Parse(this.ddl_rep05.SelectedValue);
             data.peo_uid = int.Parse(sobj.sessionUserID);
             data.r02_depno = int.Parse(sobj.sessionUserDepartID);
             data.r02_date = DateTime.Now;
@@ -63,6 +64,13 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
             this.ShowMsg("請選擇樓層");
             return false;
         }
+
+        if (this.ddl_rep05.SelectedValue.Equals("0"))
+        {
+            this.ShowMsg("請選擇維修類別");
+            return false;
+        }
+
         if (this.tbox_reason.Text.Trim().Length == 0)
         {
             this.ShowMsg("請輸入故障原因");
