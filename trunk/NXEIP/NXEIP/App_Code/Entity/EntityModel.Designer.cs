@@ -81,6 +81,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP03_RELATIONS_REP02", "rep02", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep02), "rep03", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep03), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP06_RELATIONS_REP05", "rep05", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep05), "rep06", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep06), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_REP02_RELATIONS_REP05", "rep05", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rep05), "rep02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rep02), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM01_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "form01", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form01), true)]
 
 #endregion
 
@@ -1171,6 +1172,22 @@ namespace Entity
             }
         }
         private ObjectSet<rep06> _rep06;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<form01> form01
+        {
+            get
+            {
+                if ((_form01 == null))
+                {
+                    _form01 = base.CreateObjectSet<form01>("form01");
+                }
+                return _form01;
+            }
+        }
+        private ObjectSet<form01> _form01;
 
         #endregion
         #region AddTo 方法
@@ -1693,6 +1710,14 @@ namespace Entity
         public void AddTorep06(rep06 rep06)
         {
             base.AddObject("rep06", rep06);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 form01 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToform01(form01 form01)
+        {
+            base.AddObject("form01", form01);
         }
 
         #endregion
@@ -10176,6 +10201,296 @@ namespace Entity
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="form01")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class form01 : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 form01 物件。
+        /// </summary>
+        /// <param name="f01_no">f01_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        public static form01 Createform01(global::System.Int32 f01_no, global::System.Int32 peo_uid)
+        {
+            form01 form01 = new form01();
+            form01.f01_no = f01_no;
+            form01.peo_uid = peo_uid;
+            return form01;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 f01_no
+        {
+            get
+            {
+                return _f01_no;
+            }
+            set
+            {
+                if (_f01_no != value)
+                {
+                    Onf01_noChanging(value);
+                    ReportPropertyChanging("f01_no");
+                    _f01_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("f01_no");
+                    Onf01_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _f01_no;
+        partial void Onf01_noChanging(global::System.Int32 value);
+        partial void Onf01_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String f01_name
+        {
+            get
+            {
+                return _f01_name;
+            }
+            set
+            {
+                Onf01_nameChanging(value);
+                ReportPropertyChanging("f01_name");
+                _f01_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("f01_name");
+                Onf01_nameChanged();
+            }
+        }
+        private global::System.String _f01_name;
+        partial void Onf01_nameChanging(global::System.String value);
+        partial void Onf01_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String f01_description
+        {
+            get
+            {
+                return _f01_description;
+            }
+            set
+            {
+                Onf01_descriptionChanging(value);
+                ReportPropertyChanging("f01_description");
+                _f01_description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("f01_description");
+                Onf01_descriptionChanged();
+            }
+        }
+        private global::System.String _f01_description;
+        partial void Onf01_descriptionChanging(global::System.String value);
+        partial void Onf01_descriptionChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> f01_heandle
+        {
+            get
+            {
+                return _f01_heandle;
+            }
+            set
+            {
+                Onf01_heandleChanging(value);
+                ReportPropertyChanging("f01_heandle");
+                _f01_heandle = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("f01_heandle");
+                Onf01_heandleChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _f01_heandle;
+        partial void Onf01_heandleChanging(Nullable<global::System.Int32> value);
+        partial void Onf01_heandleChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String f01_columns
+        {
+            get
+            {
+                return _f01_columns;
+            }
+            set
+            {
+                Onf01_columnsChanging(value);
+                ReportPropertyChanging("f01_columns");
+                _f01_columns = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("f01_columns");
+                Onf01_columnsChanged();
+            }
+        }
+        private global::System.String _f01_columns;
+        partial void Onf01_columnsChanging(global::System.String value);
+        partial void Onf01_columnsChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String f01_status
+        {
+            get
+            {
+                return _f01_status;
+            }
+            set
+            {
+                Onf01_statusChanging(value);
+                ReportPropertyChanging("f01_status");
+                _f01_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("f01_status");
+                Onf01_statusChanged();
+            }
+        }
+        private global::System.String _f01_status;
+        partial void Onf01_statusChanging(global::System.String value);
+        partial void Onf01_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> f01_createuid
+        {
+            get
+            {
+                return _f01_createuid;
+            }
+            set
+            {
+                Onf01_createuidChanging(value);
+                ReportPropertyChanging("f01_createuid");
+                _f01_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("f01_createuid");
+                Onf01_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _f01_createuid;
+        partial void Onf01_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onf01_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> f01_createtime
+        {
+            get
+            {
+                return _f01_createtime;
+            }
+            set
+            {
+                Onf01_createtimeChanging(value);
+                ReportPropertyChanging("f01_createtime");
+                _f01_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("f01_createtime");
+                Onf01_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _f01_createtime;
+        partial void Onf01_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onf01_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_FORM01_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="goback")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -13242,6 +13557,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<rep02>("NXEIPModel.FK_REP02_RELATIONS_PEOPLE", "rep02", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_FORM01_RELATIONS_PEOPLE", "form01")]
+        public EntityCollection<form01> form01
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<form01>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "form01");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<form01>("NXEIPModel.FK_FORM01_RELATIONS_PEOPLE", "form01", value);
                 }
             }
         }

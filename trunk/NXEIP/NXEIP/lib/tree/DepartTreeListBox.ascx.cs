@@ -70,9 +70,7 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
         get{
             return (List<KeyValuePair<String, String>>)Session[SessionName]??new List<KeyValuePair<String,String>>();
         }
-        set {
-            Items = value;
-        }
+       
     }
 
 
@@ -95,7 +93,8 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
 
             items.Add(item.Value);
 
-            this.Items = items;
+            //this.Items = items;
+            this.Session[SessionName] = items;
         }
 
     }
