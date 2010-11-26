@@ -173,7 +173,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="5em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100202-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Detail.tde_no"))%>' Enabled='<%# GetReportVisible((int)Eval("Detail.peo_uid"))%>'><span>回報</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100202-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("Detail.tde_no"))%>'  Visible='<%# GetReportVisible((int)Eval("Detail.peo_uid"))%>'><span>回報</span></asp:HyperLink>
                                 
                              </ItemTemplate>
 
