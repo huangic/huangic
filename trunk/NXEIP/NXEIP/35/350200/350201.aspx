@@ -54,7 +54,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="TypesDataSource" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
-                    OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no" EnableViewState="False"
+                    OnRowCommand="GridView1_RowCommand" DataKeyNames="typ_no"
                     EmptyDataText="目前無資料" OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="typ_number" HeaderText="職稱代號" SortExpression="typ_number" />

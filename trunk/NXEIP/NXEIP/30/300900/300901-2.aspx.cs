@@ -9,7 +9,7 @@ using NXEIP.DAO;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
 
-public partial class _35_350200_350203 : System.Web.UI.Page
+public partial class _30_300900_300901_2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,59 +18,50 @@ public partial class _35_350200_350203 : System.Web.UI.Page
             
         }
 
-
-        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
             this.GridView1.DataBind();
         }
-
-
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
-        int dep_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
+        int no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
 
         if (e.CommandName.Equals("disable"))
         {
-            delete(dep_no);
+            delete(no);
             return;
         }
     }
 
-    
 
 
-    private void delete(int dep_no)
+
+    private void delete(int f01_no)
     {
-        DepartmentsDAO dao = new DepartmentsDAO();
-        departments depart = dao.GetByDepNo(dep_no);
+        using (NXEIPEntities model = new NXEIPEntities()) {
+            form01 f = new form01();
+            f.f01_no = f01_no;
 
+            model.form01.Attach(f);
+            f.f01_status = "2";
 
-        //找他的父代看有沒有子代(沒有就改SON);
-        int count=dao.GetChildDepartment(depart.dep_parentid.Value).Count();
-        departments parentDepart = dao.GetByDepNo(depart.dep_parentid.Value);
-        if (count == 0)
-        {
-           
-            parentDepart.dep_son = "0";
+            model.SaveChanges();
         }
-        else {
-            parentDepart.dep_son = "1";
-        }
-
-
-        depart.dep_status = "2";
-
-        dao.Update();
 
         this.GridView1.DataBind();
         
         //this.OkMessagebox1.showMessagebox("delete"+dep_no);
     }
 
-    
 
+
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    {
+        this.GridView1.DataBind();
+    }
 }

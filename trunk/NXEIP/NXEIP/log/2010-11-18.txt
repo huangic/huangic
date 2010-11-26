@@ -1,0 +1,69 @@
+2010-11-18 09:37:27.0180 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 09:37:27.0650 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 09:37:27.9721 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 11:05:08.1579 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 11:05:08.2069 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 11:05:08.2759 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 11:05:08.3059 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 11:05:13.2822 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 11:09:21.6984 _10_100100_100105_1.Button1_Click Debug IMMENSITY.SWFUploadAPI.SWFUploadFileInfo
+2010-11-18 11:09:30.2019 FileDownload.ProcessRequest Debug 無法對應路徑 '/upload/100105/people/1/101118110920486.txt'。
+2010-11-18 11:12:19.1896 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"copy","folderId":"0","depid":"7","folderType":"2","files":["14","15"]}
+2010-11-18 11:12:19.2066 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-11-18 11:27:28.4766 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 11:27:28.4886 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 11:27:28.4976 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 11:27:28.4976 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 11:30:54.9154 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 11:34:44.0835 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 11:39:05.9775 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 11:39:34.0591 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 11:39:34.0591 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 11:39:34.0771 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 11:39:34.0771 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 12:19:22.8847 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:25:27.5706 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:26:49.3373 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:27:17.7369 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:27:33.4468 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:27:52.2639 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 12:44:32.2141 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 13:27:48.3705 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 13:28:07.5876 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 13:45:14.1914 _10_100100_100105.Page_Load Debug TEST
+2010-11-18 13:45:35.6916 FileDownload.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101011034733191.exe'。
+2010-11-18 13:45:41.4779 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 13:45:41.4979 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 13:45:42.3490 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 13:45:42.3560 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 13:45:47.3323 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 13:45:47.5653 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=3的設定
+2010-11-18 13:45:47.6173 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 13:45:47.6173 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 14:25:53.9299 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 14:25:53.9299 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 14:25:53.9729 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 14:28:39.3664 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 14:28:39.3664 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 14:28:39.3974 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 14:39:00.8209 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 14:39:00.8349 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 14:39:00.8459 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 14:39:00.8459 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 14:44:14.1768 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 14:44:14.1858 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 14:44:14.1858 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 14:44:14.1858 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 14:47:22.7276 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 14:47:22.7276 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 14:47:22.7456 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 14:47:22.7456 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 15:35:36.3471 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 15:35:36.3721 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 15:35:37.1182 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 15:35:37.1242 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 15:37:54.1650 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-18 15:37:54.1710 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-18 15:37:54.1710 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-18 15:37:54.1710 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-18 16:32:41.8691 _30_300700_300701.LinkButton1_Click Debug msgSystem.Web.UI.WebControls.HiddenField

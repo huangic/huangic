@@ -1,0 +1,158 @@
+2010-11-17 09:11:32.0720 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 09:11:32.1410 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 09:11:33.3321 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 09:11:38.8957 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 09:11:38.9947 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 09:11:39.0557 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 09:11:39.0557 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 09:20:51.0689 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 09:20:51.1189 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 09:20:51.1619 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 09:20:51.1619 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:07:21.4933 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:07:21.5163 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:07:21.5353 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:07:21.5353 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:07:26.2016 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:07:26.2016 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:07:26.2206 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:07:26.2206 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:07:31.7059 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:07:31.7059 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:07:31.7979 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:07:31.7979 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:07:44.5506 WidgetMethod.SaveLayout Debug Delete this page_no[1] block
+2010-11-17 10:37:02.5302 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:37:02.9512 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:37:03.7903 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:41:26.2183 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:41:26.2233 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:41:26.2383 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:41:45.8944 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:41:45.8944 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:41:45.9134 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:41:56.4770 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:41:56.4770 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:41:56.4990 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:43:40.3470 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:43:40.7610 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:43:41.5780 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:43:51.2986 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:43:51.3106 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:43:51.3106 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:43:51.3246 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:57:31.3275 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:57:31.6865 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:57:32.4215 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:57:32.4215 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:58:20.4923 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:58:20.5013 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:58:20.5133 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:58:20.5133 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 10:58:38.5003 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:58:38.5003 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:58:38.5193 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:58:55.9053 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:58:55.9063 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:58:55.9503 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 10:59:03.7448 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 10:59:03.7448 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 10:59:03.8158 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 11:00:14.4208 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 11:00:14.4248 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 11:00:14.4248 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 11:00:14.4248 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 14:10:44.5496 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 14:10:44.5836 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 14:10:45.3606 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 15:20:17.9532 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 15:20:17.9982 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 15:20:18.7863 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 15:29:43.8876 _200104_1.ProcessRequest Debug 無法對應路徑 '/upload/document/'。
+2010-11-17 15:29:59.7855 _200104_1.ProcessRequest Debug 無法對應路徑 '/upload/document/101026051936027.apk'。
+2010-11-17 15:30:23.4848 _200104_1.ProcessRequest Debug 無法對應路徑 '/upload/document/'。
+2010-11-17 15:31:15.6728 _200104_1.ProcessRequest Debug 無法對應路徑 '/upload/200104/101117033111748.txt'。
+2010-11-17 15:32:41.3807 _200104_1.ProcessRequest Debug 執行緒已經中止。
+2010-11-17 15:33:08.9753 _200104_1.ProcessRequest Debug 執行緒已經中止。
+2010-11-17 16:15:44.1075 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 16:15:44.4645 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 16:15:45.2065 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-17 16:15:45.2645 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-11-17 16:15:54.2790 _10_100100_100105.Page_Load Debug TEST
+2010-11-17 16:16:02.3125 NXEIP.DAO.DocPermissionDAO.GetFilePermission Debug SELECT 
+[Distinct1].[C1] AS [C1], 
+[Distinct1].[C2] AS [C2], 
+[Distinct1].[C3] AS [C3], 
+[Distinct1].[C4] AS [C4], 
+[Distinct1].[C5] AS [C5]
+FROM ( SELECT DISTINCT 
+	[UnionAll1].[C1] AS [C1], 
+	[UnionAll1].[d04_no] AS [C2], 
+	[UnionAll1].[C2] AS [C3], 
+	[UnionAll1].[dep_name] AS [C4], 
+	[UnionAll1].[d03_no] AS [C5]
+	FROM  (SELECT 
+		1 AS [C1], 
+		[Extent2].[d04_no] AS [d04_no], 
+		N'D' AS [C2], 
+		[Extent1].[dep_name] AS [dep_name], 
+		[Extent3].[d03_no] AS [d03_no]
+		FROM   [dbo].[departments] AS [Extent1]
+		INNER JOIN [dbo].[doc04] AS [Extent2] ON [Extent1].[dep_no] = [Extent2].[d04_depno]
+		INNER JOIN [dbo].[doc03] AS [Extent3] ON [Extent3].[d03_no] = [Extent2].[d03_no]
+		WHERE (@p__linq__0 = [Extent3].[d01_no]) AND (N'1' = (SUBSTRING([Extent3].[d03_type], 1 + 1, 1)))
+	UNION ALL
+		SELECT 
+		1 AS [C1], 
+		[Extent5].[d05_no] AS [d05_no], 
+		N'P' AS [C2], 
+		[Extent4].[peo_name] AS [peo_name], 
+		[Extent6].[d03_no] AS [d03_no]
+		FROM   [dbo].[people] AS [Extent4]
+		INNER JOIN [dbo].[doc05] AS [Extent5] ON [Extent4].[peo_uid] = [Extent5].[d05_peouid]
+		INNER JOIN [dbo].[doc03] AS [Extent6] ON [Extent6].[d03_no] = [Extent5].[d03_no]
+		WHERE (@p__linq__1 = [Extent6].[d01_no]) AND (N'1' = (SUBSTRING([Extent6].[d03_type], 2 + 1, 1)))) AS [UnionAll1]
+)  AS [Distinct1]
+2010-11-17 16:16:05.7267 PermissionTreeMethod.ProcessRequest Debug 
+2010-11-17 16:16:06.9148 PermissionTreeMethod.ProcessRequest Debug 
+2010-11-17 16:16:08.7469 PermissionTreeMethod.ProcessRequest Debug 
+2010-11-17 16:16:10.4650 PermissionTreeMethod.ProcessRequest Debug 
+2010-11-17 16:16:10.4820 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"系統管理員","type":"people"}]}
+2010-11-17 16:16:10.8000 NXEIP.DAO.DocPermissionDAO.GetFilePermission Debug SELECT 
+[Distinct1].[C1] AS [C1], 
+[Distinct1].[C2] AS [C2], 
+[Distinct1].[C3] AS [C3], 
+[Distinct1].[C4] AS [C4], 
+[Distinct1].[C5] AS [C5]
+FROM ( SELECT DISTINCT 
+	[UnionAll1].[C1] AS [C1], 
+	[UnionAll1].[d04_no] AS [C2], 
+	[UnionAll1].[C2] AS [C3], 
+	[UnionAll1].[dep_name] AS [C4], 
+	[UnionAll1].[d03_no] AS [C5]
+	FROM  (SELECT 
+		1 AS [C1], 
+		[Extent2].[d04_no] AS [d04_no], 
+		N'D' AS [C2], 
+		[Extent1].[dep_name] AS [dep_name], 
+		[Extent3].[d03_no] AS [d03_no]
+		FROM   [dbo].[departments] AS [Extent1]
+		INNER JOIN [dbo].[doc04] AS [Extent2] ON [Extent1].[dep_no] = [Extent2].[d04_depno]
+		INNER JOIN [dbo].[doc03] AS [Extent3] ON [Extent3].[d03_no] = [Extent2].[d03_no]
+		WHERE (@p__linq__0 = [Extent3].[d01_no]) AND (N'1' = (SUBSTRING([Extent3].[d03_type], 1 + 1, 1)))
+	UNION ALL
+		SELECT 
+		1 AS [C1], 
+		[Extent5].[d05_no] AS [d05_no], 
+		N'P' AS [C2], 
+		[Extent4].[peo_name] AS [peo_name], 
+		[Extent6].[d03_no] AS [d03_no]
+		FROM   [dbo].[people] AS [Extent4]
+		INNER JOIN [dbo].[doc05] AS [Extent5] ON [Extent4].[peo_uid] = [Extent5].[d05_peouid]
+		INNER JOIN [dbo].[doc03] AS [Extent6] ON [Extent6].[d03_no] = [Extent5].[d03_no]
+		WHERE (@p__linq__1 = [Extent6].[d01_no]) AND (N'1' = (SUBSTRING([Extent6].[d03_type], 2 + 1, 1)))) AS [UnionAll1]
+)  AS [Distinct1]
+2010-11-17 17:11:26.2256 _10_100100_100105.Page_Load Debug TEST
+2010-11-17 17:11:32.8250 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-17 17:11:32.8250 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-11-17 17:11:32.8720 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
