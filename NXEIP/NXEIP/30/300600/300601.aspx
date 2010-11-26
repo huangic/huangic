@@ -48,20 +48,16 @@
     <asp:HiddenField ID="hidd_r05no" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300601" />
     <div class="tableDiv">
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-            <ContentTemplate>
-                <div class="select-1">
-                    <asp:ListView ID="lv_cat" runat="server" DataSourceID="ObjectDataSource2" DataKeyNames="r05_no"
-                        OnItemCommand="lv_cat_ItemCommand">
-                        <ItemTemplate>
-                            <span>
-                                <asp:LinkButton ID="lb_cat" runat="server" CssClass='<%# hidd_r05no.Value.Equals( Eval("r05_no").ToString()) ? "a-letter-s1":""  %>'
-                                    CommandName="click_cat" CommandArgument="<%# Container.DataItemIndex %>"><%# Eval("r05_name") %></asp:LinkButton></span>
-                        </ItemTemplate>
-                    </asp:ListView>
-                </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+        <div class="select-1">
+            <asp:ListView ID="lv_cat" runat="server" DataSourceID="ObjectDataSource2" DataKeyNames="r05_no"
+                OnItemCommand="lv_cat_ItemCommand">
+                <ItemTemplate>
+                    <span>
+                        <asp:LinkButton ID="lb_cat" runat="server" CssClass='<%# hidd_r05no.Value.Equals( Eval("r05_no").ToString()) ? "a-letter-s1":""  %>'
+                            CommandName="click_cat" CommandArgument="<%# Container.DataItemIndex %>"><%# Eval("r05_name") %></asp:LinkButton></span>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
         <div class="select" style="text-align: right">
             <div class="center0">
                 叫修日期：</div>
@@ -117,18 +113,18 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="回覆">
                             <ItemTemplate>
-                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "300601-2.aspx?modal=true&r02_no={0}&TB_iframe=true") %>'>
+                                <a id="btnShowPopup2" runat="server" class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "300601-2.aspx?modal=true&r02_no={0}&TB_iframe=true") %>'>
                                     <span><span>回覆</span></span> </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
-                                <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
+                                <asp:Button ID="Button5" runat="server" CssClass="delete" CommandArgument="<%# Container.DataItemIndex %>" CommandName="del" OnClientClick=" return confirm('確定要刪除?')" />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
+
                     </Columns>
                 </cc1:GridView>
                 <div class="footer">
@@ -150,6 +146,8 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+
+
     </div>
 </asp:Content>
 
