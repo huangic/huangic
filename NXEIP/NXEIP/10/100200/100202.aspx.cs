@@ -31,11 +31,19 @@ public partial class _10_100200_100202 : System.Web.UI.Page
             this.ObjectDataSource_treat.SelectParameters[1].DefaultValue = new SessionObject().sessionUserID;
             this.ObjectDataSource_treat.SelectParameters[2].DefaultValue = this.tb_keyword.Text;
 
-            
+            this.GridView1.DataBind();
             
         }
-     
+
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
             this.GridView1.DataBind();
+        }
+
+
+           
             
     }
 

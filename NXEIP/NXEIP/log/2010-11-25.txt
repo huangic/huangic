@@ -1,0 +1,108 @@
+2010-11-25 10:47:59.4825 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 10:47:59.5185 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 10:48:00.3286 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 10:56:48.9428 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 10:56:48.9858 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 10:56:49.7488 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 10:56:49.7558 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 10:58:56.2991 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 10:58:56.3001 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 10:58:56.3001 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 10:58:56.3161 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 11:13:53.2144 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 11:13:53.2144 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 11:13:53.2454 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 11:13:53.2454 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 14:27:41.3822 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 14:27:41.3962 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 14:27:41.4232 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 14:27:41.4232 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 14:54:56.8407 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 14:54:56.8677 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 14:54:57.7158 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 14:54:57.7158 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 15:33:53.6824 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 15:33:53.7074 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 15:33:54.5564 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 16:56:39.4324 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:56:47.8809 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:56:50.0320 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:56:50.9571 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:56:50.9571 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 16:56:51.8501 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:57:35.2206 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:57:37.7887 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:57:39.0908 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:57:40.0359 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:57:40.0359 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 16:57:40.8939 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:57:43.8631 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:19.5991 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:19.6791 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:19.9671 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:22.7793 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:24.4914 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:25.3194 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:25.3194 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 16:58:25.9885 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:28.1346 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:28.2326 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:28.4896 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:28.5116 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:58:30.9558 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:33.9509 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:33.9509 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 16:58:35.2320 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:58:35.2320 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[]}
+2010-11-25 16:58:35.8961 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:59:20.6016 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:59:20.6816 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:59:20.9526 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 16:59:23.0107 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:59:25.5839 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:59:26.2129 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:59:26.2129 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 16:59:26.9890 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 16:59:39.2227 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 16:59:39.2557 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 16:59:39.9737 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 16:59:39.9737 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 17:01:06.9497 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:01:06.9497 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:01:06.9647 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:01:06.9647 lib_HeaderMenu.generateMenu Debug MENUㄏノSessionе
+2010-11-25 17:01:22.8206 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:01:26.1338 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 17:01:27.3759 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 17:01:28.0869 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 17:01:28.0869 NXEIP.Lib.JsonLib.GetRequestJson Debug {"para":[{"value":"1","text":"╰参恨瞶"}]}
+2010-11-25 17:01:28.9700 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 17:10:04.1594 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:10:04.1982 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:10:05.3994 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:10:51.9873 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:12:59.5916 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:12:59.6254 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:12:59.7841 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:16:23.5471 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:16:23.5846 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:16:23.7496 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:16:32.5935 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:18:36.8998 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:18:36.9348 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:18:37.0898 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:18:47.8574 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:19:23.1680 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:22:07.8447 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:22:07.8772 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:22:08.0310 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:24:04.0757 DepartTreeMethod.ProcessRequest Debug 
+2010-11-25 17:25:45.2961 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:25:45.3299 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:25:45.4899 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:29:19.6580 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-11-25 17:29:19.6905 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info ㄏノPAGE_NO=1砞﹚
+2010-11-25 17:29:19.8480 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-11-25 17:30:21.7620 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:39:24.9176 _30_300900_300901_1.Page_Load Info mode:new
+2010-11-25 17:40:54.9008 _30_300900_300901_1.Page_Load Info mode:new

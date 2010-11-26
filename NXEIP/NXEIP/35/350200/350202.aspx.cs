@@ -22,6 +22,14 @@ public partial class _35_350200_350202 : System.Web.UI.Page
             
         }
 
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
+
+
     }
 
   

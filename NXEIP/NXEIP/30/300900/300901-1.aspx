@@ -60,7 +60,7 @@
                         表單說明
                     </th>
                     <td>
-                        <asp:TextBox ID="tb_description" runat="server" MaxLength="255" Rows="5" 
+                        <asp:TextBox ID="tb_description" runat="server" MaxLength="255" 
                             TextMode="MultiLine"></asp:TextBox>
                     </td>
                    
