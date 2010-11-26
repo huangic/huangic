@@ -119,13 +119,33 @@ namespace NXEIP.DAO
             return SearchRep05Root(peo_uid).Count();
         }
 
+        //子分類
+        public IQueryable<rep06> SearchRep06Parent(int r05_no)
+        {
+            return (from d in model.rep06
+                    where d.r06_status == "1" && d.r05_no == r05_no && d.r06_level == 1
+                    orderby d.r06_order
+                    select d);
+        }
 
-        #endregion
+        //子子分類
+        public IQueryable<rep06> SearchRep06Son(int r06_no)
+        {
+            return (from d in model.rep06
+                    where d.r06_status == "1" && d.r06_parent == r06_no && d.r06_level == 2
+                    orderby d.r06_order
+                    select d);
+        }
+
 
         public IQueryable<rep05> GetRep05Data()
         {
             return (from d in model.rep05 where d.r05_status == "1" orderby d.r05_name select d);
         }
+
+        #endregion
+
+        
 
         public IQueryable<spot> GetSpot()
         {
