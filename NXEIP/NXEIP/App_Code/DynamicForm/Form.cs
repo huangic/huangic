@@ -81,8 +81,8 @@ namespace NXEIP.DynamicForm
 
 
 
-        public Column GetColumn(Guid uid){
-            return this.Columns.Find(x => x.UID == uid);
+        public Column GetColumn(String uid){
+            return this.Columns.Find(x => x.UID==uid);
         }
 
         public void AddColumn(Column c) {

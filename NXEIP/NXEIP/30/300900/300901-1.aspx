@@ -44,7 +44,6 @@
             </div>
         </div>
         <table>
-            <caption>表單</caption>
             <tbody>
                 <tr>
                     <th>
