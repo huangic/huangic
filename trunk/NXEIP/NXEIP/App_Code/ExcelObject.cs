@@ -5,8 +5,9 @@ using System.Web;
 using System.Data;
 using System.IO;
 using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
 using NPOI.HPSF;
-using NPOI.POIFS.FileSystem;
+
 
 /// <summary>
 /// ExcelObject 的摘要描述
@@ -46,18 +47,19 @@ public class ExcelObject
     /// <param name="myTable"></param>
     void GenerateData(DataTable myTable)
     {
-        HSSFSheet sheet1 = hssfworkbook.CreateSheet("Sheet1");
+        Sheet sheet1 = hssfworkbook.CreateSheet("sheet1");
 
         //抬頭名稱
+        Row titleRow = sheet1.CreateRow(0);
         for (int i = 0; i < myTable.Columns.Count; i++)
         {
-            sheet1.CreateRow(0).CreateCell(i).SetCellValue(myTable.Columns[i].ColumnName);
+            titleRow.CreateCell(i).SetCellValue(myTable.Columns[i].ColumnName);
         }
         
         //資料
         for (int i = 0; i < myTable.Rows.Count; i++)
         {
-            HSSFRow row = sheet1.CreateRow(i+1);
+            Row row = sheet1.CreateRow(i + 1);
             for (int j = 0; j < myTable.Columns.Count; j++)
             {
                 row.CreateCell(j).SetCellValue(myTable.Rows[i][j].ToString());
