@@ -10,7 +10,7 @@ using System.Data;
 using System.IO;
 using NPOI.HSSF.UserModel;
 using NPOI.HPSF;
-using NPOI.POIFS.FileSystem;
+using NPOI.SS.UserModel;
 
 public partial class _30_300300_300303_7 : System.Web.UI.Page
 {
@@ -222,7 +222,7 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
     /// <param name="myTable"></param>
     void GenerateData()
     {
-        HSSFSheet sheet1 = hssfworkbook.CreateSheet("Sheet1");
+        Sheet sheet1 = hssfworkbook.CreateSheet("Sheet1");
         int e02_no = Convert.ToInt32(this.hidd_no.Value);
         string[] isShow = this.hidd_checked.Value.Split(',');
         string[] colname = { "單位", "姓名", "職稱", "身分證字號", "電話" };
@@ -236,28 +236,30 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
         ChangeObject cboj = new ChangeObject();
         string date = cboj._ROCtoROCYMD(cboj._ADtoROC(e02Data.e02_sdate.Value));
         string place = (from t in model.e01 where t.e01_no == e02Data.e01_no select t.e01_name).FirstOrDefault();
-        sheet1.CreateRow(1).CreateCell(0).SetCellValue("日期：" + date);
-        sheet1.CreateRow(1).CreateCell(1).SetCellValue("上課地點：" + place);
+        Row row2 = sheet1.CreateRow(1);
+        row2.CreateCell(0).SetCellValue("日期：" + date);
+        row2.CreateCell(1).SetCellValue("上課地點：" + place);
 
         //欄位表頭
         int colCount = 0;
+        Row row3 = sheet1.CreateRow(2);
         for (int i = 0; i < isShow.Length; i++)
         {
             if (isShow[i].Equals("1"))
             {
-                sheet1.CreateRow(2).CreateCell(colCount).SetCellValue(colname[i]);
+                row3.CreateCell(colCount).SetCellValue(colname[i]);
                 colCount++;
             }
         }
         //簽到欄
-        sheet1.CreateRow(2).CreateCell(colCount).SetCellValue("簽到");
+        row3.CreateCell(colCount).SetCellValue("簽到");
 
         //資料
         //此課程核可人員之UID
         int[] e04_uid = (from dd in model.e04 where dd.e02_no == e02_no && dd.e04_check == "1" orderby dd.e04_no select dd.e04_peouid).ToArray();
         for (int i = 0; i < e04_uid.Length; i++)
         {
-            HSSFRow row = sheet1.CreateRow(i + 3);
+            Row row = sheet1.CreateRow(i + 3);
             string[] data = this.dataStr(e04_uid[i], this.hidd_checked.Value).Split(',');
             for (int j = 1; j < data.Length; j++)
             {
