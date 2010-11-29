@@ -8,6 +8,8 @@ using Entity;
 using NXEIP.DAO;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
+using NXEIP.DynamicForm;
+using Newtonsoft.Json;
 
 public partial class _30_300900_300901_2 : System.Web.UI.Page
 {
@@ -28,7 +30,7 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
-        int no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
+        String no = this.GridView1.DataKeys[rowIndex].Value.ToString();
 
         if (e.CommandName.Equals("disable"))
         {
@@ -40,14 +42,36 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
 
 
 
-    private void delete(int f01_no)
+    private void delete(String uid)
     {
-        using (NXEIPEntities model = new NXEIPEntities()) {
-            form01 f = new form01();
-            f.f01_no = f01_no;
+        using (NXEIPEntities model = new NXEIPEntities())
+        {
+            int id = int.Parse(Request["ID"]);
+            Form01DAO dao = new Form01DAO();
+            var columns = dao.GetColumnsByFormNO(id).ToList();
 
-            model.form01.Attach(f);
-            f.f01_status = "2";
+            Form f = new Form();
+
+            f.Columns = columns.ToList();
+
+            Column col = f.GetColumn(uid);
+
+            f.Columns.Remove(col);
+
+           
+
+            form01 form = new form01 { f01_no = id };
+
+            model.form01.Attach(form);
+
+
+            form.f01_columns = JsonConvert.SerializeObject(f.Columns);
+
+
+
+            //取COLUMN
+
+
 
             model.SaveChanges();
         }

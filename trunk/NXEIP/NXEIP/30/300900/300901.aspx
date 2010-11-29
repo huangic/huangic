@@ -43,7 +43,7 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300901-1.aspx?modal=true&TB_iframe=true&height=600&width=600""
+                    <input type="button" class="thickbox b-input" alt="300901-1.aspx?modal=true&TB_iframe=true&height=300&width=600""
                         value="新增表單" />
                 </div>
             </div>
@@ -84,12 +84,24 @@
                             <ItemStyle Width="30px" />
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='修改'
-                                    href='<%# Eval("f01_no", "300901-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=600&width=600") %>'>
+                                    href='<%# Eval("f01_no", "300901-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=300&width=600") %>'>
                                     <span>修改</span>
                                 </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="表單欄位" ItemStyle-HorizontalAlign="Center">
+                            <ItemStyle Width="60px" />
+                            <ItemTemplate>
+                                <a class="imageButton edit" title='表單欄位'
+                                    href='<%# Eval("f01_no", "300901-2.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=300&width=600") %>'>
+                                    <span>表單欄位</span>
+                                </a>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
                         
                         <asp:TemplateField HeaderText="啟用">
                             <ItemStyle Width="30px" />

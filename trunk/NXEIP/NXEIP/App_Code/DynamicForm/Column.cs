@@ -24,7 +24,7 @@ namespace NXEIP.DynamicForm
         /// <summary>
         /// 唯一編號
         /// </summary>
-        public Guid UID { get; set; }
+        public String UID { get; set; }
         /// <summary>
         /// 欄位名稱
         /// </summary>
@@ -45,6 +45,8 @@ namespace NXEIP.DynamicForm
         /// 最大長度
         /// </summary>
         public int MaxLength { get; set; }
+
+        public String Condition { get; set; }
         /// <summary>
         /// 欄位類別
         /// </summary>
@@ -52,7 +54,7 @@ namespace NXEIP.DynamicForm
         /// <summary>
         /// 候選詞
         /// </summary>
-        public List<KeyValuePair<string,string>> Items { get; set; }
+        public List<String> Items { get; set; }
         /// <summary>
         /// 順序
         /// </summary>
