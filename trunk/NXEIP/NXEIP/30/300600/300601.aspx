@@ -146,8 +146,18 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-
-
+    </div>
+    <div id="div_chart1" runat="server">
+        <asp:Chart ID="Chart1" runat="server">
+            <Series>
+                <asp:Series ChartArea="ChartArea1" Name="Series1" Label="#VALY">
+                </asp:Series>
+            </Series>
+            <ChartAreas>
+                <asp:ChartArea Name="ChartArea1">
+                </asp:ChartArea>
+            </ChartAreas>
+        </asp:Chart>
     </div>
 </asp:Content>
 
