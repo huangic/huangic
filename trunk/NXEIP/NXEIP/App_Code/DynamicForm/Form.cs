@@ -35,6 +35,8 @@ namespace NXEIP.DynamicForm
         /// </summary>
         public String Status { get; set; }
 
+
+
         /// <summary>
         /// 描述
         /// </summary>
@@ -49,10 +51,14 @@ namespace NXEIP.DynamicForm
         /// </summary>
         public string CreateUser { get; set; }
 
+        public String CreareUserNO { get; set; }
+
         /// <summary>
         /// 承辦人
         /// </summary>
         public String HandleUser { get; set; }
+
+        public String HandleUserNO { get; set; }
 
         /// <summary>
         /// 上架時間
@@ -90,5 +96,7 @@ namespace NXEIP.DynamicForm
         }
 
         public List<String> Footer { get; set; }
+
+       
     }
 }
