@@ -1,0 +1,96 @@
+2010-12-01 09:55:09.0727 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 09:55:09.1437 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 09:55:09.5997 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:16:06.4326 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:16:06.4816 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:16:06.5016 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:16:06.5186 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 10:16:24.6346 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:16:24.6426 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:16:24.7356 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:18:05.3994 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:18:05.4074 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:18:05.4194 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:22:00.9479 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:22:00.9479 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:22:00.9769 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:22:20.3290 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:22:20.3390 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:22:20.3560 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:25:34.5131 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:25:34.5131 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:25:34.5441 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:28:09.3659 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:28:09.3659 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:28:09.3879 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:45:02.0179 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:45:02.0309 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:45:02.0489 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:45:45.7724 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:45:46.3364 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:45:46.4414 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:45:46.4414 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 10:48:34.2210 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:48:34.2350 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:48:34.3290 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:53:50.6061 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:53:50.6061 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:53:50.6281 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:54:17.7056 WidgetMethod.SaveLayout Debug Delete this page_no[1] block
+2010-12-01 10:54:22.6899 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:54:22.6989 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:54:22.7479 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:54:22.7479 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 10:55:55.3002 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:55:55.3152 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:55:55.7883 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:55:55.7883 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 10:58:21.9736 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:58:22.4456 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:58:23.5377 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:58:23.5457 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 10:59:07.1262 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:59:07.6242 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:59:08.7743 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 10:59:44.1033 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 10:59:44.5773 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 10:59:45.7294 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:01:56.4759 WidgetMethod.SaveLayout Debug Delete this page_no[1] block
+2010-12-01 11:01:58.6830 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:01:58.6840 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:01:58.7210 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:03:30.8713 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:03:30.8713 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:03:30.8813 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:03:30.8813 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:04:39.0012 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:04:39.4312 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:04:39.8162 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:04:39.8172 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:05:03.4416 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:05:03.4566 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:05:03.8056 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:05:03.8056 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:20:03.6791 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:20:04.1021 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:20:04.4721 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:20:04.4721 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:20:40.7932 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:20:40.8022 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:20:40.8632 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:20:56.6591 WidgetMethod.SaveLayout Debug Delete this page_no[1] block
+2010-12-01 11:20:58.6392 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:20:58.6482 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:20:58.6882 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:21:06.6027 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:21:06.6027 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:21:06.6227 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:21:06.6227 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:21:53.2323 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:21:53.2473 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:21:53.6004 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:21:53.6154 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
+2010-12-01 11:24:36.4447 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-01 11:24:36.4607 NXEIP.Widget.WidgetPageTemplate.GetCurrentPage Info 使用PAGE_NO=1的設定
+2010-12-01 11:24:36.4747 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-01 11:24:36.4747 lib_HeaderMenu.generateMenu Debug MENU使用Session快取
