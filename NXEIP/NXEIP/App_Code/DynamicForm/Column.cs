@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 
 namespace NXEIP.DynamicForm
@@ -50,7 +51,7 @@ namespace NXEIP.DynamicForm
         /// <summary>
         /// 欄位類別
         /// </summary>
-        public ColumnType ColumnType { get; set; }
+        public int ColumnType { get; set; }
         /// <summary>
         /// 候選詞
         /// </summary>
@@ -60,17 +61,18 @@ namespace NXEIP.DynamicForm
         /// </summary>
         public int Order { get; set; }
 
+        public static List<Column>ConvertJonToColumns(String Json){
+            if (!String.IsNullOrEmpty(Json))
+            {
+
+                return JsonConvert.DeserializeObject<List<Column>>(Json);
+            }
+            return default(List<Column>);
+        }
     }
 
-    public enum ColumnType { 
-            InputBox,
-            TextArea,
-            Checkbox,
-            RadioButton,
-            DropDownList,
-            ListBox,
-            DateSelector,
-            Department
-    }
+
+
+   
 
 }

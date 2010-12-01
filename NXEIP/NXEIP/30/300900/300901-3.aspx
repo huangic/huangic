@@ -110,7 +110,7 @@
                         欄位順序
                     </th>
                     <td>
-                        <asp:TextBox ID="tb_order" runat="server"  ></asp:TextBox>
+                        <asp:TextBox ID="tb_order" runat="server"  >0</asp:TextBox>
                                           
                        
                     </td>
@@ -122,14 +122,13 @@
                         欄位類型
                     </th>
                     <td>
+                        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+                            OldValuesParameterFormatString="original_{0}" SelectMethod="GetList" 
+                            TypeName="NXEIP.DynamicForm.ColumnType"></asp:ObjectDataSource>
                         <asp:DropDownList ID="DropDownList1" runat="server"  AutoPostBack="true"
-                            onselectedindexchanged="DropDownList1_SelectedIndexChanged">
-                            <asp:ListItem Value="0">單行文字輸入</asp:ListItem>
-                            <asp:ListItem Value="1">多行文字輸入</asp:ListItem>
-                            <asp:ListItem Value="2">下拉式選單</asp:ListItem>
-                            <asp:ListItem Value="3">選項項目</asp:ListItem>
-                            <asp:ListItem Value="4">勾選項目</asp:ListItem>
-                            <asp:ListItem Value="5">多選項目</asp:ListItem>
+                            onselectedindexchanged="DropDownList1_SelectedIndexChanged" 
+                            DataSourceID="ObjectDataSource1" DataTextField="Name" DataValueField="No">
+                           
                         </asp:DropDownList>
                        
                        

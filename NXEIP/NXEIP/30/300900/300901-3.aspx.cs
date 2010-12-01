@@ -54,6 +54,8 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
                 SetValue(c.Items);
 
                 this.ShowValue();
+             
+                this.DropDownList1.DataBind();
 
                 this.DropDownList1.SelectedValue = ((int)c.ColumnType).ToString();
 
@@ -124,7 +126,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
 
                 //col.MaxLength= int.Parse(this.tb)
 
-                col.ColumnType = (ColumnType)int.Parse(this.DropDownList1.SelectedValue);
+                col.ColumnType = int.Parse(this.DropDownList1.SelectedValue);
 
                 //選項欄位
                 col.Items = GetValue();
@@ -185,7 +187,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
 
                 //col.MaxLength= int.Parse(this.tb)
 
-                col.ColumnType = (ColumnType)int.Parse(this.DropDownList1.SelectedValue);
+                col.ColumnType = int.Parse(this.DropDownList1.SelectedValue);
 
                 //選項欄位
                 col.Items = GetValue();
@@ -227,9 +229,9 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
     }
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
-        bool[] isShowValue = {false,false,true,true,true,true,false,false };
 
-        this.showItem.Visible = isShowValue[int.Parse(this.DropDownList1.SelectedValue)];
+
+        this.showItem.Visible = ColumnType.GetColumnType(int.Parse(this.DropDownList1.SelectedValue)).ShowItem;
     
     }
     protected void Button1_Click(object sender, EventArgs e)
