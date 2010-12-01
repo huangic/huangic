@@ -51,7 +51,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DepartmentsDataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3"
                     CssClass="tableData" GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="dep_no"
-                    EnableViewState="False">
+                   >
                     <Columns>
                         <asp:BoundField DataField="dep_code" HeaderText="部門代碼" SortExpression="dep_no" />
                         <asp:BoundField DataField="dep_name" HeaderText="部門中文名稱" SortExpression="dep_name" />
