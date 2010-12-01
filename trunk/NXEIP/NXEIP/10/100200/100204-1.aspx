@@ -60,7 +60,7 @@
                     <asp:DropDownList ID="ddl_sys06" runat="server" AppendDataBoundItems="True" 
                         DataSourceID="ObjectDataSource1" DataTextField="s06_name" 
                         DataValueField="s06_no">
-                        <asp:ListItem Selected="True" Value="0">最新消息</asp:ListItem>
+                        <asp:ListItem Value="0">最新消息</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <th style="width:15%">
