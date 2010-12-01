@@ -42,7 +42,7 @@ Ver 0.5 Beta 2009-08-23
             }
             obj[fn] = val;
         });
-        alert(JSON.stringify(obj));
+        //alert(JSON.stringify(obj));
         return JSON.stringify(obj);
     }
     $.fn.jsonToFields = function (jsonString, prefix) {
