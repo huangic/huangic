@@ -113,19 +113,21 @@ namespace NXEIP.Widget
                 }
             }
 
-            //if (ShowTitle)
-            //else
-            //sb.Append("<br />");
+            if (IsEditable)
+            {
 
-            sb.Append("</div>");
+                sb.Append("</div>");
 
-            sb.Append("<div class=\"widget-content\">");
+                sb.Append("<div class=\"widget-content\">");
 
-            writer.Write(sb.ToString());
-            base.Render(writer);
-            writer.Write("</div>");
-            writer.Write("</div>");
-           
+                writer.Write(sb.ToString());
+                base.Render(writer);
+                writer.Write("</div>");
+                writer.Write("</div>");
+            }
+            else {
+                base.Render(writer);
+            }
         }
 
 
