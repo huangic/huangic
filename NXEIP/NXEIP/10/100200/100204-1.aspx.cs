@@ -52,6 +52,7 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
                 this.lab_people.Text = dao.Get_PeopleName(data.n01_peouid.Value);
                 this.lab_dep.Text = dao.Get_DepartmentName(data.n01_depno.Value);
                 this.lab_date.Text = new ChangeObject()._ADtoROC(data.n01_date.Value);
+                this.ddl_sys06.DataBind();
                 if (data.s06_no.HasValue)
                 {
                     this.ddl_sys06.Items.FindByValue(data.s06_no.Value.ToString()).Selected = true;
