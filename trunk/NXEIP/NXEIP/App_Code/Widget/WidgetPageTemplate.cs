@@ -152,7 +152,7 @@ namespace NXEIP.Widget
                 String JsonWidget = "var widgetSetting=" + JsonConvert.SerializeObject(json)+";";
 
                 Page.ClientScript.RegisterStartupScript(typeof(Page), "WidgetUrl", WidgetUrl, true);
-                Page.ClientScript.RegisterStartupScript(typeof(Page), "WidgetWarpUrl", WidgetUrl, true);
+                Page.ClientScript.RegisterStartupScript(typeof(Page), "WidgetWarpUrl", WidgetWarpUrl, true);
                 Page.ClientScript.RegisterStartupScript(typeof(Page), "WidgetSetting", JsonWidget, true);
                 CreateWidgetPanel();
 
