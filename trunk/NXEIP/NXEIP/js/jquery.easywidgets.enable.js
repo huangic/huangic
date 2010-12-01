@@ -115,7 +115,7 @@ function getWidgetObj(){
 
 
 function saveLayout(){
-alert("SAVE");
+//alert("SAVE");
 
 var wobj = getWidgetObj();
 
