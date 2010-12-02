@@ -79,9 +79,9 @@
 
             </tbody>
         </table>
-
-        <asp:Table ID="DynamicTable" runat="server">
-                        </asp:Table>
+        <br />
+        <asp:Table ID="DynamicTable" runat="server" ClientIDMode="Static">
+        </asp:Table>
 
         
                 <div class="footer">
@@ -95,5 +95,14 @@
                 </div>
                 
          
+          <div class="bottom">
+            <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="½T©w" onclick="btn_ok_Click" 
+                />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button1" runat="server" CssClass="a-input" 
+                Text="¨ú®ø" />
+        </div>
+
+
     </div>
 </asp:Content>

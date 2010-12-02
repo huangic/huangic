@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Web.UI;
 
 
 
@@ -20,7 +21,7 @@ namespace NXEIP.DynamicForm
             //
         }
 
-        public WebControl[] CreateWebControl(Column column){
+        private WebControl[] CreateWebControl(Column column){
 
             ColumnType CType = ColumnType.GetColumnType(column.ColumnType);
             
@@ -28,112 +29,21 @@ namespace NXEIP.DynamicForm
             Label l = new Label();
             l.Text = column.Name;
 
+            WebControl[] ws={l,null};
 
+            ws[1] = this.GetColumnTypeWebControl(column);
             //轉換成WebControl
-
-            if (CType.InputType == "inputbox") {
-                TextBox t = new TextBox();
-                t.ID = column.UID;
-                if (column.MaxLength > 0) {
-                    t.MaxLength = column.MaxLength;
-                }
-                return new WebControl[]{l,t};
-
-            }
-
-
-            if (CType.InputType == "textarea")
+            if (ws[1] != null)
             {
-                TextBox t = new TextBox();
-                t.TextMode = TextBoxMode.MultiLine;
-                t.ID = column.UID;
-                if (column.MaxLength > 0)
-                {
-                    t.MaxLength = column.MaxLength;
-                }
-                return new WebControl[] { l, t };
-
+                ws[1].ClientIDMode = ClientIDMode.Static;
             }
 
-            if (CType.InputType == "dropdownlist")
-            {
-                DropDownList ddl = new DropDownList();
+            InitListControl(ws[1],column);
+
+         
 
 
-                foreach (string i in column.Items) {
-                    String[] item = i.Split('@');
-                    ddl.Items.Add(new ListItem(item[0], item[1]));
-                }
-
-                
-                
-                
-                return new WebControl[] { l, ddl };
-
-            }
-
-            if (CType.InputType == "radiobutton")
-            {
-                RadioButtonList rbl = new RadioButtonList();
-
-                rbl.RepeatLayout = RepeatLayout.Flow;
-                rbl.RepeatDirection = RepeatDirection.Horizontal;
-                foreach (string i in column.Items)
-                {
-                    String[] item = i.Split('@');
-                    rbl.Items.Add(new ListItem(item[0], item[1]));
-                }
-
-
-
-
-                return new WebControl[] { l, rbl };
-
-            }
-
-
-            if (CType.InputType == "checkbox")
-            {
-                CheckBoxList rbl = new CheckBoxList();
-
-                rbl.RepeatLayout = RepeatLayout.Flow;
-                rbl.RepeatDirection = RepeatDirection.Horizontal;
-                foreach (string i in column.Items)
-                {
-                    String[] item = i.Split('@');
-                    rbl.Items.Add(new ListItem(item[0], item[1]));
-                }
-
-
-
-
-                return new WebControl[] { l, rbl };
-
-            }
-
-
-            if (CType.InputType == "listbox")
-            {
-                ListBox rbl = new ListBox();
-
-               
-                foreach (string i in column.Items)
-                {
-                    String[] item = i.Split('@');
-                    rbl.Items.Add(new ListItem(item[0], item[1]));
-                }
-
-
-
-
-                return new WebControl[] { l, rbl };
-
-            }
-
-
-
-
-            return null;
+            return ws;
         }
 
         public List<WebControl[]> ConvertColumsToWebControl(List<Column> columns) {
@@ -146,5 +56,156 @@ namespace NXEIP.DynamicForm
 
             return list;
         }
+
+
+        public List<Column> GetWebControlValue(Control master, List<Column> columns) {
+
+
+            foreach (Column col in columns)
+            {
+                WebControl item = (WebControl)master.FindControl(col.UID);
+
+                List<String> values = new List<string>();
+                
+                
+                if (item is ListControl) {
+                    ListControl lc = item as ListControl;
+                    //col.Value = lc.SelectedValue;
+
+                    //var listvalue=lc.Items
+                    values = new List<string>();
+
+                    foreach (ListItem i in lc.Items) {
+                        if (i.Selected) {
+                            values.Add(i.Value);
+                        }
+                    }
+
+                    col.Value = values;
+
+                }
+
+                if (item is TextBox) {
+                    TextBox tb = item as TextBox;
+                    values.Add(tb.Text);
+                }
+                col.Value = values;
+            }
+            return columns;
+        }
+
+        /// <summary>
+        /// 取欄位的WebControl
+        /// </summary>
+        /// <param name="column"></param>
+        /// <returns></returns>
+        private WebControl GetColumnTypeWebControl(Column column){
+            ColumnType CType = ColumnType.GetColumnType(column.ColumnType);
+           
+            if (CType.InputType == "inputbox")
+            {
+                TextBox t = new TextBox();
+                t.ID = column.UID;
+
+                if (column.MaxLength > 0)
+                {
+                    t.MaxLength = column.MaxLength;
+                }
+                return t;
+
+            }
+
+
+            if (CType.InputType == "textarea")
+            {
+                TextBox t = new TextBox();
+                t.TextMode = TextBoxMode.MultiLine;
+                t.ID = column.UID;
+
+                if (column.MaxLength > 0)
+                {
+                    t.MaxLength = column.MaxLength;
+                }
+                return t;
+
+            }
+
+            if (CType.InputType == "dropdownlist")
+            {
+                DropDownList c = new DropDownList();
+                c.ID = column.UID;
+
+                c.ClientIDMode = ClientIDMode.Static;
+
+                return c;
+
+            }
+
+            if (CType.InputType == "radiobutton")
+            {
+                RadioButtonList c = new RadioButtonList();
+                c.ID = column.UID;
+                c.RepeatLayout = RepeatLayout.Flow;
+                c.RepeatDirection = RepeatDirection.Horizontal;
+                return c;
+
+            }
+
+
+            if (CType.InputType == "checkbox")
+            {
+                CheckBoxList c = new CheckBoxList();
+                c.ID = column.UID;
+                c.RepeatLayout = RepeatLayout.Flow;
+                c.RepeatDirection = RepeatDirection.Vertical;
+                
+                return c;
+
+            }
+
+
+            if (CType.InputType == "listbox")
+            {
+                ListBox c = new ListBox();
+                c.ID = column.UID;
+                c.SelectionMode = ListSelectionMode.Multiple;
+                return c;
+            }
+
+
+
+
+            return null;
+        }
+
+        /// <summary>
+        /// 將有選單的List加上LISTITEM;
+        /// </summary>
+        /// <param name="wc"></param>
+        /// <param name="column"></param>
+        private void InitListControl(WebControl wc,Column column){
+
+            //如果是LIST 類型的 要塞入LISTITEM
+            if (wc is ListControl)
+            {
+                ListControl ls =wc as ListControl;
+
+                if (ls is DropDownList) {
+                    ls.Items.Add(new ListItem("請選擇", ""));
+                }
+
+
+                foreach (string i in column.Items)
+                {
+                    String[] item = i.Split('@');
+                    ls.Items.Add(new ListItem(item[0], item[1]));
+                }
+
+            }
+
+         
+
+        }
+
     }
 }

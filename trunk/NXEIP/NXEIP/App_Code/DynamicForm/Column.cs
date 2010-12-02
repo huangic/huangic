@@ -61,6 +61,9 @@ namespace NXEIP.DynamicForm
         /// </summary>
         public int Order { get; set; }
 
+
+        public List<String> Value { get; set; }
+
         public static List<Column>ConvertJonToColumns(String Json){
             if (!String.IsNullOrEmpty(Json))
             {
