@@ -90,15 +90,28 @@ public partial class _30_300900_300901_1 : System.Web.UI.Page
 
             using (NXEIPEntities model = new NXEIPEntities())
             {
+                
+               form01 f=new form01();
 
-               
+               f.peo_uid = int.Parse(this.DepartTreeTextBox1.Value);
+               f.f01_createuid = int.Parse(new SessionObject().sessionUserID);
+               f.f01_description = this.tb_description.Text;
+               f.f01_name = this.tb_name.Text;
+               f.f01_layout = "1";
+               f.f01_createtime = DateTime.Now;
+               f.f01_status = "1";
+               f.f01_repeat = "1";
+
+
+                model.form01.AddObject(f);
+
                 model.SaveChanges();
             }
             
         }
-        catch
+        catch (Exception ex)
         {
-
+            logger.Debug(ex.Message);
         }
 
     }
@@ -111,6 +124,23 @@ public partial class _30_300900_300901_1 : System.Web.UI.Page
             using (NXEIPEntities model = new NXEIPEntities())
             {
 
+                form01 f = new form01();
+
+
+                f.f01_no = int.Parse(this.hidden_no.Value);
+
+                model.form01.Attach(f);
+
+                f.peo_uid = int.Parse(this.DepartTreeTextBox1.Value);
+                f.f01_createuid = int.Parse(new SessionObject().sessionUserID);
+                f.f01_description = this.tb_description.Text;
+                f.f01_name = this.tb_name.Text;
+                f.f01_layout = "1";
+                f.f01_createtime = DateTime.Now;
+                f.f01_status = "1";
+                f.f01_repeat = "1";
+
+
                
                 
                 model.SaveChanges();
@@ -119,9 +149,9 @@ public partial class _30_300900_300901_1 : System.Web.UI.Page
 
                       
         }
-        catch
+        catch(Exception ex)
         {
-            
+            logger.Debug(ex.Message);
         }
         
     }

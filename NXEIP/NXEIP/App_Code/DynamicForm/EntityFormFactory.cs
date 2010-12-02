@@ -41,8 +41,8 @@ namespace NXEIP.DynamicForm
             f.Status = form.f01_status;
             f.CreareUserNO = form.f01_createuid+"";
             f.CreateUser = udao.Get_PeopleName(form.f01_createuid.Value);
-            f.HandleUserNO = form.f01_heandle+"";
-            f.HandleUser = udao.Get_PeopleName(form.f01_heandle.Value);
+            f.HandleUserNO = form.peo_uid+"";
+            f.HandleUser = udao.Get_PeopleName(form.peo_uid);
             f.Columns = Column.ConvertJonToColumns(form.f01_columns);
             f.Description = form.f01_description;
             }

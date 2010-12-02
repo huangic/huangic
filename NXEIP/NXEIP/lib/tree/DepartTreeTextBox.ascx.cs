@@ -79,7 +79,19 @@ public partial class lib_tree_DepartTreeTextBox : System.Web.UI.UserControl
 
         }
     }
-     
+
+     [Browsable(false)]
+    public String Value {
+        get {
+            try
+            {
+                return ItemsValue[0];
+            }catch{
+                return "";
+            }
+        }
+    }
+
     [Browsable(false)]
     public List<KeyValuePair<String,String>> Items{
         get{
