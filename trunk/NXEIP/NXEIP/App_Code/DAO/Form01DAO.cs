@@ -74,5 +74,18 @@ namespace NXEIP.DAO
             return new List<Column>().AsQueryable();
         }
 
+        public IQueryable<Column> GetFooterByFormNO(int f01_no)
+        {
+            //字串轉型
+            string json = (from d in model.form01 where d.f01_no == f01_no select d.f01_footer).First();
+
+            if (!String.IsNullOrEmpty(json))
+            {
+
+                return (IQueryable<Column>)(JsonConvert.DeserializeObject<List<Column>>(json)).AsQueryable();
+            }
+            return new List<Column>().AsQueryable();
+        }
+
     }
 }

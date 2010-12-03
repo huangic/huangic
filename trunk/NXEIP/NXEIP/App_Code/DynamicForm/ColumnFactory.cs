@@ -28,6 +28,8 @@ namespace NXEIP.DynamicForm
             //建立說明文字
             Label l = new Label();
             l.Text = column.Name;
+            if (column.Required)
+                l.Text += "(必填)";
 
             WebControl[] ws={l,null};
 
@@ -206,6 +208,50 @@ namespace NXEIP.DynamicForm
          
 
         }
+
+        private WebControl[] CreateDisplayWebControl(Column column) {
+            ColumnType CType = ColumnType.GetColumnType(column.ColumnType);
+
+            //建立說明文字
+            Label l = new Label();
+            l.Text = column.Name;
+
+            WebControl[] ws = { l, null };
+
+
+            Label lb_value = new Label();
+
+            lb_value.Text = String.Join("<br/>", column.Value);
+
+            ws[1] = lb_value;
+            //轉換成WebControl
+            if (ws[1] != null)
+            {
+                ws[1].ClientIDMode = ClientIDMode.Static;
+            }
+
+            InitListControl(ws[1], column);
+
+
+
+
+            return ws;
+        }
+
+        public List<WebControl[]> ConvertColumsToDisplayWebControl(List<Column> columns)
+        {
+            List<WebControl[]> list = new List<WebControl[]>();
+
+
+            foreach (Column c in columns)
+            {
+                list.Add( this.CreateDisplayWebControl(c));
+            }
+
+            return list;
+        }
+        
+
 
     }
 }

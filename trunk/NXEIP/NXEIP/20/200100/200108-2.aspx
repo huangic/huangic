@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="300901-5.aspx.cs" Inherits="_30_300900_300901_5" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200108-2.aspx.cs" Inherits="_20_200100_200108_2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
@@ -25,7 +25,7 @@
     
     
   
-    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="300901"  SubFunc="檢視表單"/>
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="200108"  SubFunc="檢視表單"/>
     
     
     <div class="tableDiv" style="width:80%">
@@ -101,9 +101,10 @@
        
         <asp:Table ID="DynamicTable" runat="server" ClientIDMode="Static">
         </asp:Table>
-         <asp:Table ID="DynamicFooter" runat="server" ClientIDMode="Static">
+
+        <asp:Table ID="DynamicFooter" runat="server" ClientIDMode="Static">
         </asp:Table>
-        
+
         
                 <div class="footer">
                     <div class="f1">
@@ -118,7 +119,7 @@
           <div class="bottom">
         
                <asp:Button ID="Button1" runat="server" CssClass="a-input" 
-                Text="取消"  OnClientClick="self.parent.tb_remove()"/>
+                Text="關閉"  OnClientClick="self.parent.tb_remove()"/>
                 </div>
         </div>
 

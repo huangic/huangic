@@ -91,12 +91,12 @@ namespace NXEIP.DynamicForm
             return this.Columns.Find(x => x.UID==uid);
         }
 
-        public void AddColumn(Column c) {
-            this.Columns.Add(c);
+      
+        public List<Column> Footer { get; set; }
+        public Column GetFooter(String uid)
+        {
+            return this.Footer.Find(x => x.UID == uid);
         }
-
-        public List<String> Footer { get; set; }
-
        
     }
 }

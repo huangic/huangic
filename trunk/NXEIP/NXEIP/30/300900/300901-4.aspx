@@ -96,7 +96,7 @@
                             <ItemStyle Width="60px" />
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton peruse" title='ÀËµø'
-                                    href='<%# String.Format( "300901-5.aspx?modal=true&mode=edit&ID={0}&SID={1}&TB_iframe=true&height=300&width=600",Eval("Form.f01_no"),Eval("Submit.f02_no")) %>'>
+                                    href='<%# String.Format( "300901-5.aspx?modal=true&mode=edit&ID={0}&SID={1}&TB_iframe=true&height=600&width=600",Eval("Form.f01_no"),Eval("Submit.f02_no")) %>'>
                                     <span>­×§ï</span>
                                 </a>
                             </ItemTemplate>

@@ -10,9 +10,9 @@ namespace NXEIP.DynamicForm
     /// <summary>
     /// EntityFormFactory 的摘要描述
     /// </summary>
-    public class EntityFormFactory:AbstractFormFactory
+    public class EntitySubmitFactory:AbstractFormFactory
     {
-        public EntityFormFactory()
+        public EntitySubmitFactory()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -23,7 +23,7 @@ namespace NXEIP.DynamicForm
 
         public override Form GetInstance(string form_id)
         {
-            int f01_no = int.Parse(form_id);
+            int f02_no = int.Parse(form_id);
            
             Form f = new Form();
 
@@ -31,22 +31,20 @@ namespace NXEIP.DynamicForm
 
             using (NXEIPEntities model = new NXEIPEntities())
             {
-                var form = (from d in model.form01 where d.f01_no == f01_no select d).First();
+                var form = (from d in model.form02 where d.f02_no == f02_no select d).First();
             
 
             
 
-            f.Id = form.f01_no.ToString();
-            f.Name = form.f01_name;
-            f.Status = form.f01_status;
-            f.CreareUserNO = form.f01_createuid+"";
-            f.CreateUser = udao.Get_PeopleName(form.f01_createuid.Value);
+            f.Id = form.f02_no.ToString();
+
+            f.CreareUserNO = form.f02_createuid+"";
+            f.CreateUser = udao.Get_PeopleName(form.f02_createuid.Value);
             f.HandleUserNO = form.peo_uid+"";
-            f.HandleUser = udao.Get_PeopleName(form.peo_uid);
-            f.Columns = Column.ConvertJonToColumns(form.f01_columns);
-            f.Description = form.f01_description;
-            f.CreateTime = form.f01_createtime.Value;
-            f.Footer = Column.ConvertJonToColumns(form.f01_footer);
+            f.HandleUser = udao.Get_PeopleName(form.peo_uid.Value);
+            f.Columns = Column.ConvertJonToColumns(form.f02_context);
+            f.CreateTime = form.f02_createtime.Value;
+              
             }
             return f;
         }
