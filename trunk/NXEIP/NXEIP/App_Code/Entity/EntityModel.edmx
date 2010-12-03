@@ -2693,7 +2693,7 @@
           </Key>
           <Property Name="peo_uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dep_no" Type="Int32" Nullable="false" />
-          <Property Name="peo_workid" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="peo_workid" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="peo_idcard" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="peo_pincode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="peo_name" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
