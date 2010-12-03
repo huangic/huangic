@@ -1,5 +1,5 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="200108.aspx.cs" Inherits="_20_200100_200108" %>
+    CodeFile="300901-4.aspx.cs" Inherits="_30_300900_300901_4" %>
 
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
     TagPrefix="cc1" %>
@@ -8,8 +8,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
+
             __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+            
+            
+            
             tb_remove();
+
+
             alert(msg);
         }
                 
@@ -27,70 +33,77 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetForm"
-        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" SelectCountMethod="GetFormCount">
+    <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetSubmitByFormNo"
+        TypeName="NXEIP.DAO._300901DAO" EnablePaging="True" 
+        SelectCountMethod="GetSubmitByFormNoCount" OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:QueryStringParameter DefaultValue="" Name="f01_no" QueryStringField="ID" 
+                Type="Int32" />
+        </SelectParameters>
     </asp:ObjectDataSource>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200108" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300901" SubFunc="提交清單" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
-                
+                <div class="function">
+                    
+                </div>
             </div>
             <div class="h3">
             </div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"></asp:LinkButton>
+           
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True"  EmptyDataText="目前無資料"
                     CellPadding="3" CellSpacing="3"
-                    CssClass="tableData" GridLines="None" DataKeyNames="f01_no"
+                    CssClass="tableData" GridLines="None" OnRowCommand="GridView1_RowCommand" DataKeyNames="Submit"
                     >
                     <Columns>
-                        <asp:BoundField DataField="f01_name" HeaderText="表單名稱" 
-                            SortExpression="f01_name" ItemStyle-Width="200px" />
-                        
-                       
-                        <asp:BoundField DataField="f01_description" HeaderText="表單說明" 
-                            SortExpression="f01_description" />
-                                              
-                         <asp:TemplateField HeaderText="更新日期">
-                            <ItemStyle Width="100px" />
+                        <asp:TemplateField HeaderText="表單名稱">
+                            
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("f01_createtime")) %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        
-                        <asp:TemplateField HeaderText="承辦單位">
-                            <ItemStyle Width="100px" />
-                            <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("people.departments.dep_name") %>'></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text='<%# (Eval("Form.f01_name")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                         <asp:TemplateField HeaderText="承辦人">
+                         <asp:TemplateField HeaderText="提交部門">
                             <ItemStyle Width="100px" />
                             <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("people.peo_name") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Submit.people.departments.dep_name") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                                              
-                        <asp:TemplateField HeaderText="提交" ItemStyle-HorizontalAlign="Center">
-                            <ItemStyle Width="70px" />
+                        <asp:TemplateField HeaderText="提交人">
+                            <ItemStyle Width="100px" />
                             <ItemTemplate>
-                                <a id="btnShowPopup" runat="server" class="imageButton edit" title='修改'
-                                    href='<%# Eval("f01_no", "200108-1.aspx?ID={0}") %>'>
-                                    <span>提交</span>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Submit.people.peo_name") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                         <asp:TemplateField HeaderText="提交日期">
+                            <ItemStyle Width="100px" />
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("Submit.f02_createtime")) %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
+                                              
+                        <asp:TemplateField HeaderText="檢視" ItemStyle-HorizontalAlign="Center">
+                            <ItemStyle Width="60px" />
+                            <ItemTemplate>
+                                <a id="btnShowPopup" runat="server" class="thickbox imageButton peruse" title='檢視'
+                                    href='<%# String.Format( "300901-5.aspx?modal=true&mode=edit&ID={0}&SID={1}&TB_iframe=true&height=300&width=600",Eval("Form.f01_no"),Eval("Submit.f02_no")) %>'>
+                                    <span>修改</span>
                                 </a>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
+                           
                         </asp:TemplateField>
 
-                       
+                                           
                     </Columns>
                 </cc1:GridView>
                 <div class="footer">

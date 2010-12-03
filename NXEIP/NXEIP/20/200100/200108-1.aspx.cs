@@ -73,6 +73,26 @@ public partial class _20_200100_200108_1 : System.Web.UI.Page
         List<Column> list = ColumnFactoy.GetWebControlValue(this.DynamicTable, form.Columns);
 
 
-        logger.Debug(JsonConvert.SerializeObject(list));
+        //檔案存檔
+
+        form02 f = new form02();
+
+        f.peo_uid = int.Parse(new SessionObject().sessionUserID);
+        f.f01_no = int.Parse(Request["ID"]);
+        f.f02_context = JsonConvert.SerializeObject(list);
+        f.f02_createtime = DateTime.Now;
+        f.f02_createuid = int.Parse(new SessionObject().sessionUserID);
+
+
+       // logger.Debug(JsonConvert.SerializeObject(list));
+        using (NXEIPEntities model = new NXEIPEntities()) {
+            model.form02.AddObject(f);
+            model.SaveChanges();
+        }
+
+
+        OperatesObject.OperatesExecute(200108, 1, "提交表單 ID:{0}", f.f01_no);
+
+        Response.Redirect(String.Format("200108.aspx"));
     }
 }

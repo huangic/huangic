@@ -95,7 +95,7 @@
                  </tr>
                   <tr>
                     <th class="style1">
-                        工作期間
+                        交辦人
                     </th>
                     <td>
                         <asp:Label ID="lb_tre_peo" runat="server" ></asp:Label>

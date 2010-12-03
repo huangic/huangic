@@ -68,7 +68,7 @@
                         <asp:TemplateField HeaderText="狀態">
                             <ItemStyle Width="50px" />
                             <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("f01_createtime")) %>'></asp:Label>
+                                <asp:Label ID="Label1" runat="server" Text='<%# ShowStatus((String)Eval("f01_status")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         
@@ -81,14 +81,14 @@
                         
                                               
                         <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
-                            <ItemStyle Width="30px" />
+                            <ItemStyle Width="60px" />
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='修改'
                                     href='<%# Eval("f01_no", "300901-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=300&width=600") %>'>
                                     <span>修改</span>
                                 </a>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
+                           
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="表單欄位" ItemStyle-HorizontalAlign="Center">
@@ -99,21 +99,33 @@
                                     <span>表單欄位</span>
                                 </a>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" />
+                            
                         </asp:TemplateField>
 
-                        
+                        <asp:TemplateField HeaderText="提交清單" ItemStyle-HorizontalAlign="Center">
+                            <ItemStyle Width="60px" />
+                            <ItemTemplate>
+                                <a class="imageButton peruse" title='表單欄位'
+                                    href='<%# Eval("f01_no", "300901-4.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=300&width=600") %>'>
+                                    <span>提交清單</span>
+                                </a>
+                            </ItemTemplate>
+                            
+                        </asp:TemplateField>
+
+
                         <asp:TemplateField HeaderText="啟用">
                             <ItemStyle Width="30px" />
                             <ItemTemplate>
-                                <asp:Button ID="Button2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="enable"  Text="啟用"  />
+                                <asp:Button ID="Button2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="enable"  Text="啟用"  Visible='<%#!IsEnable((String)Eval("f01_status")) %>' />
+                                <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="disable"  Text="停用" Visible='<%#IsEnable((String)Eval("f01_status")) %>'  />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemStyle Width="30px" />
                             <ItemTemplate>
-                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="disable" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete"  />
+                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="delete" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete"  />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
