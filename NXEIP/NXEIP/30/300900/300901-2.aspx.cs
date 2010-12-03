@@ -21,10 +21,18 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
         }
 
         
-        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        if ((Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID) && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
             this.GridView1.DataBind();
+           
         }
+
+        if ((Request["__EVENTTARGET"] == this.UpdatePanel2.ClientID) && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+           
+            this.GridView2.DataBind();
+        }
+
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -35,6 +43,18 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
         if (e.CommandName.Equals("disable"))
         {
             delete(no);
+            return;
+        }
+    }
+
+    protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int rowIndex = System.Convert.ToInt32(e.CommandArgument);
+        String no = this.GridView2.DataKeys[rowIndex].Value.ToString();
+
+        if (e.CommandName.Equals("disable"))
+        {
+            delete_footer(no);
             return;
         }
     }
@@ -82,10 +102,45 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
     }
 
 
-
-
-    protected void LinkButton1_Click(object sender, EventArgs e)
+    private void delete_footer(String uid)
     {
-        this.GridView1.DataBind();
+        using (NXEIPEntities model = new NXEIPEntities())
+        {
+            int id = int.Parse(Request["ID"]);
+            Form01DAO dao = new Form01DAO();
+            var columns = dao.GetFooterByFormNO(id).ToList();
+
+            Form f = new Form();
+
+            f.Footer = columns.ToList();
+
+            Column col = f.GetFooter(uid);
+
+            f.Footer.Remove(col);
+
+
+
+            form01 form = new form01 { f01_no = id };
+
+            model.form01.Attach(form);
+
+
+            form.f01_footer = JsonConvert.SerializeObject(f.Footer);
+
+
+
+            //取COLUMN
+
+
+
+            model.SaveChanges();
+        }
+
+        this.GridView2.DataBind();
+
+        //this.OkMessagebox1.showMessagebox("delete"+dep_no);
     }
+
+
+    
 }

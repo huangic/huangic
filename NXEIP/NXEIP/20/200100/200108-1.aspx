@@ -23,9 +23,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetAll"
-        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" SelectCountMethod="GetAllCount">
-    </asp:ObjectDataSource>
+   
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200108"  SubFunc="填寫表單"/>
     
     <div class="tableDiv" style="width:80%">
@@ -79,8 +77,7 @@
 
             </tbody>
         </table>
-        <br />
-        <asp:Table ID="DynamicTable" runat="server" ClientIDMode="Static">
+         <asp:Table ID="DynamicTable" runat="server" ClientIDMode="Static">
         </asp:Table>
 
         
@@ -100,7 +97,7 @@
                 />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" CssClass="a-input" 
-                Text="取消" />
+                Text="取消" onclick="Button1_Click" />
         </div>
 
 

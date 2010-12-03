@@ -55,8 +55,14 @@ public partial class _10_100200_100202_2 : System.Web.UI.Page
         //if (UC_SWFUpload1.SWFUploadFileInfoList.Count > 0)
         //{
             SessionObject sessionObj=new SessionObject();
-            
-            
+
+
+            if (!CheckFields()) {
+                return;
+            }
+
+
+
             //存檔
             using (NXEIPEntities model = new NXEIPEntities()) {
                
@@ -203,6 +209,29 @@ public partial class _10_100200_100202_2 : System.Web.UI.Page
 
         //}
     }
-   
-    
+
+    private bool CheckFields() {
+
+        String msg = "";
+        try
+        {
+            if (this.calendar1._ADDate == null);
+            if (this.calendar2._ADDate == null);
+        }catch{
+            msg += "請輸入工作期間\\n";
+        }
+       
+
+        if (String.IsNullOrEmpty(msg))
+        {
+
+            return true;
+        }
+        else
+        {
+            JsUtil.AlertJs(this, msg);
+            return false;
+        }
+
+    }
 }

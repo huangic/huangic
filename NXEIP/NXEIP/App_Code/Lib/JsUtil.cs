@@ -47,11 +47,28 @@ public class JsUtil
 
         return  js;
     }
-
-    public static void  AlertAndRedirectJs(Page page,String msg, String url) {
+    public static void AlertAndRedirectJs(Page page,String msg, String url)
+    {
         page.ClientScript.RegisterStartupScript(page.GetType(), "Redirect", GetAlertAndRedirectJs(msg,url), true);
+    }
+
+
+
+
+
+    public static String GetAlertJs(String msg)
+    {
+        String js = String.Format("alert('{0}');", msg);
+
+        return js;
+    }
+    
+    public static void  AlertJs(Page page,String msg) {
+        page.ClientScript.RegisterStartupScript(page.GetType(), "Redirect", GetAlertJs(msg), true);
 
     }
+
+        
 
     /// <summary>
     /// 呼叫Alart;

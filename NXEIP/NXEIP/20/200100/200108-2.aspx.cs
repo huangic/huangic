@@ -10,7 +10,7 @@ using NLog;
 using NXEIP.DynamicForm;
 using Newtonsoft.Json;
 
-public partial class _30_300900_300901_5 : System.Web.UI.Page
+public partial class _20_200100_200108_2 : System.Web.UI.Page
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
     
@@ -60,17 +60,16 @@ public partial class _30_300900_300901_5 : System.Web.UI.Page
 
                 this.DynamicTable.Controls.Add(tr);
             }
-
-
+           
             //建立FOOTER
             TableRow foottr = new TableRow();
             foreach (var c in form.Footer)
             {
-
+               
                 TableHeaderCell th = new TableHeaderCell();
                 //th.Width = new Unit("200px");
                 th.Controls.Add(new Label() { Text = c.Name });
-
+                               
                 foottr.Controls.Add(th);
 
                 this.DynamicFooter.Controls.Add(foottr);
@@ -82,12 +81,13 @@ public partial class _30_300900_300901_5 : System.Web.UI.Page
 
                 TableCell td = new TableCell();
                 //th.Width = new Unit("200px");
-                td.Controls.Add(new Literal() { Text = "&nbsp;" });
+                td.Controls.Add(new Literal(){ Text="&nbsp;"});
                 td.Height = new Unit("50px");
                 foottr2.Controls.Add(td);
-
+    
             }
             this.DynamicFooter.Controls.Add(foottr2);
+
         }
     }
 

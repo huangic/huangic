@@ -73,6 +73,25 @@ public partial class _20_200100_200108_1 : System.Web.UI.Page
         List<Column> list = ColumnFactoy.GetWebControlValue(this.DynamicTable, form.Columns);
 
 
+        //欄位判斷
+
+        String msg = "";
+
+        foreach(var c in list ){
+            if (c.Required) {
+                if (c.Value == null || c.Value.Count == 0) {
+                    msg += String.Format("{0}為必填欄位\\n", c.Name);
+                }
+            }
+        }
+
+        if (!String.IsNullOrEmpty(msg)) {
+            JsUtil.AlertJs(this,msg);
+            return;
+        }
+
+
+
         //檔案存檔
 
         form02 f = new form02();
@@ -89,10 +108,17 @@ public partial class _20_200100_200108_1 : System.Web.UI.Page
             model.form02.AddObject(f);
             model.SaveChanges();
         }
+        
 
+        OperatesObject.OperatesExecute(200108,1,"提交表單 ID:{0}",f.f01_no);
 
-        OperatesObject.OperatesExecute(200108, 1, "提交表單 ID:{0}", f.f01_no);
+        //Response.Redirect();
 
-        Response.Redirect(String.Format("200108.aspx"));
+        JsUtil.AlertAndRedirectJs(this, "新增成功", String.Format("200108.aspx"));
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        JsUtil.RedirectJs(this, String.Format("200108.aspx"));
     }
 }

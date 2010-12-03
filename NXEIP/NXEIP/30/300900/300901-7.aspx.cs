@@ -10,7 +10,7 @@ using NLog;
 using NXEIP.DynamicForm;
 using Newtonsoft.Json;
 
-public partial class _30_300900_300901_3 : System.Web.UI.Page
+public partial class _30_300900_300901_7 : System.Web.UI.Page
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
     
@@ -28,7 +28,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
 
             if (mode != null && mode.Equals("edit"))
             {
-                this.Navigator1.SubFunc = "修改表單";
+                this.Navigator1.SubFunc = "修改表尾欄位";
                 //設定要變更的欄位
                 int no=int.Parse(ID);
             
@@ -36,43 +36,29 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
                 //取欄位
                 Form01DAO dao = new Form01DAO();
 
-                var column=dao.GetColumnsByFormNO(no);
+                var column=dao.GetFooterByFormNO(no);
 
                 Form f = new Form();
 
-                f.Columns = column.ToList();
+                f.Footer = column.ToList();
 
-                Column c=f.GetColumn(UID);
+                Column c = f.GetFooter(UID);
 
                 this.tb_name.Text = c.Name;
                 this.tb_description.Text = c.Description;
 
-                this.tb_max.Text = c.MaxLength.ToString();
+              
 
-                this.tb_order.Text = c.Order.ToString();
-
-                this.rb_required.SelectedValue = c.Required.ToString();
-
-                SetValue(c.Items);
-
-                this.ShowValue();
-
-
-                this.showItem.Visible = ColumnType.GetColumnType(c.ColumnType).ShowItem;
-
-                this.DropDownList1.DataBind();
-
-
-                this.DropDownList1.SelectedValue = ((int)c.ColumnType).ToString();
-
-                this.rb_required.SelectedValue = c.Required.ToString();
+               
+             
+                
 
             }
             else
             {
                 //新增模式
                 logger.Info("mode:new");
-                this.Navigator1.SubFunc = "新增表單";
+                this.Navigator1.SubFunc = "新增表尾欄位";
                 //this.DepartTreeTextBox1.Add(new SessionObject().sessionUserID);
             }
         }
@@ -117,9 +103,8 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
             {
                 int id = int.Parse(this.hidden_id.Value);
                 Form01DAO dao = new Form01DAO();
-                var columns=dao.GetColumnsByFormNO(id).ToList();
-                //column.AsEnumerable().Concat()
-                //column.Add)
+                var columns=dao.GetFooterByFormNO(id).ToList();
+              
 
                 Column col = new Column();
 
@@ -127,19 +112,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
                 col.Name = this.tb_name.Text;
                 col.Description = this.tb_description.Text;
                 col.MinLength = 0;
-                col.Required = bool.Parse(this.rb_required.SelectedValue);
-                col.Order = int.Parse(this.tb_order.Text);
-
-                //col.MaxLength= int.Parse(this.tb)
-
-                col.ColumnType = int.Parse(this.DropDownList1.SelectedValue);
-
-                //選項欄位
-                col.Items = GetValue();
-
-
-
-
+               
 
                 columns.Add(col);
 
@@ -148,7 +121,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
                 model.form01.Attach(form);
 
 
-                form.f01_columns = JsonConvert.SerializeObject(columns);
+                form.f01_footer = JsonConvert.SerializeObject(columns);
 
                     
                 
@@ -176,26 +149,21 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
             {
                 int id = int.Parse(this.hidden_id.Value);
                 Form01DAO dao = new Form01DAO();
-                var columns = dao.GetColumnsByFormNO(id).ToList();
+                var columns = dao.GetFooterByFormNO(id).ToList();
 
                 Form f = new Form();
 
-                f.Columns = columns.ToList();
+                f.Footer = columns.ToList();
 
-                Column col = f.GetColumn(this.hidden_uid.Value);
+                Column col = f.GetFooter(this.hidden_uid.Value);
 
+               
                 col.Name = this.tb_name.Text;
                 col.Description = this.tb_description.Text;
                 col.MinLength = 0;
-                col.Required = bool.Parse(this.rb_required.SelectedValue);
-                col.Order = int.Parse(this.tb_order.Text);
+                
 
-                //col.MaxLength= int.Parse(this.tb)
-
-                col.ColumnType = int.Parse(this.DropDownList1.SelectedValue);
-
-                //選項欄位
-                col.Items = GetValue();
+                
 
 
 
@@ -208,7 +176,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
                 model.form01.Attach(form);
 
 
-                form.f01_columns = JsonConvert.SerializeObject(f.Columns);
+                form.f01_footer = JsonConvert.SerializeObject(f.Footer);
 
 
 
@@ -229,73 +197,14 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
     }
 
 
-    private void settingForm(){
-    
-    }
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-    {
+   
+   
 
-
-        this.showItem.Visible = ColumnType.GetColumnType(int.Parse(this.DropDownList1.SelectedValue)).ShowItem;
-    
-    }
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //設定值
-        List<String> Values = GetValue();
-        if (!Values.Contains(this.tb_value.Text))
-        {
-            string key = this.tb_value.Text;
-            string value = this.tb_value.Text;
-
-
-            Values.Add(key + "@" + value);
-        }
-
-
-        SetValue(Values);
-        this.tb_value.Text = "";
-        this.ShowValue();
-
-    }
-
-    private List<String> GetValue() {
-        return this.hidden_value.Value.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries).ToList();
-    }
-
-    private void SetValue(List<String> value) {
-        if (value != null)
-        {
-            this.hidden_value.Value = String.Join(",", value);
-        }
-    }
+   
     
 
-    private void ShowValue(){
-        this.ListBox1.Items.Clear();
-
-        List<String> value = GetValue();
-
-        foreach (var i in value) {
-            String[] item=i.Split('@');
-
-            this.ListBox1.Items.Add(new ListItem(item[0],item[1]));
-        }
-
-    }
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        List<String> values = GetValue();
-
-        String key = this.ListBox1.SelectedItem.Value;
-        String Value = this.ListBox1.SelectedValue;
-
-        values.Remove(key+"@"+Value);
-
-        SetValue(values);
-
-        this.ShowValue();
-    }
+   
+   
     protected void btn_countinue_Click(object sender, EventArgs e)
     {
         string msg = "";
@@ -313,7 +222,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
 
         //清空為新增
        
-        String url = String.Format("300901-3.aspx?ID={0}", this.hidden_id.Value);
+        String url = String.Format("300901-7.aspx?ID={0}", this.hidden_id.Value);
 
         //轉址
         JsUtil.AlertAndUpdateParentAndRedirectJs(this, msg, url);
