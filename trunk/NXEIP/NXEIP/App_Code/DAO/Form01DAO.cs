@@ -27,13 +27,29 @@ namespace NXEIP.DAO
         NXEIPEntities model = new NXEIPEntities();
 
         public IQueryable<form01> GetDataByPeoUid(int peo_uid){
-            return from d in model.form01 where d.peo_uid == peo_uid && d.f01_status != "2" select d;
+            return from d in model.form01 where d.peo_uid == peo_uid && d.f01_status != "3" select d;
         }
 
 
         public IQueryable<form01> GetAll()
         {
-            return from d in model.form01 where d.f01_status != "2" orderby d.f01_no select d;
+            return from d in model.form01 where d.f01_status != "3" orderby d.f01_no select d;
+        }
+
+        public IQueryable<form01> GetForm()
+        {
+            return from d in model.form01 where d.f01_status == "1" orderby d.f01_no select d;
+        }
+
+        public IQueryable<form01> GetForm(int startRowIndex, int maximumRows)
+        {
+            return GetForm().Skip(startRowIndex).Take(maximumRows);
+        }
+
+
+        public int GetFormCount()
+        {
+            return GetForm().Count();
         }
 
         public int GetAllCount() {

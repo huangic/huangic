@@ -15,9 +15,21 @@
             
             tb_remove();
 
-
-            alert(msg);
+            if (msg != undefined) {
+                alert(msg);
+            }
         }
+
+        function updateStatus(msg) {
+
+            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+
+            if (msg != undefined) {
+                alert(msg);
+            }
+        }
+
+        
                 
 
         function pageLoad(sender, args) {

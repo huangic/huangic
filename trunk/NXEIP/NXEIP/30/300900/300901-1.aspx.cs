@@ -99,7 +99,7 @@ public partial class _30_300900_300901_1 : System.Web.UI.Page
                f.f01_name = this.tb_name.Text;
                f.f01_layout = "1";
                f.f01_createtime = DateTime.Now;
-               f.f01_status = "1";
+               f.f01_status = "2";
                f.f01_repeat = "1";
 
 
@@ -137,7 +137,7 @@ public partial class _30_300900_300901_1 : System.Web.UI.Page
                 f.f01_name = this.tb_name.Text;
                 f.f01_layout = "1";
                 f.f01_createtime = DateTime.Now;
-                f.f01_status = "1";
+                //f.f01_status = "1";
                 f.f01_repeat = "1";
 
 

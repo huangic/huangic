@@ -9,7 +9,7 @@ using NXEIP.DAO;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
 
-public partial class _30_300900_300901 : System.Web.UI.Page
+public partial class _30_300900_300901_4 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

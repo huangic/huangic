@@ -291,4 +291,28 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
 
         this.ShowValue();
     }
+    protected void btn_countinue_Click(object sender, EventArgs e)
+    {
+        string msg = "";
+        //判斷模式
+        if (this.hidden_uid.Value != "")
+        {
+            Editing();
+            msg = "修改成功";
+        }
+        else
+        {
+            Adding();
+            msg = "新增成功";
+        }
+
+        //清空為新增
+       
+        String url = String.Format("300901-3.aspx?ID={0}", this.hidden_id.Value);
+
+        //轉址
+        JsUtil.AlertAndUpdateParentAndRedirectJs(this, msg, url);
+        
+        
+    }
 }

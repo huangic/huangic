@@ -10645,43 +10645,16 @@ namespace Entity
         /// <summary>
         /// 建立新 form02 物件。
         /// </summary>
-        /// <param name="表單內容序號">表單內容序號 屬性的初始值。</param>
-        public static form02 Createform02(global::System.Int32 表單內容序號)
+        /// <param name="f02_no">f02_no 屬性的初始值。</param>
+        public static form02 Createform02(global::System.Int32 f02_no)
         {
             form02 form02 = new form02();
-            form02.表單內容序號 = 表單內容序號;
+            form02.f02_no = f02_no;
             return form02;
         }
 
         #endregion
         #region 基本屬性
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 表單內容序號
-        {
-            get
-            {
-                return _表單內容序號;
-            }
-            set
-            {
-                if (_表單內容序號 != value)
-                {
-                    On表單內容序號Changing(value);
-                    ReportPropertyChanging("表單內容序號");
-                    _表單內容序號 = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("表單內容序號");
-                    On表單內容序號Changed();
-                }
-            }
-        }
-        private global::System.Int32 _表單內容序號;
-        partial void On表單內容序號Changing(global::System.Int32 value);
-        partial void On表單內容序號Changed();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
@@ -10734,98 +10707,101 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> 表單內容填寫人
+        public global::System.Int32 f02_no
         {
             get
             {
-                return _表單內容填寫人;
+                return _f02_no;
             }
             set
             {
-                On表單內容填寫人Changing(value);
-                ReportPropertyChanging("表單內容填寫人");
-                _表單內容填寫人 = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("表單內容填寫人");
-                On表單內容填寫人Changed();
+                if (_f02_no != value)
+                {
+                    Onf02_noChanging(value);
+                    ReportPropertyChanging("f02_no");
+                    _f02_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("f02_no");
+                    Onf02_noChanged();
+                }
             }
         }
-        private Nullable<global::System.Int32> _表單內容填寫人;
-        partial void On表單內容填寫人Changing(Nullable<global::System.Int32> value);
-        partial void On表單內容填寫人Changed();
+        private global::System.Int32 _f02_no;
+        partial void Onf02_noChanging(global::System.Int32 value);
+        partial void Onf02_noChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String 表單內容
+        public global::System.String f02_context
         {
             get
             {
-                return _表單內容;
+                return _f02_context;
             }
             set
             {
-                On表單內容Changing(value);
-                ReportPropertyChanging("表單內容");
-                _表單內容 = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("表單內容");
-                On表單內容Changed();
+                Onf02_contextChanging(value);
+                ReportPropertyChanging("f02_context");
+                _f02_context = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("f02_context");
+                Onf02_contextChanged();
             }
         }
-        private global::System.String _表單內容;
-        partial void On表單內容Changing(global::System.String value);
-        partial void On表單內容Changed();
+        private global::System.String _f02_context;
+        partial void Onf02_contextChanging(global::System.String value);
+        partial void Onf02_contextChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> 表單內容建立人
+        public Nullable<global::System.Int32> f02_createuid
         {
             get
             {
-                return _表單內容建立人;
+                return _f02_createuid;
             }
             set
             {
-                On表單內容建立人Changing(value);
-                ReportPropertyChanging("表單內容建立人");
-                _表單內容建立人 = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("表單內容建立人");
-                On表單內容建立人Changed();
+                Onf02_createuidChanging(value);
+                ReportPropertyChanging("f02_createuid");
+                _f02_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("f02_createuid");
+                Onf02_createuidChanged();
             }
         }
-        private Nullable<global::System.Int32> _表單內容建立人;
-        partial void On表單內容建立人Changing(Nullable<global::System.Int32> value);
-        partial void On表單內容建立人Changed();
+        private Nullable<global::System.Int32> _f02_createuid;
+        partial void Onf02_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onf02_createuidChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> 表單內容建立日期
+        public Nullable<global::System.DateTime> f02_createtime
         {
             get
             {
-                return _表單內容建立日期;
+                return _f02_createtime;
             }
             set
             {
-                On表單內容建立日期Changing(value);
-                ReportPropertyChanging("表單內容建立日期");
-                _表單內容建立日期 = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("表單內容建立日期");
-                On表單內容建立日期Changed();
+                Onf02_createtimeChanging(value);
+                ReportPropertyChanging("f02_createtime");
+                _f02_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("f02_createtime");
+                Onf02_createtimeChanged();
             }
         }
-        private Nullable<global::System.DateTime> _表單內容建立日期;
-        partial void On表單內容建立日期Changing(Nullable<global::System.DateTime> value);
-        partial void On表單內容建立日期Changed();
+        private Nullable<global::System.DateTime> _f02_createtime;
+        partial void Onf02_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onf02_createtimeChanged();
 
         #endregion
     
