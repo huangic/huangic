@@ -15,7 +15,14 @@ public partial class _20_200100_200108 : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            this.DataSource.SelectParameters[0].DefaultValue = "";
             
+            
+            
+            this.GridView1.DataBind();    
+
+
+
         }
 
         
@@ -41,9 +48,29 @@ public partial class _20_200100_200108 : System.Web.UI.Page
         this.DataPager1.PagedControlID = "GridView2";
 
         this.ObjectDataSource_submit.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
-
+        this.ObjectDataSource_submit.SelectParameters[1].DefaultValue = this.tb_keyword.Text;
         this.GridView2.DataBind();
 
         this.GridView2.Visible = true;
     }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Search();
+
+    }
+
+    private void Search() {
+        if (this.GridView1.Visible == true)
+        {
+            this.DataSource.SelectParameters[0].DefaultValue = this.tb_keyword.Text;
+            this.GridView1.DataBind();
+        }
+        else
+        {
+            this.ObjectDataSource_submit.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
+            this.ObjectDataSource_submit.SelectParameters[1].DefaultValue = this.tb_keyword.Text;
+            this.GridView2.DataBind();
+        }
+    }
+
 }

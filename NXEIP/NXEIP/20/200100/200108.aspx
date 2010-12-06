@@ -19,14 +19,20 @@
                 //  reapply the thick box stuff
                 tb_init('a.thickbox');
             }
+            initButton();
         }
 
-        jQuery(document).ready(function () {
-            jQuery('.show').click(function () {
-                jQuery('.show').removeClass("b-input2").addClass("b-input");
-                jQuery(this).removeClass("b-input").addClass("b-input2");
+        function initButton() {
+
+            jQuery(document).ready(function () {
+                jQuery('.show').click(function () {
+                    jQuery('.show').removeClass("b-input2").addClass("b-input");
+                    jQuery(this).removeClass("b-input").addClass("b-input2");
+                });
             });
-        });
+        }
+        
+
     
     
     </script>
@@ -35,19 +41,54 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetForm"
-        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" SelectCountMethod="GetFormCount">
+        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" 
+        SelectCountMethod="GetFormCount" OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:Parameter Name="keyword" Type="String" />
+        </SelectParameters>
     </asp:ObjectDataSource>
 
-    <asp:ObjectDataSource ID="ObjectDataSource_submit" runat="server" SelectMethod="GetSubmitByFormNo"
+    <asp:ObjectDataSource ID="ObjectDataSource_submit" runat="server" SelectMethod="GetSubmitByPeo"
         TypeName="NXEIP.DAO._300901DAO" EnablePaging="True" 
-        SelectCountMethod="GetSubmitByFormNoCount" OldValuesParameterFormatString="original_{0}">
+        SelectCountMethod="GetSubmitByPeouidCount" 
+        OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
-            <asp:QueryStringParameter DefaultValue="" Name="f01_no" QueryStringField="ID" 
-                Type="Int32" />
+            <asp:Parameter Name="peouid" Type="Int32" />
+            <asp:Parameter Name="keyword" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
 
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200108" />
+    
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <Triggers>
+               
+                <asp:AsyncPostBackTrigger ControlID="btn_form" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btn_submit" EventName="Click" />
+               
+                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+               
+            </Triggers>
+            <ContentTemplate>
+    
+    
+     <div  class="select" >
+            <span class="a-letter-2">表單名稱：<span class="a-letter-1">
+                    <asp:TextBox ID="tb_keyword" runat="server"></asp:TextBox>
+                     &nbsp;
+           
+             
+             <asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" 
+                CausesValidation="False" onclick="Button1_Click" />
+                </span>
+                
+                
+                </span>
+        </div>
+    
+    
+    
+    
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
@@ -63,14 +104,7 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <Triggers>
-               
-                <asp:AsyncPostBackTrigger ControlID="btn_form" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btn_submit" EventName="Click" />
-               
-            </Triggers>
-            <ContentTemplate>
+       
                 
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True"  EmptyDataText="目前無資料"

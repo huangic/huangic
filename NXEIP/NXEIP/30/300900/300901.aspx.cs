@@ -15,7 +15,10 @@ public partial class _30_300900_300901 : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            
+            this.DataSource.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
+            this.DataSource.SelectParameters[1].DefaultValue = "";
+
+            this.GridView1.DataBind();
         }
 
         
@@ -131,5 +134,11 @@ public partial class _30_300900_300901 : System.Web.UI.Page
         else {
             return "停用";
         }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        this.DataSource.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
+        this.DataSource.SelectParameters[1].DefaultValue = this.tb_keyword.Text;
+        this.GridView1.DataBind();
     }
 }
