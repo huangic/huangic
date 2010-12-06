@@ -33,10 +33,37 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetAll"
-        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" SelectCountMethod="GetAllCount">
+    <asp:ObjectDataSource ID="DataSource" runat="server" SelectMethod="GetFormByPeoAndKeyword"
+        TypeName="NXEIP.DAO.Form01DAO" EnablePaging="True" 
+        SelectCountMethod="GetFormByPeoAndKeywordCount" 
+        OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:Parameter Name="peouid" Type="Int32" />
+            <asp:Parameter Name="keyword" Type="String" />
+        </SelectParameters>
+          
     </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300901" />
+    
+    
+    <div  class="select" >
+            <span class="a-letter-2">表單名稱：<span class="a-letter-1">
+                    <asp:TextBox ID="tb_keyword" runat="server"></asp:TextBox>
+                     &nbsp;
+           
+             
+             <asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" 
+                CausesValidation="False" onclick="Button1_Click"
+                         />
+                </span>
+                
+                
+                </span>
+        </div>
+    
+    
+    
+    
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
@@ -52,7 +79,7 @@
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"></asp:LinkButton>
+                
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True"  EmptyDataText="目前無資料"
                     CellPadding="3" CellSpacing="3"
@@ -151,6 +178,9 @@
                     </asp:DataPager>
                 </div>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
     </div>
 </asp:Content>
