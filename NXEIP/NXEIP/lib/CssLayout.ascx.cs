@@ -33,8 +33,19 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
         link.Href = rootDir + "/style/" + layout + "/css/eip.css";
         link.Attributes.Add("type", "text/css");
         link.Attributes.Add("rel", "stylesheet");
+        link.Attributes.Add("media", "screen");
+
+        HtmlLink link2 = new HtmlLink();
+        link2.Href = rootDir + "/style/" + layout + "/css/eip-print.css";
+        link2.Attributes.Add("type", "text/css");
+        link2.Attributes.Add("rel", "stylesheet");
+        link2.Attributes.Add("media", "print");
+
+
+
         this.Controls.Clear();
         this.Controls.Add(link);
+        this.Controls.Add(link2);
         base.Render(writer);
     }
 
