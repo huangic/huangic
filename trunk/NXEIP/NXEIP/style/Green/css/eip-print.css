@@ -1,0 +1,44 @@
+
+/*列印用表格*/
+
+.print table,.tableData 
+{
+	width:100%;
+	
+	border-spacing:0px;
+	
+	background-color:#CDE985;
+	
+	border-style:solid; 
+	border-color:#666666; 
+	border-width: 1px;
+
+
+}
+
+.print table th,.print table td
+{
+	color:#333333;
+	font-size:13px;
+	font-weight:bold;
+	line-height:20px;
+	text-decoration:none;
+	background-color:#EEF8D3;
+	padding:0px;
+	
+    border-style:solid; 
+	border-color:#666666; 
+	border-width: 1px;
+}
+
+
+.print table td
+{
+	font-weight:normal;
+	background-color:#FEFEF1;
+   
+}
+
+
+
+
