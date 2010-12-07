@@ -30,8 +30,8 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             this.tbox_workid.Text = peopleData.peo_workid;
 
             //部門
-            this.jQueryDepartTree1.Clear();
-            this.jQueryDepartTree1.Add(peopleData.dep_no.ToString());
+            this.DepartTreeTextBox1.Clear();
+            this.DepartTreeTextBox1.Add(peopleData.dep_no.ToString());
 
             this.calendar1._ADDate = (System.DateTime)peopleData.peo_arrivedate;
 
@@ -111,7 +111,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             peopleData.peo_ptype = Convert.ToInt32(this.ddl_ptype.SelectedValue);
 
             //部門
-            peopleData.dep_no = Convert.ToInt32(this.jQueryDepartTree1.Items[0].Key);
+            peopleData.dep_no = Convert.ToInt32(this.DepartTreeTextBox1.Value);
 
             //
             peopleData.peo_arrivedate = this.calendar1._ADDate;
@@ -187,7 +187,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             this.ShowMSG("請輸入人事編號!");
             ret = false;
         }
-        if (this.jQueryDepartTree1.Items.Count == 0)
+        if (string.IsNullOrEmpty(this.DepartTreeTextBox1.Value))
         {
             this.ShowMSG("請選擇部門!");
             ret = false;

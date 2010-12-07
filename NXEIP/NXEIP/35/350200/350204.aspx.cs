@@ -96,48 +96,53 @@ public partial class _35_350200_350204 : System.Web.UI.Page
             //部門
             if (this.cbox_dearp.Checked)
             {
-                if (this.jQueryDepartTree1.Items == null || this.jQueryDepartTree1.Items.Count == 0)
+                if (this.DepartTreeListBox_depart.Items == null || this.DepartTreeListBox_depart.Items.Count == 0)
                 {
                     this.ShowMSG("請選擇任一部門!");
                     return;
                 }
                 else
                 {
-                    foreach (var d in this.jQueryDepartTree1.Items)
-                    {
-                        if (depar.Length == 0)
-                        {
-                            depar = d.Key;
-                        }
-                        else
-                        {
-                            depar += "," + d.Key;
-                        }
-                    }
+                    depar = string.Join(",", this.DepartTreeListBox_depart.ItemsValue);
+
+                    //foreach (var d in this.DepartTreeListBox_depart.Items)
+                    //{
+                    //    if (depar.Length == 0)
+                    //    {
+                    //        depar = d.Key;
+                    //    }
+                    //    else
+                    //    {
+                    //        depar += "," + d.Key;
+                    //    }
+                    //}
                 }
             }
 
             //人員
             if (this.cbox_people.Checked)
             {
-                if (this.jQueryPeopleTree1.Items == null || this.jQueryPeopleTree1.Items.Count == 0)
+                if (this.DepartTreeListBox_people.Items == null || this.DepartTreeListBox_people.Items.Count == 0)
                 {
                     this.ShowMSG("請選擇任一人員!");
                     return;
                 }
                 else
                 {
-                    foreach (var d in this.jQueryPeopleTree1.Items)
-                    {
-                        if (people.Length == 0)
-                        {
-                            people = d.Key;
-                        }
-                        else
-                        {
-                            people += "," + d.Key;
-                        }
-                    }
+                    people = string.Join(",", this.DepartTreeListBox_people.ItemsValue);
+
+                    //foreach (var d in this.DepartTreeListBox_people.Items)
+                    //{
+                        
+                    //    if (people.Length == 0)
+                    //    {
+                    //        people = d.Key;
+                    //    }
+                    //    else
+                    //    {
+                    //        people += "," + d.Key;
+                    //    }
+                    //}
                 }
             }
 

@@ -17,7 +17,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.calendar3.Visible = false;
-            this.jQueryDepartTree1.Clear();
+            this.DepartTreeTextBox1.Clear();
         }
     }
 
@@ -46,7 +46,8 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             newPeople.peo_ptype = Convert.ToInt32(this.ddl_ptype.SelectedValue);
 
             //部門
-            int dep_no = Convert.ToInt32(this.jQueryDepartTree1.Items[0].Key);
+            int dep_no = Convert.ToInt32(DepartTreeTextBox1.Value);
+            
             newPeople.dep_no = dep_no;
             //newPeople.departments = (from d in model.departments where d.dep_no == dep_no select d).First();
 
@@ -189,7 +190,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             this.ShowMSG("請輸入人事編號!");
             ret = false;
         }
-        if (this.jQueryDepartTree1.Items == null || this.jQueryDepartTree1.Items.Count == 0)
+        if (string.IsNullOrEmpty(this.DepartTreeTextBox1.Value))
         {
             this.ShowMSG("請選擇部門!");
             ret = false;
