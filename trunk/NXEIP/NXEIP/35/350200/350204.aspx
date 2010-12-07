@@ -7,6 +7,7 @@
 <%@ Register Src="../../lib/tree/jQueryPeopleTree.ascx" TagName="jQueryPeopleTree"
     TagPrefix="uc2" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc3" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -106,8 +107,7 @@
                                 請選擇部門
                             </td>
                             <td>
-                                <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
-                                
+                                <uc4:DepartTreeListBox ID="DepartTreeListBox_depart" runat="server" />
                             </td>
                         </tr>
                     </table>
@@ -122,7 +122,8 @@
                                 請選擇人員
                             </td>
                             <td>
-                                <uc2:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                                <uc4:DepartTreeListBox ID="DepartTreeListBox_people" runat="server" 
+                                    LeafType="People" />
                             </td>
                         </tr>
                     </table>

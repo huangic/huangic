@@ -7,6 +7,8 @@
 <%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc2" %>
 <%@ Register Src="../../lib/FileUpload.ascx" TagName="FileUpload" TagPrefix="uc3" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc4" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc5" %>
+<%@ Register src="../../lib/tree/DepartTreeTextBox.ascx" tagname="DepartTreeTextBox" tagprefix="uc6" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -69,7 +71,7 @@
                     <span class="a-letter-Red">* </span>服務單位
                 </th>
                 <td>
-                    <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                    <uc6:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" />
                 </td>
                 <th>
                     個人照片
