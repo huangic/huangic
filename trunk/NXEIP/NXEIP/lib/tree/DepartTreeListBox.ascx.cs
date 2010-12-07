@@ -113,7 +113,7 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
 
 
     /// <summary>
-    /// 取所有的VALUE值
+    /// 取所有的取得的代碼值
     /// </summary>
     [Browsable(false)]
     public List<String> ItemsValue

@@ -338,7 +338,7 @@ namespace NXEIP.WebControls
             if (endRowIndex > this._totalRowCount)
                 endRowIndex = this._totalRowCount;
 
-            container.Controls.Add(new LiteralControl(string.Format("{0} - {1} of {2}", this._startRowIndex + 1, endRowIndex, this._totalRowCount)));
+            container.Controls.Add(new LiteralControl(string.Format("第{0} - {1}筆，共{2}筆", this._startRowIndex + 1, endRowIndex, this._totalRowCount)));
 
             this.AddNonBreakingSpace(container);
             this.AddNonBreakingSpace(container);
