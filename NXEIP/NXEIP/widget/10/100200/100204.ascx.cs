@@ -21,7 +21,8 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
             foreach (var d in ndata1)
             {
                 TableCell cell1 = new TableCell();
-                cell1.Text = "<li class='row1'><a href='../../10/100200/100204.aspx'>" + d.n01_subject + "</a></li>";
+                string subject = d.n01_subject.Length > 50 ? d.n01_subject.Substring(0, 45) + "..." : d.n01_subject;
+                cell1.Text = "<li class='row1'><a href='../../10/100200/100204.aspx'>" + subject + "</a></li>";
 
                 TableCell cell2 = new TableCell();
                 cell2.Text = new ChangeObject()._ADtoROC(d.n01_date.Value);
@@ -77,7 +78,8 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
             foreach (var d in ndata2)
             {
                 TableCell cell1 = new TableCell();
-                cell1.Text = "<li class='row1'><a href='../../10/100200/100204.aspx'>" + d.n01_subject + "</a></li>";
+                string subject = d.n01_subject.Length > 50 ? d.n01_subject.Substring(0, 45) + "..." : d.n01_subject;
+                cell1.Text = "<li class='row1'><a href='../../10/100200/100204.aspx'>" + subject + "</a></li>";
 
                 TableCell cell2 = new TableCell();
                 cell2.Text = new ChangeObject()._ADtoROC(d.n01_date.Value);
