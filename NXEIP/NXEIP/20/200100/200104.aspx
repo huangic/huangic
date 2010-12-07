@@ -188,9 +188,7 @@
         <div class="pager">
             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                 <Fields>
-                    <asp:NextPreviousPagerField ShowNextPageButton="False" />
-                    <asp:NumericPagerField />
-                    <asp:NextPreviousPagerField ShowPreviousPageButton="False" />
+                    <NXEIP:GooglePagerField />
                 </Fields>
             </asp:DataPager>
         </div>
