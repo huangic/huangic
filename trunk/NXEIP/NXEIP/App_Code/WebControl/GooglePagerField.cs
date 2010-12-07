@@ -36,6 +36,8 @@ namespace NXEIP.WebControls
 
         public GooglePagerField()
         {
+
+          
         }
 
         #region Properties
@@ -186,6 +188,10 @@ namespace NXEIP.WebControls
 
         public override void CreateDataPagers(DataPagerFieldItem container, int startRowIndex, int maximumRows, int totalRowCount, int fieldIndex)
         {
+            //變更BASE DATAPAGER 的 CSS
+
+            base.DataPager.Attributes.Add("class", "googleNavegationBar");
+            
             this._startRowIndex = startRowIndex;
             this._maximumRows = maximumRows;
             this._totalRowCount = totalRowCount;
