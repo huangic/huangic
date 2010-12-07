@@ -45,7 +45,7 @@ namespace NXEIP.Widget
         
 
         /// <summary>
-        /// 此頁面的UID 子代OVERRIDE
+        /// 此頁面的UID 子代OVERRIDE (UID 為PAGE 中的PAG_UID)
         /// </summary>
         public abstract String Uid { get; }
 
@@ -214,7 +214,7 @@ namespace NXEIP.Widget
             int uid = System.Convert.ToInt32(this.Uid);
 
 
-            int? page_no = Dao.GetPageNo(uid, this.PageType);
+            int? page_no = Dao.GetPageNoAndReturnNew(uid, this.PageType);
 
           
 

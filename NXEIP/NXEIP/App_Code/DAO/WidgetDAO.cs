@@ -21,7 +21,7 @@ namespace NXEIP.DAO
         }
 
         /// <summary>
-        /// 取DB 的PAGENO //沒有就幫他建一個
+        /// 取DB 的PAGENO
         /// </summary>
         /// <param name="uid"></param>
         /// <param name="page_type"></param>
@@ -40,6 +40,32 @@ namespace NXEIP.DAO
             catch
             {
 
+                return null;
+            }
+        }
+
+
+
+        /// <summary>
+        /// 取DB 的PAGENO //沒有就幫他建一個
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <param name="page_type"></param>
+        /// <returns></returns>
+        public int? GetPageNoAndReturnNew(int? uid, String page_type)
+        {
+            NXEIPEntities model = new NXEIPEntities();
+
+
+            try
+            {
+
+                return (from p in model.page where p.pag_type == page_type && p.pag_uid == uid select p).First().pag_no;
+
+            }
+            catch
+            {
+
                 page newPage = new page();
 
                 newPage.pag_createuid = uid;
@@ -54,6 +80,7 @@ namespace NXEIP.DAO
                 return newPage.pag_no;
             }
         }
+
 
 
 

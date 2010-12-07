@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Json;
 using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
 using NXEIP.Lib;
+using Entity;
 
 
 public partial class AjaxTest : System.Web.UI.Page
@@ -47,5 +48,14 @@ public partial class AjaxTest : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         logger.Debug(this.DepartTreeListBox1.Items);
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        //db check
+
+        NXEIPEntities model = new NXEIPEntities();
+        //model.departments.
+        this.TextBox1.Text=model.CreateDatabaseScript();
+
     }
 }

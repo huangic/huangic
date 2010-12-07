@@ -172,7 +172,7 @@ public partial class WidgetMethod : System.Web.UI.Page
     public static int GetPageNo(int uid, String page_type)
     {
         WidgetDAO Dao = new WidgetDAO();
-        return Dao.GetPageNo(uid, page_type).Value;
+        return Dao.GetPageNoAndReturnNew(uid, page_type).Value;
     }
 
   
