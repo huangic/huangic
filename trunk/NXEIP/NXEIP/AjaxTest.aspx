@@ -63,8 +63,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     
+    <asp:Button ID="Button3" runat="server" Text="Check DataBase" 
+        onclick="Button3_Click" />
+      <br />
+    <asp:TextBox ID="TextBox1" runat="server" Height="151px" Width="569px"></asp:TextBox>
 
-    <br />
+  
     <br />
 
     
@@ -89,6 +93,10 @@
     <br />
     <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" LeafType="People" 
         PeopleColumn="Name,Title,WorkId" PeopleType="All" />
+    <br />
+
+    
+
     <br />
 
     

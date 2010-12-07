@@ -30,7 +30,7 @@ public partial class _10_100500_100507 : System.Web.UI.Page
                         && sysfunc.sfu_no == rauth.sfu_no
                         && account.acc_login == user_login
                         && s.sys_no == sysfunc.sys_no
-                        orderby s.sys_order
+                        orderby s.sys_order,sysfunc.sfu_no
                         select new { sysFunc = sysfunc, sys = s }).Distinct();
 
            
