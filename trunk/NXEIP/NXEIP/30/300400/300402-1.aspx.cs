@@ -46,9 +46,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             if (this.lab_mode.Text.Equals("modify"))
             {
                 this.Navigator1.SubFunc = "修改";
-                this.jQueryDepartTree1.Clear();
-                this.jQueryPeopleTree1.Clear();
-                this.jQueryPeopleTree2.Clear();
+                this.DepartTreeListBox_depar.Clear();
+                this.DepartTreeListBox_people_1.Clear();
+                this.DepartTreeListBox_people_2.Clear();
                 Entity.rooms roomsData = new RoomsDAO().GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
 
                 #region textbox
@@ -93,7 +93,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            this.jQueryDepartTree1.Add(dt.Rows[i]["gov_depno"].ToString());
+                            this.DepartTreeListBox_depar.Add(dt.Rows[i]["gov_depno"].ToString());
                         }
                     }
                 }
@@ -102,11 +102,11 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 保管人
                 if (roomsData.roo_oneuid.HasValue)
                 {
-                    this.jQueryPeopleTree1.Add(roomsData.roo_oneuid.ToString());
+                    this.DepartTreeListBox_people_1.Add(roomsData.roo_oneuid.ToString());
                 }
                 if (roomsData.roo_twouid.HasValue)
                 {
-                    this.jQueryPeopleTree2.Add(roomsData.roo_twouid.ToString());
+                    this.DepartTreeListBox_people_2.Add(roomsData.roo_twouid.ToString());
                 }
                 #endregion
 
@@ -205,7 +205,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         }
         #endregion
         #region 第一保管人
-        if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items == null)
+        if (this.DepartTreeListBox_people_1.Items.Count <= 0 || this.DepartTreeListBox_people_1.Items == null)
         {
             ShowMsg("請選擇 第一保管人");
             feedback = false;
@@ -334,7 +334,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         #region 場地開放單位
         if (this.rb_02.Checked)
         {
-            if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items == null)
+            if (this.DepartTreeListBox_depar.Items.Count <= 0 || this.DepartTreeListBox_depar.Items == null)
             {
                 ShowMsg("請選擇 場地開放單位");
                 feedback = false;
@@ -384,7 +384,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                         newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                         newRow.roo_name = this.txt_name.Text;
-                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                        newRow.roo_oneuid = Convert.ToInt32(this.DepartTreeListBox_people_1.Items[0].Key);
                         if (this.ImageUpload1.HasFile)
                         {
                             newRow.roo_picture = this.ImageUpload1.GetFileBytes;
@@ -399,8 +399,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_tel = this.txt_tel1.Text;
                         newRow.roo_twoext = this.txt_ext2.Text;
                         newRow.roo_twotel = this.txt_tel2.Text;
-                        if (this.jQueryPeopleTree2.Items != null && this.jQueryPeopleTree2.Items.Count > 0)
-                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
+                        if (this.DepartTreeListBox_people_2.Items != null && this.DepartTreeListBox_people_2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.DepartTreeListBox_people_2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
                         newRow.roo_telephone = this.txt_telephone.Text;
@@ -413,9 +413,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
 
                         if (this.rb_02.Checked)
                         {
-                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                            for (int i = 0; i < this.DepartTreeListBox_depar.Items.Count; i++)
                             {
-                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.DepartTreeListBox_depar.Items[i].Key + ")";
                                 dbo.ExecuteNonQuery(InsStr);
                             }
                         }
@@ -456,7 +456,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                         newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                         newRow.roo_name = this.txt_name.Text;
-                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
+                        newRow.roo_oneuid = Convert.ToInt32(this.DepartTreeListBox_people_1.Items[0].Key);
                         if (this.ImageUpload1.HasFile)
                         {
                             newRow.roo_picture = this.ImageUpload1.GetFileBytes;
@@ -472,8 +472,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_tel = this.txt_tel1.Text;
                         newRow.roo_twoext = this.txt_ext2.Text;
                         newRow.roo_twotel = this.txt_tel2.Text;
-                        if (this.jQueryPeopleTree2.Items.Count > 0)
-                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
+                        if (this.DepartTreeListBox_people_2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.DepartTreeListBox_people_2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
                         newRow.roo_telephone = this.txt_telephone.Text;
@@ -484,9 +484,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         #region government
                         if (this.rb_02.Checked)
                         {
-                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
+                            for (int i = 0; i < this.DepartTreeListBox_depar.Items.Count; i++)
                             {
-                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.DepartTreeListBox_depar.Items[i].Key + ")";
                                 dbo.ExecuteNonQuery(InsStr);
                             }
                         }
