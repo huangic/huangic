@@ -13,6 +13,7 @@ public partial class _35_350100_350103 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.Panel2.Visible = false;
+            this.DepartTreeListBox1.Clear();
         }
     }
 
@@ -23,15 +24,15 @@ public partial class _35_350100_350103 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void but_ok_Click(object sender, EventArgs e)
     {
-        if (this.jQueryPeopleTree1.Items.Count > 0)
+        if (this.DepartTreeListBox1.Items.Count > 0)
         {
             DBObject dbo = new DBObject();
 
             this.Panel2.Visible = true;
 
             //人員
-            string peo_uid = this.jQueryPeopleTree1.Items[0].Key;
-            this.lab_name.Text = this.jQueryPeopleTree1.Items[0].Value;
+            string peo_uid = this.DepartTreeListBox1.Items[0].Key;
+            this.lab_name.Text = this.DepartTreeListBox1.Items[0].Value;
             this.lab_workid.Text = dbo.ExecuteScalar("select peo_workid from people where peo_uid = " + peo_uid);
 
             //帳號

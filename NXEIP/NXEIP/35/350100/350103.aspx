@@ -2,9 +2,9 @@
     CodeFile="350103.aspx.cs" Inherits="_35_350100_350103" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register Src="../../lib/tree/jQueryPeopleTree.ascx" TagName="jQueryPeopleTree"
-    TagPrefix="uc1" %>
+
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc2" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
 
@@ -39,7 +39,8 @@
                                 請選擇欲查詢人員
                             </th>
                             <td>
-                                <uc1:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                                <uc1:DepartTreeListBox ID="DepartTreeListBox1" runat="server" 
+                                    LeafType="People" />
                             </td>
                         </tr>
                     </table>

@@ -1,12 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="350102.aspx.cs" Inherits="_35_350100_350102" %>
 
-<%@ Register Src="../../lib/tree/jQueryDepartTree.ascx" TagName="jQueryDepartTree"
-    TagPrefix="uc1" %>
-<%@ Register Src="../../lib/tree/jQueryPeopleTree.ascx" TagName="jQueryPeopleTree"
-    TagPrefix="uc2" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc3" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
 
@@ -70,12 +67,13 @@
                                             <tr>
                                                 <td height="120px">
                                                     <asp:Panel ID="Panel1" runat="server">
-                                                        <uc2:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                                                        <uc1:DepartTreeListBox ID="DepartTreeListBox_people" runat="server" 
+                                                            LeafType="People" />
                                                     </asp:Panel>
                                                 </td>
                                                 <td height="120px">
                                                     <asp:Panel ID="Panel2" runat="server">
-                                                        <uc1:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                                                        <uc1:DepartTreeListBox ID="DepartTreeListBox_depart" runat="server" />
                                                     </asp:Panel>
                                                 </td>
                                             </tr>
