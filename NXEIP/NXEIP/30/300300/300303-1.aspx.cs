@@ -16,7 +16,7 @@ public partial class _30_300300_300303_1 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.Navigator1.SubFunc = "部門限制";
-            this.jQueryDepartTree1.Clear();
+            this.DepartTreeListBox1.Clear();
 
             if (Request["e02_no"] != null)
             {

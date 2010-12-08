@@ -4,9 +4,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc2" %>
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc3" %>
-<%@ Register src="../../lib/tree/jQueryPeopleTree.ascx" tagname="jQueryPeopleTree" tagprefix="uc4" %>
 <%@ Register src="../../lib/ImageUpload.ascx" tagname="ImageUpload" tagprefix="uc5" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -34,7 +33,9 @@
             <tr>
                 <th><span class="a-letter-Red">*</span> 第一保管人</th>
                 <td>
-                    <uc4:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                    <uc3:DepartTreeListBox ID="DepartTreeListBox_people_1" runat="server" 
+                        LeafType="People" />
+
                 </td>
                 <th><span class="a-letter-Red">*</span> 第一保管人電話</th>
                 <td><asp:TextBox ID="txt_tel1" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
@@ -43,7 +44,8 @@
             <tr>
                 <th>第二保管人</th>
                 <td>
-                    <uc4:jQueryPeopleTree ID="jQueryPeopleTree2" runat="server" />
+                    <uc3:DepartTreeListBox ID="DepartTreeListBox_people_2" runat="server" 
+                        LeafType="People" />
                 </td>
                 <th>第二保管人電話</th>
                 <td><asp:TextBox ID="txt_tel2" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
@@ -137,7 +139,7 @@
                     <tr>
                       <td style="width:80px"><asp:RadioButton ID="rb_02" runat="server" GroupName="rb" Text="限制單位" /></td>
                       <td>
-                          <uc3:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                          <uc3:DepartTreeListBox ID="DepartTreeListBox_depar" runat="server" />
                         </td>
                     </tr>
                   </table>

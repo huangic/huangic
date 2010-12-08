@@ -5,7 +5,7 @@
 <%@ Register Assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
     Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript" language="javascript">
 
@@ -48,13 +48,13 @@
         var people = $('#Text1').val();
         
         //檢查是否有部門
-        if ($('#<%=jQueryDepartTree1.ListBoxClientID%> option:first').text() == '') {
+        if ($('#<%=DepartTreeListBox1.ClientID%> option:first').text() == '') {
             alert('請選擇部門!');
             return false;
         }
         
         //加入列表
-        $('#<%=jQueryDepartTree1.ListBoxClientID%> option').each(function () {
+        $('#<%=DepartTreeListBox1.ClientID%> option').each(function () {
             var dep_val = $(this).val();
             var dep_text = $(this).text();
             //是否已有在列表上
@@ -155,8 +155,8 @@
                 </th>
                 <td colspan="3">
                     部門&nbsp;
-                    <uc2:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
-                    &nbsp;限制人數&nbsp;<input id="Text1" type="text" style="width: 50px" value="1" />
+                    <uc2:DepartTreeListBox ID="DepartTreeListBox1" runat="server" />
+&nbsp;&nbsp;限制人數&nbsp;<input id="Text1" type="text" style="width: 50px" value="1" />
                     &nbsp;<input id="Button1" type="button" value="加入" class="b-input" onclick="InsertRows()" />
                 </td>
             </tr>
