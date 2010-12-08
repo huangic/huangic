@@ -63,7 +63,7 @@ public partial class _35_350100_350103 : System.Web.UI.Page
 
     protected void but_cancel_Click(object sender, EventArgs e)
     {
-
+        this.DepartTreeListBox1.Clear();
     }
 
     /// <summary>
@@ -120,7 +120,7 @@ public partial class _35_350100_350103 : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-
+        this.DepartTreeListBox1.Clear();
         this.Panel2.Visible = false;
         this.Panel1.Visible = true;
     }
