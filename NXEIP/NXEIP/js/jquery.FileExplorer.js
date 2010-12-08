@@ -379,20 +379,33 @@ jquery.jqGrid
             datatype: "json",
             width: 740,
             height: 350,
-            colNames: ['名稱', '修改日期', '檔案大小', '類型','編碼', '動作'],
+            colNames: ['名稱', '修改日期', '檔案大小', '類型','編碼', '權限','動作'],
             colModel: [{ name: 'name', index: 'name', width: 400, align: "left", editable: true },
                       { name: 'date', index: 'date', width: 100, align: "left" },
                       { name: 'size', index: 'size', width: 100, align: "right" },
                       { name: 'type', index: 'type', width: 100, align: "left",sortable: false },
                       {name:'code',index:'code',hidden:true},
+                      {name:'permission',index:'permission',hidden:true},
                       { name: 'act', index: 'act', width: 100, sortable: false },
                       ],
-            multiselect: true,
+            multiselect: false,
 
             loadComplete: loadComplete,
 
             caption: "檔案清單",
-            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
+            emptyDataText: "<div id='EmptyData'>目前無檔案</div>",
+           
+            onSelectRow: function(id,e){ 
+                var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',id); 
+
+                     if(ret.permission=="True"){
+                           return true;
+                      }else{
+                       alert("你沒有變動此檔的權限");
+                           return false;
+                      }
+                 }
+
 
         });
 
@@ -420,7 +433,17 @@ jquery.jqGrid
                     dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
                     
                     del = "<a class='delete imageButton' href='#' alt='刪除' title='刪除'><span>刪除</span></a>";
-                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: be +dl+del })
+                   
+                    var permissionString="";
+                    //alert(ret.permission);
+
+                    if(ret.permission=="True"){
+                        permissionString=be+dl+del;
+                    }else{
+                        permissionString=dl;
+                    }
+                   
+                    jQuery(_setting.fileDiv).setRowData(ids[i], { act: permissionString })
                 }
 
                 //無資料寫是空值

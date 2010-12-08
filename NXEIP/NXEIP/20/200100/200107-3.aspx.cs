@@ -53,15 +53,27 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
           using(NXEIPEntities model=new NXEIPEntities()){
             var d09=(from d in model.doc09 where d.d09_no==d09no select d).First();
           
-            this.tb_note.Text=d09.d09_note;
+              this.tb_note.Text=d09.d09_note;
               this.RadioButtonList2.SelectedValue=d09.d09_open;
-              this.ddl_childcat_CascadingDropDown.Category=d09.s06_no.ToString();
+              
+              //找S06
+              Sys06DAO s06dao = new Sys06DAO();
+              sys06 s=s06dao.GetByS06No(d09.s06_no);
 
+              if (s.s06_parent != 0)
+              {
+
+
+                  this.ddl_childcat_CascadingDropDown.Category = d09.s06_no.ToString();
+              }
+              else {
+                  this.ddl_cat.SelectedValue = s.s06_no.ToString();
+              }
               this.hidden_d09no.Value = d09.d09_no.ToString();
           }
 
         
-
+            
 
         }
 

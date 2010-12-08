@@ -42,18 +42,42 @@ namespace NXEIP.FileManager.Json
     public class FileItem : JqGridItem
     {
 
-
+        /// <summary>
+        /// 做目錄判斷
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="fileDetial"></param>
         public FileItem(doc01 file, doc02 fileDetial)
         {
-            this.cell = new string[5];
+            this.cell = new string[6];
+            
             cell[0] = file.d01_file;
+            
             cell[1] = fileDetial.d02_date.ToString();
+            
             cell[2] = fileDetial.d02_KB.ToString();
 
+            
             cell[3] = fileDetial.d02_format;
+            
             cell[4] = file.d01_url;
+            //權限判斷
+            cell[5] = bool.TrueString;
             this.id = file.d01_no.ToString();
 
+        }
+
+
+        public static FileItem GetPermissionFileItem(doc01 file, doc02 fileDetial, int peo_uid)
+        {
+            FileItem f = new FileItem(file, fileDetial);
+            
+            //權限欄位判斷
+            if(file.peo_uid!=peo_uid){
+                    f.cell[5]=bool.FalseString;
+            }
+
+            return f;
         }
     }
 }
