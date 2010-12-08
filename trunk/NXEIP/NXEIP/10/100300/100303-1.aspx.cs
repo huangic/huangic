@@ -20,10 +20,11 @@ public partial class _10_100300_100303_1 : System.Web.UI.Page
             new OperatesObject().ExecuteOperates(100303, sobj.sessionUserID, 2, "新增查看權限頁面");
 
             if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
-            if (this.jQueryDepartTree1.Items != null) this.jQueryDepartTree1.Items.Clear();
-            if (this.jQueryPeopleTree1.Items != null) this.jQueryPeopleTree1.Items.Clear();
+            this.DepartTreeListBox_depar.Clear();
+            this.DepartTreeListBox_people.Clear();
         }
     }
+
     #region 檢查輸入值
     private bool CheckInputValue()
     {
@@ -44,7 +45,7 @@ public partial class _10_100300_100303_1 : System.Web.UI.Page
         else if (this.rb_2.Checked)
         {
             #region 人員清單
-            if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items == null)
+            if (this.DepartTreeListBox_people.Items.Count == 0)
             {
                 ShowMSG("請選擇人員");
                 return false;
@@ -58,7 +59,7 @@ public partial class _10_100300_100303_1 : System.Web.UI.Page
         else
         {
             #region 單位清單
-            if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items == null)
+            if (this.DepartTreeListBox_depar.Items.Count == 0)
             {
                 ShowMSG("請選擇單位");
                 return false;
@@ -91,18 +92,12 @@ public partial class _10_100300_100303_1 : System.Web.UI.Page
                     sqlstr = "SELECT c04.peo_uid, people.peo_name FROM c04 INNER JOIN people ON c04.peo_uid = people.peo_uid WHERE (people.peo_workid = '" + this.txt_workid.Text + "')";
                 else if (this.rb_2.Checked)
                 {
-                    for (int i = 0; i < this.jQueryPeopleTree1.Items.Count; i++)
-                    {
-                        keyvalue += "," + this.jQueryPeopleTree1.Items[i].Key;
-                    }
+                    keyvalue = string.Join(",", this.DepartTreeListBox_people.ItemsValue);
                     sqlstr = "SELECT c04.peo_uid, people.peo_name FROM c04 INNER JOIN people ON c04.peo_uid = people.peo_uid WHERE (people.peo_uid in (" + keyvalue + "))";
                 }
                 else
                 {
-                    for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
-                    {
-                        keyvalue += "," + this.jQueryDepartTree1.Items[i].Key;
-                    }
+                    keyvalue = string.Join(",", this.DepartTreeListBox_depar.ItemsValue);
                     sqlstr = "SELECT c04.peo_uid, people.peo_name FROM c04 INNER JOIN people ON c04.peo_uid = people.peo_uid WHERE (people.dep_no in (" + keyvalue + "))";
                 }
                 dt = dbo.ExecuteQuery(sqlstr);
@@ -148,13 +143,13 @@ public partial class _10_100300_100303_1 : System.Web.UI.Page
                     else if (this.rb_2.Checked)
                     {
                         #region 人員清單
-                        for (int i = 0; i < this.jQueryPeopleTree1.Items.Count; i++)
+                        for (int i = 0; i < this.DepartTreeListBox_people.Items.Count; i++)
                         {
-                            string InsStr = "insert into c04 (peo_uid,c04_right,c04_createuid,c04_createtime) values(" + this.jQueryPeopleTree1.Items[i].Key + ",'" + this.rbl_right.SelectedValue + "'," + sobj.sessionUserID + ",getdate())";
+                            string InsStr = "insert into c04 (peo_uid,c04_right,c04_createuid,c04_createtime) values(" + this.DepartTreeListBox_people.Items[i].Key + ",'" + this.rbl_right.SelectedValue + "'," + sobj.sessionUserID + ",getdate())";
                             dbo.ExecuteNonQuery(InsStr);
 
                             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                            new OperatesObject().ExecuteOperates(100303, sobj.sessionUserID, 1, "新增 " + this.jQueryPeopleTree1.Items[i].Value + "可查看：" + this.rbl_right.SelectedItem.Text);
+                            new OperatesObject().ExecuteOperates(100303, sobj.sessionUserID, 1, "新增 " + this.DepartTreeListBox_people.Items[i].Value + "可查看：" + this.rbl_right.SelectedItem.Text);
                         }
 
                         Response.Redirect("100303.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString());

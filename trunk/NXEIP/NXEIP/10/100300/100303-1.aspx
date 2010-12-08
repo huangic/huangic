@@ -3,6 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
 <%@ Register src="../../lib/tree/jQueryPeopleTree.ascx" tagname="jQueryPeopleTree" tagprefix="uc3" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -35,7 +36,8 @@
                                 <asp:RadioButton ID="rb_2" runat="server" GroupName="rb" Text="請選擇人員：" />
                               </td>
                             <td>
-                                <uc3:jQueryPeopleTree ID="jQueryPeopleTree1" runat="server" />
+                                <uc4:DepartTreeListBox ID="DepartTreeListBox_people" runat="server" 
+                                    LeafType="People" />
                               </td>
                           </tr>
                           <tr>
@@ -43,7 +45,7 @@
                                 <asp:RadioButton ID="rb_3" runat="server" GroupName="rb" Text="請選擇單位：" />
                               </td>
                             <td>
-                                <uc2:jQueryDepartTree ID="jQueryDepartTree1" runat="server" />
+                                <uc4:DepartTreeListBox ID="DepartTreeListBox_depar" runat="server" />
                               </td>
                           </tr>
                         </table>
