@@ -123,12 +123,8 @@
                     //parent.$("#"+settings.parentSessionID).children().remove().end().append($("#"+settings.listBoxID).children());
                     $(window.parent.document).find("#"+settings.parentSessionID).children().remove().end().append($("#"+settings.listBoxID).html());
                     //$("#"+settings.parentSessionID, top.document).children().remove().end().append($("#"+settings.listBoxID).children());
-                             
+                           
                    
-                  
-
-
-
 
                     }catch(ex){
                         //alert(ex);

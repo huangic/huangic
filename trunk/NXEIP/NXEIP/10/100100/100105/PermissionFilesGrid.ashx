@@ -207,7 +207,7 @@ public class PermissionFilesGrid : IHttpHandler, IRequiresSessionState
 
             foreach (var f in files)
             {
-                JqGridItem item = new FileItem(f.doc1, f.doc2);
+                JqGridItem item = FileItem.GetPermissionFileItem(f.doc1, f.doc2,peo_id);
 
                 grid.rows.Add(item);
 
