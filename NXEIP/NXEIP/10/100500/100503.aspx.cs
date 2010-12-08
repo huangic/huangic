@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Entity;
 using System.Web.UI.HtmlControls;
 using NXEIP.Widget;
+using NXEIP.DAO;
 
 
 

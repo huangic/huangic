@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Entity;
 using System.Web.UI.HtmlControls;
 using NXEIP.Widget;
+using NXEIP.DAO;
 
 
 
@@ -39,15 +40,7 @@ public partial class _10_100500_100502 : WidgetPageTemplate
         get { return false; }
     }
 
-
-    protected override int GetCurrentPage()
-    {
-        //取自己的頁面 如果沒有就抓預設值的範本頁面
-
-
-        return 1;
-    }
-
+       
     /// <summary>
     /// 取自己的沒有就拿父代範本(UID=0 AND PAGE_TYPE=P)
     /// </summary>
