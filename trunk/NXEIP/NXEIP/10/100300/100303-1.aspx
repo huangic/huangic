@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100303-1.aspx.cs" Inherits="_10_100300_100303_1" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
-<%@ Register src="../../lib/tree/jQueryPeopleTree.ascx" tagname="jQueryPeopleTree" tagprefix="uc3" %>
 <%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
