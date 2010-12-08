@@ -20,8 +20,8 @@ public partial class _35_350100_350102 : System.Web.UI.Page
             this.Panel1.Visible = true;
             this.Panel2.Visible = false;
 
-            this.jQueryDepartTree1.Clear();
-            this.jQueryPeopleTree1.Clear();
+            this.DepartTreeListBox_depart.Clear();
+            this.DepartTreeListBox_people.Clear();
         }
     }
     
@@ -54,7 +54,7 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         //people
         if (this.rbl_people.Checked)
         {
-            foreach (var people in this.jQueryPeopleTree1.Items)
+            foreach (var people in this.DepartTreeListBox_people.Items)
             {
                 this.Accounts_process(people.Key);
                 showMsg = true;
@@ -64,7 +64,7 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         //部門
         if (this.rbl_dep.Checked)
         {
-            foreach (var depart in this.jQueryDepartTree1.Items)
+            foreach (var depart in this.DepartTreeListBox_depart.Items)
             {
                 int dep_no = Convert.ToInt32(depart.Key);
 

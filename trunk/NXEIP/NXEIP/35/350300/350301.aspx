@@ -2,10 +2,6 @@
     CodeFile="350301.aspx.cs" Inherits="_35_350300_350301" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register Src="../../lib/tree/jQueryDepartTree.ascx" TagName="jQueryDepartTree"
-    TagPrefix="uc1" %>
-<%@ Register Src="../../lib/tree/jQueryPeopleTree.ascx" TagName="jQueryPeopleTree"
-    TagPrefix="uc2" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc3" %>
 <%@ Register Src="../../lib/calendar.ascx" TagName="calendar" TagPrefix="uc4" %>
 <%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc5" %>
@@ -110,8 +106,8 @@
                                 <asp:RadioButton ID="rb_people" runat="server" Text="請選擇人員" GroupName="G1" />
                             </td>
                             <td>
-                                <uc5:DepartTreeListBox ID="DTL_peo" runat="server" LeafType="People" 
-                                    PeopleColumn="Name,workid" PeopleType="All" />
+                                <uc5:DepartTreeListBox ID="DepartTreeListBox1" runat="server" 
+                                    LeafType="People" />
                                 </td>
                         </tr>
                         <tr>
@@ -119,7 +115,7 @@
                                 <asp:RadioButton ID="rb_depart" runat="server" Text="請選擇單位" GroupName="G1" />
                             </td>
                             <td>
-                                <uc5:DepartTreeListBox ID="DTL_dep" runat="server" />
+                                <uc5:DepartTreeListBox ID="DepartTreeListBox2" runat="server" />
                             </td>
                         </tr>
                     </table>
