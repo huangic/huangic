@@ -31,7 +31,7 @@ public partial class _10_100500_100510 : WidgetPageTemplate
     /// </summary>
     public override string Uid
     {
-        get { return "0" }
+        get { return "0"; }
     }
 
     protected override bool IsEditable{get{return true;}}

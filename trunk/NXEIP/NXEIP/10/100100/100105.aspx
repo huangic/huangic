@@ -3,7 +3,6 @@
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 
 
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">

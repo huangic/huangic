@@ -10,7 +10,6 @@
 
 
 
-<%@ Register src="../../lib/tree/jQueryDepartTree.ascx" tagname="jQueryDepartTree" tagprefix="uc2" %>
 
 
 
