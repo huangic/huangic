@@ -119,12 +119,26 @@
                 //更新父容器
 
                 if(settings.params.SelectMode==Enum.SelectMode.Multi){
-                    parent.$("#"+settings.parentSessionID).children().remove().end().append($("#"+settings.listBoxID).children());
+                    try{
+                    //parent.$("#"+settings.parentSessionID).children().remove().end().append($("#"+settings.listBoxID).children());
+                    $(window.parent.document).find("#"+settings.parentSessionID).children().remove().end().append($("#"+settings.listBoxID).html());
+                    //$("#"+settings.parentSessionID, top.document).children().remove().end().append($("#"+settings.listBoxID).children());
+                             
+                   
+                  
+
+
+
+
+                    }catch(ex){
+                        //alert(ex);
+                    }
 
                 }else{
-                    parent.$("#"+settings.parentSessionID).val(
-                    
-                    $.trim($("#"+settings.listBoxID).text())
+                    //parent.$("#"+settings.parentSessionID).val(
+                    $(window.parent.document).find("#"+settings.parentSessionID).val(
+
+                    $.trim($("#"+settings.listBoxID).html())
                     
                     );
                 
