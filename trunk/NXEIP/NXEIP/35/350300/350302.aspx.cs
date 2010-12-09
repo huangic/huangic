@@ -15,7 +15,8 @@ public partial class _35_350300_350302 : System.Web.UI.Page
         {
             this.ODS_arguments.SelectParameters["str"].DefaultValue = "all";
         }
-        else
+
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
             this.reLoad();
         }

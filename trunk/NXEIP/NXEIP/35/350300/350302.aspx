@@ -13,8 +13,6 @@
 
             __doPostBack('<%=UpdatePanel1.ClientID%>', '');
             tb_remove();
-
-
             alert(msg);
         }
 
