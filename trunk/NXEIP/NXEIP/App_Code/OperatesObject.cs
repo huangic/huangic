@@ -26,24 +26,6 @@ public class OperatesObject
     {
         new OperatesObject().ExecuteOperates(sfu_no,peo_uid,fuction,memo);
         
-        
-        
-        /*
-        string ope_no = Guid.NewGuid().ToString("N");
-
-        operates data = new operates();
-        data.ope_no = ope_no;
-        data.sfu_no = sfu_no;
-        data.peo_uid = Convert.ToInt32(peo_uid);
-        data.ope_logintime = System.DateTime.Now;
-        data.ope_fuction = fuction;
-        data.ope_memo = memo;
-
-        //新增
-        OperatesDAO oDao = new OperatesDAO();
-        oDao.Addoperates(data);
-        oDao.Update();
-         */
     }
 
     /// <summary>
