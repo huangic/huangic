@@ -26,7 +26,14 @@ public partial class lib_calendar : System.Web.UI.UserControl
         
         set
         {
-            this.tbox_date.Text = new ChangeObject()._ADtoROC(value);
+            try
+            {
+                this.tbox_date.Text = new ChangeObject()._ADtoROC(value);
+            }
+            catch
+            {
+                this.tbox_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+            }
         }
     }
 
@@ -46,6 +53,28 @@ public partial class lib_calendar : System.Web.UI.UserControl
         get
         {
             return this.tbox_date.ClientID;
+        }
+    }
+
+    /// <summary>
+    /// 回傳民國日期
+    /// </summary>
+    public string _ROC
+    {
+        get
+        {
+            return new ChangeObject()._ADtoROC(this._ADDate);
+        }
+    }
+
+    /// <summary>
+    /// 回傳西元日期
+    /// </summary>
+    public string _AD
+    {
+        get
+        {
+            return new ChangeObject()._ROCtoAD(this._ROC).ToString("yyyy-MM-dd");
         }
     }
 
