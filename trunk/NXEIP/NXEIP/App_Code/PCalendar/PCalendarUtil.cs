@@ -135,4 +135,48 @@ public class PCalendarUtil
         return isadd;
     }
     #endregion
+
+    #region 判斷是否可以查看行事曆
+    public static bool IsShow(string loginuserid,string logindepno, string otherpeouid)
+    {
+        bool IsShow = false;
+        if (loginuserid.Equals(otherpeouid))
+        {
+            IsShow = true;
+        }
+        else
+        {
+            DBObject dbo_show = new DBObject();
+            DataTable dt_show = new DataTable();
+            string sqlstr = "SELECT c04_no, c04_right from c04 where (peo_uid = " + loginuserid + ")";
+            dt_show = dbo_show.ExecuteQuery(sqlstr);
+            string c04_right = "0";
+            if (dt_show.Rows.Count > 0)
+            {
+                c04_right = dt_show.Rows[0]["c04_right"].ToString();
+            }
+            if (c04_right.Equals("1"))
+                IsShow = true;
+            else if (c04_right.Equals("2"))
+            {
+                string dep_no = SearchPeopleDepartAndDown(logindepno);
+                sqlstr = "select peo_uid from people where peo_uid=" + otherpeouid + " and dep_no in (" + dep_no + ")";
+                dt_show.Clear();
+                dt_show = dbo_show.ExecuteQuery(sqlstr);
+                if (dt_show.Rows.Count > 0) IsShow = true;
+
+            }
+            else
+            {
+                sqlstr = "select peo_uid from people where peo_uid=" + otherpeouid + " and dep_no=" + logindepno;
+                dt_show.Clear();
+                dt_show = dbo_show.ExecuteQuery(sqlstr);
+                if (dt_show.Rows.Count > 0) IsShow = true;
+
+            }
+        }
+
+        return IsShow;
+    }
+    #endregion
 }
