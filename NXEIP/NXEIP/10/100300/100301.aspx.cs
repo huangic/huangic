@@ -22,7 +22,6 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 2, "點選個人行事曆-日");
 
-            
             ListItem newitem = new ListItem("請選擇", "0");
             DataTable dt = new DataTable();
 
@@ -39,7 +38,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                 this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd"));
             }
             this.Calendar1.TodaysDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
-            this.lab_CYM.Text = this.Calendar1.VisibleDate.Year.ToString() + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
+            this.lab_CYM.Text = Convert.ToString(this.Calendar1.VisibleDate.Year-1911) + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
             this.lab_today.Text = PCalendarUtil.GetToday(); //今天日期
             #endregion
 
@@ -51,8 +50,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年"+ Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月"
-                + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Day + "日";
+            this.lab_show.Text = changeobj.ROCtoChi(this.lab_date.Text);
 
             if (Request["peo_uid"] != null)
                 this.lab_people.Text = Request["peo_uid"];
@@ -80,6 +78,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             DataTable dt99 = new DataTable();
             string sqlstr99 = "";
             this.lab_name.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_people.Text)); //姓名
+            bool isShow=PCalendarUtil.IsShow(sobj.sessionUserID,sobj.sessionUserDepartID,this.lab_people.Text);
 
             #region 判斷是否可新增
             string isAdd = "0";
@@ -150,35 +149,40 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             #region 行事曆
             string sdate = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 00:00:00";
             string edate = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 23:59:59";
-            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-            + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-            dt99 = dbo.ExecuteQuery(sqlstr99);
-            if (dt99.Rows.Count > 0)
+            if (isShow)
             {
-                for (int i = 0; i < dt99.Rows.Count; i++)
+                #region 查得資料
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                dt99 = dbo.ExecuteQuery(sqlstr99);
+                if (dt99.Rows.Count > 0)
                 {
-                    string stime = "";
-                    string etime = "";
-                    if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    for (int i = 0; i < dt99.Rows.Count; i++)
                     {
-                        stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                        string stime = "";
+                        string etime = "";
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        {
+                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                        }
+                        else
+                        {
+                            stime = "06:00";
+                        }
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        {
+                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                        }
+                        else
+                        {
+                            etime = "23:00";
+                        }
+                        Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
                     }
-                    else
-                    {
-                        stime = "06:00";
-                    }
-                    if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                    {
-                        etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                    }
-                    else
-                    {
-                        etime = "23:00";
-                    }
-                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
                 }
+                #endregion
             }
             #endregion
 

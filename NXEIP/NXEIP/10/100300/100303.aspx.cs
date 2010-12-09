@@ -24,14 +24,17 @@ public partial class _10_100300_100303 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            if (!string.IsNullOrEmpty(Request["pageIndex"]))
+            if (Session["100303_pageIndex"]!=null)
             {
                 this.GridView1.DataBind();
-                this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
+                this.GridView1.PageIndex = Convert.ToInt32(Session["100303_pageIndex"].ToString());
             }
+            else
+                Session.Add("100303_pageIndex", "");
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100303, sobj.sessionUserID, 2, "開放查看權限");
         }
+        
     }
 
     #region 調整輸出格式
@@ -56,15 +59,12 @@ public partial class _10_100300_100303 : System.Web.UI.Page
         if (e.CommandName.Equals("del"))
         {
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
-
             string sqlstr = "delete from c04 where c04_no=" + pkno;
             dbo.ExecuteNonQuery(sqlstr);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100303, sobj.sessionUserID, 3, "刪除 開放查看權限 編號:" + pkno);
-
-            Response.Redirect("100303.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
+            this.GridView1.DataBind();
         }
     }
     #endregion
@@ -72,8 +72,8 @@ public partial class _10_100300_100303 : System.Web.UI.Page
     #region 新增
     protected void btn_add_Click(object sender, EventArgs e)
     {
-        string pageIndex = this.GridView1.PageIndex.ToString();
-        Response.Redirect("100303-1.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
+        Session["100303_pageIndex"] = this.GridView1.PageIndex.ToString();
+        this.Server.Transfer("100303-1.aspx");
     }
     #endregion
 }

@@ -15,6 +15,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
     SessionObject sobj = new SessionObject();
     DBObject dbo = new DBObject();
     protected string localurl = "100301-1.aspx";
+    protected string parem = "";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -41,19 +42,24 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             }
 
             this.Calendar1.TodaysDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
-            this.lab_CYM.Text = this.Calendar1.VisibleDate.Year.ToString() + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
+            this.lab_CYM.Text = Convert.ToString(this.Calendar1.VisibleDate.Year-1911) + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
             this.lab_today.Text = PCalendarUtil.GetToday(); //今天日期
             #endregion
 
             #region 左邊版面：可設定之他人行事曆、可查看之他人行事曆
             this.ddl_c01_CascadingDropDown.ContextKey = sobj.sessionUserID;
             string qrydepart = "0";
-            if (Request["depart"] != null) qrydepart = Request["depart"];
+            if (Request["depart"] != null)
+            {
+                qrydepart = Request["depart"];
+                if (parem.Length > 0) parem += "&";
+                parem += "depart=" + qrydepart;
+            }
             this.ddl_QryDepart_CascadingDropDown.ContextKey = sobj.sessionUserID + "," + qrydepart;
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年"+ Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月";
+            this.lab_show.Text = Convert.ToString(Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year-1911) + "年"+ Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月";
             if (Request["peo_uid"] != null)
                 this.lab_people.Text = Request["peo_uid"];
             else
@@ -68,7 +74,10 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             {
                 this.hl_back.Text = "返回" + sobj.sessionUserName;
                 this.hl_back.Visible = true;
+                if(parem.Length>0) parem+="&";
+                parem+="peo_uid="+this.lab_people.Text;
             }
+            
             Show();
         }
     }
@@ -120,7 +129,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                 int weeks = changeobj.ChangeWeek(sdate);
                 ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).Text = sdate1;
                 if (isAdd.Equals("1"))
-                    ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "100301-0.aspx?today=" + sdate1 + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&stime=06:00&source=weeks&height=480&width=800&TB_iframe=true&modal=true";
+                    ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "100301-0.aspx?today=" + sdate1 + "&" + parem + "&stime=06:00&source=weeks&height=480&width=800&TB_iframe=true&modal=true";
 
                 else
                     ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "";
@@ -168,14 +177,14 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
 
             #region 連結位址更換
             //日、週、月、年、列表
-            this.HyperLink1.NavigateUrl = "100301.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.current.NavigateUrl = "100301-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink3.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink4.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.HyperLink5.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.HyperLink1.NavigateUrl = "100301.aspx?today=" + this.lab_date.Text + "&" + parem;
+            this.current.NavigateUrl = "100301-1.aspx?today=" + this.lab_date.Text + "&" + parem;
+            this.HyperLink3.NavigateUrl = "100301-2.aspx?today=" + this.lab_date.Text + "&" + parem;
+            this.HyperLink4.NavigateUrl = "100301-3.aspx?today=" + this.lab_date.Text + "&" + parem;
+            this.HyperLink5.NavigateUrl = "100301-4.aspx?today=" + this.lab_date.Text + "&" + parem;
             //上一個月、下一個月(箭頭)
-            this.hl_Pre.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(-1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
-            this.hl_Nxt.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text + "&depart=" + this.ddl_QryDepart.SelectedValue;
+            this.hl_Pre.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(-1).ToString("yyyy-MM-01")) + "&" + parem;
+            this.hl_Nxt.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(1).ToString("yyyy-MM-01")) + "&" + parem;
             //列印、返回
             string ax = "100";
             string ay = "100";

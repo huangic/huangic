@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using NXEIP.DAO;
 using Entity;
 
@@ -39,153 +40,187 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
                 this.lab_today.Text = Request["today"];
                 this.lab_depart.Text = Request["depart"];
             }
-            if (Request["peo_uid"] != null) 
+            bool isUpdate=false;
+
+            if (Request["peo_uid"] != null)
             {
                 this.lab_peo_uid.Text = Request["peo_uid"];
-                this.lab_UserName.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_peo_uid.Text));    
-            }
-            #endregion
+                this.lab_UserName.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_peo_uid.Text));
 
-            #region 初始值--時間、單據編號
-            if (Request["no"] != null)
-            {
-                this.Navigator1.SubFunc = "修改";
-                #region 修改
-                this.lab_no.Text = Request["no"];
-                this.cb_update.Visible = false;
-                this.btn_del.Visible = true;
-                this.btn_del.Enabled = true;
-
-                Entity.c02 c02Data = new C02DAO().GetByC02No(Convert.ToInt32(this.lab_peo_uid.Text), Convert.ToInt32(this.lab_no.Text));
-                if(c02Data!=null)
+                #region 檢查是否可新增或修改、或查看
+                DataTable dt = new DataTable();
+                string sqlstr = "SELECT c01_no from c01 where peo_uid="+sobj.sessionUserID+" and c02_peouid="+this.lab_peo_uid.Text;
+                dt = dbo.ExecuteQuery(sqlstr);
+                if (dt.Rows.Count > 0)
                 {
-                    this.cl_sdate._ADDate = c02Data.c02_sdate;
-                    this.cl_edate._ADDate = c02Data.c02_edate;
-                    try
-                    {
-                        this.ddl_stime.Items.FindByValue(c02Data.c02_sdate.ToString("HH:mm")).Selected = true;
-                        this.ddl_etime.Items.FindByValue(c02Data.c02_edate.ToString("HH:mm")).Selected = true;
-                    }
-                    catch { }
-                    this.txt_bgcolor.Text = c02Data.c02_bgcolor;
-                    this.txt_title.Text = c02Data.c02_title;
-                    this.txt_place.Text = c02Data.c02_place;
-                    if (c02Data.c02_project!=null) this.txt_project.Text = c02Data.c02_project;
-                    if (c02Data.c02_result!=null) this.txt_result.Text = c02Data.c02_result;
-
-                    if (c02Data.c03_no!=null)
-                    {
-                        Entity.c03 c03data = new C03DAO().GetByC03No(Convert.ToInt32(c02Data.c03_no));
-                        if(c03data!=null)
-                        {
-                            this.Panel0.Visible = true;
-                            this.CB_c03.Checked = true;
-                            this.cb_update.Visible = true;
-                            this.cb_update.Checked = true;
-                            this.lab_c03_no.Text = c03data.c03_no.ToString();
-                            this.rbl_cycle.Items.FindByValue(c03data.c03_cycle).Selected = true;
-                            #region 循環
-                            if (c03data.c03_cycle.Equals("1"))
-                            {
-                                #region 日循環(type:0,rule:n天)
-                                this.Panel1.Visible = true;
-                                this.txt_1.Text = c03data.c03_rule;
-                                #endregion
-                            }
-                            else if (c03data.c03_cycle.Equals("2"))
-                            {
-                                #region 週循環(type:週數 rule:星期)
-                                this.Panel2.Visible = true;
-                                this.txt_21.Text = c03data.c03_type;
-                                for (int i = 0; i < this.cbl_22.Items.Count; i++)
-                                {
-                                    if (c03data.c03_rule.IndexOf(this.cbl_22.Items[i].Value) > -1)
-                                    {
-                                        this.cbl_22.Items[i].Selected = true;
-                                    }
-                                }
-                                #endregion
-                            }
-                            else if (c03data.c03_cycle.Equals("3"))
-                            {
-                                #region 月循環(type:類型 rule:(1)月,日(2)月,第n個週,週幾)
-                                this.Panel3.Visible = true;
-                                if (c03data.c03_type.Equals("1"))
-                                {
-                                    this.rb_31.Checked = true;
-                                    string[] ruleArray = c03data.c03_rule.Split(',');
-                                    if (ruleArray.Length > 0) this.txt_311.Text = ruleArray[0].ToString();
-                                    if (ruleArray.Length > 1) this.txt_312.Text = ruleArray[1].ToString();
-                                }
-                                else
-                                {
-                                    this.rb_32.Checked = true;
-                                    string[] ruleArray = c03data.c03_rule.Split(',');
-                                    if (ruleArray.Length > 0) this.txt_321.Text = ruleArray[0].ToString();
-                                    if (ruleArray.Length > 1) this.ddl_322.Items.FindByValue(ruleArray[1].ToString()).Selected = true;
-                                    if (ruleArray.Length > 2) this.ddl_323.Items.FindByValue(ruleArray[2].ToString()).Selected = true;
-                                }
-                                #endregion
-                            }
-                            else
-                            {
-                                #region 年循環(typ:類型 rule:(1)月,日(2)月,第n個週,週幾)
-                                this.Panel4.Visible = true;
-                                if (c03data.c03_type.Equals("1"))
-                                {
-                                    this.rb_41.Checked = true;
-                                    string[] ruleArray = c03data.c03_rule.Split(',');
-                                    if (ruleArray.Length > 0) this.ddl_411.Items.FindByValue(ruleArray[0].ToString()).Selected = true;
-                                    if (ruleArray.Length > 1) this.txt_412.Text = ruleArray[1];
-
-                                }
-                                else
-                                {
-                                    this.rb_42.Checked = true;
-                                    string[] ruleArray = c03data.c03_rule.Split(',');
-                                    if (ruleArray.Length > 0) this.ddl_421.Items.FindByValue(ruleArray[0].ToString()).Selected = true;
-                                    if (ruleArray.Length > 1) this.ddl_422.Items.FindByValue(ruleArray[1].ToString()).Selected = true;
-                                    if (ruleArray.Length > 2) this.ddl_423.Items.FindByValue(ruleArray[2].ToString()).Selected = true;
-                                }
-                                #endregion
-                            }
-                            #endregion
-                            #region 範圍
-                            this.cl_sdate1._ADDate = Convert.ToDateTime(c03data.c03_sdate);
-                            if (c03data.c03_ctype.Equals("1"))
-                            {
-                                this.rb_51.Checked = true;
-                                this.txt_qty.Text = c03data.c03_crule;
-                            }
-                            else
-                            {
-                                this.rb_52.Checked = true;
-                                this.cl_edate1._ADDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(c03data.c03_crule));
-                            }
-                            #endregion
-                        }
-                    }
+                    isUpdate = true;
                 }
                 #endregion
             }
             else
             {
-                this.Navigator1.SubFunc = "新增";
-                #region 新增
-                this.cb_update.Visible = false;
+                this.lab_peo_uid.Text = sobj.sessionUserID;
+                this.lab_UserName.Text = sobj.sessionUserName;
+                isUpdate = true;
+            }
+            #endregion
+
+            #region 初始值--時間、單據編號
+            if (isUpdate)
+            {
+                if (Request["no"] != null)
+                {
+                    this.Navigator1.SubFunc = "修改";
+                    #region 修改
+                    this.lab_no.Text = Request["no"];
+                    this.cb_update.Visible = false;
+                    this.btn_del.Visible = true;
+                    this.btn_del.Enabled = true;
+
+                    Entity.c02 c02Data = new C02DAO().GetByC02No(Convert.ToInt32(this.lab_peo_uid.Text), Convert.ToInt32(this.lab_no.Text));
+                    if (c02Data != null)
+                    {
+                        if (c02Data.c02_setuid == Convert.ToInt32(sobj.sessionUserID) || c02Data.peo_uid == Convert.ToInt32(sobj.sessionUserID))
+                        {
+                            this.cl_sdate._ADDate = c02Data.c02_sdate;
+                            this.cl_edate._ADDate = c02Data.c02_edate;
+                            try
+                            {
+                                this.ddl_stime.Items.FindByValue(c02Data.c02_sdate.ToString("HH:mm")).Selected = true;
+                                this.ddl_etime.Items.FindByValue(c02Data.c02_edate.ToString("HH:mm")).Selected = true;
+                            }
+                            catch { }
+                            this.txt_bgcolor.Text = c02Data.c02_bgcolor;
+                            this.txt_title.Text = c02Data.c02_title;
+                            this.txt_place.Text = c02Data.c02_place;
+                            if (c02Data.c02_project != null) this.txt_project.Text = c02Data.c02_project;
+                            if (c02Data.c02_result != null) this.txt_result.Text = c02Data.c02_result;
+
+                            #region 週期
+                            if (c02Data.c03_no != null)
+                            {
+                                Entity.c03 c03data = new C03DAO().GetByC03No(Convert.ToInt32(c02Data.c03_no));
+                                if (c03data != null)
+                                {
+                                    this.Panel0.Visible = true;
+                                    this.CB_c03.Checked = true;
+                                    this.cb_update.Visible = true;
+                                    this.cb_update.Checked = true;
+                                    this.lab_c03_no.Text = c03data.c03_no.ToString();
+                                    this.rbl_cycle.Items.FindByValue(c03data.c03_cycle).Selected = true;
+                                    #region 循環
+                                    if (c03data.c03_cycle.Equals("1"))
+                                    {
+                                        #region 日循環(type:0,rule:n天)
+                                        this.Panel1.Visible = true;
+                                        this.txt_1.Text = c03data.c03_rule;
+                                        #endregion
+                                    }
+                                    else if (c03data.c03_cycle.Equals("2"))
+                                    {
+                                        #region 週循環(type:週數 rule:星期)
+                                        this.Panel2.Visible = true;
+                                        this.txt_21.Text = c03data.c03_type;
+                                        for (int i = 0; i < this.cbl_22.Items.Count; i++)
+                                        {
+                                            if (c03data.c03_rule.IndexOf(this.cbl_22.Items[i].Value) > -1)
+                                            {
+                                                this.cbl_22.Items[i].Selected = true;
+                                            }
+                                        }
+                                        #endregion
+                                    }
+                                    else if (c03data.c03_cycle.Equals("3"))
+                                    {
+                                        #region 月循環(type:類型 rule:(1)月,日(2)月,第n個週,週幾)
+                                        this.Panel3.Visible = true;
+                                        if (c03data.c03_type.Equals("1"))
+                                        {
+                                            this.rb_31.Checked = true;
+                                            string[] ruleArray = c03data.c03_rule.Split(',');
+                                            if (ruleArray.Length > 0) this.txt_311.Text = ruleArray[0].ToString();
+                                            if (ruleArray.Length > 1) this.txt_312.Text = ruleArray[1].ToString();
+                                        }
+                                        else
+                                        {
+                                            this.rb_32.Checked = true;
+                                            string[] ruleArray = c03data.c03_rule.Split(',');
+                                            if (ruleArray.Length > 0) this.txt_321.Text = ruleArray[0].ToString();
+                                            if (ruleArray.Length > 1) this.ddl_322.Items.FindByValue(ruleArray[1].ToString()).Selected = true;
+                                            if (ruleArray.Length > 2) this.ddl_323.Items.FindByValue(ruleArray[2].ToString()).Selected = true;
+                                        }
+                                        #endregion
+                                    }
+                                    else
+                                    {
+                                        #region 年循環(typ:類型 rule:(1)月,日(2)月,第n個週,週幾)
+                                        this.Panel4.Visible = true;
+                                        if (c03data.c03_type.Equals("1"))
+                                        {
+                                            this.rb_41.Checked = true;
+                                            string[] ruleArray = c03data.c03_rule.Split(',');
+                                            if (ruleArray.Length > 0) this.ddl_411.Items.FindByValue(ruleArray[0].ToString()).Selected = true;
+                                            if (ruleArray.Length > 1) this.txt_412.Text = ruleArray[1];
+
+                                        }
+                                        else
+                                        {
+                                            this.rb_42.Checked = true;
+                                            string[] ruleArray = c03data.c03_rule.Split(',');
+                                            if (ruleArray.Length > 0) this.ddl_421.Items.FindByValue(ruleArray[0].ToString()).Selected = true;
+                                            if (ruleArray.Length > 1) this.ddl_422.Items.FindByValue(ruleArray[1].ToString()).Selected = true;
+                                            if (ruleArray.Length > 2) this.ddl_423.Items.FindByValue(ruleArray[2].ToString()).Selected = true;
+                                        }
+                                        #endregion
+                                    }
+                                    #endregion
+                                    #region 範圍
+                                    this.cl_sdate1._ADDate = Convert.ToDateTime(c03data.c03_sdate);
+                                    if (c03data.c03_ctype.Equals("1"))
+                                    {
+                                        this.rb_51.Checked = true;
+                                        this.txt_qty.Text = c03data.c03_crule;
+                                    }
+                                    else
+                                    {
+                                        this.rb_52.Checked = true;
+                                        this.cl_edate1._ADDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(c03data.c03_crule));
+                                    }
+                                    #endregion
+
+                                }
+                            }
+                            #endregion
+                        }
+                    }
+                    #endregion
+                }
+                else
+                {
+                    this.Navigator1.SubFunc = "新增";
+                    #region 新增
+                    this.cb_update.Visible = false;
+                    this.btn_del.Visible = false;
+                    this.btn_del.Enabled = false;
+                    this.txt_bgcolor.Text = "#FFFFFF";
+                    if (Request["stime"] != null)
+                    {
+                        try
+                        {
+                            this.ddl_stime.Items.FindByValue(Request["stime"]).Selected = true;
+                            this.ddl_etime.Items.FindByValue(Request["stime"]).Selected = true;
+                        }
+                        catch { }
+                    }
+                    #endregion
+                }
+            }
+            else
+            {
                 this.btn_del.Visible = false;
                 this.btn_del.Enabled = false;
-                this.txt_bgcolor.Text = "#FFFFFF";
-                if (Request["stime"] != null)
-                {
-                    try
-                    {
-                        this.ddl_stime.Items.FindByValue(Request["stime"]).Selected = true;
-                        this.ddl_etime.Items.FindByValue(Request["stime"]).Selected = true;
-                    }
-                    catch { }
-                }
-                #endregion
+                this.btn_submit.Visible = false;
+                this.btn_submit.Enabled = false;
             }
             #endregion
         }
@@ -193,13 +228,6 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     #region 取消
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
-        //string url = "";
-        //if (this.lab_source.Text.Equals("months"))
-        //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-        //else if (this.lab_source.Text.Equals("weeks"))
-        //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-        //else
-        //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
         this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
     }
     #endregion
@@ -557,14 +585,6 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
                 }
                 #endregion
             }
-
-            //string url = "";
-            //if (this.lab_source.Text.Equals("months"))
-            //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else if (this.lab_source.Text.Equals("weeks"))
-            //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else
-            //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
 
             this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
@@ -1138,14 +1158,6 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 1, "計畫--刪除 peo_uid" + this.lab_peo_uid.Text + ",c03_no=" + this.lab_c03_no.Text + "或c02_no=" + this.lab_no.Text);
 
-            //string url = "";
-            //if (this.lab_source.Text.Equals("months"))
-            //    url = "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else if (this.lab_source.Text.Equals("weeks"))
-            //    url = "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-            //else
-            //    url = "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text;
-
             this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
         catch (Exception ex)
@@ -1153,13 +1165,6 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             aMSG = "功能名稱:行事曆-刪除<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
-
-        //if (this.lab_source.Text.Equals("3"))
-        //    Response.Write(PCalendarUtil.ShowMsg_URL("", "100301-2.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text));
-        //else if (this.lab_source.Text.Equals("2"))
-        //    Response.Write(PCalendarUtil.ShowMsg_URL("", "100301-1.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text));
-        //else
-        //    Response.Write(PCalendarUtil.ShowMsg_URL("", "100301.aspx?today=" + this.lab_today.Text + "&peo_uid=" + this.lab_peo_uid.Text + "&depart=" + this.lab_depart.Text));
     }
     #endregion
 

@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="100303-1.aspx.cs" Inherits="_10_100300_100303_1" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc4" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <uc1:navigator ID="Navigator1" runat="server" SysFuncNo="100302" />
+    <uc1:navigator ID="Navigator1" runat="server" SysFuncNo="100303" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1"></div>
@@ -34,8 +34,8 @@
                                 <asp:RadioButton ID="rb_2" runat="server" GroupName="rb" Text="請選擇人員：" />
                               </td>
                             <td>
-                                <uc4:DepartTreeListBox ID="DepartTreeListBox_people" runat="server" 
-                                    LeafType="People" />
+                                <uc2:DepartTreeListBox ID="DepartTreeListBox1" runat="server" LeafType="People" 
+                                    PeopleType="All" />
                               </td>
                           </tr>
                           <tr>
@@ -43,7 +43,7 @@
                                 <asp:RadioButton ID="rb_3" runat="server" GroupName="rb" Text="請選擇單位：" />
                               </td>
                             <td>
-                                <uc4:DepartTreeListBox ID="DepartTreeListBox_depar" runat="server" />
+                                <uc2:DepartTreeListBox ID="DepartTreeListBox2" runat="server" />
                               </td>
                           </tr>
                         </table>
@@ -59,8 +59,6 @@
                             <asp:ListItem Value="2">單位(含子部門)</asp:ListItem>
                         </asp:RadioButtonList>
                         
-                        <asp:Label ID="lab_pageIndex" runat="server" Visible="False"></asp:Label>
-                        
                     </td>
                 </tr>
             </tbody>
@@ -74,10 +72,11 @@
             </div>
         </div>
         <div class="bottom">
-            <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click" />
+            <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" 
+                OnClick="btn_submit_Click" />
             &nbsp;&nbsp;
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" 
-                onclick="btn_cancel_Click" />
+                PostBackUrl="100303.aspx" />
         </div>
         <div id="div_msg" runat="server">
         </div>

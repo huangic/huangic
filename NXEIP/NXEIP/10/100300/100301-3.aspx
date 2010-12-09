@@ -24,7 +24,7 @@
             <div class="block-1">
                 <div class="header">
                     <div class="h1"><asp:HyperLink ID="hl_Pre" runat="server" NavigateUrl="?todays=2009-01-01"><span>箭頭</span></asp:HyperLink></div>
-                    <div class="h2"><asp:Label ID="lab_CYM" runat="server" CssClass="name">2010年</asp:Label></div>
+                    <div class="h2"><asp:Label ID="lab_CYM" runat="server" CssClass="name">99年</asp:Label></div>
                     <div class="h3"><asp:HyperLink ID="hl_Nxt" runat="server" NavigateUrl="?todays=2011-01-01"><span>箭頭</span></asp:HyperLink></div>
                 </div>
             </div>

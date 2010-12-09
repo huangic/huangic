@@ -38,7 +38,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                 this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd"));
             }
             this.Calendar1.TodaysDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-MM-dd"));//月曆初始值(左)
-            this.lab_CYM.Text = this.Calendar1.VisibleDate.Year.ToString() + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
+            this.lab_CYM.Text = Convert.ToString(this.Calendar1.VisibleDate.Year-1911) + "年" + this.Calendar1.VisibleDate.Month.ToString("0#") + "月";
             this.lab_today.Text = PCalendarUtil.GetToday(); //今天日期
 
             #endregion
@@ -51,7 +51,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年"
+            this.lab_show.Text = Convert.ToString(Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year-1911) + "年"
                 + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Month + "月";
 
             if (Request["peo_uid"] != null)
