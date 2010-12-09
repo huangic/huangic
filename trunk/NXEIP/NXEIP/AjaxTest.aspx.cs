@@ -29,6 +29,11 @@ public partial class AjaxTest : System.Web.UI.Page
             this.DepartmentPanel1.Add(7);
             this.DepartTreeListBox1.Add(1);
 
+
+            String[] array={"1","2"};
+
+        
+        
         }
 
         //測試CACHE 項目

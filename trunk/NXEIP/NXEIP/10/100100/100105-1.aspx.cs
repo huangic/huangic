@@ -20,9 +20,18 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        int depid = 0;
+        try
+        {
+            depid = int.Parse(Request.Cookies["depid"].Value);
+        }
+        catch {
+            depid = int.Parse(sessionObj.sessionUserDepartID);
+        }
 
-        int depid = int.Parse(Request.Cookies["depid"].Value);
-             string folderType = Request.Cookies["folderType"].Value;
+        
+        
+        string folderType = Request.Cookies["folderType"].Value;
 
 
          string uploadDir=null;
