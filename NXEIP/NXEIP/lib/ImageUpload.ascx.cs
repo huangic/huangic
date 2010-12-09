@@ -202,6 +202,12 @@ public partial class lib_ImageUpload : System.Web.UI.UserControl
             this.lab_height.Text = PicHeight.ToString();
         }
     }
+    #region 清掉預覽圖
+    public void ClearPrivew()
+    {
+        this.div_pic.InnerHtml = "";
+    }
+    #endregion
 
     #region 處理
     public void UploadPic()
