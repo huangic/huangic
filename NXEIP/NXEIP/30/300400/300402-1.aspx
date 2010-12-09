@@ -1,16 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="300402-1.aspx.cs" Inherits="_30_300400_300402_1" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"CodeFile="300402-1.aspx.cs" Inherits="_30_300400_300402_1" EnableEventValidation="false" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc2" %>
 <%@ Register src="../../lib/ImageUpload.ascx" tagname="ImageUpload" tagprefix="uc5" %>
-<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc3" %>
+<%@ Register src="../../lib/tree/DepartTreeTextBox.ascx" tagname="DepartTreeTextBox" tagprefix="uc3" %>
+<%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    </asp:ToolkitScriptManager>
+    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </ajaxtoolkit:ToolkitScriptManager>
     <script type="text/javascript" src="../../js/lytebox.js"></script>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300402" />
     <div class="tableDiv">
@@ -33,9 +32,7 @@
             <tr>
                 <th><span class="a-letter-Red">*</span> 第一保管人</th>
                 <td>
-                    <uc3:DepartTreeListBox ID="DepartTreeListBox_people_1" runat="server" 
-                        LeafType="People" />
-
+                    <uc3:DepartTreeTextBox ID="DepartTreeTextBox1" runat="server" />
                 </td>
                 <th><span class="a-letter-Red">*</span> 第一保管人電話</th>
                 <td><asp:TextBox ID="txt_tel1" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
@@ -44,8 +41,7 @@
             <tr>
                 <th>第二保管人</th>
                 <td>
-                    <uc3:DepartTreeListBox ID="DepartTreeListBox_people_2" runat="server" 
-                        LeafType="People" />
+                    <uc3:DepartTreeTextBox ID="DepartTreeTextBox2" runat="server" />
                 </td>
                 <th>第二保管人電話</th>
                 <td><asp:TextBox ID="txt_tel2" runat="server" Columns="10"></asp:TextBox>分機<asp:TextBox 
@@ -60,40 +56,21 @@
             <tr>
                 <th><span class="a-letter-Red">*</span> 可借用時間</th>
                 <td>起<asp:DropDownList ID="ddl_stime" runat="server">
-                    <asp:ListItem Value="0">請選擇</asp:ListItem>
-                    <asp:ListItem Value="06:00">06:00</asp:ListItem>
-                    <asp:ListItem Value="07:00">07:00</asp:ListItem>
-                    <asp:ListItem Value="08:00">08:00</asp:ListItem>
-                    <asp:ListItem Value="09:00">09:00</asp:ListItem>
-                    <asp:ListItem Value="10:00">10:00</asp:ListItem>
-                    <asp:ListItem Value="11:00">11:00</asp:ListItem>
-                    <asp:ListItem Value="12:00">12:00</asp:ListItem>
-                    <asp:ListItem Value="13:00">13:00</asp:ListItem>
-                    <asp:ListItem Value="14:00">14:00</asp:ListItem>
-                    <asp:ListItem Value="15:00">15:00</asp:ListItem>
-                    <asp:ListItem Value="16:00">16:00</asp:ListItem>
-                    <asp:ListItem Value="17:00">17:00</asp:ListItem>
-                    <asp:ListItem Value="18:00">18:00</asp:ListItem>
-                    <asp:ListItem Value="19:00">19:00</asp:ListItem>
-                    <asp:ListItem Value="20:00">20:00</asp:ListItem>
-                    </asp:DropDownList> ~ 迄 <asp:DropDownList ID="ddl_etime" runat="server">
-                    <asp:ListItem Value="0">請選擇</asp:ListItem>
-                    <asp:ListItem Value="06:00">06:00</asp:ListItem>
-                    <asp:ListItem Value="07:00">07:00</asp:ListItem>
-                    <asp:ListItem Value="08:00">08:00</asp:ListItem>
-                    <asp:ListItem Value="09:00">09:00</asp:ListItem>
-                    <asp:ListItem Value="10:00">10:00</asp:ListItem>
-                    <asp:ListItem Value="11:00">11:00</asp:ListItem>
-                    <asp:ListItem Value="12:00">12:00</asp:ListItem>
-                    <asp:ListItem Value="13:00">13:00</asp:ListItem>
-                    <asp:ListItem Value="14:00">14:00</asp:ListItem>
-                    <asp:ListItem Value="15:00">15:00</asp:ListItem>
-                    <asp:ListItem Value="16:00">16:00</asp:ListItem>
-                    <asp:ListItem Value="17:00">17:00</asp:ListItem>
-                    <asp:ListItem Value="18:00">18:00</asp:ListItem>
-                    <asp:ListItem Value="19:00">19:00</asp:ListItem>
-                    <asp:ListItem Value="20:00">20:00</asp:ListItem>
-                    </asp:DropDownList> </td>
+                    </asp:DropDownList>
+                    <ajaxtoolkit:CascadingDropDown ID="ddl_stime_CascadingDropDown" runat="server" 
+                            Category="stime" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                                ServiceMethod="GetTimes" ServicePath="../../WebService/calendar.asmx" UseContextKey="True"
+                                TargetControlID="ddl_stime">
+                            </ajaxtoolkit:CascadingDropDown>
+                    ~ 迄  
+                    <asp:DropDownList ID="ddl_etime" runat="server">
+                    </asp:DropDownList>
+                    <ajaxtoolkit:CascadingDropDown ID="ddl_etime_CascadingDropDown" runat="server" 
+                        Category="etime" LoadingText="讀取中..." PromptText="請選擇" PromptValue="0" 
+                        ServiceMethod="GetTimes" ServicePath="../../WebService/calendar.asmx" 
+                        TargetControlID="ddl_etime" UseContextKey="True">
+                    </ajaxtoolkit:CascadingDropDown>
+                </td>
                 <th>最低與會人數</th>
                 <td><asp:TextBox ID="txt_count" runat="server" Columns="5"></asp:TextBox>人</td>
             </tr>
@@ -139,7 +116,7 @@
                     <tr>
                       <td style="width:80px"><asp:RadioButton ID="rb_02" runat="server" GroupName="rb" Text="限制單位" /></td>
                       <td>
-                          <uc3:DepartTreeListBox ID="DepartTreeListBox_depar" runat="server" />
+                          <uc4:DepartTreeListBox ID="DepartTreeListBox1" runat="server" />
                         </td>
                     </tr>
                   </table>

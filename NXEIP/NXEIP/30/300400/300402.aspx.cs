@@ -22,10 +22,16 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            if (!string.IsNullOrEmpty(Request["pageIndex"]))
+            if (Session["300402_pageIndex"] != null)
             {
                 this.GridView1.DataBind();
-                this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
+                this.GridView1.PageIndex = Convert.ToInt32(Session["300402_pageIndex"].ToString());
+            }
+            else
+            {
+                Session.Add("300402_pageIndex", "");
+                Session.Add("300402_no", "");
+                Session.Add("300402_mode", "");
             }
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
@@ -57,25 +63,26 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     {
         if (e.CommandName.Equals("modify"))
         {
-            string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
+            Session["300402_no"] = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
+            Session["300402_pageIndex"] = this.GridView1.PageIndex.ToString();
+            Session["300402_mode"] = "modify";
+
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "查詢 場地資料 編號:" + pkno);
-            string urls = "300402-1.aspx?mode=modify&no=" + pkno + "&pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString();
-            Response.Redirect(urls);
+            new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "查詢 場地資料 編號:" + Session["300402_no"].ToString());
+            Response.Redirect("300402-1.aspx");
         }
         else if (e.CommandName.Equals("del"))
         {
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
+            Session["300402_pageIndex"] = this.GridView1.PageIndex.ToString();
 
             string sqlstr = "update rooms set roo_status='2' where roo_no=" + pkno;
             dbo.ExecuteNonQuery(sqlstr);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 3, "刪除 場地資料 編號:" + pkno);
-            Response.Redirect("300402.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
+            Response.Redirect("300402.aspx");
         }
     }
     #endregion

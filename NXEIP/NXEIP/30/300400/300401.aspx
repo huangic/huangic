@@ -7,8 +7,6 @@
     function update(msg) {
         __doPostBack('<%=UpdatePanel1.ClientID%>', '');
         tb_remove();
-
-
         alert(msg);
     }
 
