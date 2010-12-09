@@ -11,6 +11,7 @@
         SelectMethod="GetAll" TypeName="NXEIP.DAO.C04DAO" 
         OldValuesParameterFormatString="original_{0}">
     </asp:ObjectDataSource>
+    <asp:Label ID="lab_pageIndex" runat="server"></asp:Label>
 <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100303" />
 <div class="tableDiv">
         <div class="header">

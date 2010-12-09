@@ -32,7 +32,7 @@ public partial class _10_100300_100301_3 : System.Web.UI.Page
             else
                 this.lab_date.Text = changeobj.ADDTtoROCDT(System.DateTime.Now.ToString("yyyy-MM-dd"));
 
-            this.lab_CYM.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年";
+            this.lab_CYM.Text = Convert.ToString(Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year-1911) + "年";
             this.lab_today.Text = PCalendarUtil.GetToday(); //今天日期
             #endregion
 
@@ -44,7 +44,7 @@ public partial class _10_100300_100301_3 : System.Web.UI.Page
             #endregion
 
             #region 右邊版面：預設日期、人員編號
-            this.lab_show.Text = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year + "年";
+            this.lab_show.Text = Convert.ToString(Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text)).Year - 1911) + "年";
 
             if (Request["peo_uid"] != null)
                 this.lab_people.Text = Request["peo_uid"];

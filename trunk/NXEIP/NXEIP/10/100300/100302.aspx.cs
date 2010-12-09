@@ -64,7 +64,7 @@ public partial class _10_100300_100302 : System.Web.UI.Page
         if (e.CommandName.Equals("del"))
         {
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
+            //string pageIndex = this.GridView1.PageIndex.ToString();
 
             string sqlstr = "delete from c01 where c01_no=" + pkno;
             dbo.ExecuteNonQuery(sqlstr);

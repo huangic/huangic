@@ -368,7 +368,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             this.lab_Month.Visible = true;
 
             DateTime today = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text));
-            this.lab_Month.Text = today.Year.ToString() + "年" + today.Month.ToString() + "月";
+            this.lab_Month.Text = Convert.ToString(today.Year-1911) + "年" + today.Month.ToString() + "月";
             this.lab_date.Text = this.lab_today.Text;
 
             this.Calendar1.VisibleDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text));
@@ -457,7 +457,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             this.lab_Month.Visible = true;
 
             DateTime today = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text));
-            this.lab_Month.Text = today.Year.ToString() + "年" + today.Month.ToString() + "月";
+            this.lab_Month.Text = Convert.ToString(today.Year-1911) + "年" + today.Month.ToString() + "月";
             this.lab_date.Text = this.lab_today.Text;
 
             DataTable dt99 = new DataTable();
