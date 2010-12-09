@@ -40,6 +40,7 @@ namespace lib.SWFUpload
 
         protected override void OnPreRender(EventArgs e)
         {
+            ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "JQuery", ResolveClientUrl("~/js/jquery-1.4.2.min.js"));
             ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "SWFUploadScriptCore", ResolveClientUrl("~/js/swfupload/swfupload.js"));
             ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "SWFUploadScriptHandlers", ResolveClientUrl("~/js/swfupload/handlers.js"));
             ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "SWFUploadScriptJson", ResolveClientUrl("~/js/json2.js"));

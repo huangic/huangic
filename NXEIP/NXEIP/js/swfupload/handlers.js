@@ -58,7 +58,7 @@ function DelPic(fileInfo, swfObj) {
     var upload_url = swfObj.settings.upload_url;
     //alert(upload_url);
     
-    var url = upload_url+"?cmd=del&f=" + fileInfo.Path + "&name=" + fileInfo.FileName + "&dt=" + new Date();
+    var url = upload_url+"?cmd=del&f=" + fileInfo.Path + "&name=" + fileInfo.FileName + "&dt=" + new Date()+"&PathArg="+swfObj.settings.post_params.PathArg;
     //删除指定ServerData值
     var serverData = document.getElementById(swfObj.customSettings.serverDataId).value;
     var sData = JSON.parse(serverData);
@@ -70,6 +70,8 @@ function DelPic(fileInfo, swfObj) {
     }
     var newSData = JSON.stringify(sData);
     document.getElementById(swfObj.customSettings.serverDataId).value = newSData;
+    
+    //$("#"+swfObj.customSettings.serverDataId).val(newSData);
     
     xmlHttpRequest = getXMLHttpRequest();
     try {
@@ -88,6 +90,8 @@ function onReadyStateChange() {
             if (xmlHttpRequest.status == 200) {
                 if (xmlHttpRequest.responseText != "删除成功!") {
                     //移除FALSH 的物件
+                   
+                    
                     alert(xmlHttpRequest.responseText);
                 }
             }
@@ -199,7 +203,15 @@ function uploadSuccess(file, serverData, swfObj) {
         
         var progress = GetFileProgressObject(swfObj.customSettings, file, swfObj.customSettings.upload_target);
         //更新serverData
-        document.getElementById(swfObj.customSettings.serverDataId).value = serverData;
+        
+        
+        
+        
+        
+        
+        
+        
+        
         swfObj.setPostParams({
             ASPSESSID: swfObj.settings.post_params.ASPSESSID,
             path: swfObj.settings.post_params.path,
@@ -216,6 +228,42 @@ function uploadSuccess(file, serverData, swfObj) {
         if (dataList.length > 0) {
             fileInfo = dataList[dataList.length - 1];
         }
+        
+        
+        //取得Sdata後 做刪除檔案的檢查
+        
+         //"UC_SWFUpload1_divFileProgressContainer"    
+            
+            var item=$("#"+progress.fileProgressID).parent().children();
+            
+            
+            var sData =dataList;
+          for (var i = 0; i < sData.length; i++) {
+              
+              isContact =false;
+              for(var j =0 ;j<item.length;j++){
+                if(sData[i].Id==item[j].Id){
+                  isContact=true;
+                  break;
+                }
+                
+              }
+              
+              
+              if(!isContact){
+                
+                sData.splice(i, 1);
+              }
+             
+            }
+            
+            
+            
+         //取LI
+        //如果不存在就幹掉他
+        
+        var newSData = JSON.stringify(sData);
+        document.getElementById(swfObj.customSettings.serverDataId).value = newSData;
                  
         progress.fileProgressWrapper.childNodes[0].childNodes[0].href = "javascript:";
         //如果为图片类型   则可使用图片预览功能
@@ -240,12 +288,16 @@ function uploadSuccess(file, serverData, swfObj) {
             if (confirm("删除後無法恢復,是否繼續?")) {
                 DelPic(fileInfo, swfObj);
                     removeElement(progress.fileProgressWrapper);
+                    stats=swfObj.getStats();
+                    stats.successful_uploads--;
+                    swfObj.setStats(stats);
                 }
             }
             progress.fileProgressWrapper.childNodes[3].childNodes[0].style.visibility = "visible";
         }
     } catch (ex) {
-        this.debug(ex);
+        //this.debug(ex);
+        alert(ex);
     }
 }
 

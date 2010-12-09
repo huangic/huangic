@@ -259,6 +259,11 @@ namespace IMMENSITY.SWFUploadAPI
         /// <param name="delSmallPic">是否删除小图</param>
         public string Delete(string savePath, string fileName, bool delSmallPic)
         {
+            
+            //加入路徑參數判斷參數
+            
+            
+            
             //删除状态
             string msg = string.Empty;
             string folder = savePath;
@@ -288,7 +293,7 @@ namespace IMMENSITY.SWFUploadAPI
 
             try
             {
-                delPicPath = string.Format("{0}/{1}/{2}", delPath, folder, fileName);
+                delPicPath = string.Format("{1}/{2}", delPath, folder, fileName);
                 if (File.Exists(delPicPath))//如果该文件存在，则删除
                 {
                     deleteCount++;

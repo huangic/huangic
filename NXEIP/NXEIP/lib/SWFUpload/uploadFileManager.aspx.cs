@@ -183,7 +183,20 @@ namespace lib.SWFUpload
         public void DelFile()
         {
             string name = SWFUrlOper.GetStringParamValue("name");
-            string msg = new SWFUploadFile().Delete(SWFUrlOper.GetStringParamValue("f"), SWFUrlOper.GetStringParamValue("name"), true);
+            string path = SWFUrlOper.GetStringParamValue("f");
+            string pathArg = SWFUrlOper.GetStringParamValue("PathArg");
+
+            ArgumentsObject argObj = new ArgumentsObject();
+
+            string arg_path = argObj.Get_argValue(pathArg);
+            if (!string.IsNullOrEmpty(arg_path))
+            {
+                path = arg_path + path;
+            }
+
+
+
+            string msg = new SWFUploadFile().Delete(path, SWFUrlOper.GetStringParamValue("name"), true);
             Response.Write(msg);
             Response.End();
         }
