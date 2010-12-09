@@ -51,5 +51,17 @@ namespace NXEIP.DAO
             return model.SaveChanges();
         }
         #endregion
+
+        #region 由[peo_uid]取得[編號]
+        /// <summary>
+        /// 由[編號]取得[資料]
+        /// </summary>
+        /// <param name="no">編號</param>
+        /// <returns>整筆資料</returns>
+        public int GetNoByPeoUid(int peo_uid)
+        {
+            return (from tb in model.c04 where tb.peo_uid == peo_uid select tb.c04_no).FirstOrDefault();
+        }
+        #endregion
     }
 }
