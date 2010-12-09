@@ -23,9 +23,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
-            if (Request["mode"] != null) this.lab_mode.Text = Request["mode"];
-            if (Request["no"] != null) this.lab_no.Text = Request["no"];
+            if (Session["300402_pageIndex"] != null) this.lab_pageIndex.Text = Session["300402_pageIndex"].ToString();
+            if (Session["300402_mode"] != null) this.lab_mode.Text = Session["300402_mode"].ToString();
+            if (Session["300402_no"] != null) this.lab_no.Text = Session["300402_no"].ToString();
 
             ListItem selectitem = new ListItem("請選擇", "0");
             #region 所在地
@@ -46,9 +46,10 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             if (this.lab_mode.Text.Equals("modify"))
             {
                 this.Navigator1.SubFunc = "修改";
-                this.DepartTreeListBox_depar.Clear();
-                this.DepartTreeListBox_people_1.Clear();
-                this.DepartTreeListBox_people_2.Clear();
+                if (this.DepartTreeListBox1.Items != null) this.DepartTreeListBox1.Items.Clear();
+                
+                this.jQueryPeopleTree1.Clear();
+                this.jQueryPeopleTree2.Clear();
                 Entity.rooms roomsData = new RoomsDAO().GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
 
                 #region textbox
@@ -70,16 +71,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     this.ddl_spot.Items.FindByValue(roomsData.spo_no.ToString()).Selected = true;
                 }
                 catch { }
-                try
-                {
-                    this.ddl_stime.Items.FindByValue(roomsData.roo_stime).Selected = true;
-                }
-                catch { }
-                try
-                {
-                    this.ddl_etime.Items.FindByValue(roomsData.roo_etime).Selected = true;
-                }
-                catch { }
+
+                this.ddl_stime_CascadingDropDown.ContextKey = roomsData.roo_stime;
+                this.ddl_etime_CascadingDropDown.ContextKey = roomsData.roo_etime;
 
                 if (roomsData.roo_dep.Equals("1"))
                     this.rb_01.Checked = true;
@@ -93,7 +87,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            this.DepartTreeListBox_depar.Add(dt.Rows[i]["gov_depno"].ToString());
+                            this.jQueryDepartTree1.Add(dt.Rows[i]["gov_depno"].ToString());
                         }
                     }
                 }
@@ -102,11 +96,11 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                 #region 保管人
                 if (roomsData.roo_oneuid.HasValue)
                 {
-                    this.DepartTreeListBox_people_1.Add(roomsData.roo_oneuid.ToString());
+                    this.jQueryPeopleTree1.Add(roomsData.roo_oneuid.ToString());
                 }
                 if (roomsData.roo_twouid.HasValue)
                 {
-                    this.DepartTreeListBox_people_2.Add(roomsData.roo_twouid.ToString());
+                    this.jQueryPeopleTree2.Add(roomsData.roo_twouid.ToString());
                 }
                 #endregion
 
@@ -154,6 +148,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
 
                 this.lbtn_delpic2.Visible = false;
                 this.ImageUpload2.Visible = true;
+
+                this.ddl_stime_CascadingDropDown.ContextKey = "08:00";
+                this.ddl_etime_CascadingDropDown.ContextKey = "18:00";
                 
             }
         }
@@ -205,7 +202,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         }
         #endregion
         #region 第一保管人
-        if (this.DepartTreeListBox_people_1.Items.Count <= 0 || this.DepartTreeListBox_people_1.Items == null)
+        if (this.jQueryPeopleTree1.Items.Count <= 0 || this.jQueryPeopleTree1.Items == null)
         {
             ShowMsg("請選擇 第一保管人");
             feedback = false;
@@ -275,7 +272,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
             ShowMsg("請選擇 可借用時間-迄");
             feedback = false;
         }
-        if (this.ddl_stime.SelectedIndex >= this.ddl_etime.SelectedIndex)
+        if (Convert.ToDateTime(System.DateTime.Today.ToString("yyyy/MM/dd")+" "+this.ddl_stime.SelectedValue) >=
+            Convert.ToDateTime(System.DateTime.Today.ToString("yyyy/MM/dd") + " " + this.ddl_etime.SelectedValue))
         {
             ShowMsg("可借用時間-起 不可大於等於 可借用時間-迄");
             feedback = false;
@@ -334,7 +332,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         #region 場地開放單位
         if (this.rb_02.Checked)
         {
-            if (this.DepartTreeListBox_depar.Items.Count <= 0 || this.DepartTreeListBox_depar.Items == null)
+            if (this.jQueryDepartTree1.Items.Count <= 0 || this.jQueryDepartTree1.Items == null)
             {
                 ShowMsg("請選擇 場地開放單位");
                 feedback = false;
@@ -384,7 +382,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                         newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                         newRow.roo_name = this.txt_name.Text;
-                        newRow.roo_oneuid = Convert.ToInt32(this.DepartTreeListBox_people_1.Items[0].Key);
+                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
                         if (this.ImageUpload1.HasFile)
                         {
                             newRow.roo_picture = this.ImageUpload1.GetFileBytes;
@@ -399,8 +397,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_tel = this.txt_tel1.Text;
                         newRow.roo_twoext = this.txt_ext2.Text;
                         newRow.roo_twotel = this.txt_tel2.Text;
-                        if (this.DepartTreeListBox_people_2.Items != null && this.DepartTreeListBox_people_2.Items.Count > 0)
-                            newRow.roo_twouid = Convert.ToInt32(this.DepartTreeListBox_people_2.Items[0].Key);
+                        if (this.jQueryPeopleTree2.Items != null && this.jQueryPeopleTree2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
                         newRow.roo_telephone = this.txt_telephone.Text;
@@ -413,9 +411,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
 
                         if (this.rb_02.Checked)
                         {
-                            for (int i = 0; i < this.DepartTreeListBox_depar.Items.Count; i++)
+                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
                             {
-                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.DepartTreeListBox_depar.Items[i].Key + ")";
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + this.lab_no.Text + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
                                 dbo.ExecuteNonQuery(InsStr);
                             }
                         }
@@ -456,7 +454,7 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_floor = Convert.ToInt32(this.txt_floor.Text);
                         newRow.roo_human = Convert.ToInt32(this.txt_human.Text);
                         newRow.roo_name = this.txt_name.Text;
-                        newRow.roo_oneuid = Convert.ToInt32(this.DepartTreeListBox_people_1.Items[0].Key);
+                        newRow.roo_oneuid = Convert.ToInt32(this.jQueryPeopleTree1.Items[0].Key);
                         if (this.ImageUpload1.HasFile)
                         {
                             newRow.roo_picture = this.ImageUpload1.GetFileBytes;
@@ -472,8 +470,8 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         newRow.roo_tel = this.txt_tel1.Text;
                         newRow.roo_twoext = this.txt_ext2.Text;
                         newRow.roo_twotel = this.txt_tel2.Text;
-                        if (this.DepartTreeListBox_people_2.Items.Count > 0)
-                            newRow.roo_twouid = Convert.ToInt32(this.DepartTreeListBox_people_2.Items[0].Key);
+                        if (this.jQueryPeopleTree2.Items.Count > 0)
+                            newRow.roo_twouid = Convert.ToInt32(this.jQueryPeopleTree2.Items[0].Key);
                         else
                             newRow.roo_twouid = 0;
                         newRow.roo_telephone = this.txt_telephone.Text;
@@ -484,9 +482,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                         #region government
                         if (this.rb_02.Checked)
                         {
-                            for (int i = 0; i < this.DepartTreeListBox_depar.Items.Count; i++)
+                            for (int i = 0; i < this.jQueryDepartTree1.Items.Count; i++)
                             {
-                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.DepartTreeListBox_depar.Items[i].Key + ")";
+                                string InsStr = "insert into government (roo_no,gov_no,gov_depno) values(" + roo_no + "," + Convert.ToString(i + 1) + "," + this.jQueryDepartTree1.Items[i].Key + ")";
                                 dbo.ExecuteNonQuery(InsStr);
                             }
                         }
@@ -497,8 +495,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                     new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 1, "所在地：" + this.ddl_spot.SelectedItem.Text + ",場地名稱：" + this.txt_name.Text.Trim() + "....等");
                 }
-
-                Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+                Session["300402_mode"] = "";
+                Session["300402_no"] = "";
+                Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx"));
             }
         }
         catch (Exception ex)
@@ -512,7 +511,9 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
     #region 取消
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
-        Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx?pageIndex=" + this.lab_pageIndex.Text + "&count=" + new System.Random().Next(10000).ToString()));
+        Session["300402_mode"] = "";
+        Session["300402_no"] = "";
+        Response.Write(PCalendarUtil.ShowMsg_URL("", "300402.aspx"));
     }
     #endregion
 
@@ -565,6 +566,4 @@ public partial class _30_300400_300402_1 : System.Web.UI.Page
         }
     }
     #endregion
-
-    
 }

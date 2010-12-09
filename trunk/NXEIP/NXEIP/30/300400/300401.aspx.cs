@@ -23,11 +23,6 @@ public partial class _30_300400_300401 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            //if (!string.IsNullOrEmpty(Request["pageIndex"]))
-            //{
-            //    this.GridView1.DataBind();
-            //    this.GridView1.PageIndex = Convert.ToInt32(Request["pageIndex"]);
-            //}
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 2, "所在地 列表");
         }
@@ -50,8 +45,6 @@ public partial class _30_300400_300401 : System.Web.UI.Page
         if (e.CommandName.Equals("del"))
         {
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            string pageIndex = this.GridView1.PageIndex.ToString();
-
             string sqlstr = "update spot set spo_status='2' where spo_no=" + pkno;
             dbo.ExecuteNonQuery(sqlstr);
 
@@ -59,8 +52,6 @@ public partial class _30_300400_300401 : System.Web.UI.Page
             new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 3, "刪除 所在地 編號:" + pkno);
 
             this.GridView1.DataBind();
-
-            //Response.Redirect("300401.aspx?pageIndex=" + pageIndex + "&count=" + new System.Random().Next(10000).ToString());
         }
     }
     #endregion
