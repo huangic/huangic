@@ -134,7 +134,7 @@
                     //parent.$("#"+settings.parentSessionID).val(
                     $(window.parent.document).find("#"+settings.parentSessionID).val(
 
-                    $.trim($("#"+settings.listBoxID).html())
+                    $.trim($("#"+settings.listBoxID).children().text())
                     
                     );
                 
