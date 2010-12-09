@@ -38,14 +38,38 @@ namespace NXEIP.DAO
 
         public IQueryable<sysfuction> GetSubBySysNo(int sys_no)
         {
-            return (from s in model.sysfuction where s.sys_no == sys_no && s.sfu_parent == 0 orderby s.sfu_no select s);
+            return (from s in model.sysfuction
+                    where s.sys_no == sys_no && s.sfu_parent == 0
+                    orderby s.sfu_no
+                    select s);
+        }
+
+        //使用中的功能
+        public IQueryable<sysfuction> GetUse_sfuParent(int sys_no)
+        {
+            return (from s in model.sysfuction
+                    where s.sys_no == sys_no && s.sfu_parent == 0 && s.sfu_status == "1"
+                    orderby s.sfu_no
+                    select s);
+        }
+
+        //使用中的子功能
+        public IQueryable<sysfuction> GetUse_sfu(int sfu_no)
+        {
+            return (from s in model.sysfuction
+                    where s.sfu_parent == sfu_no && s.sfu_status == "1"
+                    orderby s.sfu_no
+                    select s);
         }
 
         #region 類別管理
 
         public IQueryable<sysfuction> GetOpenData()
         {
-            return (from s in model.sysfuction where s.sys_open == "1" orderby s.sys_no, s.sfu_no, s.sfu_order select s);
+            return (from s in model.sysfuction
+                    where s.sys_open == "1"
+                    orderby s.sys_no, s.sfu_no, s.sfu_order
+                    select s);
         }
 
         public IQueryable<sysfuction> GetOpenData(int startRowIndex, int maximumRows)
@@ -75,6 +99,10 @@ namespace NXEIP.DAO
             return model.SaveChanges();
         }
 
+        public string GetNameByNO(int sfu_no)
+        {
+            return (from d in model.sysfuction where d.sfu_no == sfu_no select d.sfu_name).FirstOrDefault();
+        }
 
        
     }
