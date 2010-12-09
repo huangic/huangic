@@ -10,6 +10,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll_2" 
+        TypeName="NXEIP.DAO.SysDAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetUse_sfuParent" 
+        TypeName="NXEIP.DAO.SysfuctionDAO">
+        <SelectParameters>
+            <asp:Parameter Name="sys_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetUse_sfu" 
+        TypeName="NXEIP.DAO.SysfuctionDAO">
+        <SelectParameters>
+            <asp:Parameter Name="sfu_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="350301" />
     <div class="tableDiv">
         <div class="header">
@@ -47,13 +64,20 @@
                 <td>
                     主功能&nbsp;
                     <asp:DropDownList ID="ddl_sys" runat="server" AppendDataBoundItems="True" 
-                        AutoPostBack="True">
-                        <asp:ListItem Value="0">請選擇</asp:ListItem>
+                        AutoPostBack="True" DataSourceID="ObjectDataSource1" 
+                        DataTextField="sys_name" DataValueField="sys_no" 
+                        onselectedindexchanged="ddl_sys_SelectedIndexChanged">
+                        <asp:ListItem Value="0">全部</asp:ListItem>
                     </asp:DropDownList>
-                    次功能&nbsp;
-                    <asp:DropDownList ID="ddl_sfu_parent" runat="server" AutoPostBack="True">
+                    &nbsp;次功能&nbsp;
+                    <asp:DropDownList ID="ddl_sfu_parent" runat="server" AutoPostBack="True" 
+                        DataSourceID="ObjectDataSource2" DataTextField="sfu_name" 
+                        DataValueField="sfu_no" 
+                        onselectedindexchanged="ddl_sfu_parent_SelectedIndexChanged">
                     </asp:DropDownList>
-                    子功能&nbsp;<asp:DropDownList ID="ddl_sfu_no" runat="server">
+                    &nbsp;子功能&nbsp;<asp:DropDownList ID="ddl_sfu_no" runat="server" 
+                        DataSourceID="ObjectDataSource3" DataTextField="sfu_name" 
+                        DataValueField="sfu_no">
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -78,8 +102,9 @@
                 <td>
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td style="width: 15%">
-                                <asp:RadioButton ID="rb_all" runat="server" Text="全部" GroupName="G1" />
+                            <td style="width: 12%">
+                                <asp:RadioButton ID="rb_all" runat="server" Text="全部" GroupName="G1" 
+                                    Checked="True" />
                             </td>
                             <td>
                                 &nbsp;
@@ -87,7 +112,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_workid" runat="server" Text="人事編號：" GroupName="G1" />
+                                <asp:RadioButton ID="rb_workid" runat="server" Text="人事編號" GroupName="G1" />
                             </td>
                             <td>
                                 <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
@@ -95,7 +120,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:RadioButton ID="rb_account" runat="server" Text="員工帳號：" GroupName="G1" />
+                                <asp:RadioButton ID="rb_account" runat="server" Text="員工帳號" GroupName="G1" />
                             </td>
                             <td>
                                 <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
@@ -106,7 +131,7 @@
                                 <asp:RadioButton ID="rb_people" runat="server" Text="請選擇人員" GroupName="G1" />
                             </td>
                             <td>
-                                <uc5:DepartTreeListBox ID="DepartTreeListBox1" runat="server" 
+                                <uc5:DepartTreeListBox ID="DepartTreeListBox_people" runat="server" 
                                     LeafType="People" />
                                 </td>
                         </tr>
@@ -115,7 +140,7 @@
                                 <asp:RadioButton ID="rb_depart" runat="server" Text="請選擇單位" GroupName="G1" />
                             </td>
                             <td>
-                                <uc5:DepartTreeListBox ID="DepartTreeListBox2" runat="server" />
+                                <uc5:DepartTreeListBox ID="DepartTreeListBox_depart" runat="server" />
                             </td>
                         </tr>
                     </table>
