@@ -135,7 +135,9 @@ public class MyMessageUtil
 }
 
 
-
+/// <summary>
+/// 訊息種類列舉值
+/// </summary>
 public enum  EIPGroup{
             /// <summary>
             /// 一般訊息
