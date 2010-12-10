@@ -31,10 +31,6 @@ public partial class _35_350300_350301_1 : System.Web.UI.Page
 
                 OperatesObject.OperatesExecute(350301, 2, "查詢操作記錄,起迄日期:{0},功能:{1},操作模式{2},人員查詢{3}:{4}",list);
                 
-                //OperatesDAO dao = new OperatesDAO();
-                //var data = dao.SearchData(Request["date"], Request["sfu"], Request["opt"], Request["key"], Request["value"]);
-                //ObjectQuery q = data as ObjectQuery;
-                //Response.Write(q.ToTraceString());
 
             }
         }
