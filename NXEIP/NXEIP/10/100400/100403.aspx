@@ -101,10 +101,11 @@
                             <ItemStyle Width="12%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="r02_reason" HeaderText="故障原因" SortExpression="r02_reason">
-                            <ItemStyle Width="20%" />
+                            <ItemStyle Width="30%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="r02_reply" HeaderText="處理狀況" SortExpression="r02_reply">
-                            <ItemStyle Width="20%" />
+                        <asp:BoundField DataField="r02_status" HeaderText="處理狀況" 
+                            SortExpression="r02_status">
+                            <ItemStyle Width="10%" HorizontalAlign="Center" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>

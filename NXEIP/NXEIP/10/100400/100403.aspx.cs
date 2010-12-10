@@ -46,6 +46,8 @@ public partial class _10_100400_100403 : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        string[] status = { "", "未處理", "進行中", "已完成" };
+
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             UtilityDAO dao = new UtilityDAO();
@@ -60,8 +62,11 @@ public partial class _10_100400_100403 : System.Web.UI.Page
 
             e.Row.Cells[2].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
 
+            e.Row.Cells[4].Text = status[int.Parse(e.Row.Cells[4].Text)];
+            
         }
     }
+
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
