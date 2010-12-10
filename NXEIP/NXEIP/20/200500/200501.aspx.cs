@@ -27,6 +27,7 @@ public partial class _20_200500_200501 : System.Web.UI.Page
                 }
 
                 this.hidd_newS06no.Value = Request.QueryString["newS06no"];
+
                 this.hidd_d09S06no.Value = Request.QueryString["dc09S06no"];
 
                 this.newLoadData(this.hidd_newS06no.Value, string.Empty);
@@ -90,7 +91,7 @@ public partial class _20_200500_200501 : System.Web.UI.Page
                 }
                 else
                 {
-                    e.Row.Cells[0].Text = (from d in model.sys06 where d.s06_parent == s06data.s06_parent select d.s06_name).FirstOrDefault();
+                    e.Row.Cells[0].Text = (from d in model.sys06 where d.s06_no == s06data.s06_parent select d.s06_name).FirstOrDefault();
                     e.Row.Cells[1].Text = s06data.s06_name;
                 }
 
