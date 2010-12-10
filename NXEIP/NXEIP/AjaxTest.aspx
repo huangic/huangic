@@ -65,6 +65,8 @@
     
     <asp:Button ID="Button3" runat="server" Text="Check DataBase" 
         onclick="Button3_Click" />
+      <asp:Button ID="Button4" runat="server" onclick="Button4_Click" 
+        Text="MyMsg" />
       <br />
     <asp:TextBox ID="TextBox1" runat="server" Height="151px" Width="569px"></asp:TextBox>
 
