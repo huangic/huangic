@@ -12,13 +12,13 @@ using System.ComponentModel;
 public partial class lib_ImageUpload : System.Web.UI.UserControl
 {
     #region 設定或取得圖片表頭
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public String PicTitle { get; set; }
     #endregion
 
     #region 設定或取得圖片類型
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public String PicType
     {
@@ -30,7 +30,7 @@ public partial class lib_ImageUpload : System.Web.UI.UserControl
     #endregion
 
     #region 設定或取得圖片大小
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public int PicSize
     {
@@ -49,19 +49,19 @@ public partial class lib_ImageUpload : System.Web.UI.UserControl
     #endregion
 
     #region 設定或取得圖片-寬
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public int PicWidth { get; set; }
     #endregion
 
     #region 設定或取得圖片-高
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public int PicHeight { get; set; }
     #endregion
 
     #region 設定或取得是否縮圖
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public Boolean Thumbnail { get; set; }
     #endregion
@@ -73,7 +73,7 @@ public partial class lib_ImageUpload : System.Web.UI.UserControl
         HeightWidth=2,
         Width=3
     };
-    [Category("Behavior")]
+    [Category("自定屬性")]
     [Themeable(true)]
     public ThumbnailModetype ThumbnailMode { get; set; }
     #endregion
