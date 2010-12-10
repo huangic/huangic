@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Msg" type="tns:Message" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="From" type="tns:From" />
+          <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Category" type="tns:Category" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Group" type="tns:Group" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetUrlParams" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishToG2E" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishToEmail" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishToSMS" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="From">
+        <s:restriction base="s:string">
+          <s:enumeration value="EIP" />
+          <s:enumeration value="HR" />
+          <s:enumeration value="ODM" />
+          <s:enumeration value="CMS" />
+          <s:enumeration value="AssetMgr" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Category">
+        <s:restriction base="s:string">
+          <s:enumeration value="Notice" />
+          <s:enumeration value="ToDo" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Group">
+        <s:restriction base="s:string">
+          <s:enumeration value="EIP_General" />
+          <s:enumeration value="EIP_Todo_VerifyAccount" />
+          <s:enumeration value="EIP_Todo_VerifyPlace" />
+          <s:enumeration value="EIP_Todo_VerifyNews" />
+          <s:enumeration value="EIP_Todo_TakeMaintain" />
+          <s:enumeration value="HR_General" />
+          <s:enumeration value="HR_Notice_AttendanceRecords" />
+          <s:enumeration value="HR_Notice_AttendanceAbnormal" />
+          <s:enumeration value="HR_Notice_SignLeaveCount" />
+          <s:enumeration value="HR_Notice_TakeAgentCount" />
+          <s:enumeration value="HR_Todo_SignLeave" />
+          <s:enumeration value="HR_Todo_SignLeaveReject" />
+          <s:enumeration value="HR_Todo_TakeAgent" />
+          <s:enumeration value="HR_Todo_TakeAgentReject" />
+          <s:enumeration value="HR_Todo_TransterAgent" />
+          <s:enumeration value="HR_Todo_TransterAgentReject" />
+          <s:enumeration value="ODM_General" />
+          <s:enumeration value="ODM_Notice_TakeOdCount" />
+          <s:enumeration value="ODM_Notice_SignOdCount" />
+          <s:enumeration value="ODM_Notice_OverdueOdCount" />
+          <s:enumeration value="ODM_Todo_TakeOd" />
+          <s:enumeration value="ODM_Todo_TakeOdReject" />
+          <s:enumeration value="ODM_Todo_SignOd" />
+          <s:enumeration value="ODM_Todo_SignOdReject" />
+          <s:enumeration value="ODM_Todo_OverdueOd" />
+          <s:enumeration value="CMS_General" />
+          <s:enumeration value="CMS_Notice_ReceiveCaseCount" />
+          <s:enumeration value="CMS_Notice_TakeCaseCount" />
+          <s:enumeration value="CMS_Notice_SignCaseCount" />
+          <s:enumeration value="CMS_Notice_RequestCloseCaseCount" />
+          <s:enumeration value="CMS_Notice_CloseCaseCount" />
+          <s:enumeration value="CMS_Notice_RenewalCaseCount" />
+          <s:enumeration value="CMS_Todo_ReceiveCase" />
+          <s:enumeration value="CMS_Todo_ReceiveCaseReject" />
+          <s:enumeration value="CMS_Todo_TakeCase" />
+          <s:enumeration value="CMS_Todo_TakeCaseReject" />
+          <s:enumeration value="CMS_Todo_SignCase" />
+          <s:enumeration value="CMS_Todo_SignCaseReject" />
+          <s:enumeration value="CMS_Todo_RequestCloseCase" />
+          <s:enumeration value="CMS_Todo_CloseCase" />
+          <s:enumeration value="CMS_Todo_CloseCaseReject" />
+          <s:enumeration value="CMS_Todo_RenewalCase" />
+          <s:enumeration value="Asset_General" />
+          <s:enumeration value="Asset_Todo_TakeAtf" />
+          <s:enumeration value="Asset_Todo_VerifySqf" />
+          <s:enumeration value="Asset_Todo_VerifyAqf" />
+          <s:enumeration value="Asset_Todo_VerifyAtf" />
+          <s:enumeration value="Asset_Todo_VerifyAsf" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_MyMessageSoap">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input message="tns:SendMessageSoapIn" />
+      <wsdl:output message="tns:SendMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_MyMessageSoap" type="tns:WS_MyMessageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_MyMessageSoap12" type="tns:WS_MyMessageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_MyMessage">
+    <wsdl:port name="WS_MyMessageSoap" binding="tns:WS_MyMessageSoap">
+      <soap:address location="http://emsg.tncg.gov.tw/ws/WS_mymsg.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_MyMessageSoap12" binding="tns:WS_MyMessageSoap12">
+      <soap12:address location="http://emsg.tncg.gov.tw/ws/WS_mymsg.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

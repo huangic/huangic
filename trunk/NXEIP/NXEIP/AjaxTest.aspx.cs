@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
 using NXEIP.Lib;
 using Entity;
+using NXEIP.MyGov;
 
 
 public partial class AjaxTest : System.Web.UI.Page
@@ -62,5 +63,13 @@ public partial class AjaxTest : System.Web.UI.Page
         //model.departments.
         this.TextBox1.Text=model.CreateDatabaseScript();
 
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+
+        String msg = "";
+        msg=MyMessageUtil.send("a", "b", "c", DateTime.Now, DateTime.Now, "e", "f", EIPGroup.EIP_General);
+
+        logger.Debug(msg);
     }
 }
