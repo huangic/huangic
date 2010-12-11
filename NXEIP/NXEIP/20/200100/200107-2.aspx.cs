@@ -100,7 +100,7 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
 
                 String audit = new ArgumentsDAO().GetValueByVariable("200107_audit");
 
-                if (audit == "2")
+                if (audit == "1")
                 {
                     d09.d09_status = "3";
                 }
