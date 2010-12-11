@@ -240,8 +240,8 @@ function uploadSuccess(file, serverData, swfObj) {
 
 
             var sData = dataList;
-            alert(sData);
-            alert(item);
+            //alert(sData);
+            //alert(item);
 
             //因為ServerData放在SWF裡面 很麻煩改
             //所以只接抓如果不存在就幹掉他
