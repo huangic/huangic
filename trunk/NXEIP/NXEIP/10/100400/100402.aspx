@@ -13,7 +13,7 @@
     <asp:Label ID="lab_today" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lab_PetitionSignType" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lab_spot1" runat="server" Visible="False"></asp:Label>
-    <asp:Label ID="lab_rooms1" runat="server"></asp:Label>
+    <asp:Label ID="lab_rooms1" runat="server" Visible="False"></asp:Label>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100402" />
     <div class="PersonalCalendarLayout">
         <div class="left">
@@ -65,7 +65,7 @@
                         <td class="place2_bg"><asp:Label ID="lab_oneuid" runat="server"></asp:Label></td>
                     </tr>
                     <tr>
-                        <td class="place1_bg">保管人分機</td>
+                        <td class="place1_bg" style="width:120px">保管人分機</td>
                         <td class="place2_bg"><asp:Label ID="lab_ext" runat="server"></asp:Label></td>
                     </tr>
                     <tr>
@@ -86,14 +86,14 @@
                     <div class="h2">
                         <div class="h2_place">
                             <ul>
-                                <li><asp:HyperLink ID="hl_PMonth" runat="server">&lt;&lt;上個月</asp:HyperLink></li>
-                                <li><asp:HyperLink ID="hl_PWeeks" runat="server">&lt;上星期</asp:HyperLink></li>
+                                <li><asp:LinkButton ID="lbtn_PMonth" runat="server" onclick="lbtn_PMonth_Click">&lt;&lt;上個月</asp:LinkButton></li>
+                                <li><asp:LinkButton ID="lbtn_PWeeks" runat="server" onclick="lbtn_PWeeks_Click">&lt;上星期</asp:LinkButton></li>
                             </ul>
                         </div>
                         <div class="h3_place">
                             <ul>
-                                <li><asp:HyperLink ID="hl_NMonth" runat="server">下個月&gt;&gt;</asp:HyperLink></li>
-                                <li><asp:HyperLink ID="hl_NWeeks" runat="server">下星期&gt;</asp:HyperLink></li>
+                                <li><asp:LinkButton ID="lbtn_NMonth" runat="server" onclick="lbtn_NMonth_Click">下個月&gt;&gt;</asp:LinkButton></li>
+                                <li><asp:LinkButton ID="lbtn_NWeeks" runat="server" onclick="lbtn_NWeeks_Click">下星期&gt;</asp:LinkButton></li>
                             </ul>
                         </div>
                     </div>
