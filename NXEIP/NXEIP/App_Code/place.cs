@@ -39,7 +39,7 @@ public class place : System.Web.Services.WebService {
                 defultv = ckey[1]; //所在地預設值
             }
             string sqlstr = "SELECT DISTINCT spot.spo_no, spot.spo_name FROM spot INNER JOIN rooms ON spot.spo_no = rooms.spo_no LEFT OUTER JOIN government ON rooms.roo_no = government.roo_no "
-                + "WHERE (rooms.roo_status='1') AND (rooms.roo_dep='1') AND (spot.spo_status='1') OR (rooms.roo_status='1') AND (rooms.roo_dep='2') AND (spot.spo_status='1') AND (government.gov_depno=" + ldep_no + ")"
+                + "WHERE (rooms.roo_status='1') AND (rooms.roo_dep='1') AND (spot.spo_status='1') and (spot.spo_function LIKE '____1%') OR (rooms.roo_status='1') AND (rooms.roo_dep='2') AND (spot.spo_status='1') and (spot.spo_function LIKE '____1%') AND (government.gov_depno=" + ldep_no + ")"
                 + " ORDER BY spot.spo_no";
             dt = dbo.ExecuteQuery(sqlstr);
             for (int i = 0; i < dt.Rows.Count; i++)
