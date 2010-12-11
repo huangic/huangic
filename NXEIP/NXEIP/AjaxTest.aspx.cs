@@ -68,7 +68,7 @@ public partial class AjaxTest : System.Web.UI.Page
     {
 
         String msg = "";
-        msg=MyMessageUtil.send("a", "b", "c", DateTime.Now, DateTime.Now, "e", "f", EIPGroup.EIP_General);
+        msg=MyMessageUtil.send("a", "admin", "c", DateTime.Now, DateTime.Now, "e", "f", EIPGroup.EIP_General);
 
         logger.Debug(msg);
     }
