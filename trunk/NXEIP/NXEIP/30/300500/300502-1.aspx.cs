@@ -34,6 +34,7 @@ public partial class _30_300500_300502_1 : System.Web.UI.Page
                     this.tbx_flo_name.Text = f.flo_name;
                     this.tbx_flo_ename.Text = f.flo_ename;
                     this.tbx_flo_order.Text = f.flo_order+"";
+                    
                     this.ddl_spot.SelectedValue = f.spo_no+"";
 
 
@@ -63,6 +64,15 @@ public partial class _30_300500_300502_1 : System.Web.UI.Page
 
         String msg = "";
 
+        msg=CheckInput();
+
+        if (!String.IsNullOrEmpty(msg)) { 
+            JsUtil.AlertJs(this,msg);
+            
+            
+        }else{
+
+
         //判斷模式
         if (this.hidden_flo_no.Value != "")
         {
@@ -80,7 +90,7 @@ public partial class _30_300500_300502_1 : System.Web.UI.Page
         //呼叫UPATE()關閉此頁面 並且更新updatepanel (parent page 必須做一個UPDATE的FUNCTION) 
         this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('" + msg + "');", true);
 
-
+        }
     }
 
     private void Adding()
@@ -148,4 +158,29 @@ public partial class _30_300500_300502_1 : System.Web.UI.Page
         }
         
     }
+
+    private String CheckInput() {
+
+        String msg = "";
+
+        if (String.IsNullOrEmpty(this.tbx_flo_level.Text)) {
+            msg += "請輸入樓層\\n";
+        }
+
+        if (String.IsNullOrEmpty(this.tbx_flo_name.Text)) {
+            msg += "請輸入部門中文名稱\\n";
+        }
+
+        if (String.IsNullOrEmpty(this.tbx_flo_order.Text)) {
+            this.tbx_flo_order.Text = "0";
+        }
+
+        if (!String.IsNullOrEmpty(msg)) {
+            return msg;
+            
+        }
+
+        return "";
+    }
+
 }
