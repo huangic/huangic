@@ -16,6 +16,15 @@ public class UtilityDAO
 
     private NXEIPEntities model = new NXEIPEntities();
 
+
+
+
+    public int GetPeoUidByAccount(string account){
+        return ((from d in model.accounts where d.acc_login == account select d).First()).peo_uid;
+    }
+
+
+
     /// <summary>
     /// 取得員工姓名
     /// </summary>
