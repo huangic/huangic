@@ -28,7 +28,7 @@ public class MyMessageUtil
     /// E公務WebService
     /// </summary>
     /// <param name="subject">主旨</param>
-    /// <param name="to">寄給誰</param>
+    /// <param name="to">寄給誰(account)</param>
     /// <param name="body">內文</param>
     /// <param name="SData">訊息開始日</param>
     /// <param name="EDate">訊息結束日</param>
@@ -38,11 +38,18 @@ public class MyMessageUtil
     /// <returns></returns>
     public static String send(String subject,String to,String body,DateTime SData,DateTime EDate,String url,String url_param,EIPGroup eipgroup){
         //取參數看是否送出
-        bool useWebService=bool.Parse(WebConfigurationManager.AppSettings["UseMyMsgWebService"]);
+        //bool useWebService=bool.Parse(WebConfigurationManager.AppSettings["UseMyMsgWebService"]);
 
-        if (!useWebService) {
-            return "未啟用服務,請設定Web.config";
-        }
+        //if (!useWebService) {
+        //    return "未啟用服務,請設定Web.config";
+        //}
+
+
+        bool sendWebService = false;
+        bool sendMail = false;
+        bool sendSMS = false;
+
+
 
 
 
