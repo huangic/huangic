@@ -43,6 +43,7 @@
           <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new03" EntityType="NXEIPModel.Store.new03" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="notifys" EntityType="NXEIPModel.Store.notifys" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
@@ -871,6 +872,27 @@
           <Property Name="n03_no" Type="int" Nullable="false" />
           <Property Name="n03_address" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="notifys">
+          <Key>
+            <PropertyRef Name="not_no" />
+          </Key>
+          <Property Name="not_no" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="not_sysname" Type="nvarchar" MaxLength="30" />
+          <Property Name="not_subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="not_content" Type="text" />
+          <Property Name="not_senduid" Type="int" />
+          <Property Name="not_time" Type="datetime" />
+          <Property Name="not_dateline" Type="datetime" />
+          <Property Name="not_peouid" Type="int" />
+          <Property Name="not_status" Type="char" MaxLength="1" />
+          <Property Name="not_type" Type="char" MaxLength="1" />
+          <Property Name="not_group" Type="nvarchar" MaxLength="100" />
+          <Property Name="not_link" Type="nvarchar" MaxLength="100" />
+          <Property Name="not_argument" Type="nvarchar" MaxLength="100" />
+          <Property Name="not_egov" Type="char" MaxLength="1" />
+          <Property Name="not_email" Type="char" MaxLength="1" />
+          <Property Name="not_phone" Type="char" MaxLength="1" />
+        </EntityType>
         <EntityType Name="operates">
           <Key>
             <PropertyRef Name="ope_no" />
@@ -1299,7 +1321,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2455,6 +2477,7 @@
             <End Role="rooms" EntitySet="rooms" />
             <End Role="checker" EntitySet="checker" />
           </AssociationSet>
+          <EntitySet Name="notifys" EntityType="NXEIPModel.notifys" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -4360,6 +4383,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="notifys">
+          <Key>
+            <PropertyRef Name="not_no" />
+          </Key>
+          <Property Type="String" Name="not_no" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="not_sysname" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="not_subject" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="not_content" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="not_senduid" />
+          <Property Type="DateTime" Name="not_time" />
+          <Property Type="DateTime" Name="not_dateline" />
+          <Property Type="Int32" Name="not_peouid" />
+          <Property Type="String" Name="not_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="not_type" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="not_group" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="not_link" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="not_argument" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="not_egov" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="not_email" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="not_phone" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5249,6 +5293,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="notifys">
+            <EntityTypeMapping TypeName="NXEIPModel.notifys">
+              <MappingFragment StoreEntitySet="notifys">
+                <ScalarProperty Name="not_phone" ColumnName="not_phone" />
+                <ScalarProperty Name="not_email" ColumnName="not_email" />
+                <ScalarProperty Name="not_egov" ColumnName="not_egov" />
+                <ScalarProperty Name="not_argument" ColumnName="not_argument" />
+                <ScalarProperty Name="not_link" ColumnName="not_link" />
+                <ScalarProperty Name="not_group" ColumnName="not_group" />
+                <ScalarProperty Name="not_type" ColumnName="not_type" />
+                <ScalarProperty Name="not_status" ColumnName="not_status" />
+                <ScalarProperty Name="not_peouid" ColumnName="not_peouid" />
+                <ScalarProperty Name="not_dateline" ColumnName="not_dateline" />
+                <ScalarProperty Name="not_time" ColumnName="not_time" />
+                <ScalarProperty Name="not_senduid" ColumnName="not_senduid" />
+                <ScalarProperty Name="not_content" ColumnName="not_content" />
+                <ScalarProperty Name="not_subject" ColumnName="not_subject" />
+                <ScalarProperty Name="not_sysname" ColumnName="not_sysname" />
+                <ScalarProperty Name="not_no" ColumnName="not_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -5846,6 +5912,7 @@
           <ConnectorPoint PointX="2.25" PointY="43.336741536458334" />
           <ConnectorPoint PointX="2.75" PointY="43.336741536458334" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.notifys" Width="1.5" PointX="15.375" PointY="14.75" Height="4.0956022135416674" />
         </Diagram>
     </Diagrams>
   </Designer>

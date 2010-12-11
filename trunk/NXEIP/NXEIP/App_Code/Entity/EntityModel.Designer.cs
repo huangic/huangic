@@ -1223,6 +1223,22 @@ namespace Entity
             }
         }
         private ObjectSet<checker> _checker;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<notifys> notifys
+        {
+            get
+            {
+                if ((_notifys == null))
+                {
+                    _notifys = base.CreateObjectSet<notifys>("notifys");
+                }
+                return _notifys;
+            }
+        }
+        private ObjectSet<notifys> _notifys;
 
         #endregion
         #region AddTo 方法
@@ -1769,6 +1785,14 @@ namespace Entity
         public void AddTochecker(checker checker)
         {
             base.AddObject("checker", checker);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 notifys EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTonotifys(notifys notifys)
+        {
+            base.AddObject("notifys", notifys);
         }
 
         #endregion
@@ -12661,6 +12685,421 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="notifys")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class notifys : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 notifys 物件。
+        /// </summary>
+        /// <param name="not_no">not_no 屬性的初始值。</param>
+        public static notifys Createnotifys(global::System.String not_no)
+        {
+            notifys notifys = new notifys();
+            notifys.not_no = not_no;
+            return notifys;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String not_no
+        {
+            get
+            {
+                return _not_no;
+            }
+            set
+            {
+                if (_not_no != value)
+                {
+                    Onnot_noChanging(value);
+                    ReportPropertyChanging("not_no");
+                    _not_no = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("not_no");
+                    Onnot_noChanged();
+                }
+            }
+        }
+        private global::System.String _not_no;
+        partial void Onnot_noChanging(global::System.String value);
+        partial void Onnot_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_sysname
+        {
+            get
+            {
+                return _not_sysname;
+            }
+            set
+            {
+                Onnot_sysnameChanging(value);
+                ReportPropertyChanging("not_sysname");
+                _not_sysname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_sysname");
+                Onnot_sysnameChanged();
+            }
+        }
+        private global::System.String _not_sysname;
+        partial void Onnot_sysnameChanging(global::System.String value);
+        partial void Onnot_sysnameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_subject
+        {
+            get
+            {
+                return _not_subject;
+            }
+            set
+            {
+                Onnot_subjectChanging(value);
+                ReportPropertyChanging("not_subject");
+                _not_subject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_subject");
+                Onnot_subjectChanged();
+            }
+        }
+        private global::System.String _not_subject;
+        partial void Onnot_subjectChanging(global::System.String value);
+        partial void Onnot_subjectChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_content
+        {
+            get
+            {
+                return _not_content;
+            }
+            set
+            {
+                Onnot_contentChanging(value);
+                ReportPropertyChanging("not_content");
+                _not_content = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_content");
+                Onnot_contentChanged();
+            }
+        }
+        private global::System.String _not_content;
+        partial void Onnot_contentChanging(global::System.String value);
+        partial void Onnot_contentChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> not_senduid
+        {
+            get
+            {
+                return _not_senduid;
+            }
+            set
+            {
+                Onnot_senduidChanging(value);
+                ReportPropertyChanging("not_senduid");
+                _not_senduid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("not_senduid");
+                Onnot_senduidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _not_senduid;
+        partial void Onnot_senduidChanging(Nullable<global::System.Int32> value);
+        partial void Onnot_senduidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> not_time
+        {
+            get
+            {
+                return _not_time;
+            }
+            set
+            {
+                Onnot_timeChanging(value);
+                ReportPropertyChanging("not_time");
+                _not_time = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("not_time");
+                Onnot_timeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _not_time;
+        partial void Onnot_timeChanging(Nullable<global::System.DateTime> value);
+        partial void Onnot_timeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> not_dateline
+        {
+            get
+            {
+                return _not_dateline;
+            }
+            set
+            {
+                Onnot_datelineChanging(value);
+                ReportPropertyChanging("not_dateline");
+                _not_dateline = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("not_dateline");
+                Onnot_datelineChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _not_dateline;
+        partial void Onnot_datelineChanging(Nullable<global::System.DateTime> value);
+        partial void Onnot_datelineChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> not_peouid
+        {
+            get
+            {
+                return _not_peouid;
+            }
+            set
+            {
+                Onnot_peouidChanging(value);
+                ReportPropertyChanging("not_peouid");
+                _not_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("not_peouid");
+                Onnot_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _not_peouid;
+        partial void Onnot_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onnot_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_status
+        {
+            get
+            {
+                return _not_status;
+            }
+            set
+            {
+                Onnot_statusChanging(value);
+                ReportPropertyChanging("not_status");
+                _not_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_status");
+                Onnot_statusChanged();
+            }
+        }
+        private global::System.String _not_status;
+        partial void Onnot_statusChanging(global::System.String value);
+        partial void Onnot_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_type
+        {
+            get
+            {
+                return _not_type;
+            }
+            set
+            {
+                Onnot_typeChanging(value);
+                ReportPropertyChanging("not_type");
+                _not_type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_type");
+                Onnot_typeChanged();
+            }
+        }
+        private global::System.String _not_type;
+        partial void Onnot_typeChanging(global::System.String value);
+        partial void Onnot_typeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_group
+        {
+            get
+            {
+                return _not_group;
+            }
+            set
+            {
+                Onnot_groupChanging(value);
+                ReportPropertyChanging("not_group");
+                _not_group = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_group");
+                Onnot_groupChanged();
+            }
+        }
+        private global::System.String _not_group;
+        partial void Onnot_groupChanging(global::System.String value);
+        partial void Onnot_groupChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_link
+        {
+            get
+            {
+                return _not_link;
+            }
+            set
+            {
+                Onnot_linkChanging(value);
+                ReportPropertyChanging("not_link");
+                _not_link = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_link");
+                Onnot_linkChanged();
+            }
+        }
+        private global::System.String _not_link;
+        partial void Onnot_linkChanging(global::System.String value);
+        partial void Onnot_linkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_argument
+        {
+            get
+            {
+                return _not_argument;
+            }
+            set
+            {
+                Onnot_argumentChanging(value);
+                ReportPropertyChanging("not_argument");
+                _not_argument = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_argument");
+                Onnot_argumentChanged();
+            }
+        }
+        private global::System.String _not_argument;
+        partial void Onnot_argumentChanging(global::System.String value);
+        partial void Onnot_argumentChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_egov
+        {
+            get
+            {
+                return _not_egov;
+            }
+            set
+            {
+                Onnot_egovChanging(value);
+                ReportPropertyChanging("not_egov");
+                _not_egov = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_egov");
+                Onnot_egovChanged();
+            }
+        }
+        private global::System.String _not_egov;
+        partial void Onnot_egovChanging(global::System.String value);
+        partial void Onnot_egovChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_email
+        {
+            get
+            {
+                return _not_email;
+            }
+            set
+            {
+                Onnot_emailChanging(value);
+                ReportPropertyChanging("not_email");
+                _not_email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_email");
+                Onnot_emailChanged();
+            }
+        }
+        private global::System.String _not_email;
+        partial void Onnot_emailChanging(global::System.String value);
+        partial void Onnot_emailChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String not_phone
+        {
+            get
+            {
+                return _not_phone;
+            }
+            set
+            {
+                Onnot_phoneChanging(value);
+                ReportPropertyChanging("not_phone");
+                _not_phone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("not_phone");
+                Onnot_phoneChanged();
+            }
+        }
+        private global::System.String _not_phone;
+        partial void Onnot_phoneChanging(global::System.String value);
+        partial void Onnot_phoneChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
