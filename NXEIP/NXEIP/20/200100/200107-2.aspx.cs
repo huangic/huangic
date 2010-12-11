@@ -100,7 +100,7 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
 
                 String audit = new ArgumentsDAO().GetValueByVariable("200107_audit");
 
-                if (audit == "1")
+                if (audit == "2")
                 {
                     d09.d09_status = "3";
                 }
@@ -154,7 +154,7 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
 
         }
         else {
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('尚未上傳檔案')", true);
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('尚未上傳檔案');", true);
 
         }
     }
