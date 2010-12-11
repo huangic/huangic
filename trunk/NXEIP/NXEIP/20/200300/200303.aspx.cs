@@ -71,13 +71,17 @@ public partial class _20_200300_200303 : System.Web.UI.Page
 
         foreach (var a in general)
         {
-            String[] array = (from d in a  orderby d.flo_order select d.flo_name + "(" + d.flo_ename + ")").ToArray();
+            //判斷一下中文與英文
+            
+            
+            
+            String[] array = (from d in a  orderby d.flo_order select d.flo_name + (String.IsNullOrEmpty(d.flo_ename)?"":"(" + d.flo_ename + ")") ).ToArray();
             GenDiv(a.Key,String.Join("、",array));            
         }
 
         foreach (var a in ground)
         {
-            String[] array = (from d in a  orderby d.flo_order select d.flo_name + "(" + d.flo_ename + ")").ToArray();
+            String[] array = (from d in a orderby d.flo_order select d.flo_name + (String.IsNullOrEmpty(d.flo_ename) ? "" : "(" + d.flo_ename + ")")).ToArray();
             GenDiv(a.Key,String.Join("、",array));            
         }
 
@@ -106,6 +110,9 @@ public partial class _20_200300_200303 : System.Web.UI.Page
         DivB2.InnerText = value;
         this.div_floor.Controls.Add(DivBox);
     }
+
+
+     
 
 
     protected void lv_spot_ItemCommand(object sender, ListViewCommandEventArgs e)
