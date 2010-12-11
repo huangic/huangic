@@ -27,12 +27,21 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
             if (this.lab_mode.Text.Equals("modify"))
             {
                 this.Navigator1.SubFunc = "修改";
-                string sqlstr = "select spo_name from spot where spo_no="+this.lab_no.Text;
+                string sqlstr = "select spo_name,spo_function from spot where spo_no=" + this.lab_no.Text;
                 DataTable dt = new DataTable();
                 dt = dbo.ExecuteQuery(sqlstr);
                 if (dt.Rows.Count > 0)
                 {
                     this.txt_name.Text = dt.Rows[0]["spo_name"].ToString();
+                    if (dt.Rows[0]["spo_function"].ToString().Length > 0)
+                    {
+                        char[] fun = dt.Rows[0]["spo_function"].ToString().ToArray();
+
+                        for (int i = 0; i < this.cbl_function.Items.Count; i++)
+                        {
+                            if (fun[i].Equals(Convert.ToChar("1"))) this.cbl_function.Items[i].Selected = true;
+                        }
+                    }
                 }
             }
             else
@@ -93,10 +102,23 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
             string msg = "";
             if (CheckInputValue())
             {
+                string spo_function = "";
+                for (int i = 0; i < this.cbl_function.Items.Count; i++)
+                {
+                    if (this.cbl_function.Items[i].Selected)
+                        spo_function += "1";
+                    else
+                        spo_function += "0";
+                }
+                for (int i = 0; i < (20 - this.cbl_function.Items.Count); i++)
+                {
+                    spo_function += "0";
+                }
+                
                 if (this.lab_mode.Text.Equals("modify"))
                 {
                     #region 修改
-                    string UpdStr = "update spot set spo_name=N'" + this.txt_name.Text + "',spo_createuid=" + sobj.sessionUserID + ",spo_createtime=getdate() where spo_no=" + this.lab_no.Text;
+                    string UpdStr = "update spot set spo_name=N'" + this.txt_name.Text + "',spo_function='" + spo_function + "',spo_createuid=" + sobj.sessionUserID + ",spo_createtime=getdate() where spo_no=" + this.lab_no.Text;
                     dbo.ExecuteNonQuery(UpdStr);
                     msg = "修改成功";
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
@@ -106,7 +128,7 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
                 else
                 {
                     #region 新增
-                    string InsStr = "insert into spot (spo_name,spo_status,spo_createuid,spo_createtime) values(N'" + this.txt_name.Text + "','1'," + sobj.sessionUserID + ",getdate())";
+                    string InsStr = "insert into spot (spo_name,spo_status,spo_createuid,spo_createtime,spo_function) values(N'" + this.txt_name.Text + "','1'," + sobj.sessionUserID + ",getdate(),'" + spo_function + "')";
                     dbo.ExecuteNonQuery(InsStr);
                     msg = "新增成功";
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
