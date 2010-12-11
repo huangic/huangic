@@ -84,6 +84,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM01_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "form01", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form01), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM02_RELATIONS_FORM01", "form01", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.form01), "form02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form02), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM02_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.people), "form02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form02), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CHECKER_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "checker", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.checker), true)]
 
 #endregion
 
@@ -1206,6 +1207,22 @@ namespace Entity
             }
         }
         private ObjectSet<form02> _form02;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<checker> checker
+        {
+            get
+            {
+                if ((_checker == null))
+                {
+                    _checker = base.CreateObjectSet<checker>("checker");
+                }
+                return _checker;
+            }
+        }
+        private ObjectSet<checker> _checker;
 
         #endregion
         #region AddTo 方法
@@ -1744,6 +1761,14 @@ namespace Entity
         public void AddToform02(form02 form02)
         {
             base.AddObject("form02", form02);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 checker EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTochecker(checker checker)
+        {
+            base.AddObject("checker", checker);
         }
 
         #endregion
@@ -3471,6 +3496,152 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="checker")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class checker : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 checker 物件。
+        /// </summary>
+        /// <param name="che_no">che_no 屬性的初始值。</param>
+        /// <param name="roo_no">roo_no 屬性的初始值。</param>
+        public static checker Createchecker(global::System.Int32 che_no, global::System.Int32 roo_no)
+        {
+            checker checker = new checker();
+            checker.che_no = che_no;
+            checker.roo_no = roo_no;
+            return checker;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 che_no
+        {
+            get
+            {
+                return _che_no;
+            }
+            set
+            {
+                if (_che_no != value)
+                {
+                    Onche_noChanging(value);
+                    ReportPropertyChanging("che_no");
+                    _che_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("che_no");
+                    Onche_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _che_no;
+        partial void Onche_noChanging(global::System.Int32 value);
+        partial void Onche_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 roo_no
+        {
+            get
+            {
+                return _roo_no;
+            }
+            set
+            {
+                Onroo_noChanging(value);
+                ReportPropertyChanging("roo_no");
+                _roo_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("roo_no");
+                Onroo_noChanged();
+            }
+        }
+        private global::System.Int32 _roo_no;
+        partial void Onroo_noChanging(global::System.Int32 value);
+        partial void Onroo_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> che_peouid
+        {
+            get
+            {
+                return _che_peouid;
+            }
+            set
+            {
+                Onche_peouidChanging(value);
+                ReportPropertyChanging("che_peouid");
+                _che_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("che_peouid");
+                Onche_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _che_peouid;
+        partial void Onche_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onche_peouidChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CHECKER_RELATIONS_ROOMS", "rooms")]
+        public rooms rooms
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "rooms").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "rooms").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<rooms> roomsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<rooms>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "rooms");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<rooms>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "rooms", value);
                 }
             }
         }
@@ -18501,6 +18672,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<spot>("NXEIPModel.FK_ROOMS_RELATIONS_SPOT", "spot", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CHECKER_RELATIONS_ROOMS", "checker")]
+        public EntityCollection<checker> checker
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<checker>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "checker");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<checker>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "checker", value);
                 }
             }
         }
