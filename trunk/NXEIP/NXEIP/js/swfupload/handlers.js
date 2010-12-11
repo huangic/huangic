@@ -203,7 +203,8 @@ function uploadSuccess(file, serverData, swfObj) {
         
         var progress = GetFileProgressObject(swfObj.customSettings, file, swfObj.customSettings.upload_target);
         //更新serverData
-        
+        document.getElementById(swfObj.customSettings.serverDataId).value = serverData;
+
         
         
         
@@ -235,34 +236,30 @@ function uploadSuccess(file, serverData, swfObj) {
          //"UC_SWFUpload1_divFileProgressContainer"    
             
             var item=$("#"+progress.fileProgressID).parent().children();
-            
-            
-            var sData =dataList;
+
+
+
+            var sData = dataList;
+            alert(sData);
+            alert(item);
+
+            //因為ServerData放在SWF裡面 很麻煩改
+            //所以只接抓如果不存在就幹掉他
+
+            var nData=[];
           for (var i = 0; i < sData.length; i++) {
-              
-              isContact =false;
-              for(var j =0 ;j<item.length;j++){
-                if(sData[i].Id==item[j].Id){
-                  isContact=true;
-                  break;
-                }
-                
-              }
-              
-              
-              if(!isContact){
-                
-                sData.splice(i, 1);
+             //isContact =false;
+              if ($("#SWFUpload_0_" + sData[i].Id).length>0) {
+                  nData.push(sData[i]);
               }
              
-            }
-            
-            
-            
-         //取LI
-        //如果不存在就幹掉他
-        
-        var newSData = JSON.stringify(sData);
+           }
+
+
+
+
+
+          var newSData = JSON.stringify(nData);
         document.getElementById(swfObj.customSettings.serverDataId).value = newSData;
                  
         progress.fileProgressWrapper.childNodes[0].childNodes[0].href = "javascript:";
