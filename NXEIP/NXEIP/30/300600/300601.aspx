@@ -59,12 +59,12 @@
             </asp:ListView>
         </div>
         <div class="select" style="text-align: right">
-            <div class="center0">
-                叫修日期：</div>
             <div class="center1">
+                叫修日期：</div>
+            <div class="center2">
                 起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />
             </div>
-            <div class="center1">
+            <div class="center2">
                 迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="False" />
             </div>
             <div class="b5">
