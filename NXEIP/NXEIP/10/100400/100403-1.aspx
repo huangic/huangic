@@ -21,7 +21,8 @@
         TypeName="NXEIP.DAO._100403DAO" 
         OldValuesParameterFormatString="original_{0}">
     </asp:ObjectDataSource>
-    <uc2:Navigator ID="Navigator1" runat="server" SubFunc="我要叫修" SysFuncNo="100403" />
+    <asp:HiddenField ID="hidd_r05no" runat="server" />
+    <uc2:Navigator ID="Navigator1" runat="server" SubFunc="維修登錄" SysFuncNo="100403" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
@@ -39,6 +40,8 @@
                 <td>
                     <asp:Label ID="lab_dep" runat="server"></asp:Label>
                 </td>
+            </tr>
+            <tr>
                 <th style="width: 15%">
                     叫修人員
                 </th>
@@ -75,23 +78,12 @@
                         <asp:ListItem>地下2樓</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <th style="width: 15%">
-                    維修類別
-                </th>
-                <td>
-                    <asp:DropDownList ID="ddl_rep05" runat="server" AppendDataBoundItems="True" 
-                        DataSourceID="ObjectDataSource2" DataTextField="r05_name" 
-                        DataValueField="r05_no">
-                        <asp:ListItem Value="0">請選擇</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-
             </tr>
             <tr>
                 <th style="width: 15%">
                     故障原因
                 </th>
-                <td colspan="3">
+                <td>
                     <asp:TextBox ID="tbox_reason" runat="server" Height="125px" 
                         TextMode="MultiLine" Width="370px"></asp:TextBox>
                 </td>

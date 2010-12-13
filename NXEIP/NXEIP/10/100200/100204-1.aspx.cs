@@ -9,6 +9,7 @@ using Entity;
 using NLog;
 using IMMENSITY.SWFUploadAPI;
 using System.Runtime.Serialization.Json;
+using NXEIP.MyGov;
 
 public partial class _10_100200_100204_1 : System.Web.UI.Page
 {
@@ -166,6 +167,9 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
                     this.SaveFile(n01_no);
 
                     OperatesObject.OperatesExecute(100204, sobj.sessionUserID,3, "更新最新消息 n01_no:" + n01_no);
+
+
+
                     this.ShowMsg_URL("修改完成!", this.GetURL());
                 }
             }
@@ -227,6 +231,11 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             this.SaveFile(n01_no);
 
             OperatesObject.OperatesExecute(100204, sobj.sessionUserID, 1, "新增最新消息 n01_no:" + n01_no);
+
+            //發送訊息至E公務平台 (送至審核人Account)
+            //MyMessageUtil.send(this.tbox_subject.Text.Trim(), "", this.tbox_content.Text.Trim(), "", "", EIPGroup.EIP_General);
+
+
             return true;
         }
         catch (System.Exception ex)
