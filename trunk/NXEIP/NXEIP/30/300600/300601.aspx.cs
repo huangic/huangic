@@ -35,6 +35,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
 
             //圖表
             this.div_chart1.Style.Add("display", "none");
+
         }
 
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
