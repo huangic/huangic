@@ -33,11 +33,11 @@ namespace NXEIP.DAO
         /// <param name="peo_uid"></param>
         /// <param name="dep_no"></param>
         /// <returns></returns>
-        public IQueryable<rep02> GetRep02Data(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no)
+        public IQueryable<rep02> GetRep02Data(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no, int r05_no)
         {
             //全部資料
             var data = (from d in model.rep02
-                        where d.r02_status != "4" && d.r02_date >= sd && d.r02_date <= ed
+                        where d.r02_status != "4" && d.r02_date >= sd && d.r02_date <= ed && d.r05_no == r05_no
                         select d);
 
             if (type.Equals("3"))
@@ -55,14 +55,14 @@ namespace NXEIP.DAO
             return data;
         }
 
-        public IQueryable<rep02> GetRep02Data(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no, int startRowIndex, int maximumRows)
+        public IQueryable<rep02> GetRep02Data(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no,int r05_no, int startRowIndex, int maximumRows)
         {
-            return GetRep02Data(type, sd, ed, peo_uid, dep_no).Skip(startRowIndex).Take(maximumRows);
+            return GetRep02Data(type, sd, ed, peo_uid, dep_no,r05_no).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public int GetRep02DataCount(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no)
+        public int GetRep02DataCount(string type, DateTime sd, DateTime ed, int peo_uid, int dep_no,int r05_no)
         {
-            return GetRep02Data(type, sd, ed, peo_uid, dep_no).Count();
+            return GetRep02Data(type, sd, ed, peo_uid, dep_no,r05_no).Count();
         }
 
 
