@@ -76,32 +76,36 @@
 	background-image: url(../image/m01.gif);
 	background-repeat: no-repeat;
 	height: 56px;
-	width: 175px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
+	width: 109px;
+	float: left;
 }
-.maintain .box .p1:hover {
-	background-image: url(../image/m01-2.gif);
-	background-repeat: no-repeat;
-}
+/*.maintain .box .p1:hover {
+
+}*/
 
 .maintain .box .p2 {
-	background-image: url(../image/m02.gif);
-	background-repeat: no-repeat;
-	height: 56px;
-	width: 175px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
+	width: 50%;
+	float: left;
+	text-align: left;
+	text-decoration: none;
+	height: 26px;
+	margin-top: 16px;
 }
-.maintain .box .p2:hover {
-	background-image: url(../image/m02-2.gif);
-	background-repeat: no-repeat;
+.maintain .box .p2 a:hover {
+	font-size: 19px;
+	line-height: 26px;
+	font-weight: bold;
+	color: #FF0000;
 }
-.maintain .box .p3 {
+.maintain .box .p2 a {
+	font-size: 19px;
+	line-height: 26px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+
+/*.maintain .box .p3 {
 	background-image: url(../image/m03.gif);
 	background-repeat: no-repeat;
 	height: 56px;
@@ -142,7 +146,7 @@
 .maintain .box .p5:hover {
 	background-image: url(../image/m05-2.gif);
 	background-repeat: no-repeat;
-}
+}*/
 
 .maintain .box .content {
 	width: 310px;
@@ -163,7 +167,8 @@
 	text-decoration: none;
 	margin-left: 22px;
 }
-.maintain .box .ps2 {
+
+.maintain .arrow_ms02 {
 	background-image: url(../image/ms02.gif);
 	background-repeat: no-repeat;
 	height: 20px;
@@ -253,8 +258,54 @@
 }
 /*討論區*/
 .talk  {
+	width: 1020px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+
+.talk .headt {
 	width: 100%;
-	background-color: #acd156;
+	float: right;
+	height: 28px;
+}
+.talk .headt ul li {
+	float: right;
+	margin-left: 2px;
+	text-align: center;
+	height: 28px;
+	width: 100px;
+}
+.talk .headt ul li a {
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 28px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	background-image: url(../image/b2.gif);
+	line-height: 28px;
+	float: left;
+}
+.talk .headt ul li a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+	background-image: url(../image/b2-1.gif);
+	background-repeat: no-repeat;
+	height: 28px;
+	width: 100px;
+	line-height: 28px;
+}
+.talk .box .headt2{
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	font-weight: bold;
+	text-indent: 6px;
+	line-height: 24px;
+	background-color: #F7fdea;
 }
  .talk .box .head {
 	padding: 4px;
@@ -262,9 +313,9 @@
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
-	background-color: #eaf7ca;
 	text-align: center;
 	font-weight: bold;
+	background-color: #E8f8c7;
 }
 .talk .box .row1_bg {
 	background-color: #fefee7;
@@ -277,9 +328,6 @@
 	padding-bottom: 4px;
 	padding-left: 4px;
 }
-.talk .boxA{
-	float: left;
-	}
 
 .talk .box .t1 {
 	
@@ -295,34 +343,37 @@
 	background-image: url(../image/ms01.gif);
 	background-repeat: no-repeat;
 	padding-left: 2px;
-		border-bottom-width: 1px;
+	border-bottom-width: 1px;
 	border-bottom-style: dashed;
 	border-bottom-color: #D7F09B;
+	margin-top: 4px;
 }
 .talk .box .t12 {
 	width: 32px;
 	float: left;
-	height: 20px;
+	height: 18px;
 	padding-left: 2px;
-	
-
+	background-image: url(../image/v07.gif);
+	background-repeat: no-repeat;
+	margin-bottom: 2px;
+	margin-top: 2px;
 	}
 .talk .box .t13 {
-	width: 32px;
+	width: 34px;
 	float: left;
-	height: 20px;
-	padding-left: 2px;
+	height: 19px;
 	border-top-width: 1px;
 	border-top-style: dashed;
-	border-top-color: #d7e09b;	
-	}	
+	border-top-color: #d7e09b;
+	}
+	
 .talk .box .t2 {
-	width: 325px;
+	width: 358px;
 	float: left;
-	color: #666666;
 	border-bottom-width: 1px;
 	border-bottom-style: dashed;
 	border-bottom-color: #D7F09B;
+	margin-top: 4px;
 }
 .talk .box a:hover {
 	font-size: 13px;
@@ -330,37 +381,67 @@
 	text-decoration: none;
 }
 .talk .box a {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
 }
-
 .talk .box .t3 {
-	width: 325px;
+	width: 358px;
 	float: left;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.talk .box .t4 {
+	width: 150px;
+	float: left;
+	height: 20px;
 }
 
 .talk .box .row1_bg {
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
-	width:360px;
-	background-color: #FEFEE7;
+	width:400px;
+	background-color: #fefef1;
 	padding-top: 4px;
 	padding-right: 4px;
 	padding-bottom: 4px;
 	padding-left: 12px;
+	height: 16px;
 }
 
-.talk .box .row3_bg {
-	width: 170px;
-	background-color: #FEFEE7;
+.talk .box .row2_bg {
+	width: 150px;
+	background-color: #fefef1;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
 	padding: 4px;
+	text-align: center;
+	height: 14px;
 }
 
+.talk .box .row3_bg {
+	background-color: #fefef1;
+	width: 110px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+.talk .box .row4_bg {
+	background-color: #fefef1;
+	width: 66px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
 .talk .box .row5_bg {
-	background-color: #FEFEE7;
-	width: 98px;
+	background-color: #fefef1;
+	width: 67px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -368,8 +449,8 @@
 	text-align: center;
 }
 .talk .box .row6_bg {
-	background-color: #FEFEE7;
-	width: 50px;
+	background-color: #fefef1;
+	width: 66px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -377,8 +458,8 @@
 	text-align: center;
 }
 .talk .box .row7_bg {
-	background-color: #FEFEE7;
-	width: 65px;
+	background-color: #fefef1;
+	width: 80px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -386,37 +467,383 @@
 	text-align: center;
 }
 .talk .box .row8_bg {
-	background-color: #FEFEE7;
-	width: 50px;
-	font-size: 13px;
-	color: #666666;
-	text-decoration: none;
-	padding: 4px;
-	text-align: center;
-}
-.talk .box .row9_bg {
-	background-color: #FEFEE7;
-	width: 50px;
-	font-size: 13px;
-	color: #666666;
-	text-decoration: none;
-	padding: 4px;
-	text-align: center;
-}
-.talk .box .row10_bg {
-	background-color: #FEFEE7;
-	width: 50px;
+	background-color: #fefef1;
+	width: 80px;
 	font-size: 8px;
 	color: #666666;
 	text-decoration: none;
 	padding: 4px;
 	text-align: center;
 }
-.talk .box a {
+.talk .box .row9_bg {
+	background-color: #fefef1;
+	width: 30px;
+	font-size: 8px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+.talk .box .row10_bg {
+	width: 150px;
+	background-color: #FEFEE7;
 	font-size: 13px;
-	color: #009966;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+	height: 14px;
+}
+.talk .box .t5 {
+	width: 150px;
+	float: left;
+}
+.talk .arrow_ms02 {
+	background-image: url(../image/ms02.gif);
+	background-repeat: no-repeat;
+	height: 20px;
+	text-decoration: none;
+	width: 20px;
+	float: left;
+}
+.talk .arrow_ms02:hover {
+	background-image: url(../image/ms02-1.gif);
+	background-repeat: no-repeat;
+}
+
+.talk .box .name {
+	width: 120px;
+	float: left;
+	height: 20px;
+}
+
+/*討論區 3 4 回應*/
+
+.talkn  {
+	width: 98%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 18px;
+}
+.talkn a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	vertical-align: middle;
+	line-height: 22px;
+	text-align: left;
+}
+.talkn a:hover {
+	font-size: 13px;
+	color: #FF0000;
 	text-decoration: none;
 }
+.talkn  ul li {
+	float: left;
+}
+
+
+.talkn .left {
+	width: 17%;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
+	line-height: 28px;
+	color: #333333;
+	float: left;
+	background-color: #F2F9F2;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #9FC1BB;
+	height: 60px;
+	margin-bottom: 50px;
+}
+.talkn .right {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*.talk .title1 {
+	height: 30px;
+	width: 100%;
+	left: 5px;
+	right: 5px;
+	margin-bottom: 2px;
+	background-image: url(../image/select_bg.gif);
+	background-repeat: repeat;
+	margin-right: auto;
+	margin-left: auto;
+	float: right;
+}
+.talk .b6 {
+	float: right;
+	text-decoration: none;
+	font-size: 13px;
+	color: #666666;
+	margin-right: 3px;
+	margin-left: 3px;
+	height: 24px;
+	margin-top: 4px;
+}*/
+.talkn .box {
+	width: 100%;
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 30px;
+	border: 1px solid #acd156;
+	margin-right: auto;
+	margin-left: auto;
+	float: right;
+}
+.talkn .title2 {
+	width: 86%;
+	margin-left: 10px;
+	height: 34px;
+	float: left;
+}
+.talkn .title3 {
+	width: 98%;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 24px;
+	float: left;
+	padding-right: 16px;
+	border-top-width: 1px;
+	border-top-style: dashed;
+	border-top-color: #acd156;
+}
+.talkn .title3 ul li {
+	float: right;
+}
+
+.talkn .box2 {
+	width: 100%;
+	float: right;
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 30px;
+	border: 1px solid #acd156;
+	margin-top: 2px;
+	margin-bottom: 12px;
+	background-color: #F7FDEA;
+}
+.talkn .box3 {
+	width: 100%;
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 30px;
+	border: 1px solid #acd156;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	float: right;
+}
+.talkn .title4{
+	width: 100%;
+	float: left;
+	text-decoration: none;
+	height: 24px;
+	background-color: #e8f8c7;
+	font-size: 13px;
+	line-height: 24px;
+	color: #333333;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #ACD156;
+}
+.talkn .title5{
+	width: 100%;
+	float: left;
+	text-decoration: none;
+	height: 24px;
+	background-color: #f2f9f2;
+	font-size: 13px;
+	line-height: 24px;
+	color: #333333;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #ACD156;
+}
+.talkn .talk_02 {
+	background-image: url(../image/talk_02.gif);
+	background-repeat: no-repeat;
+	width: 50px;
+	padding-left: 8px;
+	margin-right: 18px;
+	margin-left: 8px;
+	padding-right: 5px;
+}
+.talkn .talk_03 {
+	background-image: url(../image/talk_03.gif);
+	background-repeat: no-repeat;
+	width: 90px;
+	font-size: 13px;
+	line-height: 22px;
+	color: #333333;
+	text-decoration: none;
+	padding-left: 2px;
+	height: 24px;
+	margin-right: 2px;
+	text-indent: 6px;
+}
+
+.talkn .content {
+	width: 85%;
+	float: right;
+	padding-bottom: 18px;
+	padding-top: 10px;
+}
+.talkn .content_photo_modify {
+	width: 78%;
+	margin-bottom: 22px;
+	float: right;
+}
+.talkn .b2 {
+	width: 96%;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #ACD156;
+	text-decoration: none;
+	vertical-align: middle;
+	font-size: 13px;
+	color: #666666;
+	line-height: 22px;
+	padding: 12px;
+}
+.talkn .b3 {
+	width: 64px;
+	float: right;
+	border: 1px solid #ACD156;
+	background-color: #F0F9D8;
+	margin-right: 10px;
+	text-align: center;
+	height: 22px;
+	line-height: 22px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.talkn .b4 {
+	width: 40px;
+	float: right;
+	background-repeat: repeat;
+	border: 1px solid #ACD156;
+	background-color: #F0F9D8;
+	text-align: center;
+	font-size: 13px;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+	height: 22px;
+	margin-right: 10px;
+	margin-top: 8px;
+}
+.talkn .b5 {
+	width: 40px;
+	float: right;
+	background-repeat: repeat;
+	border: 1px solid #ACD156;
+	background-color: #F0F9D8;
+	text-align: center;
+	font-size: 13px;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+	height: 22px;
+	margin-right: 10px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+.talkn .b0 {
+	width: 60%;
+	margin-bottom: 22px;
+	text-decoration: none;
+	float: left;
+}
+
+.talkn .back {
+	width: 516px;
+	vertical-align: middle;
+	float: left;
+	margin-left: 80px;
+	margin-top: 4px;
+}
+.talkn .back .bg1 {
+	height: 28px;
+	width: 90px;
+	background-color: #EBF9CE;
+	font-size: 13px;
+	color: #333333;
+	line-height: 24px;
+	text-decoration: none;
+	text-indent: 6px;
+	padding: 4px;
+}
+.talkn .back .bg2 {
+	height: 24px;
+	width: 410px;
+	background-color: #FFFFFF;
+	padding: 4px;
+}
+
+.talkn .back .bg4 {
+	width: 133px;
+	background-color: #EBF9CE;
+	text-align: center;
+	float: left;
+	padding-left: 190px;
+	padding-right: 190px;
+	padding-bottom: 4px;
+}
+.talkn .boy {
+	background-image: url(../image/a09-1.gif);
+	float: left;
+	width: 12%;
+	height: 76px;
+	background-repeat: no-repeat;
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-right: 2px;
+	padding-left: 2px;
+}
+
+.talkn .girl {
+	background-image: url(../image/a09.gif);
+	float: left;
+	width: 12%;
+	height: 76px;
+	background-repeat: no-repeat;
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-right: 2px;
+	padding-left: 2px;
+}
+
+
+.talkn .a-name {
+	font-size: 13px;
+	color: #CC3300;
+	text-decoration: none;
+	line-height: 22px;
+}
+/*.talkn .a-title {
+	font-size: 15px;
+	color: #666666;
+	text-decoration: none;
+	line-height: 30px;
+	font-weight: bold;
+}*/
+
+
+
 
 
 /*美食區*/
@@ -779,7 +1206,6 @@
 	background-image: url(../image/a14-3.gif);
 	background-repeat: no-repeat;
 	width: 425px;
-	height: 28px;
 	margin-left: 10px;
 	padding-left: 24px;
 	border-bottom-width: 1px;
@@ -798,6 +1224,9 @@
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #afde6c;
+	height: 22px;
+	vertical-align: top;
+	padding-top: 6px;
 }
 .first .big2 a {
 	font-size: 13px;
@@ -890,7 +1319,7 @@
 }
 
 
-/*首頁new*/
+/*應用程式中心new*/
 
 .app {
 	width: 90%;
@@ -1003,4 +1432,158 @@
 	background-repeat: no-repeat;
 	text-decoration: none;
 	margin-left: 3px;
+}
+
+/*應用程式中心new*/
+
+.photo {
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	float: left;
+}
+/*.photo .boxA {
+	width: 100%;
+	margin-top: 5px;
+	background-color: #D4D0C8;
+	height: 666px;
+	}*/
+.photo .box {
+	width: 100%;
+	margin-bottom: 6px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #acd156;
+	float: left;
+}
+
+.photo .head {
+	width: 600px;
+	height: 34px;
+	text-align: center;
+	float: left;
+}
+.photo ul li {
+	float: left;
+	margin-right: 60px;
+}
+
+
+.photo .box .content {
+	width: 18%;
+	float: left;
+	margin-bottom: 4px;
+	padding-left: 20px;
+}
+
+.photo .box .b1 {
+	height: 102px;
+	background-image: url(../image/photo_01.jpg);
+	background-repeat: no-repeat;
+	float: left;
+	width: 135px;
+	text-decoration: none;
+}
+
+
+
+.photo .box .b2 {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	height: 26px;
+	background-image: url(../image/app_4.gif);
+	background-repeat: repeat;
+
+}
+.photo .box .b3 {
+	width: 160px;
+	float: left;
+}
+
+.photo .box .a-letter-t2 {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
+	line-height: 22px;
+}
+.photo .box .a-letter-t1 {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 22px;
+}
+.photo .box a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.photo .photo_bg1 {
+	background-image: url(../image/photo_bg1.gif);
+	background-repeat: no-repeat;
+	height: 152px;
+	text-decoration: none;
+	text-indent: 22px;
+	width: 142px;
+	margin-top: 22px;
+	margin-bottom: 12px;
+	float: left;
+}
+.photo .photo_bg2 {
+	background-image: url(../image/photo_bg2.gif);
+	background-repeat: no-repeat;
+	height: 152px;
+	text-decoration: none;
+	text-indent: 22px;
+	width: 142px;
+	margin-top: 22px;
+	margin-bottom: 12px;
+	float: left;
+}
+.photo .pic_01 {
+	background-image: url(../image/photo_01.jpg);
+	background-repeat: no-repeat;
+	height: 77px;
+	width: 102px;
+	margin-top: 36px;
+	margin-left: 19px;
+	border: 1px solid #333333;
+}
+.photo .pic_02 {
+	background-image: url(../image/photo_02.jpg);
+	background-repeat: no-repeat;
+	height: 102px;
+	width: 77px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 23px;
+	border: 1px solid #333333;
+}
+.photo .box .ps2 {
+	width: 150px;
+	text-align: center;
+	float: left;
+	padding-bottom: 4px;
+}
+.photo .box .ps3 {
+	text-decoration: none;
+	width: 150px;
+	text-align: center;
+	float: left;
+	height: 21px;
+	padding-bottom: 4px;
+	font-size: 13px;
+	line-height: 22px;
+	color: #333333;
+}
+.photo .box .ps4 {
+	text-decoration: none;
+	height: 21px;
+	width: 20px;
+	font-size: 13px;
+	line-height: 21px;
+	color: #333333;
+	text-align: center;
+	float: left;
 }
