@@ -13,13 +13,19 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
-        {  
-            UtilityDAO udao = new UtilityDAO();
-            SessionObject sobj = new SessionObject();
+        {
+            if (Request.QueryString["r05_no"] != null)
+            {
+                this.hidd_r05no.Value = Request.QueryString["r05_no"];
 
-            this.lab_dep.Text = udao.Get_DepartmentName(int.Parse(sobj.sessionUserDepartID));
-            this.lab_people.Text = udao.Get_PeopleName(int.Parse(sobj.sessionUserID));
-            
+                Response.Write(this.hidd_r05no.Value);
+
+                UtilityDAO udao = new UtilityDAO();
+                SessionObject sobj = new SessionObject();
+
+                this.lab_dep.Text = udao.Get_DepartmentName(int.Parse(sobj.sessionUserDepartID));
+                this.lab_people.Text = udao.Get_PeopleName(int.Parse(sobj.sessionUserID));
+            }
         }
     }
    
@@ -31,7 +37,8 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
             SessionObject sobj = new SessionObject();
 
             rep02 data = new rep02();
-            data.r05_no = int.Parse(this.ddl_rep05.SelectedValue);
+            data.r05_no = int.Parse(this.hidd_r05no.Value);
+
             data.peo_uid = int.Parse(sobj.sessionUserID);
             data.r02_depno = int.Parse(sobj.sessionUserDepartID);
             data.r02_date = DateTime.Now;
@@ -62,12 +69,6 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
         if (this.ddl_floor.SelectedValue.Equals("0"))
         {
             this.ShowMsg("請選擇樓層");
-            return false;
-        }
-
-        if (this.ddl_rep05.SelectedValue.Equals("0"))
-        {
-            this.ShowMsg("請選擇維修類別");
             return false;
         }
 

@@ -56,14 +56,8 @@
                 <th style="width: 15%">
                     故障原因
                 </th>
-                <td>
-                    <asp:Label ID="lab_reason" runat="server" ></asp:Label>
-                </td>
-                <th style="width: 15%">
-                    處理狀況
-                </th>
                 <td colspan="3">
-                    <asp:Label ID="lab_status" runat="server" ></asp:Label>
+                    <asp:Label ID="lab_reason" runat="server" ></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -78,6 +72,14 @@
                 </th>
                 <td>
                     <asp:Label ID="lab_reply_date" runat="server" ></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 15%">
+                    處理狀況
+                </th>
+                <td colspan="3">
+                    <asp:Label ID="lab_status" runat="server" ></asp:Label>
                 </td>
             </tr>
             <tr>
