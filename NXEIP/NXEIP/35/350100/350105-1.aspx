@@ -96,6 +96,20 @@
                     </asp:RadioButtonList>
                 </td>
             </tr>
+
+            <tr>
+                            <th>
+                    傳送Token值<br />(外部系統SSO使用)
+                </th>
+                <td colspan="3">
+                    <asp:RadioButtonList ID="rb_token" runat="server" RepeatDirection="Horizontal" 
+                        RepeatLayout="Flow">
+                        <asp:ListItem Value="0">否</asp:ListItem>
+                        <asp:ListItem Value="1">是</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+
         </table>
         <div class="footer">
             <div class="f1">

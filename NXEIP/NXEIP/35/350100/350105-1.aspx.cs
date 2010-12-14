@@ -41,6 +41,9 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
                 this.ddl_sysfuction.DataBind();
                 this.ddl_sysfuction.Items.FindByValue(sysfuData.sfu_parent.ToString()).Selected = true;
 
+
+                this.rb_token.SelectedValue = sysfuData.sfu_token ?? "0";
+
             }
             else
             {
@@ -83,6 +86,8 @@ public partial class _35_350100_350105_1 : System.Web.UI.Page
             sysfucData.sfu_createtime = System.DateTime.Now;
             sysfucData.sfu_createuid = Convert.ToInt32(new SessionObject().sessionUserID);
             sysfucData.sys_open = this.rbl_open.SelectedValue;
+            sysfucData.sfu_token = this.rb_token.SelectedValue;
+
 
             if (Request["mode"].Equals("new"))
             {

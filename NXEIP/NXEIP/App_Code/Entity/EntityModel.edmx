@@ -1245,6 +1245,7 @@
           <Property Name="sfu_createuid" Type="int" />
           <Property Name="sfu_createtime" Type="datetime" />
           <Property Name="sys_open" Type="char" MaxLength="1" />
+          <Property Name="sfu_token" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="terms">
           <Key>
@@ -2936,6 +2937,7 @@
           <NavigationProperty Name="sys" Relationship="NXEIPModel.FK_SYSFUCTI_RELATIONS_SYS" FromRole="sysfuction" ToRole="sys" />
           <Property Type="String" Name="sys_open" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="sys06" Relationship="NXEIPModel.FK_SYS06_RELATIONS_SYSFUCTI" FromRole="sysfuction" ToRole="sys06" />
+          <Property Type="String" Name="sfu_token" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="types">
           <Key>
@@ -4695,7 +4697,8 @@
             <ScalarProperty Name="sys_createtime" ColumnName="sys_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="sysfuction"><EntityTypeMapping TypeName="NXEIPModel.sysfuction"><MappingFragment StoreEntitySet="sysfuction">
-            <ScalarProperty Name="sys_open" ColumnName="sys_open" />
+            <ScalarProperty Name="sfu_token" ColumnName="sfu_token" />
+                <ScalarProperty Name="sys_open" ColumnName="sys_open" />
                 <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
             <ScalarProperty Name="sys_no" ColumnName="sys_no" />
             <ScalarProperty Name="sfu_name" ColumnName="sfu_name" />
