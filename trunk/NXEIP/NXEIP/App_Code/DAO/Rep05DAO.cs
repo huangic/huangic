@@ -43,5 +43,20 @@ namespace NXEIP.DAO
             return GetData().Count();
         }
 
+        public rep05 GetRep05(int r05_no)
+        {
+            return (from d in model.rep05 where d.r05_no == r05_no select d).FirstOrDefault();
+        }
+
+        public void AddToRep05(rep05 d)
+        {
+            model.rep05.AddObject(d);
+        }
+
+        public void Update()
+        {
+            model.SaveChanges();
+        }
+
     }
 }
