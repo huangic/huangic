@@ -118,6 +118,10 @@ public class MyMessageUtil
             {
                 using (WS_MyMessage MyMessage = new WS_MyMessage())
                 {
+                    //MyMessage.Url
+                
+
+
                     Message msg = new Message();
                     msg.From = From.EIP;
                     msg.Subject = subject;
