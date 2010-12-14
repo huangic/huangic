@@ -21123,6 +21123,30 @@ namespace Entity
         private global::System.String _sys_open;
         partial void Onsys_openChanging(global::System.String value);
         partial void Onsys_openChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String sfu_token
+        {
+            get
+            {
+                return _sfu_token;
+            }
+            set
+            {
+                Onsfu_tokenChanging(value);
+                ReportPropertyChanging("sfu_token");
+                _sfu_token = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("sfu_token");
+                Onsfu_tokenChanged();
+            }
+        }
+        private global::System.String _sfu_token;
+        partial void Onsfu_tokenChanging(global::System.String value);
+        partial void Onsfu_tokenChanged();
 
         #endregion
     
