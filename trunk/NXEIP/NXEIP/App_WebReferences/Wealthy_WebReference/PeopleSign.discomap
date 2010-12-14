@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://163.17.20.112/PeopleSign.asmx?disco" filename="PeopleSign.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://163.17.20.112/PeopleSign.asmx?wsdl" filename="PeopleSign.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

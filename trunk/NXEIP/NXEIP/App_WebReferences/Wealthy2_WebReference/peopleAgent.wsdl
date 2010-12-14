@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="get_PeopleAgentCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="val" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_PeopleAgentCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="get_PeopleAgentCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_PeopleAgent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="val" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="row" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_PeopleAgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_PeopleAgentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="get_PeopleAgentCountSoapIn">
+    <wsdl:part name="parameters" element="tns:get_PeopleAgentCount" />
+  </wsdl:message>
+  <wsdl:message name="get_PeopleAgentCountSoapOut">
+    <wsdl:part name="parameters" element="tns:get_PeopleAgentCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_PeopleAgentSoapIn">
+    <wsdl:part name="parameters" element="tns:get_PeopleAgent" />
+  </wsdl:message>
+  <wsdl:message name="get_PeopleAgentSoapOut">
+    <wsdl:part name="parameters" element="tns:get_PeopleAgentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="peopleAgentSoap">
+    <wsdl:operation name="get_PeopleAgentCount">
+      <wsdl:input message="tns:get_PeopleAgentCountSoapIn" />
+      <wsdl:output message="tns:get_PeopleAgentCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_PeopleAgent">
+      <wsdl:input message="tns:get_PeopleAgentSoapIn" />
+      <wsdl:output message="tns:get_PeopleAgentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="peopleAgentSoap" type="tns:peopleAgentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get_PeopleAgentCount">
+      <soap:operation soapAction="http://tempuri.org/get_PeopleAgentCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_PeopleAgent">
+      <soap:operation soapAction="http://tempuri.org/get_PeopleAgent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="peopleAgent">
+    <wsdl:port name="peopleAgentSoap" binding="tns:peopleAgentSoap">
+      <soap:address location="http://163.17.20.112/peopleAgent.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
