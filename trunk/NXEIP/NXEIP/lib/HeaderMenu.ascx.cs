@@ -121,7 +121,7 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
             Database db = DatabaseFactory.CreateDatabase("NXEIPConnectionString");
 
             //直接把帳號的角色權限功能全列
-            String sqlCmd = @"SELECT DISTINCT sysfunc.sfu_no, sysfunc.sys_no, sysfunc.sfu_name, sysfunc.sfu_catalog, sysfunc.sfu_order, sysfunc.sfu_path, sysfunc.sfu_defaltpic, sysfunc.sfu_overpicture, sysfunc.sfu_parent, sysfunc.sfu_status, sysfunc.sfu_createuid, sysfunc.sfu_createtime 
+            String sqlCmd = @"SELECT DISTINCT sysfunc.sfu_no, sysfunc.sys_no, sysfunc.sfu_name, sysfunc.sfu_catalog, sysfunc.sfu_order, sysfunc.sfu_path, sysfunc.sfu_defaltpic, sysfunc.sfu_overpicture, sysfunc.sfu_parent, sysfunc.sfu_status, sysfunc.sfu_createuid, sysfunc.sfu_createtime,sysfunc.sfu_token
                         FROM sysfuction AS sysfunc 
                         INNER JOIN accounts AS acc 
                         INNER JOIN roleaccount AS racco 
@@ -273,18 +273,34 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         HtmlGenericControl thisUl=new HtmlGenericControl("ul");
         foreach (var child in childs) {
             
+
+
+
             HtmlGenericControl liChild = new HtmlGenericControl("li");
             thisUl.Controls.Add(liChild);
             
+
+
             HtmlAnchor a = new HtmlAnchor();
+            
             liChild.Controls.Add(a);
             
+            
             a.Attributes["alt"] = child.Field<String>("sfu_name");
-            
-            
+                  
             a.InnerText = child.Field<String>("sfu_name");
-            if (child.Field<String>("sfu_path")!=null){
-            a.HRef = "~/" + child.Field<String>("sfu_path");
+
+            if (child.Field<String>("sfu_token") == "1")
+            {
+                a.HRef =String.Format("~/External.aspx?url={0}&signId={1}",child.Field<String>("sfu_path"),(child.Field<Int32>("sfu_no")).ToString());
+            }
+            else {
+
+                if (child.Field<String>("sfu_path") != null)
+                {
+                    a.HRef = "~/" + child.Field<String>("sfu_path");
+                }
+
         }
             HtmlGenericControl childUl = generateChildMenu(groupId, child.Field<Int32>("sfu_no"),dt);
 
