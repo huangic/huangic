@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300602.aspx.cs" Inherits="_30_300600_300602" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300603-2.aspx.cs" Inherits="_30_300600_300603_2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
@@ -29,17 +29,22 @@
     <asp:ToolkitScriptManager runat="server" ID="ToolkitScriptManager1">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData"
-        TypeName="NXEIP.DAO.Rep01DAO" EnablePaging="True" OldValuesParameterFormatString="original_{0}"
-        SelectCountMethod="GetDataCount"></asp:ObjectDataSource>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300602" />
+        TypeName="NXEIP.DAO.Rep06DAO" EnablePaging="True" OldValuesParameterFormatString="original_{0}"
+        SelectCountMethod="GetDataCount">
+        <SelectParameters>
+            <asp:Parameter Name="r05_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:HiddenField ID="hidd_r05no" runat="server" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300603" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300602-1.aspx?mode=new&modal=true&TB_iframe=true"
-                        value="新增管理者" />
+                    <input type="button" class="thickbox b-input" alt="300603-3.aspx?r05_no=<%=Request["r05_no"] %>&mode=new&modal=true&TB_iframe=true"
+                        value="新增維修類別" />
                 </div>
             </div>
             <div class="h3">
@@ -50,29 +55,31 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound" GridLines="None"
-                    OnRowCommand="GridView1_RowCommand" DataKeyNames="r01_no,r05_no">
+                    OnRowCommand="GridView1_RowCommand" DataKeyNames="r06_no,r05_no">
                     <Columns>
-                        <asp:BoundField DataField="r05_no" HeaderText="維修類別" SortExpression="r05_no">
+                        <asp:BoundField DataField="r06_parent" HeaderText="類別名稱" 
+                            SortExpression="r06_parent">
+                            <ItemStyle Width="20%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="r06_name" HeaderText="子類別名稱" 
+                            SortExpression="r06_name">
+                            <ItemStyle Width="20%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="r06_order" HeaderText="排序" 
+                            SortExpression="r06_order">
+                            <ItemStyle Width="20%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="r06_createuid" HeaderText="建立者" 
+                            SortExpression="r06_createuid">
                             <ItemStyle Width="15%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="r01_peouid" HeaderText="單位" SortExpression="r01_peouid">
-                            <ItemStyle Width="15%" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="r01_peouid" HeaderText="管理者" SortExpression="r01_peouid">
-                            <ItemStyle Width="15%" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="r01_type" HeaderText="電子郵件通知" SortExpression="r01_type">
-                            <ItemStyle Width="15%" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="r01_type" HeaderText="e公務訊息通知" SortExpression="r01_type">
-                            <ItemStyle Width="15%" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="r01_type" HeaderText="訊息通知" SortExpression="r01_type">
+                        <asp:BoundField DataField="r06_createtime" HeaderText="建立時間" 
+                            SortExpression="r06_createtime" DataFormatString="{0:yyyy-MM-dd HH:mm}">
                             <ItemStyle Width="15%" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
-                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# string.Format("300602-1.aspx?mode=modify&modal=true&r01_no={0}&r05_no={1}&TB_iframe=true", Eval("r01_no"), Eval("r05_no"))%>'>
+                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# string.Format("300603-3.aspx?mode=modify&modal=true&r06_no={0}&r05_no={1}&TB_iframe=true", Eval("r06_no"), Eval("r05_no"))%>'>
                                     <span><span>修改</span></span> </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
@@ -103,6 +110,14 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <div class="bottom">
+            <asp:Button ID="Button1" runat="server" Text="回維修項目管理" CssClass="a-input" 
+                onclick="Button1_Click" />
+           
+        </div>
     </div>
+
+
+
 </asp:Content>
 

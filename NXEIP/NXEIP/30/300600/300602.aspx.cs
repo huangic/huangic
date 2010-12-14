@@ -12,9 +12,9 @@ public partial class _30_300600_300602 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (this.IsPostBack)
+        if (!this.IsPostBack)
         {
-            //string.Format("300602-1.aspx?mode=modify&modal=true&r01_no={0}&r05_no={1}&TB_iframe=true", Eval("r01_no"), Eval("r05_no"));
+
         }
 
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))

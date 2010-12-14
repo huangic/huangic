@@ -84,7 +84,7 @@ public partial class _30_300600_300602_1 : System.Web.UI.Page
 
                 msg = "新增完成!";
 
-                OperatesObject.OperatesExecute(300601, 3, string.Format("修改管理者 r05_no:{0} r01_no:{1}", data.r05_no, data.r01_no));
+                OperatesObject.OperatesExecute(300601, 1, string.Format("新增管理者 r05_no:{0} r01_no:{1}", data.r05_no, data.r01_no));
             }
 
             this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('" + msg + "');", true);
