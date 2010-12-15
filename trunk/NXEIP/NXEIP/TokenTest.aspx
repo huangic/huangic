@@ -9,7 +9,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+                外部系統SSO測試
+
+         
+                <asp:Button ID="Button1" runat="server" Text="SSO" onclick="Button1_Click" />
+                <br />
+
+        <asp:TextBox ID="TextBox1" runat="server" Height="108px" TextMode="MultiLine"></asp:TextBox>
     </div>
     </form>
 </body>

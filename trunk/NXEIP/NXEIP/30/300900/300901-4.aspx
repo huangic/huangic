@@ -5,6 +5,7 @@
     TagPrefix="cc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
+<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
         function update(msg) {
@@ -39,9 +40,38 @@
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="" Name="f01_no" QueryStringField="ID" 
                 Type="Int32" />
+            <asp:Parameter Name="sDate" Type="DateTime" />
+            <asp:Parameter Name="eDate" Type="DateTime" />
+            <asp:Parameter Name="peo_name" Type="String" />
+            <asp:Parameter Name="dep_no" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300901" SubFunc="提交清單" />
+   
+   
+  <div class="select">
+            <span class="a-letter-2">日期：</span>
+         
+            <span class="a-letter-1">
+                      <uc2:calendar ID="cal_sdate" runat="server" />至<uc2:calendar ID="cal_edate" runat="server" />
+            </span>
+
+            <span class="a-letter-2">人員：</span>
+             <span class="a-letter-1">
+                 <asp:TextBox ID="tb_people" runat="server"></asp:TextBox>
+              </span>
+
+            &nbsp;<asp:Button ID="btn_search" runat="server"  CssClass="b-input" Text="搜尋" 
+                onclick="btn_search_Click" />
+                          
+                
+                
+               
+        </div>
+   
+   
+   
+   
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
@@ -122,6 +152,9 @@
                     </asp:DataPager>
                 </div>
             </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btn_search" EventName="Click" />
+            </Triggers>
         </asp:UpdatePanel>
     </div>
 </asp:Content>

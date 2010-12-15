@@ -41,7 +41,7 @@ public class MyMessageUtil
     public static String send(String subject,String to,String body,DateTime SData,DateTime EDate,String url,String url_param,EIPGroup eipgroup){
         //取參數看是否送出
         bool useWebService=bool.Parse(WebConfigurationManager.AppSettings["UseMyMsgWebService"]);
-
+        String wsUrl = WebConfigurationManager.AppSettings["tw.gov.tncg.emsg.WS_mymsg"];
         //if (!useWebService) {
         //    return "未啟用服務,請設定Web.config";
         //}
@@ -119,8 +119,9 @@ public class MyMessageUtil
                 using (WS_MyMessage MyMessage = new WS_MyMessage())
                 {
                     //MyMessage.Url
-                
 
+                    MyMessage.Url = wsUrl;
+                    MyMessage.Discover();
 
                     Message msg = new Message();
                     msg.From = From.EIP;

@@ -76,6 +76,13 @@ public partial class _10_100500_100507 : System.Web.UI.Page
                         li.Attributes.Add("class", "ps2 border-bottom-block3");
                         li.Controls.Add(a);
 
+                        //CHECKBOX
+
+                        //CheckBox cb = new CheckBox();
+                       
+
+
+
                         divBoxContent.Controls.Add(li);
                     }
                     else {

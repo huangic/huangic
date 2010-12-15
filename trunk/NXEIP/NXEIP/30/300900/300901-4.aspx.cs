@@ -132,4 +132,40 @@ public partial class _30_300900_300901_4 : System.Web.UI.Page
             return "停用";
         }
     }
+    protected void btn_search_Click(object sender, EventArgs e)
+    {
+
+        //取日期
+        String msg = String.Empty;
+
+        DateTime? sdt=null, edt=null;
+
+
+        try
+        {
+            sdt = this.cal_sdate._ADDate;
+        }
+        catch { 
+            
+        }
+
+        try
+        {
+            edt = this.cal_edate._ADDate;
+        }
+        catch { 
+        
+        }
+
+        this.DataSource.SelectParameters[0].DefaultValue = Request["ID"];
+        this.DataSource.SelectParameters[1].DefaultValue = sdt.HasValue?sdt.ToString():"";
+        this.DataSource.SelectParameters[2].DefaultValue = edt.HasValue?edt.ToString() : "";
+        this.DataSource.SelectParameters[3].DefaultValue = this.tb_people.Text;
+        this.DataSource.SelectParameters[4].DefaultValue = "";
+
+
+        //this.DataSource.SelectParameters[1].
+
+        this.GridView1.DataBind();
+    }
 }

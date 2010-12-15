@@ -290,9 +290,11 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
                   
             a.InnerText = child.Field<String>("sfu_name");
 
+
+            //外部SSO使用的
             if (child.Field<String>("sfu_token") == "1")
             {
-                a.HRef =String.Format("~/External.aspx?url={0}&signId={1}",child.Field<String>("sfu_path"),(child.Field<Int32>("sfu_no")).ToString());
+                a.HRef =String.Format("~/External.aspx?sysId={0}",(child.Field<Int32>("sfu_no")).ToString());
             }
             else {
 

@@ -27,9 +27,14 @@ namespace NXEIP.SSO
             //如果使用設計的元件，請取消註解下行程式碼 
             //InitializeComponent(); 
         }
-
+        /// <summary>
+        /// 驗證Token與取回使用者資料
+        /// </summary>
+        /// <param name="token">token</param>
+        /// <param name="sysId">系統編號</param>
+        /// <returns></returns>
         [WebMethod]
-        public UserData Auth(String token,String SignId)
+        public UserData Auth(String token,String sysId)
         {
 
             //驗證TOKEN
@@ -44,7 +49,7 @@ namespace NXEIP.SSO
             if (loginData == null)
             {
                 u.isAuth = false;
-                u.Message = "使用者未登入!";
+                u.Message = "不合法的TOKEN!";
 
                 return u;
             }
