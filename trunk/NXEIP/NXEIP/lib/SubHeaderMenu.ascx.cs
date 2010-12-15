@@ -66,7 +66,7 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
                                  sys_fun.Contains(f.sfu_no)
                                  && f.sfu_parent == currentFunc.sfu_parent
                                  && f.sfu_status == "1" 
-                                 orderby f.sfu_order orderby f.sfu_no select f);
+                                 orderby f.sfu_order,f.sfu_no select f);
 
             HtmlGenericControl htmlUl = new HtmlGenericControl("ul");
 
@@ -75,10 +75,23 @@ public partial class lib_SubHeaderMenu : System.Web.UI.UserControl,ISubMenuContr
                 HtmlAnchor htmla = new HtmlAnchor();
                 htmlLi.Controls.Add(htmla);
                 htmlUl.Controls.Add(htmlLi);
-                htmla.HRef = "~/"+func.sfu_path;
+
+
+                if (func.sfu_token != "1")
+                {
+                    htmla.HRef = "~/" + func.sfu_path;
+                }
+                else {
+                    htmla.HRef = String.Format("~/External.aspx?sysId={0}", (func.sfu_no).ToString());
+                }
+                
+                
                 htmla.Attributes["alt"] = func.sfu_name;
                 htmla.Attributes["title"] = func.sfu_name;
                 htmla.InnerHtml = "<span>"+func.sfu_name+"</span>"; 
+
+
+
             }
             
             this.submenu.Controls.Add(htmlUl);
