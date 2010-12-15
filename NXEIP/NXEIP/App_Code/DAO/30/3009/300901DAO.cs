@@ -31,7 +31,7 @@ namespace NXEIP.DAO
         /// </summary>
         /// <param name="f01_no"></param>
         /// <returns></returns>
-        public IQueryable<FormDetailVO> GetSubmitByFormNo(int f01_no)
+        public IQueryable<FormDetailVO> GetSubmitByFormNo(int f01_no,DateTime? sDate,DateTime? eDate,String peo_name,int? dep_no)
         {
             var forms = from f1 in model.form01
                         from f2 in model.form02
@@ -41,17 +41,48 @@ namespace NXEIP.DAO
                         orderby f2.f02_createtime
                         select new FormDetailVO { Form = f1, Submit = f2 };
 
+            //依照條件查詢
+            if (sDate.HasValue) {
+
+                sDate = DateUtil.ConvertToZeroHour(sDate.Value);
+
+                forms=forms.Where(x => x.Submit.f02_createtime > sDate.Value);
+            
+            }
+            
+            if (eDate.HasValue)
+            {
+
+                eDate = DateUtil.ConvertToMaxHout(eDate.Value);
+                
+                forms=forms.Where(x => x.Submit.f02_createtime <= eDate.Value);
+
+            }
+
+            if (!String.IsNullOrEmpty(peo_name))
+            {
+               forms= forms.Where(x => x.Submit.people.peo_name.Contains(peo_name));
+
+            }
+
+            if (dep_no.HasValue)
+            {
+                forms=forms.Where(x => x.Submit.people.dep_no == dep_no.Value);
+
+            }
+
+
             return forms;
         }
 
-        public int GetSubmitByFormNoCount(int f01_no)
+        public int GetSubmitByFormNoCount(int f01_no, DateTime? sDate, DateTime? eDate, String peo_name, int? dep_no)
         {
-            return GetSubmitByFormNo(f01_no).Count();
+            return GetSubmitByFormNo(f01_no, sDate, eDate, peo_name, dep_no).Count();
         }
 
-        public IQueryable<FormDetailVO> GetSubmitByFormNo(int f01_no, int startRowIndex, int maximumRows)
+        public IQueryable<FormDetailVO> GetSubmitByFormNo(int f01_no,DateTime? sDate,DateTime? eDate,String peo_name,int? dep_no, int startRowIndex, int maximumRows)
         {
-            return GetSubmitByFormNo(f01_no).Skip(startRowIndex).Take(maximumRows);
+            return GetSubmitByFormNo(f01_no, sDate, eDate, peo_name, dep_no).Skip(startRowIndex).Take(maximumRows);
         }
 
         #endregion
