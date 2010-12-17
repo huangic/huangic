@@ -1424,8 +1424,11 @@
 	background-image: url(../image/app_2.gif);
 	background-repeat: no-repeat;
 	height: 22px;
+    	
 	text-indent: 18px;
+	/*
 	margin-left: 16px;
+    */
 }
 .app .box .ps3 {
 	background-image: url(../image/ms03.gif);

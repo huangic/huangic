@@ -7,19 +7,51 @@
     </SelectParameters>
                  </asp:ObjectDataSource>
 
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //先藏CONTENT
+        $(".app_more").hide();
+
+        $(".head").css("cursor", "pointer");
+
+        $(".more").click(function () {
+
+            $(".app_more").toggle('slow');
+
+        });
+
+       
+
+    });
+
+    </script>
+
 <div class="block-1">
 
           <div class="headerin">
              <div class="in3">
                  
                  個人應用程式</div>
-            <!--    
+             
               <div class="more"></div>
-              -->
+              
           
           </div>
           <div class="first">
             
+
+
+              <div id="application" runat="server">
+                
+              
+              </div>
+
+
+
+            <!--
               <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
             
                 <ItemTemplate>
@@ -29,7 +61,7 @@
                 </ItemTemplate>
             
               </asp:DataList>
-                      
+            -->             
            
           </div>
           </div> 
