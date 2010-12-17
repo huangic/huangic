@@ -85,6 +85,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM02_RELATIONS_FORM01", "form01", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.form01), "form02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form02), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_FORM02_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.people), "form02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.form02), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CHECKER_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "checker", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.checker), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_SETTING_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "setting", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.setting), true)]
 
 #endregion
 
@@ -1239,6 +1240,22 @@ namespace Entity
             }
         }
         private ObjectSet<notifys> _notifys;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<setting> setting
+        {
+            get
+            {
+                if ((_setting == null))
+                {
+                    _setting = base.CreateObjectSet<setting>("setting");
+                }
+                return _setting;
+            }
+        }
+        private ObjectSet<setting> _setting;
 
         #endregion
         #region AddTo 方法
@@ -1793,6 +1810,14 @@ namespace Entity
         public void AddTonotifys(notifys notifys)
         {
             base.AddObject("notifys", notifys);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 setting EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTosetting(setting setting)
+        {
+            base.AddObject("setting", setting);
         }
 
         #endregion
@@ -14612,6 +14637,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SETTING_RELATIONS_PEOPLE", "setting")]
+        public EntityCollection<setting> setting
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<setting>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "setting");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<setting>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "setting", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -19920,6 +19967,200 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<types>("NXEIPModel.FK_SEARCH04_RELATIONS_TYPES", "types", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="setting")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class setting : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 setting 物件。
+        /// </summary>
+        /// <param name="set_no">set_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        public static setting Createsetting(global::System.Int32 set_no, global::System.Int32 peo_uid)
+        {
+            setting setting = new setting();
+            setting.set_no = set_no;
+            setting.peo_uid = peo_uid;
+            return setting;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 set_no
+        {
+            get
+            {
+                return _set_no;
+            }
+            set
+            {
+                if (_set_no != value)
+                {
+                    Onset_noChanging(value);
+                    ReportPropertyChanging("set_no");
+                    _set_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("set_no");
+                    Onset_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _set_no;
+        partial void Onset_noChanging(global::System.Int32 value);
+        partial void Onset_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String set_describe
+        {
+            get
+            {
+                return _set_describe;
+            }
+            set
+            {
+                Onset_describeChanging(value);
+                ReportPropertyChanging("set_describe");
+                _set_describe = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("set_describe");
+                Onset_describeChanged();
+            }
+        }
+        private global::System.String _set_describe;
+        partial void Onset_describeChanging(global::System.String value);
+        partial void Onset_describeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String set_variable
+        {
+            get
+            {
+                return _set_variable;
+            }
+            set
+            {
+                Onset_variableChanging(value);
+                ReportPropertyChanging("set_variable");
+                _set_variable = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("set_variable");
+                Onset_variableChanged();
+            }
+        }
+        private global::System.String _set_variable;
+        partial void Onset_variableChanging(global::System.String value);
+        partial void Onset_variableChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String set_value
+        {
+            get
+            {
+                return _set_value;
+            }
+            set
+            {
+                Onset_valueChanging(value);
+                ReportPropertyChanging("set_value");
+                _set_value = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("set_value");
+                Onset_valueChanged();
+            }
+        }
+        private global::System.String _set_value;
+        partial void Onset_valueChanging(global::System.String value);
+        partial void Onset_valueChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_SETTING_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_SETTING_RELATIONS_PEOPLE", "people", value);
                 }
             }
         }

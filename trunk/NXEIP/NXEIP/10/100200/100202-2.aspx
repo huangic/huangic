@@ -34,8 +34,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+   
 
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100202" SubFunc="新增待辦事項" />
     
