@@ -40,8 +40,12 @@
 
   <div class="headerT">
          <div class="headerTL">
-            <div class="logo"><span>          
-              台南市員工入口網</span></div>
+           <asp:HyperLink id="logo"  Text="LOGO" NavigateUrl="~/default.aspx" runat="server">
+            <div class="logo">
+            <span>          
+              台南市員工入口網</span>
+             </div>
+            </asp:HyperLink>
             <div class="headerTmenu">
             
                               
