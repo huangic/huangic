@@ -7,6 +7,7 @@
     <Schema Namespace="NXEIPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="NXEIPModelStoreContainer">
           <EntitySet Name="accounts" EntityType="NXEIPModel.Store.accounts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="answers" EntityType="NXEIPModel.Store.answers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="block" EntityType="NXEIPModel.Store.block" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="c01" EntityType="NXEIPModel.Store.c01" store:Type="Tables" Schema="dbo" />
@@ -43,12 +44,12 @@
           <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new03" EntityType="NXEIPModel.Store.new03" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="notifys" EntityType="NXEIPModel.Store.notifys" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="per01" EntityType="NXEIPModel.Store.per01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="petition" EntityType="NXEIPModel.Store.petition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="questionary" EntityType="NXEIPModel.Store.questionary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rauthority" EntityType="NXEIPModel.Store.rauthority" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rep01" EntityType="NXEIPModel.Store.rep01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rep02" EntityType="NXEIPModel.Store.rep02" store:Type="Tables" Schema="dbo" />
@@ -64,12 +65,12 @@
           <EntitySet Name="search02" EntityType="NXEIPModel.Store.search02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="search03" EntityType="NXEIPModel.Store.search03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="search04" EntityType="NXEIPModel.Store.search04" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="setting" EntityType="NXEIPModel.Store.setting" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="spot" EntityType="NXEIPModel.Store.spot" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys" EntityType="NXEIPModel.Store.sys" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sys06" EntityType="NXEIPModel.Store.sys06" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysfuction" EntityType="NXEIPModel.Store.sysfuction" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="terms" EntityType="NXEIPModel.Store.terms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="theme" EntityType="NXEIPModel.Store.theme" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="treat" EntityType="NXEIPModel.Store.treat" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="treatdetail" EntityType="NXEIPModel.Store.treatdetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="turning" EntityType="NXEIPModel.Store.turning" store:Type="Tables" Schema="dbo" />
@@ -93,6 +94,10 @@
           <AssociationSet Name="FK_ACCOUNTS_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_ACCOUNTS_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="accounts" EntitySet="accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ANSWERS_RELATIONS_THEME" Association="NXEIPModel.Store.FK_ANSWERS_RELATIONS_THEME">
+            <End Role="theme" EntitySet="theme" />
+            <End Role="answers" EntitySet="answers" />
           </AssociationSet>
           <AssociationSet Name="FK_BLCOK_RELATIONS_PAGE" Association="NXEIPModel.Store.FK_BLCOK_RELATIONS_PAGE">
             <End Role="page" EntitySet="page" />
@@ -326,10 +331,6 @@
             <End Role="types" EntitySet="types" />
             <End Role="search04" EntitySet="search04" />
           </AssociationSet>
-          <AssociationSet Name="FK_SETTING_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_SETTING_RELATIONS_PEOPLE">
-            <End Role="people" EntitySet="people" />
-            <End Role="setting" EntitySet="setting" />
-          </AssociationSet>
           <AssociationSet Name="FK_SYS06_RELATIONS_SYSFUCTI" Association="NXEIPModel.Store.FK_SYS06_RELATIONS_SYSFUCTI">
             <End Role="sysfuction" EntitySet="sysfuction" />
             <End Role="sys06" EntitySet="sys06" />
@@ -341,6 +342,10 @@
           <AssociationSet Name="FK_TERMS_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_TERMS_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="terms" EntitySet="terms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THEME_RELATIONS_QUESTION" Association="NXEIPModel.Store.FK_THEME_RELATIONS_QUESTION">
+            <End Role="questionary" EntitySet="questionary" />
+            <End Role="theme" EntitySet="theme" />
           </AssociationSet>
           <AssociationSet Name="FK_TREAT_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_TREAT_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
@@ -370,6 +375,22 @@
           <Property Name="acc_status" Type="char" MaxLength="1" />
           <Property Name="acc_createuid" Type="int" />
           <Property Name="acc_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="answers">
+          <Key>
+            <PropertyRef Name="que_no" />
+            <PropertyRef Name="the_no" />
+            <PropertyRef Name="ans_no" />
+          </Key>
+          <Property Name="que_no" Type="int" Nullable="false" />
+          <Property Name="the_no" Type="int" Nullable="false" />
+          <Property Name="ans_no" Type="int" Nullable="false" />
+          <Property Name="ans_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ans_order" Type="int" />
+          <Property Name="ans_fraction" Type="int" />
+          <Property Name="ans_status" Type="char" MaxLength="1" />
+          <Property Name="ans_createuid" Type="int" />
+          <Property Name="ans_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="arguments">
           <Key>
@@ -877,27 +898,6 @@
           <Property Name="n03_no" Type="int" Nullable="false" />
           <Property Name="n03_address" Type="nvarchar" MaxLength="150" />
         </EntityType>
-        <EntityType Name="notifys">
-          <Key>
-            <PropertyRef Name="not_no" />
-          </Key>
-          <Property Name="not_no" Type="char" Nullable="false" MaxLength="32" />
-          <Property Name="not_sysname" Type="nvarchar" MaxLength="30" />
-          <Property Name="not_subject" Type="nvarchar" MaxLength="100" />
-          <Property Name="not_content" Type="text" />
-          <Property Name="not_senduid" Type="int" />
-          <Property Name="not_time" Type="datetime" />
-          <Property Name="not_dateline" Type="datetime" />
-          <Property Name="not_peouid" Type="int" />
-          <Property Name="not_status" Type="char" MaxLength="1" />
-          <Property Name="not_type" Type="char" MaxLength="1" />
-          <Property Name="not_group" Type="nvarchar" MaxLength="100" />
-          <Property Name="not_link" Type="nvarchar" MaxLength="100" />
-          <Property Name="not_argument" Type="nvarchar" MaxLength="100" />
-          <Property Name="not_egov" Type="char" MaxLength="1" />
-          <Property Name="not_email" Type="char" MaxLength="1" />
-          <Property Name="not_phone" Type="char" MaxLength="1" />
-        </EntityType>
         <EntityType Name="operates">
           <Key>
             <PropertyRef Name="ope_no" />
@@ -1011,6 +1011,22 @@
           <Property Name="pet_meeting" Type="datetime" />
           <Property Name="pet_createuid" Type="int" />
           <Property Name="pet_createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="questionary">
+          <Key>
+            <PropertyRef Name="que_no" />
+          </Key>
+          <Property Name="que_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="que_name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="que_descript" Type="nvarchar" MaxLength="500" />
+          <Property Name="que_end" Type="nvarchar" MaxLength="500" />
+          <Property Name="que_register" Type="char" MaxLength="1" />
+          <Property Name="que_open" Type="char" MaxLength="1" />
+          <Property Name="que_sdate" Type="datetime" />
+          <Property Name="que_edate" Type="datetime" />
+          <Property Name="que_status" Type="char" MaxLength="1" />
+          <Property Name="que_createuid" Type="int" />
+          <Property Name="que_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="rauthority">
           <Key>
@@ -1194,16 +1210,6 @@
           <Property Name="s04_no" Type="int" Nullable="false" />
           <Property Name="typ_no" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="setting">
-          <Key>
-            <PropertyRef Name="set_no" />
-          </Key>
-          <Property Name="set_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="peo_uid" Type="int" Nullable="false" />
-          <Property Name="set_describe" Type="nvarchar" MaxLength="500" />
-          <Property Name="set_variable" Type="varchar" MaxLength="50" />
-          <Property Name="set_value" Type="varchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="spot">
           <Key>
             <PropertyRef Name="spo_no" />
@@ -1260,7 +1266,6 @@
           <Property Name="sfu_createuid" Type="int" />
           <Property Name="sfu_createtime" Type="datetime" />
           <Property Name="sys_open" Type="char" MaxLength="1" />
-          <Property Name="sfu_token" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="terms">
           <Key>
@@ -1270,6 +1275,22 @@
           <Property Name="peo_uid" Type="int" Nullable="false" />
           <Property Name="ter_no" Type="int" Nullable="false" />
           <Property Name="ter_name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="theme">
+          <Key>
+            <PropertyRef Name="que_no" />
+            <PropertyRef Name="the_no" />
+          </Key>
+          <Property Name="que_no" Type="int" Nullable="false" />
+          <Property Name="the_no" Type="int" Nullable="false" />
+          <Property Name="the_name" Type="nvarchar" MaxLength="300" />
+          <Property Name="the_type" Type="char" MaxLength="1" />
+          <Property Name="the_order" Type="int" />
+          <Property Name="the_count" Type="char" MaxLength="1" />
+          <Property Name="the_fraction" Type="int" />
+          <Property Name="the_status" Type="char" MaxLength="1" />
+          <Property Name="the_createuid" Type="int" />
+          <Property Name="the_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="treat">
           <Key>
@@ -1337,7 +1358,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -1367,6 +1388,20 @@
             </Principal>
             <Dependent Role="accounts">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ANSWERS_RELATIONS_THEME">
+          <End Role="theme" Type="NXEIPModel.Store.theme" Multiplicity="1" />
+          <End Role="answers" Type="NXEIPModel.Store.answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="theme">
+              <PropertyRef Name="que_no" />
+              <PropertyRef Name="the_no" />
+            </Principal>
+            <Dependent Role="answers">
+              <PropertyRef Name="que_no" />
+              <PropertyRef Name="the_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2068,18 +2103,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SETTING_RELATIONS_PEOPLE">
-          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
-          <End Role="setting" Type="NXEIPModel.Store.setting" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="people">
-              <PropertyRef Name="peo_uid" />
-            </Principal>
-            <Dependent Role="setting">
-              <PropertyRef Name="peo_uid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SYS06_RELATIONS_SYSFUCTI">
           <End Role="sysfuction" Type="NXEIPModel.Store.sysfuction" Multiplicity="1" />
           <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="*" />
@@ -2113,6 +2136,18 @@
             </Principal>
             <Dependent Role="terms">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THEME_RELATIONS_QUESTION">
+          <End Role="questionary" Type="NXEIPModel.Store.questionary" Multiplicity="1" />
+          <End Role="theme" Type="NXEIPModel.Store.theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionary">
+              <PropertyRef Name="que_no" />
+            </Principal>
+            <Dependent Role="theme">
+              <PropertyRef Name="que_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2510,6 +2545,17 @@
           <AssociationSet Name="FK_SETTING_RELATIONS_PEOPLE" Association="NXEIPModel.FK_SETTING_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="setting" EntitySet="setting" />
+          </AssociationSet>
+          <EntitySet Name="answers" EntityType="NXEIPModel.answers" />
+          <EntitySet Name="questionary" EntityType="NXEIPModel.questionary" />
+          <EntitySet Name="theme" EntityType="NXEIPModel.theme" />
+          <AssociationSet Name="FK_ANSWERS_RELATIONS_THEME" Association="NXEIPModel.FK_ANSWERS_RELATIONS_THEME">
+            <End Role="theme" EntitySet="theme" />
+            <End Role="answers" EntitySet="answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_THEME_RELATIONS_QUESTION" Association="NXEIPModel.FK_THEME_RELATIONS_QUESTION">
+            <End Role="questionary" EntitySet="questionary" />
+            <End Role="theme" EntitySet="theme" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
@@ -4462,6 +4508,84 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="answers">
+          <Key>
+            <PropertyRef Name="que_no" />
+            <PropertyRef Name="the_no" />
+            <PropertyRef Name="ans_no" />
+          </Key>
+          <Property Type="Int32" Name="que_no" Nullable="false" />
+          <Property Type="Int32" Name="the_no" Nullable="false" />
+          <Property Type="Int32" Name="ans_no" Nullable="false" />
+          <Property Type="String" Name="ans_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ans_order" />
+          <Property Type="Int32" Name="ans_fraction" />
+          <Property Type="String" Name="ans_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ans_createuid" />
+          <Property Type="DateTime" Name="ans_createtime" />
+          <NavigationProperty Name="theme" Relationship="NXEIPModel.FK_ANSWERS_RELATIONS_THEME" FromRole="answers" ToRole="theme" />
+        </EntityType>
+        <EntityType Name="questionary">
+          <Key>
+            <PropertyRef Name="que_no" />
+          </Key>
+          <Property Type="Int32" Name="que_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="que_name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="que_descript" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="que_end" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="que_register" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="que_open" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="que_sdate" />
+          <Property Type="DateTime" Name="que_edate" />
+          <Property Type="String" Name="que_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="que_createuid" />
+          <Property Type="DateTime" Name="que_createtime" />
+          <NavigationProperty Name="theme" Relationship="NXEIPModel.FK_THEME_RELATIONS_QUESTION" FromRole="questionary" ToRole="theme" />
+        </EntityType>
+        <EntityType Name="theme">
+          <Key>
+            <PropertyRef Name="que_no" />
+            <PropertyRef Name="the_no" />
+          </Key>
+          <Property Type="Int32" Name="que_no" Nullable="false" />
+          <Property Type="Int32" Name="the_no" Nullable="false" />
+          <Property Type="String" Name="the_name" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="the_type" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="the_order" />
+          <Property Type="String" Name="the_count" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="the_fraction" />
+          <Property Type="String" Name="the_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="the_createuid" />
+          <Property Type="DateTime" Name="the_createtime" />
+          <NavigationProperty Name="answers" Relationship="NXEIPModel.FK_ANSWERS_RELATIONS_THEME" FromRole="theme" ToRole="answers" />
+          <NavigationProperty Name="questionary" Relationship="NXEIPModel.FK_THEME_RELATIONS_QUESTION" FromRole="theme" ToRole="questionary" />
+        </EntityType>
+        <Association Name="FK_ANSWERS_RELATIONS_THEME">
+          <End Type="NXEIPModel.theme" Role="theme" Multiplicity="1" />
+          <End Type="NXEIPModel.answers" Role="answers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="theme">
+              <PropertyRef Name="que_no" />
+              <PropertyRef Name="the_no" />
+            </Principal>
+            <Dependent Role="answers">
+              <PropertyRef Name="que_no" />
+              <PropertyRef Name="the_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_THEME_RELATIONS_QUESTION">
+          <End Type="NXEIPModel.questionary" Role="questionary" Multiplicity="1" />
+          <End Type="NXEIPModel.theme" Role="theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="questionary">
+              <PropertyRef Name="que_no" />
+            </Principal>
+            <Dependent Role="theme">
+              <PropertyRef Name="que_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4753,7 +4877,6 @@
             <ScalarProperty Name="sys_createtime" ColumnName="sys_createtime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="sysfuction"><EntityTypeMapping TypeName="NXEIPModel.sysfuction"><MappingFragment StoreEntitySet="sysfuction">
-            <ScalarProperty Name="sfu_token" ColumnName="sfu_token" />
                 <ScalarProperty Name="sys_open" ColumnName="sys_open" />
                 <ScalarProperty Name="sfu_no" ColumnName="sfu_no" />
             <ScalarProperty Name="sys_no" ColumnName="sys_no" />
@@ -5352,40 +5475,55 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="notifys">
-            <EntityTypeMapping TypeName="NXEIPModel.notifys">
-              <MappingFragment StoreEntitySet="notifys">
-                <ScalarProperty Name="not_phone" ColumnName="not_phone" />
-                <ScalarProperty Name="not_email" ColumnName="not_email" />
-                <ScalarProperty Name="not_egov" ColumnName="not_egov" />
-                <ScalarProperty Name="not_argument" ColumnName="not_argument" />
-                <ScalarProperty Name="not_link" ColumnName="not_link" />
-                <ScalarProperty Name="not_group" ColumnName="not_group" />
-                <ScalarProperty Name="not_type" ColumnName="not_type" />
-                <ScalarProperty Name="not_status" ColumnName="not_status" />
-                <ScalarProperty Name="not_peouid" ColumnName="not_peouid" />
-                <ScalarProperty Name="not_dateline" ColumnName="not_dateline" />
-                <ScalarProperty Name="not_time" ColumnName="not_time" />
-                <ScalarProperty Name="not_senduid" ColumnName="not_senduid" />
-                <ScalarProperty Name="not_content" ColumnName="not_content" />
-                <ScalarProperty Name="not_subject" ColumnName="not_subject" />
-                <ScalarProperty Name="not_sysname" ColumnName="not_sysname" />
-                <ScalarProperty Name="not_no" ColumnName="not_no" />
+          <EntitySetMapping Name="answers">
+            <EntityTypeMapping TypeName="NXEIPModel.answers">
+              <MappingFragment StoreEntitySet="answers">
+                <ScalarProperty Name="ans_createtime" ColumnName="ans_createtime" />
+                <ScalarProperty Name="ans_createuid" ColumnName="ans_createuid" />
+                <ScalarProperty Name="ans_status" ColumnName="ans_status" />
+                <ScalarProperty Name="ans_fraction" ColumnName="ans_fraction" />
+                <ScalarProperty Name="ans_order" ColumnName="ans_order" />
+                <ScalarProperty Name="ans_name" ColumnName="ans_name" />
+                <ScalarProperty Name="ans_no" ColumnName="ans_no" />
+                <ScalarProperty Name="the_no" ColumnName="the_no" />
+                <ScalarProperty Name="que_no" ColumnName="que_no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="setting">
-            <EntityTypeMapping TypeName="NXEIPModel.setting">
-              <MappingFragment StoreEntitySet="setting">
-                <ScalarProperty Name="set_value" ColumnName="set_value" />
-                <ScalarProperty Name="set_variable" ColumnName="set_variable" />
-                <ScalarProperty Name="set_describe" ColumnName="set_describe" />
-                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
-                <ScalarProperty Name="set_no" ColumnName="set_no" />
+          <EntitySetMapping Name="questionary">
+            <EntityTypeMapping TypeName="NXEIPModel.questionary">
+              <MappingFragment StoreEntitySet="questionary">
+                <ScalarProperty Name="que_createtime" ColumnName="que_createtime" />
+                <ScalarProperty Name="que_createuid" ColumnName="que_createuid" />
+                <ScalarProperty Name="que_status" ColumnName="que_status" />
+                <ScalarProperty Name="que_edate" ColumnName="que_edate" />
+                <ScalarProperty Name="que_sdate" ColumnName="que_sdate" />
+                <ScalarProperty Name="que_open" ColumnName="que_open" />
+                <ScalarProperty Name="que_register" ColumnName="que_register" />
+                <ScalarProperty Name="que_end" ColumnName="que_end" />
+                <ScalarProperty Name="que_descript" ColumnName="que_descript" />
+                <ScalarProperty Name="que_name" ColumnName="que_name" />
+                <ScalarProperty Name="que_no" ColumnName="que_no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="theme">
+            <EntityTypeMapping TypeName="NXEIPModel.theme">
+              <MappingFragment StoreEntitySet="theme">
+                <ScalarProperty Name="the_createtime" ColumnName="the_createtime" />
+                <ScalarProperty Name="the_createuid" ColumnName="the_createuid" />
+                <ScalarProperty Name="the_status" ColumnName="the_status" />
+                <ScalarProperty Name="the_fraction" ColumnName="the_fraction" />
+                <ScalarProperty Name="the_count" ColumnName="the_count" />
+                <ScalarProperty Name="the_order" ColumnName="the_order" />
+                <ScalarProperty Name="the_type" ColumnName="the_type" />
+                <ScalarProperty Name="the_name" ColumnName="the_name" />
+                <ScalarProperty Name="the_no" ColumnName="the_no" />
+                <ScalarProperty Name="que_no" ColumnName="que_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -5405,7 +5543,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="EntityModel" ShowGrid="false" ZoomLevel="100">
+      <Diagram Name="EntityModel" ShowGrid="false" ZoomLevel="20">
         <EntityTypeShape EntityType="NXEIPModel.accounts" Width="1.5" PointX="5.125" PointY="10.25" Height="2.5532031249999996" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.arguments" Width="1.5" PointX="0.5" PointY="0.5" Height="1.673483072916667" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.block" Width="1.5" PointX="8.875" PointY="0.5" Height="2.7291471354166661" IsExpanded="true" />
@@ -5922,11 +6060,15 @@
           <ConnectorPoint PointX="19.625" PointY="8.5910953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP02_RELATIONS_REP05" >
-          <ConnectorPoint PointX="18.125" PointY="9.3071907552083335" />
-          <ConnectorPoint PointX="18.125" PointY="70.295146484374982" />
-          <ConnectorPoint PointX="11.364583333333334" PointY="70.295146484374982" />
-          <ConnectorPoint PointX="11.197916666666666" PointY="70.295146484374982" />
-          <ConnectorPoint PointX="8.5" PointY="70.295146484374982" />
+          <ConnectorPoint PointX="18.125" PointY="9.1272591145833335" />
+          <ConnectorPoint PointX="18.125" PointY="11.75" />
+          <ConnectorPoint PointX="17.125" PointY="11.75" />
+          <ConnectorPoint PointX="17.125" PointY="69.650371093749982" />
+          <ConnectorPoint PointX="11.364583333333334" PointY="69.650371093749982" />
+          <ConnectorPoint PointX="11.197916666666666" PointY="69.650371093749982" />
+          <ConnectorPoint PointX="8.875" PointY="69.650371093749982" />
+          <ConnectorPoint PointX="8.875" PointY="69.543444382812481" />
+          <ConnectorPoint PointX="8.5" PointY="69.543444382812481" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.form01" Width="1.5" PointX="7" PointY="76.25" Height="3.903300781249996" />
         <AssociationConnector Association="NXEIPModel.FK_FORM01_RELATIONS_PEOPLE" >
@@ -5938,9 +6080,9 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.form02" Width="1.5" PointX="10.25" PointY="49.875" Height="2.5571907552083388" />
         <AssociationConnector Association="NXEIPModel.FK_FORM02_RELATIONS_FORM01" >
-          <ConnectorPoint PointX="8.5" PointY="78.201650390624991" />
-          <ConnectorPoint PointX="11.28125" PointY="78.201650390624991" />
-          <ConnectorPoint PointX="11.28125" PointY="52.432190755208339" />
+          <ConnectorPoint PointX="8.5" PointY="78.054433593749991" />
+          <ConnectorPoint PointX="11.28125" PointY="78.054433593749991" />
+          <ConnectorPoint PointX="11.28125" PointY="52.252259114583339" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_FORM02_RELATIONS_PEOPLE" >
           <ConnectorPoint PointX="6.25" PointY="23.2138728138667" />
@@ -5983,6 +6125,17 @@
           <ConnectorPoint PointX="6.765625" PointY="62.375" />
           <ConnectorPoint PointX="7.75" PointY="62.375" />
           <ConnectorPoint PointX="7.75" PointY="62.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.answers" Width="1.5" PointX="21.875" PointY="12.125" Height="2.7291471354166674" />
+        <EntityTypeShape EntityType="NXEIPModel.questionary" Width="1.5" PointX="17.375" PointY="12" Height="3.0810351562499818" />
+        <EntityTypeShape EntityType="NXEIPModel.theme" Width="1.5" PointX="19.625" PointY="12" Height="3.0810351562499818" />
+        <AssociationConnector Association="NXEIPModel.FK_ANSWERS_RELATIONS_THEME" >
+          <ConnectorPoint PointX="21.125" PointY="13.489573567708334" />
+          <ConnectorPoint PointX="21.875" PointY="13.489573567708334" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_THEME_RELATIONS_QUESTION" >
+          <ConnectorPoint PointX="18.875" PointY="13.540517578124991" />
+          <ConnectorPoint PointX="19.625" PointY="13.540517578124991" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
