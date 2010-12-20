@@ -98,7 +98,7 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
 
                 //判斷是否需要審核
 
-                String audit = new ArgumentsDAO().GetValueByVariable("200107_audit");
+                String audit = new ArgumentsDAO().GetValueByVariable("200107_aduit");
 
                 if (audit == "1")
                 {

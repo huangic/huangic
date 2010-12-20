@@ -180,9 +180,27 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
         StringBuilder style = new StringBuilder();
 
       //SysNos is Grouping and key is SysNo;
-        foreach (var item in sysNos) {
+
+
+        List<sys> Sys = new List<sys>();
+        foreach (var item in sysNos)
+        {
             int sys_no = item.Key;
-               
+            
+            sys MainSys = GetSysBySysNo(sys_no);
+            Sys.Add(MainSys);
+        }
+
+
+        IEnumerable<sys> orderSys = Sys.OrderBy(x => x.sys_order);
+
+
+        foreach (var item in orderSys)
+        {
+            //int sys_no = item.Key;
+            int sys_no = item.sys_no;
+   
+
             //LEVEL ONE SYS
             HtmlGenericControl menuone=new HtmlGenericControl("li");
             MainMenu.Controls.Add(menuone);
@@ -192,8 +210,9 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
            
 
 
-           sys MainSys=GetSysBySysNo(sys_no);
-            
+           //sys MainSys=GetSysBySysNo(sys_no);
+
+            sys MainSys = item;
             
             a.ID="item"+sys_no;
             a.Attributes["alt"] = MainSys.sys_name;
