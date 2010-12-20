@@ -16,13 +16,12 @@ public partial class _20_200100_200108 : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             this.DataSource.SelectParameters[0].DefaultValue = "";
-            
-            
-            
-            this.GridView1.DataBind();    
 
 
+            this.DataPager1.PagedControlID = "GridView1";
+            this.GridView1.DataBind();
 
+            
         }
 
         
@@ -37,21 +36,20 @@ public partial class _20_200100_200108 : System.Web.UI.Page
    
     protected void btn_form_Click(object sender, EventArgs e)
     {
-        this.GridView1.Visible = true;
-        this.DataPager1.PagedControlID = "GridView1";
-        this.GridView2.Visible = false;
+        this.show_1.Visible = true;
+       
+        this.show_2.Visible = false;
         this.GridView1.DataBind();
     }
     protected void btn_submit_Click(object sender, EventArgs e)
     {
-        this.GridView1.Visible = false;
-        this.DataPager1.PagedControlID = "GridView2";
+        this.show_2.Visible = true;
 
+        this.show_1.Visible = false;
         this.ObjectDataSource_submit.SelectParameters[0].DefaultValue = new SessionObject().sessionUserID;
         this.ObjectDataSource_submit.SelectParameters[1].DefaultValue = this.tb_keyword.Text;
         this.GridView2.DataBind();
-
-        this.GridView2.Visible = true;
+                
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

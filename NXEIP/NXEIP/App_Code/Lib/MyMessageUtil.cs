@@ -79,7 +79,7 @@ public class MyMessageUtil
 
         if (eipgroup == EIPGroup.EIP_Todo_VerifyAccount) {
             g = Group.EIP_Todo_VerifyAccount;
-            g = Group.EIP_General;
+          
             String val = args.Get_argValue("Message_Todo_VerifyAccount");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
@@ -88,14 +88,14 @@ public class MyMessageUtil
         if (eipgroup == EIPGroup.EIP_Todo_VerifyNew)
         {
             g = Group.EIP_Todo_VerifyNews;
-            g = Group.EIP_General;
+           
             String val = args.Get_argValue("Message_Todo_VerifyNew");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
         if (eipgroup == EIPGroup.EIP_Todo_VerifyPlace)
         {
             g = Group.EIP_Todo_VerifyPlace;
-            g = Group.EIP_General;
+         
             String val = args.Get_argValue("Message_VerifyPlace");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
@@ -103,7 +103,7 @@ public class MyMessageUtil
         if (eipgroup == EIPGroup.EIP_Todo_TakeMaintain)
         {
             g = Group.EIP_Todo_TakeMaintain;
-            g = Group.EIP_General;
+            
             String val = args.Get_argValue("Message_Todo_TakeMaintain");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
@@ -138,7 +138,11 @@ public class MyMessageUtil
                     msg.PublishToG2E = sendWebService;
                     msg.PublishToSMS = sendSMS;
 
-                    if (! (sendStatus=true))
+                    msg.TargetUrl = url;
+                    msg.TargetUrlParams = url_param;
+
+
+                    if (! (sendStatus=MyMessage.SendMessage(msg)))
                     {
                         serviceMsg = "發送失敗!";
                     }
@@ -161,7 +165,12 @@ public class MyMessageUtil
             notifys ns = new notifys();
 
             ns.not_no = Guid.NewGuid().ToString("N");
-            ns.not_peouid = utilDao.GetPeoUidByAccount(to);
+            try
+            {
+                ns.not_peouid = utilDao.GetPeoUidByAccount(to);
+            }catch{
+                ns.not_peouid = int.Parse(new SessionObject().sessionUserID);
+            }
             ns.not_phone = sendSMS ? "1" : "0";
             ns.not_egov = sendWebService ? "1" : "0";
             ns.not_email = sendMail ? "1" : "0";

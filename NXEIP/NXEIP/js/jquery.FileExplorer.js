@@ -368,7 +368,9 @@ jquery.jqGrid
 
 
   
-
+   function CheckSelect(){
+    return true;
+   }
 
 
 
@@ -388,7 +390,7 @@ jquery.jqGrid
                       {name:'permission',index:'permission',hidden:true},
                       { name: 'act', index: 'act', width: 100, sortable: false },
                       ],
-            multiselect: false,
+            multiselect: CheckSelect,
 
             loadComplete: loadComplete,
 

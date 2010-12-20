@@ -175,7 +175,7 @@
             <asp:Button ID="btn_countinue" runat="server" CssClass="b-input" Text="繼續新增" 
                 onclick="btn_countinue_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.update()"
+            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.update('1')"
                 UseSubmitBehavior="False" />
         </div>
     </div>

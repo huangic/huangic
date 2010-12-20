@@ -66,10 +66,8 @@ public partial class AjaxTest : System.Web.UI.Page
     }
     protected void Button4_Click(object sender, EventArgs e)
     {
-
         String msg = "";
-        msg=MyMessageUtil.send("a", "admin", "c", DateTime.Now, DateTime.Now, "e", "f", EIPGroup.EIP_General);
-
+        msg=MyMessageUtil.send("待審核最新消息", "cougar", "你有一件待審核資料<br/>", DateTime.Now, DateTime.Now, "", "", EIPGroup.EIP_Todo_VerifyNew);
         logger.Debug(msg);
     }
 }

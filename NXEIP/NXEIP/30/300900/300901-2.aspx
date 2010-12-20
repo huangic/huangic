@@ -7,11 +7,15 @@
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">
-        function update(msg) {
+        function update(id,msg) {
 
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
-            __doPostBack('<%=UpdatePanel2.ClientID%>', '');
-            
+            if (id == '1') {
+                __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+            }
+
+            if (id == '2') {
+                __doPostBack('<%=UpdatePanel2.ClientID%>', '');
+            }
             
             tb_remove();
 
@@ -20,15 +24,24 @@
             }
         }
 
-        function updateStatus(msg) {
+        function updateStatus(id,msg) {
 
-            __doPostBack('<%=UpdatePanel1.ClientID%>', '');
-            __doPostBack('<%=UpdatePanel2.ClientID%>', '');
+            if (id == '1') {
+                __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+            }
+
+            if (id == '2') {
+                __doPostBack('<%=UpdatePanel2.ClientID%>', '');
+            }
+
+            //tb_remove();
 
             if (msg != undefined) {
                 alert(msg);
             }
         }
+
+
 
         
                 
