@@ -6,6 +6,7 @@ using System.Web;
 using tw.gov.tncg.emsg;
 using Entity;
 using NXEIP.DAO;
+using NLog;
 
 
 
@@ -17,7 +18,11 @@ namespace NXEIP.MyGov{
 
 public class MyMessageUtil
 {
-	public MyMessageUtil()
+
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+    
+    
+    public MyMessageUtil()
 	{
 		//
 		// TODO: 在此加入建構函式的程式碼
@@ -116,6 +121,8 @@ public class MyMessageUtil
             
             //if (useWebService)
             {
+                logger.Debug("Use E Gov WebService!");
+                
                 using (WS_MyMessage MyMessage = new WS_MyMessage())
                 {
                     //MyMessage.Url
