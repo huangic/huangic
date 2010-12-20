@@ -233,8 +233,10 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             OperatesObject.OperatesExecute(100204, sobj.sessionUserID, 1, "新增最新消息 n01_no:" + n01_no);
 
             //發送訊息至E公務平台 (送至審核人Account)
-            //MyMessageUtil.send(this.tbox_subject.Text.Trim(), "", this.tbox_content.Text.Trim(), "", "", EIPGroup.EIP_General);
-
+            if (ischeck.Equals("1"))
+            {
+                MyMessageUtil.send(this.tbox_subject.Text.Trim(), "cougar", this.tbox_content.Text.Trim(), "", "", EIPGroup.EIP_Todo_VerifyNew);
+            }
 
             return true;
         }

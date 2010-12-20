@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using NXEIP.DAO;
 using Entity;
 using NLog;
+using NXEIP.MyGov;
 
 public partial class _10_100400_100403_1 : System.Web.UI.Page
 {
@@ -54,6 +55,11 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
             dao.UpData();
 
             OperatesObject.OperatesExecute(100403, 1, "叫修紀錄 r02_no:" + data.r02_no);
+
+            //發送訊息至E公務平台 (送至審核人Account)
+            string subject = sobj.sessionUserName + "於" + data.r02_date.Value.ToString("yyyy-MM-dd HH:mm") + "申請報修";
+            string body = this.tbox_reason.Text;
+            MyMessageUtil.send(subject, "cougar", body, "", "", EIPGroup.EIP_Todo_TakeMaintain);
             
             this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('新增完成!');", true);
         }
