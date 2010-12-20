@@ -103,7 +103,7 @@ public class MyMessageUtil
         {
             g = Group.EIP_Todo_VerifyPlace;
          
-            String val = args.Get_argValue("Message_VerifyPlace");
+            String val = args.Get_argValue("Message_Todo_VerifyPlace");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
 
