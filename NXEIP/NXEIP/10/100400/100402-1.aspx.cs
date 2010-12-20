@@ -340,7 +340,7 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        MyMessageUtil.send(subject,Convert.ToInt32(dt.Rows[i]["peo_email"].ToString()),body,"","",EIPGroup.EIP_Todo_VerifyPlace);
+                        MyMessageUtil.send(subject, Convert.ToInt32(dt.Rows[i]["peo_uid"].ToString()), body, "", "", EIPGroup.EIP_Todo_VerifyPlace);
                     }
                 }
                 #endregion
