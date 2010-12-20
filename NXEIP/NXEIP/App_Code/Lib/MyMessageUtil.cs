@@ -97,6 +97,8 @@ public class MyMessageUtil
             String val = args.Get_argValue("Message_Todo_VerifyNew");
             SetValue(val, out sendWebService, out  sendMail, out sendSMS);
         }
+       
+        
         if (eipgroup == EIPGroup.EIP_Todo_VerifyPlace)
         {
             g = Group.EIP_Todo_VerifyPlace;
@@ -202,7 +204,9 @@ public class MyMessageUtil
 
             return serviceMsg;
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
+            logger.Debug("Error:{0}", ex.Message);
             return ex.Message;
         }
       
@@ -230,8 +234,10 @@ public class MyMessageUtil
 
 
 
-    public static String send(String subject, int toPeouid, String body, String url, String url_param, EIPGroup eipgroup) { 
-        
+    public static String send(String subject, int toPeouid, String body, String url, String url_param, EIPGroup eipgroup) {
+
+
+        logger.Debug("Send to {0}", toPeouid);
         String account=new AccountsDAO().GetByPeoUID(toPeouid).acc_login;
 
 
