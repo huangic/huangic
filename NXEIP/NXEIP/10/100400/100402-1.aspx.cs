@@ -332,7 +332,7 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
                 #region 發布訊息
                 if (!this.lab_PetitionSignType.Text.Equals("1"))
                 {
-                    string sqlstr = "select people.peo_email from checker inner join people on checker.che_peouid = people.peo_uid inner join types on people.peo_jobtype = types.typ_no"
+                    string sqlstr = "select people.peo_email,people.peo_uid from checker inner join people on checker.che_peouid = people.peo_uid inner join types on people.peo_jobtype = types.typ_no"
                         + " where (checker.roo_no = " + this.lab_rooms.Text + ") and (types.typ_code = 'work') and (types.typ_number = '1') and (people.peo_email <> '')";
                     DataTable dt = new DataTable();
                     string subject = sobj.sessionUserName + "於 " + this.lab_today.Text + " " + this.lab_stime.Text + " ~ " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("HH:mm") + " 預約場地「" + this.lab_rooname.Text + "」";
@@ -340,7 +340,7 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
 
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        MyMessageUtil.send(subject,dt.Rows[i]["peo_email"].ToString(),body,"","",EIPGroup.EIP_Todo_VerifyPlace);
+                        MyMessageUtil.send(subject,Convert.ToInt32(dt.Rows[i]["peo_email"].ToString()),body,"","",EIPGroup.EIP_Todo_VerifyPlace);
                     }
                 }
                 #endregion
