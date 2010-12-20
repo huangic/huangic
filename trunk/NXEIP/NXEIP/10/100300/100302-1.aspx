@@ -21,8 +21,7 @@
                 <tr>
                     <th>請選擇</th>
                     <td>
-                        <asp:DropDownList ID="ddl_depart" runat="server" AutoPostBack="True" 
-                            onselectedindexchanged="ddl_depart_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddl_depart" runat="server" AutoPostBack="True" onselectedindexchanged="ddl_depart_SelectedIndexChanged">
                         </asp:DropDownList>
                         <asp:DropDownList ID="ddl_people" runat="server">
                         </asp:DropDownList>
@@ -31,12 +30,9 @@
             </tbody>
         </table>
         <div class="footer">
-            <div class="f1">
-            </div>
-            <div class="f2">
-            </div>
-            <div class="f3">
-            </div>
+            <div class="f1"></div>
+            <div class="f2"></div>
+            <div class="f3"></div>
         </div>
         <div class="bottom">
             <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click" />
@@ -44,8 +40,6 @@
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClientClick="self.parent.tb_remove()" UseSubmitBehavior="false" />
             &nbsp;&nbsp;
             <asp:Button ID="btn_close" runat="server" CssClass="a-input" Text="閉關視窗" OnClientClick="self.parent.tb_remove()" UseSubmitBehavior="false" />
-        </div>
-        <div id="div_msg" runat="server">
         </div>
     </div>
     </form>
