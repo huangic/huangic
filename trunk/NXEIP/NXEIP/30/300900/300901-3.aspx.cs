@@ -100,7 +100,7 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
         
 
         //呼叫UPATE()關閉此頁面 並且更新updatepanel (parent page 必須做一個UPDATE的FUNCTION) 
-        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('" + msg + "');", true);
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('1','" + msg + "');", true);
 
 
     }
@@ -316,8 +316,11 @@ public partial class _30_300900_300901_3 : System.Web.UI.Page
         String url = String.Format("300901-3.aspx?ID={0}", this.hidden_id.Value);
 
         //轉址
-        JsUtil.AlertAndUpdateParentAndRedirectJs(this, msg, url);
-        
+        //JsUtil.AlertAndUpdateParentAndRedirectJs(this, msg, url);
+
+        String script = String.Format("self.parent.updateStatus('1','{0}');window.location.href='{1}'", msg, url);
+
+        JsUtil.CallJs(this, script);  
         
     }
 }

@@ -102,7 +102,9 @@ public class JsUtil
 
     }
 
-
+    public static void CallJs(Page page,String script){
+        CallRegigterClientScript(page,"CallScript",script);
+    }
 
     private static void CallRegigterClientScript(Page page, String scriptKey, String script) { 
         //檢查有沒有SCRIPTMANAGER

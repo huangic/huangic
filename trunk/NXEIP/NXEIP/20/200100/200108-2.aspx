@@ -11,6 +11,7 @@
     <uc1:CssLayout ID="CssLayout1" runat="server" />
      <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
      <script type="text/javascript" src="../../js/thickbox.js"></script>
+     <script type="text/javascript" src="../../js/jquery.jqprint-0.3.js"></script>
     <script type="text/javascript">
        
 
@@ -29,6 +30,7 @@
     
     
     <div class="tableDiv" style="width:80%">
+     
         <div class="header">
             <div class="h1">
             </div>
@@ -38,7 +40,7 @@
             <div class="h3">
             </div>
         </div>
-
+          <div class="print">
         <table>
             <tbody>
                 <tr>
@@ -104,7 +106,7 @@
 
         <asp:Table ID="DynamicFooter" runat="server" ClientIDMode="Static">
         </asp:Table>
-
+        </div>
         
                 <div class="footer">
                     <div class="f1">
@@ -120,6 +122,7 @@
         
                <asp:Button ID="Button1" runat="server" CssClass="a-input" 
                 Text="關閉"  OnClientClick="self.parent.tb_remove()"/>
+                <input id="Button2" type="button" class="a-input" value="列印" onclick='$(".print").jqprint();' />
                 </div>
         </div>
 

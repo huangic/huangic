@@ -60,16 +60,7 @@
 
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200108" />
     
-     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <Triggers>
-               
-                <asp:AsyncPostBackTrigger ControlID="btn_form" EventName="Click" />
-                <asp:AsyncPostBackTrigger ControlID="btn_submit" EventName="Click" />
-               
-                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
-               
-            </Triggers>
-            <ContentTemplate>
+    
     
     
      <div  class="select" >
@@ -105,7 +96,19 @@
             </div>
         </div>
        
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <Triggers>
+               
+                <asp:AsyncPostBackTrigger ControlID="btn_form" EventName="Click" />
+                <asp:AsyncPostBackTrigger ControlID="btn_submit" EventName="Click" />
+               
+                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
+               
+            </Triggers>
+            <ContentTemplate>
                 
+                 <asp:Panel ID="show_1" runat="server">
+
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="DataSource"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True"  EmptyDataText="目前無資料"
                     CellPadding="3" CellSpacing="3"
@@ -156,8 +159,32 @@
                     </Columns>
                 </cc1:GridView>
                 
+                  <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
+                <div class="pager">
+                    <asp:DataPager ID="DataPager1" runat="server"  PagedControlID="GridView1" PageSize="5">
+                        <Fields>
+                            <NXEIP:GooglePagerField />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
+
+
+                </asp:Panel>
+
+                <asp:Panel ID="show_2" runat="server" Visible=false>
+              
+
+
+
                 <cc1:GridView ID="GridView2" runat="server" 
-                    DataSourceID="ObjectDataSource_submit" Visible="False"
+                    DataSourceID="ObjectDataSource_submit"
                     AutoGenerateColumns="False" Width="100%" AllowPaging="True"  EmptyDataText="目前無資料"
                     CellPadding="3" CellSpacing="3"
                     CssClass="tableData" GridLines="None" DataKeyNames="Submit"
@@ -207,6 +234,9 @@
                     </Columns>
                 </cc1:GridView>
                 
+
+
+
                 
                 <div class="footer">
                     <div class="f1">
@@ -217,12 +247,13 @@
                     </div>
                 </div>
                 <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="5">
+                    <asp:DataPager ID="DataPager2" runat="server" PagedControlID="GridView2" PageSize="5">
                         <Fields>
                             <NXEIP:GooglePagerField />
                         </Fields>
                     </asp:DataPager>
                 </div>
+                  </asp:Panel>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
