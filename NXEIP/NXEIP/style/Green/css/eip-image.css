@@ -33,6 +33,24 @@
      cursor:hand;
      text-decoration:none;
 }
+.set
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v01.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+.view
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/view.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
 
 .alter
 {
@@ -109,16 +127,6 @@
     height:22px;
     width:22px;
     background:url(../image/b010.gif) no-repeat;  
-     cursor:hand;
-     text-decoration:none;
-}
-
-.detail
-{
-    border:0 none;
-    height:18px;
-    width:18px;
-    background:url(../image/peruse.gif) no-repeat;  
      cursor:hand;
      text-decoration:none;
 }
