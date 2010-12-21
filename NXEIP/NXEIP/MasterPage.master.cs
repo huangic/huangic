@@ -17,7 +17,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
       //註冊THICKBOX 的變數
-        String ThickboxInit="var tb_pathToImage = \""+Page.ResolveUrl("~/image/loadingAnimation.gif")+"\"";
+        String ThickboxInit="var tb_pathToImage = \""+Page.ResolveUrl("~/image/loadingAnimation.gif")+"\";";
         ScriptManager.RegisterClientScriptBlock(this, typeof(MasterPage), "ThickBox", ThickboxInit, true);
 
 

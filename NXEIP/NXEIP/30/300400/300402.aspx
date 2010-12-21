@@ -9,7 +9,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+        CombineScripts="False">
     </ajaxtoolkit:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount" SelectMethod="GetAll" TypeName="NXEIP.DAO.RoomsDAO"></asp:ObjectDataSource>
     <script type="text/javascript" src="../../js/lytebox.js"></script>

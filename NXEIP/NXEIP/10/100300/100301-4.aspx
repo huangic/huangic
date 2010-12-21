@@ -5,7 +5,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
- <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+ <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+        CombineScripts="False">
     </ajaxtoolkit:ToolkitScriptManager>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100301" />
     <div class="PersonalCalendarLayout">
