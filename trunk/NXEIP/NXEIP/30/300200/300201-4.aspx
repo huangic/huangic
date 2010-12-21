@@ -15,8 +15,7 @@
             <div class="h2">
                 <div class="name">問卷維護 - 題目預覽</div>
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300201-1.aspx?height=450&width=800&TB_iframe=true&modal=true"value="新增問卷" />
-                </div>
+                    &nbsp;</div>
             </div>
             <div class="h3">
             </div>
@@ -27,9 +26,12 @@
                     <td>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table--1">
                         <tr>
-                          <td height="30" align="center"><span class="a02-19">差勤系統使用情形</span></td>
+                          <td height="30" align="center"><span class="a02-19">
+                              <asp:Label ID="lab_quename" runat="server"></asp:Label>
+                              </span></td>
                         </tr>
                       </table>
+                      <hr />
                     </td>
                 </tr>
             </tbody>

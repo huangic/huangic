@@ -69,8 +69,8 @@
                   <tr>
                     <th>場地名稱</th>
                     <td>
-                        <asp:DropDownList ID="ddl_spot" runat="server" CssClass="select4" AutoPostBack="True"
-                            Width="80px" DataSourceID="SqlDataSource1" DataTextField="spo_name" DataValueField="spo_no"
+                        <asp:DropDownList ID="ddl_spot" runat="server" CssClass="select4" 
+                            AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="spo_name" DataValueField="spo_no"
                             AppendDataBoundItems="True" 
                             onselectedindexchanged="ddl_spot_SelectedIndexChanged">
                             <asp:ListItem Value="0">請選擇</asp:ListItem>

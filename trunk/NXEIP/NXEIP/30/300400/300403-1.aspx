@@ -1,28 +1,28 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="300201-1.aspx.cs" Inherits="_30_300200_300201_1" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="300403-1.aspx.cs" Inherits="_30_300400_300403_1" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc3" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>問卷維護</title>
+    <title>場地審核</title>
     <uc1:CssLayout ID="CssLayout1" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300201" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300403" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1">
             </div>
-            <div class="h2"><div class="name">問卷維護</div></div>
+            <div class="h2"><div class="name">場地審核</div></div>
             <div class="h3">
             </div>
         </div>
         <table>
             <tbody>
                 <tr>
-                    <th>問卷名稱</th>
+                    <th>審核狀態</th>
                     <td colspan="3">
                         <asp:TextBox ID="txt_name" runat="server" Columns="60" Rows="2" TextMode="MultiLine"></asp:TextBox>
                     </td>

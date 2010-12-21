@@ -32,7 +32,7 @@
             <div class="h2">
                 <div class="name">問卷維護</div>
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300201-1.aspx?height=450&width=800&TB_iframe=true&modal=true"value="新增問卷" />
+                    <input type="button" class="thickbox b-input" alt="300201-1.aspx?height=450&width=800&TB_iframe=true&modal=true" value="新增問卷" />
                 </div>
             </div>
             <div class="h3">
@@ -86,7 +86,7 @@
                         <asp:TemplateField HeaderText="複製">
                             <ItemTemplate>
                                 <a id="btnCopy" runat="server" class="thickbox imageButton ver" title='<%# Eval("que_name", "複製 {0}") %>'
-                                    href='<%# Eval("que_no", "300201-1.aspx?modal=true&mode=copy&no={0}&TB_iframe=true&height=450&width=800") %>' style="line-height: 22px">
+                                    href='<%# Eval("que_no", "300201-1.aspx?modal=true&mode=copy&no={0}&TB_iframe=true&height=450&width=800") %>'>
                                     <span>修改</span></a>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />

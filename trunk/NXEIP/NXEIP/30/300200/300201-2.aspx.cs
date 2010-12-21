@@ -67,6 +67,8 @@ public partial class _30_300200_300201_2 : System.Web.UI.Page
             string pkno2 = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[1].ToString();
             string sqlstr = "update theme set the_status='2',the_createuid=" + sobj.sessionUserID + ",the_createtime=getdate() where que_no=" + pkno1+" and the_no="+pkno2;
             dbo.ExecuteNonQuery(sqlstr);
+            sqlstr = "update answers set ans_status='2',ans_createuid="+sobj.sessionUserID+",ans_createtime=getdate() where que_no="+pkno1+" and the_no="+pkno2;
+            dbo.ExecuteNonQuery(sqlstr);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300201, sobj.sessionUserID, 3, "刪除 問卷題目 que_no:" + pkno1+",the_no="+pkno2);
