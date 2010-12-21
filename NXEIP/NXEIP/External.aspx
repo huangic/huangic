@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
  
- 
+  <!--
     <script type="text/javascript" src="js/autoHeight.js"></script>
  
- <!--
+
     <script type="text/javascript" src="js/jquery.iframe.autoHeight.js"></script>
     <script type="text/javascript">
         // match all iframes / use jQuery or alias $
