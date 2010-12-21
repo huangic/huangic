@@ -28,7 +28,7 @@ namespace NXEIP.DAO
             return (from tb in model.theme where tb.que_no==que_no && tb.the_status == "1" orderby tb.the_order select tb);
         }
 
-        public IQueryable<theme> GetAll(int que_no,int startRowIndex, int maximumRows)
+        public IQueryable<theme> GetAll(int que_no, int startRowIndex, int maximumRows)
         {
             return GetAll(que_no).Skip(startRowIndex).Take(maximumRows);
         }

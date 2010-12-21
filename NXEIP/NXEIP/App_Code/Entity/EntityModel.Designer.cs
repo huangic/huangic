@@ -68,7 +68,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_NEW02_RELATIONS_NEW01", "new01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.new01), "new02", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.new02), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_NEW03_RELATIONS_NEW01", "new01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.new01), "new03", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.new03), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_GOVERNME_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "government", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.government), true)]
-[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "petition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.petition), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ROOMS_RELATIONS_SPOT", "spot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.spot), "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rooms), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_GOBACK_RELATIONS_TREATDET", "treatdetail", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.treatdetail), "goback", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.goback), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_TREAT_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "treat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.treat), true)]
@@ -88,6 +87,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_SETTING_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "setting", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.setting), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ANSWERS_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "answers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.answers), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_THEME_RELATIONS_QUESTION", "questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.questionary), "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.theme), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "petition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.petition), true)]
 
 #endregion
 
@@ -702,22 +702,6 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        public ObjectSet<petition> petition
-        {
-            get
-            {
-                if ((_petition == null))
-                {
-                    _petition = base.CreateObjectSet<petition>("petition");
-                }
-                return _petition;
-            }
-        }
-        private ObjectSet<petition> _petition;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
         public ObjectSet<e03> e03
         {
             get
@@ -1306,6 +1290,22 @@ namespace Entity
             }
         }
         private ObjectSet<theme> _theme;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<petition> petition
+        {
+            get
+            {
+                if ((_petition == null))
+                {
+                    _petition = base.CreateObjectSet<petition>("petition");
+                }
+                return _petition;
+            }
+        }
+        private ObjectSet<petition> _petition;
 
         #endregion
         #region AddTo 方法
@@ -1588,14 +1588,6 @@ namespace Entity
         public void AddToe02(e02 e02)
         {
             base.AddObject("e02", e02);
-        }
-    
-        /// <summary>
-        /// 將新物件加入 petition EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTopetition(petition petition)
-        {
-            base.AddObject("petition", petition);
         }
     
         /// <summary>
@@ -1892,6 +1884,14 @@ namespace Entity
         public void AddTotheme(theme theme)
         {
             base.AddObject("theme", theme);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 petition EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTopetition(petition petition)
+        {
+            base.AddObject("petition", petition);
         }
 
         #endregion
@@ -16339,6 +16339,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _pet_createtime;
         partial void Onpet_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onpet_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pet_signmemo
+        {
+            get
+            {
+                return _pet_signmemo;
+            }
+            set
+            {
+                Onpet_signmemoChanging(value);
+                ReportPropertyChanging("pet_signmemo");
+                _pet_signmemo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pet_signmemo");
+                Onpet_signmemoChanged();
+            }
+        }
+        private global::System.String _pet_signmemo;
+        partial void Onpet_signmemoChanging(global::System.String value);
+        partial void Onpet_signmemoChanged();
 
         #endregion
     
@@ -19802,28 +19826,6 @@ namespace Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "petition")]
-        public EntityCollection<petition> petition
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ROOMS_RELATIONS_SPOT", "spot")]
         public spot spot
         {
@@ -19874,6 +19876,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<checker>("NXEIPModel.FK_CHECKER_RELATIONS_ROOMS", "checker", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "petition")]
+        public EntityCollection<petition> petition
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition", value);
                 }
             }
         }

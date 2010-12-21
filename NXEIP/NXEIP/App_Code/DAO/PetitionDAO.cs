@@ -25,102 +25,269 @@ namespace NXEIP.DAO
         public PetitionDAO()
         {
         }
-
         private NXEIPEntities model = new NXEIPEntities();
+        ChangeObject changeobj = new ChangeObject();
 
-
-        //public IQueryable<petition> GetAll(string sdate, string edate, string status, string spot, string rooms)
-        //{
-        //    DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
-        //    DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
-        //    var d;
-        //    if (status.Equals("0"))
-        //    {
-        //        d = (from tb in model.petition where (tb.pet_apply == "1" || tb.pet_apply == "2") && tb.pet_stime >= sd && tb.pet_etime <= ed
-        //             select tb);
-        //    }
-        //    else
-        //    {
-        //        d = (from tb in model.petition where (tb.pet_apply == status) && tb.pet_stime >= sd && tb.pet_etime <= ed
-        //             select tb);
-        //    }
-
-        //    //rooms
-        //    if (rooms != "0")
-        //    {
-        //        d = d.Where("roo_no = @0", Convert.ToInt32(rooms));
-
-        //    }
-        //    else if (spot != "0")
-        //    {
-        //        int typ_parent = Convert.ToInt32(spot);
-        //        int[] tdata = (from t in model.rooms where t.spot == typ_parent select t.roo_no).ToArray();
-        //        d.Where(o => tdata.Contains(o.typ_no));
-        //    }
-
-        //    //排序
-        //    //d = d.OrderByDescending(o => o.e02_signdate);
-        //    //取得符合條件課程之ID
-        //    int[] e02_no = (from x in d select x.e02_no).ToArray();
-
-        //    //取得符合課程之人員報名資料之課程ID
-        //    string[] check = { "0", "1" };
-        //    int[] user_e02no = (from e04D in model.e04 where e02_no.Contains(e04D.e02_no) && check.Contains(e04D.e04_check) && e04D.e04_peouid == peo_uid select e04D.e02_no).ToArray();
-
-        //    //取回課課資料
-        //    var e02Data = (from dd in model.e02 where user_e02no.Contains(dd.e02_no) orderby dd.e02_signdate select dd);
-
-        //    return e02Data;
-        //}
-
-        //public IQueryable<e02> GetPeopleData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int peo_uid, int startRowIndex, int maximumRows)
-        //{
-        //    return GetPeopleData(sdate, edate, type_1, type_2, e01_no, e02_name, peo_uid).Skip(startRowIndex).Take(maximumRows);
-        //}
-
-        //public int GetPeopleDataCount(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int peo_uid)
-        //{
-        //    return GetPeopleData(sdate, edate, type_1, type_2, e01_no, e02_name, peo_uid).Count();
-        //}
-
-
+        #region 抓出來的結構
+        public class NewPetition
+        {
+            public int pet_no{get;set;} 
+            public int spo_no{get;set;}
+            public string spo_name { get; set; }
+            public int roo_no{get;set;}
+            public string roo_name { get; set; }
+            public int pet_depno{get;set;}
+            public int pet_applyuid { get; set; }
+            public DateTime pet_stime { get; set; }
+            public DateTime pet_etime { get; set; }
+            public string pet_host { get; set; }
+            public int pet_count { get; set; }
+            public string pet_reason { get; set; }
+            public string pet_apply { get; set; }
+            public string stet
+            {
+                get
+                {
+                    if (pet_stime != null && pet_etime != null)
+                    {
+                        string st = new ChangeObject().ADDTtoROCDT(pet_stime.ToString("yyyy-MM-dd HH:mm")) + "~" + pet_etime.ToString("HH:mm");
+                        return st;
+                    }
+                    else
+                        return "";
+                }
+                set
+                {
+                    stet = value;
+                }
+            }
+            
+        }
+        #endregion
 
         #region 分頁列表使用
-        public IQueryable<petition> GetAll()
+        public IQueryable<NewPetition> GetAll(string sdate, string edate, string status, int spots1, int rooms1,int loginuser)
         {
-
-            //DataTable contacts = ds.Tables["Contact"];
-            //DataTable orders = ds.Tables["SalesOrderHeader"];
-
-            //var query =
-            //    from contact in contacts.AsEnumerable()
-            //    join order in orders.AsEnumerable()
-            //    on contact.Field<Int32>("ContactID") equals
-            //    order.Field<Int32>("ContactID")
-            //    select new
-            //    {
-            //        ContactID = contact.Field<Int32>("ContactID"),
-            //        SalesOrderID = order.Field<Int32>("SalesOrderID"),
-            //        FirstName = contact.Field<string>("FirstName"),
-            //        Lastname = contact.Field<string>("Lastname"),
-            //        TotalDue = order.Field<decimal>("TotalDue")
-            //    };
-
-
-            //var d=
-            //    from petition in petition
-
-            return (from tb in model.petition where tb.pet_apply=="1" || tb.pet_apply=="2" orderby tb.pet_stime, tb.pet_etime select tb);
+            if (sdate != null && edate != null && status != null)
+            {
+                DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
+                DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
+                if (status.Equals("0"))
+                {
+                    #region 當申請狀態選全部時
+                    if (rooms1 > 0)
+                    {
+                        #region 查某個場地
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending, pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    else if (spots1 > 0)
+                    {
+                        #region 查某個所在地
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && room.spo_no == spots1 && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending, pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    else
+                    {
+                        #region 查全部
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending,pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 當申請狀態選非全部時
+                    if (rooms1>0)
+                    {
+                        #region 查某個場地
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending, pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    else if (spots1 > 0)
+                    {
+                        #region 查某個所在地
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && room.spo_no == spots1 && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending, pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    else
+                    {
+                        #region 查全部
+                        var itemColl = from pet in model.petition
+                                       join room in model.rooms on pet.roo_no equals room.roo_no
+                                       join spo in model.spot on room.spo_no equals spo.spo_no
+                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && checkertb.che_peouid == loginuser
+                                       orderby pet.pet_stime descending, pet.pet_etime descending
+                                       select new NewPetition
+                                       {
+                                           pet_no = pet.pet_no,
+                                           spo_no = spo.spo_no,
+                                           spo_name = spo.spo_name,
+                                           roo_no = room.roo_no,
+                                           roo_name = room.roo_name,
+                                           pet_depno = pet.pet_depno.Value,
+                                           pet_applyuid = pet.pet_applyuid.Value,
+                                           pet_stime = pet.pet_stime.Value,
+                                           pet_etime = pet.pet_etime.Value,
+                                           pet_host = pet.pet_host,
+                                           pet_count = pet.pet_count.Value,
+                                           pet_reason = pet.pet_reason,
+                                           pet_apply = pet.pet_apply
+                                       };
+                        return itemColl;
+                        #endregion
+                    }
+                    #endregion
+                }
+            }
+            else
+            {
+                #region 查出全部
+                var itemColl = from pet in model.petition
+                               join room in model.rooms on pet.roo_no equals room.roo_no
+                               join spo in model.spot on room.spo_no equals spo.spo_no
+                               join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                               where checkertb.che_peouid == loginuser
+                               orderby pet.pet_stime descending, pet.pet_etime descending
+                               select new NewPetition
+                               {
+                                   pet_no = pet.pet_no,
+                                   spo_no = spo.spo_no,
+                                   spo_name = spo.spo_name,
+                                   roo_no = room.roo_no,
+                                   roo_name = room.roo_name,
+                                   pet_depno = pet.pet_depno.Value,
+                                   pet_applyuid = pet.pet_applyuid.Value,
+                                   pet_stime = pet.pet_stime.Value,
+                                   pet_etime = pet.pet_etime.Value,
+                                   pet_host = pet.pet_host,
+                                   pet_count = pet.pet_count.Value,
+                                   pet_reason = pet.pet_reason,
+                                   pet_apply = pet.pet_apply
+                               };
+                return itemColl;
+                #endregion
+            }
+        }
+        public IQueryable<NewPetition> GetAll(string sdate, string edate, string status, int spots1, int rooms1, int loginuser, int startRowIndex, int maximumRows)
+        {
+            return GetAll(sdate, edate, status, spots1, rooms1, loginuser).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public IQueryable<petition> GetAll(int startRowIndex, int maximumRows)
+        public int GetAllCount(string sdate, string edate, string status, int spots1, int rooms1, int loginuser)
         {
-            return GetAll().Skip(startRowIndex).Take(maximumRows);
-        }
-
-        public int GetAllCount()
-        {
-            return GetAll().Count();
+            return GetAll(sdate, edate, status, spots1, rooms1, loginuser).Count();
         }
         #endregion
 
