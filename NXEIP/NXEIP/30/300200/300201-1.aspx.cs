@@ -47,6 +47,26 @@ public partial class _30_300200_300201_1 : System.Web.UI.Page
                     this.txt_emin.Text = queData.que_edate.Value.ToString("mm");
                 }
             }
+            else if (this.lab_mode.Text.Equals("copy"))
+            {
+                this.Navigator1.SubFunc = "複製";
+                Entity.questionary queData = new QuestionaryDAO().GetByNo(Convert.ToInt32(this.lab_no.Text));
+                if (queData != null)
+                {
+                    this.txt_name.Text = queData.que_name;
+                    this.txt_descript.Text = queData.que_descript;
+                    this.txt_end.Text = queData.que_end;
+                    this.rbl_register.Items.FindByValue(queData.que_register).Selected = true;
+                    this.rbl_open.Items.FindByValue(queData.que_open).Selected = true;
+                    this.rbl_status.Items.FindByValue(queData.que_status).Selected = true;
+                    this.cl_sdate._ADDate = Convert.ToDateTime(queData.que_sdate.Value.ToString("yyyy/MM/dd"));
+                    this.cl_edate._ADDate = Convert.ToDateTime(queData.que_edate.Value.ToString("yyyy/MM/dd"));
+                    this.txt_shour.Text = queData.que_sdate.Value.ToString("HH");
+                    this.txt_ehour.Text = queData.que_edate.Value.ToString("HH");
+                    this.txt_smin.Text = queData.que_sdate.Value.ToString("mm");
+                    this.txt_emin.Text = queData.que_edate.Value.ToString("mm");
+                }
+            }
             else
             {
                 this.Navigator1.SubFunc = "新增";
@@ -169,6 +189,37 @@ public partial class _30_300200_300201_1 : System.Web.UI.Page
                     new OperatesObject().ExecuteOperates(300201, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",問卷名稱：" + this.txt_name.Text.Trim());
                     #endregion
                 }
+                else if (this.lab_mode.Text.Equals("copy"))
+                {
+                    #region 複製
+                    //加一筆新的主檔
+                    QuestionaryDAO queDAO1 = new QuestionaryDAO();
+                    questionary newRow = new questionary();
+                    newRow.que_name = this.txt_name.Text;
+                    newRow.que_descript = this.txt_descript.Text;
+                    newRow.que_end = this.txt_end.Text;
+                    newRow.que_register = this.rbl_register.SelectedValue;
+                    newRow.que_open = this.rbl_open.SelectedValue;
+                    newRow.que_status = this.rbl_status.SelectedValue;
+                    newRow.que_sdate = Convert.ToDateTime(this.cl_sdate._ADDate.ToString("yyyy/MM/dd") + " " + this.txt_shour.Text + ":" + this.txt_smin.Text);
+                    newRow.que_edate = Convert.ToDateTime(this.cl_edate._ADDate.ToString("yyyy/MM/dd") + " " + this.txt_ehour.Text + ":" + this.txt_emin.Text);
+                    newRow.que_createtime = System.DateTime.Now;
+                    newRow.que_createuid = Convert.ToInt32(sobj.sessionUserID);
+                    queDAO1.AddQuestionary(newRow);
+                    queDAO1.Update();
+
+                    int que_no = newRow.que_no; //更換成新的編號
+
+                    string sqlstr = "insert into theme select " + que_no + ",the_no,the_name,the_type,the_order,the_count,the_fraction,the_status,the_createuid,the_createtime from theme where que_no=" + this.lab_no.Text;
+                    dbo.ExecuteNonQuery(sqlstr);
+                    sqlstr = "insert into answers select " + que_no + ",the_no,ans_no,ans_name,ans_order,ans_fraction,ans_status,ans_createuid,ans_createtime from answers where que_no=" + this.lab_no.Text + " and ans_status='1'";
+                    dbo.ExecuteNonQuery(sqlstr);
+
+                    msg = "複製成功";
+                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                    new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 1, "複製問卷, 名稱：" + this.txt_name.Text.Trim());
+                    #endregion
+                }
                 else
                 {
                     #region 新增
@@ -186,7 +237,7 @@ public partial class _30_300200_300201_1 : System.Web.UI.Page
                     newRow.que_createuid = Convert.ToInt32(sobj.sessionUserID);
                     queDAO1.AddQuestionary(newRow);
                     queDAO1.Update();
-                    
+
                     msg = "新增成功";
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                     new OperatesObject().ExecuteOperates(300401, sobj.sessionUserID, 1, "問卷名稱：" + this.txt_name.Text.Trim());

@@ -47,18 +47,22 @@ public partial class _30_300400_300403 : System.Web.UI.Page
             this.ddl_spot.Items.Insert(0, allitem);
             this.ddl_rooms.Items.Insert(0, allitem);
             #endregion
-            
+            ShowDataList();
         }
     }
 
     #region 畫面：List
     private void ShowDataList()
     {
-        if (this.lab_pageIndex.Text.Length > 0)
-        {
-            this.GridView1.DataBind();
-            this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
-        }
+        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy/MM/dd");
+        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy/MM/dd");
+        this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
+        this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
+        this.ObjectDataSource1.SelectParameters["rooms1"].DefaultValue = this.ddl_rooms.SelectedValue;
+        this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
+        this.GridView1.DataBind();
+        if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
+
         //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
         new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 2, "場地資料列表");
     }
@@ -69,36 +73,21 @@ public partial class _30_300400_300403 : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Cells[0].Text = new SpotDAO().GetNameBySpoNo(Convert.ToInt32(e.Row.Cells[0].Text));
+            string pkno = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
+            e.Row.Cells[2].Text = new DepartmentsDAO().GetNameByNo(Convert.ToInt32(e.Row.Cells[2].Text));
             e.Row.Cells[3].Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(e.Row.Cells[3].Text));
-        }
-    }
-    #endregion
-
-    #region 修改、刪除
-    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-        if (e.CommandName.Equals("modify"))
-        {
-            #region 呼叫修改
-            //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            //new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 2, "查詢 場地資料 編號:" + this.lab_spot.Text);
-            //this.lab_pageIndex.Text = this.GridView1.PageIndex.ToString();
-            //this.lab_spot.Text = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            
-            #endregion
-        }
-        else if (e.CommandName.Equals("del"))
-        {
-            #region 執行刪除
-            string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            this.lab_pageIndex.Text = this.GridView1.PageIndex.ToString();
-            string sqlstr = "update rooms set roo_status='2' where roo_no=" + pkno;
-            dbo.ExecuteNonQuery(sqlstr);
-            //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 3, "刪除 場地資料 編號:" + pkno);
-            #endregion
-            
+            if (e.Row.Cells[8].Text.Equals("1"))
+            {
+                e.Row.Cells[8].Text = "送審中";
+                string c9 = "<a href=\"300403-1.aspx?no=" + pkno + "&height=450&width=800&TB_iframe=true&modal=true\" class=\"thickbox imageButton alter\"><span>審核</span></a>";
+                e.Row.Cells[9].Text = c9;
+            }
+            else if (e.Row.Cells[8].Text.Equals("2"))
+                e.Row.Cells[8].Text = "已審核";
+            else if (e.Row.Cells[8].Text.Equals("3"))
+                e.Row.Cells[8].Text = "審核不通過";
+            else
+                e.Row.Cells[8].Text = "自行取消";
         }
     }
     #endregion
@@ -149,13 +138,6 @@ public partial class _30_300400_300403 : System.Web.UI.Page
             aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
-    }
-    #endregion
-
-    #region 取消
-    protected void btn_cancel_Click(object sender, EventArgs e)
-    {
-        ShowDataList(); //呼叫列表
     }
     #endregion
 

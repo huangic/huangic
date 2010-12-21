@@ -21,8 +21,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount"
-        SelectMethod="GetAll" TypeName="NXEIP.DAO.ThemeDAO" OldValuesParameterFormatString="original_{0}">
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectCountMethod="GetAllCount"
+        SelectMethod="GetAll" TypeName="NXEIP.DAO.ThemeDAO" 
+        OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
             <asp:QueryStringParameter DefaultValue="0" Name="que_no" QueryStringField="no" Type="Int32" />
         </SelectParameters>
@@ -60,11 +61,11 @@
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
+                <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="que_no,the_no" OnRowDataBound="GridView1_RowDataBound"
                     GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                    EnableViewState="False">
+                    EnableViewState="False" PageSize="2">
                     <Columns>
                         <asp:BoundField DataField="the_name" HeaderText="題目名稱" SortExpression="the_name" />
                         <asp:BoundField DataField="the_type" HeaderText="題目種類" SortExpression="the_type" />
@@ -94,18 +95,9 @@
                     <div class="f2"></div>
                     <div class="f3"></div>
                 </div>
-                <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
-                        <Fields>
-                            <NXEIP:GooglePagerField />
-                        </Fields>
-                    </asp:DataPager>
+                <div style="text-align: center;"><br>
+                    <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="回上一頁" onclick="btn_submit_Click" />
                 </div>
-                <div style="text-align: center">
-                    <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="回上一頁" 
-                        onclick="btn_submit_Click" />
-                </div>
-            
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>

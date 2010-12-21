@@ -93,9 +93,10 @@
                             </SelectParameters>
                         </asp:ObjectDataSource>
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
-                            CellSpacing="-1" DataKeyNames="que_no,the_no,ans_no" 
+                            CellSpacing="3" DataKeyNames="que_no,the_no,ans_no" 
                             ShowHeaderWhenEmpty="True" EmptyDataText="查無資料" 
-                            onrowcommand="GridView1_RowCommand" CssClass="tableData">
+                            onrowcommand="GridView1_RowCommand" CssClass="tableData" BorderWidth="0px" 
+                            CellPadding="3">
                             <Columns>
                                 <asp:BoundField DataField="ans_name" HeaderText="項目" SortExpression="ans_name" />
                                 <asp:BoundField DataField="ans_order" HeaderText="順序" SortExpression="ans_order" />

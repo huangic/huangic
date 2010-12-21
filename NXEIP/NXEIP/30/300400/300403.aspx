@@ -8,7 +8,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </ajaxtoolkit:ToolkitScriptManager>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount" SelectMethod="GetAll" TypeName="NXEIP.DAO.RoomsDAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" SelectCountMethod="GetAllCount" SelectMethod="GetAll" 
+        TypeName="NXEIP.DAO.PetitionDAO" OldValuesParameterFormatString="original_{0}">
+        <SelectParameters>
+            <asp:Parameter Name="sdate" Type="String" />
+            <asp:Parameter Name="edate" Type="String" />
+            <asp:Parameter Name="status" Type="String" />
+            <asp:Parameter Name="spots1" Type="Int32" />
+            <asp:Parameter Name="rooms1" Type="Int32" />
+            <asp:Parameter Name="loginuser" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <script type="text/javascript" src="../../js/lytebox.js"></script>
     <asp:Label ID="lab_pageIndex" runat="server" Visible="False"></asp:Label>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300403" />
@@ -48,29 +58,28 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
-                    EmptyDataText="查無資料" DataKeyNames="roo_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand">
+                    EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound"
+                    GridLines="None" DataKeyNames="pet_no">
                     <Columns>
-                        <asp:BoundField DataField="spo_no" HeaderText="所在地" SortExpression="spo_no" />
-                        <asp:BoundField DataField="roo_name" HeaderText="場地名稱" SortExpression="roo_name" />
-                        <asp:BoundField DataField="roo_human" HeaderText="容納人數" SortExpression="roo_human" />
-                        <asp:BoundField DataField="roo_oneuid" HeaderText="保管人" SortExpression="roo_oneuid" />
-                        <asp:BoundField DataField="roo_tel" HeaderText="保管人電話" SortExpression="roo_tel" />
-                        <asp:BoundField DataField="roo_floor" HeaderText="所在樓層" SortExpression="roo_floor" />
-                        <asp:BoundField DataField="roo_describe" HeaderText="場地描述" SortExpression="roo_describe" />
-                        <asp:TemplateField HeaderText="修改">
-                            <ItemTemplate>
-                                <asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CssClass="edit" /></ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="35px" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="刪除">
-                            <ItemTemplate>
-                                <asp:Button ID="Button3" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" /></ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" Width="35px" />
+                        <asp:BoundField DataField="spo_name" HeaderText="所在地" 
+                            SortExpression="spo_name" />
+                        <asp:BoundField DataField="roo_name" HeaderText="場地名稱" 
+                            SortExpression="roo_name" />
+                        <asp:BoundField DataField="pet_depno" HeaderText="借用單位" 
+                            SortExpression="pet_depno" />
+                        <asp:BoundField DataField="pet_applyuid" HeaderText="申請人" 
+                            SortExpression="pet_applyuid" />
+                        <asp:BoundField DataField="stet" HeaderText="借用時間" SortExpression="stet" />
+                        <asp:BoundField DataField="pet_host" HeaderText="主持人" 
+                            SortExpression="pet_host" />
+                        <asp:BoundField DataField="pet_count" HeaderText="與會人數" 
+                            SortExpression="pet_count" />
+                        <asp:BoundField DataField="pet_reason" HeaderText="申請事由" 
+                            SortExpression="pet_reason" />
+                        <asp:BoundField DataField="pet_apply" HeaderText="狀態" 
+                            SortExpression="pet_apply" />
+                        <asp:TemplateField HeaderText="審核">
+                            <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
                     </Columns>
                     <HeaderStyle HorizontalAlign="Left" />
