@@ -61,6 +61,11 @@ namespace NXEIP.DAO{
             return (from depart in model.departments where depart.dep_no == dep_no select depart).FirstOrDefault();
         }
 
+        public string GetNameByNo(int dep_no)
+        {
+            return (from depart in model.departments where depart.dep_no == dep_no select depart.dep_name).FirstOrDefault();
+        }
+
         /// <summary>
         /// 取遞迴父帶目錄(有Detach)
         /// </summary>
