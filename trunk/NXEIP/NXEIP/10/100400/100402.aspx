@@ -5,9 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+        EnableScriptGlobalization="True" CombineScripts="True">
     </ajaxtoolkit:ToolkitScriptManager>
-    
     <asp:Label ID="lab_etime" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lab_stime" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lab_today" runat="server" Visible="False"></asp:Label>
