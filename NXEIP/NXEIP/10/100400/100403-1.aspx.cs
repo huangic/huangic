@@ -19,8 +19,6 @@ public partial class _10_100400_100403_1 : System.Web.UI.Page
             {
                 this.hidd_r05no.Value = Request.QueryString["r05_no"];
 
-                Response.Write(this.hidd_r05no.Value);
-
                 UtilityDAO udao = new UtilityDAO();
                 SessionObject sobj = new SessionObject();
 
