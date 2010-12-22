@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 /*維修登錄*/
 .maintain {
 	width: 100%;
@@ -79,9 +79,6 @@
 	width: 109px;
 	float: left;
 }
-/*.maintain .box .p1:hover {
-
-}*/
 
 .maintain .box .p2 {
 	width: 50%;
@@ -105,48 +102,6 @@
 	text-decoration: none;
 }
 
-/*.maintain .box .p3 {
-	background-image: url(../image/m03.gif);
-	background-repeat: no-repeat;
-	height: 56px;
-	width: 175px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-}
-.maintain .box .p3:hover {
-	background-image: url(../image/m03-2.gif);
-	background-repeat: no-repeat;
-}
-.maintain .box .p4 {
-	background-image: url(../image/m04.gif);
-	background-repeat: no-repeat;
-	height: 56px;
-	width: 175px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-}
-.maintain .box .p4:hover {
-	background-image: url(../image/m04-2.gif);
-	background-repeat: no-repeat;
-}
-.maintain .box .p5 {
-	background-image: url(../image/m05.gif);
-	background-repeat: no-repeat;
-	height: 56px;
-	width: 175px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-}
-.maintain .box .p5:hover {
-	background-image: url(../image/m05-2.gif);
-	background-repeat: no-repeat;
-}*/
 
 .maintain .box .content {
 	width: 310px;
@@ -697,11 +652,7 @@
 	padding-bottom: 18px;
 	padding-top: 10px;
 }
-.talkn .content_photo_modify {
-	width: 78%;
-	margin-bottom: 22px;
-	float: right;
-}
+
 .talkn .b2 {
 	width: 96%;
 	float: left;
@@ -1424,11 +1375,8 @@
 	background-image: url(../image/app_2.gif);
 	background-repeat: no-repeat;
 	height: 22px;
-    	
 	text-indent: 18px;
-	/*
 	margin-left: 16px;
-    */
 }
 .app .box .ps3 {
 	background-image: url(../image/ms03.gif);
@@ -1475,7 +1423,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 22px;
-	background-color: #ffdfc0;
+	background-color: #DAEFB4;
 	border-top-width: 1px;
 	border-top-style: dotted;
 	border-top-color: #A07E65;
@@ -1553,6 +1501,42 @@
 	text-decoration: none;
 	margin-left: 3px;
 }
+.inquire .box .row_in11_bg {
+	background-color: #f8f8f5;
+	width: 12%;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+.inquire .box .row_in12_bg {
+	background-color: #f8f8f5;
+	width: 6%;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+.inquire .box .row_in13_bg {
+	background-color: #f8f8f5;
+	width: 6%;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	padding: 4px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
 
 /*應用程式中心new*/
 
@@ -1561,7 +1545,19 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 10px;
-	float: left;
+}
+.photo a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	vertical-align: middle;
+	line-height: 22px;
+	text-align: left;
+}
+.tphoto a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
 }
 /*.photo .boxA {
 	width: 100%;
@@ -1593,8 +1589,11 @@
 .photo .box .content {
 	width: 18%;
 	float: left;
-	margin-bottom: 4px;
 	padding-left: 20px;
+	padding-bottom: 8px;
+	
+	
+	
 }
 
 .photo .box .b1 {
@@ -1706,4 +1705,61 @@
 	color: #333333;
 	text-align: center;
 	float: left;
+}
+.photo .content_photo_modify {
+	width: 72%;
+	float: right;
+	margin-top: 24px;
+}
+.photo .b4 {
+	width: 40px;
+	float: right;
+	background-repeat: repeat;
+	border: 1px solid #ACD156;
+	background-color: #F0F9D8;
+	text-align: center;
+	font-size: 13px;
+	line-height: 20px;
+	color: #333333;
+	text-decoration: none;
+	height: 22px;
+	margin-right: 10px;
+	margin-top: 8px;
+}
+.photo .back {
+	width: 516px;
+	vertical-align: middle;
+	width: 516px;
+	vertical-align: middle;
+	float: left;
+	margin-top: 4px;
+
+	
+}
+.photo .back .bg1 {
+	height: 28px;
+	width: 90px;
+	background-color: #EBF9CE;
+	font-size: 13px;
+	color: #333333;
+	line-height: 24px;
+	text-decoration: none;
+	text-indent: 6px;
+	padding: 4px;
+}
+.photo .back .bg2 {
+	height: 24px;
+	width: 410px;
+	background-color: #FFFFFF;
+	padding: 4px;
+}
+
+.photo .back .bg4 {
+	width: 133px;
+	background-color: #EBF9CE;
+	text-align: center;
+	float: left;
+	padding-left: 190px;
+	padding-right: 190px;
+	padding-bottom: 4px;
 }
