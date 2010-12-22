@@ -88,9 +88,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ANSWERS_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "answers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.answers), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_THEME_RELATIONS_QUESTION", "questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.questionary), "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.theme), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "petition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.petition), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_BOTANIZE_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.botanize), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.botanize), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
-[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
 
 #endregion
 
@@ -1313,22 +1313,6 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        public ObjectSet<botanize> botanize
-        {
-            get
-            {
-                if ((_botanize == null))
-                {
-                    _botanize = base.CreateObjectSet<botanize>("botanize");
-                }
-                return _botanize;
-            }
-        }
-        private ObjectSet<botanize> _botanize;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
         public ObjectSet<casework> casework
         {
             get
@@ -1341,6 +1325,22 @@ namespace Entity
             }
         }
         private ObjectSet<casework> _casework;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<botanize> botanize
+        {
+            get
+            {
+                if ((_botanize == null))
+                {
+                    _botanize = base.CreateObjectSet<botanize>("botanize");
+                }
+                return _botanize;
+            }
+        }
+        private ObjectSet<botanize> _botanize;
 
         #endregion
         #region AddTo 方法
@@ -1930,19 +1930,19 @@ namespace Entity
         }
     
         /// <summary>
-        /// 將新物件加入 botanize EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTobotanize(botanize botanize)
-        {
-            base.AddObject("botanize", botanize);
-        }
-    
-        /// <summary>
         /// 將新物件加入 casework EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
         /// </summary>
         public void AddTocasework(casework casework)
         {
             base.AddObject("casework", casework);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 botanize EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTobotanize(botanize botanize)
+        {
+            base.AddObject("botanize", botanize);
         }
 
         #endregion
@@ -4429,44 +4429,6 @@ namespace Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize")]
-        public botanize botanize
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value = value;
-            }
-        }
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<botanize> botanizeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme")]
         public theme theme
         {
@@ -4495,6 +4457,44 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<theme>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "theme", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize")]
+        public botanize botanize
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<botanize> botanizeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", value);
                 }
             }
         }
