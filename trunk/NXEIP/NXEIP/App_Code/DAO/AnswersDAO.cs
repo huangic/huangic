@@ -78,5 +78,19 @@ namespace NXEIP.DAO
             return (from tb in model.answers where tb.que_no == que_no && tb.the_no==the_no orderby tb.ans_no select tb.ans_no).DefaultIfEmpty().Max();
         }
         #endregion
+
+        #region 取得該答案對應的分數
+        /// <summary>
+        /// 取得該答案對應的分數
+        /// </summary>
+        /// <param name="que_no">問卷編號</param>
+        /// <param name="the_no">題目編號</param>
+        /// <param name="ans_no">答案編號</param>
+        /// <returns>分數值</returns>
+        public int GetFraction(int que_no,int the_no,int ans_no)
+        {
+            return (from tb in model.answers where tb.que_no == que_no && tb.the_no == the_no && tb.ans_no == ans_no select tb.ans_fraction).FirstOrDefault().Value;
+        }
+        #endregion
     }
 }
