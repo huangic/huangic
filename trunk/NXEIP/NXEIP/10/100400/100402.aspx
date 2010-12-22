@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
-        EnableScriptGlobalization="True" CombineScripts="True">
+        EnableScriptGlobalization="True" CombineScripts="false">
     </ajaxtoolkit:ToolkitScriptManager>
     <asp:Label ID="lab_etime" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lab_stime" runat="server" Visible="False"></asp:Label>
