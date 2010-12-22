@@ -88,6 +88,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ANSWERS_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "answers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.answers), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_THEME_RELATIONS_QUESTION", "questionary", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.questionary), "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.theme), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PETITION_RELATIONS_ROOMS", "rooms", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.rooms), "petition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.petition), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_BOTANIZE_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.botanize), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.botanize), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
 
 #endregion
 
@@ -1306,6 +1309,38 @@ namespace Entity
             }
         }
         private ObjectSet<petition> _petition;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<botanize> botanize
+        {
+            get
+            {
+                if ((_botanize == null))
+                {
+                    _botanize = base.CreateObjectSet<botanize>("botanize");
+                }
+                return _botanize;
+            }
+        }
+        private ObjectSet<botanize> _botanize;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<casework> casework
+        {
+            get
+            {
+                if ((_casework == null))
+                {
+                    _casework = base.CreateObjectSet<casework>("casework");
+                }
+                return _casework;
+            }
+        }
+        private ObjectSet<casework> _casework;
 
         #endregion
         #region AddTo 方法
@@ -1892,6 +1927,22 @@ namespace Entity
         public void AddTopetition(petition petition)
         {
             base.AddObject("petition", petition);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 botanize EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTobotanize(botanize botanize)
+        {
+            base.AddObject("botanize", botanize);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 casework EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTocasework(casework casework)
+        {
+            base.AddObject("casework", casework);
         }
 
         #endregion
@@ -2894,6 +2945,270 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="botanize")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class botanize : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 botanize 物件。
+        /// </summary>
+        /// <param name="bot_no">bot_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        public static botanize Createbotanize(global::System.Int32 bot_no, global::System.Int32 peo_uid)
+        {
+            botanize botanize = new botanize();
+            botanize.bot_no = bot_no;
+            botanize.peo_uid = peo_uid;
+            return botanize;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 bot_no
+        {
+            get
+            {
+                return _bot_no;
+            }
+            set
+            {
+                if (_bot_no != value)
+                {
+                    Onbot_noChanging(value);
+                    ReportPropertyChanging("bot_no");
+                    _bot_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("bot_no");
+                    Onbot_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _bot_no;
+        partial void Onbot_noChanging(global::System.Int32 value);
+        partial void Onbot_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bot_date
+        {
+            get
+            {
+                return _bot_date;
+            }
+            set
+            {
+                Onbot_dateChanging(value);
+                ReportPropertyChanging("bot_date");
+                _bot_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bot_date");
+                Onbot_dateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bot_date;
+        partial void Onbot_dateChanging(Nullable<global::System.DateTime> value);
+        partial void Onbot_dateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bot_total
+        {
+            get
+            {
+                return _bot_total;
+            }
+            set
+            {
+                Onbot_totalChanging(value);
+                ReportPropertyChanging("bot_total");
+                _bot_total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bot_total");
+                Onbot_totalChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bot_total;
+        partial void Onbot_totalChanging(Nullable<global::System.Int32> value);
+        partial void Onbot_totalChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bot_status
+        {
+            get
+            {
+                return _bot_status;
+            }
+            set
+            {
+                Onbot_statusChanging(value);
+                ReportPropertyChanging("bot_status");
+                _bot_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bot_status");
+                Onbot_statusChanged();
+            }
+        }
+        private global::System.String _bot_status;
+        partial void Onbot_statusChanging(global::System.String value);
+        partial void Onbot_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bot_createuid
+        {
+            get
+            {
+                return _bot_createuid;
+            }
+            set
+            {
+                Onbot_createuidChanging(value);
+                ReportPropertyChanging("bot_createuid");
+                _bot_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bot_createuid");
+                Onbot_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bot_createuid;
+        partial void Onbot_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onbot_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bot_createtime
+        {
+            get
+            {
+                return _bot_createtime;
+            }
+            set
+            {
+                Onbot_createtimeChanging(value);
+                ReportPropertyChanging("bot_createtime");
+                _bot_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bot_createtime");
+                Onbot_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bot_createtime;
+        partial void Onbot_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onbot_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BOTANIZE_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "casework")]
+        public EntityCollection<casework> casework
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<casework>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "casework");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<casework>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "casework", value);
                 }
             }
         }
@@ -3917,6 +4232,269 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_C04_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="casework")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class casework : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 casework 物件。
+        /// </summary>
+        /// <param name="bot_no">bot_no 屬性的初始值。</param>
+        /// <param name="cas_no">cas_no 屬性的初始值。</param>
+        /// <param name="que_no">que_no 屬性的初始值。</param>
+        /// <param name="the_no">the_no 屬性的初始值。</param>
+        public static casework Createcasework(global::System.Int32 bot_no, global::System.Int32 cas_no, global::System.Int32 que_no, global::System.Int32 the_no)
+        {
+            casework casework = new casework();
+            casework.bot_no = bot_no;
+            casework.cas_no = cas_no;
+            casework.que_no = que_no;
+            casework.the_no = the_no;
+            return casework;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 bot_no
+        {
+            get
+            {
+                return _bot_no;
+            }
+            set
+            {
+                if (_bot_no != value)
+                {
+                    Onbot_noChanging(value);
+                    ReportPropertyChanging("bot_no");
+                    _bot_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("bot_no");
+                    Onbot_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _bot_no;
+        partial void Onbot_noChanging(global::System.Int32 value);
+        partial void Onbot_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 cas_no
+        {
+            get
+            {
+                return _cas_no;
+            }
+            set
+            {
+                if (_cas_no != value)
+                {
+                    Oncas_noChanging(value);
+                    ReportPropertyChanging("cas_no");
+                    _cas_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("cas_no");
+                    Oncas_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _cas_no;
+        partial void Oncas_noChanging(global::System.Int32 value);
+        partial void Oncas_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 que_no
+        {
+            get
+            {
+                return _que_no;
+            }
+            set
+            {
+                Onque_noChanging(value);
+                ReportPropertyChanging("que_no");
+                _que_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("que_no");
+                Onque_noChanged();
+            }
+        }
+        private global::System.Int32 _que_no;
+        partial void Onque_noChanging(global::System.Int32 value);
+        partial void Onque_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 the_no
+        {
+            get
+            {
+                return _the_no;
+            }
+            set
+            {
+                Onthe_noChanging(value);
+                ReportPropertyChanging("the_no");
+                _the_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("the_no");
+                Onthe_noChanged();
+            }
+        }
+        private global::System.Int32 _the_no;
+        partial void Onthe_noChanging(global::System.Int32 value);
+        partial void Onthe_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String cas_answer
+        {
+            get
+            {
+                return _cas_answer;
+            }
+            set
+            {
+                Oncas_answerChanging(value);
+                ReportPropertyChanging("cas_answer");
+                _cas_answer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("cas_answer");
+                Oncas_answerChanged();
+            }
+        }
+        private global::System.String _cas_answer;
+        partial void Oncas_answerChanging(global::System.String value);
+        partial void Oncas_answerChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> cas_fraction
+        {
+            get
+            {
+                return _cas_fraction;
+            }
+            set
+            {
+                Oncas_fractionChanging(value);
+                ReportPropertyChanging("cas_fraction");
+                _cas_fraction = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cas_fraction");
+                Oncas_fractionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _cas_fraction;
+        partial void Oncas_fractionChanging(Nullable<global::System.Int32> value);
+        partial void Oncas_fractionChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize")]
+        public botanize botanize
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<botanize> botanizeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<botanize>("NXEIPModel.FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme")]
+        public theme theme
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<theme>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "theme").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<theme>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "theme").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<theme> themeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<theme>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "theme");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<theme>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "theme", value);
                 }
             }
         }
@@ -15031,6 +15609,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BOTANIZE_RELATIONS_PEOPLE", "botanize")]
+        public EntityCollection<botanize> botanize
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<botanize>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "botanize");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<botanize>("NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE", "botanize", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -22699,6 +23299,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<questionary>("NXEIPModel.FK_THEME_RELATIONS_QUESTION", "questionary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "casework")]
+        public EntityCollection<casework> casework
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<casework>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "casework");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<casework>("NXEIPModel.FK_CASEWORK_RELATIONS_THEME", "casework", value);
                 }
             }
         }
