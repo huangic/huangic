@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*維修登錄*/
 .maintain {
 	width: 100%;
@@ -1431,6 +1431,123 @@
     */
 }
 .app .box .ps3 {
+	background-image: url(../image/ms03.gif);
+	background-repeat: no-repeat;
+	text-decoration: none;
+	margin-left: 3px;
+}
+
+/*問卷*/
+
+.inquire {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+}
+.inquire .boxA {
+	width: 100%;
+	float: left;
+	margin-top: 5px;
+	border: 1px solid #D4D0C8;
+	}
+.inquire .box {
+	width: 90%;
+	margin-bottom: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.inquire .boxA .head {
+	width: 90%;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
+	line-height: 26px;
+	color: #009966;
+	height: 26px;
+	font-weight: bold;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #A07E65;
+	margin-bottom: 12px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 22px;
+	background-color: #ffdfc0;
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: #A07E65;
+}
+
+
+.inquire .box .content {
+	width: 100%;
+	float: left;
+	margin-bottom: 12px;
+	margin-top: 12px;
+}
+.inquire .box .b1 {
+	height: 26px;
+	background-image: url(../image/food_2.gif);
+	background-repeat: no-repeat;
+	float: left;
+	width: 28px;
+}
+
+
+.inquire .box .b2 {
+	width: 796px;
+	height: 26px;
+	float: left;
+
+}
+.inquire .box .b3 {
+	width: 760px;
+	float: left;
+	margin-left: 36px;
+	height: 26px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #D4D0C8;
+}
+
+.inquire .box .a-letter-t2 {
+	font-size: 13px;
+	color: #009966;
+	text-decoration: none;
+	line-height: 22px;
+}
+.inquire .box .a-letter-t1 {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	vertical-align: middle;
+	line-height: 24px;
+}
+.inquire .box a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.inquire .box .ps1 {
+	background-image: url(../image/app_1.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	text-decoration: none;
+	margin-left: 6px;
+	text-indent: 22px;
+	padding-top: 2px;
+}
+.inquire .box .ps2 {
+	background-image: url(../image/app_2.gif);
+	background-repeat: no-repeat;
+	height: 22px;
+	text-indent: 18px;
+	margin-left: 16px;
+}
+.inquire .box .ps3 {
 	background-image: url(../image/ms03.gif);
 	background-repeat: no-repeat;
 	text-decoration: none;
