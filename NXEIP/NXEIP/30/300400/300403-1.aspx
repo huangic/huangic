@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="300403-1.aspx.cs" Inherits="_30_300400_300403_1" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
-<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc3" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -22,71 +21,56 @@
         <table>
             <tbody>
                 <tr>
+                    <th>所在地</th>
+                    <td>
+                        <asp:Label ID="lab_spot" runat="server"></asp:Label>
+                    </td>
+                    <th>場地名稱</th>
+                    <td>
+                        <asp:Label ID="lab_rooms" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>借用單位</th>
+                    <td>
+                        <asp:Label ID="lab_depart" runat="server"></asp:Label>
+                    </td>
+                    <th>申請人</th>
+                    <td>
+                        <asp:Label ID="lab_applyuser" runat="server"></asp:Label>
+                        <asp:Label ID="lab_applyuid" runat="server" Visible="False"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>借用時間</th>
+                    <td colspan="3">
+                        <asp:Label ID="lab_sdate" runat="server"></asp:Label>&nbsp;~
+                        <asp:Label ID="lab_edate" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
                     <th>審核狀態</th>
                     <td colspan="3">
-                        <asp:TextBox ID="txt_name" runat="server" Columns="60" Rows="2" TextMode="MultiLine"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th>問卷說明</th>
-                    <td colspan="3">
-                        <asp:TextBox ID="txt_descript" runat="server" Columns="60" Rows="5" TextMode="MultiLine"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th>卷尾說明</th>
-                    <td colspan="3">
-                        <asp:TextBox ID="txt_end" runat="server" Columns="60" Rows="5" TextMode="MultiLine"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <th>是否記名</th>
-                    <td>
-                        <asp:RadioButtonList ID="rbl_register" runat="server" RepeatDirection="Horizontal"
+                        <asp:RadioButtonList ID="rbl_apply" runat="server" RepeatDirection="Horizontal" 
                             RepeatLayout="Flow">
-                            <asp:ListItem Value="1">記名</asp:ListItem>
-                            <asp:ListItem Value="2">不記名</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </td>
-                    <th>是否公佈結果</th>
-                    <td>
-                        <asp:RadioButtonList ID="rbl_open" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="1">公怖</asp:ListItem>
-                            <asp:ListItem Value="2">不公怖</asp:ListItem>
+                            <asp:ListItem Selected="True" Value="2">核可</asp:ListItem>
+                            <asp:ListItem Value="3">不核可</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
                 </tr>
                 <tr>
-                    <th>調查時間</th>
+                    <th>不核可原因</th>
                     <td colspan="3">
-                        開始時間<uc3:calendar ID="cl_sdate" runat="server" _Show="False" />
-                        <asp:TextBox ID="txt_shour" runat="server" Columns="2"></asp:TextBox>
-                        時<asp:TextBox ID="txt_smin" runat="server" Columns="2"></asp:TextBox>
-                        分<br />
-                        結束時間<uc3:calendar ID="cl_edate" runat="server" _Show="False" /><asp:TextBox ID="txt_ehour" runat="server" Columns="2"></asp:TextBox>
-                        時<asp:TextBox ID="txt_emin" runat="server" Columns="2"></asp:TextBox>
-                        分
-                    </td>
-                </tr>
-                <tr>
-                    <th>是否上架</th>
-                    <td colspan="3">
-                        <asp:RadioButtonList ID="rbl_status" runat="server" RepeatDirection="Horizontal"
-                            RepeatLayout="Flow">
-                            <asp:ListItem Value="1">上架</asp:ListItem>
-                            <asp:ListItem Value="2">下架</asp:ListItem>
-                        </asp:RadioButtonList>
+                        <asp:TextBox ID="txt_signmemo" runat="server" Columns="60" Rows="3" 
+                            TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="footer">
-            <div class="f1">
-            </div>
-            <div class="f2">
-            </div>
-            <div class="f3">
-            </div>
+            <div class="f1"></div>
+            <div class="f2"></div>
+            <div class="f3"></div>
         </div>
         <div class="bottom">
             <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click" />
