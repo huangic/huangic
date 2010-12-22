@@ -29,7 +29,7 @@ public partial class _30_300400_300403 : System.Web.UI.Page
         {
             //第一部份：查詢項目
             this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Today.ToString("yyyy-MM-01"));
-            this.calendar2._ADDate = Convert.ToDateTime(System.DateTime.Today.ToString("yyyy-MM-dd"));
+            this.calendar2._ADDate = Convert.ToDateTime((System.DateTime.Today.Year+1)+"-01-01").AddDays(-1);
             ListItem allitem = new ListItem("全部", "0");
             #region 場管之所在地、場所
             string sqlstr = "select spot.spo_no, spot.spo_name from spot inner join rooms on spot.spo_no = rooms.spo_no inner join checker on rooms.roo_no = checker.roo_no"
@@ -47,8 +47,8 @@ public partial class _30_300400_300403 : System.Web.UI.Page
             this.ddl_spot.Items.Insert(0, allitem);
             this.ddl_rooms.Items.Insert(0, allitem);
             #endregion
-            ShowDataList();
         }
+        ShowDataList();
     }
 
     #region 畫面：List
@@ -83,9 +83,9 @@ public partial class _30_300400_300403 : System.Web.UI.Page
                 e.Row.Cells[9].Text = c9;
             }
             else if (e.Row.Cells[8].Text.Equals("2"))
-                e.Row.Cells[8].Text = "已審核";
+                e.Row.Cells[8].Text = "核可";
             else if (e.Row.Cells[8].Text.Equals("3"))
-                e.Row.Cells[8].Text = "審核不通過";
+                e.Row.Cells[8].Text = "不核可";
             else
                 e.Row.Cells[8].Text = "自行取消";
         }

@@ -1,9 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300403.aspx.cs" Inherits="_30_300400_300403" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300403.aspx.cs" Inherits="_30_300400_300403" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls" TagPrefix="cc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<script type="text/javascript">
+    function update(msg) {
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        tb_remove();
+        alert(msg);
+    }
+
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+            //  reapply the thick box stuff
+            tb_init('a.thickbox');
+        }
+    }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <ajaxtoolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
