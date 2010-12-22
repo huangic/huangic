@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Entity;
 using System.ComponentModel;
+using System.Data;
 
 namespace NXEIP.DAO
 {
@@ -92,5 +93,88 @@ namespace NXEIP.DAO
             return (from tb in model.answers where tb.que_no == que_no && tb.the_no == the_no && tb.ans_no == ans_no select tb.ans_fraction).FirstOrDefault().Value;
         }
         #endregion
+
+
+
+        #region 抓出來的結構
+        public class CountAnswers
+        {
+            public int que_no { get; set; }
+            public int the_no { get; set; }
+            public int ans_no { get; set; }
+            public string ans_name  { get; set; }
+            public int ans_order { get; set; }
+            public string the_type { get; set; }
+            public int acount
+            {
+                get
+                {
+                    int qcount = 0;
+                    if (the_type.Equals("1"))
+                    {
+                        string sqlstr = "SELECT COUNT(cas_no) AS recount FROM casework WHERE (que_no = " + que_no + ") AND (the_no = " + the_no + ") and (cas_answer='" + ans_no + "')";
+                        DataTable dt = new DataTable();
+                        dt = new DBObject().ExecuteQuery(sqlstr);
+                        if (dt.Rows.Count > 0)
+                        {
+                            if (dt.Rows[0]["recount"].ToString().Length > 0) qcount = Convert.ToInt32(dt.Rows[0]["recount"].ToString());
+                        }
+                        else
+                            qcount = 0;
+                    }
+                    else if (the_type.Equals("2"))
+                    {
+                        string sqlstr = "SELECT COUNT(cas_no) AS recount FROM casework WHERE (que_no = " + que_no + ") AND (the_no = " + the_no + ") and (cas_answer like '" + ans_no + ",%' or cas_answer like '%," + ans_no + "' or cas_answer like '%," + ans_no + ",%' or cas_answer='" + ans_no + "')";
+                        DataTable dt = new DataTable();
+                        dt = new DBObject().ExecuteQuery(sqlstr);
+                        if (dt.Rows.Count > 0)
+                        {
+                            if (dt.Rows[0]["recount"].ToString().Length > 0) qcount = Convert.ToInt32(dt.Rows[0]["recount"].ToString());
+                        }
+                        else
+                            qcount = 0;
+                    }
+                    else
+                    {
+                        qcount = 0;
+                    }
+                    return qcount;
+                }
+                set
+                {
+                    acount = value;
+                }
+                
+            }
+
+        }
+        #endregion
+
+        public IQueryable<CountAnswers> GetAnswersAll(int que_no,int the_no)
+        {
+            var itemColl = from tb in model.answers
+                           where tb.que_no == que_no && tb.the_no == the_no
+                           orderby tb.ans_order
+                           select new CountAnswers
+                           {
+                               que_no = tb.que_no,
+                               the_no = tb.the_no,
+                               ans_no = tb.ans_no,
+                               ans_name = tb.ans_name,
+                               ans_order = tb.ans_order.Value,
+                               the_type = tb.theme.the_type
+                           };
+            return itemColl;
+        }
+
+        public IQueryable<CountAnswers> GetAnswersAll(int que_no, int the_no, int startRowIndex, int maximumRows)
+        {
+            return GetAnswersAll(que_no, the_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetAnswersAllCount(int que_no, int the_no)
+        {
+            return GetAnswersAll(que_no, the_no).Count();
+        }
     }
 }
