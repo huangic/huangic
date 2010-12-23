@@ -39,7 +39,7 @@
             });
 
             $('.uncheckall').click(function () {
-                $("input[type='checkbox']").attr("Checked", false);
+                $("input[type='checkbox']").removeAttr("Checked");
             });
         });
 

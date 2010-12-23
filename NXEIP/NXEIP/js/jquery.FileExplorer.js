@@ -5,6 +5,8 @@
 thickbox
 jstree1.0套件
 jquery.jqGrid
+
+validate套件
 */
 
 ;(function ($) {
@@ -16,7 +18,7 @@ jquery.jqGrid
    
         
 
-   
+    
     
 
     $(_setting.fileDeleteButton).bind("click",delFile);
@@ -344,9 +346,15 @@ jquery.jqGrid
         
         reloadFile(id,depid,folderType);
 
+
+
+       
+
         //屬性寫入COOKIES
         $.cookie("depid",depid);
         $.cookie("folderType",folderType);
+
+    
 
     };
 
@@ -361,14 +369,26 @@ jquery.jqGrid
 
         $( _setting.fileDiv).trigger("reloadGrid");
 
+       
+        
         initButton();
+        //tb_init("a.thickbox");
+
     };
 
   
 
+    function clickevent(){
+        var t = this.title || this.name || null;
+	    var a = this.href || this.alt;
+	    var g = this.rel || false;
+	    tb_show(t,a,g);
+	    this.blur();
+	    return false;
+    }
 
   
-   function CheckSelect(){
+    function CheckSelect(){
     return true;
    }
 
@@ -407,11 +427,13 @@ jquery.jqGrid
                            return false;
                       }
                  }
-
+          
 
         });
 
         //$("#filelist").jqGrid('gridDnD', { connectWith: '#userFolder' }); 
+
+           
 
     };
 
@@ -427,10 +449,16 @@ jquery.jqGrid
                      //ret就是ROW資料
                      var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',cl); 
                      //alert("id="+ret.id+" code="+ret.code);
-                     dlUrl="100105/FileDownload.ashx?code="+ret.code;
-                    
 
-                    be = "<a class='edit imageButton' href='#' alt='版本' title='版本' ><span>版本</span></a>";
+                     dlUrl=$.validator.format("100105/FileDownload.ashx?code={0}",ret.code);
+                    
+                     verUrl=$.validator.format("100105-3.aspx?id={0}&modal=true&TB_iframe=true",cl);
+
+
+                    //alert(verUrl);
+
+
+                    be = "<a class='thickbox edit imageButton' href='"+verUrl+"' alt='版本' title='版本'><span>版本</span></a>";
                     
                     dl = "<a class='download imageButton' target='_blank' href='"+dlUrl+"' alt='下載' title='下載'><span>下載</span></a>";
                     
@@ -446,6 +474,12 @@ jquery.jqGrid
                     }
                    
                     jQuery(_setting.fileDiv).setRowData(ids[i], { act: permissionString })
+                    
+
+                    //最後一筆寫入
+                    if(i==ids.length-1){
+                    tb_init('a.thickbox');
+                    }
                 }
 
                 //無資料寫是空值

@@ -162,6 +162,11 @@ namespace NXEIP.DAO
             model.SaveChanges();
         }
 
-       
+
+         public IQueryable<doc02> GetDocVersion(int doc01_no) {
+             var data = from d in model.doc02 where d.d01_no == doc01_no select d;
+             return data;
+         }
+
     }
 }

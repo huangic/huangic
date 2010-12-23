@@ -21,8 +21,8 @@
     
    <div class="tableDiv">
         <asp:HiddenField ID="hidden_arg_no" runat="server" />
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
+       <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false">
+       </asp:ToolkitScriptManager >
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
             OldValuesParameterFormatString="original_{0}" SelectMethod="GetS06FromSufNO" 
             TypeName="NXEIP.DAO.Sys06DAO">
