@@ -126,14 +126,21 @@ body {
 	color: #FF0000;
 	text-decoration: none;
 }
-
+.a-letter-Red:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
 .a-letter-Blue {
 	
 	font-size: 13px;
 	color: #0033CC;
 	text-decoration: none;
 }
-
+.a-letter-Blue:hover {
+	
+	color: #FFFFFF;
+	text-decoration: none;
+}
 .a02-15 {
 	
 	font-size: 15px;
@@ -332,8 +339,7 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: pointer;
-	text-decoration: none;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -369,8 +375,7 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-		cursor: pointer;
-	text-decoration: none;
+	cursor: auto;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
@@ -404,4 +409,39 @@ body {
 .select-I {
 	height: 30px;
 	width: 586px;
+}
+.block3 {
+	width: 64px;
+	float: right;
+	border: 1px solid #ACD156;
+	background-color: #F0F9D8;
+	margin-right: 10px;
+	text-align: center;
+	height: 22px;
+	margin-top: 4px;
+	margin-left: 4px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 28px;
+}
+.block3 a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+}
+
+.block3 a:hover {
+	font-size: 13px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.a-title {
+	font-size: 15px;
+	color: #009966;
+	text-decoration: none;
+	line-height: 30px;
+	font-weight: bold;
+	margin-left: 12px;
 }
