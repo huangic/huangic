@@ -187,9 +187,7 @@
 
  .block-1 .header .h2 .function
 {
- 
- float:right;
-  
+ float:right;  
 }
 
  .block-1 .header .h3
@@ -213,6 +211,79 @@
 	visibility: hidden;
 	text-decoration: none;
 }
+
+
+ .block-1 .header .hs1
+{
+	float:left;
+	width:24px;
+	background-image:url(../image/a43.gif);
+	height:30px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-decoration: none;
+/*padding:14px 0;*/
+}
+.block-1 .header .hs1:hover {
+	background-image: url(../image/a43-1.gif);
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+.block-1 .header .hs1 a {
+	text-decoration: none;
+}
+
+.block-1 .header .hs1 span {
+	visibility: hidden;
+	text-decoration: none;
+}
+
+ .block-1 .header .hs2
+{
+	vertical-align:middle;
+	color:#ffffff;
+	line-height:30px;
+	font-size:16px;
+	float: left;
+	width: 197px;
+	background-image: url(../image/a44.gif);
+	height: 30px;
+  
+}
+
+
+ .block-1 .header .hs2 .name
+{
+	text-align:center;
+}
+
+ .block-1 .header .hs2 .function
+{
+ float:right;  
+}
+
+ .block-1 .header .hs3
+{
+	float:right;
+	width:24px;
+	background-image:url(../image/a45.gif);
+	height:30px;
+	overflow: hidden;
+	text-decoration: none;
+}
+.block-1 .header .hs3 a {
+	text-decoration: none;
+}
+.block-1 .header .hs3:hover {
+	background-image: url(../image/a45-1.gif);
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+.block-1 .header .hs3 span {
+	visibility: hidden;
+	text-decoration: none;
+}
+
 
 
 /*FOOTER*/

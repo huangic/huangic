@@ -1,7 +1,6 @@
 .layoutDiv
 {
 	width:100%;
-	height: 333px;
 }
 
 
@@ -14,7 +13,7 @@
 {
 	width:100%;
 	border-spacing:1px;
-	background-color:#CDE985;
+	background-color:#acd156;
 }
 
 .tableDiv table th,.tableDiv table td,.tableData th,.tableData td

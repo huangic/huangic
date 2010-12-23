@@ -2,15 +2,14 @@
 	display: block;
 	display: none;
 	position: relative;
-	border: 1px solid #009966;
-	z-index:9999;
+	border: 1px solid #777;
 }
 #calendarDiv a {
 	cursor: pointer;
 }
 #calendar {
-    background: #23743e;
- 	clear: both; 
+	background: #ddd;
+	clear: both;
 	text-align: center;
 	font-size: 105%;
 }
@@ -18,25 +17,25 @@
 	width: 180px;
 }
 #calendar .calendarHeader {
-	background: #007341;
+	background: #333;
 	border-bottom: 1px solid #444;
-	color: #FDF26A;
+	color: #fff;
 }
 #calendar .weekDaysTitleRow {
-	background: #E7F8C0;
-	color: #333;
+	background: #777;
+	color: #fff;
 }
 #calendar .weekDaysRow {
-	background: #fbffee;
-    color: #666;
+	background: #eee;
+	color: #666;
 }
 #calendar .weekDaysCell {
 	color: #000;
-	border: 1px solid #acd156;
+	border: 1px solid #ddd;
 }
 #calendar .weekDaysCellOver {
-	background: #FDF486;
-    border: 1px solid #777;
+	background: #fff;
+	border: 1px solid #777;
 }
 #closeCalender {
 	position: absolute;
@@ -47,27 +46,25 @@
 	padding: 2px;
 	cursor: pointer;
 	font-size: 60%;
-	background: #CEE39B;
-	color:#333;
+	background: #000;
 }
 #closeCalender:hover {
-	background:  #F0FBD7;
-	color: #333;
+	background: #000;
+	color: #fff;
 }
 #linksTable {
-	background: #CBE296;
+	background: #000;
 }
-
 #linksTable a {
 	display: block;
- 	color: #000; 
+	color: #fff;
 	letter-spacing: 1px;
-	font-weight: bold;
 	font-size: 80%;
 	padding: 2px 5px;
+	font-weight: bold;
 }
 #linksTable a:hover {
- 	background: #F0FBD7; 
+	background: #ddd;
 	color: #333;
 }
 #prevMonth {
@@ -77,5 +74,5 @@
 	float: right;
 }
 #today {
-	background: #CBE296;
+	background: #999;
 }

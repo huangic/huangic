@@ -85,15 +85,12 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 .tabHeader-bigmonth1 {
 	height: 32px;
 	width: 960px;
-	float: left;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 15px;
 }
 .tabHeader-bigmonth {
 	height: 29px;
 	width: 960px;
-	float: left;
 	margin-left: auto;
 	margin-right: auto;
 	
