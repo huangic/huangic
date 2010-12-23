@@ -6,16 +6,16 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    
      <script type="text/javascript" src="../../js/jquery-ui-1.8.2.custom.min.js"></script>
+     <script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
      <script type="text/javascript" src="../../js/jquery.hotkeys.js"></script>
      <script type="text/javascript" src="../../js/jquery.jstree.js"></script>
      <script type="text/javascript" src="../../js/grid.locale-tw.js"></script>
      <script type="text/javascript" src="../../js/jquery.jqGrid.min.js"></script>
      <script type="text/javascript" src="../../js/jquery.FileExplorer.js"></script>
-      <script type="text/javascript" src="../../js/jquery.FileExplorerPublic.js"></script>
-      <script type="text/javascript" src="../../js/jquery.FileExplorerSearch.js"></script>
+     <script type="text/javascript" src="../../js/jquery.FileExplorerPublic.js"></script>
+     <script type="text/javascript" src="../../js/jquery.FileExplorerSearch.js"></script>
 
       <script type="text/javascript">
           function update() {

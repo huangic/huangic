@@ -311,4 +311,4 @@ function tb_getPageSize(){
 	var h = window.innerHeight || self.innerHeight || (de&&de.clientHeight) || document.body.clientHeight;
 	arrayPageSize = [w,h];
 	return arrayPageSize;
-}
+};

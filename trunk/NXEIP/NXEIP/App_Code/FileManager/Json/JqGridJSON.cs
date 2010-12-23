@@ -63,6 +63,7 @@ namespace NXEIP.FileManager.Json
             cell[4] = file.d01_url;
             //權限判斷
             cell[5] = bool.TrueString;
+
             this.id = file.d01_no.ToString();
 
         }
