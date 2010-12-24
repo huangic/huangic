@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100105-3.aspx.cs" Inherits="_10_100100_100105_2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100105-3.aspx.cs" Inherits="_10_100100_100105_3" %>
 
 
 
@@ -69,12 +69,12 @@
      
      
      
-  
-
+     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+     <ContentTemplate>
      
 
       <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
-         AutoGenerateColumns="False" EmptyDataText="無資料" 
+         AutoGenerateColumns="False" EmptyDataText="無資料"  DataKeyNames="d01_no,d02_no"
              onrowcommand="GridView1_RowCommand" 
               GridLines="None" CellSpacing="2">
       <Columns>
@@ -90,11 +90,20 @@
           </asp:TemplateField >
 
           <asp:ButtonField CommandName="public" Text="公開" HeaderStyle-Width="40px" />
-          <asp:ButtonField CommandName="public" Text="下載" HeaderStyle-Width="40px"  />
+           
+           <asp:TemplateField HeaderStyle-Width="40px">
+           
+           <ItemTemplate  >
+               <asp:HyperLink ID="HyperLink1" runat="server" CssClass="download imageButton" Target="_blank"
+                NavigateUrl='<%#String.Format("100105-4.ashx?d01={0}&d02={1}",Eval("d01_no"),Eval("d02_no"))  %>'><span>下載</span></asp:HyperLink>
+             
+               </ItemTemplate>
+               </asp:TemplateField>
       </Columns>
       </cc1:GridView>
      
-   
+   </ContentTemplate></asp:UpdatePanel>
+
 
  <div class="footer">
    <div class="f1"></div>

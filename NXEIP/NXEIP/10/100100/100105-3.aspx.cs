@@ -14,7 +14,7 @@ using System.Data.Objects;
 using System.IO;
 using NXEIP.Lib;
 
-public partial class _10_100100_100105_2 : System.Web.UI.Page
+public partial class _10_100100_100105_3 : System.Web.UI.Page
 {
 
     NLog.Logger logger = NLog.LogManager.GetLogger("_10_100100_100105_2");
@@ -60,7 +60,7 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
        
 
 
-        this.Page.ClientScript.RegisterStartupScript(typeof(_10_100100_100105_2), "closeThickBox", "self.parent.update();", true);
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
 
     }
     /// <summary>
@@ -71,10 +71,10 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 
-       
 
 
-        this.Page.ClientScript.RegisterStartupScript(typeof(_10_100100_100105_2), "closeThickBox", "self.parent.update();", true);
+
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
 
     }
 
@@ -86,25 +86,59 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
 
 
-        string  type = this.GridView1.DataKeys[rowIndex]["type"].ToString();
-        int id = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["id"].ToString());
-        int doc03_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["d03_no"].ToString());
+        int doc01_no= System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["d01_no"].ToString());
+        int doc02_no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex]["d02_no"].ToString());
 
+             
 
-        if (e.CommandName.Equals("modify"))
-        {
-
-            return;
-        };
-
-        if (e.CommandName.Equals("disable"))
+        if (e.CommandName.Equals("public"))
         {
             // delete(dep_no);
-            logger.Debug("disable");
-            delete(id, type, doc03_no);
+            logger.Debug("public");
+            //delete(doc01_no,doc02_no);
+
+            try
+            {
+                SetPublic(doc01_no, doc02_no);
+            }
+            catch { 
+            
+            }
+            
+            this.GridView1.DataBind();
             return;
+
+            
         };
+
+
+
+
     }
+
+
+    private void SetPublic(int d01_no, int d02_no) {
+        using (NXEIPEntities model = new NXEIPEntities()) {
+            var oldPublic = (from d in model.doc02 where d.d01_no == d01_no && d.d02_open == "2" select d).First();
+
+            oldPublic.d02_open = "1";
+
+            doc02 newPublic = new doc02();
+
+            newPublic.d01_no = d01_no;
+            newPublic.d02_no = d02_no;
+
+            model.doc02.Attach(newPublic);
+
+            newPublic.d02_open = "2";
+
+            model.SaveChanges();
+
+
+        }
+        
+    }
+
 
     private void delete(int id,String type,int doc03_no) { 
         using(NXEIPEntities model=new NXEIPEntities()){

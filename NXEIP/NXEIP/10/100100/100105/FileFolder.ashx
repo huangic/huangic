@@ -197,7 +197,7 @@ public class FileFolder : IHttpHandler,IRequiresSessionState
                     FolderAttrJson newAttr = new FolderAttrJson();
 
 
-                    newAttr.id = "0";
+                    newAttr.id = dep.dep_no+"_0";
                     newAttr.depid = dep.dep_no.ToString();
                     newAttr.folderType = "2";
 

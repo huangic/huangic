@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="FileDownload" %>
+﻿<%@ WebHandler Language="C#" Class="_10_100100_100105_3" %>
 
 using System;
 using System.Web;
@@ -6,13 +6,18 @@ using Entity;
 using System.Linq;
 using System.IO;
 
-public class FileDownload : IHttpHandler {
+public class _10_100100_100105_3 : IHttpHandler
+{
 
    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
     
    public void ProcessRequest(HttpContext context)
 	    {
-	        string downloadCode = context.Request.QueryString["code"];
+            int d01_no = int.Parse(context.Request.QueryString["d01"]);
+            int d02_no = int.Parse(context.Request.QueryString["d02"]);
+       
+       
+       
 	        //讀取DB
 	        using (NXEIPEntities model=new NXEIPEntities())
 	        {
@@ -22,9 +27,10 @@ public class FileDownload : IHttpHandler {
                 
                 //取檔案資訊
                 var file = (from d1 in model.doc01
-                            where d1.d01_url == downloadCode
                             from d2 in model.doc02
-                            where d2.d01_no == d1.d01_no && d2.d02_public == "1"
+                            where d2.d01_no == d1.d01_no 
+                            && d2.d02_no==d02_no
+                            && d2.d01_no==d01_no
                             select new {File=d1,Detail=d2}).First();
                 
                
