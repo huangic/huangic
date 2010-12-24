@@ -452,11 +452,21 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                }
 
                model.SaveChanges();
-               context.Response.Write("{\"msg\":\"success\"}");
+
+               if (!String.IsNullOrEmpty(Msg))
+               {
+                   context.Response.Write("{\"msg\":\"" + Msg + "\"}");
+
+               }
+               else
+               {
+
+                   context.Response.Write("{\"msg\":\"success\"}");
+               }
            }
        }
        catch (Exception ex) {
-           context.Response.Write("{\"msg\":\""+Msg+"\"}");
+           context.Response.Write("{\"msg\":\""+ex.Message+"\"}");
        }
        
    }    

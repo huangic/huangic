@@ -444,18 +444,9 @@ validate套件
             loadComplete: loadComplete,
 
             caption: "檔案清單",
-            emptyDataText: "<div id='EmptyData'>目前無檔案</div>",
+            emptyDataText: "<div id='EmptyData'>目前無檔案</div>"
            
-            onSelectRow: function(id,e){ 
-                var ret = jQuery( _setting.fileDiv).jqGrid('getRowData',id); 
-
-                     if(ret.permission=="True"){
-                           return true;
-                      }else{
-                       alert("你沒有變動此檔的權限");
-                           return false;
-                      }
-                 }
+            
           
 
         });
