@@ -26,6 +26,17 @@ namespace NXEIP.DAO
             return (from data in model.accounts where data.peo_uid == peo_uid select data).FirstOrDefault();
         }
 
+        public accounts GetByPeoIdCard(string idcard)
+        {
+            return (from peo in model.people 
+                    from data in model.accounts 
+                    where 
+                    data.peo_uid == peo.peo_uid 
+                    && peo.peo_idcard==idcard
+                    select data).FirstOrDefault();
+        }
+
+
         /// <summary>
         /// 驗證帳號密碼
         /// </summary>
@@ -36,6 +47,12 @@ namespace NXEIP.DAO
         {
             return (from d in model.accounts where d.acc_login == login && d.acc_passwd == pw select d).FirstOrDefault();
         }
+
+        public accounts GetByID(string login)
+        {
+            return (from d in model.accounts where d.acc_login == login select d).FirstOrDefault();
+        }
+
 
         public void Addaccounts(accounts accounts)
         {
