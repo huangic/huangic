@@ -46,7 +46,10 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
         
         
         int.TryParse(context.Request["id"],out id);
-        int.TryParse(context.Request["pid"],out pid);
+        //int.TryParse(context.Request["pid"],out pid);
+
+        pid = GetParentId(context.Request["pid"]);
+        
         int.TryParse(context.Request["depid"], out depid);
         folderType=context.Request["folderType"]??"";
 
@@ -282,7 +285,28 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
 
     }
     #endregion
+
+
+
+    private int GetParentId(String pid) { 
+        //如果可以轉INT 那就不用處理
+        int result;
+        
+        if (int.TryParse(pid,out result))
+        {
+
+            return result;
+        }
+        else {
+            String[] value=pid.Split('_');
+
+            return int.Parse(value[1]);
+        }
+        
+        
+        //無法轉INT 就取_後面的數字
     
+    }
     
     
     /// <summary>

@@ -160,12 +160,12 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
         catch { 
         
         }
+
+
+        int pid = GetParentId(id);
         
         
-         int pid;
         
-        
-        if(int.TryParse(id,out pid)){
 
 
 
@@ -200,7 +200,7 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
 
                 context.Response.Write(Newtonsoft.Json.JsonConvert.SerializeObject(file));
             
-        }
+      
        
     }
 
@@ -211,6 +211,28 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
         {
             return false;
         }
+
+    }
+
+    private int GetParentId(String pid)
+    {
+        //如果可以轉INT 那就不用處理
+        int result;
+
+        if (int.TryParse(pid, out result))
+        {
+
+            return result;
+        }
+        else
+        {
+            String[] value = pid.Split('_');
+
+            return int.Parse(value[1]);
+        }
+
+
+        //無法轉INT 就取_後面的數字
 
     }
 }

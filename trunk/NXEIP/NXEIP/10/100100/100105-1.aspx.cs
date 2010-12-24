@@ -29,21 +29,29 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             depid = int.Parse(sessionObj.sessionUserDepartID);
         }
 
-        
-        
-        string folderType = Request.Cookies["folderType"].Value;
 
+
+        string folderType = "1";
+        try{
+         folderType=Request.Cookies["folderType"].Value;
+        }catch{
+        
+        }
 
          string uploadDir=null;
          using (NXEIPEntities model = new NXEIPEntities())
          {
 
+             int pid = 0;
 
+             try
+             {
+                 //取父代目錄
+                 pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
+             }
+             catch { 
              
-
-             //取父代目錄
-             int pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
-             
+             }
              
              
              if (pid != 0)
@@ -97,8 +105,12 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             if (!this.IsPostBack) {
                 try
                 {
-                    int pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
-
+                    int pid = 0;
+                        try{
+                        pid= int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
+                        }catch{
+                        
+                        }
                     using (NXEIPEntities model = new NXEIPEntities())
                     {
                         if (pid != 0)

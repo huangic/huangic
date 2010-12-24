@@ -95,7 +95,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
         //把FILE的父代替換
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
-       int parent_id = int.Parse((string)json["folderId"]);
+       int parent_id =GetParentId((string)json["folderId"]);
       
        int depid = int.Parse((string)json["depid"]);
        
@@ -164,7 +164,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        //把FILE的父代替換
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
-       int parent_id = int.Parse((string)json["folderId"]);
+       int parent_id =GetParentId((string)json["folderId"]);
 
        int depid = int.Parse((string)json["depid"]);
        string folderType = (string)json["folderType"];
@@ -191,7 +191,6 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        
            using (NXEIPEntities model = new NXEIPEntities())
            {
-
                //取父帶目錄資料(判斷部門或是人員)
                int FolderPeopleUid = 0;
                try
@@ -349,7 +348,31 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        logger.Debug("上傳根目錄:" + upload_dir);
        return upload_dir;
    }
-      
+
+
+
+   private int GetParentId(String pid)
+   {
+       //如果可以轉INT 那就不用處理
+       int result;
+
+       if (int.TryParse(pid, out result))
+       {
+
+           return result;
+       }
+       else
+       {
+           String[] value = pid.Split('_');
+
+           return int.Parse(value[1]);
+       }
+
+
+       //無法轉INT 就取_後面的數字
+
+   }
+    
    private void DeleteFile(HttpContext context,JObject json){
        JArray files = (JArray)json["files"];
        try

@@ -160,6 +160,33 @@ validate套件
 
 
 
+
+    function delFiles(files){
+        var data = { 
+            "handle":"delete",
+            "files": files
+
+        };
+        var url = "100105/FileHandle.ashx";
+        var jsonData = JSON.stringify(data) ;
+        AjaxHandle(url, ""+jsonData, success);
+        
+        //讀取 FILE 傳入 FOLDER
+        //檢查節點
+        function success(data){
+          if(data.msg=="success"){
+            $( _setting.fileDiv).trigger("reloadGrid");
+          }else{
+            alert(data.msg);
+          }
+
+        };        
+    
+    }
+
+
+
+
     //檔案刪除
     function delFile(){
          //$.log("DelFile");
@@ -173,26 +200,8 @@ validate套件
         }
 
         if(confirm("確定要刪除?")){
-
-        var data = { 
-            "handle":"delete",
-            "files": s
-
-        };
-        var url = "100105/FileHandle.ashx";
-        var jsonData = JSON.stringify(data) ;
-        AjaxHandle(url, ""+jsonData, success);
+            delFiles(s);
         }
-        //讀取 FILE 傳入 FOLDER
-        //檢查節點
-        function success(data){
-          if(data.msg=="success"){
-            $( _setting.fileDiv).trigger("reloadGrid");
-          }else{
-            alert(data.msg);
-          }
-
-        };        
 
     };
 
@@ -479,6 +488,25 @@ validate套件
                     //最後一筆寫入
                     if(i==ids.length-1){
                     tb_init('a.thickbox');
+
+                    //bind 刪除按鈕
+
+                    $(".delete").each(function(){
+                     //取附帶TR
+                     $(this).bind("click",function(){
+
+                        var data=new Array();
+
+                        data[0]=$(this).parent().parent().attr("id");
+
+                        alert(data );
+                        if(confirm("確定要刪除?")){
+                            delFiles(data);
+                        }
+
+                       }); 
+                    });
+
                     }
                 }
 
