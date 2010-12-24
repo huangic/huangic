@@ -27,7 +27,7 @@
                     
                 </div>
                 <div class="b4">
-                    <div class="tabHead">
+                    <div class="tabHead_big">
                         <ul>
                             <li><asp:HyperLink ID="hl_months" runat="server" NavigateUrl="300405.aspx">月</asp:HyperLink></li>
                             <li class="currentTab"><a id="ctl00_ContentPlaceHolder1_current" href="#">週</a>
