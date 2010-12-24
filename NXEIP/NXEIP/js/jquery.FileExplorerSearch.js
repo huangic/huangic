@@ -28,18 +28,10 @@ jquery.jqGrid
    }
      
 
-    //$(_setting.fileDeleteButton).bind("click",delFile);
-
-    //$(_setting.fileMoveButton).bind("click",OpenMoveTree);
-    //$(_setting.fileCopyButton).bind("click",OpenCopyTree);
-
-    //$(_setting.permissionButton).bind("click",openPermissionDialog);
+   
 
 
-    function test(){
-       
-        //alert($.jstree._focused().get_selected());
-    }
+   
 
    
    $(element).click(function(){
@@ -154,11 +146,12 @@ jquery.jqGrid
     $.fn.searchfileManager=function(settings){
         var _defaultSettings={
             fileDiv:"#filelist",
-            fileDeleteButton:"#deleteFile",
+            fileDeleteButton:"#delFile",
             fileMoveButton:"#moveFile",
             fileCopyButton:"#copyFile",
             fileUploadButton:"#addFile",
             filePublicButton:"#publicFile",
+            permissionButton:"#permissionButton",
             inputName:"searchName",
             inputContext:"seatchContext"
         };

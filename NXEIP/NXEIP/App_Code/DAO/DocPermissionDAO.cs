@@ -168,5 +168,34 @@ namespace NXEIP.DAO
              return data;
          }
 
+
+        public bool HasPeoplePermission(int d03_no,int peo_uid){
+            int count = (from d in model.doc05 where d.d03_no == d03_no && d.d05_peouid == peo_uid select d).Count();
+            if (count > 0)
+            {
+                return true;
+
+            }
+            else {
+                return false;
+            }
+
+        }
+
+        public bool HasDepartmentPermission(int d03_no, int dep_no)
+        {
+            int count = (from d in model.doc04 where d.d03_no == d03_no && d.d04_depno == dep_no select d).Count();
+            if (count > 0)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 }
