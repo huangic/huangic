@@ -21,6 +21,53 @@ namespace NXEIP.DAO
         }
         private NXEIPEntities model = new NXEIPEntities();
 
+        #region 抓出來的結構
+        public class NewBotanize
+        {
+            public int bot_no { get; set; }
+            public string dep_name { get; set; }
+            public string pro_name { get; set; }
+            public string peo_name { get; set; }
+            public DateTime bot_date { get; set; }
+            public int dep_order { get; set; }
+            public int typ_order { get; set; }
+        }
+        #endregion
+
+        #region 分頁列表使用
+        public IQueryable<NewBotanize> GetAll(int que_no)
+        {
+            var itemColl = (from tb1 in model.botanize
+                            join tb2 in model.people on tb1.peo_uid equals tb2.peo_uid
+                            join tb3 in model.departments on tb2.dep_no equals tb3.dep_no
+                            join tb4 in model.types on tb2.peo_pfofess equals tb4.typ_no
+                            join tb5 in model.casework on tb1.bot_no equals tb5.bot_no
+                            where tb5.que_no == que_no 
+                            orderby tb3.dep_order ascending, tb4.typ_order ascending, tb2.peo_name ascending
+                            select new NewBotanize
+                             {
+                                 bot_no = tb1.bot_no,
+                                 dep_name = tb3.dep_name,
+                                 pro_name = tb4.typ_cname,
+                                 peo_name = tb2.peo_name,
+                                 bot_date = tb1.bot_date.Value,
+                                 dep_order = tb3.dep_order.Value,
+                                 typ_order = tb4.typ_order.Value
+                             }).Distinct().OrderBy(x=>x.peo_name).OrderBy(x=>x.typ_order).OrderBy(x=>x.dep_order);
+            return itemColl;
+        }
+        public IQueryable<NewBotanize> GetAll(int que_no, int startRowIndex, int maximumRows)
+        {
+            return GetAll(que_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetAllCount(int que_no)
+        {
+            return GetAll(que_no).Count();
+        }
+        #endregion
+
+
         #region 新增&修改
         public void AddBotanize(botanize tb)
         {

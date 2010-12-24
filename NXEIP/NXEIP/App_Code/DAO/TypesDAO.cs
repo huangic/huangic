@@ -109,5 +109,18 @@ namespace NXEIP.DAO
             return model.SaveChanges();
         }
 
+
+        #region 用code和number，查得typ_no
+        /// <summary>
+        /// 用code和number，查得typ_no
+        /// </summary>
+        /// <param name="code">code</param>
+        /// <param name="number">number</param>
+        /// <returns></returns>
+        public int GetNoByCodeNumber(string code,string number)
+        {
+            return (from tb in model.types where tb.typ_code == code && tb.typ_number == number select tb.typ_no).FirstOrDefault();
+        }
+        #endregion
     }
 }
