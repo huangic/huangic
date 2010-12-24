@@ -335,9 +335,29 @@ validate套件
                }
           };
                 
+                var result=false;
+                               
+                              
+
                 if($(node).attr("foldertype")==2){
-                   alert("無目錄操作權限!!"); 
-                  return null;
+                   
+                   //AJAX 判斷一下使用者權限 如果是目錄管理員就可以操作
+                    url="100105/FolderPermissionHandle.ashx";
+                    postdata = {  pid: $(node).attr("id"),
+                                  depid:$(node).attr("depid"),
+                                  folderType:$(node).attr("folderType")
+                          };
+
+                    AjaxHandle(url,postdata,function(d){ result=d.permission; } );   
+
+
+                  
+                    if(result){
+                     return menu;
+                    }else{
+                      alert("無目錄操作權限!!"); 
+                      return null;
+                    }
                   
                 }
                 
@@ -381,7 +401,7 @@ validate套件
        
         
         initButton();
-        //tb_init("a.thickbox");
+       
 
     };
 
@@ -519,7 +539,7 @@ validate套件
 
 
      function AjaxHandle(url, data, onSuccess) {
-         $.ajaxSetup({ cache: false });
+        $.ajaxSetup({ cache: false,async:false });
         $.post(url, data, onSuccess, "json");
     };
 
