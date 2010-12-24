@@ -494,9 +494,7 @@ validate套件
                     $(".delete").each(function(){
                      //取附帶TR
                      $(this).bind("click",function(){
-
                         var data=new Array();
-
                         data[0]=$(this).parent().parent().attr("id");
 
                         alert(data );

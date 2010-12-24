@@ -162,7 +162,7 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
         }
 
 
-        int pid = GetParentId(id);
+        int pid = FileManagerUtil.GetParentId(id);
         
         
         
@@ -214,25 +214,5 @@ public class FilesGrid : IHttpHandler,IRequiresSessionState
 
     }
 
-    private int GetParentId(String pid)
-    {
-        //如果可以轉INT 那就不用處理
-        int result;
-
-        if (int.TryParse(pid, out result))
-        {
-
-            return result;
-        }
-        else
-        {
-            String[] value = pid.Split('_');
-
-            return int.Parse(value[1]);
-        }
-
-
-        //無法轉INT 就取_後面的數字
-
-    }
+   
 }

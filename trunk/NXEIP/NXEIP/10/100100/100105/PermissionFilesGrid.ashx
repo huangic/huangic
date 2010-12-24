@@ -117,9 +117,9 @@ public class PermissionFilesGrid : IHttpHandler, IRequiresSessionState
                         from f5 in model.doc05
 
                         where
-                        f.d01_createuid==peo_id
+                        //f.d01_createuid==peo_id
                         
-                        && f.d01_no == f2.d01_no
+                        f.d01_no == f2.d01_no
                         && f3.d01_no == f.d01_no
                         && f3.d03_no == f5.d03_no
                         && f5.d05_peouid == peo_uid

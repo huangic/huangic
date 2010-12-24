@@ -13,6 +13,7 @@ using ComLib.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using NXEIP.Lib;
+using NXEIP.FileManager;
 
 
 public class FileHandle : IHttpHandler, IRequiresSessionState
@@ -95,7 +96,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
         //把FILE的父代替換
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
-       int parent_id =GetParentId((string)json["folderId"]);
+       int parent_id =FileManagerUtil.GetParentId((string)json["folderId"]);
       
        int depid = int.Parse((string)json["depid"]);
        
@@ -104,6 +105,8 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
 
        if (parent_id != 0) { 
           //取節點資料
+           
+           
            using (NXEIPEntities model = new NXEIPEntities()) {
                var doc = (from d in model.doc01 where d.d01_no == parent_id select d).First();
                depid=doc.dep_no;
@@ -128,6 +131,27 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                int id = int.Parse((string)fid);
                var file = (from f in model.doc01 where f.d01_no == id select f).First();
 
+               
+               
+               //找檔案有沒有權限(目錄管理員或是檔案不屬於他建立)
+               int peo_uid = int.Parse(sessionObj.sessionUserID);
+
+               //沒有使用者權限
+               if (file.peo_uid != peo_uid) { 
+               
+                   //判斷有沒有目錄管理權限
+                   int permission = (from d in model.manager where d.dep_no == file.dep_no && d.peo_uid == peo_uid select d).Count();
+
+                   if (permission == 0) { 
+                    //沒有目錄管理權限
+                       Msg += file.d01_file + "沒有權限\\n";
+                       continue;
+                   }
+               }
+                  
+               
+               
+               
                //找重複黨名(重複就跳出迴圈)
                int countfile = (from f in model.doc01 where f.d01_file == file.d01_file && f.d01_parentid == parent_id && f.dep_no == depid && f.d01_type == folderType select f).Count();
                if (countfile > 0)
@@ -164,7 +188,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
        //把FILE的父代替換
        //直接用UPDATE 更新
        JArray files = (JArray)json["files"];
-       int parent_id =GetParentId((string)json["folderId"]);
+       int parent_id =FileManagerUtil.GetParentId((string)json["folderId"]);
 
        int depid = int.Parse((string)json["depid"]);
        string folderType = (string)json["folderType"];
@@ -229,6 +253,28 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                                     select new { file = f, detail = f2 }).First();
 
 
+                  
+                   /*
+                   //找檔案有沒有權限(目錄管理員或是檔案不屬於他建立)
+                   int peo_uid = int.Parse(sessionObj.sessionUserID);
+
+                   //沒有使用者權限
+                   if (fileDetail.file.peo_uid != peo_uid)
+                   {
+
+                       //判斷有沒有目錄管理權限
+                       int permission = (from d in model.manager where d.dep_no == fileDetail.file.dep_no && d.peo_uid == peo_uid select d).Count();
+
+                       if (permission == 0)
+                       {
+                           //沒有目錄管理權限
+                           Msg += fileDetail.file.d01_file + "沒有權限\\n";
+                           continue;
+                       }
+                   }
+                   */
+                   
+                   
                    //找重複黨名(重複就跳出迴圈)
                      int countfile=(from f in model.doc01 where f.d01_file==fileDetail.file.d01_file &&f.d01_parentid==parent_id &&f.dep_no==depid &&f.d01_type==folderType select f).Count();
                      if (countfile > 0) {
@@ -351,30 +397,11 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
 
 
 
-   private int GetParentId(String pid)
-   {
-       //如果可以轉INT 那就不用處理
-       int result;
-
-       if (int.TryParse(pid, out result))
-       {
-
-           return result;
-       }
-       else
-       {
-           String[] value = pid.Split('_');
-
-           return int.Parse(value[1]);
-       }
-
-
-       //無法轉INT 就取_後面的數字
-
-   }
+  
     
    private void DeleteFile(HttpContext context,JObject json){
        JArray files = (JArray)json["files"];
+       String Msg = String.Empty;
        try
        {
            using (NXEIPEntities model = new NXEIPEntities())
@@ -389,6 +416,28 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                    //檔案刪除
                    //檔案路徑
                    //
+
+
+                
+                 //找檔案有沒有權限(目錄管理員或是檔案不屬於他建立)
+                 int peo_uid = int.Parse(sessionObj.sessionUserID);
+
+                 //沒有使用者權限
+                 if (file.peo_uid != peo_uid)
+                 {
+
+                     //判斷有沒有目錄管理權限
+                     int permission = (from d in model.manager where d.dep_no == file.dep_no && d.peo_uid == peo_uid select d).Count();
+
+                     if (permission == 0)
+                     {
+                         //沒有目錄管理權限
+                         Msg += file.d01_file + "沒有權限\\n";
+                         continue;
+                     }
+                 }
+                 
+                   
                    model.DeleteObject(file);
                    foreach (var d in fileDetial)
                    {
@@ -407,7 +456,7 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
            }
        }
        catch (Exception ex) {
-           context.Response.Write("{\"msg\":\""+ex.Message+"\"}");
+           context.Response.Write("{\"msg\":\""+Msg+"\"}");
        }
        
    }    
