@@ -22,3 +22,17 @@
     font-size: 15px;
     text-decoration:none;
 }
+
+.googleNavegationBar
+{
+    color: black; 
+    background-color:#EEF8D3; 
+    font-family:Arial; 
+    font-style:normal; 
+    font-size:13px;  
+    BORDER-LEFT: #CCCCCC 1px solid; 
+    BORDER-RIGHT: #CCCCCC 1px solid; 
+    BORDER-TOP: #CCCCCC 1px solid; 
+    BORDER-BOTTOM: #CCCCCC 1px solid; 
+    padding: 0px 10px 0px 10px;
+}
