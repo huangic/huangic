@@ -1,78 +1,341 @@
-
-
 /* AJAX - TabContainer */
-.ajax__tab_default .ajax__tab_header /*¾ãÅé«ö¶s©³*/{
+.ajax__tab_default .ajax__tab_header /*æ•´é«”æŒ‰éˆ•åº•*/{
  background-image: url(images/ajax__tab_head.jpg);
  background-repeat: repeat-x;
  background-position: bottom;
  font-size: 12px;
- font-family: "·s²Ó©úÅé";
+ font-family: "æ–°ç´°æ˜é«”";
 }
 
-.ajax__tab_default .ajax__tab_body /*¸ê®Æ°Ï*/{
- font-family:"·s²Ó©úÅé";/* ¤å¦r¦rÅé*/
- border:1px solid #1D75BB;/*Ãä®Ø*/
+.ajax__tab_default .ajax__tab_body /*è³‡æ–™å€*/{
+ font-family:"æ–°ç´°æ˜é«”";/* æ–‡å­—å­—é«”*/
+ border:1px solid #1D75BB;/*é‚Šæ¡†*/
  border-top:0;
- padding: 8px; /*¤å¦r»PÃä®Ø¶¡¹j*/
- font-size: 12px;/*¤å¦r¤j¤p*/
+ padding: 8px; /*æ–‡å­—èˆ‡é‚Šæ¡†é–“éš”*/
+ font-size: 12px;/*æ–‡å­—å¤§å°*/
  background-color: #EEF2F2;
  background-image: url(images/ajax__tab_body.jpg);
  background-repeat: repeat-x;
  background-position: top;
 }
-/*¹w³] ------------------------------*/
-.ajax__tab_default .ajax__tab_inner /*¥ªÃä*/{
-padding-left:9px;/*¥ªÃä¶ZÂ÷*/
-background:url(images/ajax__tab_default_01.jpg) no-repeat;/*­I´º¹Ï¤ù¡A¤£­«½Æ*/}
+/*é è¨­ ------------------------------*/
+.ajax__tab_default .ajax__tab_inner /*å·¦é‚Š*/{
+padding-left:9px;/*å·¦é‚Šè·é›¢*/
+background:url(images/ajax__tab_default_01.jpg) no-repeat;/*èƒŒæ™¯åœ–ç‰‡ï¼Œä¸é‡è¤‡*/}
 
-.ajax__tab_default .ajax__tab_tab /*¤¤¶¡*/{
- background:url(images/ajax__tab_default_02.jpg) repeat-x; /*¤å¦r»P¹Ï¤ùÃä¶¡¹j*/
- margin:0;/*Ãä¬É¬°0*/
- padding-top: 11px;/*¤å¦r¤W¶¡¹j*/
- padding-right: 1px;/*¤å¦r¥k¶¡¹j*/
- padding-bottom: 14px;/*¤å¦r¤U¶¡¹j*/
+.ajax__tab_default .ajax__tab_tab /*ä¸­é–“*/{
+ background:url(images/ajax__tab_default_02.jpg) repeat-x; /*æ–‡å­—èˆ‡åœ–ç‰‡é‚Šé–“éš”*/
+ margin:0;/*é‚Šç•Œç‚º0*/
+ padding-top: 11px;/*æ–‡å­—ä¸Šé–“éš”*/
+ padding-right: 1px;/*æ–‡å­—å³é–“éš”*/
+ padding-bottom: 14px;/*æ–‡å­—ä¸‹é–“éš”*/
  padding-left: 1px;
- /*¤W+¤U+¤å¦r¤j¤p= ¹Ï¤ù°ª«×*/}
+ /*ä¸Š+ä¸‹+æ–‡å­—å¤§å°= åœ–ç‰‡é«˜åº¦*/}
 
-.ajax__tab_default .ajax__tab_outer /*¥kÃä*/{
- background:url(images/ajax__tab_default_04.jpg) no-repeat right;/*­I´º¹Ï¤ù¡A¤£­«½Æ¡A¾a¥k¹ï»ô*/
- padding-right: 5px;/*¥kÃä¶ZÂ÷*/
+.ajax__tab_default .ajax__tab_outer /*å³é‚Š*/{
+ background:url(images/ajax__tab_default_04.jpg) no-repeat right;/*èƒŒæ™¯åœ–ç‰‡ï¼Œä¸é‡è¤‡ï¼Œé å³å°é½Š*/
+ padding-right: 5px;/*å³é‚Šè·é›¢*/
 }
 
-/*·Æ¹«¸g¹L------------------------------*/
-.ajax__tab_default .ajax__tab_hover .ajax__tab_inner /*¥ª*/{
+/*æ»‘é¼ ç¶“é------------------------------*/
+.ajax__tab_default .ajax__tab_hover .ajax__tab_inner /*å·¦*/{
  background-image: url(images/ajax__tab_hover_01.jpg);
  background-repeat: no-repeat;
 }
 
-.ajax__tab_default .ajax__tab_hover .ajax__tab_tab /*¤¤*/{
- color: #006699;/*¤å¦rÃC¦â*/
+.ajax__tab_default .ajax__tab_hover .ajax__tab_tab /*ä¸­*/{
+ color: #006699;/*æ–‡å­—é¡è‰²*/
  background-image: url(images/ajax__tab_hover_02.jpg);
  background-repeat: repeat-x;
 }
  
-.ajax__tab_default .ajax__tab_hover .ajax__tab_outer /*¥k*/{
+.ajax__tab_default .ajax__tab_hover .ajax__tab_outer /*å³*/{
  background-image: url(images/ajax__tab_hover_04.jpg);
  background-repeat: no-repeat;
  background-position: right;
 }
 
-/*¨Ï¥Î¤¤------------------------------*/
+/*ä½¿ç”¨ä¸­------------------------------*/
 
-.ajax__tab_default .ajax__tab_active .ajax__tab_inner /*¨Ï¥Î¤¤-¥ª*/{
+.ajax__tab_default .ajax__tab_active .ajax__tab_inner /*ä½¿ç”¨ä¸­-å·¦*/{
  background-image: url(images/ajax__tab_active_01.jpg);
  background-repeat: no-repeat;
 }
 
 
-.ajax__tab_default .ajax__tab_active .ajax__tab_tab /*¨Ï¥Î¤¤-¤¤*/{
- color: #FFFFFF;/*¤å¦rÃC¦â*/
+.ajax__tab_default .ajax__tab_active .ajax__tab_tab /*ä½¿ç”¨ä¸­-ä¸­*/{
+ color: #FFFFFF;/*æ–‡å­—é¡è‰²*/
  background-image: url(images/ajax__tab_active_02.jpg);
  background-repeat: repeat-x;
 }
  
-.ajax__tab_default .ajax__tab_active .ajax__tab_outer/*¥k*/{
+.ajax__tab_default .ajax__tab_active .ajax__tab_outer/*å³*/{
  background-image: url(images/ajax__tab_active_04.jpg);
  background-repeat: no-repeat;
  background-position: right;
+}
+
+
+.tabHeader
+{
+     display:inline;
+     margin:0px 0px 0px 0px;
+     position:relative;
+    }
+.tabHeader-bigmonth1 {
+	height: 32px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.tabHeader-bigmonth {
+	height: 29px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.tabHeader-bigmonth a {
+	font-size: 15px;
+	color: #333333;
+	text-decoration: none;
+}
+.tabHeader-bigmonth a:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+
+.tabHeader-bigmonth .t1 {
+	background-image: url(../image/b02.gif);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 17px;
+	float: left;
+}
+.tabHeader-bigmonth .t2 {
+	background-image: url(../image/b02-1.gif);
+	background-repeat: repeat;
+	height: 29px;
+	width: 926px;
+	float: left;
+	font-size: 15px;
+	color: #666666;
+}
+.tabHeader-bigmonth .t21 {
+	height: 26px;
+	width: 140px;
+	float: left;
+	padding-top: 3px;
+}
+.tabHeader-bigmonth .t22 {
+	height: 26px;
+	width: 220px;
+	padding-top: 3px;
+	text-align: center;
+	float: left;
+	margin-left: 220px;
+}
+.tabHeader-bigmonth .t23 {
+	float: right;
+	width: 110px;
+	height: 26px;
+	padding-top: 3px;
+}
+.tabHeader-bigmonth .line {
+	background-image: url(../image/line2.gif);
+	background-repeat: no-repeat;
+	padding-right: 10px;
+	padding-left: 10px;
+	height: 14px;
+}
+.tabHeader-bigmonth ul li {
+	float: left;
+	padding-right: 10px;
+}
+
+.tabHeader-bigmonth .p1 {
+	background-image: url(../image/print.gif);
+	background-repeat: no-repeat;
+	font-size: 15px;
+	color: #333333;
+}
+.tabHeader-bigmonth ul {
+	list-style-type: none;
+}
+
+.tabHeader-bigmonth .a-letter-bm {
+	font-size: 15px;
+	color: #333333;
+	padding-left: 20px;
+}
+
+
+
+
+.tabHeader-bigmonth .t3 {
+	background-image: url(../image/b02-2_square.gif);
+	background-repeat: no-repeat;
+	height: 29px;
+	width: 17px;
+	float: left;
+}    
+.tabHeader .currentTab,.tabHeader .Tab
+{
+	display:inline-block;
+
+  *display: inline;
+	position:relative;
+	height:29px;
+	margin:0px;
+
+  *margin:0px 0px 0px 4px;  
+	width:auto;
+  
+ }
+ 
+ .tabHeader .currentTab
+ {
+
+     }
+ .tabHeader .Tab
+ {
+
+ }
+ 
+ 
+ 
+ .tabHeader .currentTab div,.tabHeader .Tab div
+ {
+      display:inline-block;
+      *display: inline;
+ }
+     
+     
+   .tabHeader .t1
+   {
+   float:left;
+   width:13px;
+   height:29px; 
+   }  
+   
+    .tabHeader .t2
+   {
+	float:left;
+	vertical-align:middle;
+	font-size:13px;
+	line-height :29px;
+	background-image: url(../image/b02-1-a.gif);
+   }  
+
+   
+   .tabHeader .t2 a
+   {
+        
+        color:#999999;
+
+        font-size:15px;
+        font-weight:bold;
+        text-decoration:none;
+       }
+   
+    .tabHeader .t3
+   {
+    /*float:right;*/
+    float:left;
+    width:14px;
+  
+    height:29px;
+   }  
+     
+     
+  .tabHeader .currentTab .t1
+  {
+   
+   background-image:url(../image/b02.gif);
+     
+  }
+.tabHeader .currentTab .t2 {
+	background-image: url(../image/b02-1.gif);
+}
+ 
+   .tabHeader .currentTab .t3
+  {
+   
+    background-image:url(../image/b02-2.gif);
+    background-position:right;
+    
+  }
+  
+   .tabHeader .Tab .t1
+  {
+   
+   background-image:url(../image/b02-a.gif);
+     
+  }
+  
+   .tabHeader .Tab .t3
+  {
+   
+    background-image:url(../image/b02-2-a.gif);
+    background-position:right;
+  }
+
+
+
+
+.tabHead {
+	width:245px;
+	height:29px;
+	margin-right: auto;
+	margin-left: auto;
+	text-decoration: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.tabHead ul li {
+	float:left;
+	margin-left:4px;
+	text-decoration: none;
+	margin-right: 0px;
+}
+.tabHead ul li a {
+	display:block;
+	width:44px;
+	height:29px;
+	line-height:28px;
+	text-align:center;
+	font-size:14px;
+	background-image: url(../image/b1-1.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	color: #999999;
+	text-decoration: none;
+}
+.tabHead ul li a:hover {
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-image: url(../image/b1-2.gif);
+	text-decoration: none;
+	color: #333333;
+}
+.tabHead ul li a:current {
+	font-weight:bold;
+	color:#fff;
+	background-image: url(images/b1-1.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	height: 29px;
+	width: 44px;
+}
+.tabHead ul li a#ctl00_ContentPlaceHolder1_current {
+	background-image: url(../image/b1.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 29px;
+	width: 44px;
+	text-decoration: none;
 }

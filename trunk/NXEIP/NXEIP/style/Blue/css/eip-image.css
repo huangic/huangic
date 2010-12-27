@@ -33,3 +33,100 @@
      cursor:hand;
      text-decoration:none;
 }
+.set
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v01.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+.view
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/view.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.alter
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/alter.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.people
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v05.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.add
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/Add.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.peruse
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/peruse.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.icon
+{
+     background:url("../image/a14.gif");  
+      background-repeat:no-repeat;
+     line-height:1.3em;
+     padding: 0px 0px 0px 20px;
+     font-size:13px;
+ }
+ 
+ .icon-event
+ {
+     background:url("../image/c012.gif");  
+      background-repeat:no-repeat;
+     line-height:1em;
+     padding: 0px 0px 0px 20px;
+    
+     }
+     
+     
+     .ver
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/c01.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+     .download
+{
+    border:0 none;
+    height:22px;
+    width:22px;
+    background:url(../image/b010.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
