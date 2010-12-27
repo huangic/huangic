@@ -235,8 +235,18 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
             //default image
 
-            String imgPath = "~/style/Green/image/";
+            //取SESSION的LAYOUT
 
+            String layout = (String)Session["layout_css"];
+
+            String imgPath = "";
+            if (!String.IsNullOrEmpty(layout))
+            {
+                imgPath = "~/style/"+layout+"/image/";
+            }
+            else {
+                imgPath = "~/image/";
+            }
 
             String pic = Page.ResolveUrl(imgPath + MainSys.sys_defaultpic);
             String overpic = Page.ResolveUrl(imgPath + MainSys.sys_overpicture);

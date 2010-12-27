@@ -234,7 +234,7 @@ font-size:0;
 }
 
 
-.save span,.setting span, .widget span
+.controlPanel .save span,.controlPanel .setting span,.controlPanel .widget span
 {
        visibility:hidden;
 }

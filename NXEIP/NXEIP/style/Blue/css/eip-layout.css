@@ -1,9 +1,11 @@
 .wrap {
 	width:1020px;
-	margin:0 auto;
-    padding:0;
-    background-color:#ffffff;
-    z-index:1;
+	padding:0;
+	z-index:1;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
 }
 
 
@@ -58,7 +60,7 @@
 
 /*
 
- MODALPOPUP ¸õ¥X¥Îªº­I´º
+ MODALPOPUP è·³å‡ºç”¨çš„èƒŒæ™¯
 */
 .modalBackground
 {
@@ -77,22 +79,8 @@ opacity:0.7;
 }
 
 
-.placeLayout
-{
-    width:97%;
-    margin: 10px auto;   
-}
 
-.placeLayout .left
-{
-    float:left;
-    width:210px;
- }
- 
- .placeLayout .right
- {
-     float:left;
-     width:755px;
-     margin:0px 0px 0px 20px   
-     
-  }
+  
+
+  
+  

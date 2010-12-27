@@ -59,9 +59,9 @@
 	display: block;
 	color: #fff;
 	letter-spacing: 1px;
-	font-weight: bold;
 	font-size: 80%;
 	padding: 2px 5px;
+	font-weight: bold;
 }
 #linksTable a:hover {
 	background: #ddd;
