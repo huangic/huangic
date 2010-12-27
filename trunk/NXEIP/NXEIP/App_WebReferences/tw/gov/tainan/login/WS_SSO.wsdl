@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="SSO_Auth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="guidToken" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="strApCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAcct" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SSO_AuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SSO_AuthResult" type="tns:ACCOUNT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ACCOUNT">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VerifiedToken" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifiedAPCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifiedAccount" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerifiedResult" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifiedMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserOrganId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserJobTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPortraitUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserTelOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserTelPersonal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SSO_AuthSoapIn">
+    <wsdl:part name="parameters" element="tns:SSO_Auth" />
+  </wsdl:message>
+  <wsdl:message name="SSO_AuthSoapOut">
+    <wsdl:part name="parameters" element="tns:SSO_AuthResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_SSOSoap">
+    <wsdl:operation name="SSO_Auth">
+      <wsdl:input message="tns:SSO_AuthSoapIn" />
+      <wsdl:output message="tns:SSO_AuthSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_SSOSoap" type="tns:WS_SSOSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SSO_Auth">
+      <soap:operation soapAction="http://tempuri.org/SSO_Auth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_SSOSoap12" type="tns:WS_SSOSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SSO_Auth">
+      <soap12:operation soapAction="http://tempuri.org/SSO_Auth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_SSO">
+    <wsdl:port name="WS_SSOSoap" binding="tns:WS_SSOSoap">
+      <soap:address location="http://login.tainan.gov.tw/ws/WS_SSO.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_SSOSoap12" binding="tns:WS_SSOSoap12">
+      <soap12:address location="http://login.tainan.gov.tw/ws/WS_SSO.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

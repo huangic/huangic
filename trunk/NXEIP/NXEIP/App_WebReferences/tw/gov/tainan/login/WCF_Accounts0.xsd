@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://login.tainan.gov.tw/ws/WCF_Accounts.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TOKEN">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserJobTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserOrganId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPortraitUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTelOffice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserTelPersonal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerifiedAPCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerifiedAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerifiedMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerifiedResult" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VerifiedToken" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TOKEN" nillable="true" type="tns:TOKEN" />
+</xs:schema>
