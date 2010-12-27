@@ -13,21 +13,18 @@ public partial class widget_00_Wealthy : NXEIP.Widget.WidgetBaseControl
 
         try
         {
-            //差情根網址
-            String wealthy = ConfigurationManager.AppSettings["Wealthy_Url"];
-
-
+       
             string idcard = new UtilityDAO().Get_PeopleIDCard(int.Parse(new SessionObject().sessionUserID));
 
             //差勤連結路徑
-            string path =wealthy+ ConfigurationManager.AppSettings["Wealthy_SSO_Path"] + "?mode=2&val=" + idcard;
+            string path = ConfigurationManager.AppSettings["Wealthy_SSO_Path"] + "?mode=2&val=" + idcard;
 
             //簽核資料WebService
             using (Wealthy_WebReference.PeopleSign sign = new Wealthy_WebReference.PeopleSign())
             {
 
                 //取得WebService路徑
-                string peopleSign_path =wealthy+ ConfigurationManager.AppSettings["Wealthy_WebReference.PeopleSign"];
+                string peopleSign_path = ConfigurationManager.AppSettings["Wealthy_WebReference.PeopleSign"];
 
                 //變更WebService路徑
                 sign.Url = peopleSign_path;
@@ -50,7 +47,7 @@ public partial class widget_00_Wealthy : NXEIP.Widget.WidgetBaseControl
             //今日代理人件數WebService
             using (Wealthy2_WebReference.peopleAgent peoAgent = new Wealthy2_WebReference.peopleAgent())
             {
-                string peoAgent_path =wealthy+ ConfigurationManager.AppSettings["Wealthy2_WebReference.peopleAgent"];
+                string peoAgent_path = ConfigurationManager.AppSettings["Wealthy2_WebReference.peopleAgent"];
                 peoAgent.Url = peoAgent_path;
                 peoAgent.Discover();
 
@@ -64,7 +61,7 @@ public partial class widget_00_Wealthy : NXEIP.Widget.WidgetBaseControl
             //本日刷卡紀錄WebService
             using (Wealthy3_WebReference.CardLog cardlog = new Wealthy3_WebReference.CardLog())
             {
-                string cardlog_path =wealthy+ ConfigurationManager.AppSettings["Wealthy3_WebReference.CardLog"];
+                string cardlog_path = ConfigurationManager.AppSettings["Wealthy3_WebReference.CardLog"];
                 cardlog.Url = cardlog_path;
                 cardlog.Discover();
 
@@ -75,7 +72,7 @@ public partial class widget_00_Wealthy : NXEIP.Widget.WidgetBaseControl
             }
 
         }
-        catch { 
+        catch (Exception ex){ 
             //無法連線
         }
 
