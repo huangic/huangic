@@ -62,7 +62,7 @@ namespace NXEIP.HttpModule
                      
                      //取AP的網址SSO LOGIN
                      String loginUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["SSO_LoginUrl"];
-                     Application.Response.Redirect("~/login.aspx",false);
+                     Application.Response.Redirect(loginUrl, false);
                      HttpContext.Current.ApplicationInstance.CompleteRequest();
                     }
                 }
