@@ -1,0 +1,142 @@
+2010-12-24 09:39:18.6654 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 09:39:19.8857 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 09:39:27.4499 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 09:39:28.0689 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:02:30.1698 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:03:16.3189 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:03:17.4126 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:03:18.0401 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:03:19.5939 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:03:50.3494 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:04:13.0158 _10_100100_100105_2.GridView1_RowCommand Debug public
+2010-12-24 10:09:21.9471 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:14:03.1792 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:14:55.0182 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:14:59.8355 _10_100100_100105_3.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101223055256827.exe'。
+2010-12-24 10:15:10.7341 _10_100100_100105_3.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101223054948800.exe'。
+2010-12-24 10:15:16.8104 _10_100100_100105_3.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101223054343628.doc'。
+2010-12-24 10:15:21.9467 _10_100100_100105_3.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101011034733191.exe'。
+2010-12-24 10:16:36.4670 _10_100100_100105_3.ProcessRequest Debug 無法對應路徑 '/upload/people/1/101011034733191.exe'。
+2010-12-24 10:18:27.1303 _10_100100_100105_3.ProcessRequest Debug 執行緒已經中止。
+2010-12-24 10:18:32.6766 _10_100100_100105_3.ProcessRequest Debug 執行緒已經中止。
+2010-12-24 10:18:39.3890 _10_100100_100105_3.ProcessRequest Debug 執行緒已經中止。
+2010-12-24 10:18:49.7286 _10_100100_100105_3.ProcessRequest Debug 執行緒已經中止。
+2010-12-24 10:19:05.3375 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:07.8976 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:12.0779 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:12.7309 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:13.4610 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:14.1120 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:14.8080 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:19:15.4241 _10_100100_100105_3.GridView1_RowCommand Debug public
+2010-12-24 10:20:39.8949 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 10:20:39.9819 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 10:21:04.1783 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:21:49.4149 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:21:49.5919 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:22:44.4690 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:24:30.2741 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:27:55.1998 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:28:01.2811 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:28:42.8605 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:36:25.5980 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:36:36.8056 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:39:44.5584 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:40:23.8706 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:40:58.8596 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:54:22.1316 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 10:54:41.8407 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"move","folderId":"7_0","depid":"7","folderType":"2","files":["14"]}
+2010-12-24 10:56:21.7194 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"move","folderId":"7_0","depid":"7","folderType":"2","files":["14"]}
+2010-12-24 10:56:32.2780 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"move","folderId":"20","depid":"7","folderType":"1","files":["14"]}
+2010-12-24 11:01:11.1380 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"move","folderId":"7_0","depid":"7","folderType":"2","files":["15"]}
+2010-12-24 11:01:27.8359 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"move","folderId":"7_0","depid":"7","folderType":"2","files":["10"]}
+2010-12-24 11:04:52.3426 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"copy","folderId":"0","depid":"7","folderType":"1","files":["17","19"]}
+2010-12-24 11:04:52.3806 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 11:05:27.6546 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"copy","folderId":"0","depid":"7","folderType":"1","files":["10"]}
+2010-12-24 11:05:27.6716 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 11:14:57.6582 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":["19"]}
+2010-12-24 11:14:57.6912 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 11:15:00.2434 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:16:04.2170 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:18:02.5158 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:18:14.1375 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":["17"]}
+2010-12-24 11:18:14.1375 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 11:22:41.1787 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:23:29.7765 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:23:54.0449 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:24:36.0633 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:24:42.9967 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:25:02.5178 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:25:42.0341 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:26:10.2847 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:26:42.5736 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:27:30.7453 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:27:41.2089 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":"10"}
+2010-12-24 11:28:42.9704 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:28:56.0222 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:29:28.7601 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:31:32.8752 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 11:31:38.4125 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":["10"]}
+2010-12-24 11:31:48.8911 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 13:35:29.3700 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 13:36:05.7181 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 13:38:40.1550 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 13:40:15.3034 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 13:40:45.6591 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:46:17.2710 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:46:26.2785 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:46:36.0201 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:50:12.8195 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:51:07.2466 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:52:03.0328 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:57:04.0820 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 14:59:59.2930 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:02:20.1392 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 15:02:21.1504 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 15:02:24.9805 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:04:06.5670 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:04:55.9391 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:08:25.9806 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:10:16.0511 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:11:07.7556 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:11:47.4500 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:13:11.3253 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:14:24.8142 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:15:06.8799 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:16:51.1278 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:17:55.8563 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:18:10.9000 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:19:02.1568 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:20:19.9578 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:21:02.8578 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:22:47.8208 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:24:34.1012 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:25:37.0729 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:28:16.3889 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:29:24.4217 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:32:19.4494 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:32:28.2323 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:32:48.6476 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:34:34.7294 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:40:53.1651 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:57:53.7228 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 15:59:12.6578 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:00:01.6222 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:01:48.4651 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:02:37.1966 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:02:59.0270 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:04:08.0738 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:13:59.6672 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":["16"]}
+2010-12-24 16:13:59.7072 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 16:18:11.6077 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 16:18:18.3516 NXEIP.Lib.JsonLib.GetRequestJson Debug {"handle":"delete","files":["16"]}
+2010-12-24 16:18:18.3516 FileHandle.GetPathArg Debug 上傳根目錄:c:\EIP_upload
+2010-12-24 17:24:54.4403 _10_100100_100105.Page_Load Debug TEST
+2010-12-24 17:25:23.8540 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 17:25:24.7130 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 17:25:28.7723 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 17:25:28.8183 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 17:25:41.5810 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 17:25:41.6240 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget
+2010-12-24 17:26:57.3873 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug Start Load Widget
+2010-12-24 17:26:57.4263 NXEIP.Widget.WidgetPageTemplate.InitWidget Debug End Load Widget

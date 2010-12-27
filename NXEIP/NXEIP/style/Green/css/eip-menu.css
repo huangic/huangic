@@ -94,13 +94,16 @@
 .mlmenu ul li ul {
 	/**/
 	background-color: Transparent;
-	width: 650px;
+	width: 800px;
 	#top: 61px;
 	_top: 61px;
 	/*ie6bug*/
 
 	position: absolute;
+	/*
 	left: -50px;
+	*/
+	
 	/*	padding-top:5px;*/
     padding-top:2px;
 	margin-top: 0px;

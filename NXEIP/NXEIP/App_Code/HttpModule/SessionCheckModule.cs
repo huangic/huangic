@@ -51,7 +51,7 @@ namespace NXEIP.HttpModule
 
             if (Application.Context.Request.CurrentExecutionFilePathExtension.Equals(".aspx"))
             {
-                 if ((!url.Contains("login")))
+                 if ((!url.Contains("login"))&&(!url.Contains("index")))
                  {
                 
                 
@@ -59,6 +59,9 @@ namespace NXEIP.HttpModule
             
                     if (String.IsNullOrEmpty(userID))
                     {
+                     
+                     //取AP的網址SSO LOGIN
+                     String loginUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["SSO_LoginUrl"];
                      Application.Response.Redirect("~/login.aspx",false);
                      HttpContext.Current.ApplicationInstance.CompleteRequest();
                     }

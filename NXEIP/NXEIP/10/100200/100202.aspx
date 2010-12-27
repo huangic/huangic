@@ -187,7 +187,7 @@
                             <ItemStyle HorizontalAlign="Center"  Width="3em"/>
                             <ItemTemplate>
                                 
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton detail" NavigateUrl='<%# string.Format("100202-4.aspx?id={0}&modal=true&TB_iframe=true&height=500&width=600",Eval("Detail.tde_no"))%>' ><span>檢視</span></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton peruse" NavigateUrl='<%# string.Format("100202-4.aspx?id={0}&modal=true&TB_iframe=true&height=500&width=600",Eval("Detail.tde_no"))%>' ><span>檢視</span></asp:HyperLink>
                             
                             </ItemTemplate>
                             </asp:TemplateField>

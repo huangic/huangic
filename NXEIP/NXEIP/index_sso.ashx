@@ -25,10 +25,7 @@ public class index_sso : IHttpHandler, IRequiresSessionState
         
 
         if (String.IsNullOrEmpty(mode) && String.IsNullOrEmpty(val)) {
-
-
-
-
+               
             context.Server.Transfer(login_url);
             
         }
@@ -102,7 +99,7 @@ public class index_sso : IHttpHandler, IRequiresSessionState
         
         
         
-        context.Response.Write("Hello World");
+        //context.Response.Write("Hello World");
     }
  
     public bool IsReusable {
