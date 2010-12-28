@@ -80,6 +80,18 @@ namespace NXEIP.DAO
         }
         #endregion
 
+        #region 由編號取得資料
+        /// <summary>
+        /// 由編號取得資料
+        /// </summary>
+        /// <param name="bot_no">填寫編號</param>
+        /// <returns>問卷資料</returns>
+        public botanize GetByNo(int bot_no)
+        {
+            return (from tb in model.botanize where tb.bot_no == bot_no select tb).FirstOrDefault();
+        }
+        #endregion
+
         #region 由[問卷編號]取得[問卷數量]
         /// <summary>
         /// 由[問卷編號]取得[問卷數量]
