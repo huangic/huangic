@@ -1,0 +1,43 @@
+.placeLayout
+{
+    width:97%;
+    margin: 10px auto;   
+}
+
+.placeLayout .left
+{
+    float:left;
+    width:210px;
+ }
+ 
+ .placeLayout .right
+ {
+     float:left;
+     width:755px;
+     margin:0px 0px 0px 20px   
+     
+  }
+
+
+
+.layoutDiv .top,.layoutDiv .center ,.layoutDiv .bottom
+ {
+   width:97%;
+  
+  padding:2px 2px 2px 2px; 
+  
+  border:#dddddd 1px solid; 
+      
+ }
+ 
+ .layoutDiv .center
+ {
+     font-size:14px;
+     text-align:center;   
+  }
+
+
+
+
+
+
