@@ -19,12 +19,9 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
     protected override void Render(HtmlTextWriter writer)
     {
 
-        String layout = "Green";
+        String layout = Session["layout_css"]==null?(String)Session["layout_css"]:"Green";
 
-
-        //寫入SESSION
-        Session["layout_css"] = layout;
-
+        
 
 
         HtmlLink link = new HtmlLink();

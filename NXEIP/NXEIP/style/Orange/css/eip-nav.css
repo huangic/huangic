@@ -1,0 +1,25 @@
+﻿.nav
+{
+	width:97%;
+	color:#666666;
+	font-size:13px;
+	text-decoration:none;
+	margin-top: 5px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	padding-top: 3px;
+	padding-right: 0px;
+	padding-bottom: 3px;
+	padding-left: 0px;
+	background-image: url(../image/b01-1.gif);
+}
+
+.nav span
+{
+   line-height:1.3em;
+   background:url("../image/b01.gif") no-repeat; 
+   background-repeat:no-repeat;
+   padding:3px 0px 3px 17px;
+    
+}
