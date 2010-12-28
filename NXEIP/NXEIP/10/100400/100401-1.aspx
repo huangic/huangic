@@ -21,13 +21,11 @@
             </div>
         </div>
             <div class="boxA">
-                <div class="head">
-                    <asp:Label ID="lab_quename" runat="server" CssClass="a02-19"></asp:Label></div>
+                <div class="head"><asp:Label ID="lab_quename" runat="server" CssClass="a02-19"></asp:Label></div>
                 <div class="box">
                     <div class="content">
                         <div class="b2">
-                            <span class="a-letter-t2">問卷說明：<asp:Label ID="lab_descript" runat="server"></asp:Label>
-                            </span>
+                            <span class="a-letter-t2">問卷說明：<asp:Label ID="lab_descript" runat="server"></asp:Label></span>
                         </div>
                         <div class="b2">
                             <span class="a-letter-t2">填寫期限：<asp:Label ID="lab_sdate" runat="server"></asp:Label>&nbsp;～
@@ -35,9 +33,7 @@
                             </span>
                         </div>
                     </div>
-                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" 
-                        RepeatLayout="Flow" onitemdatabound="DataList1_ItemDataBound" 
-                        DataKeyField="the_no">
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatLayout="Flow" OnItemDataBound="DataList1_ItemDataBound" DataKeyField="the_no">
                         <ItemTemplate>
                             <div class="content">
                                 <div class="b2">
