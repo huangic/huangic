@@ -75,7 +75,7 @@
                         <asp:TemplateField HeaderText="查看">
                             <ItemTemplate>
                                 <a id="btnShow" runat="server" class="thickbox imageButton peruse" title='<%# Eval("peo_name", "查看{0}") %>'
-                                    href='<%#String.Format("300202-c.aspx?modal=true&mode=modify&bot_no={0}&TB_iframe=true&height=400&width=700",Eval("bot_no")) %>'>
+                                    href='<%#String.Format("300202-c.aspx?modal=true&mode=modify&bot_no={0}&TB_iframe=true&height=500&width=700",Eval("bot_no")) %>'>
                                     <span>查看</span></a>
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
