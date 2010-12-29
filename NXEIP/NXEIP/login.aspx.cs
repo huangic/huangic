@@ -8,9 +8,12 @@ using System.Web.SessionState;
 using NXEIP.DAO;
 using Entity;
 using NXEIP.Lib;
+using NLog;
 
 public partial class login : SessionObject
 {
+    private static Logger logger = LogManager.GetCurrentClassLogger();
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -96,6 +99,7 @@ public partial class login : SessionObject
                 }
                 catch(System.Exception ex)
                 {
+                    logger.Debug(ex.Message);
                     this.ShowMessage("帳號或密碼錯誤!");
                 }
             }

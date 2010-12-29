@@ -14,7 +14,7 @@ public partial class _20_200100_200105_5 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        int size = 0;
+        //int size = 0;
 
         
         SessionObject sessionObj=new SessionObject();

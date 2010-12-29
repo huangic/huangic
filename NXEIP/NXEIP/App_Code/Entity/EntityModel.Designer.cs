@@ -91,6 +91,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_THEME", "theme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.theme), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_BOTANIZE_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.botanize), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CASEWORK_RELATIONS_BOTANIZE", "botanize", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.botanize), "casework", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.casework), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ALBUM_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "album", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.album), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PHOTO_RELATIONS_ALBUM", "album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.album), "photo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.photo), true)]
 
 #endregion
 
@@ -1341,6 +1343,38 @@ namespace Entity
             }
         }
         private ObjectSet<botanize> _botanize;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<album> album
+        {
+            get
+            {
+                if ((_album == null))
+                {
+                    _album = base.CreateObjectSet<album>("album");
+                }
+                return _album;
+            }
+        }
+        private ObjectSet<album> _album;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<photo> photo
+        {
+            get
+            {
+                if ((_photo == null))
+                {
+                    _photo = base.CreateObjectSet<photo>("photo");
+                }
+                return _photo;
+            }
+        }
+        private ObjectSet<photo> _photo;
 
         #endregion
         #region AddTo 方法
@@ -1944,6 +1978,22 @@ namespace Entity
         {
             base.AddObject("botanize", botanize);
         }
+    
+        /// <summary>
+        /// 將新物件加入 album EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToalbum(album album)
+        {
+            base.AddObject("album", album);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 photo EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTophoto(photo photo)
+        {
+            base.AddObject("photo", photo);
+        }
 
         #endregion
     }
@@ -2212,6 +2262,422 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<roleaccount>("NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS", "roleaccount", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="album")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class album : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 album 物件。
+        /// </summary>
+        /// <param name="alb_no">alb_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        /// <param name="alb_name">alb_name 屬性的初始值。</param>
+        /// <param name="alb_public">alb_public 屬性的初始值。</param>
+        /// <param name="alb_status">alb_status 屬性的初始值。</param>
+        /// <param name="alb_dep">alb_dep 屬性的初始值。</param>
+        public static album Createalbum(global::System.Int32 alb_no, global::System.Int32 peo_uid, global::System.String alb_name, global::System.String alb_public, global::System.String alb_status, global::System.Int32 alb_dep)
+        {
+            album album = new album();
+            album.alb_no = alb_no;
+            album.peo_uid = peo_uid;
+            album.alb_name = alb_name;
+            album.alb_public = alb_public;
+            album.alb_status = alb_status;
+            album.alb_dep = alb_dep;
+            return album;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 alb_no
+        {
+            get
+            {
+                return _alb_no;
+            }
+            set
+            {
+                if (_alb_no != value)
+                {
+                    Onalb_noChanging(value);
+                    ReportPropertyChanging("alb_no");
+                    _alb_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("alb_no");
+                    Onalb_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _alb_no;
+        partial void Onalb_noChanging(global::System.Int32 value);
+        partial void Onalb_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String alb_name
+        {
+            get
+            {
+                return _alb_name;
+            }
+            set
+            {
+                Onalb_nameChanging(value);
+                ReportPropertyChanging("alb_name");
+                _alb_name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("alb_name");
+                Onalb_nameChanged();
+            }
+        }
+        private global::System.String _alb_name;
+        partial void Onalb_nameChanging(global::System.String value);
+        partial void Onalb_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String alb_desc
+        {
+            get
+            {
+                return _alb_desc;
+            }
+            set
+            {
+                Onalb_descChanging(value);
+                ReportPropertyChanging("alb_desc");
+                _alb_desc = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("alb_desc");
+                Onalb_descChanged();
+            }
+        }
+        private global::System.String _alb_desc;
+        partial void Onalb_descChanging(global::System.String value);
+        partial void Onalb_descChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String alb_public
+        {
+            get
+            {
+                return _alb_public;
+            }
+            set
+            {
+                Onalb_publicChanging(value);
+                ReportPropertyChanging("alb_public");
+                _alb_public = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("alb_public");
+                Onalb_publicChanged();
+            }
+        }
+        private global::System.String _alb_public;
+        partial void Onalb_publicChanging(global::System.String value);
+        partial void Onalb_publicChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> alb_cover
+        {
+            get
+            {
+                return _alb_cover;
+            }
+            set
+            {
+                Onalb_coverChanging(value);
+                ReportPropertyChanging("alb_cover");
+                _alb_cover = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_cover");
+                Onalb_coverChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _alb_cover;
+        partial void Onalb_coverChanging(Nullable<global::System.Int32> value);
+        partial void Onalb_coverChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String alb_status
+        {
+            get
+            {
+                return _alb_status;
+            }
+            set
+            {
+                Onalb_statusChanging(value);
+                ReportPropertyChanging("alb_status");
+                _alb_status = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("alb_status");
+                Onalb_statusChanged();
+            }
+        }
+        private global::System.String _alb_status;
+        partial void Onalb_statusChanging(global::System.String value);
+        partial void Onalb_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 alb_dep
+        {
+            get
+            {
+                return _alb_dep;
+            }
+            set
+            {
+                Onalb_depChanging(value);
+                ReportPropertyChanging("alb_dep");
+                _alb_dep = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_dep");
+                Onalb_depChanged();
+            }
+        }
+        private global::System.Int32 _alb_dep;
+        partial void Onalb_depChanging(global::System.Int32 value);
+        partial void Onalb_depChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> alb_createuid
+        {
+            get
+            {
+                return _alb_createuid;
+            }
+            set
+            {
+                Onalb_createuidChanging(value);
+                ReportPropertyChanging("alb_createuid");
+                _alb_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_createuid");
+                Onalb_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _alb_createuid;
+        partial void Onalb_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onalb_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> alb_createtime
+        {
+            get
+            {
+                return _alb_createtime;
+            }
+            set
+            {
+                Onalb_createtimeChanging(value);
+                ReportPropertyChanging("alb_createtime");
+                _alb_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_createtime");
+                Onalb_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _alb_createtime;
+        partial void Onalb_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onalb_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> alb_checkuid
+        {
+            get
+            {
+                return _alb_checkuid;
+            }
+            set
+            {
+                Onalb_checkuidChanging(value);
+                ReportPropertyChanging("alb_checkuid");
+                _alb_checkuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_checkuid");
+                Onalb_checkuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _alb_checkuid;
+        partial void Onalb_checkuidChanging(Nullable<global::System.Int32> value);
+        partial void Onalb_checkuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> alb_checktime
+        {
+            get
+            {
+                return _alb_checktime;
+            }
+            set
+            {
+                Onalb_checktimeChanging(value);
+                ReportPropertyChanging("alb_checktime");
+                _alb_checktime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("alb_checktime");
+                Onalb_checktimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _alb_checktime;
+        partial void Onalb_checktimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onalb_checktimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String alb_reason
+        {
+            get
+            {
+                return _alb_reason;
+            }
+            set
+            {
+                Onalb_reasonChanging(value);
+                ReportPropertyChanging("alb_reason");
+                _alb_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("alb_reason");
+                Onalb_reasonChanged();
+            }
+        }
+        private global::System.String _alb_reason;
+        partial void Onalb_reasonChanging(global::System.String value);
+        partial void Onalb_reasonChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ALBUM_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PHOTO_RELATIONS_ALBUM", "photo")]
+        public EntityCollection<photo> photo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<photo>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "photo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<photo>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "photo", value);
                 }
             }
         }
@@ -15631,6 +16097,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ALBUM_RELATIONS_PEOPLE", "album")]
+        public EntityCollection<album> album
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<album>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "album");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<album>("NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE", "album", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -17002,6 +17490,277 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<rooms>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "rooms", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="photo")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class photo : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 photo 物件。
+        /// </summary>
+        /// <param name="alb_no">alb_no 屬性的初始值。</param>
+        /// <param name="pho_no">pho_no 屬性的初始值。</param>
+        /// <param name="pho_name">pho_name 屬性的初始值。</param>
+        public static photo Createphoto(global::System.Int32 alb_no, global::System.Int32 pho_no, global::System.String pho_name)
+        {
+            photo photo = new photo();
+            photo.alb_no = alb_no;
+            photo.pho_no = pho_no;
+            photo.pho_name = pho_name;
+            return photo;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 alb_no
+        {
+            get
+            {
+                return _alb_no;
+            }
+            set
+            {
+                if (_alb_no != value)
+                {
+                    Onalb_noChanging(value);
+                    ReportPropertyChanging("alb_no");
+                    _alb_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("alb_no");
+                    Onalb_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _alb_no;
+        partial void Onalb_noChanging(global::System.Int32 value);
+        partial void Onalb_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 pho_no
+        {
+            get
+            {
+                return _pho_no;
+            }
+            set
+            {
+                if (_pho_no != value)
+                {
+                    Onpho_noChanging(value);
+                    ReportPropertyChanging("pho_no");
+                    _pho_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("pho_no");
+                    Onpho_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _pho_no;
+        partial void Onpho_noChanging(global::System.Int32 value);
+        partial void Onpho_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String pho_name
+        {
+            get
+            {
+                return _pho_name;
+            }
+            set
+            {
+                Onpho_nameChanging(value);
+                ReportPropertyChanging("pho_name");
+                _pho_name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("pho_name");
+                Onpho_nameChanged();
+            }
+        }
+        private global::System.String _pho_name;
+        partial void Onpho_nameChanging(global::System.String value);
+        partial void Onpho_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pho_desc
+        {
+            get
+            {
+                return _pho_desc;
+            }
+            set
+            {
+                Onpho_descChanging(value);
+                ReportPropertyChanging("pho_desc");
+                _pho_desc = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pho_desc");
+                Onpho_descChanged();
+            }
+        }
+        private global::System.String _pho_desc;
+        partial void Onpho_descChanging(global::System.String value);
+        partial void Onpho_descChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pho_file
+        {
+            get
+            {
+                return _pho_file;
+            }
+            set
+            {
+                Onpho_fileChanging(value);
+                ReportPropertyChanging("pho_file");
+                _pho_file = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pho_file");
+                Onpho_fileChanged();
+            }
+        }
+        private global::System.String _pho_file;
+        partial void Onpho_fileChanging(global::System.String value);
+        partial void Onpho_fileChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String pho_thumb
+        {
+            get
+            {
+                return _pho_thumb;
+            }
+            set
+            {
+                Onpho_thumbChanging(value);
+                ReportPropertyChanging("pho_thumb");
+                _pho_thumb = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("pho_thumb");
+                Onpho_thumbChanged();
+            }
+        }
+        private global::System.String _pho_thumb;
+        partial void Onpho_thumbChanging(global::System.String value);
+        partial void Onpho_thumbChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> pho_createuid
+        {
+            get
+            {
+                return _pho_createuid;
+            }
+            set
+            {
+                Onpho_createuidChanging(value);
+                ReportPropertyChanging("pho_createuid");
+                _pho_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pho_createuid");
+                Onpho_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _pho_createuid;
+        partial void Onpho_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onpho_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> pho_createtime
+        {
+            get
+            {
+                return _pho_createtime;
+            }
+            set
+            {
+                Onpho_createtimeChanging(value);
+                ReportPropertyChanging("pho_createtime");
+                _pho_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("pho_createtime");
+                Onpho_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _pho_createtime;
+        partial void Onpho_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onpho_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_PHOTO_RELATIONS_ALBUM", "album")]
+        public album album
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<album>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "album").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<album>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "album").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<album> albumReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<album>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "album");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<album>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "album", value);
                 }
             }
         }

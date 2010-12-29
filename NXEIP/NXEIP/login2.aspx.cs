@@ -118,7 +118,7 @@ public partial class login2 : SessionObject
         return ret;
     }
 
-    private void ShowMessage(string msg)
+    private new void ShowMessage(string msg)
     {
         this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", "<script>alert('" + msg + "');</script>");
     }
