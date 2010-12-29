@@ -140,8 +140,8 @@ public partial class _20_200100_200104_2 : System.Web.UI.Page
 
         }
         else {
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('尚未上傳附件')", true);
-
+            //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('尚未上傳附件')", true);
+            JsUtil.AlertJs(this, "尚未上傳附件");
         }
     }
 }

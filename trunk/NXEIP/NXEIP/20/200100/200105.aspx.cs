@@ -99,7 +99,7 @@ public partial class _20_200100_200105 : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button1_Click(object sender, EventArgs e)
     {
-        String dep_no = "";
+        //String dep_no = "";
         //String keyword = "";
         String subject = this.tb_subject.Text;
             String file="";

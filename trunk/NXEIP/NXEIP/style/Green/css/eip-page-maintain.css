@@ -1643,7 +1643,7 @@
 	background-repeat: no-repeat;
 	height: 152px;
 	text-decoration: none;
-	text-indent: 22px;
+	text-indent: 18px;
 	width: 142px;
 	margin-top: 22px;
 	margin-bottom: 12px;
@@ -1661,24 +1661,14 @@
 	float: left;
 }
 .photo .pic_01 {
-	background-image: url(../image/photo_01.jpg);
-	background-repeat: no-repeat;
+	/*background-image: url(../image/photo_01.jpg);
+	background-repeat: no-repeat;*/
 	height: 77px;
 	width: 102px;
 	margin-top: 36px;
-	margin-left: 19px;
 	border: 1px solid #333333;
 }
-.photo .pic_02 {
-	background-image: url(../image/photo_02.jpg);
-	background-repeat: no-repeat;
-	height: 102px;
-	width: 77px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 23px;
-	border: 1px solid #333333;
-}
+
 .photo .box .ps2 {
 	width: 150px;
 	text-align: center;
