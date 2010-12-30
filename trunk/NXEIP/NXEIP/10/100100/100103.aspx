@@ -29,7 +29,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     
-    
+    <asp:HiddenField ID="hidden_mode" runat="server" />
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetPeopleAlbum" 
         TypeName="NXEIP.DAO._100103DAO">
@@ -64,18 +64,24 @@
 
 
         <div class="select">
-            <asp:Panel ID="Control" runat="server">
-          
+            
+
+              <div class="b6">
+                <asp:Button ID="Button3" CssClass="a-input"  CommandName="all" runat="server" Text="全府相簿"  onclick="Button_Click"  />
+              </div>  
+            
+
+              <div class="b6">
+                <asp:Button ID="Button2" CssClass="a-input"  CommandName="dep" runat="server" Text="單位相簿" onclick="Button_Click" />
+              
+              </div>
+
             <div class="b6">
-                <asp:Button ID="btn_del" class="b-input"  runat="server" Text="刪除相簿" />
-                
-            </div>
-            <div class="b6">
-                <input type="button" class="thickbox b-input" alt="100103-2.aspx?modal=true&TB_iframe=true"
-                    value="新增相簿" >
+                <asp:Button ID="Button1" CssClass="b-input2"  CommandName="peo" runat="server" 
+                    Text="個人相簿" onclick="Button_Click" />
             </div>
 
-              </asp:Panel>
+
             <ul>
             <li><span class="a-title">
                 <asp:Literal ID="lit_album" runat="server" Text="個人"></asp:Literal>相簿</span></li>
@@ -88,21 +94,21 @@
                 </ul>
             </div>
 
-             <div class="block3">
-                <asp:Button ID="Button3" CssClass="b-input"  CommandName="all" runat="server" Text="全府相簿"  onclick="Button_Click"  />
-              </div>  
             
 
-              <div class="block3">
-                <asp:Button ID="Button2" CssClass="b-input"  CommandName="dep" runat="server" Text="單位相簿" onclick="Button_Click" />
-              
-              </div>
+            <asp:Panel ID="Control" runat="server">
+          
 
             <div class="block3">
-                <asp:Button ID="Button1" CssClass="b-input2"  CommandName="peo" runat="server" 
-                    Text="個人相簿" onclick="Button_Click" />
+                <asp:Button ID="btn_del" class="b-input"  runat="server" Text="刪除相簿" />
+                
+            </div>
+            <div class="block3">
+                <input type="button" class="thickbox b-input" alt="100103-2.aspx?modal=true&TB_iframe=true"
+                    value="新增相簿" >
+            </div>
 
-                </div>
+              </asp:Panel>
             
 
              
@@ -128,22 +134,43 @@
             
             <div class="content">
                 <div class="photo_bg1">
-                   <img alt="" class="pic_01" src="../../style/green/image/photo_01.jpg" />
+                    <asp:Image ID="Image1" runat="server" CssClass="pic_01"  AlternateText='<%#Eval("Album.alb_name") %>' ImageUrl='<%# String.Format("100103-1.ashx?album={0}&photo={1}",Eval("Album.alb_no"),Eval("Album.alb_cover"))%>'/>
                   
                 </div>
+
+                     
                 <div class="ps2">
-                    <a class="a-letter-t2" href="#">
                     
-                    <%#Eval("Album.alb_name") %>
+                    <asp:Panel ID="Panel1" runat="server" Visible='<%#CheckPermission(Eval("Album")) %>'  >
+                    
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100103-2.aspx?id={0}&mode=edit&modal=true&TB_iframe=true&height=378&width=600",Eval("Album.alb_no"))%>'><span>修改</span></asp:HyperLink>
+                   
+                    </asp:Panel>
+
+
+                    <asp:HyperLink ID="HyperLink1" CssClass="a-letter-t2" runat="server" NavigateUrl='<%# String.Format("100103-3.aspx?album={0}",Eval("Album.alb_no"))%>'>
+                     <%#Eval("Album.alb_name") %>
                     
                     
                     <br />
                     
-                      <%#Eval("Album.alb_desc") %></a>
+                      <%#Eval("Album.alb_desc") %>
+                    </asp:HyperLink>
+                
+                
+                
+            
                 </div>
                 <div class="ps3">
-                    <input type="checkbox" id="checkbox2" name="checkbox2">
-                    <%#Eval("Count") %> 張相片</div>
+                  
+                    <%#Eval("Count") %> 張相片
+                    
+                 
+                 </div>
+
+
+
             </div>
 
             
