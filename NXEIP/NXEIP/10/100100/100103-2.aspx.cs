@@ -23,6 +23,38 @@ public partial class _10_100100_100103_2 : System.Web.UI.Page
         //init
         if (!Page.IsPostBack) {
             
+            //判斷新增還是修改
+
+            String mode = Request["mode"];
+            String id=Request["id"];
+            int alb_no=0;
+            int.TryParse(id,out alb_no);
+
+
+            if (mode == "edit")
+            {
+               using(NXEIPEntities model=new NXEIPEntities()){
+
+                   try
+                   {
+
+                       var a = (from d in model.album where d.alb_no == alb_no select d).First();
+
+                       this.tb_name.Text = a.alb_name;
+                       this.tb_desc.Text = a.alb_desc;
+                       this.RadioButtonList1.SelectedValue = a.alb_public;
+
+                       this.Navigator1.SubFunc = "修改相簿";
+                   
+                   }
+                   catch { 
+                   
+                   }
+               }
+                
+               
+
+            }
 
 
         }
@@ -52,9 +84,28 @@ public partial class _10_100100_100103_2 : System.Web.UI.Page
 
 
 
+
+
+            String mode = Request["mode"];
+            String id = Request["id"];
+            int alb_no = 0;
+            int.TryParse(id, out alb_no);
+
             //寫入相簿
 
             album a = new album();
+
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+            //修改模式
+            if (mode == "edit") {
+                a.alb_no = alb_no;
+
+                model.album.Attach(a);
+            }
+
+
+
 
             a.alb_createuid = int.Parse(sessionObj.sessionUserID);
             a.alb_createtime = DateTime.Now;
@@ -84,14 +135,32 @@ public partial class _10_100100_100103_2 : System.Web.UI.Page
                 a.alb_status = "1";
             }
 
-            using (NXEIPEntities model = new NXEIPEntities()) {
+
+
+            if (mode != "edit")
+            {
                 model.AddToalbum(a);
+
+                msg = "新增成功";
+            }
+            else {
+                msg = "修改成功";
+            }
+                
                 model.SaveChanges();
             }
 
 
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('新增成功');", true);
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('"+msg+"');", true);
         }
+    }
+
+
+
+
+
+    private void add() { 
+    
     }
 
 

@@ -38,7 +38,7 @@ namespace NXEIP.DAO
                 var albums = (from d in model.album
                               join p in model.photo on d.alb_cover equals p.alb_no into k
                               from p2 in k.DefaultIfEmpty()
-                              where d.peo_uid == people && d.alb_status != "2"
+                              where d.peo_uid == people && d.alb_status != "2" && d.alb_status != "4"
                               select new Photoalbum { Album=d,Cover=p2,Count=(from p3 in model.photo where p3.alb_no==d.alb_no select d).Count()});
                 return albums;
             }
