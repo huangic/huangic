@@ -31,12 +31,11 @@
     
     
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetPeopleAlbum" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetAlbumPhoto" 
         TypeName="NXEIP.DAO._100103DAO">
         <SelectParameters>
-            <asp:Parameter Name="people" Type="Int32" />
-            <asp:Parameter Name="dep_no" Type="Int32" />
-            <asp:Parameter Name="alb_public" Type="String" />
+            <asp:Parameter Name="album_no" Type="Int32" />
+          
         </SelectParameters>
     </asp:ObjectDataSource>
     
@@ -58,9 +57,6 @@
    
     <div class="photo">
 
-      
-        
-     
 
 
         <div class="select">
@@ -71,20 +67,20 @@
                 
             </div>
             <div class="b6">
-                <input type="button" class="thickbox b-input" alt="100103-4.aspx?modal=true&TB_iframe=true"
+                <input type="button" class="thickbox b-input" alt="100103-4.aspx?id=<%=Request["album"] %>&modal=true&TB_iframe=true&height=600&width=600"
                     value="新增相片" >
             </div>
 
               </asp:Panel>
             <ul>
             <li><span class="a-title">
-                <asp:Literal ID="lit_album" runat="server" Text="個人"></asp:Literal>相簿</span></li>
+                <asp:Literal ID="lit_album" runat="server" Text=""></asp:Literal>相簿內容</span></li>
             </ul>
         </div>
         <div class="box">
             <div class="head">
                 <ul>
-                    <li><span class="a-title">共 <asp:Literal ID="lit_album_count" runat="server" Text="0"></asp:Literal> 本相簿</span></li>
+                    <li><span class="a-title">共 <asp:Literal ID="lit_photo_count" runat="server" Text="0"></asp:Literal> 張相片</span></li>
                 </ul>
             </div>
 
@@ -103,13 +99,13 @@
 
 
         
-           
+            <div class="box">
             <asp:ListView ID="ListView1" runat="server" 
             DataSourceID="ObjectDataSource1" >
             <LayoutTemplate>
-            <div class="box">
+           
                 <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
-             </div>
+            
             </LayoutTemplate>
             
             
@@ -119,24 +115,26 @@
             
             <div class="content">
                 <div class="photo_bg1">
-                    <asp:Image ID="Image1" runat="server" CssClass="pic_01"  AlternateText='<%#Eval("Album.alb_name") %>' ImageUrl='<%# String.Format("100103-1.ashx?album={0}&photo={1}",Eval("Album.alb_no"),Eval("Album.alb_cover"))%>'/>
+                    <asp:Image ID="Image1" runat="server" CssClass="pic_01"  AlternateText='<%#Eval("pho_name") %>' ImageUrl='<%# String.Format("100103-1.ashx?album={0}&photo={1}",Eval("alb_no"),Eval("pho_no"))%>'/>
                   
                 </div>
                 <div class="ps2">
                     <a class="a-letter-t2" href="#">
                     
-                    <%#Eval("Album.alb_name") %>
-                    
-                    
+                    <%#Eval("pho_name") %>
                     <br />
-                    
-                      <%#Eval("Album.alb_desc") %></a>
+                     <%#Eval("pho_desc") %>&nbsp;
+                     </a>
                 </div>
-                <div class="ps3">
-                    <input type="checkbox" id="checkbox2" name="checkbox2">
-                    <%#Eval("Count") %> 張相片</div>
+                
+                    <asp:Panel class="ps3" ID="Panel1" runat="server" Visible='<%#CheckPermission((Int32)Eval("pho_createuid")) %>'  >
+                    
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100103-5.aspx?id={0}&mode=edit&modal=true&TB_iframe=true&height=378&width=600",Eval("Album.alb_no"))%>'><span>修改</span></asp:HyperLink>
+                   
+                    </asp:Panel>
+                
             </div>
-
             
 
             </ItemTemplate>

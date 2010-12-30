@@ -156,7 +156,7 @@
                     
                     <br />
                     
-                      <%#Eval("Album.alb_desc") %>
+                      <%#Eval("Album.alb_desc") %>&nbsp;
                     </asp:HyperLink>
                 
                 

@@ -72,5 +72,31 @@ namespace NXEIP.DAO
             return GetPeopleAlbum(people, dep_no, alb_public).Count();
         }
 
+
+        public IQueryable<photo> GetUploadPhoto(int album_no,String fileNo) {
+            try
+            {
+                String[] files = fileNo.Split(',');
+                List<int> fileNos = (from d in files select int.Parse(d)).ToList();
+
+
+                var ps = from d in model.photo where d.alb_no == album_no && fileNos.Contains(d.pho_no) select d;
+
+                return ps;
+            }
+            catch {
+                return default(IQueryable<photo>);
+            }
+        }
+
+        public IQueryable<photo> GetAlbumPhoto(int album_no)
+        {
+            
+                var ps = from d in model.photo where d.alb_no == album_no select d;
+
+                return ps;
+           
+        }
+
     }
 }
