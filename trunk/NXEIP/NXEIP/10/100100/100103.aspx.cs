@@ -114,4 +114,32 @@ public partial class _10_100100_100103 : System.Web.UI.Page
         return false;
 
     }
+    protected void btn_del_Click(object sender, EventArgs e)
+    {
+        //刪除相簿
+
+        //取有打勾的
+
+        //this.ListView1.Items
+        using(NXEIPEntities model=new NXEIPEntities()){
+        
+        foreach (var item in this.ListView1.Items) {
+            var o=this.ListView1.DataKeys[item.DataItemIndex].Value;
+            
+            CheckBox cb=(CheckBox)item.FindControl("CheckBox1");
+            if (cb.Checked) {
+                album a = (album)o;
+
+                model.album.Attach(a);
+                a.alb_status = "4";
+
+            }
+            
+        }
+
+        model.SaveChanges();
+        }
+
+        this.ListView1.DataBind();
+    }
 }
