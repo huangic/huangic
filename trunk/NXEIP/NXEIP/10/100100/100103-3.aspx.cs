@@ -28,11 +28,9 @@ public partial class _10_100100_100103_3 : System.Web.UI.Page
             int.TryParse(sessionObj.sessionUserID, out peo_uid);
 
 
-            this.ObjectDataSource1.SelectParameters[0].DefaultValue = sessionObj.sessionUserID;
+            this.ObjectDataSource1.SelectParameters[0].DefaultValue = Request["album"];
 
-            this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserDepartID;
-
-            this.ObjectDataSource1.SelectParameters[2].DefaultValue = "1";
+            
 
 
             this.ListView1.DataBind();
@@ -47,6 +45,7 @@ public partial class _10_100100_100103_3 : System.Web.UI.Page
              var Album=(from d in model.album where d.alb_no==albumId && d.peo_uid==peo_uid select d).First();
                 if(Album!=null){
                     this.Control.Visible=true;
+                    
                 }
             
             }catch{
@@ -59,9 +58,9 @@ public partial class _10_100100_100103_3 : System.Web.UI.Page
             //計算幾張相片
             _100103DAO dao=new _100103DAO();
 
-            int count = dao.GetPeopleAlbumCount(int.Parse(sessionObj.sessionUserID),int.Parse(sessionObj.sessionUserDepartID),"1");
+            int count = dao.GetAlbumPhoto(albumId).Count();
 
-            this.lit_album_count.Text = count + "";
+            this.lit_photo_count.Text = count + "";
 
         }
 
@@ -73,9 +72,18 @@ public partial class _10_100100_100103_3 : System.Web.UI.Page
         }
 
     }
-   
-    
-   
+
+
+
+    protected bool CheckPermission(int peo_uid)
+    {
+
+        SessionObject sessionObj = new SessionObject();
+
+
+        return peo_uid == int.Parse(sessionObj.sessionUserID);
+
+    }
 
 
     

@@ -149,4 +149,19 @@ public class JsUtil
     
     }
 
+
+
+    public static String GetUpdateParentJs(String msg)
+    {
+        String js = String.Format("self.parent.update('{0}');",msg);
+
+        return js;
+    }
+    public static void UpdateParentJs(Page page, String msg)
+    {
+        CallRegigterClientScript(page, "Update", GetUpdateParentJs(msg));
+
+    }
+
+
 }
