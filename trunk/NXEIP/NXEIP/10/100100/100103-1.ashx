@@ -18,7 +18,10 @@ public class _100103_1 : IHttpHandler {
     
     
     public void ProcessRequest (HttpContext context) {
-    
+
+
+
+        String pic = context.Request["pic"];
         
         //取圖片ID
         int albumId=0;
@@ -39,8 +42,16 @@ public class _100103_1 : IHttpHandler {
             {
                 var Photo = (from d in model.photo where d.alb_no == albumId && d.pho_no == phohoId select d).First();
                 //File file=F
-                img_bin = File.ReadAllBytes(this.upload_dir + Photo.pho_thumb);
 
+                if (pic == "org")
+                {
+                    img_bin = File.ReadAllBytes(this.upload_dir + Photo.pho_file);
+                }
+                else
+                {
+                    img_bin = File.ReadAllBytes(this.upload_dir + Photo.pho_thumb);
+                }
+                
             }
             catch
             {
