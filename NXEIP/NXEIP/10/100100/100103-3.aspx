@@ -7,7 +7,7 @@
     TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
-
+    <script type="text/javascript" src="../../js/lytebox.js"></script> 
  <script type="text/javascript">
      function update(msg) {
          __doPostBack('<%=UpdatePanel1.ClientID%>', '');
@@ -63,9 +63,16 @@
             <asp:Panel ID="Control" runat="server">
           
             <div class="b6">
-                <asp:Button ID="btn_del" class="b-input"  runat="server" Text="刪除相片" />
+                <asp:Button ID="btn_del" class="b-input"  OnClientClick="return confirm('確定要刪除相片?')" OnClick="btn_del_Click" runat="server" Text="刪除相片" />
                 
             </div>
+
+            <div class="b6">
+                <asp:Button ID="btn_cover" class="b-input"  runat="server" Text="設為封面" 
+                    onclick="btn_cover_Click" />
+                
+            </div>
+
             <div class="b6">
                 <input type="button" class="thickbox b-input" alt="100103-4.aspx?id=<%=Request["album"] %>&modal=true&TB_iframe=true&height=600&width=600"
                     value="新增相片" >
@@ -101,7 +108,7 @@
         
             <div class="box">
             <asp:ListView ID="ListView1" runat="server" 
-            DataSourceID="ObjectDataSource1" >
+            DataSourceID="ObjectDataSource1"  DataKeyNames="alb_no,pho_no">
             <LayoutTemplate>
            
                 <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
@@ -115,22 +122,29 @@
             
             <div class="content">
                 <div class="photo_bg1">
+                    
+                    <asp:HyperLink ID="HyperLink4" runat="server" rel="lytebox[album]" title='<%# Eval("pho_desc") %>' NavigateUrl='<%#String.Format("100103-1.ashx?pic=org&album={0}&photo={1}",Eval("alb_no"),Eval("pho_no")) %>'>
+                    
                     <asp:Image ID="Image1" runat="server" CssClass="pic_01"  AlternateText='<%#Eval("pho_name") %>' ImageUrl='<%# String.Format("100103-1.ashx?album={0}&photo={1}",Eval("alb_no"),Eval("pho_no"))%>'/>
-                  
+                   </asp:HyperLink>
                 </div>
                 <div class="ps2">
-                    <a class="a-letter-t2" href="#">
                     
-                    <%#Eval("pho_name") %>
+                    <asp:HyperLink  CssClass="a-letter-t2"   ID="HyperLink3" runat="server" rel="lytebox[album]" title='<%# Eval("pho_desc") %>' NavigateUrl='<%#String.Format("100103-1.ashx?pic=org&album={0}&photo={1}",Eval("alb_no"),Eval("pho_no")) %>'>
+                    
+                      <%#Eval("pho_name") %>
                     <br />
                      <%#Eval("pho_desc") %>&nbsp;
-                     </a>
+                    
+                    </asp:HyperLink>
+                    
+                   
                 </div>
                 
                     <asp:Panel class="ps3" ID="Panel1" runat="server" Visible='<%#CheckPermission((Int32)Eval("pho_createuid")) %>'  >
                     
                     <asp:CheckBox ID="CheckBox1" runat="server" />
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100103-5.aspx?id={0}&mode=edit&modal=true&TB_iframe=true&height=378&width=600",Eval("Album.alb_no"))%>'><span>修改</span></asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("100103-5.aspx?album={0}&photo={1}&modal=true&TB_iframe=true&height=378&width=600",Eval("alb_no"),Eval("pho_no"))%>'><span>修改</span></asp:HyperLink>
                    
                     </asp:Panel>
                 

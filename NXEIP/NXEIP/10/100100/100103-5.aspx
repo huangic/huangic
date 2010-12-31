@@ -1,9 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100103-2.aspx.cs" Inherits="_10_100100_100103_2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100103-5.aspx.cs" Inherits="_10_100100_100103_5" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc2" %>
-<%@ Register src="../../lib/FileUpload.ascx" tagname="FileUpload" tagprefix="uc3" %>
-<%@ Register src="../../lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc4" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
    
-    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100103" SubFunc="新增相簿" />
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100103" SubFunc="修改描述" />
     
    <div class="tableDiv">
         <asp:HiddenField ID="hidden_arg_no" runat="server" />
@@ -29,9 +27,19 @@
         </div>
         <table>
             <tbody>
+              <tr >
+               <td rowspan="3" style=" width:100px">
+                 
+                 
+                   <img alt="縮圖" src='<%=String.Format("100103-1.ashx?album={0}&photo={1}",Request["album"],Request["photo"]) %>' />
+                
+               </td>
+              </tr>
+              
+              
                <tr>
                      <th>
-                        相簿名稱
+                        相片名稱
                     </th>
                     <td>
                         <asp:TextBox ID="tb_name" runat="server"></asp:TextBox>
@@ -41,7 +49,7 @@
                 
                 <tr>    
                     <th>
-                        相簿說明
+                        相片說明
                     </th>
                     <td>
                         <asp:TextBox ID="tb_desc" runat="server"></asp:TextBox>
@@ -49,19 +57,7 @@
                    
 
                 </tr>
-                <tr>
-                    <th>
-                        相簿開放
-                    </th>
-                    <td >
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" BorderStyle="None" 
-                            RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="1" Selected="True">個人</asp:ListItem>
-                            <asp:ListItem Value="2">單位</asp:ListItem>
-                             <asp:ListItem Value="3">全府</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </td>
-                </tr>
+              
                
 
             </tbody>
