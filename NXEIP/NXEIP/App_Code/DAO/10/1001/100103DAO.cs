@@ -98,5 +98,12 @@ namespace NXEIP.DAO
            
         }
 
+
+        public IQueryable<photo> GetTopUploadPhoto(int num,int peo_uid) {
+            var ps = (from d in model.photo where d.pho_createuid == peo_uid orderby d.pho_createtime select d).Take(num);
+
+            return ps;
+        }
+
     }
 }
