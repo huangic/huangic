@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*維修登錄*/
 .maintain {
 	width: 100%;
@@ -1528,7 +1528,38 @@
 	padding: 4px;
 	text-align: center;
 }
-
+.inquire_count {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #333333;
+}
+.inquire_count .box {
+	width: 100%;
+	margin-bottom: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.inquire_count .box .b2 {
+	width: 800px;
+	height: 26px;
+	float: left;
+}
+.inquire_count  .ps1 {
+	background-image: url(../image/app_1.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	text-decoration: none;
+	margin-left: 6px;
+	text-indent: 22px;
+	padding-top: 2px;
+	font-size: 13px;
+	line-height: 24px;
+	color: #333333;
+}
 
 
 
