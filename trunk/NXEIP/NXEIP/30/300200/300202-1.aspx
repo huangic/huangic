@@ -58,15 +58,9 @@
             </tbody>
         </table>
         <br />
-        <div class="header">
-            <div class="h1">
-            </div>
-            <div class="h2">
-                <div class="name">票數統計</div>
-            </div>
-            <div class="h3">
-            </div>
-        </div>
+        <div class="select">
+             <li> <span class="a-title">票數統計</span></li>
+       </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="que_no,the_no"
@@ -75,22 +69,26 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div style="height: 30px; line-height: 30px;">
-                                    <span class="icon">&nbsp;</span>
-                                    <asp:Label ID="lab_the_name" runat="server" Text='<%# Eval("the_name") %>'></asp:Label>
-                                    <asp:Label ID="lab_the_type" runat="server" Text='<%# Eval("the_type") %>' Visible="False"></asp:Label>
+                                <div class="inquire_count">
+                                    <div class="box">
+                                        <div class="b2">
+                                            <li class="ps1">
+                                                <asp:Label ID="lab_the_name" runat="server" Text='<%# Eval("the_name") %>'></asp:Label>
+                                                <asp:Label ID="lab_the_type" runat="server" Text='<%# Eval("the_type") %>' Visible="False"></asp:Label></li>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="">
+                                <div>
                                     <asp:GridView ID="GridView2" runat="server" DataKeyNames="que_no,the_no,ans_no" OnRowCommand="GridView2_RowCommand"
                                         OnRowDataBound="GridView2_RowDataBound" AutoGenerateColumns="False" CssClass="tableData"
-                                        BorderWidth="1px">
+                                        BorderWidth="1px" CellPadding="3" CellSpacing="3">
                                         <Columns>
                                             <asp:BoundField DataField="ans_name" HeaderText="選項" SortExpression="ans_name">
-                                                <HeaderStyle Width="50%" BorderWidth="1px" HorizontalAlign="Left" />
-                                                <ItemStyle BorderWidth="1px" />
+                                                <HeaderStyle Width="50%" HorizontalAlign="Left" BorderWidth="1px" />
+                                                <ItemStyle BorderWidth="1px" Height="24" CssClass="b3 a-letter-t1" />
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="票數">
-                                                <HeaderStyle Width="44%" BorderWidth="1px" />
+                                                <HeaderStyle Width="44%" />
                                                 <ItemStyle BorderWidth="1px" />
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="清單">
@@ -99,11 +97,11 @@
                                                         href='<%#String.Format("300202-b.aspx?modal=true&mode=modify&que_no={0}&the_no={1}&ans_no={2}&TB_iframe=true&height=400&width=700",Eval("que_no"),Eval("the_no"),Eval("ans_no")) %>'>
                                                         <span>清單</span></a>
                                                 </ItemTemplate>
-                                                <HeaderStyle BorderWidth="1px" />
-                                                <ItemStyle HorizontalAlign="Center" Width="50" BorderWidth="1px" />
+                                                <HeaderStyle BorderWidth="1" />
+                                                <ItemStyle HorizontalAlign="Center" Width="50" VerticalAlign="Bottom" />
                                             </asp:TemplateField>
                                         </Columns>
-                                        <RowStyle BorderWidth="1px" Height="24px" />
+                                        <RowStyle Height="24px" BorderWidth="1px" />
                                     </asp:GridView>
                                 </div>
                             </ItemTemplate>
