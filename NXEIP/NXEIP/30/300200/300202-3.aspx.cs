@@ -46,38 +46,49 @@ public partial class _30_300200_300202_3 : System.Web.UI.Page
                 ((Label)e.Row.FindControl("lab_the_name")).Text += "<font color=red>(複選)</font>";
             else if (the_type.Equals("3"))
                 ((Label)e.Row.FindControl("lab_the_name")).Text += "<font color=red>(填充)</font>";
-
+            //int subtotal = 0;
             #region 單選或複選
-            this.SqlDataSource1.SelectParameters["que_no"].DefaultValue = que_no;
-            this.SqlDataSource1.SelectParameters["the_no"].DefaultValue = the_no;
-            ((Chart)e.Row.FindControl("Chart1")).DataSource = this.SqlDataSource1;
-            ((Chart)e.Row.FindControl("Chart1")).DataBind();
+            string sqlstr = "SELECT que_no, the_no, ans_no, ans_name FROM answers WHERE (que_no = " + que_no + ") AND (the_no = " + the_no + ") AND (ans_status = '1') ORDER BY ans_order";
+            DataTable dt = new DataTable();
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                string[] xValues = new string[dt.Rows.Count];
+                double[] yValues = new double[dt.Rows.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string ans_no = dt.Rows[i]["ans_no"].ToString();
+                    xValues[i] = dt.Rows[i]["ans_name"].ToString();
+                    string sqlstrc = "";
+                    if (the_type.Equals("1"))
+                        sqlstrc = "select count(casework.cas_no) as recount from casework inner join botanize on casework.bot_no = botanize.bot_no where (casework.que_no =" + que_no + ") and (casework.the_no =" + the_no + ") and (casework.cas_answer = '" + ans_no + "') and (botanize.bot_status = '1')";
+                    else
+                        sqlstrc = "select count(casework.cas_no) as recount from casework inner join botanize on casework.bot_no = botanize.bot_no where (casework.que_no =" + que_no + ") and (casework.the_no =" + the_no + ") and (casework.cas_answer like '" + ans_no + ",%' or casework.cas_answer like '%," + ans_no + "' or casework.cas_answer like '%," + ans_no + ",%' or casework.cas_answer='" + ans_no + "')";
+                    DataTable dt1 = new DataTable();
+                    dt1 = dbo.ExecuteQuery(sqlstrc);
+                    if (dt1.Rows.Count > 0)
+                    {
+                        if (dt1.Rows[0]["recount"].ToString().Length > 0)
+                        {
+                            //subtotal += Convert.ToInt32(dt1.Rows[0]["recount"].ToString());
+                            yValues[i] = Convert.ToDouble(dt1.Rows[0]["recount"].ToString());
+                        }
+                    }
+                    else yValues[i] = 0.0;
+                }
+                ((Chart)e.Row.FindControl("Chart1")).Series["Default"].Points.DataBindXY(xValues, yValues);//Bind
+                ((Chart)e.Row.FindControl("Chart1")).ChartAreas["ChartArea1"].Area3DStyle.Enable3D = true; //3D圖
+                for (var i = 0; i < ((Chart)e.Row.FindControl("Chart1")).Series.Count; i++)
+                    for (var j = 0; j < ((Chart)e.Row.FindControl("Chart1")).Series[i].Points.Count; j++)
+                    {
+                        if(((Chart)e.Row.FindControl("Chart1")).Series[i].Points[j].YValues[0]==0)
+                        ((Chart)e.Row.FindControl("Chart1")).Series[i].Points[j]["PieLabelStyle"] = "Disabled"; //當數值是0時，就不顯示標籤
+                    }
 
-            //// 計算總票數
-            //int total = 0, mxcount = 0;
-            //for (int Gi = 0; Gi < ((GridView)e.Row.FindControl("GridView2")).Rows.Count; Gi++)
-            //{
-            //    total += Convert.ToInt32(((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text);
-            //    if (mxcount < Convert.ToInt32(((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text))
-            //        mxcount = Convert.ToInt32(((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text);
-            //}
-
-            ////顯示圖片與票數
-            //for (int Gi = 0; Gi < ((GridView)e.Row.FindControl("GridView2")).Rows.Count; Gi++)
-            //{
-            //    int imgindex = (Gi % 10) + 1;
-            //    int icount = Convert.ToInt32(((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text);
-            //    string ans_name = ((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[0].Text;
-            //    if (icount > 0)
-            //    {
-            //        int widths = Convert.ToInt32(Math.Round(Convert.ToSingle(icount) / Convert.ToSingle(total) * 200));
-            //        string outtxt = "";
-            //        if (widths > 0) outtxt = "<img src=\"../../image/" + imgindex.ToString() + ".png\" height=\"20\" width=\"" + widths.ToString() + "\" align=\"absmiddle\" alt=\"" + ans_name + ":" + icount + "票\" title=\"" + ans_name + ":" + icount + "票\" style=\"border:1px solid #000000;padding:0px;margin-bottom:2px;margin-top:2px;\" />";
-            //        ((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text = icount.ToString() + "票&nbsp;" + outtxt;
-            //    }
-            //    else
-            //        ((GridView)e.Row.FindControl("GridView2")).Rows[Gi].Cells[1].Text = "0票";
-            //}
+                //((Chart)e.Row.FindControl("Chart1")).Series["Default"]["PieLabelStyle"] = "Outside"; //Inside(預設),Outside,Disabled
+                //((Chart)e.Row.FindControl("Chart1")).BorderSkin.SkinStyle = BorderSkinStyle.None; //外框樣式
+            }
+            else ((Chart)e.Row.FindControl("Chart1")).Visible = false;
             #endregion
 
         }

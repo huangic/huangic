@@ -59,14 +59,8 @@
             </tbody>
         </table>
         <br />
-        <div class="header">
-            <div class="h1">
-            </div>
-            <div class="h2">
-                <div class="name">票數統計</div>
-            </div>
-            <div class="h3">
-            </div>
+        <div class="select">
+            <li><span class="a-title">票數統計</span></li>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -76,19 +70,40 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <div style="height: 30px; line-height: 30px;">
-                                    <span class="icon">&nbsp;</span>
-                                    <asp:Label ID="lab_the_name" runat="server" Text='<%# Eval("the_name") %>'></asp:Label>
-                                    <asp:Label ID="lab_the_type" runat="server" Text='<%# Eval("the_type") %>' Visible="False"></asp:Label>
+                                <div class="inquire_count">
+                                    <div class="box">
+                                        <div class="b2">
+                                            <li class="ps1">
+                                                <asp:Label ID="lab_the_name" runat="server" Text='<%# Eval("the_name") %>'></asp:Label>
+                                                <asp:Label ID="lab_the_type" runat="server" Text='<%# Eval("the_type") %>' Visible="False"></asp:Label></li>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="">
-                                    <asp:Chart ID="Chart1" runat="server">
+                                    <asp:Chart ID="Chart1" runat="server" BackColor="WhiteSmoke" BackGradientStyle="TopBottom"
+                                        BackSecondaryColor="White" BorderColor="#1A3B69" BorderlineDashStyle="Solid"
+                                        BorderWidth="2px" 
+                                        ImageLocation="~/PicTemp/ChartPic_#SEQ(300,3)" Width="500px" 
+                                        Height="350px">
+                                        <BorderSkin SkinStyle="Emboss" />
+                                        <Legends>
+                                            <asp:Legend Name="ChartLegend" Docking="Right" Alignment="Center" BackColor="Transparent">
+                                            </asp:Legend>
+                                        </Legends>
                                         <Series>
-                                            <asp:Series ChartType="Pie" Name="Series1">
+                                            <asp:Series ChartType="Pie" Name="Default" ChartArea="ChartArea1">
                                             </asp:Series>
                                         </Series>
                                         <ChartAreas>
-                                            <asp:ChartArea Name="ChartArea1">
+                                            <asp:ChartArea Name="ChartArea1" BackColor="Transparent" BackSecondaryColor="Transparent"
+                                                BorderWidth="0" ShadowColor="Transparent" Area3DStyle-Enable3D="True" AlignmentOrientation="Horizontal">
+                                                <Area3DStyle Rotation="0" />
+                                                <AxisY>
+                                                    <LabelStyle Font="新細明體, 9px" IsStaggered="True" />
+                                                </AxisY>
+                                                <AxisX>
+                                                    <LabelStyle Font="新細明體, 9px" IsStaggered="True" />
+                                                </AxisX>
                                             </asp:ChartArea>
                                         </ChartAreas>
                                     </asp:Chart>
