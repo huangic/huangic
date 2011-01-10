@@ -84,7 +84,7 @@
 
             <ul>
             <li><span class="a-title">
-                <asp:Literal ID="lit_album" runat="server" Text="個人"></asp:Literal>相簿</span></li>
+                <asp:Literal ID="lit_album" runat="server" Text=""></asp:Literal>相簿</span></li>
             </ul>
         </div>
         <div class="box">

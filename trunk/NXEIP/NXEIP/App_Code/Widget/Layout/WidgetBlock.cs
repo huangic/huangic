@@ -32,5 +32,7 @@ namespace NXEIP.Widget
 
         public String Param { get; set; }
 
+        public String PageType { get; set; }
+
     }
 }

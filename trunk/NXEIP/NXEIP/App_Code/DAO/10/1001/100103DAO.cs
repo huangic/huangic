@@ -105,5 +105,30 @@ namespace NXEIP.DAO
             return ps;
         }
 
+
+        public IQueryable<photo> GetTopUploadDepartPhoto(int num, int dep_no)
+        {
+            var ps = (from a in model.album from d in model.photo 
+                      where a.alb_no==d.alb_no 
+                      && a.alb_dep == dep_no
+                      && a.alb_public=="2"
+                      orderby d.pho_createtime select d).Take(num);
+
+            return ps;
+        }
+
+        public IQueryable<photo> GetTopUploadUnitPhoto(int num)
+        {
+            var ps = (from a in model.album
+                      from d in model.photo
+                      where a.alb_no == d.alb_no
+                      && a.alb_public == "3"
+                      && a.alb_status=="1"
+                      orderby d.pho_createtime
+                      select d).Take(num);
+
+            return ps;
+        }
+
     }
 }

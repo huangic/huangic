@@ -133,6 +133,7 @@ namespace NXEIP.Widget
 
         public WidgetParam WidgetParam { get; set; }
 
-       
+
+        public String PageType { get; set; }
     }
 }
