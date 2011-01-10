@@ -17,10 +17,10 @@ public partial class widget_10_100100_100103 : WidgetBaseControl
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Cycle", ResolveClientUrl("~/js/jquery.cycle.all.min.js"));
 
 
-        String script = "$('.block-1 .photo').cycle();";
+        // script = "$('.block-1 .photo').cycle();";
 
 
-        ScriptManager.RegisterStartupScript(this, typeof(UserControl), "CycleStartup", script, true);
+        //ScriptManager.RegisterStartupScript(this, typeof(UserControl), "CycleStartup", script, true);
 
 
     }
