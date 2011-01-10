@@ -18,7 +18,7 @@ public partial class _10_100500_100509 : WidgetPageTemplate
     //需要OVERRIDE 
 
     //此頁面使用的SESSION;
-    public override String SessionName { get { return "WidgetObj"; } }
+    public override String SessionName { get { return "DepartWidgetObj"; } }
    
     //遠端AJAX使用的頁面
     protected override String RemoteUrl { get { return "~/widget/WidgetMethod.aspx"; } }

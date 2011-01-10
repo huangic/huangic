@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.Widget;
 using NLog;
+using Entity;
 
 public partial class widget_10_100100_100103 : WidgetBaseControl
 {
@@ -22,7 +23,7 @@ public partial class widget_10_100100_100103 : WidgetBaseControl
 
         //ScriptManager.RegisterStartupScript(this, typeof(UserControl), "CycleStartup", script, true);
 
-
+        
     }
 
     private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -50,10 +51,17 @@ public partial class widget_10_100100_100103 : WidgetBaseControl
 
         this.ListView1.DataBind();
 
+        
+
+        
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         logger.Debug("Widget ==");
     }
+
+ 
+
+
 }

@@ -258,17 +258,25 @@ namespace NXEIP.Widget
             {
                 foreach (WidgetBlock b in p.Block)
                 {
-                    Entity.widget widget = GetWidget(b.WidgetID);
-                   
+
+                    try
+                    {
+                        Entity.widget widget = GetWidget(b.WidgetID);
 
 
-                    WidgetBaseControl control = (WidgetBaseControl)Page.LoadControl("~/" + widget.wid_url);
-                    control.Title = widget.wid_name;
-                    control.WidgetID = widget.wid_no;
-                    control.IsEditable = this.IsEditable;
-                    control.WidgetParam = new WidgetParam(b.Param);
 
-                    Master.FindControl("ContentPlaceHolder1").FindControl(p.Name).Controls.Add(control);
+                        WidgetBaseControl control = (WidgetBaseControl)Page.LoadControl("~/" + widget.wid_url);
+                        control.Title = widget.wid_name;
+                        control.WidgetID = widget.wid_no;
+                        control.IsEditable = this.IsEditable;
+                        control.WidgetParam = new WidgetParam(b.Param);
+                        control.PageType = this.PageType;
+
+                        Master.FindControl("ContentPlaceHolder1").FindControl(p.Name).Controls.Add(control);
+                    }
+                    catch (Exception ex) {
+                        logger.Debug(ex.Message);
+                    }
 
                 }
             }
@@ -337,6 +345,8 @@ namespace NXEIP.Widget
                     WidgetBlock block = new WidgetBlock(b.wid_no);
                     //取參數
                     block.Param = b.blo_setting;
+                    block.PageType = this.PageType;
+
                     place.Block[position] = block;
                     position++;
                     //塞到block物件裡面
