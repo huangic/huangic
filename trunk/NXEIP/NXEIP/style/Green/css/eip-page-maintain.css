@@ -1244,18 +1244,23 @@
 	text-decoration: none;
 }
 .first .photo {
-	width:152px;
+	width:140px;
+	/*
 	background-image: url(../image/photo.gif);
 	background-repeat: no-repeat;
-	height: 112px;
+	*/
+    height: 105px;
 	margin-top: 8px;
 	margin-bottom: 8px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 2px solid #6B9C23;
-	padding: 1px;
+	
 	background-position: center center;
 }
+
+
+
 
 .first .dot_a51 {
 	background-image: url(../image/a51.gif);
@@ -1576,6 +1581,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 10px;
+	
 }
 .photo a {
 	font-size: 13px;
@@ -1692,8 +1698,8 @@
 	float: left;
 }
 .photo .pic_01 {
-	/*background-image: url(../image/photo_01.jpg);
-	background-repeat: no-repeat;*/
+	background-image: url(../image/photo_01.jpg);
+	background-repeat: no-repeat;
 	height: 77px;
 	width: 102px;
 	margin-top: 36px;
