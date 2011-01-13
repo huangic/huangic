@@ -12,7 +12,8 @@
     "SelectMode":{"Multi":0,"Single":1},
     "PeopleStatus":{"All":0,"OnJob":1, "StopJob":3},
     "PeopleColumn":{"Name":1,"Title":2,"Ext":4},
-    "PeopleType":{"General":0,"Contract":1}
+    "PeopleType":{"General":0,"Contract":1},
+    "PeopleShowSelf":{"False":0,"True":1}
     }
 
 
@@ -74,7 +75,8 @@
                     "LeafType":Enum.LeafType.Department,
                     "SelectMode":Enum.SelectMode.Mutil,
                     "PeopleStatus":Enum.PeopleStatus.All,
-                    "PeopleType":Enum.PeopleStatus
+                    "PeopleType":Enum.PeopleStatus,
+                    "PeopleShowSeld":Enum.PeopleShowSelf
                 },
                 "rootUrl":"lib/tree/DepartTreeMethod.ashx",
                 

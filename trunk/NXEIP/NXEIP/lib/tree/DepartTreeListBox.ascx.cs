@@ -60,7 +60,12 @@ public partial class lib_tree_DepartTreeListBox : System.Web.UI.UserControl
     public DepartTreeEnum.PeopleColumn PeopleColumn { get; set; }
 
 
-
+    [Category("人員是否秀自己?")]
+    [Browsable(true)]
+    [Description("人員是否秀自己")]
+    [RefreshProperties(RefreshProperties.All)]
+    [DefaultValue(DepartTreeEnum.PeopleShowSelf.True)]
+    public DepartTreeEnum.PeopleShowSelf PeopleShowSelf { get; set; }
 
 
 

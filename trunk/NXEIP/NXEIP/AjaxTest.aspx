@@ -76,8 +76,8 @@
     
 
     <uc1:DepartmentPanel ID="DepartmentPanel1" runat="server" LeafType="People" 
-        SelectMode="Multi" ShowDeleteButton="False" PeopleColumn="Name,Ext" 
-        TreeType="Parallel" />
+        SelectMode="Multi" ShowDeleteButton="False" PeopleColumn="Name,Ext,Title" 
+        TreeType="Parallel" PeopleShowSelf="True" />
 
     
 

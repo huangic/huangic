@@ -10,7 +10,8 @@
                 SelectMode:<%=(int)this.SelectMode %>,
                 PeopleStatus:<%=(int)this.PeopleStatus%>,
                  PeopleColumn:<%=(int)this.PeopleColumn%>,
-                  PeopleType:<%=(int)this.PeopleType%>
+                  PeopleType:<%=(int)this.PeopleType%>,
+                  PeopleShowSelf:<%=(int)this.PeopleShowSelf%>
             },
             
             rootUrl:"<%=ResolveClientUrl("~/lib/tree/DepartTreeMethod.ashx") %>",

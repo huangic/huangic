@@ -49,8 +49,13 @@ public class DepartTreeNodeFactory
         }
 
 
+        Dictionary<String, String> setting = new Dictionary<string, string>();
 
-        SetChildNode(obj, tree);
+        setting.Add("people_uid", (String)HttpContext.Current.Session["UserID"]);
+
+
+
+        SetChildNode(obj, tree,setting);
        
 
 
@@ -59,7 +64,7 @@ public class DepartTreeNodeFactory
     }
 
 
-    private static void SetChildNode(DepartTreeEnum obj, DepartTreeNode tree) {
+    private static void SetChildNode(DepartTreeEnum obj, DepartTreeNode tree,Dictionary<String,String> Setting) {
         if (obj.TreeLeafType == DepartTreeEnum.LeafType.Department)
         {
             tree.AddChildNodeStrategy(new DepartChildNode() { checkChildPeople = false });
@@ -67,8 +72,11 @@ public class DepartTreeNodeFactory
 
         if (obj.TreeLeafType == DepartTreeEnum.LeafType.People)
         {
+
+            int peo_uid = int.Parse(Setting["people_uid"]??"0");
+            
             tree.AddChildNodeStrategy(new DepartChildNode() { checkChildPeople = true });
-            tree.AddChildNodeStrategy(new PeopleChildNode() { setting=obj });
+            tree.AddChildNodeStrategy(new PeopleChildNode() { setting = obj, people_uid = peo_uid });
         }
     }
 
