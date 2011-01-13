@@ -18,78 +18,29 @@ public partial class _10_100300_100302_1 : System.Web.UI.Page
         {
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 2, "新增開放人員");
-
-            ListItem selectitem = new ListItem("請選擇", "0");
-
-            DataTable dt = new DataTable();
-            string sqlstr = "SELECT dep_no, dep_name FROM departments WHERE (dep_level > 0) AND (dep_status = '1') ORDER BY dep_code";
-            dt = dbo.ExecuteQuery(sqlstr);
-            if (dt.Rows.Count > 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    ListItem newitem = new ListItem(dt.Rows[i]["dep_name"].ToString(), dt.Rows[i]["dep_no"].ToString());
-                    this.ddl_depart.Items.Add(newitem);
-                }
-            }
-            this.ddl_depart.Items.Insert(0, selectitem);
-            this.ddl_people.Items.Insert(0, selectitem);
-
+            if (this.DepartmentPanel1.Items != null) this.DepartmentPanel1.Items.Clear();
         }
     }
-
-    #region 部門改變時
-    protected void ddl_depart_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        this.ddl_people.Items.Clear();   
-        ListItem selectitem = new ListItem("請選擇", "0");
-        if (!this.ddl_depart.SelectedValue.Equals("0"))
-        {
-            DataTable dt = new DataTable();
-            string jobtype = PCalendarUtil.GetPeoJobtype();
-            string sqlstr = "SELECT people.peo_uid, people.peo_name FROM people INNER JOIN types ON people.peo_pfofess = types.typ_no"
-                + " WHERE (people.peo_jobtype = " + jobtype + ") AND (people.dep_no = " + this.ddl_depart.SelectedValue + ") ORDER BY types.typ_order, people.peo_name";
-            dt = dbo.ExecuteQuery(sqlstr);
-            if (dt.Rows.Count > 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    ListItem newitem = new ListItem(dt.Rows[i]["peo_name"].ToString(), dt.Rows[i]["peo_uid"].ToString());
-                    this.ddl_people.Items.Add(newitem);
-                }
-            }
-        }
-        this.ddl_people.Items.Insert(0, selectitem);
-    }
-    #endregion
-
     #region 確定
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         string aMSG = "";   //記錄錯誤訊息
         try
         {
-            if (this.ddl_people.SelectedValue.Equals("0"))
+            if (CheckInputValue())
             {
-                ShowMSG("請選擇開放人員");
-            }
-            else
-            {
-                int icount = new C01DAO().GetCountByC01PeoUid(Convert.ToInt32(sobj.sessionUserID), Convert.ToInt32(this.ddl_people.SelectedValue));
-                if (icount > 0)
+                for (int i = 0; i < this.DepartmentPanel1.Items.Count; i++)
                 {
-                    ShowMSG("此人員已在名單中");
-                }
-                else
-                {
-                    string InsStr = "insert into c01 (peo_uid,c01_peouid,c01_createtime) values(" + sobj.sessionUserID + "," + this.ddl_people.SelectedValue + ",getdate())";
-                    dbo.ExecuteNonQuery(InsStr);
+                    if (!this.DepartmentPanel1.Items[i].Key.Equals(sobj.sessionUserID))
+                    {
+                        string InsStr = "insert into c01 (peo_uid,c01_peouid,c01_createtime) values(" + sobj.sessionUserID + "," + this.DepartmentPanel1.Items[i].Key + ",getdate())";
+                        dbo.ExecuteNonQuery(InsStr);
 
-                    //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                    new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 1, "新增開放人員");
-
-                    this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.update('新增成功');", true);
+                        //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                        new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 1, "新增開放人員");
+                    }
                 }
+                this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.update('新增成功');", true);
             }
         }
         catch (Exception ex)
@@ -97,6 +48,33 @@ public partial class _10_100300_100302_1 : System.Web.UI.Page
             aMSG = "功能名稱：開放人員-" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
+    }
+    #endregion
+
+    #region 檢查輸入值
+    private bool CheckInputValue()
+    {
+        if (this.DepartmentPanel1.Items.Count <= 0 || this.DepartmentPanel1.Items == null)
+        {
+            ShowMSG("請選擇人員");
+            return false;
+        }
+        else
+        {
+            #region 檢查是否已新增
+            for (int i = 0; i < this.DepartmentPanel1.Items.Count; i++)
+            {
+                int icount = new C01DAO().GetCountByC01PeoUid(Convert.ToInt32(sobj.sessionUserID), Convert.ToInt32(this.DepartmentPanel1.Items[i].Key));
+                if (icount > 0)
+                {
+                    ShowMSG(this.DepartmentPanel1.Items[i].Value + " 已在名單中");
+                    return false;
+                }
+            }
+            #endregion
+        }
+        return true;
+
     }
     #endregion
 

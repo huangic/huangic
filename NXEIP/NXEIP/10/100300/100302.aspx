@@ -34,7 +34,7 @@
             <div class="h1"></div>
             <div class="h2">
                 <div class="function">
-                   <input type="button" class="thickbox b-input" alt="100302-1.aspx?height=350&width=600&TB_iframe=true&modal=true"value="新增開放人員" />
+                   <input type="button" class="thickbox b-input" alt="100302-1.aspx?height=500&width=700&TB_iframe=true&modal=true"value="新增開放人員" />
                 </div>
             </div>
             <div class="h3"></div>

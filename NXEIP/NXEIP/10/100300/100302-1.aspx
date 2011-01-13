@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="100302-1.aspx.cs" Inherits="_10_100300_100302_1" %>
 <%@ Register src="../../lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc1" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc2" %>
+<%@ Register src="../../lib/tree/DepartmentPanel.ascx" tagname="DepartmentPanel" tagprefix="uc3" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -16,19 +17,8 @@
             <div class="h2"><div class="name">新增開放人員</div></div>
             <div class="h3"></div>
         </div>
-        <table>
-            <tbody>
-                <tr>
-                    <th>請選擇</th>
-                    <td>
-                        <asp:DropDownList ID="ddl_depart" runat="server" AutoPostBack="True" onselectedindexchanged="ddl_depart_SelectedIndexChanged">
-                        </asp:DropDownList>
-                        <asp:DropDownList ID="ddl_people" runat="server">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <uc3:DepartmentPanel ID="DepartmentPanel1" runat="server" LeafType="People" PeopleType="All"
+            ShowDeleteButton="True" />
         <div class="footer">
             <div class="f1"></div>
             <div class="f2"></div>
