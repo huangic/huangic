@@ -39,6 +39,10 @@ PeopleType(人員種類)
 	General	正式人員
 	Contract 非正式人員
 
+PeopleShowSelf(是否顯示自己)
+	False(不顯示)
+	True(顯示:預設)
+
 
 可用Function
 

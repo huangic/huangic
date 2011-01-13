@@ -7,7 +7,7 @@
         
         
         
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
    
    
    

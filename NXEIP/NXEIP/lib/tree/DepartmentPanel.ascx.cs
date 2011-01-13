@@ -82,6 +82,15 @@ public partial class lib_tree_DepartmentPanel : System.Web.UI.UserControl
     public DepartTreeEnum.PeopleColumn PeopleColumn { get; set; }
 
 
+
+     [Category("人員是否秀自己?")]
+     [Browsable(true)]
+     [Description("人員是否秀自己")]
+     [RefreshProperties(RefreshProperties.All)]
+     [DefaultValue(DepartTreeEnum.PeopleShowSelf.True)]
+     public DepartTreeEnum.PeopleShowSelf PeopleShowSelf { get; set; }
+
+
     public string ParentSessionID { get; set; }
 
 
@@ -204,6 +213,7 @@ public partial class lib_tree_DepartmentPanel : System.Web.UI.UserControl
         this.PeopleColumn = setting.TreePeopleColumn;
         this.PeopleStatus = setting.TreePeopleStatus;
         this.PeopleType = setting.TreePeopleType;
+        this.PeopleShowSelf = setting.TreePeopleShowSelf;
     }
 
 }

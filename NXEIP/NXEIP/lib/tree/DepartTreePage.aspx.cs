@@ -23,6 +23,7 @@ public partial class lib_tree_DepartTreePage : System.Web.UI.Page
         {
 
             //DpartPanel INITIAL
+            
             //TODO 多狀態要加這邊
 
             DepartTreeEnum setting = new DepartTreeEnum(Request);

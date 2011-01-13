@@ -27,6 +27,7 @@ namespace NXEIP.Tree
             this.TreePeopleStatus = (DepartTreeEnum.PeopleStatus)int.Parse(request["PeopleStatus"]);
             this.TreePeopleColumn = (DepartTreeEnum.PeopleColumn)int.Parse(request["PeopleColumn"]);
             this.TreePeopleType = (DepartTreeEnum.PeopleType)int.Parse(request["PeopleType"]);
+            this.TreePeopleShowSelf = (DepartTreeEnum.PeopleShowSelf)int.Parse(request["PeopleShowSelf"]??"1");
         }
 
 
@@ -44,6 +45,7 @@ namespace NXEIP.Tree
 
         public PeopleColumn TreePeopleColumn { get; set; }
 
+        public PeopleShowSelf TreePeopleShowSelf { get; set; }
 
         /// <summary>
         /// 節點類型
@@ -90,6 +92,10 @@ namespace NXEIP.Tree
             Title=1,
             Ext=2,
             WorkId=4
+        }
+
+        public enum PeopleShowSelf : int { 
+            False=0,True=1,
         }
 
     }

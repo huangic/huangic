@@ -18,8 +18,9 @@ namespace NXEIP.Tree
 
               
 
-        public DepartTreeEnum setting { get; set; }  
+        public DepartTreeEnum setting { get; set; }
 
+        public int people_uid { get; set; }
 
 
         public PeopleChildNode()
@@ -45,6 +46,14 @@ namespace NXEIP.Tree
                                    select p;
 
                 int status = (int)setting.TreePeopleStatus;
+
+                int showSelf = (int)setting.TreePeopleShowSelf;
+
+
+                if (showSelf != 1) {
+                    peopleResult = peopleResult.Where(x => x.peo_uid != this.people_uid);
+                }
+
 
 
                 if (status != 0) {
