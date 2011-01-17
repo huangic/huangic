@@ -52,5 +52,28 @@ namespace NXEIP.DAO
         {
             return model.SaveChanges();
         }
+
+        public IQueryable<people> GetPeopleOfficials(String keyword) {
+            IQueryable<people> peoples = from d in model.people where d.peo_jobtype == 1 select d;
+
+            if (!String.IsNullOrEmpty(keyword)) {
+                peoples = peoples.Where(x => x.peo_name.Contains(keyword));
+            }
+
+            peoples=peoples.OrderBy(x => x.dep_no);
+
+
+            return peoples;
+        }
+
+
+        public int GetPeopleOfficialsCount(String keyword) {
+            return this.GetPeopleOfficials(keyword).Count();
+        }
+
+        public IQueryable<people> GetPeopleOfficials(String keyword, int startRowIndex, int maximumRows) {
+            return this.GetPeopleOfficials(keyword).Skip(startRowIndex).Take(maximumRows);
+        }
+
     }
 }

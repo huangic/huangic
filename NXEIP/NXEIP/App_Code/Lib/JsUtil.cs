@@ -72,6 +72,12 @@ public class JsUtil
         return js;
     }
     
+
+    /// <summary>
+    /// JS 的ALERT
+    /// </summary>
+    /// <param name="page"></param>
+    /// <param name="msg"></param>
     public static void  AlertJs(Page page,String msg) {
        // ScriptManager.RegisterClientScriptBlock(page,page.GetType(), "Alert", GetAlertJs(msg), true);
 
@@ -96,12 +102,26 @@ public class JsUtil
 
         return js;
     }
+    
+    
+    /// <summary>
+    /// JS ALERT AND UPDATE 父代頁面的UpdatePanel
+    /// </summary>
+    /// <param name="page"></param>
+    /// <param name="msg"></param>
+    /// <param name="url"></param>
     public static void AlertAndUpdateParentAndRedirectJs(Page page,String msg, String url)
     {
         CallRegigterClientScript(page, "Redirect", GetAlertAndUpdateParentAndRedirectJs(msg, url));
 
     }
 
+    
+    /// <summary>
+    /// 直接呼叫傳入的JS
+    /// </summary>
+    /// <param name="page"></param>
+    /// <param name="script"></param>
     public static void CallJs(Page page,String script){
         CallRegigterClientScript(page,"CallScript",script);
     }
@@ -157,6 +177,13 @@ public class JsUtil
 
         return js;
     }
+
+    /// <summary>
+    /// 更新父代的UpdatePanel
+    /// </summary>
+    /// <param name="page"></param>
+    /// <param name="msg"></param>
+
     public static void UpdateParentJs(Page page, String msg)
     {
         CallRegigterClientScript(page, "Update", GetUpdateParentJs(msg));
