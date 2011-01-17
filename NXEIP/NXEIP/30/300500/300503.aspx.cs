@@ -11,9 +11,8 @@ using System.Data.Objects.SqlClient;
 using Entity;
 using NLog;
 using System.Data;
-using System.IO;
 
-public partial class _20_200100_200103 : System.Web.UI.Page
+public partial class _30_300500_300503 : System.Web.UI.Page
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
     
@@ -21,14 +20,9 @@ public partial class _20_200100_200103 : System.Web.UI.Page
     {
 
         if (!Page.IsPostBack) { 
-            //建立GRID VIEW
-            //this.GridView1.DataBind();
+           
 
-
-            //NXEIPEntities model = new NXEIPEntities();
-
-
-            initPanel(0);
+            
             
         }
 
@@ -38,7 +32,7 @@ public partial class _20_200100_200103 : System.Web.UI.Page
         //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
-           // this.GridView.DataBind();
+           this.GridView_dep.DataBind();
         }
 
         
@@ -82,67 +76,49 @@ public partial class _20_200100_200103 : System.Web.UI.Page
         return value;
     
     }
-   
 
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int rowIndex = System.Convert.ToInt32(e.CommandArgument);
+        int sys_no = System.Convert.ToInt32(this.GridView_dep.DataKeys[rowIndex].Value.ToString());
+
+        if (e.CommandName.Equals("disable"))
+        {
+            delete(sys_no);
+            return;
+        }
+    }
+
+
+
+
+    private void delete(int off_no)
+    {
+        using (NXEIPEntities model = new NXEIPEntities())
+        {
+            officials o = new officials();
+            o.off_no = off_no;
+
+            model.officials.Attach(o);
+            o.off_status = "2";
+
+            model.SaveChanges();
+        }
+
+        this.GridView_dep.DataBind();
+
+        //this.OkMessagebox1.showMessagebox("delete"+dep_no);
+    }
    
-    /// <summary>
-    /// 依條件查詢
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    
     
   
 
-    private void initPanel(int status) {
+  
+   
 
-        this.Panel_dep.Visible = false;
-        this.Panel_dep_grid.Visible = false;
-        this.Panel_personal.Visible = false;
-        this.Panel_personal_grid.Visible = false;
-        
-        
-        
-        
-        if (status == 1)
-        {
-
-            this.Panel_personal.Visible = true;
-            this.Panel_personal_grid.Visible = true;
-        }
-        else {
-            this.Panel_dep.Visible = true;
-            this.Panel_dep_grid.Visible = true;
-        }
-    }
-
-    private void initButton(int status) {
-        this.btn_dep.CssClass = "a-input";
-        this.btn_personal.CssClass = "a-input";
-
-        if (status == 1)
-        {
-            this.btn_personal.CssClass = "b-input2";
-        }
-        else {
-            this.btn_dep.CssClass = "b-input2";
-        }
-    }
-
-
-    protected void btn_personal_Click(object sender, EventArgs e)
-    {
-        this.initPanel(1);
-        this.initButton(1);
-        this.GridView_peo.DataBind();
-
-
-    }
-    protected void btn_dep_Click(object sender, EventArgs e)
-    {
-        this.initPanel(0);
-        this.initButton(0);
-        this.GridView_dep.DataBind();
-    }
+   
     protected void btn_dep_search_Click(object sender, EventArgs e)
     {
         //部門的查詢
@@ -152,18 +128,5 @@ public partial class _20_200100_200103 : System.Web.UI.Page
         this.GridView_dep.DataBind();
 
     }
-    protected void btn_peo_search_Click(object sender, EventArgs e)
-    {
-        //人員的查詢
-
-        this.ObjectDataSource_people.SelectParameters[0].DefaultValue = this.tb_people.Text;
-
-        this.GridView_peo.DataBind();
-    }
-    protected void GridView_dep_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-       
-    }
-
   
 }

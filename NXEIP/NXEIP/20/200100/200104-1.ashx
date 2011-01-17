@@ -58,7 +58,7 @@ public class _200104_1 : IHttpHandler, IRequiresSessionState
                 
                     if (string.IsNullOrEmpty(path))
                     {
-                        fileabspath = context.Server.MapPath(file.d07_path);
+                        fileabspath = context.Server.MapPath("~/"+file.d07_path);
                     }
                 
                     //寫入下載人員
