@@ -110,7 +110,7 @@ public class UtilityDAO
     /// <summary>
     /// 取得各類別代碼
     /// </summary>
-    /// <param name="dep_no">類別ID</param>
+    /// <param name="typ_no">類別ID</param>
     /// <returns></returns>
     public string Get_TypesNumber(int typ_no)
     {
