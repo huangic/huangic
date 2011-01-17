@@ -46,6 +46,16 @@ public class UtilityDAO
     }
 
     /// <summary>
+    /// 取得員工電話
+    /// </summary>
+    /// <param name="peo_uid">員工UID</param>
+    /// <returns></returns>
+    public string Get_PeopleTel(int peo_uid)
+    {
+        return (from p in model.people where p.peo_uid == peo_uid select p.peo_tel).FirstOrDefault();
+    }
+
+    /// <summary>
     /// 取得員工身份證字號
     /// </summary>
     /// <param name="peo_uid">員工UID</param>
