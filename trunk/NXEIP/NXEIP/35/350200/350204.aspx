@@ -126,11 +126,6 @@
                 </td>
             </tr>
         </table>
-        <div class="bottom">
-            <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="確定" OnClick="Button1_Click" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="取消" OnClick="Button2_Click" />
-        </div>
         <div class="footer">
             <div class="f1">
             </div>
@@ -139,5 +134,11 @@
             <div class="f3">
             </div>
         </div>
+        <div class="bottom">
+            <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="確定" OnClick="Button1_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button2" runat="server" CssClass="a-input" Text="取消" OnClick="Button2_Click" />
+        </div>
+        
     </div>
 </asp:Content>

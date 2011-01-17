@@ -33,7 +33,11 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             this.DepartTreeTextBox1.Clear();
             this.DepartTreeTextBox1.Add(peopleData.dep_no.ToString());
 
-            this.calendar1._ADDate = (System.DateTime)peopleData.peo_arrivedate;
+            try
+            {
+                this.calendar1._ADDate = (System.DateTime)peopleData.peo_arrivedate;
+            }
+            catch { }
 
             try
             {
