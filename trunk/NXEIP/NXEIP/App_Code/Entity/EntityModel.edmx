@@ -48,6 +48,7 @@
           <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new03" EntityType="NXEIPModel.Store.new03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="notifys" EntityType="NXEIPModel.Store.notifys" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="officials" EntityType="NXEIPModel.Store.officials" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="operates" EntityType="NXEIPModel.Store.operates" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="page" EntityType="NXEIPModel.Store.page" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="people" EntityType="NXEIPModel.Store.people" store:Type="Tables" Schema="dbo" />
@@ -990,6 +991,22 @@
           <Property Name="not_egov" Type="char" MaxLength="1" />
           <Property Name="not_email" Type="char" MaxLength="1" />
           <Property Name="not_phone" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="officials">
+          <Key>
+            <PropertyRef Name="off_no" />
+          </Key>
+          <Property Name="off_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="off_type" Type="varchar" MaxLength="2" />
+          <Property Name="off_depname" Type="nvarchar" MaxLength="40" />
+          <Property Name="off_peouid" Type="int" />
+          <Property Name="off_tel" Type="varchar" MaxLength="20" />
+          <Property Name="off_file" Type="image" />
+          <Property Name="off_name" Type="nvarchar" MaxLength="40" />
+          <Property Name="off_memo" Type="nvarchar" MaxLength="100" />
+          <Property Name="off_status" Type="char" MaxLength="1" />
+          <Property Name="off_createtime" Type="datetime" />
+          <Property Name="off_createuid" Type="int" />
         </EntityType>
         <EntityType Name="operates">
           <Key>
@@ -2774,6 +2791,7 @@
             <End Role="album" EntitySet="album" />
             <End Role="photo" EntitySet="photo" />
           </AssociationSet>
+          <EntitySet Name="officials" EntityType="NXEIPModel.officials" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -4932,6 +4950,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="officials">
+          <Key>
+            <PropertyRef Name="off_no" />
+          </Key>
+          <Property Type="Int32" Name="off_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="off_type" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="off_depname" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="off_peouid" />
+          <Property Type="String" Name="off_tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="off_file" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="off_name" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="off_memo" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="off_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="off_createtime" />
+          <Property Type="Int32" Name="off_createuid" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5962,6 +5996,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="officials">
+            <EntityTypeMapping TypeName="NXEIPModel.officials">
+              <MappingFragment StoreEntitySet="officials">
+                <ScalarProperty Name="off_createuid" ColumnName="off_createuid" />
+                <ScalarProperty Name="off_createtime" ColumnName="off_createtime" />
+                <ScalarProperty Name="off_status" ColumnName="off_status" />
+                <ScalarProperty Name="off_memo" ColumnName="off_memo" />
+                <ScalarProperty Name="off_name" ColumnName="off_name" />
+                <ScalarProperty Name="off_file" ColumnName="off_file" />
+                <ScalarProperty Name="off_tel" ColumnName="off_tel" />
+                <ScalarProperty Name="off_peouid" ColumnName="off_peouid" />
+                <ScalarProperty Name="off_depname" ColumnName="off_depname" />
+                <ScalarProperty Name="off_type" ColumnName="off_type" />
+                <ScalarProperty Name="off_no" ColumnName="off_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -6359,9 +6410,9 @@
           <ConnectorPoint PointX="7.25" PointY="49.922801106770834" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_E05_RELATIONS_E02" >
-          <ConnectorPoint PointX="13.5" PointY="12.900859374999998" />
-          <ConnectorPoint PointX="13.5" PointY="20.799713541666669" />
-          <ConnectorPoint PointX="15" PointY="20.799713541666669" />
+          <ConnectorPoint PointX="14.09375" PointY="13.489726562499998" />
+          <ConnectorPoint PointX="14.09375" PointY="20.865143229166669" />
+          <ConnectorPoint PointX="15" PointY="20.865143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_NEW01_RELATIONS_SYS06" >
           <ConnectorPoint PointX="4.2257692307692318" PointY="41.518697916666667" />
@@ -6624,6 +6675,7 @@
           <ConnectorPoint PointX="8.5" PointY="87.124746093749991" />
           <ConnectorPoint PointX="9.25" PointY="87.124746093749991" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.officials" Width="1.5" PointX="12.375" PointY="15.75" Height="3.1340950520833246" />
         </Diagram>
     </Diagrams>
   </Designer>

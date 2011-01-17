@@ -1375,6 +1375,22 @@ namespace Entity
             }
         }
         private ObjectSet<photo> _photo;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<officials> officials
+        {
+            get
+            {
+                if ((_officials == null))
+                {
+                    _officials = base.CreateObjectSet<officials>("officials");
+                }
+                return _officials;
+            }
+        }
+        private ObjectSet<officials> _officials;
 
         #endregion
         #region AddTo 方法
@@ -1993,6 +2009,14 @@ namespace Entity
         public void AddTophoto(photo photo)
         {
             base.AddObject("photo", photo);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 officials EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToofficials(officials officials)
+        {
+            base.AddObject("officials", officials);
         }
 
         #endregion
@@ -14538,6 +14562,301 @@ namespace Entity
         private global::System.String _not_phone;
         partial void Onnot_phoneChanging(global::System.String value);
         partial void Onnot_phoneChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="officials")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class officials : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 officials 物件。
+        /// </summary>
+        /// <param name="off_no">off_no 屬性的初始值。</param>
+        public static officials Createofficials(global::System.Int32 off_no)
+        {
+            officials officials = new officials();
+            officials.off_no = off_no;
+            return officials;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 off_no
+        {
+            get
+            {
+                return _off_no;
+            }
+            set
+            {
+                if (_off_no != value)
+                {
+                    Onoff_noChanging(value);
+                    ReportPropertyChanging("off_no");
+                    _off_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("off_no");
+                    Onoff_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _off_no;
+        partial void Onoff_noChanging(global::System.Int32 value);
+        partial void Onoff_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_type
+        {
+            get
+            {
+                return _off_type;
+            }
+            set
+            {
+                Onoff_typeChanging(value);
+                ReportPropertyChanging("off_type");
+                _off_type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_type");
+                Onoff_typeChanged();
+            }
+        }
+        private global::System.String _off_type;
+        partial void Onoff_typeChanging(global::System.String value);
+        partial void Onoff_typeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_depname
+        {
+            get
+            {
+                return _off_depname;
+            }
+            set
+            {
+                Onoff_depnameChanging(value);
+                ReportPropertyChanging("off_depname");
+                _off_depname = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_depname");
+                Onoff_depnameChanged();
+            }
+        }
+        private global::System.String _off_depname;
+        partial void Onoff_depnameChanging(global::System.String value);
+        partial void Onoff_depnameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> off_peouid
+        {
+            get
+            {
+                return _off_peouid;
+            }
+            set
+            {
+                Onoff_peouidChanging(value);
+                ReportPropertyChanging("off_peouid");
+                _off_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("off_peouid");
+                Onoff_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _off_peouid;
+        partial void Onoff_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onoff_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_tel
+        {
+            get
+            {
+                return _off_tel;
+            }
+            set
+            {
+                Onoff_telChanging(value);
+                ReportPropertyChanging("off_tel");
+                _off_tel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_tel");
+                Onoff_telChanged();
+            }
+        }
+        private global::System.String _off_tel;
+        partial void Onoff_telChanging(global::System.String value);
+        partial void Onoff_telChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] off_file
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_off_file);
+            }
+            set
+            {
+                Onoff_fileChanging(value);
+                ReportPropertyChanging("off_file");
+                _off_file = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_file");
+                Onoff_fileChanged();
+            }
+        }
+        private global::System.Byte[] _off_file;
+        partial void Onoff_fileChanging(global::System.Byte[] value);
+        partial void Onoff_fileChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_name
+        {
+            get
+            {
+                return _off_name;
+            }
+            set
+            {
+                Onoff_nameChanging(value);
+                ReportPropertyChanging("off_name");
+                _off_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_name");
+                Onoff_nameChanged();
+            }
+        }
+        private global::System.String _off_name;
+        partial void Onoff_nameChanging(global::System.String value);
+        partial void Onoff_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_memo
+        {
+            get
+            {
+                return _off_memo;
+            }
+            set
+            {
+                Onoff_memoChanging(value);
+                ReportPropertyChanging("off_memo");
+                _off_memo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_memo");
+                Onoff_memoChanged();
+            }
+        }
+        private global::System.String _off_memo;
+        partial void Onoff_memoChanging(global::System.String value);
+        partial void Onoff_memoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String off_status
+        {
+            get
+            {
+                return _off_status;
+            }
+            set
+            {
+                Onoff_statusChanging(value);
+                ReportPropertyChanging("off_status");
+                _off_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("off_status");
+                Onoff_statusChanged();
+            }
+        }
+        private global::System.String _off_status;
+        partial void Onoff_statusChanging(global::System.String value);
+        partial void Onoff_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> off_createtime
+        {
+            get
+            {
+                return _off_createtime;
+            }
+            set
+            {
+                Onoff_createtimeChanging(value);
+                ReportPropertyChanging("off_createtime");
+                _off_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("off_createtime");
+                Onoff_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _off_createtime;
+        partial void Onoff_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onoff_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> off_createuid
+        {
+            get
+            {
+                return _off_createuid;
+            }
+            set
+            {
+                Onoff_createuidChanging(value);
+                ReportPropertyChanging("off_createuid");
+                _off_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("off_createuid");
+                Onoff_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _off_createuid;
+        partial void Onoff_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onoff_createuidChanged();
 
         #endregion
     
