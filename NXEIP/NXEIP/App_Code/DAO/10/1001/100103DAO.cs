@@ -49,7 +49,7 @@ namespace NXEIP.DAO
             if (alb_public == "2")
             {
                 var albums = (from d in model.album
-                              join p in model.photo on d.alb_cover equals p.alb_no into k
+                              join p in model.photo on new { Id = d.alb_no, photo = d.alb_cover.Value } equals new { Id = p.alb_no, photo = p.pho_no } into k
                               from p2 in k.DefaultIfEmpty()
                               where d.alb_dep == dep_no && d.alb_public == "2" && d.alb_status == "1"
                               select new Photoalbum { Album = d, Cover = p2, Count = (from p3 in model.photo where p3.alb_no == d.alb_no select d).Count() });
@@ -59,7 +59,7 @@ namespace NXEIP.DAO
             if (alb_public == "3")
             {
                 var albums = (from d in model.album
-                              join p in model.photo on d.alb_cover equals p.alb_no into k
+                              join p in model.photo on new { Id = d.alb_no, photo = d.alb_cover.Value } equals new { Id = p.alb_no, photo = p.pho_no } into k
                               from p2 in k.DefaultIfEmpty()
                               where d.alb_dep == dep_no && d.alb_public == "3" && d.alb_status == "1"
                               select new Photoalbum { Album = d, Cover = p2, Count = (from p3 in model.photo where p3.alb_no == d.alb_no select d).Count() });
