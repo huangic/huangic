@@ -143,57 +143,62 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             //活動狀態
             SessionObject sobj = new SessionObject();
             int user_depno = Convert.ToInt32(sobj.sessionUserDepartID);
-            string[] _check = { "0", "1"};//未審,審核通過
+            string[] _check = { "0", "1" };//未審,審核通過
             ((LinkButton)e.Row.FindControl("linkBut_1")).Visible = false;
             ((LinkButton)e.Row.FindControl("linkBut_2")).Visible = false;
             e02 e02Data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
-            if (e02Data.e02_signdate.Value >= DateTime.Now)
-            {
-                if (e02Data.e02_signedate.Value >= DateTime.Now)
-                {
-                    //報名人數
 
-                    int _count = (from dd in model.e04 where dd.e02_no == e02_no && _check.Contains(dd.e04_check) select dd).Count();
-                    if (_count >= e02Data.e02_people.Value)
-                    {
-                        ((Label)e.Row.FindControl("lab_msg")).Text = "人數已達上限";
-                    }
-                    else
-                    {
-                        //部門限制人數
-                        int _dep_count = (from dt in model.e03 where dt.e03_depno == user_depno && dt.e02_no == e02_no select dt.e03_people.Value).FirstOrDefault();
-                        //所屬部門已報名之人數
-                        int _dep_app = (from t1 in model.e04 where t1.e02_no == e02_no && t1.e04_depno == user_depno && _check.Contains(t1.e04_check) select t1).Count();
-                        if (_dep_count > 0 && _dep_app >= _dep_count)
-                        {
-                            ((Label)e.Row.FindControl("lab_msg")).Text = "部門人數已達上限";
-                        }
-                        else
-                        {
-                            //是否已經報名
-                            int peo_uid = Convert.ToInt32(sobj.sessionUserID);
-                            int e04_no = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_peouid == peo_uid && _check.Contains(t2.e04_check) select t2.e04_no).FirstOrDefault();
-                            if (e04_no == 0)
-                            {
-                                ((LinkButton)e.Row.FindControl("linkBut_1")).Visible = true;
-                            }
-                            else
-                            {
-                                ((LinkButton)e.Row.FindControl("linkBut_2")).Visible = true;
-                            }
-                        }
-                    }
+            if (DateTime.Now >= e02Data.e02_signdate.Value && DateTime.Now <= e02Data.e02_signedate.Value)
+            {
+                //報名人數
+                int _count = (from dd in model.e04 where dd.e02_no == e02_no && _check.Contains(dd.e04_check) select dd).Count();
+                if (_count >= e02Data.e02_people.Value)
+                {
+                    ((Label)e.Row.FindControl("lab_msg")).Text = "人數已達上限";
                 }
                 else
                 {
-                    ((Label)e.Row.FindControl("lab_msg")).Text = "報名已截止";
+                    //部門限制人數
+                    int _dep_count = (from dt in model.e03 where dt.e03_depno == user_depno && dt.e02_no == e02_no select dt.e03_people.Value).FirstOrDefault();
+                    //所屬部門已報名之人數
+                    int _dep_app = (from t1 in model.e04 where t1.e02_no == e02_no && t1.e04_depno == user_depno && _check.Contains(t1.e04_check) select t1).Count();
+                    if (_dep_count > 0 && _dep_app >= _dep_count)
+                    {
+                        ((Label)e.Row.FindControl("lab_msg")).Text = "部門人數已達上限";
+                    }
+                    else
+                    {
+                        //是否已經報名
+                        int peo_uid = Convert.ToInt32(sobj.sessionUserID);
+                        int e04_no = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_peouid == peo_uid && _check.Contains(t2.e04_check) select t2.e04_no).FirstOrDefault();
+                        if (e04_no == 0)
+                        {
+                            ((LinkButton)e.Row.FindControl("linkBut_1")).Visible = true;
+                        }
+                        else
+                        {
+                            ((LinkButton)e.Row.FindControl("linkBut_2")).Visible = true;
+                        }
+                    }
                 }
+
             }
             else
             {
-                ((Label)e.Row.FindControl("lab_msg")).Text = "報名尚未開始";
+                if (DateTime.Now < e02Data.e02_signdate.Value)
+                {
+                    ((Label)e.Row.FindControl("lab_msg")).Text = "報名尚未開始";
+                }
+                else if (DateTime.Now > e02Data.e02_signedate.Value)
+                {
+                    ((Label)e.Row.FindControl("lab_msg")).Text = "報名已截止";
+                }
+                else
+                {
+                    ((Label)e.Row.FindControl("lab_msg")).Text = "";
+                }
             }
-            
+
         }
     }
 
