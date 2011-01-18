@@ -48,11 +48,11 @@
                             <asp:ListItem Value="2">不記名</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
-                    <th>是否公佈結果</th>
+                    <th>是否公布結果</th>
                     <td>
                         <asp:RadioButtonList ID="rbl_open" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="1">公怖</asp:ListItem>
-                            <asp:ListItem Value="2">不公怖</asp:ListItem>
+                            <asp:ListItem Value="1">公布</asp:ListItem>
+                            <asp:ListItem Value="2">不公布</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>
                 </tr>
