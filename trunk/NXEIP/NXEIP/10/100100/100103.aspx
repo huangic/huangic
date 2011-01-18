@@ -135,8 +135,11 @@
             
             <div class="content">
                 <div class="photo_bg1">
+                    
+                     <asp:HyperLink ID="HyperLink3" CssClass="a-letter-t2" runat="server" NavigateUrl='<%# String.Format("100103-3.aspx?album={0}",Eval("Album.alb_no"))%>'>
                     <asp:Image ID="Image1" runat="server" CssClass="pic_01"  AlternateText='<%#Eval("Album.alb_name") %>' ImageUrl='<%# String.Format("100103-1.ashx?album={0}&photo={1}",Eval("Album.alb_no"),Eval("Album.alb_cover"))%>'/>
                   
+                  </asp:HyperLink>
                 </div>
 
                      
