@@ -124,6 +124,14 @@
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
+                <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
                 <div class="pager">
                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                         <Fields>

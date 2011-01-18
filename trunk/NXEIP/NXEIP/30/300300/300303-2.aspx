@@ -405,7 +405,9 @@
             <div class="h1">
             </div>
             <div class="h2">
-                <span style="color: Red">*</span>表必填欄位
+                <div class="name">
+                    <span style="color: Red">*</span>表必填欄位
+                </div>
             </div>
             <div class="h3">
             </div>
@@ -413,7 +415,6 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <table>
-                    <tbody>
                         <tr>
                             <th>
                                 學習機構
@@ -606,11 +607,17 @@
                                 分
                             </td>
                         </tr>
-                    </tbody>
                 </table>
             </ContentTemplate>
         </asp:UpdatePanel>
-        
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
         <div class="bottom">
             <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click"
                 OnClientClick="return checkInput()" />
