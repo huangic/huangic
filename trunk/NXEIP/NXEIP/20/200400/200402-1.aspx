@@ -121,6 +121,14 @@
                 </td>
             </tr>
         </table>
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
         <div class="bottom">
             <asp:Button ID="Button1" runat="server" CssClass="b-input" Text="報名課程" 
                 onclick="Button1_Click"/>

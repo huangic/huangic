@@ -64,6 +64,14 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
         <div class="bottom">
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="關閉" OnClientClick="self.parent.tb_remove()"
                 UseSubmitBehavior="false" />

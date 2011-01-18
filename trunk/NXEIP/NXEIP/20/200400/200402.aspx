@@ -54,7 +54,7 @@
                 <table>
                     <tr>
                         <td>
-                            起迄時間：起&nbsp;<uc4:calendar ID="calendar1" runat="server" _Show="false" />
+                            上課起迄時間：起&nbsp;<uc4:calendar ID="calendar1" runat="server" _Show="false" />
                             &nbsp; 迄&nbsp;<uc4:calendar ID="calendar2" runat="server" />
                         </td>
                     </tr>
@@ -126,10 +126,18 @@
                                 <asp:LinkButton ID="linkBut_2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="cancel" OnClientClick=" return confirm('確定要取消報名?')">取消報名</asp:LinkButton>
                                 <asp:Label ID="lab_msg" runat="server" ></asp:Label>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="10%" />
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
+                <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
                 <div class="pager">
                     <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
                         <Fields>
