@@ -17,12 +17,12 @@ public partial class _35_350100_350101_1 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             String mode = Request.QueryString["mode"];
-            int rol_no = int.Parse(Request.QueryString["ID"]);
-
-            this.hidden_role_no.Value = rol_no.ToString();
 
             if (mode != null && mode.Equals("edit"))
             {
+                int rol_no = int.Parse(Request.QueryString["ID"]);
+                this.hidden_role_no.Value = rol_no.ToString();
+
                 //取角色資料
                 role data = (from d in model.role where d.rol_no == rol_no select d).FirstOrDefault();
                 this.tbx_role_name.Text = data.rol_name;
