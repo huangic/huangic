@@ -1,55 +1,42 @@
-
-/*大外框*/
 #calendarDiv {
 	display: block;
 	display: none;
 	position: relative;
-	border: 1px solid #496D91;
-	
+	border: 1px solid #009966;
+	z-index:9999;
 }
 #calendarDiv a {
 	cursor: pointer;
 }
-
 #calendar {
-	background: #ddd;
-	clear: both;
+    background: #23743e;
+ 	clear: both; 
 	text-align: center;
 	font-size: 105%;
 }
 #calendar, #linksTable {
 	width: 180px;
 }
-/*2010底色*/
 #calendar .calendarHeader {
-	background: #24849F;
-	border-bottom: 1px solid #496d91;
-	color: #fff;
+	background: #007341;
+	border-bottom: 1px solid #444;
+	color: #FDF26A;
 }
-/*日一二底色*/
 #calendar .weekDaysTitleRow {
-	/*background: #777;*/
-	background: #D4D0C8;
-	color: #000;
+	background: #E7F8C0;
+	color: #333;
 }
-/*cell底色*/
 #calendar .weekDaysRow {
-	/*background: #eee;*/
-	background: #fff;
-	color: #666;
+	background: #fbffee;
+    color: #666;
 }
-/*cell*/
 #calendar .weekDaysCell {
 	color: #000;
-	/*border: 1px solid #ddd;*/
-	border: 1px solid  #496d91;
+	border: 1px solid #acd156;
 }
 #calendar .weekDaysCellOver {
-	/*background: #fff;*/
-	background:#FEF485;
+	background: #FDF486;
     border: 1px solid #777;
-
-	
 }
 #closeCalender {
 	position: absolute;
@@ -60,26 +47,27 @@
 	padding: 2px;
 	cursor: pointer;
 	font-size: 60%;
-	background: #F0F8FF;;
+	background: #CEE39B;
+	color:#333;
 }
 #closeCalender:hover {
-	background: #30459A;
-	color: #fff;
+	background:  #F0FBD7;
+	color: #333;
 }
 #linksTable {
-	background: #808BB5;
+	background: #CBE296;
 }
-/*link word color*/
+
 #linksTable a {
 	display: block;
-	color: #fff;
+ 	color: #000; 
 	letter-spacing: 1px;
 	font-weight: bold;
 	font-size: 80%;
 	padding: 2px 5px;
 }
 #linksTable a:hover {
-	background: #F0F8FF;
+ 	background: #F0FBD7; 
 	color: #333;
 }
 #prevMonth {
@@ -89,9 +77,5 @@
 	float: right;
 }
 #today {
-	background:#7EDBE2;
+	background: #CBE296;
 }
-ock;
-	padding: 2px;
-	cursor: pointer;
-	font-size: 60%;
