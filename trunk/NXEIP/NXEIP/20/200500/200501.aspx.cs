@@ -20,6 +20,7 @@ public partial class _20_200500_200501 : System.Web.UI.Page
                 using (NXEIPEntities model = new NXEIPEntities())
                 {
                     int sfu_no = int.Parse(Request.QueryString["sfu_no"]);
+                    this.Navigator1.SysFuncNo = sfu_no.ToString();
                     string sfu_name = (from d in model.sysfuction where d.sfu_no == sfu_no select d.sfu_name).FirstOrDefault();
 
                     this.lab_newtitle.Text = sfu_name;
