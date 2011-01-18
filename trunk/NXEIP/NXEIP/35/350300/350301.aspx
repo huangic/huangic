@@ -147,6 +147,14 @@
                 </td>
             </tr>
         </table>
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
         <div class="bottom">
             <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" OnClick="btn_ok_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
