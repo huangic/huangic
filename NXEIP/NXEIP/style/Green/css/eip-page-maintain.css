@@ -1633,7 +1633,7 @@
 
 
 
-/*應用程式中心new*/
+/*網路相片new*/
 
 .photo {
 	width: 1000px;
@@ -1654,12 +1654,7 @@
 	color: #FF0000;
 	text-decoration: none;
 }
-/*.photo .boxA {
-	width: 100%;
-	margin-top: 5px;
-	background-color: #D4D0C8;
-	height: 666px;
-	}*/
+
 .photo .box {
 	width: 100%;
 	margin-bottom: 6px;
@@ -1685,10 +1680,7 @@
 	width: 18%;
 	float: left;
 	padding-left: 20px;
-	padding-bottom: 8px;
-	
-	
-	
+	padding-bottom: 8px;	
 }
 
 .photo .box .b1 {
@@ -1761,8 +1753,9 @@
 	height: 77px;
 	width: 102px;
 	margin-top: 36px;
-	/*margin-left: 19px; */
-	border: 1px solid #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
 }
 .photo .pic_02 {
 	/*background-image: url(../image/photo_02.jpg);
@@ -1772,7 +1765,9 @@
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 23px;
-	border: 1px solid #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
 }
 .photo .box .ps2 {
 	width: 150px;
