@@ -43,7 +43,7 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
 
             if (!Request["name"].Equals(""))
             {
-                sql += " and people.peo_name like N '%" + Request["name"] + "%'";
+                sql += " and people.peo_name like N'%" + Request["name"] + "%'";
             }
 
             if (!Request["account"].Equals(""))
