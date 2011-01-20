@@ -28,13 +28,14 @@
                 <tr>
                     <th>開放功能</th>
                     <td>
-                        <asp:CheckBoxList ID="cbl_function" runat="server" RepeatColumns="5" 
+                        <asp:CheckBoxList ID="cbl_function" runat="server" RepeatColumns="4" 
                             RepeatDirection="Horizontal" CellPadding="0" CellSpacing="0" Width="400px">
                             <asp:ListItem Value="1">美食區</asp:ListItem>
                             <asp:ListItem Value="2">樓層介紹</asp:ListItem>
                             <asp:ListItem Value="3">合作社</asp:ListItem>
                             <asp:ListItem Value="4">維修登錄</asp:ListItem>
                             <asp:ListItem Value="5">場地申請</asp:ListItem>
+                            <asp:ListItem Value="6">設備借用</asp:ListItem>
                         </asp:CheckBoxList>
                     </td>
                 </tr>
