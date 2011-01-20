@@ -167,11 +167,8 @@
             
                 </div>
                 <div class="ps3">
-                  
-                    <%#Eval("Count") %> 張相片
-                    
-                 
-                 </div>
+                     <%#Eval("Count") %> 張相片
+                </div>
 
 
 
