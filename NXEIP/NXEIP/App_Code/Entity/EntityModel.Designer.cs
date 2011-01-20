@@ -11986,6 +11986,54 @@ namespace Entity
         private Nullable<global::System.DateTime> _equ_createtime;
         partial void Onequ_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onequ_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String equ_stime
+        {
+            get
+            {
+                return _equ_stime;
+            }
+            set
+            {
+                Onequ_stimeChanging(value);
+                ReportPropertyChanging("equ_stime");
+                _equ_stime = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("equ_stime");
+                Onequ_stimeChanged();
+            }
+        }
+        private global::System.String _equ_stime;
+        partial void Onequ_stimeChanging(global::System.String value);
+        partial void Onequ_stimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String equ_etime
+        {
+            get
+            {
+                return _equ_etime;
+            }
+            set
+            {
+                Onequ_etimeChanging(value);
+                ReportPropertyChanging("equ_etime");
+                _equ_etime = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("equ_etime");
+                Onequ_etimeChanged();
+            }
+        }
+        private global::System.String _equ_etime;
+        partial void Onequ_etimeChanging(global::System.String value);
+        partial void Onequ_etimeChanged();
 
         #endregion
     
