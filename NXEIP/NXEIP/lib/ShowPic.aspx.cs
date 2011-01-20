@@ -21,9 +21,10 @@ public partial class lib_ShowPic : System.Web.UI.Page
             {
                 using (NXEIPEntities model = new NXEIPEntities())
                 {
-                    #region 場地圖片
+                    
                     if (tb.Equals("rooms"))
                     {
+                        #region 場地圖片
                         rooms rooms1 = (from r in model.rooms where r.roo_no == pkno select r).FirstOrDefault();
                         if (rooms1 != null)
                         {
@@ -44,8 +45,17 @@ public partial class lib_ShowPic : System.Web.UI.Page
                                 }
                             }
                         }
+                        #endregion
                     }
-                    #endregion
+                    else if (tb.Equals("equipments"))
+                    {
+                        equipments equ1 = (from equ in model.equipments where equ.equ_no == pkno select equ).FirstOrDefault();
+                        if (equ1 != null)
+                        {
+                            filename = equ1.equ_pictype;
+                            files1 = equ1.equ_pic;
+                        }
+                    }
                 }
                 if (filename.Length > 0)
                 {
@@ -61,6 +71,4 @@ public partial class lib_ShowPic : System.Web.UI.Page
             }
         }
     }
-
-    
 }
