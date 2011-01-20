@@ -872,6 +872,8 @@
           <Property Name="equ_status" Type="char" MaxLength="1" />
           <Property Name="equ_createuid" Type="int" />
           <Property Name="equ_createtime" Type="datetime" />
+          <Property Name="equ_stime" Type="varchar" MaxLength="6" />
+          <Property Name="equ_etime" Type="varchar" MaxLength="6" />
         </EntityType>
         <EntityType Name="floors">
           <Key>
@@ -5064,6 +5066,8 @@
           <Property Type="DateTime" Name="equ_createtime" />
           <NavigationProperty Name="people" Relationship="NXEIPModel.FK_EQUIPMEN_RELATIONS_PEOPLE" FromRole="equipments" ToRole="people" />
           <NavigationProperty Name="spot" Relationship="NXEIPModel.FK_EQUIPMEN_RELATIONS_SPOT" FromRole="equipments" ToRole="spot" />
+          <Property Type="String" Name="equ_stime" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="equ_etime" MaxLength="6" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_EQUIPMEN_RELATIONS_PEOPLE">
           <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
@@ -6154,6 +6158,8 @@
           <EntitySetMapping Name="equipments">
             <EntityTypeMapping TypeName="NXEIPModel.equipments">
               <MappingFragment StoreEntitySet="equipments">
+                <ScalarProperty Name="equ_etime" ColumnName="equ_etime" />
+                <ScalarProperty Name="equ_stime" ColumnName="equ_stime" />
                 <ScalarProperty Name="equ_createtime" ColumnName="equ_createtime" />
                 <ScalarProperty Name="equ_createuid" ColumnName="equ_createuid" />
                 <ScalarProperty Name="equ_status" ColumnName="equ_status" />
@@ -6206,7 +6212,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="EntityModel" ShowGrid="false" ZoomLevel="86">
+      <Diagram Name="EntityModel" ShowGrid="false" ZoomLevel="85">
         <EntityTypeShape EntityType="NXEIPModel.accounts" Width="1.5" PointX="5.125" PointY="10.25" Height="2.5532031249999996" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.arguments" Width="1.5" PointX="0.5" PointY="0.5" Height="1.673483072916667" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.block" Width="1.5" PointX="8.875" PointY="0.5" Height="2.7291471354166661" IsExpanded="true" />
