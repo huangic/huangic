@@ -15,7 +15,7 @@ public partial class _30_300500_300501 : System.Web.UI.Page
         {
             OperatesObject.OperatesExecute(300501, new SessionObject().sessionUserID, 2, "查詢類別管理");
         }
-        else
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
             this.GridView1.DataBind();
         }
