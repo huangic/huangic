@@ -1409,6 +1409,22 @@ namespace Entity
             }
         }
         private ObjectSet<equipments> _equipments;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<foods> foods
+        {
+            get
+            {
+                if ((_foods == null))
+                {
+                    _foods = base.CreateObjectSet<foods>("foods");
+                }
+                return _foods;
+            }
+        }
+        private ObjectSet<foods> _foods;
 
         #endregion
         #region AddTo 方法
@@ -2043,6 +2059,14 @@ namespace Entity
         public void AddToequipments(equipments equipments)
         {
             base.AddObject("equipments", equipments);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 foods EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTofoods(foods foods)
+        {
+            base.AddObject("foods", foods);
         }
 
         #endregion
@@ -12334,6 +12358,277 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="foods")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class foods : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 foods 物件。
+        /// </summary>
+        /// <param name="foo_no">foo_no 屬性的初始值。</param>
+        public static foods Createfoods(global::System.Int32 foo_no)
+        {
+            foods foods = new foods();
+            foods.foo_no = foo_no;
+            return foods;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 foo_no
+        {
+            get
+            {
+                return _foo_no;
+            }
+            set
+            {
+                if (_foo_no != value)
+                {
+                    Onfoo_noChanging(value);
+                    ReportPropertyChanging("foo_no");
+                    _foo_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("foo_no");
+                    Onfoo_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _foo_no;
+        partial void Onfoo_noChanging(global::System.Int32 value);
+        partial void Onfoo_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> foo_s06no
+        {
+            get
+            {
+                return _foo_s06no;
+            }
+            set
+            {
+                Onfoo_s06noChanging(value);
+                ReportPropertyChanging("foo_s06no");
+                _foo_s06no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("foo_s06no");
+                Onfoo_s06noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _foo_s06no;
+        partial void Onfoo_s06noChanging(Nullable<global::System.Int32> value);
+        partial void Onfoo_s06noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_name
+        {
+            get
+            {
+                return _foo_name;
+            }
+            set
+            {
+                Onfoo_nameChanging(value);
+                ReportPropertyChanging("foo_name");
+                _foo_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_name");
+                Onfoo_nameChanged();
+            }
+        }
+        private global::System.String _foo_name;
+        partial void Onfoo_nameChanging(global::System.String value);
+        partial void Onfoo_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_tel
+        {
+            get
+            {
+                return _foo_tel;
+            }
+            set
+            {
+                Onfoo_telChanging(value);
+                ReportPropertyChanging("foo_tel");
+                _foo_tel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_tel");
+                Onfoo_telChanged();
+            }
+        }
+        private global::System.String _foo_tel;
+        partial void Onfoo_telChanging(global::System.String value);
+        partial void Onfoo_telChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_www
+        {
+            get
+            {
+                return _foo_www;
+            }
+            set
+            {
+                Onfoo_wwwChanging(value);
+                ReportPropertyChanging("foo_www");
+                _foo_www = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_www");
+                Onfoo_wwwChanged();
+            }
+        }
+        private global::System.String _foo_www;
+        partial void Onfoo_wwwChanging(global::System.String value);
+        partial void Onfoo_wwwChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_area
+        {
+            get
+            {
+                return _foo_area;
+            }
+            set
+            {
+                Onfoo_areaChanging(value);
+                ReportPropertyChanging("foo_area");
+                _foo_area = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_area");
+                Onfoo_areaChanged();
+            }
+        }
+        private global::System.String _foo_area;
+        partial void Onfoo_areaChanging(global::System.String value);
+        partial void Onfoo_areaChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_descript
+        {
+            get
+            {
+                return _foo_descript;
+            }
+            set
+            {
+                Onfoo_descriptChanging(value);
+                ReportPropertyChanging("foo_descript");
+                _foo_descript = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_descript");
+                Onfoo_descriptChanged();
+            }
+        }
+        private global::System.String _foo_descript;
+        partial void Onfoo_descriptChanging(global::System.String value);
+        partial void Onfoo_descriptChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String foo_status
+        {
+            get
+            {
+                return _foo_status;
+            }
+            set
+            {
+                Onfoo_statusChanging(value);
+                ReportPropertyChanging("foo_status");
+                _foo_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("foo_status");
+                Onfoo_statusChanged();
+            }
+        }
+        private global::System.String _foo_status;
+        partial void Onfoo_statusChanging(global::System.String value);
+        partial void Onfoo_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> foo_createuid
+        {
+            get
+            {
+                return _foo_createuid;
+            }
+            set
+            {
+                Onfoo_createuidChanging(value);
+                ReportPropertyChanging("foo_createuid");
+                _foo_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("foo_createuid");
+                Onfoo_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _foo_createuid;
+        partial void Onfoo_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onfoo_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> foo_createtime
+        {
+            get
+            {
+                return _foo_createtime;
+            }
+            set
+            {
+                Onfoo_createtimeChanging(value);
+                ReportPropertyChanging("foo_createtime");
+                _foo_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("foo_createtime");
+                Onfoo_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _foo_createtime;
+        partial void Onfoo_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onfoo_createtimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
