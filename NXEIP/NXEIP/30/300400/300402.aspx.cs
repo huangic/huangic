@@ -508,7 +508,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
                     dt = dbo.ExecuteQuery(sqlstr);
                     if (dt.Rows.Count > 0)
                     {
-                        Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
+                        ShowMsg("此 場地[" + this.txt_name.Text + "] 已存在");
                         return;
                     }
                     else
@@ -580,7 +580,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
                     dt = dbo.ExecuteQuery(sqlstr);
                     if (dt.Rows.Count > 0)
                     {
-                        Response.Write("<script>alert(\"此 場地[" + this.txt_name.Text + "] 已存在\");</script>");
+                        ShowMsg("此 場地[" + this.txt_name.Text + "] 已存在");
                         return;
                     }
                     else
