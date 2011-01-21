@@ -31,5 +31,6 @@ namespace NXEIP.DAO
                 return (from d in model.spot where d.spo_status=="1" && d.spo_function.Substring(1,1)=="1" select d);
         }
 
+        
     }
 }

@@ -62,11 +62,21 @@ namespace NXEIP.DAO
             return model.SaveChanges();
         }
 
+        /// <summary>
+        /// 取得某功能之所有類別
+        /// </summary>
+        /// <param name="sfu_no"></param>
+        /// <returns></returns>
         public IQueryable<sys06> GetS06FromSufNOAll(int sfu_no)
         {
             return (from d in model.sys06 where d.sfu_no == sfu_no && d.s06_status == "1" select d);
         }
 
+        /// <summary>
+        /// 取得某功能之所有類別(level = 1)
+        /// </summary>
+        /// <param name="suf_no"></param>
+        /// <returns></returns>
         public IQueryable<sys06> GetS06FromSufNO(int suf_no) { 
             return (from d in model.sys06 where d.s06_level==1 && d.sfu_no==suf_no && d.s06_status=="1" select d);
         }
