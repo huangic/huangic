@@ -86,6 +86,8 @@ public partial class _10_100100_100102 : System.Web.UI.Page
         pdata.peo_officetel = this.tbox_offtel.Text;
         pdata.peo_cellphone = this.tbox_phone.Text;
         pdata.peo_tel = this.tbox_tel.Text;
+        pdata.peo_arrivedate = this.calendar1._ADDate;
+        pdata.peo_birthday = this.calendar2._ADDate;
 
         //照片
         if (!this.FileUpload1.Get_FileName.Equals(""))
