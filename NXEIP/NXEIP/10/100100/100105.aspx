@@ -68,7 +68,9 @@
 	            <h3><a href="#">搜尋</a></h3>
 	        <div id="shereFolder">
 	            檔名<input id="searchName" type="text" /><br/>
-               關鍵字<input id="searchContext" type="text" />	<br/>
+                <!--
+                關鍵字<input id="searchContext" type="text" />	<br/>
+                -->
 	             <input id="searchButton" type="button" title="搜尋" value="搜尋" />   
 	    
 	       </div>
