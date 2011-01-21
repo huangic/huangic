@@ -184,6 +184,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             string src = "../../lib/ShowPic.aspx?tb=rooms&picorder=2&pkno=" + this.lab_no.Text;
             this.div_pic2.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"場地平面圖\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
             this.lbtn_delpic2.Visible = true;
+            this.Panel2.Visible = true;
         }
         else
         {

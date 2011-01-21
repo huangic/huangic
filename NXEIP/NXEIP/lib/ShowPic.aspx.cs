@@ -21,7 +21,7 @@ public partial class lib_ShowPic : System.Web.UI.Page
             {
                 using (NXEIPEntities model = new NXEIPEntities())
                 {
-                    
+
                     if (tb.Equals("rooms"))
                     {
                         #region 場地圖片
@@ -49,12 +49,14 @@ public partial class lib_ShowPic : System.Web.UI.Page
                     }
                     else if (tb.Equals("equipments"))
                     {
+                        #region 設備圖片
                         equipments equ1 = (from equ in model.equipments where equ.equ_no == pkno select equ).FirstOrDefault();
                         if (equ1 != null)
                         {
                             filename = equ1.equ_pictype;
                             files1 = equ1.equ_pic;
                         }
+                        #endregion
                     }
                 }
                 if (filename.Length > 0)

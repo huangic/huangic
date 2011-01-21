@@ -77,11 +77,11 @@ public class place : System.Web.Services.WebService {
                     defultv = ckey[1]; //場所預設值
                 }
                 DataTable dt = new DataTable();
-                string sqlstr1 = "SELECT DISTINCT rooms.roo_no, rooms.roo_name FROM rooms LEFT OUTER JOIN government ON rooms.roo_no = government.roo_no"
+                string sqlstr = "SELECT DISTINCT rooms.roo_no, rooms.roo_name FROM rooms LEFT OUTER JOIN government ON rooms.roo_no = government.roo_no"
                     + " WHERE (rooms.roo_status = '1') AND (rooms.roo_dep = '1') AND (rooms.spo_no = " + kv["spot"] + ") "
                     + " OR (rooms.roo_status = '1') AND (rooms.roo_dep = '2') AND (government.gov_depno = " + ldep_no + ") AND (rooms.spo_no =" + kv["spot"] + ")"
                     + " order by rooms.roo_no";
-                string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + kv["spot"] + " order by roo_no";
+                //string sqlstr = "select roo_no,roo_name from rooms where roo_status='1' and spo_no=" + kv["spot"] + " order by roo_no";
                 dt = dbo.ExecuteQuery(sqlstr);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
