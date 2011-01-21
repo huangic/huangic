@@ -95,6 +95,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_PHOTO_RELATIONS_ALBUM", "album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.album), "photo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.photo), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_EQUIPMEN_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "equipments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.equipments), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_EQUIPMEN_RELATIONS_SPOT", "spot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.spot), "equipments", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.equipments), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_BORROWS_RELATIONS_EQUIPMEN", "equipments", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.equipments), "borrows", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.borrows), true)]
 
 #endregion
 
@@ -1425,6 +1426,22 @@ namespace Entity
             }
         }
         private ObjectSet<foods> _foods;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<borrows> borrows
+        {
+            get
+            {
+                if ((_borrows == null))
+                {
+                    _borrows = base.CreateObjectSet<borrows>("borrows");
+                }
+                return _borrows;
+            }
+        }
+        private ObjectSet<borrows> _borrows;
 
         #endregion
         #region AddTo 方法
@@ -2067,6 +2084,14 @@ namespace Entity
         public void AddTofoods(foods foods)
         {
             base.AddObject("foods", foods);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 borrows EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToborrows(borrows borrows)
+        {
+            base.AddObject("borrows", borrows);
         }
 
         #endregion
@@ -3485,6 +3510,440 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<widget>("NXEIPModel.FK_BLCOK_RELATIONS_WIDGET", "widget", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="borrows")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class borrows : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 borrows 物件。
+        /// </summary>
+        /// <param name="bor_no">bor_no 屬性的初始值。</param>
+        /// <param name="equ_no">equ_no 屬性的初始值。</param>
+        public static borrows Createborrows(global::System.Int32 bor_no, global::System.Int32 equ_no)
+        {
+            borrows borrows = new borrows();
+            borrows.bor_no = bor_no;
+            borrows.equ_no = equ_no;
+            return borrows;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 bor_no
+        {
+            get
+            {
+                return _bor_no;
+            }
+            set
+            {
+                if (_bor_no != value)
+                {
+                    Onbor_noChanging(value);
+                    ReportPropertyChanging("bor_no");
+                    _bor_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("bor_no");
+                    Onbor_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _bor_no;
+        partial void Onbor_noChanging(global::System.Int32 value);
+        partial void Onbor_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 equ_no
+        {
+            get
+            {
+                return _equ_no;
+            }
+            set
+            {
+                Onequ_noChanging(value);
+                ReportPropertyChanging("equ_no");
+                _equ_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("equ_no");
+                Onequ_noChanged();
+            }
+        }
+        private global::System.Int32 _equ_no;
+        partial void Onequ_noChanging(global::System.Int32 value);
+        partial void Onequ_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bor_applydate
+        {
+            get
+            {
+                return _bor_applydate;
+            }
+            set
+            {
+                Onbor_applydateChanging(value);
+                ReportPropertyChanging("bor_applydate");
+                _bor_applydate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_applydate");
+                Onbor_applydateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bor_applydate;
+        partial void Onbor_applydateChanging(Nullable<global::System.DateTime> value);
+        partial void Onbor_applydateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bor_stime
+        {
+            get
+            {
+                return _bor_stime;
+            }
+            set
+            {
+                Onbor_stimeChanging(value);
+                ReportPropertyChanging("bor_stime");
+                _bor_stime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_stime");
+                Onbor_stimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bor_stime;
+        partial void Onbor_stimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onbor_stimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bor_etime
+        {
+            get
+            {
+                return _bor_etime;
+            }
+            set
+            {
+                Onbor_etimeChanging(value);
+                ReportPropertyChanging("bor_etime");
+                _bor_etime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_etime");
+                Onbor_etimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bor_etime;
+        partial void Onbor_etimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onbor_etimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bor_applyuid
+        {
+            get
+            {
+                return _bor_applyuid;
+            }
+            set
+            {
+                Onbor_applyuidChanging(value);
+                ReportPropertyChanging("bor_applyuid");
+                _bor_applyuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_applyuid");
+                Onbor_applyuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bor_applyuid;
+        partial void Onbor_applyuidChanging(Nullable<global::System.Int32> value);
+        partial void Onbor_applyuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bor_depno
+        {
+            get
+            {
+                return _bor_depno;
+            }
+            set
+            {
+                Onbor_depnoChanging(value);
+                ReportPropertyChanging("bor_depno");
+                _bor_depno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_depno");
+                Onbor_depnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bor_depno;
+        partial void Onbor_depnoChanging(Nullable<global::System.Int32> value);
+        partial void Onbor_depnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bor_tel
+        {
+            get
+            {
+                return _bor_tel;
+            }
+            set
+            {
+                Onbor_telChanging(value);
+                ReportPropertyChanging("bor_tel");
+                _bor_tel = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bor_tel");
+                Onbor_telChanged();
+            }
+        }
+        private global::System.String _bor_tel;
+        partial void Onbor_telChanging(global::System.String value);
+        partial void Onbor_telChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bor_reason
+        {
+            get
+            {
+                return _bor_reason;
+            }
+            set
+            {
+                Onbor_reasonChanging(value);
+                ReportPropertyChanging("bor_reason");
+                _bor_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bor_reason");
+                Onbor_reasonChanged();
+            }
+        }
+        private global::System.String _bor_reason;
+        partial void Onbor_reasonChanging(global::System.String value);
+        partial void Onbor_reasonChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bor_apply
+        {
+            get
+            {
+                return _bor_apply;
+            }
+            set
+            {
+                Onbor_applyChanging(value);
+                ReportPropertyChanging("bor_apply");
+                _bor_apply = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bor_apply");
+                Onbor_applyChanged();
+            }
+        }
+        private global::System.String _bor_apply;
+        partial void Onbor_applyChanging(global::System.String value);
+        partial void Onbor_applyChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bor_signuid
+        {
+            get
+            {
+                return _bor_signuid;
+            }
+            set
+            {
+                Onbor_signuidChanging(value);
+                ReportPropertyChanging("bor_signuid");
+                _bor_signuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_signuid");
+                Onbor_signuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bor_signuid;
+        partial void Onbor_signuidChanging(Nullable<global::System.Int32> value);
+        partial void Onbor_signuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bor_signdate
+        {
+            get
+            {
+                return _bor_signdate;
+            }
+            set
+            {
+                Onbor_signdateChanging(value);
+                ReportPropertyChanging("bor_signdate");
+                _bor_signdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_signdate");
+                Onbor_signdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bor_signdate;
+        partial void Onbor_signdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onbor_signdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String bor_reject
+        {
+            get
+            {
+                return _bor_reject;
+            }
+            set
+            {
+                Onbor_rejectChanging(value);
+                ReportPropertyChanging("bor_reject");
+                _bor_reject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("bor_reject");
+                Onbor_rejectChanged();
+            }
+        }
+        private global::System.String _bor_reject;
+        partial void Onbor_rejectChanging(global::System.String value);
+        partial void Onbor_rejectChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> bor_createuid
+        {
+            get
+            {
+                return _bor_createuid;
+            }
+            set
+            {
+                Onbor_createuidChanging(value);
+                ReportPropertyChanging("bor_createuid");
+                _bor_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_createuid");
+                Onbor_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _bor_createuid;
+        partial void Onbor_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onbor_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> bor_createtime
+        {
+            get
+            {
+                return _bor_createtime;
+            }
+            set
+            {
+                Onbor_createtimeChanging(value);
+                ReportPropertyChanging("bor_createtime");
+                _bor_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bor_createtime");
+                Onbor_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _bor_createtime;
+        partial void Onbor_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onbor_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BORROWS_RELATIONS_EQUIPMEN", "equipments")]
+        public equipments equipments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<equipments>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "equipments").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<equipments>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "equipments").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<equipments> equipmentsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<equipments>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "equipments");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<equipments>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "equipments", value);
                 }
             }
         }
@@ -12111,6 +12570,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<spot>("NXEIPModel.FK_EQUIPMEN_RELATIONS_SPOT", "spot", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_BORROWS_RELATIONS_EQUIPMEN", "borrows")]
+        public EntityCollection<borrows> borrows
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<borrows>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "borrows");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<borrows>("NXEIPModel.FK_BORROWS_RELATIONS_EQUIPMEN", "borrows", value);
                 }
             }
         }
