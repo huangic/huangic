@@ -70,7 +70,7 @@
             </div>
             <div class="h2">
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="300901-1.aspx?modal=true&TB_iframe=true&height=300&width=600""
+                    <input type="button" class="thickbox b-input" alt="300901-1.aspx?modal=true&TB_iframe=true&height=400&width=600""
                         value="新增表單" />
                 </div>
             </div>
