@@ -276,7 +276,7 @@
 
         function checkDataInput() {
             var c = true;
-            if ($('#<%=ddl_type_2.ClientID%>').val() == '請選擇') {
+            if ($('#<%=ddl_type_2.ClientID%>').val() == '0') {
                 alert('請選擇課程類別!');
                 c = false;
             }

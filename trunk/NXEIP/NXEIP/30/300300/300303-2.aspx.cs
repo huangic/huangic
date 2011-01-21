@@ -239,6 +239,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         data.e01_no = Convert.ToInt32(this.ddl_e01.SelectedValue);
         //課程類別
         data.typ_no = Convert.ToInt32(this.ddl_type_2.SelectedValue);
+
         //上課縣市代碼
         try
         {
