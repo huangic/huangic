@@ -198,6 +198,7 @@
                         </asp:TemplateField>
                      
                          <asp:TemplateField HeaderText="上傳人員">
+                            <HeaderStyle Width="100px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label5" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d09_peouid")) %>'></asp:Label>
 
@@ -228,6 +229,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="狀態">
+                             <HeaderStyle Width="50px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label7" runat="server" Text='<%# GetStatus((String)Eval("d09_status")) %>'></asp:Label>
                             </ItemTemplate>
@@ -257,7 +259,7 @@
                                     </SelectParameters>
                                 </asp:ObjectDataSource>
                             </ItemTemplate>
-                            <HeaderStyle Width="350px" />
+                            <HeaderStyle Width="300px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
