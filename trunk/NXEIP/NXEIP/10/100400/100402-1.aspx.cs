@@ -214,6 +214,13 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
     #region 檢查輸入值
     private bool CheckInputValue()
     {
+        #region 使用時限
+        if (this.ddl_usehour.SelectedValue.Equals("0"))
+        {
+            ShowMSG("請選擇 使用時限");
+            return false;
+        }
+        #endregion
         #region 人事編號
         if (this.txt_host.Text.Trim().Length <= 0)
         {
