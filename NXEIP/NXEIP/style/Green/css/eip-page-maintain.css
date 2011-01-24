@@ -253,7 +253,7 @@
 	width: 100px;
 	line-height: 28px;
 }
-.talk .box .headt2{
+/*.talk .box .headt2{
 	font-size: 13px;
 	color: #333333;
 	text-decoration: none;
@@ -261,8 +261,8 @@
 	text-indent: 6px;
 	line-height: 24px;
 	background-color: #F7fdea;
-}
- .talk .box .head {
+}*/
+ .talk .box .head, .talk .box th {
 	padding: 4px;
 	height: 20px;
 	font-size: 13px;
@@ -323,7 +323,7 @@
 	}
 	
 .talk .box .t2 {
-	width: 358px;
+	width: 324px;
 	float: left;
 	border-bottom-width: 1px;
 	border-bottom-style: dashed;
@@ -341,13 +341,13 @@
 	text-decoration: none;
 }
 .talk .box .t3 {
-	width: 358px;
+	width: 324px;
 	float: left;
 	margin-top: 2px;
 	margin-bottom: 2px;
 }
 .talk .box .t4 {
-	width: 150px;
+	width: 120px;
 	float: left;
 	height: 20px;
 }
@@ -356,7 +356,7 @@
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
-	width:400px;
+	width:360px;
 	background-color: #fefef1;
 	padding-top: 4px;
 	padding-right: 4px;
@@ -366,7 +366,7 @@
 }
 
 .talk .box .row2_bg {
-	width: 150px;
+	width: 120px;
 	background-color: #fefef1;
 	font-size: 13px;
 	color: #666666;
@@ -378,7 +378,7 @@
 
 .talk .box .row3_bg {
 	background-color: #fefef1;
-	width: 110px;
+	width: 56px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -396,7 +396,7 @@
 }
 .talk .box .row5_bg {
 	background-color: #fefef1;
-	width: 67px;
+	width: 40px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -405,7 +405,7 @@
 }
 .talk .box .row6_bg {
 	background-color: #fefef1;
-	width: 66px;
+	width: 90px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -414,14 +414,14 @@
 }
 .talk .box .row7_bg {
 	background-color: #fefef1;
-	width: 80px;
+	width: 76px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
 	padding: 4px;
 	text-align: center;
 }
-.talk .box .row8_bg {
+/*.talk .box .row8_bg {
 	background-color: #fefef1;
 	width: 80px;
 	font-size: 8px;
@@ -429,8 +429,8 @@
 	text-decoration: none;
 	padding: 4px;
 	text-align: center;
-}
-.talk .box .row9_bg {
+}*/
+/*.talk .box .row9_bg {
 	background-color: #fefef1;
 	width: 30px;
 	font-size: 8px;
@@ -438,7 +438,7 @@
 	text-decoration: none;
 	padding: 4px;
 	text-align: center;
-}
+}*/
 .talk .box .row10_bg {
 	width: 150px;
 	background-color: #FEFEE7;
@@ -450,7 +450,7 @@
 	height: 14px;
 }
 .talk .box .t5 {
-	width: 150px;
+	width: 120px;
 	float: left;
 }
 .talk .arrow_ms02 {
@@ -467,7 +467,7 @@
 }
 
 .talk .box .name {
-	width: 120px;
+	width: 100px;
 	float: left;
 	height: 20px;
 }
@@ -555,10 +555,10 @@
 .talkn .title2 {
 	width: 86%;
 	margin-left: 10px;
-	height: 34px;
+	height: 30px;
 	float: left;
 }
-.talkn .title3 {
+/*.talkn .title3 {
 	width: 98%;
 	font-size: 13px;
 	color: #333333;
@@ -572,7 +572,7 @@
 }
 .talkn .title3 ul li {
 	float: right;
-}
+}*/
 
 .talkn .box2 {
 	width: 100%;
@@ -683,11 +683,11 @@
 }
 
 .talkn .b4 {
-	width: 40px;
+	width: 62px;
 	float: right;
 	background-repeat: repeat;
 	border: 1px solid #ACD156;
-	background-color: #F0F9D8;
+	background-color: #EDF9CE;
 	text-align: center;
 	font-size: 13px;
 	line-height: 20px;
@@ -702,7 +702,7 @@
 	float: right;
 	background-repeat: repeat;
 	border: 1px solid #ACD156;
-	background-color: #F0F9D8;
+	background-color: #edf9ce;
 	text-align: center;
 	font-size: 13px;
 	line-height: 20px;
@@ -713,23 +713,59 @@
 	margin-top: 4px;
 	margin-bottom: 4px;
 }
-.talkn .b0 {
-	width: 60%;
-	margin-bottom: 22px;
+.talkn .b7 {
+	width: 80px;
+	float: right;
+	background-repeat: repeat;
+	border: 1px solid #ACD156;
+	background-color: #edf9ce;
+	text-align: center;
+	font-size: 13px;
+	line-height: 20px;
+	color: #333333;
 	text-decoration: none;
+	height: 22px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 10px;
+}
+.talkn .b8 {
+	width: 100%;
+	text-decoration: none;
+	margin-right: auto;
+	margin-left: auto;
+	height: 22px;
+}
+.talkn .b0 {
+	width: 67%;
+	text-decoration: none;
+	margin-right: auto;
+	margin-left: auto;
 	float: left;
 }
 
 .talkn .back {
-	width: 516px;
+	width: 636px;
 	vertical-align: middle;
 	float: left;
 	margin-left: 80px;
 	margin-top: 4px;
 }
+.talkn .back .bg1_title {
+	height: 24px;
+	background-color: #A0CB3D;
+	font-size: 17px;
+	color: #FFFFFF;
+	line-height: 22px;
+	text-decoration: none;
+	text-indent: 6px;
+	padding: 2px;
+	font-weight: bold;
+	text-align: center;
+}
 .talkn .back .bg1 {
 	height: 28px;
-	width: 90px;
+	width: 110px;
 	background-color: #EBF9CE;
 	font-size: 13px;
 	color: #333333;
@@ -740,10 +776,14 @@
 }
 .talkn .back .bg2 {
 	height: 24px;
-	width: 410px;
+	width: 510px;
 	background-color: #FFFFFF;
 	padding: 4px;
 }
+.talkn .back .bg2 ul li {
+	float: left;
+}
+
 
 .talkn .back .bg4 {
 	width: 133px;
@@ -753,6 +793,18 @@
 	padding-left: 190px;
 	padding-right: 190px;
 	padding-bottom: 4px;
+}
+.talkn .back .bg_ {
+	width:100%;
+	background-color: #EBF9CE;
+	text-align: center;
+	/*padding-left: 190px;
+	padding-right: 190px;*/
+	padding-bottom: 2px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 32px;
+	padding-top: 2px;
 }
 .talkn .boy {
 	background-image: url(../image/a09-1.gif);
