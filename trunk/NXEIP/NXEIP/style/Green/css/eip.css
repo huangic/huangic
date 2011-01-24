@@ -340,11 +340,12 @@ body {
 	height: 20px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor:  pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 3px;
+	text-decoration: none;
 }
 .a02-15-a:hover{
 
@@ -376,13 +377,14 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 3px;
 	font-size: 13px;
 	background-image: url(../image/a47.gif);
+	text-decoration: none;
 }
 .b-input2 {
 	font-weight: bold;
@@ -391,13 +393,14 @@ body {
 	height: 22px;
 	top: 2px;
 	bottom: 1px;
-	cursor: auto;
+	cursor: pointer;
 	padding-top: 2px;
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 3px;
 	font-size: 13px;
 	background-image: url(../image/a47-1.gif);
+	text-decoration: none;
 }
 .a-table-a1 {
 

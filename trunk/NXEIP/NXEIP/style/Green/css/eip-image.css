@@ -161,3 +161,23 @@
      cursor:hand;
      text-decoration:none;
 }
+
+.modify
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/modify.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.exit
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/collapse.png) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
