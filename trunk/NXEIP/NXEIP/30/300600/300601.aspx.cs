@@ -238,7 +238,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         }
         else
         {
-            JsUtil.AlertJs(this, "查無子項目類別!!");
+            JsUtil.AlertJs(this, "查無子項目類別，無法統計維修數據!!");
         }
 
         workbook = null;
