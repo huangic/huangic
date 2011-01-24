@@ -71,6 +71,7 @@ public partial class _35_350100_350101_1 : System.Web.UI.Page
             d.rol_createtime = DateTime.Now;
             d.rol_name = this.tbx_role_name.Text;
             d.rol_memo = this.tbx_role_memo.Text;
+            d.rol_default = "2";
             if (this.hidden_role_no.Value == "")
             {
                 model.role.AddObject(d);
