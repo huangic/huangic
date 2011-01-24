@@ -122,6 +122,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         HSSFWorkbook workbook = new HSSFWorkbook();
         MemoryStream ms = new MemoryStream();
         Sheet sheet1 = workbook.CreateSheet("sheet");
+        bool download = false;
 
         using (NXEIPEntities model = new NXEIPEntities())
         {
@@ -140,6 +141,11 @@ public partial class _30_300600_300601 : System.Web.UI.Page
                             where d.r05_no == r05_no && d.r06_parent == 0 && d.r06_status == "1"
                             orderby d.r06_order
                             select d;
+            if (rep06Data.Count() > 0)
+            {
+                download = true;
+            }
+
             //圖片物件
             HSSFPatriarch patriarch = (HSSFPatriarch)sheet1.CreateDrawingPatriarch();
 
@@ -219,14 +225,21 @@ public partial class _30_300600_300601 : System.Web.UI.Page
             
         }
 
-        // 將 workbook 寫入 MemoryStream，準備匯出
-        workbook.Write(ms);
+        if (download)
+        {
 
-        //匯出
-        Response.AddHeader("Content-Disposition", string.Format("attachment; filename="
-                                                + Guid.NewGuid().ToString() + ".xls"));
-        Response.BinaryWrite(ms.ToArray());
+            // 將 workbook 寫入 MemoryStream，準備匯出
+            workbook.Write(ms);
 
+            //匯出
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename="
+                                                    + Guid.NewGuid().ToString() + ".xls"));
+            Response.BinaryWrite(ms.ToArray());
+        }
+        else
+        {
+            JsUtil.AlertJs(this, "查無子項目類別!!");
+        }
 
         workbook = null;
         ms.Close();
