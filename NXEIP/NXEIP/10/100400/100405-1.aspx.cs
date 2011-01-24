@@ -186,6 +186,13 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
     #region 檢查輸入值
     private bool CheckInputValue()
     {
+        #region 使用時限
+        if (this.ddl_usehour.SelectedValue.Equals("0"))
+        {
+            ShowMSG("請選擇 使用時限");
+            return false;
+        }
+        #endregion
         #region 登記者電話
         if (this.txt_tel.Text.Trim().Length <= 0)
         {
@@ -198,7 +205,6 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
             return false;
         }
         #endregion
-
         #region 事由
         if (this.txt_reason.Text.Trim().Length > 200)
         {
@@ -248,19 +254,19 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
                 this.lab_no.Text = newRow.bor_no.ToString();
 
                 #region 發布訊息
-                //if (!this.lab_BorrowsSignType.Text.Equals("1"))
-                //{
-                //    string sqlstr = "select people.peo_email,people.peo_uid from checker inner join people on checker.che_peouid = people.peo_uid inner join types on people.peo_jobtype = types.typ_no"
-                //        + " where (checker.roo_no = " + this.lab_equ.Text + ") and (types.typ_code = 'work') and (types.typ_number = '1') ";
-                //    DataTable dt = new DataTable();
-                //    dt = dbo.ExecuteQuery(sqlstr);
-                //    string subject = sobj.sessionUserName + "於 " + this.lab_today.Text + " " + this.lab_stime.Text + " ~ " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("HH:mm") + " 預約場地「" + this.lab_equname.Text + "」";
-                //    string body = sobj.sessionUserName + "於 " + this.lab_today.Text + " " + this.lab_stime.Text + " ~ " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("HH:mm") + " 預約場地「" + this.lab_equname.Text + "」";
-                //    for (int i = 0; i < dt.Rows.Count; i++)
-                //    {
-                //        MyMessageUtil.send(subject, Convert.ToInt32(dt.Rows[i]["peo_uid"].ToString()), body, "", "", EIPGroup.EIP_Todo_VerifyPlace);
-                //    }
-                //}
+                if (!this.lab_BorrowsSignType.Text.Equals("1"))
+                {
+                    string sqlstr = "select people.peo_email,people.peo_uid from checker inner join people on checker.che_peouid = people.peo_uid inner join types on people.peo_jobtype = types.typ_no"
+                        + " where (checker.roo_no = " + this.lab_equ.Text + ") and (types.typ_code = 'work') and (types.typ_number = '1') ";
+                    DataTable dt = new DataTable();
+                    dt = dbo.ExecuteQuery(sqlstr);
+                    string subject = sobj.sessionUserName + "於 " + this.lab_today.Text + " " + this.lab_stime.Text + " ~ " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("HH:mm") + " 預約「" + this.lab_equname.Text + "」，請至設備審核功能進行審核作業";
+                    string body = sobj.sessionUserName + "於 " + this.lab_today.Text + " " + this.lab_stime.Text + " ~ " + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("HH:mm") + " 預約「" + this.lab_equname.Text + "」，請至設備審核功能進行審核作業";
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        MyMessageUtil.send(subject, Convert.ToInt32(dt.Rows[i]["peo_uid"].ToString()), body, "", "", EIPGroup.EIP_Message_Equipment);
+                    }
+                }
                 #endregion
 
                 //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
