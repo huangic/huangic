@@ -25,8 +25,23 @@ public partial class _20_200600_200601 : System.Web.UI.Page
         }
     }
 
-   
-      
+
+    protected String GetLayoutName(String layout_code) {
+        switch (layout_code)
+        {
+            case "1":
+                return "開放型";
+
+            case "2":
+                return "半開放型";
+            case "3":
+                return "半封閉型";
+            case "4":
+                return "封閉型";
+
+        }
+                return "";
+        }
 
 
     

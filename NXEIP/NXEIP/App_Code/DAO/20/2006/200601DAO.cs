@@ -92,6 +92,7 @@ namespace NXEIP.DAO
             {
                 //這個有先後順序 不能亂換
                 ProcessManager(d);
+                ProcessLastModify(d);
                 ProcessPermission(d, peo_uid);
                 ProcessSubscribe(d, peo_uid);
             }
@@ -157,7 +158,10 @@ namespace NXEIP.DAO
             f.Permission = "00000";
         }
 
-
+        /// <summary>
+        /// 設定版主
+        /// </summary>
+        /// <param name="f"></param>
         private void ProcessManager(Forum f)
         {
 
@@ -177,6 +181,18 @@ namespace NXEIP.DAO
         {
 
             //設定使用者的訂閱狀態
+            //取會員資料
+            tao03 member = (from d in model.tao03
+                         where d.tao_no == f.Id
+                         && d.t03_status == "1"
+                         && d.peo_uid == peo_uid
+                         select d).First();
+
+            if (member != null) { 
+            
+            }
+
+
         }
 
         /// <summary>
@@ -209,7 +225,21 @@ namespace NXEIP.DAO
 
         }
 
+        /// <summary>
+        /// 找出最後的更新日
+        /// </summary>
+        /// <param name="f"></param>
+        private void ProcessLastModify(Forum f)
+        { 
+            //子代的最後更新文章
+            DateTime? t = (from d in model.tao01
+                       where d.tao_no == f.Id
+                       && d.t01_status == "1"
+                       select d).Max(x => x.t01_date);
+            f.LastModifyDate = t;
         
+        }
+
 
     }
 }
