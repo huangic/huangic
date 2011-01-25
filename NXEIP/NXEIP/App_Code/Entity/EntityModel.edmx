@@ -47,6 +47,7 @@
           <EntitySet Name="government" EntityType="NXEIPModel.Store.government" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="message" EntityType="NXEIPModel.Store.message" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new03" EntityType="NXEIPModel.Store.new03" store:Type="Tables" Schema="dbo" />
@@ -1039,6 +1040,20 @@
           <Property Name="man_no" Type="int" Nullable="false" />
           <Property Name="peo_uid" Type="int" Nullable="false" />
           <Property Name="man_type" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="mes_no" />
+          </Key>
+          <Property Name="mes_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="mes_subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="mes_content" Type="text" />
+          <Property Name="mes_link" Type="nvarchar" MaxLength="100" />
+          <Property Name="mes_peouid" Type="int" />
+          <Property Name="mes_type" Type="char" MaxLength="3" />
+          <Property Name="mes_status" Type="char" MaxLength="1" />
+          <Property Name="mes_senduid" Type="int" />
+          <Property Name="mes_datetime" Type="datetime" />
         </EntityType>
         <EntityType Name="new01">
           <Key>
@@ -3167,6 +3182,7 @@
             <End Role="taolun" EntitySet="taolun" />
             <End Role="tao04" EntitySet="tao04" />
           </AssociationSet>
+          <EntitySet Name="message" EntityType="NXEIPModel.message" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -5632,6 +5648,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="mes_no" />
+          </Key>
+          <Property Type="Int32" Name="mes_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="mes_subject" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mes_content" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mes_link" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="mes_peouid" />
+          <Property Type="String" Name="mes_type" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="mes_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="mes_senduid" />
+          <Property Type="DateTime" Name="mes_datetime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6818,6 +6848,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="message">
+            <EntityTypeMapping TypeName="NXEIPModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="mes_datetime" ColumnName="mes_datetime" />
+                <ScalarProperty Name="mes_senduid" ColumnName="mes_senduid" />
+                <ScalarProperty Name="mes_status" ColumnName="mes_status" />
+                <ScalarProperty Name="mes_type" ColumnName="mes_type" />
+                <ScalarProperty Name="mes_peouid" ColumnName="mes_peouid" />
+                <ScalarProperty Name="mes_link" ColumnName="mes_link" />
+                <ScalarProperty Name="mes_content" ColumnName="mes_content" />
+                <ScalarProperty Name="mes_subject" ColumnName="mes_subject" />
+                <ScalarProperty Name="mes_no" ColumnName="mes_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -7689,6 +7734,7 @@
           <ConnectorPoint PointX="10.083333333333334" PointY="54.615143229166669" />
           <ConnectorPoint PointX="10.25" PointY="54.615143229166669" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.message" Width="1.5" PointX="19.375" PointY="0.75" Height="2.7494921874999818" />
         </Diagram>
     </Diagrams>
   </Designer>

@@ -1546,6 +1546,22 @@ namespace Entity
             }
         }
         private ObjectSet<taolun> _taolun;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<message> message
+        {
+            get
+            {
+                if ((_message == null))
+                {
+                    _message = base.CreateObjectSet<message>("message");
+                }
+                return _message;
+            }
+        }
+        private ObjectSet<message> _message;
 
         #endregion
         #region AddTo 方法
@@ -2244,6 +2260,14 @@ namespace Entity
         public void AddTotaolun(taolun taolun)
         {
             base.AddObject("taolun", taolun);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 message EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTomessage(message message)
+        {
+            base.AddObject("message", message);
         }
 
         #endregion
@@ -14780,6 +14804,253 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="message")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class message : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 message 物件。
+        /// </summary>
+        /// <param name="mes_no">mes_no 屬性的初始值。</param>
+        public static message Createmessage(global::System.Int32 mes_no)
+        {
+            message message = new message();
+            message.mes_no = mes_no;
+            return message;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 mes_no
+        {
+            get
+            {
+                return _mes_no;
+            }
+            set
+            {
+                if (_mes_no != value)
+                {
+                    Onmes_noChanging(value);
+                    ReportPropertyChanging("mes_no");
+                    _mes_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("mes_no");
+                    Onmes_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _mes_no;
+        partial void Onmes_noChanging(global::System.Int32 value);
+        partial void Onmes_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mes_subject
+        {
+            get
+            {
+                return _mes_subject;
+            }
+            set
+            {
+                Onmes_subjectChanging(value);
+                ReportPropertyChanging("mes_subject");
+                _mes_subject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mes_subject");
+                Onmes_subjectChanged();
+            }
+        }
+        private global::System.String _mes_subject;
+        partial void Onmes_subjectChanging(global::System.String value);
+        partial void Onmes_subjectChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mes_content
+        {
+            get
+            {
+                return _mes_content;
+            }
+            set
+            {
+                Onmes_contentChanging(value);
+                ReportPropertyChanging("mes_content");
+                _mes_content = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mes_content");
+                Onmes_contentChanged();
+            }
+        }
+        private global::System.String _mes_content;
+        partial void Onmes_contentChanging(global::System.String value);
+        partial void Onmes_contentChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mes_link
+        {
+            get
+            {
+                return _mes_link;
+            }
+            set
+            {
+                Onmes_linkChanging(value);
+                ReportPropertyChanging("mes_link");
+                _mes_link = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mes_link");
+                Onmes_linkChanged();
+            }
+        }
+        private global::System.String _mes_link;
+        partial void Onmes_linkChanging(global::System.String value);
+        partial void Onmes_linkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> mes_peouid
+        {
+            get
+            {
+                return _mes_peouid;
+            }
+            set
+            {
+                Onmes_peouidChanging(value);
+                ReportPropertyChanging("mes_peouid");
+                _mes_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("mes_peouid");
+                Onmes_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _mes_peouid;
+        partial void Onmes_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onmes_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mes_type
+        {
+            get
+            {
+                return _mes_type;
+            }
+            set
+            {
+                Onmes_typeChanging(value);
+                ReportPropertyChanging("mes_type");
+                _mes_type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mes_type");
+                Onmes_typeChanged();
+            }
+        }
+        private global::System.String _mes_type;
+        partial void Onmes_typeChanging(global::System.String value);
+        partial void Onmes_typeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mes_status
+        {
+            get
+            {
+                return _mes_status;
+            }
+            set
+            {
+                Onmes_statusChanging(value);
+                ReportPropertyChanging("mes_status");
+                _mes_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mes_status");
+                Onmes_statusChanged();
+            }
+        }
+        private global::System.String _mes_status;
+        partial void Onmes_statusChanging(global::System.String value);
+        partial void Onmes_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> mes_senduid
+        {
+            get
+            {
+                return _mes_senduid;
+            }
+            set
+            {
+                Onmes_senduidChanging(value);
+                ReportPropertyChanging("mes_senduid");
+                _mes_senduid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("mes_senduid");
+                Onmes_senduidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _mes_senduid;
+        partial void Onmes_senduidChanging(Nullable<global::System.Int32> value);
+        partial void Onmes_senduidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> mes_datetime
+        {
+            get
+            {
+                return _mes_datetime;
+            }
+            set
+            {
+                Onmes_datetimeChanging(value);
+                ReportPropertyChanging("mes_datetime");
+                _mes_datetime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("mes_datetime");
+                Onmes_datetimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _mes_datetime;
+        partial void Onmes_datetimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onmes_datetimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
