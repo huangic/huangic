@@ -72,14 +72,32 @@ namespace NXEIP.DAO
         /// </summary>
             public String Permission { get; set; }
 
+            /// <summary>
+            /// 最後更新日
+            /// </summary>
+            public DateTime? LastModifyDate { get; set; }
+
+            /// <summary>
+            /// 最後發表人
+            /// </summary>
+            public people LastModifyPeouid { get; set; }
+
+
 
         /// <summary>
         /// 這個使用者有沒有訂閱此討論區
         /// </summary>
-            public String Subscribe
+            public bool Subscribe
             {
                 get;
                 set;
             }
+
+
+            public String ManagerName { get {
+                String str = String.Join(",", this.Manager.Select(x => x.peo_name).ToList());
+                
+                return String.IsNullOrEmpty(str)?"從缺中":str;
+            } }
     }
 }

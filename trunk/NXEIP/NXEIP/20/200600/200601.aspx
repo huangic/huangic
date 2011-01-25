@@ -54,21 +54,86 @@
 
 
                 <cc1:GridView ID="GridView1" runat="server" CssClass="box" CellPadding="1" CellSpacing="1" GridLines="None"
-                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum">
+                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum" DataKeyNames="Id">
                     <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
-                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                        <asp:BoundField DataField="EngName" HeaderText="EngName" 
-                            SortExpression="EngName" />
-                        <asp:BoundField DataField="Desc" HeaderText="Desc" SortExpression="Desc" />
-                        <asp:BoundField DataField="ClickCount" HeaderText="ClickCount" 
+                        
+                        
+                        
+                        
+                        
+                        <asp:TemplateField HeaderText="版面">
+                            <ItemStyle CssClass="row1_bg" />
+                           <ItemTemplate>
+                            <ul>
+                                           
+           		    <li class="t11"></li>
+             		<li class="t2">
+                    
+                           <asp:HyperLink ID="HyperLink1" runat="server" Text='<%#Eval("Name") %>'>
+                            
+                           </asp:HyperLink>
+                    
+                    </li>
+             		<li class="t12"></li>
+             		
+                    <li class="t2">
+                           <asp:Label ID="Label2" runat="server" Text='<%#Eval("Desc") %>'></asp:Label></li>
+                    
+                    <li class="t13">版主:</li>
+                    
+                    <li class="t3">
+                    
+                     <asp:Label ID="Label1" runat="server" Text='<%#Eval("ManagerName") %>'></asp:Label></li>
+                    
+                    
+                    
+                    
+                    
+                           
+                    
+                    </li>          
+
+
+                            </ul>
+                            </ItemTemplate>
+
+                        </asp:TemplateField>
+                        
+                        
+                         <asp:TemplateField HeaderText="最新回應日期">
+                            <ItemStyle CssClass="row2_bg" />
+                           <ItemTemplate>
+
+                           <asp:Label ID="Label3" runat="server" Text='<%#  Eval("LastModifyDate") %>'></asp:Label></li>
+                    
+                           </ItemTemplate>
+                          </asp:TemplateField>
+                                                
+                       
+                        <asp:BoundField DataField="ClickCount" HeaderText="人氣"  ItemStyle-CssClass="row3_bg"
                             SortExpression="ClickCount" />
-                        <asp:BoundField DataField="RelayCount" HeaderText="RelayCount" 
+                        <asp:BoundField DataField="RelayCount" HeaderText="回應" ItemStyle-CssClass="row4_bg"
                             SortExpression="RelayCount" />
-                        <asp:BoundField DataField="Layout" HeaderText="Layout" 
-                            SortExpression="Layout" />
-                        <asp:BoundField DataField="Permission" HeaderText="Permission" 
-                            SortExpression="Permission" />
+
+                        <asp:TemplateField HeaderText="版型">
+                            <ItemStyle CssClass="row5_bg" />
+                           <ItemTemplate>
+
+                           <asp:Label ID="Label3" runat="server" Text='<%#  GetLayoutName((String)Eval("Layout")) %>'></asp:Label></li>
+                    
+                           </ItemTemplate>
+                          </asp:TemplateField>
+                        
+
+                         <asp:TemplateField HeaderText="訂閱">
+                            <ItemStyle CssClass="row5_bg" />
+                           <ItemTemplate>
+                               <asp:Button ID="Button1" runat="server" Text="訂閱" Visible='<%# (!(bool)Eval("Subscribe")) %>'  CommandName="Subscribe" />
+                               <asp:Button ID="Button2" runat="server" Text="取消" Visible='<%# ((bool)Eval("Subscribe")) %>' CommandName="SubscribeCanel" />
+                           </ItemTemplate>
+                          </asp:TemplateField>
+
+
                         <asp:BoundField DataField="Subscribe" HeaderText="Subscribe" 
                             SortExpression="Subscribe" />
                     </Columns>
