@@ -53,7 +53,13 @@ public class PersonalMessageUtil
             //email 通知
             if (email)
             {
+                people p = new PeopleDAO().GetByPeoUID(to);
 
+                if (p.peo_email.Length > 0)
+                {
+                    EMailUtil myamil = new EMailUtil();
+                    myamil.SendMail(subject, body, p.peo_email);
+                }
             }
 
             //手機通知
