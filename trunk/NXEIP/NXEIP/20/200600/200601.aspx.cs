@@ -23,6 +23,16 @@ public partial class _20_200600_200601 : System.Web.UI.Page
             this.GridView1.DataBind();
 
         }
+
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
+
+
+
     }
 
 
@@ -44,5 +54,12 @@ public partial class _20_200600_200601 : System.Web.UI.Page
         }
 
 
+    protected String GetROCDT(DateTime? dt) {
+        if (dt.HasValue) {
+            return new ChangeObject().ADDTtoROCDT(dt.Value);
+            
+        }
+        return "";
+    }
     
 }

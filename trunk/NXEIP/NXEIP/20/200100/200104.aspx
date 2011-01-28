@@ -14,7 +14,10 @@
             tb_remove();
 
 
-            //alert(msg);
+            if (msg != undefined) {
+
+                alert(msg);
+            }
         }
 
         function pageLoad(sender, args) {
