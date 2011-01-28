@@ -38,7 +38,7 @@ namespace NXEIP.DAO
                           EngName = d.tao_ename,
                           Desc = d.tao_descript,
                           Layout = d.tao_type,
-                          ClickCount = d.tao_count ?? 0
+                          ClickCount = d.tao_count ?? 0,
                             NotifyFlag=d.tao_model
 
                       }).First();
@@ -81,7 +81,7 @@ namespace NXEIP.DAO
                                            EngName = d.tao_ename,
                                            Desc = d.tao_descript,
                                            Layout = d.tao_type,
-                                           ClickCount = d.tao_count ?? 0
+                                           ClickCount = d.tao_count ?? 0,
                                            NotifyFlag=d.tao_model
                                            
                                        }).ToList();
