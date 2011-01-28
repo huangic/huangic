@@ -148,6 +148,24 @@ public class ChangeObject
     }
     #endregion
 
+
+    #region 西元年月日時間轉 民國年月日時間  ADDTtoROCDT
+    /// <summary>
+    /// 西元年月日時間轉 民國年月日時間
+    /// </summary>
+    /// <param name="ADDT"> 2005-05-06-23-11-15  西元年-月-日-小時-分</param>
+    /// <returns>民國年-月-日 時間 94-05-06 23:11:15</returns>
+    public string ADDTtoROCDT(DateTime ADDT)
+    {
+        TaiwanCalendar tc = new TaiwanCalendar();
+
+        return tc.GetYear(ADDT) + "-" + ADDT.ToString("MM-dd hh:mm:ss");
+
+      
+    }
+    #endregion
+
+
     #region 轉 民國XXX年XX月XX日時間 ROCto3ROC
     /// <summary>
     /// 轉 民國XXX年XX月XX日時間

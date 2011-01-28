@@ -39,7 +39,7 @@ namespace NXEIP.DAO
                           Desc = d.tao_descript,
                           Layout = d.tao_type,
                           ClickCount = d.tao_count ?? 0
-
+                            NotifyFlag=d.tao_model
 
                       }).First();
 
@@ -82,7 +82,7 @@ namespace NXEIP.DAO
                                            Desc = d.tao_descript,
                                            Layout = d.tao_type,
                                            ClickCount = d.tao_count ?? 0
-                                           
+                                           NotifyFlag=d.tao_model
                                            
                                        }).ToList();
 
@@ -95,6 +95,7 @@ namespace NXEIP.DAO
                 ProcessLastModify(d);
                 ProcessPermission(d, peo_uid);
                 ProcessSubscribe(d, peo_uid);
+                ProcessRoot(d, peo_uid);
             }
 
 
@@ -182,14 +183,15 @@ namespace NXEIP.DAO
 
             //設定使用者的訂閱狀態
             //取會員資料
-            tao03 member = (from d in model.tao03
+            tao06 subscribe = (from d in model.tao06
                          where d.tao_no == f.Id
-                         && d.t03_status == "1"
                          && d.peo_uid == peo_uid
-                         select d).First();
+                         && d.t06_order=="1"
+                         select d).DefaultIfEmpty().First();
 
-            if (member != null) { 
-            
+            if (subscribe != null)
+            {
+                f.Subscribe = true;
             }
 
 
@@ -241,5 +243,23 @@ namespace NXEIP.DAO
         }
 
 
+        /// <summary>
+        /// 設定是否為總管理者
+        /// </summary>
+        /// <param name="f"></param>
+        private void ProcessRoot(Forum f,int peo_uid) {
+            //判斷是否為總管理者
+
+            int count =(from d in model.manager where d.peo_uid==peo_uid && d.man_type=="2" select d).DefaultIfEmpty().Count();
+
+            if (count > 0)
+            {
+                f.IsRoot = true;
+
+            }
+            else {
+                f.IsRoot = false;
+            }
+        }
     }
 }

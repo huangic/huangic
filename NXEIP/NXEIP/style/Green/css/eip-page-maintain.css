@@ -262,7 +262,7 @@
 	line-height: 24px;
 	background-color: #F7fdea;
 }*/
- .talk .box .head, .talk .box th {
+ .talk .box .head {
 	padding: 4px;
 	height: 20px;
 	font-size: 13px;
@@ -283,15 +283,60 @@
 	padding-bottom: 4px;
 	padding-left: 4px;
 }
-
+	
 .talk .box .t1 {
+	width: 94%;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #D7F09B;
+	margin-top: 4px;
+	background-image: url(../image/ms01.gif);
+	background-repeat: no-repeat;
+	padding-left: 24px;
+}
+
+/*.talk .box .t1 {
 	
 	width: 36px;
 	float: left;
 	height: 20px;
-	}
+	}*/
+	.talk .box .t2 {
+	width: 94%;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #D7F09B;
+	margin-top: 4px;
+	background-image: url(../image/v07.gif);
+	background-repeat: no-repeat;
+	padding-left: 24px;
+}	
+/*.talk .box .t3 {
+	width: 324px;
+	float: left;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}*/
+.talk .box .t3 {
+	width: 94%;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #D7F09B;
+	margin-top: 4px;
+	padding-left: 24px;
+	background-image: url(../image/v08.gif);
+	background-repeat: no-repeat;
+}	
+.talk .box .t4 {
+	width: 120px;
+	float: left;
+	height: 20px;
+}
 
-.talk .box .t11 {
+/*.talk .box .t11 {
 	width: 32px;
 	float: left;
 	height: 20px;
@@ -302,8 +347,8 @@
 	border-bottom-style: dashed;
 	border-bottom-color: #D7F09B;
 	margin-top: 4px;
-}
-.talk .box .t12 {
+}*/
+/*.talk .box .t12 {
 	width: 32px;
 	float: left;
 	height: 18px;
@@ -320,16 +365,7 @@
 	border-top-width: 1px;
 	border-top-style: dashed;
 	border-top-color: #d7e09b;
-	}
-	
-.talk .box .t2 {
-	width: 324px;
-	float: left;
-	border-bottom-width: 1px;
-	border-bottom-style: dashed;
-	border-bottom-color: #D7F09B;
-	margin-top: 4px;
-}
+	}*/
 .talk .box a:hover {
 	font-size: 13px;
 	color: #FF0000;
@@ -339,17 +375,6 @@
 	font-size: 13px;
 	color: #009966;
 	text-decoration: none;
-}
-.talk .box .t3 {
-	width: 324px;
-	float: left;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-.talk .box .t4 {
-	width: 120px;
-	float: left;
-	height: 20px;
 }
 
 .talk .box .row1_bg {
@@ -414,7 +439,7 @@
 }
 .talk .box .row7_bg {
 	background-color: #fefef1;
-	width: 76px;
+	width: 110px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
@@ -745,11 +770,13 @@
 }
 
 .talkn .back {
+	/*
 	width: 636px;
 	vertical-align: middle;
 	float: left;
 	margin-left: 80px;
 	margin-top: 4px;
+	*/
 }
 .talkn .back .bg1_title {
 	height: 24px;
