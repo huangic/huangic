@@ -85,7 +85,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     private void ShowSpot()
     {
         ListItem selectitem = new ListItem("請選擇", "0");
-        string sqlstr = "select spo_no,spo_name from spot where spo_status='1' order by spo_no";
+        string sqlstr = "select spo_no,spo_name from spot where spo_status='1' and (spo_function LIKE '____1%') order by spo_no";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)
@@ -97,8 +97,6 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             }
         }
         this.ddl_spot.Items.Insert(0, selectitem);
-
-        
     }
     #endregion
 
