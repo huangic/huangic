@@ -72,7 +72,7 @@ public partial class _30_301000_301001 : System.Web.UI.Page
     private void ShowSpot()
     {
         ListItem selectitem = new ListItem("請選擇", "0");
-        string sqlstr = "select spo_no,spo_name from spot where spo_status='1' order by spo_no";
+        string sqlstr = "select spo_no,spo_name from spot where spo_status='1' and (spo_function LIKE '_____1%') and  order by spo_no";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)
