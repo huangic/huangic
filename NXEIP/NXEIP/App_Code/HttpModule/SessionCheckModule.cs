@@ -69,7 +69,7 @@ namespace NXEIP.HttpModule
                     #endregion
                 }
                 
-                if ((!url.Contains("login"))&&(!url.Contains("index")))
+                if (!url.Contains("login"))
                  {
                 
                 
