@@ -38,28 +38,26 @@
             <asp:QueryStringParameter Name="tao_no" QueryStringField="tao_no" Type="Int32" />
             <asp:Parameter Name="peo_uid" Type="Int32" />
              
-            <asp:Parameter DefaultValue="False" Name="Featured" Type="Boolean" />
+            <asp:Parameter DefaultValue="True" Name="Featured" Type="Boolean" />
              
         </SelectParameters>
     </asp:ObjectDataSource>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="主題列表" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="精華區主題列表" />
     <div class="tableDiv">
         <div class="talk">
             <div class="select">
                 <div class="b6">
-                    <a href="#" class="b-input">回討論區總表</a>
+                    <a href="200601.aspx" class="b-input">回討論區總表</a>
                 </div>
+                <!--
                 <div class="b6">
                     <a href="#" class="b-input">列印</a></div>
+                -->
+
                 <div class="b6">
-                    <a href="#" class="b-input">文章查詢 </a>
+                    <asp:HyperLink  CssClass="b-input" ID="hl_list" runat="server">觀看主題</asp:HyperLink>
                 </div>
-                <div class="b6">
-                    <a href="#" class="b-input">觀看精華區 </a>
-                </div>
-                <div class="b6">
-                    <a href="#" class="b-input">發表主題 </a>
-                </div>
+              
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
