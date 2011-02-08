@@ -6,6 +6,7 @@ using System.Web.Configuration;
 using Entity;
 using tw.gov.tainan.login;
 using NXEIP.DAO;
+using NXEIP.Lib;
 
 /// <summary>
 /// SessionCheckModule 的摘要描述
@@ -15,6 +16,11 @@ namespace NXEIP.HttpModule
 {
     public class SessionCheckModule : IHttpModule
     {
+
+        NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
+        
+        
         public SessionCheckModule()
         {
            
@@ -81,8 +87,8 @@ namespace NXEIP.HttpModule
                     if (String.IsNullOrEmpty(userID))
                     {
 
-                       
 
+                        logger.Info("未登入");
 
 
 
@@ -150,7 +156,7 @@ namespace NXEIP.HttpModule
 
                     if (t.VerifiedResult)
                     {
-
+                        logger.Info(String.Format("{0}登入成功",val));
                         accData = new AccountsDAO().GetByID(val);
 
                        
@@ -191,10 +197,22 @@ namespace NXEIP.HttpModule
                     sessionObj.sessionUserDepartName = new UtilityDAO().Get_DepartmentName(peoData.dep_no);
                     sessionObj.sessionUserAccount = accData.acc_login;
                     sessionObj.sessionLogInID = loginID;
+                   
+                    
+                    //LAYOUT
+                    String layout = CssUtil.GetInitCssLayout();
 
+
+                    //寫入SESSION
+                    //Session["layout_css"] = layout;
+
+                    sessionObj.sessionLayoutCss = layout;
 
                     //login log
                     new OperatesObject().ExecuteLogInLog(loginID, peoData.peo_uid, accData.acc_no, sessionObj.GetIpAddress(), sessionObj.SessionID);
+
+
+                    
 
                     //goto index
                     //Response.Redirect("Default.aspx");
@@ -205,6 +223,9 @@ namespace NXEIP.HttpModule
                 {
 
                     //Response.Redirect(login_url);
+
+                    logger.Info(String.Format("{0}您的帳號尚未啟用，請洽貴單位系統管理員", val));
+                        
                     //this.ShowMessage("您的帳號尚未啟用，請洽貴單位系統管理員：，公務電話：");
                     return;
                 }
@@ -215,6 +236,8 @@ namespace NXEIP.HttpModule
 
                     //Response.Redirect(login_url);
                     //this.ShowMessage("您的帳號已被停用，請洽貴單位系統管理員：，公務電話：");
+                    logger.Info(String.Format("{0}您的帳號已被停用，請洽貴單位系統管理員", val));
+                    
                     return;
                 }
 
