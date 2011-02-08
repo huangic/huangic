@@ -96,7 +96,7 @@
            		   
              		<li class="t1">
                     
-                           <asp:HyperLink ID="HyperLink1" runat="server" Text='<%#Eval("Name") %>'>
+                           <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Name") %>' NavigateUrl='<%#String.Format("200601-2.aspx?tao_no={0}",Eval("Id")) %>'>
                             
                            </asp:HyperLink>
                     
