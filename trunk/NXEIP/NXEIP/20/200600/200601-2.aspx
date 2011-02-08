@@ -47,15 +47,15 @@
         <div class="talk">
             <div class="select">
                 <div class="b6">
-                    <a href="#" class="b-input">回討論區總表</a>
+                    <a href="200601.aspx" class="b-input">回討論區總表</a>
                 </div>
                 <div class="b6">
                     <a href="#" class="b-input">列印</a></div>
                 <div class="b6">
-                    <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>文章查詢 </a>
+                    <asp:HyperLink ID="hl_search"  CssClass="b-input" runat="server">文章查詢</asp:HyperLink>
                 </div>
                 <div class="b6">
-                    <a href="#" class="b-input">觀看精華區 </a>
+                     <asp:HyperLink ID="hl_featured"  CssClass="b-input" runat="server">觀看精華區</asp:HyperLink>
                 </div>
                 <div class="b6">
                     <a href="#" class="b-input">發表主題 </a>
