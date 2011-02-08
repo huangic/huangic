@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using NXEIP.Lib;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -14,11 +15,13 @@ public partial class _Default : System.Web.UI.Page
 
           //LAYOUT的設定
 
-        String layout = "Green";
+        String layout = CssUtil.GetInitCssLayout();
 
 
         //寫入SESSION
-        Session["layout_css"] = layout;
+        //Session["layout_css"] = layout;
+
+        new SessionObject().sessionLayoutCss = layout;
 
         //
 
