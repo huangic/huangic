@@ -20,7 +20,7 @@ public partial class index_sso : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
         /**
         
         SessionObject sessionObj = new SessionObject();
@@ -131,5 +131,8 @@ public partial class index_sso : System.Web.UI.Page
           
          
          **/
+
+
+        Response.Redirect("Default.aspx");
     }
 }
