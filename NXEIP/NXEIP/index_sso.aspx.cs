@@ -10,6 +10,9 @@ using NXEIP.DAO;
 using tw.gov.tainan.login;
 using NLog;
 
+/// <summary>
+/// 台南市E公務的單一簽入
+/// </summary>
 public partial class index_sso : System.Web.UI.Page
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -17,6 +20,9 @@ public partial class index_sso : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+        /**
+        
         SessionObject sessionObj = new SessionObject();
 
         //取帳號
@@ -122,5 +128,8 @@ public partial class index_sso : System.Web.UI.Page
         {
             Response.Redirect(login_url);
         }
+          
+         
+         **/
     }
 }

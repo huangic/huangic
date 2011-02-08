@@ -67,7 +67,7 @@ public class Topic
     public DateTime LastRelayDate { get; set; }
 
     /// <summary>
-    /// 權限
+    /// 權限(總管理權限,版主權限,作者權限)
     /// </summary>
     public String Permission { get; set; }
 
@@ -93,8 +93,10 @@ public class Topic
 
 
     public bool HasPermission {
-        get { 
-            return Permission=="1";
+        get {
+            int permission = System.Convert.ToInt32(this.Permission, 2);
+
+            return (permission >= 1);
         }
     
     }

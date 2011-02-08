@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200601-2.aspx.cs" Inherits="_20_200600_200601_2"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200601-3.aspx.cs" Inherits="_20_200600_200601_3"
     MasterPageFile="~/MasterPage.master" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
@@ -52,7 +52,7 @@
                 <div class="b6">
                     <a href="#" class="b-input">列印</a></div>
                 <div class="b6">
-                    <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>文章查詢 </a>
+                    <a href="#" class="b-input">文章查詢 </a>
                 </div>
                 <div class="b6">
                     <a href="#" class="b-input">觀看精華區 </a>
