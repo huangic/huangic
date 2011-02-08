@@ -8,7 +8,9 @@ using NXEIP.DAO;
 using Entity;
 using System.Web.Configuration;
 
-
+/// <summary>
+/// 廢棄 使用帳號與驗證方式參數做SSO代登入
+/// </summary>
 public class index_sso : IHttpHandler, IRequiresSessionState
 {
     
