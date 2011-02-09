@@ -29,14 +29,14 @@ namespace NXEIP.DAO
         /// 取總管理者
         /// </summary>
         /// <returns></returns>
-        public List<people> GetRootManager() {
-            var root = (from d in model.manager where d.man_type == "2" select d.people).DefaultIfEmpty().Distinct().ToList();
+        public List<int> GetRootManager() {
+            var root = (from d in model.manager where d.man_type == "2" select d.people.peo_uid).DefaultIfEmpty().Distinct().ToList();
 
             return root;
         }
 
-        public List<people> GetDepartManager(int dep_no) {
-            var root = (from d in model.manager where d.man_type == "1" && d.dep_no==dep_no select d.people).DefaultIfEmpty().Distinct().ToList();
+        public List<int> GetDepartManager(int dep_no) {
+            var root = (from d in model.manager where d.man_type == "1" && d.dep_no==dep_no select d.people.peo_uid).DefaultIfEmpty().Distinct().ToList();
 
             return root;
         

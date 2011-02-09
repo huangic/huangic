@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="200601.aspx.cs" Inherits="_20_200600_200601" %>
+    CodeFile="200601.aspx.cs" Inherits="_20_200600_200601"   enableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"

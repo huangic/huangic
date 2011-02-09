@@ -161,5 +161,73 @@ namespace NXEIP.DAO
                 }
             
             }
+
+
+            [Flags]
+            public enum ForumPermission
+            {
+                /// <summary>
+                /// 沒有權限
+                /// </summary>
+                NoPermission=0,
+                /// <summary>
+                /// 讀取討論區
+                /// </summary>
+                ReadForum = 1,
+                /// <summary>
+                /// 可以看主題
+                /// </summary>
+                ReadTopic=2,
+                /// <summary>
+                /// 可以看內容
+                /// </summary>
+                ReadContent=4,
+                /// <summary>
+                /// 可以新增
+                /// </summary>
+                Write=8,
+                /// <summary>
+                /// 有管理權限
+                /// </summary>
+                Manager=16
+
+            }
+        /// <summary>
+        /// 取權限值
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
+            public bool GetPermission(ForumPermission f)
+            {
+                ForumPermission fp=(ForumPermission)System.Convert.ToInt32(this.Permission,2);        
+        
+                //做FLAG的判斷
+                return (fp & f)==f;
+            }
+        /// <summary>
+            /// 取權限值
+        /// </summary>
+        /// <param name="permission">權限FLAG(2進位基數)</param>
+        /// <param name="f"></param>
+        /// <returns></returns>
+            public static bool GetPermission(int permission, ForumPermission f) {
+                ForumPermission fp = (ForumPermission)permission;
+
+                //做FLAG的判斷
+                return (fp & f) == f;
+            }
+        /// <summary>
+            /// 取權限值
+        /// </summary>
+            /// <param name="permission">權限FLAG("0001")</param>
+        /// <param name="f"></param>
+        /// <returns></returns>
+            public static bool GetPermission(String permission, ForumPermission f)
+            {
+                ForumPermission fp = (ForumPermission)System.Convert.ToInt32(permission, 2);
+
+                //做FLAG的判斷
+                return (fp & f) == f;
+            }
     }
 }

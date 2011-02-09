@@ -43,6 +43,8 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="主題列表" />
+   
+    
     <div class="tableDiv">
         <div class="talk">
             <div class="select">
@@ -52,14 +54,20 @@
                 <div class="b6">
                     <a href="#" class="b-input">列印</a></div>
                 <div class="b6">
-                    <asp:HyperLink ID="hl_search"  CssClass="b-input" runat="server">文章查詢</asp:HyperLink>
+                    <asp:HyperLink ID="hl_search"  CssClass="b-input"  Visible="false" runat="server">文章查詢</asp:HyperLink>
                 </div>
                 <div class="b6">
-                     <asp:HyperLink ID="hl_featured"  CssClass="b-input" runat="server">觀看精華區</asp:HyperLink>
+                     <asp:HyperLink ID="hl_featured"  CssClass="b-input" Visible="false" runat="server">觀看精華區</asp:HyperLink>
                 </div>
                 <div class="b6">
-                    <a href="#" class="b-input">發表主題 </a>
+                    
+                     <asp:HyperLink ID="hl_post"  CssClass="thickbox b-input" Visible="false" runat="server" >發表主題</asp:HyperLink>
                 </div>
+                <div class="b6">
+                    
+                     <asp:HyperLink ID="hl_member"  CssClass="thickbox b-input" Visible="false"  runat="server" >加入會員</asp:HyperLink>
+                </div>
+
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -125,5 +133,10 @@
             
         </div>
     </div>
+
+    
+   
+    
+   
  
 </asp:Content>

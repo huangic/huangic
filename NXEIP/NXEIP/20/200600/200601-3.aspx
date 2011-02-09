@@ -55,7 +55,7 @@
                 -->
 
                 <div class="b6">
-                    <asp:HyperLink  CssClass="b-input" ID="hl_list" runat="server">觀看主題</asp:HyperLink>
+                    <asp:HyperLink  CssClass="b-input" ID="hl_list" runat="server">觀看主題列表</asp:HyperLink>
                 </div>
               
             </div>
