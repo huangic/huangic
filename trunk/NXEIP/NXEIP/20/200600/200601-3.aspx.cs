@@ -19,7 +19,10 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
+        InitHyperLink();
+
+
         if (!Page.IsPostBack) {
             this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
             this.GridView1.DataBind();
@@ -35,6 +38,12 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
 
         }
         return "";
+    }
+
+
+    private void InitHyperLink() {
+        this.hl_list.NavigateUrl = String.Format("200601-2.aspx?tao_no={0}", Request["tao_no"]);
+    
     }
     
 }

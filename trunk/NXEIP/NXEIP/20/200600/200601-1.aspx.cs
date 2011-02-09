@@ -78,23 +78,34 @@ public partial class _20_200600_200601_1 : System.Web.UI.Page
             
 
 
+            //
+            NXEIPEntities model = new NXEIPEntities();
+            model.taolun.AddObject(t);
+            model.SaveChanges();
+
+
 
             //通知總管理者
 
             //取總管理者
-            List<people> root = new ManagerDAO().GetRootManager();
+            List<int> root = new ManagerDAO().GetRootManager();
 
 
             PersonalMessageUtil msgUtil = new PersonalMessageUtil();
 
             foreach (var p in root)
             {
-                msgUtil.SendMessage("申請討論區", "申請討論區", "", p.peo_uid, int.Parse(sessionObj.sessionUserID), true, false, false);
+                msgUtil.SendMessage("申請討論區", "申請討論區", "", p, int.Parse(sessionObj.sessionUserID), true, false, false);
             }
 
 
-                                 
+            //關閉                  
 
+            
+
+
+
+            JsUtil.UpdateParentJs(this, "已送出申請");
 
         }
         else {
