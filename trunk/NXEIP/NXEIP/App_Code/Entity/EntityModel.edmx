@@ -10,6 +10,7 @@
           <EntitySet Name="album" EntityType="NXEIPModel.Store.album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="answers" EntityType="NXEIPModel.Store.answers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="attends" EntityType="NXEIPModel.Store.attends" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="block" EntityType="NXEIPModel.Store.block" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="borrows" EntityType="NXEIPModel.Store.borrows" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="botanize" EntityType="NXEIPModel.Store.botanize" store:Type="Tables" Schema="dbo" />
@@ -19,6 +20,7 @@
           <EntitySet Name="c04" EntityType="NXEIPModel.Store.c04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="casework" EntityType="NXEIPModel.Store.casework" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="checker" EntityType="NXEIPModel.Store.checker" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="conferen" EntityType="NXEIPModel.Store.conferen" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="departments" EntityType="NXEIPModel.Store.departments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc01" EntityType="NXEIPModel.Store.doc01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc02" EntityType="NXEIPModel.Store.doc02" store:Type="Tables" Schema="dbo" />
@@ -45,8 +47,10 @@
           <EntitySet Name="form02" EntityType="NXEIPModel.Store.form02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="goback" EntityType="NXEIPModel.Store.goback" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="government" EntityType="NXEIPModel.Store.government" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="huiyi" EntityType="NXEIPModel.Store.huiyi" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="meetings" EntityType="NXEIPModel.Store.meetings" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="message" EntityType="NXEIPModel.Store.message" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new02" EntityType="NXEIPModel.Store.new02" store:Type="Tables" Schema="dbo" />
@@ -121,6 +125,14 @@
             <End Role="theme" EntitySet="theme" />
             <End Role="answers" EntitySet="answers" />
           </AssociationSet>
+          <AssociationSet Name="FK_ATTENDS_RELATIONS_MEETINGS" Association="NXEIPModel.Store.FK_ATTENDS_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="attends" EntitySet="attends" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTENDS_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_ATTENDS_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="attends" EntitySet="attends" />
+          </AssociationSet>
           <AssociationSet Name="FK_BLCOK_RELATIONS_PAGE" Association="NXEIPModel.Store.FK_BLCOK_RELATIONS_PAGE">
             <End Role="page" EntitySet="page" />
             <End Role="block" EntitySet="block" />
@@ -164,6 +176,10 @@
           <AssociationSet Name="FK_CHECKER_RELATIONS_ROOMS" Association="NXEIPModel.Store.FK_CHECKER_RELATIONS_ROOMS">
             <End Role="rooms" EntitySet="rooms" />
             <End Role="checker" EntitySet="checker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFEREN_RELATIONS_MEETINGS" Association="NXEIPModel.Store.FK_CONFEREN_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="conferen" EntitySet="conferen" />
           </AssociationSet>
           <AssociationSet Name="FK_DOC01_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_DOC01_RELATIONS_DEPARTME">
             <End Role="departments" EntitySet="departments" />
@@ -264,6 +280,10 @@
           <AssociationSet Name="FK_GOVERNME_RELATIONS_ROOMS" Association="NXEIPModel.Store.FK_GOVERNME_RELATIONS_ROOMS">
             <End Role="rooms" EntitySet="rooms" />
             <End Role="government" EntitySet="government" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HUIYI_RELATIONS_MEETINGS" Association="NXEIPModel.Store.FK_HUIYI_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="huiyi" EntitySet="huiyi" />
           </AssociationSet>
           <AssociationSet Name="FK_MANAGER_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_MANAGER_RELATIONS_DEPARTME">
             <End Role="departments" EntitySet="departments" />
@@ -513,6 +533,18 @@
           <Property Name="arg_variable" Type="varchar" MaxLength="50" />
           <Property Name="arg_value" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="attends">
+          <Key>
+            <PropertyRef Name="mee_no" />
+            <PropertyRef Name="att_no" />
+          </Key>
+          <Property Name="mee_no" Type="int" Nullable="false" />
+          <Property Name="att_no" Type="int" Nullable="false" />
+          <Property Name="peo_uid" Type="int" Nullable="false" />
+          <Property Name="att_status" Type="char" MaxLength="1" />
+          <Property Name="att_date" Type="datetime" />
+          <Property Name="att_reason" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="block">
           <Key>
             <PropertyRef Name="blo_no" />
@@ -627,6 +659,17 @@
           <Property Name="che_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="roo_no" Type="int" Nullable="false" />
           <Property Name="che_peouid" Type="int" />
+        </EntityType>
+        <EntityType Name="conferen">
+          <Key>
+            <PropertyRef Name="mee_no" />
+            <PropertyRef Name="con_no" />
+          </Key>
+          <Property Name="mee_no" Type="int" Nullable="false" />
+          <Property Name="con_no" Type="int" Nullable="false" />
+          <Property Name="con_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="con_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="con_file" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="departments">
           <Key>
@@ -1027,6 +1070,17 @@
           <Property Name="gov_no" Type="int" Nullable="false" />
           <Property Name="gov_depno" Type="int" />
         </EntityType>
+        <EntityType Name="huiyi">
+          <Key>
+            <PropertyRef Name="mee_no" />
+          </Key>
+          <Property Name="mee_no" Type="int" Nullable="false" />
+          <Property Name="hui_no" Type="int" Nullable="false" />
+          <Property Name="hui_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="hui_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="hui_file" Type="nvarchar" MaxLength="100" />
+          <Property Name="hui_memo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="loginlog">
           <Key>
             <PropertyRef Name="log_no" />
@@ -1049,6 +1103,29 @@
           <Property Name="man_no" Type="int" Nullable="false" />
           <Property Name="peo_uid" Type="int" Nullable="false" />
           <Property Name="man_type" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="meetings">
+          <Key>
+            <PropertyRef Name="mee_no" />
+          </Key>
+          <Property Name="mee_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="mee_reason" Type="nvarchar" MaxLength="200" />
+          <Property Name="mee_sdate" Type="varchar" MaxLength="10" />
+          <Property Name="mee_stime" Type="varchar" MaxLength="6" />
+          <Property Name="mee_edate" Type="varchar" MaxLength="10" />
+          <Property Name="mee_etime" Type="varchar" MaxLength="6" />
+          <Property Name="mee_place" Type="nvarchar" MaxLength="200" />
+          <Property Name="mee_facility" Type="nvarchar" MaxLength="200" />
+          <Property Name="mee_peouid" Type="int" />
+          <Property Name="mee_tel" Type="varchar" MaxLength="20" />
+          <Property Name="mee_email" Type="varchar" MaxLength="100" />
+          <Property Name="mee_fax" Type="varchar" MaxLength="20" />
+          <Property Name="mee_host" Type="int" />
+          <Property Name="mee_recorduid" Type="int" />
+          <Property Name="mee_memo" Type="nvarchar" MaxLength="700" />
+          <Property Name="mee_status" Type="char" MaxLength="1" />
+          <Property Name="mee_createuid" Type="int" />
+          <Property Name="mee_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="message">
           <Key>
@@ -1771,6 +1848,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ATTENDS_RELATIONS_MEETINGS">
+          <End Role="meetings" Type="NXEIPModel.Store.meetings" Multiplicity="1" />
+          <End Role="attends" Type="NXEIPModel.Store.attends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="attends">
+              <PropertyRef Name="mee_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTENDS_RELATIONS_PEOPLE">
+          <End Role="people" Type="NXEIPModel.Store.people" Multiplicity="1" />
+          <End Role="attends" Type="NXEIPModel.Store.attends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="attends">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_BLCOK_RELATIONS_PAGE">
           <End Role="page" Type="NXEIPModel.Store.page" Multiplicity="1" />
           <End Role="block" Type="NXEIPModel.Store.block" Multiplicity="*" />
@@ -1902,6 +2003,18 @@
             </Principal>
             <Dependent Role="checker">
               <PropertyRef Name="roo_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFEREN_RELATIONS_MEETINGS">
+          <End Role="meetings" Type="NXEIPModel.Store.meetings" Multiplicity="1" />
+          <End Role="conferen" Type="NXEIPModel.Store.conferen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="conferen">
+              <PropertyRef Name="mee_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2204,6 +2317,18 @@
             </Principal>
             <Dependent Role="government">
               <PropertyRef Name="roo_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HUIYI_RELATIONS_MEETINGS">
+          <End Role="meetings" Type="NXEIPModel.Store.meetings" Multiplicity="1" />
+          <End Role="huiyi" Type="NXEIPModel.Store.huiyi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="huiyi">
+              <PropertyRef Name="mee_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3233,6 +3358,26 @@
             <End Role="taolun" EntitySet="taolun" />
             <End Role="tao06" EntitySet="tao06" />
           </AssociationSet>
+          <EntitySet Name="attends" EntityType="NXEIPModel.attends" />
+          <EntitySet Name="conferen" EntityType="NXEIPModel.conferen" />
+          <EntitySet Name="huiyi" EntityType="NXEIPModel.huiyi" />
+          <EntitySet Name="meetings" EntityType="NXEIPModel.meetings" />
+          <AssociationSet Name="FK_ATTENDS_RELATIONS_MEETINGS" Association="NXEIPModel.FK_ATTENDS_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="attends" EntitySet="attends" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTENDS_RELATIONS_PEOPLE" Association="NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE">
+            <End Role="people" EntitySet="people" />
+            <End Role="attends" EntitySet="attends" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONFEREN_RELATIONS_MEETINGS" Association="NXEIPModel.FK_CONFEREN_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="conferen" EntitySet="conferen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HUIYI_RELATIONS_MEETINGS" Association="NXEIPModel.FK_HUIYI_RELATIONS_MEETINGS">
+            <End Role="meetings" EntitySet="meetings" />
+            <End Role="huiyi" EntitySet="huiyi" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -3533,6 +3678,7 @@
           <NavigationProperty Name="tao04" Relationship="NXEIPModel.FK_TAO04_RELATIONS_PEOPLE" FromRole="people" ToRole="tao04" />
           <NavigationProperty Name="taolun" Relationship="NXEIPModel.FK_TAOLUN_RELATIONS_PEOPLE" FromRole="people" ToRole="taolun" />
           <NavigationProperty Name="tao06" Relationship="NXEIPModel.FK_TAO06_RELATIONS_PEOPLE" FromRole="people" ToRole="tao06" />
+          <NavigationProperty Name="attends" Relationship="NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE" FromRole="people" ToRole="attends" />
         </EntityType>
         <EntityType Name="per01">
           <Key>
@@ -5748,6 +5894,118 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="attends">
+          <Key>
+            <PropertyRef Name="mee_no" />
+            <PropertyRef Name="att_no" />
+          </Key>
+          <Property Type="Int32" Name="mee_no" Nullable="false" />
+          <Property Type="Int32" Name="att_no" Nullable="false" />
+          <Property Type="Int32" Name="peo_uid" Nullable="false" />
+          <Property Type="String" Name="att_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="att_date" />
+          <Property Type="String" Name="att_reason" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="meetings" Relationship="NXEIPModel.FK_ATTENDS_RELATIONS_MEETINGS" FromRole="attends" ToRole="meetings" />
+          <NavigationProperty Name="people" Relationship="NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE" FromRole="attends" ToRole="people" />
+        </EntityType>
+        <EntityType Name="conferen">
+          <Key>
+            <PropertyRef Name="mee_no" />
+            <PropertyRef Name="con_no" />
+          </Key>
+          <Property Type="Int32" Name="mee_no" Nullable="false" />
+          <Property Type="Int32" Name="con_no" Nullable="false" />
+          <Property Type="String" Name="con_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="con_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="con_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="meetings" Relationship="NXEIPModel.FK_CONFEREN_RELATIONS_MEETINGS" FromRole="conferen" ToRole="meetings" />
+        </EntityType>
+        <EntityType Name="huiyi">
+          <Key>
+            <PropertyRef Name="mee_no" />
+          </Key>
+          <Property Type="Int32" Name="mee_no" Nullable="false" />
+          <Property Type="Int32" Name="hui_no" Nullable="false" />
+          <Property Type="String" Name="hui_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="hui_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="hui_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="hui_memo" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="meetings" Relationship="NXEIPModel.FK_HUIYI_RELATIONS_MEETINGS" FromRole="huiyi" ToRole="meetings" />
+        </EntityType>
+        <EntityType Name="meetings">
+          <Key>
+            <PropertyRef Name="mee_no" />
+          </Key>
+          <Property Type="Int32" Name="mee_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="mee_reason" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mee_sdate" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_stime" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_edate" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_etime" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_place" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mee_facility" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="mee_peouid" />
+          <Property Type="String" Name="mee_tel" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mee_fax" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="mee_host" />
+          <Property Type="Int32" Name="mee_recorduid" />
+          <Property Type="String" Name="mee_memo" MaxLength="700" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="mee_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="mee_createuid" />
+          <Property Type="DateTime" Name="mee_createtime" />
+          <NavigationProperty Name="attends" Relationship="NXEIPModel.FK_ATTENDS_RELATIONS_MEETINGS" FromRole="meetings" ToRole="attends" />
+          <NavigationProperty Name="conferen" Relationship="NXEIPModel.FK_CONFEREN_RELATIONS_MEETINGS" FromRole="meetings" ToRole="conferen" />
+          <NavigationProperty Name="huiyi" Relationship="NXEIPModel.FK_HUIYI_RELATIONS_MEETINGS" FromRole="meetings" ToRole="huiyi" />
+        </EntityType>
+        <Association Name="FK_ATTENDS_RELATIONS_MEETINGS">
+          <End Type="NXEIPModel.meetings" Role="meetings" Multiplicity="1" />
+          <End Type="NXEIPModel.attends" Role="attends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="attends">
+              <PropertyRef Name="mee_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTENDS_RELATIONS_PEOPLE">
+          <End Type="NXEIPModel.people" Role="people" Multiplicity="1" />
+          <End Type="NXEIPModel.attends" Role="attends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="people">
+              <PropertyRef Name="peo_uid" />
+            </Principal>
+            <Dependent Role="attends">
+              <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONFEREN_RELATIONS_MEETINGS">
+          <End Type="NXEIPModel.meetings" Role="meetings" Multiplicity="1" />
+          <End Type="NXEIPModel.conferen" Role="conferen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="conferen">
+              <PropertyRef Name="mee_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HUIYI_RELATIONS_MEETINGS">
+          <End Type="NXEIPModel.meetings" Role="meetings" Multiplicity="1" />
+          <End Type="NXEIPModel.huiyi" Role="huiyi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="meetings">
+              <PropertyRef Name="mee_no" />
+            </Principal>
+            <Dependent Role="huiyi">
+              <PropertyRef Name="mee_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6957,6 +7215,65 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="attends">
+            <EntityTypeMapping TypeName="NXEIPModel.attends">
+              <MappingFragment StoreEntitySet="attends">
+                <ScalarProperty Name="att_reason" ColumnName="att_reason" />
+                <ScalarProperty Name="att_date" ColumnName="att_date" />
+                <ScalarProperty Name="att_status" ColumnName="att_status" />
+                <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+                <ScalarProperty Name="att_no" ColumnName="att_no" />
+                <ScalarProperty Name="mee_no" ColumnName="mee_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conferen">
+            <EntityTypeMapping TypeName="NXEIPModel.conferen">
+              <MappingFragment StoreEntitySet="conferen">
+                <ScalarProperty Name="con_file" ColumnName="con_file" />
+                <ScalarProperty Name="con_type" ColumnName="con_type" />
+                <ScalarProperty Name="con_path" ColumnName="con_path" />
+                <ScalarProperty Name="con_no" ColumnName="con_no" />
+                <ScalarProperty Name="mee_no" ColumnName="mee_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="huiyi">
+            <EntityTypeMapping TypeName="NXEIPModel.huiyi">
+              <MappingFragment StoreEntitySet="huiyi">
+                <ScalarProperty Name="hui_memo" ColumnName="hui_memo" />
+                <ScalarProperty Name="hui_file" ColumnName="hui_file" />
+                <ScalarProperty Name="hui_type" ColumnName="hui_type" />
+                <ScalarProperty Name="hui_path" ColumnName="hui_path" />
+                <ScalarProperty Name="hui_no" ColumnName="hui_no" />
+                <ScalarProperty Name="mee_no" ColumnName="mee_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings">
+            <EntityTypeMapping TypeName="NXEIPModel.meetings">
+              <MappingFragment StoreEntitySet="meetings">
+                <ScalarProperty Name="mee_createtime" ColumnName="mee_createtime" />
+                <ScalarProperty Name="mee_createuid" ColumnName="mee_createuid" />
+                <ScalarProperty Name="mee_status" ColumnName="mee_status" />
+                <ScalarProperty Name="mee_memo" ColumnName="mee_memo" />
+                <ScalarProperty Name="mee_recorduid" ColumnName="mee_recorduid" />
+                <ScalarProperty Name="mee_host" ColumnName="mee_host" />
+                <ScalarProperty Name="mee_fax" ColumnName="mee_fax" />
+                <ScalarProperty Name="mee_email" ColumnName="mee_email" />
+                <ScalarProperty Name="mee_tel" ColumnName="mee_tel" />
+                <ScalarProperty Name="mee_peouid" ColumnName="mee_peouid" />
+                <ScalarProperty Name="mee_facility" ColumnName="mee_facility" />
+                <ScalarProperty Name="mee_place" ColumnName="mee_place" />
+                <ScalarProperty Name="mee_etime" ColumnName="mee_etime" />
+                <ScalarProperty Name="mee_edate" ColumnName="mee_edate" />
+                <ScalarProperty Name="mee_stime" ColumnName="mee_stime" />
+                <ScalarProperty Name="mee_sdate" ColumnName="mee_sdate" />
+                <ScalarProperty Name="mee_reason" ColumnName="mee_reason" />
+                <ScalarProperty Name="mee_no" ColumnName="mee_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -7009,8 +7326,8 @@
         <EntityTypeShape EntityType="NXEIPModel.types" Width="1.5" PointX="10.5" PointY="11.25" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="NXEIPModel.widget" Width="1.5" PointX="8.875" PointY="4" Height="2.5532031249999996" IsExpanded="true" />
         <AssociationConnector Association="NXEIPModel.FK_ACCOUNTS_RELATIONS_PEOPLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.5308835836383023" PointY="20.25" />
-          <ConnectorPoint PointX="5.5308835836383023" PointY="12.9994921875" />
+          <ConnectorPoint PointX="5.5312277239773939" PointY="20.25" />
+          <ConnectorPoint PointX="5.5312277239773939" PointY="12.9994921875" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ACCOUNTS" ManuallyRouted="false">
           <ConnectorPoint PointX="6.625" PointY="12.31224609375" />
@@ -7053,35 +7370,35 @@
           <ConnectorPoint PointX="2" PointY="21.9612939453125" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_PEOPLE_RELATIONS_DEPARTME" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.25" PointY="21.215805789351222" />
-          <ConnectorPoint PointX="6.833333333333333" PointY="21.215805789351222" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="21.215805789351222" />
-          <ConnectorPoint PointX="6.25" PointY="21.215805789351222" />
+          <ConnectorPoint PointX="7.25" PointY="20.843827360399739" />
+          <ConnectorPoint PointX="6.833333333333333" PointY="20.843827360399739" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="20.843827360399739" />
+          <ConnectorPoint PointX="6.25" PointY="20.843827360399739" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLDEFAU_RELATIONS_DEPARTME" ManuallyRouted="false">
           <ConnectorPoint PointX="7.75" PointY="20.25" />
-          <ConnectorPoint PointX="7.75" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="7.583333333333333" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="7.416666666666667" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="5.3331501251524847" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="5.1664834584858186" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="4.729166666666667" PointY="19.639127545572926" />
-          <ConnectorPoint PointX="4.5" PointY="19.639127545572926" />
+          <ConnectorPoint PointX="7.75" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="6.1516847890720294" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.9850181224053634" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.3333221953220304" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.1666555286553644" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="5.052083333333333" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="4.729166666666667" PointY="20.02398681640625" />
+          <ConnectorPoint PointX="4.5" PointY="20.02398681640625" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SEARCH03_RELATIONS_DEPARTME" ManuallyRouted="false">
           <ConnectorPoint PointX="8.281252" PointY="20.25" />
           <ConnectorPoint PointX="8.281252" PointY="20.05" />
-          <ConnectorPoint PointX="7.833333333333333" PointY="20.05" />
-          <ConnectorPoint PointX="7.666666666666667" PointY="20.05" />
-          <ConnectorPoint PointX="6.1476062189024843" PointY="20.05" />
-          <ConnectorPoint PointX="5.9809395522358182" PointY="20.05" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="20.05" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="20.05" />
-          <ConnectorPoint PointX="5.3331501251524847" PointY="20.05" />
-          <ConnectorPoint PointX="5.1664834584858186" PointY="20.05" />
+          <ConnectorPoint PointX="6.1516847890720294" PointY="20.05" />
+          <ConnectorPoint PointX="5.9850181224053634" PointY="20.05" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="20.05" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="20.05" />
+          <ConnectorPoint PointX="5.3333221953220304" PointY="20.05" />
+          <ConnectorPoint PointX="5.1666555286553644" PointY="20.05" />
           <ConnectorPoint PointX="5.052083333333333" PointY="20.05" />
           <ConnectorPoint PointX="4.729166666666667" PointY="20.05" />
           <ConnectorPoint PointX="4.55" PointY="20.05" />
@@ -7093,10 +7410,10 @@
           <ConnectorPoint PointX="2.5" PointY="28.740143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_DOC01_RELATIONS_PEOPLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.8160407711383026" PointY="20.25" />
-          <ConnectorPoint PointX="5.8160407711383026" PointY="20" />
-          <ConnectorPoint PointX="5.9809395522358182" PointY="20" />
-          <ConnectorPoint PointX="6.1476062189024843" PointY="20" />
+          <ConnectorPoint PointX="5.8241979114773939" PointY="20.25" />
+          <ConnectorPoint PointX="5.8241979114773939" PointY="20" />
+          <ConnectorPoint PointX="5.9850181224053634" PointY="20" />
+          <ConnectorPoint PointX="6.1516847890720294" PointY="20" />
           <ConnectorPoint PointX="6.625" PointY="20" />
           <ConnectorPoint PointX="6.625" PointY="31.297801106770834" />
           <ConnectorPoint PointX="6.635416666666667" PointY="31.297801106770834" />
@@ -7113,14 +7430,14 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_DOC04_RELATIONS_DOC03" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="26.336741536458334" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="26.336741536458334" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="26.336741536458334" />
           <ConnectorPoint PointX="9.5833333333333339" PointY="26.336741536458334" />
           <ConnectorPoint PointX="9.75" PointY="26.336741536458334" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_DOC05_RELATIONS_DOC03" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="27.913157552083334" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="27.913157552083334" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="27.913157552083334" />
+          <ConnectorPoint PointX="9.3541666666666661" PointY="27.913157552083334" />
+          <ConnectorPoint PointX="9.5208333333333339" PointY="27.913157552083334" />
           <ConnectorPoint PointX="9.75" PointY="27.913157552083334" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_OPERATES_RELATIONS_PEOPLE" ManuallyRouted="false">
@@ -7138,25 +7455,25 @@
           <ConnectorPoint PointX="1.25" PointY="28.303203125" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_PER01_RELATIONS_PEOPLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.75" PointY="25.566925455729169" />
-          <ConnectorPoint PointX="4.5" PointY="25.566925455729169" />
+          <ConnectorPoint PointX="4.75" PointY="25.663076171874998" />
+          <ConnectorPoint PointX="4.5" PointY="25.663076171874998" />
           <ConnectorPoint PointX="4.5" PointY="32.711212565104162" />
           <ConnectorPoint PointX="4.541666666666667" PointY="32.711212565104162" />
           <ConnectorPoint PointX="4.864583333333333" PointY="32.711212565104162" />
           <ConnectorPoint PointX="4.875" PointY="32.711212565104162" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_SEARCH02_RELATIONS_PEOPLE" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.2498167918191516" PointY="20.25" />
-          <ConnectorPoint PointX="5.2498167918191516" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="6.822916666666667" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="6.989583333333333" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="7.416666666666667" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="7.583333333333333" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="19.180505748697918" />
-          <ConnectorPoint PointX="8.25" PointY="19.180505748697918" />
+          <ConnectorPoint PointX="5.2499888619886974" PointY="20.25" />
+          <ConnectorPoint PointX="5.2499888619886974" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="6.822916666666667" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="6.989583333333333" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="7.416666666666667" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="7.583333333333333" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="19.208639322916671" />
+          <ConnectorPoint PointX="8.25" PointY="19.208639322916671" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_RAUTHORI_RELATIONS_ROLE" ManuallyRouted="false">
           <ConnectorPoint PointX="7.25" PointY="17.49974609375" />
@@ -7181,7 +7498,9 @@
           <ConnectorPoint PointX="6.895833333333333" PointY="36.547425130208325" />
           <ConnectorPoint PointX="8.875" PointY="36.547425130208325" />
           <ConnectorPoint PointX="8.875" PointY="30.25" />
-          <ConnectorPoint PointX="10.916666666666666" PointY="30.25" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="30.25" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="30.25" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="30.25" />
           <ConnectorPoint PointX="11.208333333333334" PointY="30.25" />
           <ConnectorPoint PointX="11.25" PointY="30.25" />
           <ConnectorPoint PointX="11.25" PointY="32.797587890625" />
@@ -7192,14 +7511,14 @@
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLDEFAU_RELATIONS_ROLE" ManuallyRouted="false">
           <ConnectorPoint PointX="6.90625" PointY="18.874492187500003" />
-          <ConnectorPoint PointX="6.90625" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="5.3331501251524847" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="5.1664834584858186" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="4.729166666666667" PointY="19.424019309895836" />
-          <ConnectorPoint PointX="4.5" PointY="19.424019309895836" />
+          <ConnectorPoint PointX="6.90625" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="5.3333221953220304" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="5.1666555286553644" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="5.052083333333333" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="4.729166666666667" PointY="19.632629697108346" />
+          <ConnectorPoint PointX="4.5" PointY="19.632629697108346" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ROLEACCO_RELATIONS_ROLE" ManuallyRouted="false">
           <ConnectorPoint PointX="6.96875" PointY="16.125" />
@@ -7212,8 +7531,8 @@
           <ConnectorPoint PointX="4.5" PointY="15.218750499999999" />
           <ConnectorPoint PointX="4.729166666666667" PointY="15.218750499999997" />
           <ConnectorPoint PointX="5.052083333333333" PointY="15.218750499999999" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="15.218750499999999" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="15.218750499999999" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="15.218750499999999" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="15.218750499999999" />
           <ConnectorPoint PointX="6.885416666666667" PointY="15.218750499999999" />
           <ConnectorPoint PointX="7.052083333333333" PointY="15.218750499999999" />
           <ConnectorPoint PointX="7.166666666666667" PointY="15.218750499999999" />
@@ -7232,8 +7551,8 @@
           <ConnectorPoint PointX="4.5" PointY="15.70312525" />
           <ConnectorPoint PointX="4.729166666666667" PointY="15.703125249999998" />
           <ConnectorPoint PointX="5.052083333333333" PointY="15.70312525" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="15.70312525" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="15.70312525" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="15.70312525" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="15.70312525" />
           <ConnectorPoint PointX="6.885416666666667" PointY="15.70312525" />
           <ConnectorPoint PointX="7.052083333333333" PointY="15.70312525" />
           <ConnectorPoint PointX="7.166666666666667" PointY="15.70312525" />
@@ -7265,11 +7584,15 @@
           <ConnectorPoint PointX="9.5" PointY="23.086293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_MANAGER_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="22.663705203325321" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="22.663705203325321" />
-          <ConnectorPoint PointX="6.833333333333333" PointY="22.663705203325321" />
-          <ConnectorPoint PointX="9.625" PointY="22.663705203325321" />
-          <ConnectorPoint PointX="9.625" PointY="24.75" />
+          <ConnectorPoint PointX="6.25" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="9.125" PointY="25.64881409430134" />
+          <ConnectorPoint PointX="9.125" PointY="24.75" />
+          <ConnectorPoint PointX="9.4166666666666661" PointY="24.75" />
+          <ConnectorPoint PointX="9.5833333333333339" PointY="24.75" />
           <ConnectorPoint PointX="10.25" PointY="24.75" />
           <ConnectorPoint PointX="10.25" PointY="24.172587890624982" />
         </AssociationConnector>
@@ -7302,7 +7625,7 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.terms" Width="1.5" PointX="7" PointY="38.375" Height="1.7879850260416674" />
         <AssociationConnector Association="NXEIPModel.FK_TERMS_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.78125" PointY="30.883850911458335" />
+          <ConnectorPoint PointX="4.78125" PointY="31.07615234375" />
           <ConnectorPoint PointX="4.78125" PointY="39.268992513020834" />
           <ConnectorPoint PointX="6.619791666666667" PointY="39.268992513020834" />
           <ConnectorPoint PointX="6.895833333333333" PointY="39.268992513020834" />
@@ -7426,22 +7749,22 @@
           <ConnectorPoint PointX="12.5" PointY="42.057444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TREAT_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.796875" PointY="30.883850911458335" />
+          <ConnectorPoint PointX="4.796875" PointY="31.07615234375" />
           <ConnectorPoint PointX="4.796875" PointY="60.470896809895834" />
           <ConnectorPoint PointX="6.619791666666667" PointY="60.470896809895834" />
           <ConnectorPoint PointX="6.895833333333333" PointY="60.470896809895834" />
           <ConnectorPoint PointX="7" PointY="60.470896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TREATDET_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="4.765625" PointY="30.883850911458335" />
+          <ConnectorPoint PointX="4.765625" PointY="31.07615234375" />
           <ConnectorPoint PointX="4.765625" PointY="41.14843625" />
           <ConnectorPoint PointX="5.666666666666667" PointY="41.14843625" />
           <ConnectorPoint PointX="5.833333333333333" PointY="41.14843625" />
           <ConnectorPoint PointX="6.619791666666667" PointY="41.14843625" />
           <ConnectorPoint PointX="6.895833333333333" PointY="41.14843625" />
           <ConnectorPoint PointX="9.3541666666666661" PointY="41.14843625" />
-          <ConnectorPoint PointX="9.5208333333333339" PointY="41.14843625" />
-          <ConnectorPoint PointX="9.8541666666666661" PointY="41.14843625" />
+          <ConnectorPoint PointX="9.6458333333333339" PointY="41.14843625" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="41.14843625" />
           <ConnectorPoint PointX="10.083333333333334" PointY="41.14843625" />
           <ConnectorPoint PointX="10.25" PointY="41.14843625" />
         </AssociationConnector>
@@ -7449,8 +7772,8 @@
           <ConnectorPoint PointX="7.09375" PointY="59" />
           <ConnectorPoint PointX="7.09375" PointY="41.734377499999994" />
           <ConnectorPoint PointX="9.3541666666666661" PointY="41.734377499999994" />
-          <ConnectorPoint PointX="9.5208333333333339" PointY="41.734377499999994" />
-          <ConnectorPoint PointX="9.8541666666666661" PointY="41.734377499999994" />
+          <ConnectorPoint PointX="9.6458333333333339" PointY="41.734377499999994" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="41.734377499999994" />
           <ConnectorPoint PointX="10.083333333333334" PointY="41.734377499999994" />
           <ConnectorPoint PointX="10.25" PointY="41.734377499999994" />
         </AssociationConnector>
@@ -7474,25 +7797,25 @@
           <ConnectorPoint PointX="4.875" PointY="19.984375" />
           <ConnectorPoint PointX="4.885416666666667" PointY="19.984375" />
           <ConnectorPoint PointX="5.052083333333333" PointY="19.984375" />
-          <ConnectorPoint PointX="5.1664834584858186" PointY="19.984375" />
-          <ConnectorPoint PointX="5.3331501251524847" PointY="19.984375" />
-          <ConnectorPoint PointX="5.4475502503049693" PointY="19.984375" />
-          <ConnectorPoint PointX="5.6142169169716354" PointY="19.984375" />
-          <ConnectorPoint PointX="5.9809395522358182" PointY="19.984375" />
-          <ConnectorPoint PointX="6.1476062189024843" PointY="19.984375" />
+          <ConnectorPoint PointX="5.1666555286553644" PointY="19.984375" />
+          <ConnectorPoint PointX="5.3333221953220304" PointY="19.984375" />
+          <ConnectorPoint PointX="5.4478943906440609" PointY="19.984375" />
+          <ConnectorPoint PointX="5.614561057310727" PointY="19.984375" />
+          <ConnectorPoint PointX="5.9850181224053634" PointY="19.984375" />
+          <ConnectorPoint PointX="6.1516847890720294" PointY="19.984375" />
           <ConnectorPoint PointX="6.75" PointY="19.984375" />
           <ConnectorPoint PointX="6.75" PointY="71.625" />
           <ConnectorPoint PointX="5.875" PointY="71.625" />
           <ConnectorPoint PointX="5.875" PointY="72" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP02_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="26.852010438117702" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="26.852010438117702" />
-          <ConnectorPoint PointX="6.708333333333333" PointY="26.852010438117702" />
-          <ConnectorPoint PointX="6.78125" PointY="26.852010438117702" />
+          <ConnectorPoint PointX="6.25" PointY="27.445697504369022" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="27.445697504369022" />
+          <ConnectorPoint PointX="6.708333333333333" PointY="27.445697504369022" />
+          <ConnectorPoint PointX="6.78125" PointY="27.445697504369022" />
           <ConnectorPoint PointX="6.78125" PointY="66.125" />
-          <ConnectorPoint PointX="7.48022328125" PointY="66.125" />
-          <ConnectorPoint PointX="7.48022328125" PointY="66.5" />
+          <ConnectorPoint PointX="7.4794298203125" PointY="66.125" />
+          <ConnectorPoint PointX="7.4794298203125" PointY="66.5" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP01_RELATIONS_REP05" >
           <ConnectorPoint PointX="18.875" PointY="6.9276432291666765" />
@@ -7526,15 +7849,15 @@
           <ConnectorPoint PointX="6.71875" PointY="66" />
           <ConnectorPoint PointX="6.729166666666667" PointY="66" />
           <ConnectorPoint PointX="6.895833333333333" PointY="66" />
-          <ConnectorPoint PointX="8.0229505625" PointY="66" />
-          <ConnectorPoint PointX="8.0229505625" PointY="66.5" />
+          <ConnectorPoint PointX="8.0213636406250011" PointY="66" />
+          <ConnectorPoint PointX="8.0213636406250011" PointY="66.5" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.form01" Width="1.5" PointX="7" PointY="76.25" Height="3.903300781249996" />
         <AssociationConnector Association="NXEIPModel.FK_FORM01_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="27.829730049788012" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="27.829730049788012" />
-          <ConnectorPoint PointX="6.708333333333333" PointY="27.829730049788012" />
-          <ConnectorPoint PointX="6.765625" PointY="27.829730049788012" />
+          <ConnectorPoint PointX="6.25" PointY="23.2949593720989" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="23.2949593720989" />
+          <ConnectorPoint PointX="6.708333333333333" PointY="23.2949593720989" />
+          <ConnectorPoint PointX="6.765625" PointY="23.2949593720989" />
           <ConnectorPoint PointX="6.765625" PointY="71.75" />
           <ConnectorPoint PointX="6.916666666666667" PointY="71.75" />
           <ConnectorPoint PointX="7.083333333333333" PointY="71.75" />
@@ -7556,19 +7879,17 @@
           <ConnectorPoint PointX="11" PointY="52.432190755208339" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_FORM02_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="6.895833333333333" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="7.260416666666667" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="8.0416666666666661" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="8.2083333333333339" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="9.1875" PointY="28.744944661458334" />
-          <ConnectorPoint PointX="9.1875" PointY="30" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="30" />
+          <ConnectorPoint PointX="6.25" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="8.2083333333333339" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="9.125" PointY="28.782774426279765" />
+          <ConnectorPoint PointX="9.125" PointY="30" />
+          <ConnectorPoint PointX="9.3541666666666661" PointY="30" />
           <ConnectorPoint PointX="9.5833333333333339" PointY="30" />
-          <ConnectorPoint PointX="10.916666666666666" PointY="30" />
-          <ConnectorPoint PointX="11.083333333333334" PointY="30" />
           <ConnectorPoint PointX="11.125" PointY="30" />
           <ConnectorPoint PointX="11.125" PointY="40.125" />
           <ConnectorPoint PointX="11.083333333333334" PointY="40.125" />
@@ -7597,10 +7918,10 @@
         <EntityTypeShape EntityType="NXEIPModel.notifys" Width="1.5" PointX="15.375" PointY="14.75" Height="4.0956022135416674" />
         <EntityTypeShape EntityType="NXEIPModel.setting" Width="1.5" PointX="7" PointY="62.75" Height="2.1725878906249818" />
         <AssociationConnector Association="NXEIPModel.FK_SETTING_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="26.071901399485306" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="26.071901399485306" />
-          <ConnectorPoint PointX="6.708333333333333" PointY="26.071901399485306" />
-          <ConnectorPoint PointX="6.734375" PointY="26.071901399485306" />
+          <ConnectorPoint PointX="6.25" PointY="26.752621628348844" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="26.752621628348844" />
+          <ConnectorPoint PointX="6.708333333333333" PointY="26.752621628348844" />
+          <ConnectorPoint PointX="6.734375" PointY="26.752621628348844" />
           <ConnectorPoint PointX="6.734375" PointY="62.375" />
           <ConnectorPoint PointX="7.75" PointY="62.375" />
           <ConnectorPoint PointX="7.75" PointY="62.75" />
@@ -7618,8 +7939,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.petition" Width="1.5" PointX="2.75" PointY="45" Height="4.6645312499999818" />
         <AssociationConnector Association="NXEIPModel.FK_PETITION_RELATIONS_ROOMS" >
-          <ConnectorPoint PointX="2" PointY="5.7095065169734225" />
-          <ConnectorPoint PointX="2.5625" PointY="5.7095065169734225" />
+          <ConnectorPoint PointX="2" PointY="5.6868069875320568" />
+          <ConnectorPoint PointX="2.5625" PointY="5.6868069875320568" />
           <ConnectorPoint PointX="2.5625" PointY="27.484375" />
           <ConnectorPoint PointX="2.6666661666666664" PointY="27.484375" />
           <ConnectorPoint PointX="2.8333328333333334" PointY="27.484375" />
@@ -7634,16 +7955,16 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.casework" Width="1.5" PointX="21.875" PointY="46.75" Height="2.3772591145833246" />
         <AssociationConnector Association="NXEIPModel.FK_CASEWORK_RELATIONS_THEME" >
-          <ConnectorPoint PointX="20.375" PointY="15.256979166666666" />
-          <ConnectorPoint PointX="20.375" PointY="47.938629557291669" />
-          <ConnectorPoint PointX="21.875" PointY="47.938629557291669" />
+          <ConnectorPoint PointX="21.03125" PointY="15.518697916666666" />
+          <ConnectorPoint PointX="21.03125" PointY="48.028595377604169" />
+          <ConnectorPoint PointX="21.875" PointY="48.028595377604169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.botanize" Width="1.5" PointX="7" PointY="81.375" Height="2.5532031249999818" />
         <AssociationConnector Association="NXEIPModel.FK_BOTANIZE_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="24.173203213554103" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="24.173203213554103" />
-          <ConnectorPoint PointX="6.786458333333333" PointY="24.173203213554103" />
-          <ConnectorPoint PointX="6.796875" PointY="24.173203213554103" />
+          <ConnectorPoint PointX="6.25" PointY="22.397554546449197" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="22.397554546449197" />
+          <ConnectorPoint PointX="6.786458333333333" PointY="22.397554546449197" />
+          <ConnectorPoint PointX="6.796875" PointY="22.397554546449197" />
           <ConnectorPoint PointX="6.796875" PointY="71.875" />
           <ConnectorPoint PointX="6.916666666666667" PointY="71.875" />
           <ConnectorPoint PointX="7.083333333333333" PointY="71.875" />
@@ -7668,8 +7989,8 @@
         <EntityTypeShape EntityType="NXEIPModel.album" Width="1.5" PointX="7" PointY="85.125" Height="3.9033007812499818" />
         <EntityTypeShape EntityType="NXEIPModel.photo" Width="1.5" PointX="9.25" PointY="85.75" Height="2.7494921874999818" />
         <AssociationConnector Association="NXEIPModel.FK_ALBUM_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="22.258921011581048" />
-          <ConnectorPoint PointX="6.703125" PointY="22.258921011581048" />
+          <ConnectorPoint PointX="6.25" PointY="21.620690953424468" />
+          <ConnectorPoint PointX="6.703125" PointY="21.620690953424468" />
           <ConnectorPoint PointX="6.703125" PointY="71.5" />
           <ConnectorPoint PointX="6.713541666666667" PointY="71.5" />
           <ConnectorPoint PointX="6.880208333333333" PointY="71.5" />
@@ -7691,12 +8012,10 @@
         <EntityTypeShape EntityType="NXEIPModel.officials" Width="1.5" PointX="12.375" PointY="15.75" Height="3.1340950520833246" />
         <EntityTypeShape EntityType="NXEIPModel.equipments" Width="1.5" PointX="12" PointY="19.5" Height="3.6088671874999818" />
         <AssociationConnector Association="NXEIPModel.FK_EQUIPMEN_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.0642728855691512" PointY="20.25" />
-          <ConnectorPoint PointX="6.0642728855691512" PointY="19.857330729166669" />
+          <ConnectorPoint PointX="6.0683514557386964" PointY="20.25" />
+          <ConnectorPoint PointX="6.0683514557386964" PointY="19.857330729166669" />
           <ConnectorPoint PointX="7.416666666666667" PointY="19.857330729166669" />
           <ConnectorPoint PointX="7.583333333333333" PointY="19.857330729166669" />
-          <ConnectorPoint PointX="7.666666666666667" PointY="19.857330729166669" />
-          <ConnectorPoint PointX="7.833333333333333" PointY="19.857330729166669" />
           <ConnectorPoint PointX="11.666666666666666" PointY="19.857330729166669" />
           <ConnectorPoint PointX="11.833333333333334" PointY="19.857330729166669" />
           <ConnectorPoint PointX="12" PointY="19.857330729166669" />
@@ -7729,59 +8048,65 @@
         <EntityTypeShape EntityType="NXEIPModel.tao05" Width="1.5" PointX="11.5" PointY="93.125" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="NXEIPModel.taolun" Width="1.5" PointX="7" PointY="90.75" Height="4.287903645833353" />
         <AssociationConnector Association="NXEIPModel.FK_TAO03_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="24.437895357572117" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="24.437895357572117" />
-          <ConnectorPoint PointX="6.895833333333333" PointY="24.437895357572117" />
-          <ConnectorPoint PointX="9.5" PointY="24.437895357572117" />
-          <ConnectorPoint PointX="9.5" PointY="30.125" />
-          <ConnectorPoint PointX="10.916666666666666" PointY="30.125" />
+          <ConnectorPoint PointX="6.25" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="9.5" PointY="28.291052133413459" />
+          <ConnectorPoint PointX="9.5" PointY="30.375" />
+          <ConnectorPoint PointX="11" PointY="30.375" />
+          <ConnectorPoint PointX="11" PointY="40.5" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="40.5" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="40.5" />
+          <ConnectorPoint PointX="9.6458333333333339" PointY="40.5" />
+          <ConnectorPoint PointX="9.4791666666666661" PointY="40.5" />
+          <ConnectorPoint PointX="9.4375" PointY="40.5" />
+          <ConnectorPoint PointX="9.4375" PointY="56.75" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="56.75" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="56.75" />
+          <ConnectorPoint PointX="11" PointY="56.75" />
+          <ConnectorPoint PointX="11" PointY="57.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_TAO04_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="6.25" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="9.0416666666666661" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="9.2083333333333339" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="9.4375" PointY="25.381808518504847" />
+          <ConnectorPoint PointX="9.4375" PointY="30.125" />
+          <ConnectorPoint PointX="11.041666666666666" PointY="30.125" />
           <ConnectorPoint PointX="11.208333333333334" PointY="30.125" />
           <ConnectorPoint PointX="11.375" PointY="30.125" />
           <ConnectorPoint PointX="11.375" PointY="40.375" />
           <ConnectorPoint PointX="11.083333333333334" PointY="40.375" />
           <ConnectorPoint PointX="10.916666666666666" PointY="40.375" />
-          <ConnectorPoint PointX="9.9375" PointY="40.375" />
-          <ConnectorPoint PointX="9.9375" PointY="56.75" />
-          <ConnectorPoint PointX="11" PointY="56.75" />
-          <ConnectorPoint PointX="11" PointY="57.125" />
-        </AssociationConnector>
-        <AssociationConnector Association="NXEIPModel.FK_TAO04_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="6.895833333333333" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="7.260416666666667" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="8.0416666666666661" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="8.2083333333333339" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="9.625" PointY="28.470145708133018" />
-          <ConnectorPoint PointX="9.625" PointY="29.875" />
-          <ConnectorPoint PointX="11" PointY="29.875" />
-          <ConnectorPoint PointX="11" PointY="40.5" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="40.5" />
-          <ConnectorPoint PointX="9.8541666666666661" PointY="40.5" />
-          <ConnectorPoint PointX="9.4375" PointY="40.5" />
-          <ConnectorPoint PointX="9.4375" PointY="53.25" />
-          <ConnectorPoint PointX="9.8541666666666661" PointY="53.25" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="40.375" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="40.375" />
+          <ConnectorPoint PointX="9.5625" PointY="40.375" />
+          <ConnectorPoint PointX="9.5625" PointY="53.25" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="53.25" />
           <ConnectorPoint PointX="10.083333333333334" PointY="53.25" />
           <ConnectorPoint PointX="11" PointY="53.25" />
           <ConnectorPoint PointX="11" PointY="53.625" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAOLUN_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="23.216062112567577" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="23.216062112567577" />
-          <ConnectorPoint PointX="6.802083333333333" PointY="23.216062112567577" />
-          <ConnectorPoint PointX="6.8125" PointY="23.216062112567577" />
+          <ConnectorPoint PointX="6.25" PointY="24.471886733200122" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="24.471886733200122" />
+          <ConnectorPoint PointX="6.802083333333333" PointY="24.471886733200122" />
+          <ConnectorPoint PointX="6.8125" PointY="24.471886733200122" />
           <ConnectorPoint PointX="6.8125" PointY="71.375" />
           <ConnectorPoint PointX="7.25" PointY="71.375" />
           <ConnectorPoint PointX="7.25" PointY="76.125" />
           <ConnectorPoint PointX="6.875" PointY="76.125" />
           <ConnectorPoint PointX="6.875" PointY="90.375" />
-          <ConnectorPoint PointX="7.3463516666666679" PointY="90.375" />
-          <ConnectorPoint PointX="7.513018333333334" PointY="90.375" />
-          <ConnectorPoint PointX="7.9218740000000007" PointY="90.375" />
-          <ConnectorPoint PointX="7.9218740000000007" PointY="90.75" />
+          <ConnectorPoint PointX="7.3678359166666683" PointY="90.375" />
+          <ConnectorPoint PointX="7.5345025833333343" PointY="90.375" />
+          <ConnectorPoint PointX="8.0068366250000018" PointY="90.375" />
+          <ConnectorPoint PointX="8.0068366250000018" PointY="90.75" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAO01_RELATIONS_TAOLUN" >
           <ConnectorPoint PointX="8.5" PointY="92.922801106770834" />
@@ -7810,31 +8135,31 @@
           <ConnectorPoint PointX="10.25" PointY="58.403595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAO04_RELATIONS_TAOLUN" >
-          <ConnectorPoint PointX="7.429685000000001" PointY="90.75" />
-          <ConnectorPoint PointX="7.429685000000001" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="7.4511692500000013" PointY="90.75" />
+          <ConnectorPoint PointX="7.4511692500000013" PointY="89.278300781249982" />
           <ConnectorPoint PointX="8.7916666666666661" PointY="89.278300781249982" />
-          <ConnectorPoint PointX="8.9583333333333339" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="8.9895833333333339" PointY="89.278300781249982" />
           <ConnectorPoint PointX="9" PointY="89.278300781249982" />
           <ConnectorPoint PointX="9" PointY="54.615143229166669" />
-          <ConnectorPoint PointX="9.8541666666666661" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="9.3541666666666661" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="9.5208333333333339" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="54.615143229166669" />
           <ConnectorPoint PointX="10.083333333333334" PointY="54.615143229166669" />
           <ConnectorPoint PointX="10.25" PointY="54.615143229166669" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.message" Width="1.5" PointX="19.375" PointY="0.75" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="NXEIPModel.tao06" Width="1.5" PointX="13.25" PointY="57.625" Height="2.1725878906249818" />
         <AssociationConnector Association="NXEIPModel.FK_TAO06_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="6.895833333333333" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="7.260416666666667" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="7.427083333333333" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="9.75" PointY="27.179825595953531" />
-          <ConnectorPoint PointX="9.75" PointY="27.037985026041675" />
-          <ConnectorPoint PointX="12.166666666666666" PointY="27.037985026041675" />
-          <ConnectorPoint PointX="12.333333333333334" PointY="27.037985026041675" />
-          <ConnectorPoint PointX="14.25" PointY="27.037985026041675" />
+          <ConnectorPoint PointX="6.25" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="9.375" PointY="25.909448918269227" />
+          <ConnectorPoint PointX="9.375" PointY="27.287985026041675" />
+          <ConnectorPoint PointX="12.166666666666666" PointY="27.287985026041675" />
+          <ConnectorPoint PointX="12.333333333333334" PointY="27.287985026041675" />
+          <ConnectorPoint PointX="14.25" PointY="27.287985026041675" />
           <ConnectorPoint PointX="14.25" PointY="57.25" />
           <ConnectorPoint PointX="14" PointY="57.25" />
           <ConnectorPoint PointX="14" PointY="57.625" />
@@ -7847,6 +8172,45 @@
           <ConnectorPoint PointX="11.25" PointY="92.875" />
           <ConnectorPoint PointX="14" PointY="92.875" />
           <ConnectorPoint PointX="14" PointY="59.797587890624982" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.attends" Width="1.5" PointX="24.625" PointY="23.75" Height="2.557190755208353" />
+        <EntityTypeShape EntityType="NXEIPModel.conferen" Width="1.5" PointX="21.625" PointY="22.25" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="NXEIPModel.huiyi" Width="1.5" PointX="21.625" PointY="25.125" Height="2.3648893229166106" />
+        <EntityTypeShape EntityType="NXEIPModel.meetings" Width="1.5" PointX="19.375" PointY="19" Height="5.0571093749999818" />
+        <AssociationConnector Association="NXEIPModel.FK_ATTENDS_RELATIONS_MEETINGS" >
+          <ConnectorPoint PointX="20.875" PointY="20.59375" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="20.59375" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="20.59375" />
+          <ConnectorPoint PointX="25.375" PointY="20.59375" />
+          <ConnectorPoint PointX="25.375" PointY="23.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE" >
+          <ConnectorPoint PointX="6.25" PointY="23.527845703125" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="23.527845703125" />
+          <ConnectorPoint PointX="6.880208333333333" PointY="23.527845703125" />
+          <ConnectorPoint PointX="9.5" PointY="23.527845703125" />
+          <ConnectorPoint PointX="9.5" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="12.166666666666666" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="12.333333333333334" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="21.375" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="21.375" PointY="27.739889322916611" />
+          <ConnectorPoint PointX="25.375" PointY="27.739889322916611" />
+          <ConnectorPoint PointX="25.375" PointY="26.307190755208353" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_CONFEREN_RELATIONS_MEETINGS" >
+          <ConnectorPoint PointX="20.875" PointY="23.153554687499991" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="23.153554687499991" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="23.153554687499991" />
+          <ConnectorPoint PointX="21.625" PointY="23.153554687499991" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_HUIYI_RELATIONS_MEETINGS" >
+          <ConnectorPoint PointX="20.125" PointY="24.057109374999982" />
+          <ConnectorPoint PointX="20.125" PointY="26.047801106770834" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="26.047801106770834" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="26.047801106770834" />
+          <ConnectorPoint PointX="21.625" PointY="26.047801106770834" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
