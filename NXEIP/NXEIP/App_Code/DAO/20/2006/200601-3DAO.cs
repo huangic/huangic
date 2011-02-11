@@ -12,9 +12,9 @@ using Entity;
 namespace NXEIP.DAO
 {
     [DataObject(true)]
-    public class _200601_2DAO
+    public class _200601_3DAO
     {
-        public _200601_2DAO()
+        public _200601_3DAO()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -29,18 +29,23 @@ namespace NXEIP.DAO
         /// <param name="tao_no">討論區編號</param>
         /// <param name="Featured">是否為精華區</param>
         /// <returns></returns>
-        private IQueryable<Topic> GetTao01(int tao_no, bool Featured)
+        private IQueryable<Topic> GetTao01(int peo_uid)
         {
+                 
             
             
-            
-            
-            IQueryable<Topic> taos = from p in model.people
+            IQueryable<Topic> taos = from t in model.tao05
+                                     from p in model.people
                                      from d in model.tao01
-                                     where d.tao_no == tao_no
-                                     && d.t01_peouid==p.peo_uid
+                                     where
+                                     d.t01_peouid==p.peo_uid
+                                     && t.t05_peouid==peo_uid
+                                     && t.tao_no==d.tao_no
+                                     && t.t01_no==d.t01_no
+                                       && t.t05_type == "1"
                                      && d.t01_parent == 0
                                      && d.t01_status=="1"
+                                   
                                      orderby d.t01_order
                                      orderby d.t01_date descending
                                      select new Topic { 
@@ -57,31 +62,32 @@ namespace NXEIP.DAO
                                         Order=d.t01_order.Value,
                                         LastRelayDate=d.t01_date.Value,
                                         LastRelayAuthor=p.peo_name,
-                                        ParentId=d.t01_parent.Value
+                                        ParentId=d.t01_parent.Value,
+                                        FolderId=t.t05_no
                                      };
 
 
             ///需要多取精華區條件
-            if (Featured) {
-                IQueryable<int> featured = from d in model.tao02 where d.tao_no == tao_no select d.t01_no;
+            
+              //  IQueryable<int> featured = from d in model.tao05 where d.tao_no == tao_no select d.t01_no;
 
-                taos = taos.Where(x => featured.Contains(x.Id));
+              //  taos = taos.Where(x => featured.Contains(x.Id));
 
-            }
+            
 
 
 
             return taos;
         }
 
-        private IQueryable<Topic> GetTao01(int tao_no,bool Featured, int startRowIndex, int maximumRows)
+        private IQueryable<Topic> GetTao01(int peo_uid, int startRowIndex, int maximumRows)
         {
-            return GetTao01(tao_no,Featured).Skip(startRowIndex).Take(maximumRows);
+            return GetTao01(peo_uid).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured, int startRowIndex, int maximumRows)
+        public IEnumerable<Topic> GetTopicList(int peo_uid, int startRowIndex, int maximumRows)
         {
-            List<Topic> topics = GetTao01(tao_no, Featured,startRowIndex, maximumRows).ToList();
+            List<Topic> topics = GetTao01(peo_uid,startRowIndex, maximumRows).ToList();
 
 
             foreach (Topic t in topics) {
@@ -93,9 +99,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured)
+        public IEnumerable<Topic> GetTopicList(int peo_uid)
         {
-            List<Topic> topics = GetTao01(tao_no,Featured).ToList();
+            List<Topic> topics = GetTao01(peo_uid).ToList();
 
             foreach (Topic t in topics)
             {
@@ -106,9 +112,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public int GetTopicListCount(int tao_no, int peo_uid, bool Featured)
+        public int GetTopicListCount(int peo_uid)
         {
-            return GetTao01(tao_no,Featured).Count();
+            return GetTao01(peo_uid).Count();
         }
 
 

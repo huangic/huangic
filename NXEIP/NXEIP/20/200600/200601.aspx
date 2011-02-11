@@ -52,10 +52,10 @@
                  -->
                  
                   <div class="b6">
-                    <a href="#" class="b-input" >我的收藏文章 </a>
+                    <a href="200601-3.aspx" class="b-input" >我的收藏文章 </a>
                     </div>
                   <div class="b6">
-                    <a href="#" class="b-input" >我的追蹤文章 </a>
+                    <a href="200601-8.aspx" class="b-input" >我的追蹤文章 </a>
                       </div>
                   <div class="b6">
                     <a href="200601-1.aspx?TB_iframe=true&height=450&width=650&modal=true" class="thickbox b-input" >討論區申請 </a>
