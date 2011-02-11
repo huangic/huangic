@@ -32,17 +32,13 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetTopicList" TypeName="NXEIP.DAO._200601_2DAO" 
+        SelectMethod="GetTopicList" TypeName="NXEIP.DAO._200601_3DAO" 
         SelectCountMethod="GetTopicListCount">
         <SelectParameters>
-            <asp:QueryStringParameter Name="tao_no" QueryStringField="tao_no" Type="Int32" />
             <asp:Parameter Name="peo_uid" Type="Int32" />
-             
-            <asp:Parameter DefaultValue="True" Name="Featured" Type="Boolean" />
-             
         </SelectParameters>
     </asp:ObjectDataSource>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="精華區主題列表" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="收藏主題列表" />
     <div class="tableDiv">
         <div class="talk">
             <div class="select">
@@ -54,24 +50,23 @@
                     <a href="#" class="b-input">列印</a></div>
                 -->
 
-                <div class="b6">
-                    <asp:HyperLink  CssClass="b-input" ID="hl_list" runat="server">觀看主題列表</asp:HyperLink>
-                </div>
+               
               
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <cc1:GridView ID="GridView1" CssClass="box" runat="server" 
                         AutoGenerateColumns="False" CellSpacing="1"
-                        DataSourceID="ObjectDataSource1" GridLines="None" EmptyDataText="沒有任何主題" 
-                        AllowPaging="True">
+                        DataSourceID="ObjectDataSource1" GridLines="None" EmptyDataText="沒有任何收藏主題" 
+                        AllowPaging="True" DataKeyNames="ForumId,Id,FolderId" 
+                        onrowcommand="GridView1_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="主題">
                            <ItemStyle CssClass="row1_bg" />
                                 <ItemTemplate>
                                     <ul>
                                         <li class="t1">
-                                            <asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Name") %>'></asp:HyperLink>
+                                              <asp:HyperLink ID="hl_content" runat="server" Text='<%# Eval("Name") %>' NavigateUrl='<%# String.Format("200601-4.aspx?tao_no={0}&t01_no={1}",Eval("ForumId"),Eval("Id")) %>'></asp:HyperLink>
                                         </li>
                                     </ul>
                                 </ItemTemplate>
@@ -105,7 +100,7 @@
                             <asp:TemplateField HeaderText="刪除">
                             <ItemStyle CssClass="row5_bg" />
                                 <ItemTemplate>
-                                    <asp:Button ID="Button1" runat="server" CssClass="delete" Visible='<%# (bool)Eval("HasPermission")%>'
+                                    <asp:Button ID="Button1" runat="server" CssClass="delete" 
                                         CommandName="del" OnClientClick="return confirm('確定要刪除?')" />
                                 </ItemTemplate>
                             </asp:TemplateField>

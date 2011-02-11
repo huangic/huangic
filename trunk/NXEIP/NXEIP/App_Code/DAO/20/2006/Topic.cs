@@ -20,6 +20,14 @@ public class Topic
     public int Id { get; set; }
 
     /// <summary>
+    /// 屬於哪一篇的回覆
+    /// </summary>
+    public int ParentId { get; set; }
+
+
+
+
+    /// <summary>
     /// 主題名稱
     /// </summary>
     public String Name { get; set; }
@@ -91,7 +99,9 @@ public class Topic
     /// </summary>
     public int Order { get; set; }
 
-
+    /// <summary>
+    /// 有作者或是管理或是總管理權限
+    /// </summary>
     public bool HasPermission {
         get {
             int permission = System.Convert.ToInt32(this.Permission, 2);
@@ -100,5 +110,26 @@ public class Topic
         }
     
     }
+
+    public bool IsManager {
+        get
+        {
+            int permission = System.Convert.ToInt32(this.Permission, 2);
+
+            return (permission & 2)==2;
+        }
+    }
+
+    public String Uid { get; set; }
+
+    public String Sex { get {
+        return this.Uid.Substring(1, 1);
+        }
+    }
+
+    public int FolderId { get; set; }
+
+    public int TrackId { get; set; }
+
 
 }

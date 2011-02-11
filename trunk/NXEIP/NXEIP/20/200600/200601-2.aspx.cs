@@ -63,6 +63,14 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
                 this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
             }
 
+            //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+            if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+            {
+                this.GridView1.DataBind();
+            }
+
+
+
         }
         else { 
             //顯示錯誤訊息
@@ -121,21 +129,25 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
 
                 
 
-                //有寫入權限才有
-                if (String.IsNullOrEmpty(mode)&&Forum.GetPermission(permission, Forum.ForumPermission.Write))
+                //有寫入權限才有(MODE 是精華區列表)
+                if (String.IsNullOrEmpty(mode) && Forum.GetPermission(permission, Forum.ForumPermission.Write))
                 {
                     //新主題
                     this.hl_post.Visible = true;
-                    this.hl_post.NavigateUrl = String.Format("200601-4.aspx?TB_iframe=true&height=450&width=650&modal=true&tao_no={0}", Request["tao_no"]);
+                    this.hl_post.NavigateUrl = String.Format("200601-6.aspx?tao_no={0}&TB_iframe=true&height=450&width=650&modal=true", Request["tao_no"]);
                 }
+                
                
 
             }
-            else { 
-            //只秀加入會員按鈕
+
+        //沒有寫入權限都可以聲請會員
+            if (String.IsNullOrEmpty(mode)&&!Forum.GetPermission(permission, Forum.ForumPermission.Write))
+            { 
+            //秀加入會員按鈕
 
                 this.hl_member.Visible = true;
-                this.hl_member.NavigateUrl = String.Format("200601-5.aspx?TB_iframe=true&height=450&width=650&modal=true&tao_no={0}", Request["tao_no"]);
+                this.hl_member.NavigateUrl = String.Format("200601-7.aspx?tao_no={0}&TB_iframe=true&height=450&width=650&modal=true", Request["tao_no"]);
 
             }
             
@@ -147,6 +159,38 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
 
     }
 
-    
 
+
+
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        int index = ((GridViewRow)((Button)e.CommandSource).NamingContainer).RowIndex;
+
+        int tao_no = int.Parse(GridView1.DataKeys[index].Values["ForumId"].ToString());
+        int t01_no = int.Parse(GridView1.DataKeys[index].Values["Id"].ToString());
+
+        #region //刪除回應
+        if (e.CommandName == "del")
+        {
+            //刪除回應
+
+            tao01 t = new tao01();
+
+            t.tao_no = tao_no;
+            t.t01_no = t01_no;
+
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+                model.tao01.Attach(t);
+                t.t01_status = "2";
+                model.SaveChanges();
+
+            }
+
+            this.GridView1.DataBind();
+
+        }
+        #endregion
+
+    }
 }

@@ -12,9 +12,9 @@ using Entity;
 namespace NXEIP.DAO
 {
     [DataObject(true)]
-    public class _200601_2DAO
+    public class _200601_4DAO
     {
-        public _200601_2DAO()
+        public _200601_4DAO()
         {
             //
             // TODO: 在此加入建構函式的程式碼
@@ -24,12 +24,12 @@ namespace NXEIP.DAO
         NXEIPEntities model = new NXEIPEntities();
 
         /// <summary>
-        /// 取得主題
+        /// 取得主題內容
         /// </summary>
         /// <param name="tao_no">討論區編號</param>
         /// <param name="Featured">是否為精華區</param>
         /// <returns></returns>
-        private IQueryable<Topic> GetTao01(int tao_no, bool Featured)
+        private IQueryable<Topic> GetTao01(int tao_no,int t01_no)
         {
             
             
@@ -39,10 +39,12 @@ namespace NXEIP.DAO
                                      from d in model.tao01
                                      where d.tao_no == tao_no
                                      && d.t01_peouid==p.peo_uid
-                                     && d.t01_parent == 0
+                                     && (d.t01_parent == t01_no
+                                     || d.t01_no== t01_no)
                                      && d.t01_status=="1"
-                                     orderby d.t01_order
+                                     
                                      orderby d.t01_date descending
+                                     orderby d.t01_parent
                                      select new Topic { 
                                         ForumId=d.tao_no,
                                         Id=d.t01_no,
@@ -57,31 +59,21 @@ namespace NXEIP.DAO
                                         Order=d.t01_order.Value,
                                         LastRelayDate=d.t01_date.Value,
                                         LastRelayAuthor=p.peo_name,
-                                        ParentId=d.t01_parent.Value
+                                        ParentId=d.t01_parent.Value,
+                                        Uid=p.peo_idcard
                                      };
-
-
-            ///需要多取精華區條件
-            if (Featured) {
-                IQueryable<int> featured = from d in model.tao02 where d.tao_no == tao_no select d.t01_no;
-
-                taos = taos.Where(x => featured.Contains(x.Id));
-
-            }
-
-
 
             return taos;
         }
 
-        private IQueryable<Topic> GetTao01(int tao_no,bool Featured, int startRowIndex, int maximumRows)
+        private IQueryable<Topic> GetTao01(int tao_no,int t01_no, int startRowIndex, int maximumRows)
         {
-            return GetTao01(tao_no,Featured).Skip(startRowIndex).Take(maximumRows);
+            return GetTao01(tao_no,t01_no).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured, int startRowIndex, int maximumRows)
+        public IEnumerable<Topic> GetTopicList(int tao_no,int t01_no,int peo_uid, int startRowIndex, int maximumRows)
         {
-            List<Topic> topics = GetTao01(tao_no, Featured,startRowIndex, maximumRows).ToList();
+            List<Topic> topics = GetTao01(tao_no, t01_no,startRowIndex, maximumRows).ToList();
 
 
             foreach (Topic t in topics) {
@@ -93,9 +85,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured)
+        public IEnumerable<Topic> GetTopicList(int tao_no,int t01_no,int peo_uid)
         {
-            List<Topic> topics = GetTao01(tao_no,Featured).ToList();
+            List<Topic> topics = GetTao01(tao_no,t01_no).ToList();
 
             foreach (Topic t in topics)
             {
@@ -106,9 +98,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public int GetTopicListCount(int tao_no, int peo_uid, bool Featured)
+        public int GetTopicListCount(int tao_no, int t01_no, int peo_uid)
         {
-            return GetTao01(tao_no,Featured).Count();
+            return GetTao01(tao_no, t01_no).Count();
         }
 
 
