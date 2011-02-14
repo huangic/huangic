@@ -15688,7 +15688,7 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String mee_sdate
+        public Nullable<global::System.DateTime> mee_sdate
         {
             get
             {
@@ -15698,13 +15698,13 @@ namespace Entity
             {
                 Onmee_sdateChanging(value);
                 ReportPropertyChanging("mee_sdate");
-                _mee_sdate = StructuralObject.SetValidValue(value, true);
+                _mee_sdate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("mee_sdate");
                 Onmee_sdateChanged();
             }
         }
-        private global::System.String _mee_sdate;
-        partial void Onmee_sdateChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _mee_sdate;
+        partial void Onmee_sdateChanging(Nullable<global::System.DateTime> value);
         partial void Onmee_sdateChanged();
     
         /// <summary>
@@ -15712,31 +15712,7 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String mee_stime
-        {
-            get
-            {
-                return _mee_stime;
-            }
-            set
-            {
-                Onmee_stimeChanging(value);
-                ReportPropertyChanging("mee_stime");
-                _mee_stime = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("mee_stime");
-                Onmee_stimeChanged();
-            }
-        }
-        private global::System.String _mee_stime;
-        partial void Onmee_stimeChanging(global::System.String value);
-        partial void Onmee_stimeChanged();
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String mee_edate
+        public Nullable<global::System.DateTime> mee_edate
         {
             get
             {
@@ -15746,38 +15722,14 @@ namespace Entity
             {
                 Onmee_edateChanging(value);
                 ReportPropertyChanging("mee_edate");
-                _mee_edate = StructuralObject.SetValidValue(value, true);
+                _mee_edate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("mee_edate");
                 Onmee_edateChanged();
             }
         }
-        private global::System.String _mee_edate;
-        partial void Onmee_edateChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _mee_edate;
+        partial void Onmee_edateChanging(Nullable<global::System.DateTime> value);
         partial void Onmee_edateChanged();
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String mee_etime
-        {
-            get
-            {
-                return _mee_etime;
-            }
-            set
-            {
-                Onmee_etimeChanging(value);
-                ReportPropertyChanging("mee_etime");
-                _mee_etime = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("mee_etime");
-                Onmee_etimeChanged();
-            }
-        }
-        private global::System.String _mee_etime;
-        partial void Onmee_etimeChanging(global::System.String value);
-        partial void Onmee_etimeChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
