@@ -40,6 +40,11 @@
              
             <asp:Parameter DefaultValue="False" Name="Featured" Type="Boolean" />
              
+            <asp:Parameter Name="keyword" Type="String" />
+            <asp:Parameter Name="option" Type="String" />
+            <asp:Parameter Name="sdate" Type="DateTime" />
+            <asp:Parameter Name="edate" Type="DateTime" />
+             
         </SelectParameters>
     </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="200601" SubFunc="主題列表" />
@@ -137,12 +142,17 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
             
+
+
+
+
         </div>
     </div>
 
     
    
-    
-   
  
 </asp:Content>
+
+
+
