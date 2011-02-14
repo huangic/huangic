@@ -144,6 +144,15 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
             //取文章的編號 (如果是回復就是抓整篇)
             using (NXEIPEntities model = new NXEIPEntities())
             {
+               int peo_uid=int.Parse(sessionObj.sessionUserID);
+                
+                //判斷重負
+                
+                int count=(from  d in model.tao05 where d.t01_no==t01_no && d.tao_no==tao_no&& d.t05_peouid==peo_uid&&d.t05_type=="1" select d).Count();
+               
+                
+                if(count==0){
+                
                 if (parent_no != 0) {
                     t01_no = parent_no;
                 }
@@ -152,12 +161,16 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
 
                 t05.t01_no = t01_no;
                 t05.tao_no = tao_no;
-                t05.t05_peouid = int.Parse(sessionObj.sessionUserID);
+                t05.t05_peouid = peo_uid;
                 t05.t05_type = "1";
 
                 model.tao05.AddObject(t05);
                 model.SaveChanges();
-            
+                JsUtil.AlertJs(this, "已加入收藏!");
+                }else{
+                    JsUtil.AlertJs(this, "重覆加入收藏!");
+                
+                }
             }
         }
         #endregion
@@ -169,21 +182,31 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
             //取文章的編號 (如果是回復就是抓整篇)
             using (NXEIPEntities model = new NXEIPEntities())
             {
-                if (parent_no != 0)
+                int peo_uid = int.Parse(sessionObj.sessionUserID);
+               
+                int count = (from d in model.tao05 where d.t01_no == t01_no && d.tao_no == tao_no && d.t05_peouid == peo_uid && d.t05_type == "2" select d).Count();
+
+                if (count == 0)
                 {
-                    t01_no = parent_no;
+                    if (parent_no != 0)
+                    {
+                        t01_no = parent_no;
+                    }
+
+                    tao05 t05 = new tao05();
+
+                    t05.t01_no = t01_no;
+                    t05.tao_no = tao_no;
+                    t05.t05_peouid = peo_uid;
+                    t05.t05_type = "2";
+
+                    model.tao05.AddObject(t05);
+                    model.SaveChanges();
+                    JsUtil.AlertJs(this, "已加入追蹤!");
                 }
-
-                tao05 t05 = new tao05();
-
-                t05.t01_no = t01_no;
-                t05.tao_no = tao_no;
-                t05.t05_peouid = int.Parse(sessionObj.sessionUserID);
-                t05.t05_type = "2";
-
-                model.tao05.AddObject(t05);
-                model.SaveChanges();
-
+                else {
+                    JsUtil.AlertJs(this, "重覆加入追蹤!");
+                }
             }
         }
         #endregion
@@ -201,14 +224,20 @@ public partial class _20_200600_200601_3 : System.Web.UI.Page
 
             using (NXEIPEntities model = new NXEIPEntities())
             {
-                tao02 t02 = new tao02();
 
-                t02.t01_no = t01_no;
-                t02.tao_no = tao_no;
-                //t02. = int.Parse(sessionObj.sessionUserID);
+                try
+                {
+                    tao02 t02 = new tao02();
 
-                model.tao02.AddObject(t02);
-                model.SaveChanges();
+                    t02.t01_no = t01_no;
+                    t02.tao_no = tao_no;
+                    model.tao02.AddObject(t02);
+                    model.SaveChanges();
+                    JsUtil.AlertJs(this, "已加入精華!");
+                }
+                catch {
+                    JsUtil.AlertJs(this, "重覆加入精華!");
+                }
             }
 
 

@@ -29,10 +29,9 @@ namespace NXEIP.DAO
         /// <param name="tao_no">討論區編號</param>
         /// <param name="Featured">是否為精華區</param>
         /// <returns></returns>
-        private IQueryable<Topic> GetTao01(int tao_no, bool Featured)
+        private IQueryable<Topic> GetTao01(int tao_no, bool Featured,string keyword,string option,DateTime? sdate,DateTime? edate)
         {
-            
-            
+                  
             
             
             IQueryable<Topic> taos = from p in model.people
@@ -71,17 +70,36 @@ namespace NXEIP.DAO
 
 
 
+            //取關鍵字條件
+            if (option == "1") {
+                taos = taos.Where(x => x.Name.Contains(keyword));
+            }
+            if (option == "2")
+            {
+                taos = taos.Where(x => x.Content.Contains(keyword));
+            }
+            if (option == "3")
+            {
+                taos = taos.Where(x => x.FileName.Contains(keyword));
+            }
+
+
+            //取日期
+            if (sdate.HasValue && edate.HasValue) {
+
+                taos = taos.Where(x => x.PublishDate > sdate && x.PublishDate < edate);
+            }
             return taos;
         }
 
-        private IQueryable<Topic> GetTao01(int tao_no,bool Featured, int startRowIndex, int maximumRows)
+        private IQueryable<Topic> GetTao01(int tao_no,bool Featured,string keyword,string option,DateTime? sdate,DateTime? edate, int startRowIndex, int maximumRows)
         {
-            return GetTao01(tao_no,Featured).Skip(startRowIndex).Take(maximumRows);
+            return GetTao01(tao_no,Featured,keyword,option,sdate,edate).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured, int startRowIndex, int maximumRows)
+        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured,string keyword,string option,DateTime? sdate,DateTime? edate, int startRowIndex, int maximumRows)
         {
-            List<Topic> topics = GetTao01(tao_no, Featured,startRowIndex, maximumRows).ToList();
+            List<Topic> topics = GetTao01(tao_no, Featured,keyword,option,sdate,edate,startRowIndex, maximumRows).ToList();
 
 
             foreach (Topic t in topics) {
@@ -93,9 +111,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured)
+        public IEnumerable<Topic> GetTopicList(int tao_no, int peo_uid, bool Featured,string keyword,string option,DateTime? sdate,DateTime? edate)
         {
-            List<Topic> topics = GetTao01(tao_no,Featured).ToList();
+            List<Topic> topics = GetTao01(tao_no,Featured,keyword,option,sdate,edate).ToList();
 
             foreach (Topic t in topics)
             {
@@ -106,9 +124,9 @@ namespace NXEIP.DAO
             return topics;
         }
 
-        public int GetTopicListCount(int tao_no, int peo_uid, bool Featured)
+        public int GetTopicListCount(int tao_no, int peo_uid, bool Featured, string keyword, string option, DateTime? sdate, DateTime? edate)
         {
-            return GetTao01(tao_no,Featured).Count();
+            return GetTao01(tao_no,Featured,keyword,option,sdate,edate).Count();
         }
 
 

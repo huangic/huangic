@@ -48,20 +48,98 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
             InitHyperLink(permission);
 
 
-            if (!Page.IsPostBack)
+            if (Page.PreviousPage != null && PreviousPage.IsCrossPagePostBack)
             {
-                
-                if (!String.IsNullOrEmpty(mode)) {
-                    this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
-                    this.Navigator1.SubFunc = "精華區主題列表";
+                //取查詢條件
+                String keyword;
+                String option;
+                bool timeFlag;
+                DateTime? sdate = null, edate =null;
+
+                keyword = ((TextBox)Page.PreviousPage.Master.FindControl("ContentPlaceHolder1").FindControl("tb_keyword")).Text;
+
+                option = ((RadioButtonList)Page.PreviousPage.Master.FindControl("ContentPlaceHolder1").FindControl("rb_option")).SelectedValue;
+
+                timeFlag = ((CheckBox)Page.PreviousPage.Master.FindControl("ContentPlaceHolder1").FindControl("timeFlag")).Checked;
+
+                object target = Page.PreviousPage.Master.FindControl("ContentPlaceHolder1").FindControl("sdate");
+
+                try
+                {
+                    sdate = (DateTime)target.GetType().GetProperty("_ADDate").GetValue(target, null);
                 }
+                catch { 
                 
-                this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
+                }
+
+                try
+                {
+                    target = Page.PreviousPage.Master.FindControl("ContentPlaceHolder1").FindControl("edate");
+                    edate = (DateTime)target.GetType().GetProperty("_ADDate").GetValue(target, null);
+                }
+                catch { 
                 
+                }
+
+                //查詢
+                this.ObjectDataSource1.SelectParameters[3].DefaultValue = keyword;
+                this.ObjectDataSource1.SelectParameters[4].DefaultValue = option;
+
+                
+                //如果有判斷日期
+                if (timeFlag)
+                {
+                    this.ObjectDataSource1.SelectParameters[5].DefaultValue = sdate.ToString();
+                    this.ObjectDataSource1.SelectParameters[6].DefaultValue = edate.ToString();
+                }
+                else {
+                    //this.ObjectDataSource1.SelectParameters[5].DefaultValue = "";
+                    //this.ObjectDataSource1.SelectParameters[6].DefaultValue = "";
+                
+                }
+
                 this.GridView1.DataBind();
 
-                this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+                logger.Debug("Search");
+
             }
+            else
+            {
+
+                if (!Page.IsPostBack)
+                {
+
+                    if (!String.IsNullOrEmpty(mode))
+                    {
+                        this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
+                        this.Navigator1.SubFunc = "精華區主題列表";
+                    }
+
+                    this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
+
+                    this.GridView1.DataBind();
+
+                    this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+
+
+                    //主題的計數器
+
+                    using (NXEIPEntities model = new NXEIPEntities())
+                    {
+                        taolun tao = new taolun();
+
+                        tao.tao_no = f.Id;
+                        model.taolun.Attach(tao);
+
+                        tao.tao_count = f.ClickCount + 1;
+
+                        model.SaveChanges();
+                    }
+                }
+
+            }
+            
+            
 
             //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
             if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
@@ -130,6 +208,7 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
 
                 //SEARCH
                 this.hl_search.Visible = true;
+                this.hl_search.NavigateUrl = String.Format("200601-11.aspx?tao_no={0}", Request["tao_no"]);
 
                 
 
