@@ -81,7 +81,7 @@
                 <ContentTemplate>
                 
                 <cc1:GridView ID="GridView1" runat="server" CssClass="box" CellPadding="1" CellSpacing="1" GridLines="None"
-                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum" DataKeyNames="Id">
+                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum" DataKeyNames="Id" EmptyDataText="沒有任何討論區">
                     <Columns>
                         
                         
