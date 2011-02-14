@@ -60,8 +60,10 @@
                 <div class="b6">
                     <a href="200601.aspx" class="b-input">回討論區總表</a>
                 </div>
+                <!--
                 <div class="b6">
                     <a href="#" class="b-input">列印</a></div>
+                -->
                 <div class="b6">
                     <asp:HyperLink ID="hl_search"  CssClass="b-input"  Visible="false" runat="server">文章查詢</asp:HyperLink>
                 </div>
