@@ -161,7 +161,7 @@
                           </asp:TemplateField>
 
 
-                           <asp:TemplateField HeaderText="修改">
+                           <asp:TemplateField HeaderText="修改" Visible=false>
                            <ItemStyle CssClass="row5_bg" />
                            <ItemTemplate>
                            

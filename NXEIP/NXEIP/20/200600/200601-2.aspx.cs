@@ -105,6 +105,10 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
             if (Forum.GetPermission(permission, Forum.ForumPermission.ReadTopic))
             {
 
+           
+
+
+
                 //建立按鈕
 
                 if (String.IsNullOrEmpty(mode))
@@ -135,9 +139,19 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
                     //新主題
                     this.hl_post.Visible = true;
                     this.hl_post.NavigateUrl = String.Format("200601-6.aspx?tao_no={0}&TB_iframe=true&height=450&width=650&modal=true", Request["tao_no"]);
-                }
+
+                   
                 
-               
+                }
+
+
+                if (String.IsNullOrEmpty(mode) && Forum.GetPermission(permission, Forum.ForumPermission.Manager)) {
+                    //會員管理
+                    this.hl_manager.Visible = true;
+                    this.hl_manager.NavigateUrl = String.Format("200601-9.aspx?tao_no={0}", Request["tao_no"]);
+                }
+
+
 
             }
 
