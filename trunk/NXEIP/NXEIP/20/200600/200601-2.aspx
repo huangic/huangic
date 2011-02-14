@@ -48,6 +48,10 @@
     <div class="tableDiv">
         <div class="talk">
             <div class="select">
+                 <div class="b6">
+                    
+                     <asp:HyperLink ID="hl_manager"  CssClass="b-input" Visible="false"  runat="server">會員管理</asp:HyperLink>
+                </div>
                 <div class="b6">
                     <a href="200601.aspx" class="b-input">回討論區總表</a>
                 </div>
@@ -67,6 +71,7 @@
                     
                      <asp:HyperLink ID="hl_member"  CssClass="thickbox b-input" Visible="false"  runat="server" >加入會員</asp:HyperLink>
                 </div>
+
 
             </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">

@@ -250,7 +250,7 @@ namespace NXEIP.DAO
         private void ProcessRoot(Forum f,int peo_uid) {
             //判斷是否為總管理者
 
-            int count =(from d in model.manager where d.peo_uid==peo_uid && d.man_type=="2" select d).DefaultIfEmpty().Count();
+            int count =(from d in model.manager where d.peo_uid==peo_uid && d.man_type=="2" select d).Count();
 
             if (count > 0)
             {

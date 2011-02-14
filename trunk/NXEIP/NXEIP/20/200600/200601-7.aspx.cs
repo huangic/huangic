@@ -69,8 +69,8 @@ public partial class _20_200600_200601_5 : System.Web.UI.Page
         {
             int tao_no = int.Parse(Request["tao_no"]);
 
-            //討論區存檔
-            //寫入回應
+            //會員存檔
+            //寫入會員
 
             using (NXEIPEntities model = new NXEIPEntities())
             {
