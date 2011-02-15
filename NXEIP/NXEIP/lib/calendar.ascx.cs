@@ -78,11 +78,27 @@ public partial class lib_calendar : System.Web.UI.UserControl
         }
     }
 
+    /// <summary>
+    /// 檢查日期是否合法 True:合法
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckDateTime()
+    {
+        try
+        {
+            string[] temp = this.tbox_date.Text.Split('-');
+            DateTime d = new DateTime(int.Parse(temp[0]) + 1911, int.Parse(temp[1]), int.Parse(temp[2]));
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "calendar_js", ResolveClientUrl("~/js/calendar.js"));
-        
-        
     }
     
 }
