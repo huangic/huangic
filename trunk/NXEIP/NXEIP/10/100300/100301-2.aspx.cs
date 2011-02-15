@@ -90,6 +90,7 @@ public partial class _10_100300_100301_2 : System.Web.UI.Page
         {
             DateTime today = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text));
             this.lab_name.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_people.Text)); //姓名
+            
 
             #region 左邊月份選單
             int month = 0;
@@ -175,48 +176,53 @@ public partial class _10_100300_100301_2 : System.Web.UI.Page
                 }
 
                 #region 行事曆
+                bool isShow = PCalendarUtil.IsShow(sobj.sessionUserID, sobj.sessionUserDepartID, this.lab_people.Text);
+
                 DataTable dt99 = new DataTable();
                 string sqlstr99 = "";
                 string sdate = e.Day.Date.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate = e.Day.Date.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                if (isShow)
                 {
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        string stime = "";
-                        string etime = "";
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        for (int i = 0; i < dt99.Rows.Count; i++)
                         {
-                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            stime = "06:00";
-                        }
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                        {
-                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            etime = "23:00";
-                        }
-
-                        if (this.lab_isAdd.Text.Equals("1"))
-                        {
-                            if (this.lab_people.Text.Equals(sobj.sessionUserID) || dt99.Rows[i]["c02_setuid"].ToString().Equals(sobj.sessionUserID))
-                                celltxt += "<br><a href=\"100301-0.aspx?no=" + dt99.Rows[i]["c02_no"].ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + eDay + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=months&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox month\">■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString() + "</a>";
+                            string stime = "";
+                            string etime = "";
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                            {
+                                stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            }
                             else
+                            {
+                                stime = "06:00";
+                            }
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                            {
+                                etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                etime = "23:00";
+                            }
+
+                            if (this.lab_isAdd.Text.Equals("1"))
+                            {
+                                if (this.lab_people.Text.Equals(sobj.sessionUserID) || dt99.Rows[i]["c02_setuid"].ToString().Equals(sobj.sessionUserID))
+                                    celltxt += "<br><a href=\"100301-0.aspx?no=" + dt99.Rows[i]["c02_no"].ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + eDay + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=months&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox month\">■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString() + "</a>";
+                                else
+                                    celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                            }
+                            else
+                            {
                                 celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
-                        }
-                        else
-                        {
-                            celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                            }
                         }
                     }
                 }

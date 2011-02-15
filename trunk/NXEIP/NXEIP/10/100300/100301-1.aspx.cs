@@ -91,6 +91,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             DataTable dt99 = new DataTable();
             string sqlstr99 = "";
             this.lab_name.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_people.Text)); //姓名
+            bool isShow = PCalendarUtil.IsShow(sobj.sessionUserID, sobj.sessionUserDepartID, this.lab_people.Text);
 
             #region 判斷是否可新增
             string isAdd = "0";
@@ -138,35 +139,38 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                 #region 行事曆
                 string sdate2 = sdate.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99.Clear();
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                if (isShow)
                 {
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99.Clear();
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        string stime = "";
-                        string etime = "";
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                        for (int i = 0; i < dt99.Rows.Count; i++)
                         {
-                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            string stime = "";
+                            string etime = "";
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                            {
+                                stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                stime = "00:00";
+                            }
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                            {
+                                etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                etime = "24:00";
+                            }
+                            Display(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
                         }
-                        else
-                        {
-                            stime = "00:00";
-                        }
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
-                        {
-                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            etime = "24:00";
-                        }
-                        Display(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
                     }
                 }
                 #endregion

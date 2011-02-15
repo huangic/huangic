@@ -83,6 +83,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             string sqlstr99 = "";
 
             this.lab_name.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(this.lab_people.Text)); //姓名
+            bool isShow = PCalendarUtil.IsShow(sobj.sessionUserID, sobj.sessionUserDepartID, this.lab_people.Text);
 
             #region 判斷是否可新增
             string isAdd = "0";
@@ -106,43 +107,52 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             int rowcount = -1;
             string sdate = this.Calendar1.VisibleDate.ToString("yyyy/MM/01") + " 00:00:00";
             string edate = this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
-            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-            + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-            dt99 = dbo.ExecuteQuery(sqlstr99);
-            if (dt99.Rows.Count > 0)
+            if (isShow)
             {
-                string update = "";
-                for (int i = 0; i < dt99.Rows.Count; i++)
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                dt99 = dbo.ExecuteQuery(sqlstr99);
+                if (dt99.Rows.Count > 0)
                 {
-                    DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
-                    if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                    string update = "";
+                    for (int i = 0; i < dt99.Rows.Count; i++)
                     {
-                        rowcount++;
-                        this.Table1.Rows.Add(new System.Web.UI.WebControls.TableRow());
-                        this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                        this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                        this.Table1.Rows[rowcount].Cells[0].CssClass = "row_bg";
-                        this.Table1.Rows[rowcount].Cells[1].CssClass = "row_bgc";
+                        DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
+                        if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                        {
+                            rowcount++;
+                            this.Table1.Rows.Add(new System.Web.UI.WebControls.TableRow());
+                            this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                            this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                            this.Table1.Rows[rowcount].Cells[0].CssClass = "row_bg";
+                            this.Table1.Rows[rowcount].Cells[1].CssClass = "row_bgc";
 
-                        this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">"+nowdate.ToString("MM-dd") + "<br />星期" +
-                        changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek)+"</span>";
+                            this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
+                            changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                        }
+                        update = nowdate.ToString("MM-dd");
+                        //if(this.Table1.Rows[rowcount].Cells[1].Text.Length>0) this.Table1.Rows[rowcount].Cells[1].Text+="<hr>";
+                        string stime = nowdate.ToString("HH:mm");
+                        string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+
+                        this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                     }
-                    update = nowdate.ToString("MM-dd");
-                    //if(this.Table1.Rows[rowcount].Cells[1].Text.Length>0) this.Table1.Rows[rowcount].Cells[1].Text+="<hr>";
-                    string stime = nowdate.ToString("HH:mm");
-                    string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-
-                    this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
+                    this.Table1.Visible = true;
+                    this.hl_print.Visible = true;
                 }
-                this.Table1.Visible = true;
-                this.hl_print.Visible = true;
+                else
+                {
+                    this.Table1.Visible = false;
+                    this.lab_msg.Text = "目前無排定任何行事曆";
+                    this.hl_print.Visible = false;
+                }
             }
             else
             {
                 this.Table1.Visible = false;
-                this.lab_msg.Text = "目前無排定任何行事曆";
+                this.lab_msg.Text = "您無查看權限!!";
                 this.hl_print.Visible = false;
             }
             #endregion

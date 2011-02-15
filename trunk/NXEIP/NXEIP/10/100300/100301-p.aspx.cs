@@ -39,19 +39,21 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             this.Panel4.Visible = false;
             this.lab_Month.Visible = false;
 
+            bool isShow = PCalendarUtil.IsShow(sobj.sessionUserID, sobj.sessionUserDepartID, this.lab_people.Text);
+
             if (this.lab_printtype.Text.Equals("days"))
-                PrintDays(); //日
+                PrintDays(isShow); //日
             else if (this.lab_printtype.Text.Equals("weeks"))
-                PrintWeek(); //星期
+                PrintWeek(isShow); //星期
             else if (this.lab_printtype.Text.Equals("months"))
-                PrintMonth(); //月
+                PrintMonth(isShow); //月
             else if (this.lab_printtype.Text.Equals("lists"))
-                PrintList(); //列表
+                PrintList(isShow); //列表
         }
     }
 
     #region PrintDays出行事曆
-    private void PrintDays()
+    private void PrintDays(bool isShow)
     {
         string aMSG = "";
         try
@@ -87,34 +89,37 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             #region 行事曆
             string sdate = changeobj.ROCDTtoADDT(this.lab_today.Text) + " 00:00:00";
             string edate = changeobj.ROCDTtoADDT(this.lab_today.Text) + " 23:59:59";
-            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-            + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-            dt99 = dbo.ExecuteQuery(sqlstr99);
-            if (dt99.Rows.Count > 0)
+            if (isShow)
             {
-                for (int i = 0; i < dt99.Rows.Count; i++)
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                dt99 = dbo.ExecuteQuery(sqlstr99);
+                if (dt99.Rows.Count > 0)
                 {
-                    string stime = "";
-                    string etime = "";
-                    if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    for (int i = 0; i < dt99.Rows.Count; i++)
                     {
-                        stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                        string stime = "";
+                        string etime = "";
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        {
+                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                        }
+                        else
+                        {
+                            stime = "06:00";
+                        }
+                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        {
+                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                        }
+                        else
+                        {
+                            etime = "23:00";
+                        }
+                        Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                     }
-                    else
-                    {
-                        stime = "06:00";
-                    }
-                    if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                    {
-                        etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                    }
-                    else
-                    {
-                        etime = "23:00";
-                    }
-                    Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                 }
             }
             #endregion
@@ -256,7 +261,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
     #endregion
 
     #region PrintWeek顯示行事曆
-    private void PrintWeek()
+    private void PrintWeek(bool isShow)
     {
         string aMSG = "";
         try
@@ -294,35 +299,38 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                 #region 行事曆
                 string sdate2 = sdate.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99.Clear();
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                if (isShow)
                 {
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99.Clear();
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        string stime = "";
-                        string etime = "";
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                        for (int i = 0; i < dt99.Rows.Count; i++)
                         {
-                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            string stime = "";
+                            string etime = "";
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                            {
+                                stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                stime = "00:00";
+                            }
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
+                            {
+                                etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                etime = "24:00";
+                            }
+                            Display2(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                         }
-                        else
-                        {
-                            stime = "00:00";
-                        }
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(sdate.ToString("yyyy-MM-dd")))
-                        {
-                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            etime = "24:00";
-                        }
-                        Display2(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                     }
                 }
                 #endregion
@@ -358,7 +366,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
     #endregion
 
     #region PrintMonth顯示行事曆
-    private void PrintMonth()
+    private void PrintMonth(bool isShow)
     {
         string aMSG = "";
         try
@@ -392,41 +400,45 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             {
                 string eDay = changeobj.ADDTtoROCDT(e.Day.Date.ToString("yyyy-MM-dd"));
                 string celltxt = "<b>" + e.Day.Date.Day.ToString() + "</b>";
+                bool isShow = PCalendarUtil.IsShow(sobj.sessionUserID, sobj.sessionUserDepartID, this.lab_people.Text);
 
                 #region 行事曆
                 DataTable dt99 = new DataTable();
                 string sqlstr99 = "";
                 string sdate = e.Day.Date.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate = e.Day.Date.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                if (isShow)
                 {
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        string stime = "";
-                        string etime = "";
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                        for (int i = 0; i < dt99.Rows.Count; i++)
                         {
-                            stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            stime = "06:00";
-                        }
-                        if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                        {
-                            etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                        }
-                        else
-                        {
-                            etime = "23:00";
-                        }
+                            string stime = "";
+                            string etime = "";
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                            {
+                                stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                stime = "06:00";
+                            }
+                            if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                            {
+                                etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+                            }
+                            else
+                            {
+                                etime = "23:00";
+                            }
 
-                        celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                            celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                        }
                     }
                 }
                 #endregion
@@ -447,7 +459,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
     #endregion
 
     #region PrintList顯示行事曆
-    private void PrintList()
+    private void PrintList(bool isShow)
     {
         string aMSG = "";
         try
@@ -469,42 +481,43 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             int rowcount = -1;
             string sdate = today.ToString("yyyy/MM/01") + " 00:00:00";
             string edate = today.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
-            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-            + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-            + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-            dt99 = dbo.ExecuteQuery(sqlstr99);
-            if (dt99.Rows.Count > 0)
+            if (isShow)
             {
-                string update = "";
-                for (int i = 0; i < dt99.Rows.Count; i++)
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                dt99 = dbo.ExecuteQuery(sqlstr99);
+                if (dt99.Rows.Count > 0)
                 {
-                    DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
-                    if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                    string update = "";
+                    for (int i = 0; i < dt99.Rows.Count; i++)
                     {
-                        rowcount++;
-                        this.Table2.Rows.Add(new System.Web.UI.WebControls.TableRow());
-                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                        this.Table2.Rows[rowcount].Cells[0].CssClass = "timecss2";
-                        this.Table2.Rows[rowcount].Cells[1].CssClass = "timecss2";
-                        this.Table2.Rows[rowcount].Cells[0].Height = Unit.Pixel(60);
-                        this.Table2.Rows[rowcount].Cells[0].Width = Unit.Pixel(80);
-                        this.Table2.Rows[rowcount].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+                        DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
+                        if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                        {
+                            rowcount++;
+                            this.Table2.Rows.Add(new System.Web.UI.WebControls.TableRow());
+                            this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                            this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                            this.Table2.Rows[rowcount].Cells[0].CssClass = "timecss2";
+                            this.Table2.Rows[rowcount].Cells[1].CssClass = "timecss2";
+                            this.Table2.Rows[rowcount].Cells[0].Height = Unit.Pixel(60);
+                            this.Table2.Rows[rowcount].Cells[0].Width = Unit.Pixel(80);
+                            this.Table2.Rows[rowcount].Cells[0].HorizontalAlign = HorizontalAlign.Center;
 
-                        this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
-                        changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                            this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
+                            changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                        }
+                        update = nowdate.ToString("MM-dd");
+                        string stime = nowdate.ToString("HH:mm");
+                        string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+
+                        this.Table2.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display3(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                     }
-                    update = nowdate.ToString("MM-dd");
-                    string stime = nowdate.ToString("HH:mm");
-                    string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-
-                    this.Table2.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display3(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                 }
             }
             #endregion
-
-
         }
         catch (Exception ex)
         {
