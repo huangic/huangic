@@ -187,8 +187,14 @@ public partial class _20_200600_200601_5 : System.Web.UI.Page
 
                 }
 
+                //TODO 討論區通知
                 //t.tao_model
-                //通知
+                this.Boardcast(t.tao_no, t.t01_no, t.t01_subject, t.t01_content);
+
+
+
+
+
 
                 JsUtil.UpdateParentJs(this, "已送出回應");
             }
@@ -261,4 +267,51 @@ public partial class _20_200600_200601_5 : System.Web.UI.Page
 
         //
     }
+
+    //回應通知
+    public void Boardcast(int tao_no,int t01_no,string subject,string content) {
+        //TODO 討論區通知
+
+        PersonalMessageUtil MsgUtil=new PersonalMessageUtil();
+        int sendPeouid=int.Parse(sessionObj.sessionUserID);
+
+        using(NXEIPEntities model=new NXEIPEntities()){
+
+               
+        
+        //通知版主
+
+        var manager = (from d in model.tao04 where d.tao_no == tao_no select d.peo_uid).ToList();
+        //取得通知方式
+        var forum = (from d in model.taolun where d.tao_no == tao_no select d).First();
+        int SubscribeType = System.Convert.ToInt32(forum.tao_model, 2);
+        foreach(var peo in manager){
+        //電子郵件 1 個人訊息 2 手機 4
+            MsgUtil.SendMessage(String.Format("[新回應]{0}", subject), content, "", peo, sendPeouid, (SubscribeType & 2) == 2, (SubscribeType & 1) == 1, (SubscribeType & 4) == 4); 
+        }
+
+        
+        //通知訂閱者
+        //找訂閱者
+        var subs = (from d in model.tao06 where d.tao_no == tao_no && d.t06_order=="1" select d);
+        
+        foreach(var sub in subs ){
+            int SubType = System.Convert.ToInt32(sub.t06_model, 2);
+            MsgUtil.SendMessage(String.Format("[新回應]{0}", subject), content, "", sub.peo_uid, sendPeouid, (SubType & 2) == 2, (SubType & 1) == 1, (SubType & 4) == 4); 
+
+        }
+        //文章追蹤者
+        var trackers = (from d in model.tao05 where d.tao_no == tao_no && d.t01_no == t01_no && d.t05_type=="2" select d);
+
+        foreach (var tracker in trackers)
+        {
+            //int SubType = System.Convert.ToInt32(sub.t06_model, 2);
+            MsgUtil.SendMessage(String.Format("[新回應]{0}", subject), content, "", tracker.t05_peouid, sendPeouid, true, false, false);
+
+        }
+        
+        
+        }
+    }
+
 }
