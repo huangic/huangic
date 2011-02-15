@@ -17,6 +17,18 @@ public class ChangeObject
 	}
 
     /// <summary>
+    /// 回傳民國年格式日期時間 100-02-14 08:00
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <returns></returns>
+    public string _ADtoROCDT(DateTime dt)
+    {
+        TaiwanCalendar tc = new TaiwanCalendar();
+
+        return tc.GetYear(dt) + "-" + dt.ToString("MM-dd HH:mm");
+    }
+
+    /// <summary>
     /// 回傳民國年格式日期
     /// </summary>
     /// <param name="dt"></param>
