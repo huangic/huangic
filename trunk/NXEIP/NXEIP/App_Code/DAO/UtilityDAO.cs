@@ -19,11 +19,15 @@ public class UtilityDAO
 
 
 
-    public int GetPeoUidByAccount(string account){
+    public int GetPeoUidByAccount(string account)
+    {
         return ((from d in model.accounts where d.acc_login == account select d).First()).peo_uid;
     }
 
-
+    public people Get_People(int peo_uid)
+    {
+        return (from p in model.people where p.peo_uid == peo_uid select p).FirstOrDefault();
+    }
 
     /// <summary>
     /// 取得員工姓名
