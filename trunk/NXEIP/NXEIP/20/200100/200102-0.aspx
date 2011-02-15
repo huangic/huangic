@@ -5,18 +5,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>新增行事曆</title>
+    <title>預約首長行程</title>
     <uc1:csslayout ID="CssLayout1" runat="server" />
     <script type="text/javascript" src="../../js/jscolor.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="100301" />
+    <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="200102" />
     <div class="tableDiv">
         <div class="header">
             <div class="h1"></div>
             <div class="h2">
-              <div class="name"><asp:Label ID="lab_UserName" runat="server" Text="管理者"></asp:Label>行事曆</div>
+              <div class="name"><asp:Label ID="lab_UserName" runat="server" Text="管理者"></asp:Label>預約首長行程</div>
             </div>
             <div class="h3"></div>
         </div>
@@ -293,7 +293,8 @@
             &nbsp;&nbsp;
             <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClick="btn_cancel_Click" />
             &nbsp;&nbsp;
-            <asp:Button ID="btn_del" runat="server" CssClass="b-input" Text="刪除" onclick="btn_del_Click" />
+            <asp:Button ID="btn_del" runat="server" CssClass="b-input" Text="取消預約" 
+                onclick="btn_del_Click" />
         </div>
         <div id="div_msg" runat="server">
         </div>

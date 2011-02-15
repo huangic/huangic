@@ -57,6 +57,7 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
                 dt_lea = dbo.ExecuteQuery(sqlstr);
                 if (dt_lea.Rows.Count > 0) this.lab_people.Text = dt_lea.Rows[0]["lea_peouid"].ToString();
             }
+            parem += "peo_uid=" + this.lab_people.Text;
             #endregion
 
             Show();
@@ -99,7 +100,7 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
                 #region 首長行程
                 string sdate2 = sdate.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
                 + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
@@ -120,7 +121,23 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
                         else
                             etime = "24:00";
 
-                        ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString();
+
+                        if (dt99.Rows[i]["c02_appointmen"].ToString().Equals("1"))
+                        {
+                            if (dt99.Rows[i]["c02_check"].ToString().Equals("0"))
+                            {
+                                #region 未審核
+                                if (dt99.Rows[i]["c02_setuid"].ToString().Equals(sobj.sessionUserID))
+                                    ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += "<br><a href=\"200102-0.aspx?no=" + dt99.Rows[i]["c02_no"].ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + sdate1 + "&source=months&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString() + "(審核中)</a>";
+                                else
+                                    ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += "<br>■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString() + "(審核中)";
+                                #endregion
+                            }
+                            else if (dt99.Rows[i]["c02_check"].ToString().Equals("1"))
+                                ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += "<br>■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString();
+                        }
+                        else
+                            ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += "<br>■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(); 
 
                     }
                 }
@@ -136,6 +153,7 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
             this.HyperLink1.NavigateUrl = "200102.aspx?today=" + this.lab_date.Text + "&" + parem;
             this.current.NavigateUrl = "200102-1.aspx?today=" + this.lab_date.Text + "&" + parem;
             this.HyperLink3.NavigateUrl = "200102-2.aspx?today=" + this.lab_date.Text + "&" + parem;
+            this.HyperLink4.NavigateUrl = "200102-3.aspx?today=" + this.lab_date.Text + "&" + parem;
             //上一個月、下一個月(箭頭)
             this.hl_Pre.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(-1).ToString("yyyy-MM-01")) + "&" + parem;
             this.hl_Nxt.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(1).ToString("yyyy-MM-01")) + "&" + parem;

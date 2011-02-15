@@ -116,7 +116,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
             string sdate = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 00:00:00";
             string edate = changeobj.ROCDTtoADDT(this.lab_date.Text) + " 23:59:59";
             #region 行事曆
-            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+            sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
             + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
             + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
             + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
@@ -143,7 +143,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
                     {
                         etime = "23:00";
                     }
-                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()), "1");
+                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()), "1",dt99.Rows[i]["c02_appointmen"].ToString(),dt99.Rows[i]["c02_check"].ToString());
                 }
             }
             #endregion
@@ -178,7 +178,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
                     {
                         etime = "23:00";
                     }
-                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["mee_reason"].ToString(), "#FFFFFF", Convert.ToInt32(dt99.Rows[i]["mee_no"].ToString()), Convert.ToInt32(this.lab_people.Text), "2");
+                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["mee_reason"].ToString(), "#FFFFFF", Convert.ToInt32(dt99.Rows[i]["mee_no"].ToString()), Convert.ToInt32(this.lab_people.Text), "2","","");
                 }
             }
             #endregion
@@ -222,6 +222,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
             this.HyperLink1.NavigateUrl = "200102.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             this.HyperLink2.NavigateUrl = "200102-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             this.current.NavigateUrl = "200102-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
+            this.HyperLink4.NavigateUrl = "200102-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             //上一個月、下一個月(箭頭)
             this.hl_Pre.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(-1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text;
             this.hl_Nxt.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddMonths(1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text;
@@ -236,7 +237,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
     #endregion
 
     #region show行程
-    private void Display(string stime, string etime, string txt2, string bgcolors, int no, int setuid,string showtype)
+    private void Display(string stime, string etime, string txt2, string bgcolors, int no, int setuid, string showtype, string appointmen, string checks)
     {
         string aMSG = "";
         try
@@ -252,7 +253,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
 
             int count = 0;
             int cel = 0;
-
+            #region (1)
             for (int j = 1; j < this.Table1.Rows[0].Cells.Count; j++)
             {
                 int count1 = 0;
@@ -281,6 +282,7 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
                     count++;
                 }
             }
+            #endregion
             if (count == 0)
             {
                 for (int i = begin; i <= end; i++)
@@ -289,13 +291,20 @@ public partial class _20_200100_200102_2 : System.Web.UI.Page
                     {
                         if (this.Table1.Rows[i - 6 + 1].Cells[cel].Text.Equals(""))
                         {
-                            if (showtype.Equals("3"))
+                            if (showtype.Equals("1") && appointmen.Equals("1"))
                             {
-                                if (setuid.ToString().Equals(sobj.sessionUserID)) //要調
+                                if (checks.Equals("0"))
                                 {
-                                    this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"200102-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "</a>";
+                                    if (setuid.ToString().Equals(sobj.sessionUserID)) //要調
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"200102-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "(審核中)</a>";
+                                    }
+                                    else
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2 + "(審核中)";
+                                    }
                                 }
-                                else
+                                else if (checks.Equals("1"))
                                 {
                                     this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2;
                                 }

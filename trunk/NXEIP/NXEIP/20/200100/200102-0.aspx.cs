@@ -569,6 +569,9 @@ public partial class _20_200100_200102_0 : System.Web.UI.Page
                     newRow.c02_sdate = sdate;
                     newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
                     newRow.c02_title = this.txt_title.Text;
+                    newRow.c02_appointmen = "1";
+                    newRow.c02_appointdate = System.DateTime.Now;
+                    newRow.c02_check = "0";
                     c02DAO1.Update();
                     #endregion
 
@@ -712,6 +715,9 @@ public partial class _20_200100_200102_0 : System.Web.UI.Page
             newRow.c02_sdate = sdate;
             newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
             newRow.c02_title = this.txt_title.Text;
+            newRow.c02_appointmen = "1";
+            newRow.c02_appointdate = System.DateTime.Now;
+            newRow.c02_check = "0";
             if (c03_no > 0)
             {
                 newRow.c03_no = c03_no;
@@ -1157,13 +1163,13 @@ public partial class _20_200100_200102_0 : System.Web.UI.Page
             }
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 1, "計畫--刪除 peo_uid" + this.lab_peo_uid.Text + ",c03_no=" + this.lab_c03_no.Text + "或c02_no=" + this.lab_no.Text);
+            new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 1, "預約首長行程--刪除 peo_uid" + this.lab_peo_uid.Text + ",c03_no=" + this.lab_c03_no.Text + "或c02_no=" + this.lab_no.Text);
 
             this.Page.ClientScript.RegisterStartupScript(typeof(_20_200100_200102_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
         catch (Exception ex)
         {
-            aMSG = "功能名稱:行事曆-刪除<br>錯誤訊息:" + ex.ToString();
+            aMSG = "功能名稱:預約首長行程-刪除<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
     }

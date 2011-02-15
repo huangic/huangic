@@ -82,7 +82,7 @@
                 <div class="border-bottom-block">
                     <div class="header">
                         <div class="h1"></div>
-                        <div class="h2 a-letter-1">我的預約記錄</div>
+                        <div class="h2 a-letter-1"><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="200102-3.aspx">我的預約記錄</asp:HyperLink></div>
                     </div>
                 </div>
             </div>
@@ -107,8 +107,8 @@
                     BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="" PrevMonthText=""
                     OnDayRender="Calendar1_DayRender" ShowTitle="False">
                     <DayHeaderStyle CssClass="headtitle" />
-                    <DayStyle CssClass="Nholiday_bg" />
-                    <WeekendDayStyle CssClass="holiday_bg" />
+                    <DayStyle CssClass="Nholiday_bg month" />
+                    <WeekendDayStyle CssClass="holiday_bg month" />
                 </asp:Calendar>
                 <div class="footer">
                     <div class="f1">
