@@ -179,4 +179,30 @@ public class PCalendarUtil
         return IsShow;
     }
     #endregion
+
+    #region 取得開會資料
+    public static string GetMeeting(string peo_uid,DateTime sdate,DateTime edate,string showtype)
+    {
+        string feedback = "";
+
+        DBObject dbo_meeting = new DBObject();
+        DataTable dt_meeting = new DataTable();
+        string sqlstr = "select meetings.mee_no, meetings.mee_reason, meetings.mee_sdate, meetings.mee_edate from meetings inner join attends on meetings.mee_no = attends.mee_no"
+            + " where (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + peo_uid + ") and (meetings.mee_sdate >= '" + sdate.ToString("yyyy/MM/dd HH:mm:ss") + "') and (meetings.mee_edate <= '" + edate.ToString("yyyy/MM/dd HH:mm:ss") + "')";
+        dt_meeting = dbo_meeting.ExecuteQuery(sqlstr);
+        if (dt_meeting.Rows.Count > 0)
+        {
+            for (int dti = 0; dti < dt_meeting.Rows.Count; dti++)
+            {
+                if(showtype.Equals("1"))
+                    feedback += "<br />■" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + "<br>" + dt_meeting.Rows[dti]["mee_reason"].ToString();
+                else
+                    feedback += "<br />■" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + " " + dt_meeting.Rows[dti]["mee_reason"].ToString();
+            }
+        }
+
+        return feedback;
+    }
+    #endregion
+
 }

@@ -194,5 +194,24 @@ public class calendar : System.Web.Services.WebService {
         }
         return values.ToArray();
     }
+
+    [WebMethod]
+    public CascadingDropDownNameValue[] GetLeading(string knownCategoryValues, string category, string contextKey)
+    {
+        DBObject dbo = new DBObject();
+        List<CascadingDropDownNameValue> values = new List<CascadingDropDownNameValue>();
+        DataTable dt = new DataTable();
+        string sqlstr = "select leading.lea_peouid, people.peo_name from leading inner join people on leading.lea_peouid = people.peo_uid order by leading.lea_no";
+        dt = dbo.ExecuteQuery(sqlstr);
+        if (dt.Rows.Count > 0)
+        {
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                values.Add(new CascadingDropDownNameValue(dt.Rows[i]["peo_name"].ToString(), dt.Rows[i]["lea_peouid"].ToString()));
+            }
+        }
+
+        return values.ToArray();
+    }
     
 }
