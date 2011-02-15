@@ -93,6 +93,7 @@ public partial class _20_200100_200102 : System.Web.UI.Page
             this.current.NavigateUrl = "200102.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             this.HyperLink2.NavigateUrl = "200102-1.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             this.HyperLink3.NavigateUrl = "200102-2.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
+            this.HyperLink4.NavigateUrl = "200102-3.aspx?today=" + this.lab_date.Text + "&peo_uid=" + this.lab_people.Text;
             //上一個月、下一個月(箭頭)
             this.hl_Pre.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddYears(-1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text;
             this.hl_Nxt.NavigateUrl = localurl + "?today=" + changeobj.ADDTtoROCDT(this.Calendar1.VisibleDate.AddYears(1).ToString("yyyy-MM-01")) + "&peo_uid=" + this.lab_people.Text;
@@ -130,7 +131,7 @@ public partial class _20_200100_200102 : System.Web.UI.Page
                 string sqlstr99 = "";
                 string sdate = e.Day.Date.ToString("yyyy/MM/dd") + " 00:00:00";
                 string edate = e.Day.Date.ToString("yyyy/MM/dd") + " 23:59:59";
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
                 + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
@@ -149,7 +150,22 @@ public partial class _20_200100_200102 : System.Web.UI.Page
                             etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
                         else
                             etime = "23:00";
-                        celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+
+                        if (dt99.Rows[i]["c02_appointmen"].ToString().Equals("1"))
+                        {
+                            if (dt99.Rows[i]["c02_check"].ToString().Equals("0"))
+                            {
+                                #region 未審核
+                                if (dt99.Rows[i]["c02_setuid"].ToString().Equals(sobj.sessionUserID))
+                                    celltxt += "<br><a href=\"200102-0.aspx?no=" + dt99.Rows[i]["c02_no"].ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + eDay + "&source=months&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox month\">■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString() + "(審核中)</a>";
+                                else
+                                    celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString() + "(審核中)";
+                                #endregion
+                            }
+                            else if (dt99.Rows[i]["c02_check"].ToString().Equals("1"))
+                                celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                        }else
+                            celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString(); 
                     }
                 }
                 #endregion

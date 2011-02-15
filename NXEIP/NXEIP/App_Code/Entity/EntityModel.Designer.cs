@@ -1648,6 +1648,22 @@ namespace Entity
             }
         }
         private ObjectSet<meetings> _meetings;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<leading> leading
+        {
+            get
+            {
+                if ((_leading == null))
+                {
+                    _leading = base.CreateObjectSet<leading>("leading");
+                }
+                return _leading;
+            }
+        }
+        private ObjectSet<leading> _leading;
 
         #endregion
         #region AddTo 方法
@@ -2394,6 +2410,14 @@ namespace Entity
         public void AddTomeetings(meetings meetings)
         {
             base.AddObject("meetings", meetings);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 leading EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToleading(leading leading)
+        {
+            base.AddObject("leading", leading);
         }
 
         #endregion
@@ -4968,7 +4992,8 @@ namespace Entity
         /// <param name="c02_sdate">c02_sdate 屬性的初始值。</param>
         /// <param name="c02_edate">c02_edate 屬性的初始值。</param>
         /// <param name="c02_title">c02_title 屬性的初始值。</param>
-        public static c02 Createc02(global::System.Int32 peo_uid, global::System.Int32 c02_no, global::System.DateTime c02_sdate, global::System.DateTime c02_edate, global::System.String c02_title)
+        /// <param name="c02_appointmen">c02_appointmen 屬性的初始值。</param>
+        public static c02 Createc02(global::System.Int32 peo_uid, global::System.Int32 c02_no, global::System.DateTime c02_sdate, global::System.DateTime c02_edate, global::System.String c02_title, global::System.String c02_appointmen)
         {
             c02 c02 = new c02();
             c02.peo_uid = peo_uid;
@@ -4976,6 +5001,7 @@ namespace Entity
             c02.c02_sdate = c02_sdate;
             c02.c02_edate = c02_edate;
             c02.c02_title = c02_title;
+            c02.c02_appointmen = c02_appointmen;
             return c02;
         }
 
@@ -5299,6 +5325,102 @@ namespace Entity
         private Nullable<global::System.DateTime> _c02_createtime;
         partial void Onc02_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onc02_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> c02_appointdate
+        {
+            get
+            {
+                return _c02_appointdate;
+            }
+            set
+            {
+                Onc02_appointdateChanging(value);
+                ReportPropertyChanging("c02_appointdate");
+                _c02_appointdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("c02_appointdate");
+                Onc02_appointdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _c02_appointdate;
+        partial void Onc02_appointdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onc02_appointdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String c02_appointmen
+        {
+            get
+            {
+                return _c02_appointmen;
+            }
+            set
+            {
+                Onc02_appointmenChanging(value);
+                ReportPropertyChanging("c02_appointmen");
+                _c02_appointmen = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("c02_appointmen");
+                Onc02_appointmenChanged();
+            }
+        }
+        private global::System.String _c02_appointmen;
+        partial void Onc02_appointmenChanging(global::System.String value);
+        partial void Onc02_appointmenChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String c02_check
+        {
+            get
+            {
+                return _c02_check;
+            }
+            set
+            {
+                Onc02_checkChanging(value);
+                ReportPropertyChanging("c02_check");
+                _c02_check = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("c02_check");
+                Onc02_checkChanged();
+            }
+        }
+        private global::System.String _c02_check;
+        partial void Onc02_checkChanging(global::System.String value);
+        partial void Onc02_checkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String c02_reason
+        {
+            get
+            {
+                return _c02_reason;
+            }
+            set
+            {
+                Onc02_reasonChanging(value);
+                ReportPropertyChanging("c02_reason");
+                _c02_reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("c02_reason");
+                Onc02_reasonChanged();
+            }
+        }
+        private global::System.String _c02_reason;
+        partial void Onc02_reasonChanging(global::System.String value);
+        partial void Onc02_reasonChanged();
 
         #endregion
     
@@ -15168,6 +15290,87 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="leading")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class leading : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 leading 物件。
+        /// </summary>
+        /// <param name="lea_no">lea_no 屬性的初始值。</param>
+        /// <param name="lea_peouid">lea_peouid 屬性的初始值。</param>
+        public static leading Createleading(global::System.Int32 lea_no, global::System.Int32 lea_peouid)
+        {
+            leading leading = new leading();
+            leading.lea_no = lea_no;
+            leading.lea_peouid = lea_peouid;
+            return leading;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 lea_no
+        {
+            get
+            {
+                return _lea_no;
+            }
+            set
+            {
+                if (_lea_no != value)
+                {
+                    Onlea_noChanging(value);
+                    ReportPropertyChanging("lea_no");
+                    _lea_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("lea_no");
+                    Onlea_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _lea_no;
+        partial void Onlea_noChanging(global::System.Int32 value);
+        partial void Onlea_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 lea_peouid
+        {
+            get
+            {
+                return _lea_peouid;
+            }
+            set
+            {
+                Onlea_peouidChanging(value);
+                ReportPropertyChanging("lea_peouid");
+                _lea_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("lea_peouid");
+                Onlea_peouidChanged();
+            }
+        }
+        private global::System.Int32 _lea_peouid;
+        partial void Onlea_peouidChanging(global::System.Int32 value);
+        partial void Onlea_peouidChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
