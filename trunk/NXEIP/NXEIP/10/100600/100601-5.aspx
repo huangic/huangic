@@ -95,6 +95,11 @@
                             <Columns>
                                 <asp:BoundField DataField="hui_file" HeaderText="會前資料名稱" 
                                     SortExpression="hui_file">
+                                <ItemStyle Width="45%" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="hui_memo" HeaderText="檔案說明" 
+                                    SortExpression="hui_memo">
+                                <ItemStyle Width="45%" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="檢視">
                                     <ItemStyle HorizontalAlign="Center" Width="10%" />
@@ -120,6 +125,7 @@
                             DataKeyNames="mee_no,con_no">
                             <Columns>
                                 <asp:BoundField DataField="con_file" HeaderText="會議紀錄名稱" SortExpression="con_file">
+                                <ItemStyle Width="90%" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="檢視">
                                     <ItemStyle HorizontalAlign="Center" Width="10%" />
