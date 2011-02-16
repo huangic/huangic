@@ -139,10 +139,10 @@
             var str = "<tr>";
             str += "<td align='center'><input id='cbox_" + idnum + "' type='checkbox' /></td>";
             str += "<td align='center'>第" + (idnum + flag) + "期</td>";
-            str += "<td><input id='tbox_1_" + idnum + "' type='text' class='calendarSelectDate' /></td>";
-            str += "<td><input id='tbox_2_" + idnum + "' type='text' class='calendarSelectDate' /></td>";
-            str += "<td><input id='tbox_3_" + idnum + "' type='text' class='calendarSelectDate' />&nbsp;<select id='Select_h1_" + idnum + "'>" + hr_option + "</select>時&nbsp;<select id='Select_m1_" + idnum + "'>" + mm_option + "</select>分</td>";
-            str += "<td><input id='tbox_4_" + idnum + "' type='text' class='calendarSelectDate' />&nbsp;<select id='Select_h2_" + idnum + "'>" + hr_option2 + "</select>時&nbsp;<select id='Select_m2_" + idnum + "'>" + mm_option + "</select>分</td>";
+            str += "<td><input id='tbox_1_" + idnum + "' type='text' class='calendarSelectDate' style='width:65px' /></td>";
+            str += "<td><input id='tbox_2_" + idnum + "' type='text' class='calendarSelectDate' style='width:65px' /></td>";
+            str += "<td><input id='tbox_3_" + idnum + "' type='text' class='calendarSelectDate' style='width:65px' />&nbsp;<select id='Select_h1_" + idnum + "'>" + hr_option + "</select>時&nbsp;<select id='Select_m1_" + idnum + "'>" + mm_option + "</select>分</td>";
+            str += "<td><input id='tbox_4_" + idnum + "' type='text' class='calendarSelectDate' style='width:65px' />&nbsp;<select id='Select_h2_" + idnum + "'>" + hr_option2 + "</select>時&nbsp;<select id='Select_m2_" + idnum + "'>" + mm_option + "</select>分</td>";
             str += "<td align='center'><img class='delete' src='../../image/delete.gif' /></td>";
             str += "</tr>";
             $(str).appendTo($("#" + TableName));
@@ -172,6 +172,7 @@
         function getInput_click() {
             var trlen = $("#" + TableName + " tr").length;
             var str = "";
+            
             for (var i = 1; i < trlen; i++) {
 
                 //取期別
@@ -200,7 +201,7 @@
                 }
             }
             $('#<%=hidd_date.ClientID%>').val(str);
-            //alert(str);
+            //alert("str"+str);
 
         }
 
@@ -221,6 +222,7 @@
 
         //批次開班日期檢查
         function checkInput() {
+            
             if (checkDataInput()) {
                 var check = false;
                 var trlen = $("#" + TableName + " tr").length;
@@ -242,14 +244,15 @@
                     for (var i = 1; i < trlen; i++) {
                         if (twoDateComp($('#tbox_1_' + i).val() + "-00-00", $('#tbox_2_' + i).val() + "-00-00")) {
                             alert('報名開始日期 需早於 報名結束日期');
-                            check = false;
+                            check = true;
                         }
-                        if (c && twoDateComp($('#tbox_3_' + i).val() + "-" + $('#Select_h1_' + i).val() + "-" + $('#Select_m1_' + i).val(), $('#tbox_4_' + i).val() + "-" + $('#Select_h2_' + i).val() + "-" + $('#Select_m2_' + i).val())) {
+                        if (twoDateComp($('#tbox_3_' + i).val() + "-" + $('#Select_h1_' + i).val() + "-" + $('#Select_m1_' + i).val(), $('#tbox_4_' + i).val() + "-" + $('#Select_h2_' + i).val() + "-" + $('#Select_m2_' + i).val())) {
                             alert('上課開始時間 需早於 上課結束時間');
-                            check = false;
+                            check = true;
                         }
                     }
                 }
+
                 if (!check) {
                     //組合日期字串
                     getInput_click();
@@ -338,7 +341,7 @@
                     alert(datename[1] + ' 需早於 ' + datename[2]);
                     c = false;
                 }
-                if (c && twoDateComp($(dateID[3]).val() + "-" + $('#<%=ddl_sh.ClientID%>').val() + "-" + $('#<%=ddl_sm.ClientID%>').val(), $(dateID[4]).val() + "-" + $('#<%=ddl_eh.ClientID%>').val() + "-" + $('#<%=ddl_em.ClientID%>').val())) {
+                if (twoDateComp($(dateID[3]).val() + "-" + $('#<%=ddl_sh.ClientID%>').val() + "-" + $('#<%=ddl_sm.ClientID%>').val(), $(dateID[4]).val() + "-" + $('#<%=ddl_eh.ClientID%>').val() + "-" + $('#<%=ddl_em.ClientID%>').val())) {
                     alert(datename[3] + ' 需早於 ' + datename[4]);
                     c = false;
                 }
@@ -381,10 +384,14 @@
         
         
     </script>
+    <style type="text/css">
+        #Text3
+        {
+            width: 68px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ODS_e01" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.e01DAO">
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ODS_type_1" runat="server" SelectMethod="GetClassParentData"
@@ -412,8 +419,8 @@
             <div class="h3">
             </div>
         </div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
+        
+            
                 <table>
                         <tr>
                             <th>
@@ -479,7 +486,7 @@
                                 認證時數
                             </th>
                             <td>
-                                <asp:TextBox ID="tbox_hour" runat="server" Width="75px"></asp:TextBox>小時
+                                <asp:TextBox ID="tbox_hour" runat="server" Width="75px">0</asp:TextBox>小時
                             </td>
                             <th>
                                 <span style="color: Red">*</span>報名審核狀況
@@ -608,8 +615,7 @@
                             </td>
                         </tr>
                 </table>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+            
         <div class="footer">
             <div class="f1">
             </div>
@@ -619,6 +625,7 @@
             </div>
         </div>
         <div class="bottom">
+            <input id="Text3" type="text" style="width:65px" value="100-10-10" />
             <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click"
                 OnClientClick="return checkInput()" />
             &nbsp;&nbsp;&nbsp;
@@ -673,7 +680,7 @@
         <div id="div_msg" runat="server">
         </div>
         <div>
-            <asp:HiddenField ID="hidd_date" runat="server" />
+            <asp:HiddenField ID="hidd_date" runat="server" Value="" />
         </div>
     </div>
 </asp:Content>

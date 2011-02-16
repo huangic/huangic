@@ -29,7 +29,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             this.ddl_type_2.Items[0].Selected = true;
 
             this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = System.DateTime.Now;
+            this.calendar2._ADDate = System.DateTime.Now.AddMonths(1);
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
