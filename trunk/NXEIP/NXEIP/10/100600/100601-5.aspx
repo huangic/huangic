@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100601-3.aspx.cs" Inherits="_10_100600_100601_3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="100601-5.aspx.cs" Inherits="_10_100600_100601_5" %>
 
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <%@ Register src="../../lib/CssLayout.ascx" tagname="CssLayout" tagprefix="uc2" %>
@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-<uc2:CssLayout ID="CssLayout1" runat="server" />
+    <uc2:CssLayout ID="CssLayout1" runat="server" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +21,14 @@
             <asp:Parameter Name="mee_no" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100601" SubFunc="上傳會議紀錄" />
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="Get_Huiyi" TypeName="NXEIP.DAO._100601DAO">
+        <SelectParameters>
+            <asp:Parameter Name="mee_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100601" SubFunc="檔案下載" />
     <asp:HiddenField ID="hidd_meeno" runat="server" />
     <div class="tableDiv">
         <div class="header">
@@ -63,13 +70,53 @@
                     </td>
                 </tr>
                 <tr>
+                    <th style="width:15%">
+                        會議聯絡人
+                    </th>
+                    <td>
+                        <asp:Label ID="lab_peoname" runat="server"></asp:Label>
+                    </td>
+                    <th style="width:15%">
+                        聯絡人電話
+                    </th>
+                    <td>
+                        <asp:Label ID="lab_tel" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 15%">
+                        會前資料列表
+                    </th>
+                    <td colspan="3">
+                        <cc1:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
+                            CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource2" EmptyDataText="查無資料"
+                            GridLines="None" 
+                            DataKeyNames="mee_no,hui_no">
+                            <Columns>
+                                <asp:BoundField DataField="hui_file" HeaderText="會前資料名稱" 
+                                    SortExpression="hui_file">
+                                </asp:BoundField>
+                                <asp:TemplateField HeaderText="檢視">
+                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox imageButton edit"
+                                            NavigateUrl='<%# string.Format("100601-4.ashx?type=1&mee_no={0}&hui_no={1}&modal=true&TB_iframe=true",Eval("mee_no"),Eval("hui_no"))%>'><span>回覆</span></asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                            </Columns>
+                        </cc1:GridView>
+                    </td>
+                    
+                </tr>
+                <tr>
                     <th style="width: 15%">
                         會議紀錄列表
                     </th>
                     <td colspan="3">
                         <cc1:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                             CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource1" EmptyDataText="查無資料"
-                            GridLines="None" OnRowCommand="GridView1_RowCommand" 
+                            GridLines="None" 
                             DataKeyNames="mee_no,con_no">
                             <Columns>
                                 <asp:BoundField DataField="con_file" HeaderText="會議紀錄名稱" SortExpression="con_file">
@@ -81,31 +128,12 @@
                                             NavigateUrl='<%# string.Format("100601-4.ashx?type=2&mee_no={0}&con_no={1}&modal=true&TB_iframe=true",Eval("mee_no"),Eval("con_no"))%>'><span>回覆</span></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="刪除">
-                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete" CommandName="del"
-                                            CommandArgument="<%# Container.DataItemIndex %>" OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                
                             </Columns>
                         </cc1:GridView>
                     </td>
                 </tr>
-                <tr>
-                    <th style="width: 15%">
-                        上傳會議紀錄
-                    </th>
-                    <td colspan="3">
-                        <ul>
-                            <asp:FileUpload ID="FileUpload1" runat="server" Width="300px" /></ul>
-                            <ul>
-                            <asp:FileUpload ID="FileUpload2" runat="server" Width="300px" /></ul>
-                            <ul>
-                            <asp:FileUpload ID="FileUpload3" runat="server" Width="300px" /></ul>
-                    </td>
-                    
-                </tr>
+                
             </tbody>
         </table>
         <div class="footer">
@@ -117,9 +145,8 @@
             </div>
         </div>
         <div class="bottom">
-            <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" OnClick="btn_ok_Click" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" CssClass="a-input" Text="取消" onclick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="a-input" Text="關閉" OnClientClick="self.parent.tb_remove()"
+                UseSubmitBehavior="false" />
         </div>
     </div>
     </form>
