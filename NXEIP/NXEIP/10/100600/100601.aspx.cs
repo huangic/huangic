@@ -14,10 +14,10 @@ public partial class _10_100600_100601 : System.Web.UI.Page
         {
 
             this.calendar1._ADDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = DateTime.Now;
+            this.calendar2._ADDate = DateTime.Now.AddMonths(1);
 
-            this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 07:00:00");
-            this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:00:00");
+            this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
+            this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
             this.ObjectDataSource1.SelectParameters["key"].DefaultValue = "";
             this.ObjectDataSource1.SelectParameters["status"].DefaultValue = "0";
             this.GridView1.DataBind();
@@ -34,8 +34,8 @@ public partial class _10_100600_100601 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 07:00:00");
-        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:00:00");
+        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
+        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
         this.ObjectDataSource1.SelectParameters["key"].DefaultValue = this.tbox_reason.Text.Trim();
         this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.ddl_status.SelectedValue;
         this.GridView1.DataBind();
