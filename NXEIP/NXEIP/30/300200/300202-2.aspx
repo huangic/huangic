@@ -64,7 +64,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="bot_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" EnableViewState="False">
+                    GridLines="None">
                     <Columns>
                         <asp:BoundField DataField="dep_name" HeaderText="單位" SortExpression="dep_name" />
                         <asp:BoundField DataField="pro_name" HeaderText="職稱" SortExpression="pro_name" />

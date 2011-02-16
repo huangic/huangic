@@ -64,8 +64,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="que_no,the_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                    EnableViewState="False" PageSize="2">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand" PageSize="2">
                     <Columns>
                         <asp:BoundField DataField="the_name" HeaderText="題目名稱" SortExpression="the_name" />
                         <asp:BoundField DataField="the_type" HeaderText="題目種類" SortExpression="the_type" />
