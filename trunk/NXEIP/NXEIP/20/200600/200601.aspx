@@ -24,7 +24,7 @@
     function pageLoad(sender, args) {
         if (args.get_isPartialLoad()) {
             //  reapply the thick box stuff
-            tb_init('a.thickbox');
+            tb_init('a.thickbox,input.thickbox');
         }
     }
     </script>
@@ -80,8 +80,10 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                 
-                <cc1:GridView ID="GridView1" runat="server" CssClass="box" CellPadding="1" CellSpacing="1" GridLines="None"
-                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum" DataKeyNames="Id" EmptyDataText="沒有任何討論區">
+                <cc1:GridView ID="GridView1" runat="server" CssClass="box" CellPadding="1" 
+                        CellSpacing="1" GridLines="None"
+                AutoGenerateColumns="False" DataSourceID="ObjectDataSource_forum" 
+                        DataKeyNames="Id" EmptyDataText="沒有任何討論區" onrowcommand="GridView1_RowCommand">
                     <Columns>
                         
                         
@@ -155,13 +157,13 @@
                          <asp:TemplateField HeaderText="訂閱">
                            <ItemStyle CssClass="row5_bg" />
                            <ItemTemplate>
-                               <asp:Button ID="Button1" runat="server"  CssClass="order"  Visible='<%# (!(bool)Eval("Subscribe")) %>'  CommandName="Subscribe" />
-                               <asp:Button ID="Button2" runat="server"  CssClass="unorder"  Visible='<%# ((bool)Eval("Subscribe")) %>' CommandName="SubscribeCanel" />
+                               <asp:Button ID="Button1" runat="server"  CssClass="thickbox order"  alt='<%# String.Format("200601-12.aspx?tao_no={0}&TB_iframe=true&height=150&width=450&modal=true",Eval("Id")) %>'  Visible='<%# (!(bool)Eval("Subscribe")) %>' />
+                               <asp:Button ID="Button2" runat="server"  OnClientClick="return confirm('確定取消訂閱?')" CssClass="unorder"  Visible='<%# ((bool)Eval("Subscribe")) %>' CommandName="SubscribeCanel" />
                            </ItemTemplate>
                           </asp:TemplateField>
 
 
-                           <asp:TemplateField HeaderText="修改" Visible=false>
+                           <asp:TemplateField HeaderText="修改" Visible="false">
                            <ItemStyle CssClass="row5_bg" />
                            <ItemTemplate>
                            
