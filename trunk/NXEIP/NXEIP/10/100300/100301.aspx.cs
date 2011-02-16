@@ -152,10 +152,10 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             if (isShow)
             {
                 #region 查得資料
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
                 dt99 = dbo.ExecuteQuery(sqlstr99);
                 if (dt99.Rows.Count > 0)
                 {
@@ -179,10 +179,45 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                         {
                             etime = "23:00";
                         }
-                        Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
+                        Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), dt99.Rows[i]["c02_bgcolor"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()), "1", dt99.Rows[i]["c02_appointmen"].ToString(), dt99.Rows[i]["c02_check"].ToString());
                     }
                 }
                 #endregion
+            }
+            #endregion
+
+            #region 會議資料
+            dt99.Clear();
+            sqlstr99 = "select meetings.mee_no, meetings.mee_reason, meetings.mee_sdate, meetings.mee_edate from meetings inner join attends on meetings.mee_no = attends.mee_no "
+            + " WHERE (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate <= '" + edate + "') AND (meetings.mee_edate <= '" + edate + "') AND (meetings.mee_edate >= '" + sdate + "') "
+            + " OR (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate >= '" + sdate + "') AND (meetings.mee_edate >= '" + sdate + "') AND (meetings.mee_sdate <= '" + edate + "') "
+            + " OR (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate < '" + sdate + "') AND (meetings.mee_edate > '" + edate + "') ORDER BY meetings.mee_sdate, meetings.mee_edate, meetings.mee_no";
+            //Response.Write(sqlstr99);
+            dt99 = dbo.ExecuteQuery(sqlstr99);
+            if (dt99.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt99.Rows.Count; i++)
+                {
+                    string stime = "";
+                    string etime = "";
+                    if (Convert.ToDateTime(dt99.Rows[i]["mee_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    {
+                        stime = Convert.ToDateTime(dt99.Rows[i]["mee_sdate"].ToString()).ToString("HH:mm");
+                    }
+                    else
+                    {
+                        stime = "06:00";
+                    }
+                    if (Convert.ToDateTime(dt99.Rows[i]["mee_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    {
+                        etime = Convert.ToDateTime(dt99.Rows[i]["mee_edate"].ToString()).ToString("HH:mm");
+                    }
+                    else
+                    {
+                        etime = "23:00";
+                    }
+                    Display(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["mee_reason"].ToString(), "#FFFFFF", 0, Convert.ToInt32(this.lab_people.Text), "2", "", "");
+                }
             }
             #endregion
 
@@ -252,7 +287,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
     #endregion
 
     #region show行程
-    private void Display(string stime, string etime, string txt2, string bgcolors, int no, int setuid)
+    private void Display(string stime, string etime, string txt2, string bgcolors, int no, int setuid, string showtype, string appointmen, string checks)
     {
         string aMSG = "";
         try
@@ -268,7 +303,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
 
             int count = 0;
             int cel = 0;
-
+            #region (1)
             for (int j = 1; j < this.Table1.Rows[0].Cells.Count; j++)
             {
                 int count1 = 0;
@@ -297,6 +332,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                     count++;
                 }
             }
+            #endregion
             if (count == 0)
             {
                 for (int i = begin; i <= end; i++)
@@ -307,9 +343,27 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                         {
                             if (no > 0)
                             {
-                                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                                if (showtype.Equals("1") && appointmen.Equals("2"))
                                 {
-                                    this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "</a>";
+                                    if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "</a>";
+                                    }
+                                    else
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2;
+                                    }
+                                }
+                                else if (showtype.Equals("1") && appointmen.Equals("1"))
+                                {
+                                    if (this.lab_people.Text.Equals(sobj.sessionUserID) && checks.Equals("0"))
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-5.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "(預約)</a>";
+                                    }
+                                    else
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2;
+                                    }
                                 }
                                 else
                                 {
@@ -341,9 +395,27 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                         {
                             if (no > 0)
                             {
-                                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                                if (showtype.Equals("1") && appointmen.Equals("2"))
                                 {
-                                    this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "</a>";
+                                    if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "</a>";
+                                    }
+                                    else
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2;
+                                    }
+                                }
+                                else if (showtype.Equals("1") && appointmen.Equals("1") && checks.Equals("0"))
+                                {
+                                    if (this.lab_people.Text.Equals(sobj.sessionUserID))
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = "<a href=\"100301-5.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + this.lab_date.Text + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=days&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt2 + "(預約)</a>";
+                                    }
+                                    else
+                                    {
+                                        this.Table1.Rows[i - 6 + 1].Cells[cel].Text = txt2;
+                                    }
                                 }
                                 else
                                 {
@@ -454,6 +526,8 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             newRow.c02_sdate = sdate;
             newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
             newRow.c02_title = this.txt_title.Text;
+            newRow.c02_check = "1";
+            newRow.c02_appointmen = "2";
             c02DAO1.AddC02(newRow);
             c02DAO1.Update();
             #endregion

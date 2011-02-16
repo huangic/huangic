@@ -569,6 +569,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
                     newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
                     newRow.c02_title = this.txt_title.Text;
                     newRow.c02_appointmen = "2";
+                    newRow.c02_check = "1";
                     c02DAO1.Update();
                     #endregion
 
@@ -713,6 +714,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
             newRow.c02_title = this.txt_title.Text;
             newRow.c02_appointmen = "2";
+            newRow.c02_check = "1";
             if (c03_no > 0)
             {
                 newRow.c03_no = c03_no;

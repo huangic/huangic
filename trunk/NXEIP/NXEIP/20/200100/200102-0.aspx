@@ -144,10 +144,10 @@
                 </tr>
                 <tr>
                     <td colspan="4">
+                        <asp:Panel ID="Panel0" runat="server">
                         <asp:CheckBox ID="cb_update" runat="server" Text="更新到週期性行程(修改或刪除)" ForeColor="Red" Font-Bold="True"></asp:CheckBox><br />
                         <asp:CheckBox ID="CB_c03" runat="server" Text="週期性行程" AutoPostBack="True" 
                             oncheckedchanged="CB_c03_CheckedChanged"></asp:CheckBox>
-                        <asp:Panel ID="Panel0" runat="server">
                             <table>
                                 <tbody>
                                     <tr>

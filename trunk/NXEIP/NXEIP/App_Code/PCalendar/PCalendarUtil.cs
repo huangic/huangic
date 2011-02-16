@@ -196,8 +196,12 @@ public class PCalendarUtil
             {
                 if(showtype.Equals("1"))
                     feedback += "<br />■" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + "<br>" + dt_meeting.Rows[dti]["mee_reason"].ToString();
-                else
+                else if (showtype.Equals("2"))
                     feedback += "<br />■" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + " " + dt_meeting.Rows[dti]["mee_reason"].ToString();
+                else if(showtype.Equals("3"))
+                    feedback += "■" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + " " + dt_meeting.Rows[dti]["mee_reason"].ToString() + "<br />";
+                else if (showtype.Equals("4"))
+                    feedback += "<li class=\"p1\"><span class=\"row_schedule\">" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_sdate"].ToString()).ToString("HH:mm") + "~" + Convert.ToDateTime(dt_meeting.Rows[dti]["mee_edate"].ToString()).ToString("HH:mm") + " " + dt_meeting.Rows[dti]["mee_reason"].ToString() + "</span></li>";
             }
         }
 

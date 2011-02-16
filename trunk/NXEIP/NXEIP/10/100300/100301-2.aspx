@@ -216,8 +216,8 @@
                     BorderWidth="0px" CellPadding="-1" CellSpacing="-1" NextMonthText="" PrevMonthText=""
                     OnDayRender="Calendar1_DayRender" ShowTitle="False">
                     <DayHeaderStyle CssClass="headtitle" />
-                    <DayStyle CssClass="Nholiday_bg" />
-                    <WeekendDayStyle CssClass="holiday_bg" />
+                    <DayStyle CssClass="Nholiday_bg month" />
+                    <WeekendDayStyle CssClass="holiday_bg month" />
                 </asp:Calendar>
                 <div class="footer">
                     <div class="f1">

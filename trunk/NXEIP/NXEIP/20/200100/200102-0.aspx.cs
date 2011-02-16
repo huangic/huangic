@@ -550,6 +550,9 @@ public partial class _20_200100_200102_0 : System.Web.UI.Page
             }
             else
             {
+                string smsg_title = sobj.sessionUserName + "於 " + sdate.ToString("yyyy-MM-dd HH:mm") + " ~ " + edate.ToString("HH:ss") + " 預約您行程";
+                string smsg_bodys = sobj.sessionUserName + "於 " + sdate.ToString("yyyy-MM-dd HH:mm") + " ~ " + edate.ToString("HH:ss") + " 預約您行程，標題為「"+this.txt_title.Text+"」，請至個人行事曆進行審核作業";
+
                 #region 單一行程
                 if (this.lab_no.Text.Trim().Length > 0)
                 {
@@ -577,12 +580,14 @@ public partial class _20_200100_200102_0 : System.Web.UI.Page
 
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                     new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 3, "預約首長行程--修改 peo_uid" + this.lab_peo_uid.Text + ",c02_no=" + this.lab_no.Text);
+                    new PersonalMessageUtil().SendMessage(smsg_title, smsg_bodys, "", Convert.ToInt32(this.lab_peo_uid.Text), Convert.ToInt32(sobj.sessionUserID), true, false, false);
                 }
                 else
                 {
                     int newpk = new C02DAO().GetMaxNoByPeoUid(Convert.ToInt32(this.lab_peo_uid.Text)) + 1;
 
                     InsertDB_C02(newpk, sdate, edate, 0); //新增
+                    new PersonalMessageUtil().SendMessage(smsg_title, smsg_bodys, "", Convert.ToInt32(this.lab_peo_uid.Text), Convert.ToInt32(sobj.sessionUserID), true, false, false);
 
                     //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                     new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 1, "預約首長行程--新增 peo_uid" + this.lab_peo_uid.Text + ",c02_no=" + newpk);

@@ -109,18 +109,48 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             string edate = this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
             if (isShow)
             {
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                DateTime sdate1 = Convert.ToDateTime(this.Calendar1.VisibleDate.ToString("yyyy/MM/01"));
+                DateTime edate1 = Convert.ToDateTime(this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd"));
+                while (sdate1 <= edate1)
                 {
-                    string update = "";
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    bool iaAdd = false;
+                    dt99.Clear();
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate > '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
-                        if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                        rowcount++;
+                        this.Table1.Rows.Add(new System.Web.UI.WebControls.TableRow());
+                        this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table1.Rows[rowcount].Cells[0].CssClass = "row_bg";
+                        this.Table1.Rows[rowcount].Cells[1].CssClass = "row_bgc";
+                        iaAdd = true;
+
+                        this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + sdate1.ToString("MM-dd") + "<br />星期" +
+                                changeobj.ChangeWeek(sdate1.DayOfWeek) + "</span>";
+                        
+                        for (int i = 0; i < dt99.Rows.Count; i++)
+                        {
+                            string stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+
+                            this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(sdate1.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()),dt99.Rows[i]["c02_appointmen"].ToString(),dt99.Rows[i]["c02_check"].ToString()) + "</li>";
+                        }
+                    }
+
+                    #region 會議資料
+                    if (iaAdd)
+                    {
+                        this.Table1.Rows[rowcount].Cells[1].Text += PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 00:00:00"), Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 23:59:59"), "4");
+                    }
+                    else
+                    {
+                        string fd = PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 00:00:00"), Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 23:59:59"), "4");
+                        if (fd.Length > 0)
                         {
                             rowcount++;
                             this.Table1.Rows.Add(new System.Web.UI.WebControls.TableRow());
@@ -128,17 +158,20 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                             this.Table1.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
                             this.Table1.Rows[rowcount].Cells[0].CssClass = "row_bg";
                             this.Table1.Rows[rowcount].Cells[1].CssClass = "row_bgc";
+                            iaAdd = true;
 
-                            this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
-                            changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                            this.Table1.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + sdate1.ToString("MM-dd") + "<br />星期" +
+                                    changeobj.ChangeWeek(sdate1.DayOfWeek) + "</span>";
+
+                            this.Table1.Rows[rowcount].Cells[1].Text = fd;
                         }
-                        update = nowdate.ToString("MM-dd");
-                        //if(this.Table1.Rows[rowcount].Cells[1].Text.Length>0) this.Table1.Rows[rowcount].Cells[1].Text+="<hr>";
-                        string stime = nowdate.ToString("HH:mm");
-                        string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-
-                        this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                     }
+                    #endregion
+                    sdate1 = sdate1.AddDays(1);
+                }
+                #region 有值時
+                if (rowcount > 0)
+                {
                     this.Table1.Visible = true;
                     this.hl_print.Visible = true;
                 }
@@ -148,6 +181,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                     this.lab_msg.Text = "目前無排定任何行事曆";
                     this.hl_print.Visible = false;
                 }
+                #endregion
             }
             else
             {
@@ -189,7 +223,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
     #endregion
 
     #region show行程
-    private string Display(string today, string txt, int no, int setuid)
+    private string Display(string today, string txt, int no, int setuid, string appointmen, string checks)
     {
         string aMSG = "";
         string txt1 = "";
@@ -197,19 +231,29 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
         {
             if (no > 0)
             {
-                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
-                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=lists&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
+                if (appointmen.Equals("2"))
+                {
+                    //一般行事曆
+                    if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                        txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=lists&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
+                    else
+                        txt1 = "<span class=\"row_schedule\">"+txt + "</span><br />";
+                }
                 else
-                    txt1 = txt + "<br />";
+                {
+                    //預約行程
+                    if (this.lab_people.Text.Equals(sobj.sessionUserID) && checks.Equals("0"))
+                        txt1 = "<a href=\"100301-5.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=lists&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
+                    else
+                        txt1 = "<span class=\"row_schedule\">" + txt + "</span><br />";
+                }
             }
             else
-            {
-                txt1 = txt + "<br />";
-            }
+                txt1 = "<span class=\"row_schedule\">" + txt + "</span><br />";
         }
         catch (Exception ex)
         {
-            aMSG = "功能名稱:行事曆-日--行事曆-日--Display<br>錯誤訊息:" + ex.ToString();
+            aMSG = "功能名稱:行事曆-列表--行事曆-日--Display<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
         return txt1;
@@ -303,6 +347,8 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             newRow.c02_sdate = sdate;
             newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
             newRow.c02_title = this.txt_title.Text;
+            newRow.c02_check = "1";
+            newRow.c02_appointmen = "2";
             c02DAO1.AddC02(newRow);
             c02DAO1.Update();
             #endregion
