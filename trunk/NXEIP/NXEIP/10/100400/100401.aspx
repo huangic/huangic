@@ -24,7 +24,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="que_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" EnableViewState="False">
+                    GridLines="None">
                     <Columns>
                         <asp:TemplateField HeaderText="編號">
                             <ItemStyle HorizontalAlign="Center" />
