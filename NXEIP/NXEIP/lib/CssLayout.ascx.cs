@@ -18,9 +18,13 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
 
     protected override void Render(HtmlTextWriter writer)
     {
-
-        String layout = Session["layout_css"]==null?(String)Session["layout_css"]:"Green";
-
+        String layout = "Green";
+        try
+        {
+            layout = HttpContext.Current.Session["layout_css"] == null ? (String)HttpContext.Current.Session["layout_css"] : "Green";
+        }
+        catch { 
+        }
         
 
 
