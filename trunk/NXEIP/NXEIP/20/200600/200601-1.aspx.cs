@@ -95,7 +95,14 @@ public partial class _20_200600_200601_1 : System.Web.UI.Page
 
             foreach (var p in root)
             {
-                msgUtil.SendMessage("申請討論區", "申請討論區", "", p, int.Parse(sessionObj.sessionUserID), true, false, false);
+
+                String sendmsg = @"{0}申請討論區，討論區名稱為「{1}」，討論區簡介為「{2}」，討論區型別
+                            為「{3}」，請您至討論區審核功能進行審核";
+
+
+                sendmsg=String.Format(sendmsg,sessionObj.sessionUserName,t.tao_name,t.tao_descript,GetLayoutName(t.tao_type));
+
+                msgUtil.SendMessage("申請討論區", sendmsg, "", p, int.Parse(sessionObj.sessionUserID), true, false, false);
             }
 
 
@@ -129,4 +136,23 @@ public partial class _20_200600_200601_1 : System.Web.UI.Page
 
         //
     }
+
+    protected String GetLayoutName(String layout_code)
+    {
+        switch (layout_code)
+        {
+            case "1":
+                return "開放型";
+
+            case "2":
+                return "半開放型";
+            case "3":
+                return "半封閉型";
+            case "4":
+                return "封閉型";
+
+        }
+        return "";
+    }
+
 }

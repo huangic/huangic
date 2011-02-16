@@ -111,7 +111,7 @@ public partial class _30_300700_300702 : System.Web.UI.Page
 
                 
                   //通知申請人被退件了
-                msgUtil.SendMessage(String.Format("討論區審核未通過"), String.Format("您申請的討論區:{0}，審核未通過",t.tao_name), "", t.peo_uid, int.Parse(sessionObj.sessionUserID), true, false, false);
+                msgUtil.SendMessage(String.Format("討論區審核未通過"), String.Format("您所申請之討論區「{0}」管理者不同意您申請，請洽討論區管理者{1}，審核未通過", t.tao_name,sessionObj.sessionUserName), "", t.peo_uid, int.Parse(sessionObj.sessionUserID), true, false, false);
 
             }   
  
@@ -162,7 +162,7 @@ public partial class _30_300700_300702 : System.Web.UI.Page
 
                 
                 //通知申請人被通過了
-                msgUtil.SendMessage(String.Format("討論區審核通過"), String.Format("您申請的討論區:{0}，審核通過", t.tao_name), "", t.peo_uid, int.Parse(sessionObj.sessionUserID), true, false, false);
+                msgUtil.SendMessage(String.Format("討論區審核通過"), String.Format("您所申請之討論區「{0}」管理者已同意您申請，您可至討論區列表進行相關作業。", t.tao_name), "", t.peo_uid, int.Parse(sessionObj.sessionUserID), true, false, false);
 
 
 

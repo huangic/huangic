@@ -72,6 +72,7 @@ public partial class _20_200600_200601 : System.Web.UI.Page
         if (e.CommandName == "SubscribeCanel")
         {
 
+            #region --討論區訂閱存檔
             using (NXEIPEntities model = new NXEIPEntities())
             {
                 //討論區訂閱存檔
@@ -90,9 +91,10 @@ public partial class _20_200600_200601 : System.Web.UI.Page
 
                 //model.tao06.AddObject(t);
                 model.SaveChanges();
-                
+
             }
-            this.GridView1.DataBind();
+            this.GridView1.DataBind(); 
+            #endregion
         }
     }
 }
