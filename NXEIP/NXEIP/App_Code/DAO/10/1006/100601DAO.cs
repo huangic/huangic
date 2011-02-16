@@ -118,6 +118,11 @@ namespace NXEIP.DAO
             return (from d in model.conferen where d.mee_no == mee_no select d);
         }
 
+        public IQueryable<huiyi> Get_Huiyi(int mee_no)
+        {
+            return (from d in model.huiyi where d.mee_no == mee_no select d);
+        }
+
     }
 
 }
