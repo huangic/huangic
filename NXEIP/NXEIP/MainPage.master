@@ -39,6 +39,11 @@
               台南市員工入口網</span>
              </div>
             </asp:HyperLink>
+            <div class="home_a">
+                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="home_a" 
+                        NavigateUrl="~/Default.aspx"><span class="a01-13">首頁</span></asp:HyperLink>
+            </div>
+            
             <div class="headerTmenu">
              <uc1:HeaderMenu ID="HeaderMenu1" runat="server" />
                               
@@ -46,26 +51,18 @@
          </div>
        <div class="headerTR">
         
-     <div class="headerdate"> <asp:Literal ID="lt_name" runat="server"></asp:Literal> ~ 今天是 
-      <asp:Literal ID="lt_date" runat="server"></asp:Literal></div>
+     <div class="headerdate"> <asp:Literal ID="lt_name" runat="server"></asp:Literal> 您好
+       </div>
+         
      
      
-      <div class="B0">
-           <div class="B1"><span class="a01-13">字級設定:<span></span></span></div>
-           <div class="B2">
-              <ul>
-                 <li><a href="index.htm" class="small"><span class="a01-13">文字小</span></a></li>
-                 <li><a href="index-2.htm" class="middle"><span class="a01-13">文字中</span></a></li>
-                 <li><a href="index-3.htm" class="big"><span class="a01-13">文字大</span></a></li>
-              </ul>   
-           </div>
-     </div>
+      
 
       <div class="A1">
 		<ul>
 		<li>
         <asp:HyperLink ID="Home" runat="server" CssClass="home" 
-                        NavigateUrl="~/Default.aspx"><span class="a01-13">首頁</span></asp:HyperLink>
+                        NavigateUrl="~/Default.aspx"><span class="a01-13">公務入口網</span></asp:HyperLink>
         
         </li>
 		<li>
