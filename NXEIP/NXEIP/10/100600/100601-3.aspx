@@ -73,6 +73,7 @@
                             DataKeyNames="mee_no,con_no">
                             <Columns>
                                 <asp:BoundField DataField="con_file" HeaderText="會議紀錄名稱" SortExpression="con_file">
+                                <ItemStyle Width="80%" />
                                 </asp:BoundField>
                                 <asp:TemplateField HeaderText="檢視">
                                     <ItemStyle HorizontalAlign="Center" Width="10%" />
