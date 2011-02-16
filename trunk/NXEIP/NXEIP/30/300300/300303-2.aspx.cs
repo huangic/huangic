@@ -140,7 +140,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         //批次開班
-        //Response.Write("hidd_date = "+this.hidd_date.Value);
+        //Response.Write("hidd_date = "+this.hidd_date.Value);return;
 
         if (this.hidd_model.Value.Equals("new"))
         {
