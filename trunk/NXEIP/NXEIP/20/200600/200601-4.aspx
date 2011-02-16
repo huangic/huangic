@@ -99,6 +99,11 @@
                 <asp:Label ID="Label4" runat="server" Text='<%#Eval("Content") %>'/>
               </div>
               
+              <asp:Panel   runat="server" Visible='<%# Eval("HasFile")%>'>
+                    附檔:<asp:HyperLink ID="HyperLink2" runat="server" Text='<%# Eval("FileName") %>' NavigateUrl='<%# String.Format("200601-13.ashx?tao_no={0}&t01_no={1}",Eval("ForumId"),Eval("Id")) %>'></asp:HyperLink>
+              </asp:Panel>
+
+
               <div class="b4" runat="server" Visible='<%# Eval("HasPermission") %>' >
                 <asp:HyperLink ID="HyperLink1" CssClass="thickbox" runat="server" NavigateUrl='<%# String.Format("200601-5.aspx?mode=edit&tao_no={0}&t01_no={1}&TB_iframe=true&height=450&width=650&modal=true",Eval("ForumId"),Eval("Id")) %>'>修改</asp:HyperLink>
                 

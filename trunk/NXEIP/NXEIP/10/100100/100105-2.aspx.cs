@@ -34,16 +34,19 @@ public partial class _10_100100_100105_2 : System.Web.UI.Page
 
         //取單一檔案權限 //如果他沒有權限職的話就直接建立一個空的
 
+        if (!Page.IsPostBack)
+        {
+            this.ObjectDataSource1.SelectParameters["doc_no"].DefaultValue = permissionFile;
+            this.GridView1.DataBind();
+        }
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
 
 
-
-
-        this.ObjectDataSource1.SelectParameters["doc_no"].DefaultValue = permissionFile;
-
-        
-
-        this.GridView1.DataBind();
-        
 
        
     }

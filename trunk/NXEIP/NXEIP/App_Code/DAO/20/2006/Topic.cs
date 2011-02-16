@@ -131,5 +131,10 @@ public class Topic
 
     public int TrackId { get; set; }
 
+    public bool HasFile {
+        get {
+            return !String.IsNullOrEmpty(this.FileName);
+        }
+    }
 
 }
