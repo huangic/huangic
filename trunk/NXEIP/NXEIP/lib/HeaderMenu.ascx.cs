@@ -237,7 +237,14 @@ public partial class lib_HeaderMenu : System.Web.UI.UserControl
 
             //取SESSION的LAYOUT
 
-            String layout = (String)Session["layout_css"];
+            String layout = "Green";
+            try
+            {
+                layout = (String)HttpContext.Current.Session["layout_css"];
+            }
+            catch { 
+            
+            }
 
             String imgPath = "";
             if (!String.IsNullOrEmpty(layout))
