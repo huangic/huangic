@@ -141,10 +141,10 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                 string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
                 if (isShow)
                 {
-                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
                     dt99.Clear();
                     dt99 = dbo.ExecuteQuery(sqlstr99);
                     if (dt99.Rows.Count > 0)
@@ -169,12 +169,14 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
                             {
                                 etime = "24:00";
                             }
-                            Display(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()));
+                            Display(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()),dt99.Rows[i]["c02_appointmen"].ToString(),dt99.Rows[i]["c02_check"].ToString());
                         }
                     }
                 }
                 #endregion
 
+                //抓取會議資料
+                ((Label)this.Master.FindControl("ContentPlaceHolder1").FindControl("lab_" + changeobj.ChangeWeek(sdate).ToString())).Text += PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate2), Convert.ToDateTime(edate2), "3"); //取得會議資料
                 sdate = sdate.AddDays(1);
             }
             #endregion
@@ -211,7 +213,7 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
     #endregion
 
     #region show行程
-    private void Display(string today, int weeks, string txt, int no, int setuid)
+    private void Display(string today, int weeks, string txt, int no, int setuid, string appointmen, string checks)
     {
         string aMSG = "";
         try
@@ -219,13 +221,29 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             string txt1 = "";
             if (no > 0)
             {
-                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                if (appointmen.Equals("2"))
                 {
-                    txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "<br />";
+                    //一般行事曆
+                    if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
+                    {
+                        txt1 = "<a href=\"100301-0.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a><br />";
+                    }
+                    else
+                    {
+                        txt1 = txt+"<br />";
+                    }
                 }
                 else
                 {
-                    txt1 = txt + "<br />";
+                    //預約行程
+                    if (this.lab_people.Text.Equals(sobj.sessionUserID) && checks.Equals("0"))
+                    {
+                        txt1 = "<a href=\"100301-5.aspx?no=" + no.ToString() + "&peo_uid=" + this.lab_people.Text + "&today=" + today + "&depart=" + this.ddl_QryDepart.SelectedValue + "&source=weeks&height=480&width=800&TB_iframe=true&modal=true\" class=\"thickbox row_schedule\">" + txt + "</a>" + "(預約)<br />";
+                    }
+                    else
+                    {
+                        txt1 = txt + "<br />";
+                    }
                 }
             }
             else
@@ -329,6 +347,8 @@ public partial class _10_100300_100301_1 : System.Web.UI.Page
             newRow.c02_sdate = sdate;
             newRow.c02_setuid = Convert.ToInt32(sobj.sessionUserID);
             newRow.c02_title = this.txt_title.Text;
+            newRow.c02_check = "1";
+            newRow.c02_appointmen = "2";
             c02DAO1.AddC02(newRow);
             c02DAO1.Update();
             #endregion

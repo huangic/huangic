@@ -91,10 +91,10 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             string edate = changeobj.ROCDTtoADDT(this.lab_today.Text) + " 23:59:59";
             if (isShow)
             {
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
                 dt99 = dbo.ExecuteQuery(sqlstr99);
                 if (dt99.Rows.Count > 0)
                 {
@@ -118,8 +118,46 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                         {
                             etime = "23:00";
                         }
-                        Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
+                        if(dt99.Rows[i]["c02_appointmen"].ToString().Equals("1") && dt99.Rows[i]["c02_check"].ToString().Equals("0"))
+                            Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString()+"(預約)");
+                        else
+                            Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                     }
+                }
+            }
+            #endregion
+
+            #region 會議資料
+            dt99.Clear();
+            sqlstr99 = "select meetings.mee_no, meetings.mee_reason, meetings.mee_sdate, meetings.mee_edate from meetings inner join attends on meetings.mee_no = attends.mee_no "
+            + " WHERE (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate <= '" + edate + "') AND (meetings.mee_edate <= '" + edate + "') AND (meetings.mee_edate >= '" + sdate + "') "
+            + " OR (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate >= '" + sdate + "') AND (meetings.mee_edate >= '" + sdate + "') AND (meetings.mee_sdate <= '" + edate + "') "
+            + " OR (meetings.mee_status = '1') and (attends.att_status = '2') and (attends.peo_uid = " + this.lab_people.Text + ") and (meetings.mee_sdate < '" + sdate + "') AND (meetings.mee_edate > '" + edate + "') ORDER BY meetings.mee_sdate, meetings.mee_edate, meetings.mee_no";
+            //Response.Write(sqlstr99);
+            dt99 = dbo.ExecuteQuery(sqlstr99);
+            if (dt99.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt99.Rows.Count; i++)
+                {
+                    string stime = "";
+                    string etime = "";
+                    if (Convert.ToDateTime(dt99.Rows[i]["mee_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    {
+                        stime = Convert.ToDateTime(dt99.Rows[i]["mee_sdate"].ToString()).ToString("HH:mm");
+                    }
+                    else
+                    {
+                        stime = "06:00";
+                    }
+                    if (Convert.ToDateTime(dt99.Rows[i]["mee_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
+                    {
+                        etime = Convert.ToDateTime(dt99.Rows[i]["mee_edate"].ToString()).ToString("HH:mm");
+                    }
+                    else
+                    {
+                        etime = "23:00";
+                    }
+                    Display1(stime, etime, "■" + stime + "~" + etime + " " + dt99.Rows[i]["mee_reason"].ToString());
                 }
             }
             #endregion
@@ -301,10 +339,10 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                 string edate2 = sdate.ToString("yyyy/MM/dd") + " 23:59:59";
                 if (isShow)
                 {
-                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate2 + "') AND (c02_edate <= '" + edate2 + "') AND (c02_edate >= '" + sdate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate2 + "') AND (c02_edate >= '" + sdate2 + "') AND (c02_sdate <= '" + edate2 + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate2 + "') AND (c02_edate > '" + edate2 + "') ORDER BY c02_sdate, c02_edate, c02_no";
                     dt99.Clear();
                     dt99 = dbo.ExecuteQuery(sqlstr99);
                     if (dt99.Rows.Count > 0)
@@ -329,11 +367,16 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                             {
                                 etime = "24:00";
                             }
-                            Display2(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
+                            if (dt99.Rows[i]["c02_appointmen"].ToString().Equals("1") && dt99.Rows[i]["c02_check"].ToString().Equals("0"))
+                                Display2(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString()+"(預約)");
+                            else
+                                Display2(sdate1, changeobj.ChangeWeek(sdate), "■" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString());
                         }
                     }
                 }
                 #endregion
+
+                ((Label)this.FindControl("lab_" + weeks.ToString())).Text+=PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate2), Convert.ToDateTime(edate2), "3"); //取得會議資料
 
                 sdate = sdate.AddDays(1);
             }
@@ -409,10 +452,10 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                 string edate = e.Day.Date.ToString("yyyy/MM/dd") + " 23:59:59";
                 if (isShow)
                 {
-                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                    + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                    + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
                     dt99 = dbo.ExecuteQuery(sqlstr99);
                     if (dt99.Rows.Count > 0)
                     {
@@ -421,28 +464,23 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
                             string stime = "";
                             string etime = "";
                             if (Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                            {
                                 stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
-                            }
                             else
-                            {
                                 stime = "06:00";
-                            }
                             if (Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("yyyy-MM-dd").Equals(Convert.ToDateTime(sdate).ToString("yyyy-MM-dd")))
-                            {
                                 etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-                            }
                             else
-                            {
                                 etime = "23:00";
-                            }
-
-                            celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
+                            if (dt99.Rows[i]["c02_appointmen"].ToString().Equals("1") && dt99.Rows[i]["c02_check"].ToString().Equals("0"))
+                                celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString()+"(預約)";
+                            else
+                                celltxt += "<br>■" + stime + "~" + etime + "<br>" + dt99.Rows[i]["c02_title"].ToString();
                         }
                     }
                 }
                 #endregion
 
+                celltxt += PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(e.Day.Date.ToString("yyyy/MM/dd 00:00:00")), Convert.ToDateTime(e.Day.Date.ToString("yyyy/MM/dd 23:59:59")), "1"); //取得會議資料
                 e.Cell.Text = "<div class=\"month\">" + celltxt+"</div>";
             }
             else
@@ -483,38 +521,68 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
             string edate = today.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
             if (isShow)
             {
-                sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid FROM c02 "
-                + " WHERE (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
-                + " OR (peo_uid = " + this.lab_people.Text + ") AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
-                dt99 = dbo.ExecuteQuery(sqlstr99);
-                if (dt99.Rows.Count > 0)
+                DateTime sdate1 = Convert.ToDateTime(today.ToString("yyyy/MM/01"));
+                DateTime edate1 = Convert.ToDateTime(today.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd"));
+                while (sdate1 <= edate1)
                 {
-                    string update = "";
-                    for (int i = 0; i < dt99.Rows.Count; i++)
+                    bool iaAdd = false;
+                    dt99.Clear();
+                    sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
+                    + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') "
+                    + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate > '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') ORDER BY c02_sdate, c02_edate, c02_no";
+                    dt99 = dbo.ExecuteQuery(sqlstr99);
+                    if (dt99.Rows.Count > 0)
                     {
-                        DateTime nowdate = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString());
-                        if (!update.Equals(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("MM-dd")))
+                        rowcount++;
+                        this.Table2.Rows.Add(new System.Web.UI.WebControls.TableRow());
+                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
+                        this.Table2.Rows[rowcount].Cells[0].CssClass = "timecss2";
+                        this.Table2.Rows[rowcount].Cells[1].CssClass = "timecss2";
+                        this.Table2.Rows[rowcount].Cells[0].Height = Unit.Pixel(60);
+                        this.Table2.Rows[rowcount].Cells[0].Width = Unit.Pixel(80);
+                        this.Table2.Rows[rowcount].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+                        iaAdd = true;
+
+                        this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + sdate1.ToString("MM-dd") + "<br />星期" +
+                                changeobj.ChangeWeek(sdate1.DayOfWeek) + "</span>";
+
+                        for (int i = 0; i < dt99.Rows.Count; i++)
+                        {
+                            string stime = Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).ToString("HH:mm");
+                            string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
+
+                            this.Table2.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + "<span class=\"row_schedule\">" + stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString() + "</span></li>";
+                        }
+                    }
+
+                    #region 會議資料
+                    if (iaAdd)
+                    {
+                        this.Table2.Rows[rowcount].Cells[1].Text += PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 00:00:00"), Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 23:59:59"), "4");
+                    }
+                    else
+                    {
+                        string fd = PCalendarUtil.GetMeeting(this.lab_people.Text, Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 00:00:00"), Convert.ToDateTime(sdate1.ToString("yyyy/MM/dd") + " 23:59:59"), "4");
+                        if (fd.Length > 0)
                         {
                             rowcount++;
                             this.Table2.Rows.Add(new System.Web.UI.WebControls.TableRow());
                             this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
                             this.Table2.Rows[rowcount].Cells.Add(new System.Web.UI.WebControls.TableCell());
-                            this.Table2.Rows[rowcount].Cells[0].CssClass = "timecss2";
-                            this.Table2.Rows[rowcount].Cells[1].CssClass = "timecss2";
-                            this.Table2.Rows[rowcount].Cells[0].Height = Unit.Pixel(60);
-                            this.Table2.Rows[rowcount].Cells[0].Width = Unit.Pixel(80);
-                            this.Table2.Rows[rowcount].Cells[0].HorizontalAlign = HorizontalAlign.Center;
+                            this.Table2.Rows[rowcount].Cells[0].CssClass = "row_bg";
+                            this.Table2.Rows[rowcount].Cells[1].CssClass = "row_bgc";
+                            iaAdd = true;
 
-                            this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + nowdate.ToString("MM-dd") + "<br />星期" +
-                            changeobj.ChangeWeek(Convert.ToDateTime(dt99.Rows[i]["c02_sdate"].ToString()).DayOfWeek) + "</span>";
+                            this.Table2.Rows[rowcount].Cells[0].Text = "<span class=\"row_time\">" + sdate1.ToString("MM-dd") + "<br />星期" +
+                                    changeobj.ChangeWeek(sdate1.DayOfWeek) + "</span>";
+
+                            this.Table2.Rows[rowcount].Cells[1].Text = fd;
                         }
-                        update = nowdate.ToString("MM-dd");
-                        string stime = nowdate.ToString("HH:mm");
-                        string etime = Convert.ToDateTime(dt99.Rows[i]["c02_edate"].ToString()).ToString("HH:mm");
-
-                        this.Table2.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display3(changeobj.ADDTtoROCDT(nowdate.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString())) + "</li>";
                     }
+                    #endregion
+                    sdate1 = sdate1.AddDays(1);
                 }
             }
             #endregion
@@ -534,17 +602,7 @@ public partial class _10_100300_100301_p : System.Web.UI.Page
         string txt1 = "";
         try
         {
-            if (no > 0)
-            {
-                if (this.lab_people.Text.Equals(sobj.sessionUserID) || setuid.ToString().Equals(sobj.sessionUserID))
-                    txt1 = "<span class=\"row_schedule\">" + txt + "</span>" + "<br />";
-                else
-                    txt1 = txt + "<br />";
-            }
-            else
-            {
-                txt1 = txt + "<br />";
-            }
+            txt1 = "<span class=\"row_schedule\">" + txt + "</span><br />";
         }
         catch (Exception ex)
         {
