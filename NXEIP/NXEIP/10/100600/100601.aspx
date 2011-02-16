@@ -93,9 +93,13 @@
                     DataKeyNames="mee_no,mee_sdate,mee_edate,mee_peouid,mee_status" 
                     onrowdatabound="GridView1_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="mee_reason" HeaderText="開會事由" SortExpression="mee_reason">
+                        <asp:TemplateField HeaderText="開會事由">
                             <ItemStyle Width="20%" />
-                        </asp:BoundField>
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink3" runat="server" CssClass="thickbox" Text='<%#Eval("mee_reason") %>'
+                                   NavigateUrl='<%# string.Format("100601-5.aspx?mee_no={0}&modal=true&TB_iframe=true",Eval("mee_no"))%>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="mee_place" HeaderText="開會地點" SortExpression="mee_place">
                             <ItemStyle Width="15%" />
                         </asp:BoundField>
