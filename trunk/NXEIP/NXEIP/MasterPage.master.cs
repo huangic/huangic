@@ -28,10 +28,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
         this.lt_name.Text = sessionObj.sessionUserName;
 
 
-        TaiwanCalendar tc=new TaiwanCalendar();
+        //TaiwanCalendar tc=new TaiwanCalendar();
        
 
-        this.lt_date.Text = tc.GetYear(DateTime.Now)+"年"+tc.GetMonth(DateTime.Now)+"月"+tc.GetDayOfMonth(DateTime.Now)+"日";
+        //this.lt_date.Text = tc.GetYear(DateTime.Now)+"年"+tc.GetMonth(DateTime.Now)+"月"+tc.GetDayOfMonth(DateTime.Now)+"日";
 
     }
 
