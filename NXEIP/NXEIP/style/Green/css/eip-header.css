@@ -1,22 +1,22 @@
 .headerT {
-	height: 56px;
 	width: 1020px;
 	margin-top: 0px;
 	margin-right: auto;
 	margin-bottom: 0px;
 	margin-left: auto;
+	height: 32px;
 }
 .headerTL {
 	margin: 0px;
 	float: left;
-	height: 56px;
-	width: 810px;
+	height: 28px;
+	width: 770px;
 }
 .logo
 {
 	background:url(../image/logo.jpg) no-repeat;
-	width:170px;
-	height:56px;
+	width:126px;
+	height:28px;
 	float: left;
 }
 
@@ -26,36 +26,66 @@
 }
 .headerTmenu {
 	float: left;
-	height: 56px;
-	width: 640px;
+	height: 32px;
+	width: 590px;
+	
 }
 .headerTR {
 	float: right;
-	height: 56px;
-	width: 210px;
-	overflow: hidden;
+	height: 32px;
+	width: 250px;
 }
 .headerdate {
 	float: left;
-	height: 28px;
-	width: 210px;
+	height: 30px;
+	width: 120px;
 	font-size: 13px;
 	color: #333333;
 	text-decoration: none;
-	text-align: center;
-	vertical-align: middle;
-	line-height: 28px;
+	text-align: left;
+	line-height: 32px;
+	padding-top: 2px;
 }
 .headerTR .A1 {
 	float: left;
-	height: 28px;
-	width: 72px;
+	height: 32px;
+	width: 130px;
 	overflow: hidden;
+	font-size: 13px;
 }
 .headerTR .A1 ul li {
 	float: left;
-	height: 27px;
+	height: 56px;
 }
+/*.headerTR .B0 {
+	float: left;
+	height: 29px;
+	width: 144px;
+	overflow: hidden;
+}*/
+
+/*.headerTR .B1 {
+	float: left;
+	height: 22px;
+	width: 60px;
+	padding-top: 7px;
+}*/
+
+/*.headerTR .B1 {
+	float: left;
+	height: 32px;
+	width: 56px;
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 32px;
+	text-align: left;
+}
+.headerTR .B1 a {
+	font-size: 13px;
+	color: #333333;
+	text-decoration: none;
+}*/
 
 
 
@@ -67,11 +97,12 @@
  
 }
 
-.home
+/*.home
 {
-   background:url(../image/a49.gif) no-repeat;    
+	background:url(../image/a49.gif) no-repeat;
+	width: 92px;
     
-}
+}*/
 
 .logout:hover
 {
@@ -79,14 +110,15 @@
 	text-decoration: none; 
 }
 
-.logout
+/*.logout
 {
 	background:url(../image/a48.gif) no-repeat;
-	text-decoration: none;    
-}
+	text-decoration: none;
+	width: 26px;
+}*/
 
 
-.home span,.logout span,.big span,.middle span,.small span
+.home span,.logout span,.home_a span,.middle span,.small span
 {
 	visibility:hidden;
 	overflow:hidden;
@@ -95,43 +127,46 @@
 
 
 
- .home, .logout
+ .home
 {
 	display:inline-block;
-	height:25px;
-	width:35px;
+	height:32px;
+	width:92px;
 	text-decoration: none;
+	background:url(../image/a49.gif) no-repeat;
+	
 }
-.headerTR .B0 {
+ .logout
+{
+	display:inline-block;
+	height:32px;
+	width:32px;
+	text-decoration: none;
+	background:url(../image/a48.gif) no-repeat;
+	text-decoration: none;
+	
+}
+ .home_a
+{
+	display:inline-block;
+	height:32px;
+	width:52px;
+	text-decoration: none;
+	background-image: url(../image/ahome.gif);
+	background-repeat: no-repeat;
 	float: left;
-	height: 29px;
-	width: 135px;
-	overflow: hidden;
+	line-height: 32px;
+	
+}
+.home_a:hover
+{
+	text-decoration: none;
+	background-image: url(../image/ahome-1.gif);
+	background-repeat: no-repeat;
+ 
 }
 
-..headerTR .B1 {
-	float: left;
-	height: 22px;
-	width: 60px;
-	padding-top: 7px;
-}
-
-.headerTR .B1 {
-	float: left;
-	height: 22px;
-	width: 60px;
-	padding-top: 7px;
-	font-size: 13px;
-	color: #666666;
-	text-decoration: none;
-}
-.headerTR .B1 a {
-	font-size: 13px;
-	color: #333333;
-	text-decoration: none;
-}
-
-.headerTR .B2 {
+/*.headerTR .B2 {
 	float: left;
 	height: 29px;
 	width: 75px;
@@ -139,11 +174,11 @@
 .headerTR .B2 ul li {
 	float: left;
 	height: 29px;
-}
+}*/
 
 	
 
- .big,.middle,.small 
+/* .big,.middle,.small 
 {
     
     display:inline-block;
@@ -186,7 +221,7 @@
          .small:hover
    {
        background:url(../image/a04-1.gif) no-repeat;    
-       }
+       }*/
 
  .HeaderMenuBar
 {

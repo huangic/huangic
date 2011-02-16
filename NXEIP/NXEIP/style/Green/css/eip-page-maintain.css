@@ -770,13 +770,11 @@
 }
 
 .talkn .back {
-	/*
 	width: 636px;
 	vertical-align: middle;
 	float: left;
 	margin-left: 80px;
 	margin-top: 4px;
-	*/
 }
 .talkn .back .bg1_title {
 	height: 24px;
@@ -1152,7 +1150,6 @@
 .first .header2
 {
 	text-align:left;
-	position:relative;
 	background-repeat: repeat;
 	line-height: 26px;
 	font-size: 15px;
