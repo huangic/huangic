@@ -58,7 +58,7 @@ namespace NXEIP.DAO
         public IQueryable<types> GetClassParentData()
         {
             return (from t in model.types
-                    where t.typ_code == "class" && t.typ_parent == 0
+                    where t.typ_code == "class" && t.typ_parent == 0 && t.typ_status == "1"
                     orderby t.typ_order
                     select t);
         }

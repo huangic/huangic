@@ -31,7 +31,7 @@ namespace NXEIP.DAO
             DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
 
             var d = (from data in model.e02
-                     where data.e02_status == "1" && data.e02_sdate >= sd && data.e02_edate <= ed
+                     where data.e02_status == "1" && data.e02_sdate >= sd
                      select data);
             
             //課程父類別
@@ -67,7 +67,7 @@ namespace NXEIP.DAO
             d = d.Where("e02_openuid = @0", openuid);
             
             //排序
-            d = d.OrderByDescending(o => o.e02_signdate);
+            d = d.OrderBy(o => o.e02_sdate);
 
             return d;
         }

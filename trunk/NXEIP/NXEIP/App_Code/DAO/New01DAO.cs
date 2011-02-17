@@ -21,6 +21,28 @@ namespace NXEIP.DAO
             // TODO: 在此加入建構函式的程式碼
             //
         }
+        /// <summary>
+        /// 查詢核審資料
+        /// </summary>
+        /// <param name="dep_no"></param>
+        /// <param name="sd"></param>
+        /// <param name="ed"></param>
+        /// <returns></returns>
+        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime ed)
+        {
+            return (from d in model.new01
+                    where d.n01_status == "1" && d.n01_depno == dep_no && d.n01_date >= sd && d.n01_date <= ed
+                    && d.n01_use == "2" orderby d.n01_date
+                    select d);
+        }
+        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime ed, int startRowIndex, int maximumRows)
+        {
+            return Get_CheckData(dep_no, sd, ed).Skip(startRowIndex).Take(maximumRows);
+        }
+        public int Get_CheckDataCount(int dep_no, DateTime sd, DateTime ed)
+        {
+            return Get_CheckData(dep_no, sd, ed).Count();
+        }
 
         public IQueryable<new01> GetData(string use,string key)
         {
