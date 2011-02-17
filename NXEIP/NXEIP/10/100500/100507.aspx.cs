@@ -229,6 +229,11 @@ public partial class _10_100500_100507 : System.Web.UI.Page
       
     }
 
+    /// <summary>
+    /// 找使用者點選的功能
+    /// </summary>
+    /// <param name="p_control"></param>
+    /// <param name="model"></param>
     private void FindControls(Control p_control,NXEIPEntities model){
 
         foreach (Control c in p_control.Controls)
