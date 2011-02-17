@@ -53,8 +53,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="typ_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                    EnableViewState="False">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="typ_number" HeaderText="課程類別代號" SortExpression="typ_number" />
                         <asp:BoundField DataField="typ_cname" HeaderText="課程類別" SortExpression="typ_cname" />

@@ -15,6 +15,10 @@ public partial class _30_300300_300301 : System.Web.UI.Page
         {
             OperatesObject.OperatesExecute(300301, new SessionObject().sessionUserID, 2, "查詢上課地點");
         }
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
