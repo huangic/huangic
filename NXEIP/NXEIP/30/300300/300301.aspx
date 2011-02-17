@@ -48,8 +48,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="e01_no" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                    EnableViewState="False">
+                    GridLines="None" OnRowCommand="GridView1_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="e01_name" HeaderText="上課地點" 
                             SortExpression="e01_name" />

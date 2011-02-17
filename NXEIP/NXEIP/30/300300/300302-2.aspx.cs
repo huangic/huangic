@@ -26,6 +26,10 @@ public partial class _30_300300_300302_2 : System.Web.UI.Page
                 this.ObjectDataSource1.SelectParameters["typ_parent"].DefaultValue = "-1";
             }
         }
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
