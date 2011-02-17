@@ -21,7 +21,7 @@ public partial class lib_CssLayout : System.Web.UI.UserControl
         String layout = "Green";
         try
         {
-            layout = HttpContext.Current.Session["layout_css"] == null ? (String)HttpContext.Current.Session["layout_css"] : "Green";
+            layout = HttpContext.Current.Session["layout_css"] != null ? (String)HttpContext.Current.Session["layout_css"] : "Green";
         }
         catch { 
         }

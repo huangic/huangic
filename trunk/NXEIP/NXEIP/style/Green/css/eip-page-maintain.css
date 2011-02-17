@@ -1929,3 +1929,57 @@
 	padding-right: 190px;
 	padding-bottom: 4px;
 }
+.photo .layout_content {
+	width: 30%;
+	float: left;
+	padding-left: 16px;
+	padding-bottom: 8px;
+	padding-right: 16px;
+}
+
+.photo .layout1 {
+	background-image: url(../image/layout1.gif);
+	background-repeat: no-repeat;
+	height: 182px;
+	text-decoration: none;
+	width: 270px;
+	margin-top: 22px;
+	margin-bottom: 12px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.photo .layout2 {
+	background-image: url(../image/layout2.gif);
+	background-repeat: no-repeat;
+	height: 182px;
+	text-decoration: none;
+	text-indent: 22px;
+	width: 270px;
+	margin-top: 22px;
+	margin-bottom: 12px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.photo .layout3 {
+	background-image: url(../image/layout3.gif);
+	background-repeat: no-repeat;
+	height: 182px;
+	text-decoration: none;
+	text-indent: 22px;
+	width: 270px;
+	margin-top: 22px;
+	margin-bottom: 12px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.photo .ps5 {
+	text-decoration: none;
+	width: 100%;
+	text-align: center;
+	height: 21px;
+	padding-bottom: 4px;
+	font-size: 13px;
+	line-height: 22px;
+	color: #333333;
+	float: left;
+}

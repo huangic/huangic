@@ -133,7 +133,7 @@ namespace NXEIP.DAO
                 //E公務訊息
                 if (NotifyFlag.Substring(2, 1) == "1")
                 {
-                    //E 公務
+                    //E 公務 
                 }
 
                 bool sendMsg = false, sendEmail = false;

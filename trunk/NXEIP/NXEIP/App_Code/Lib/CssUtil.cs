@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Entity;
 
 namespace NXEIP.Lib
 {
@@ -19,7 +20,27 @@ namespace NXEIP.Lib
 
         public static String GetInitCssLayout()
         {
-            return "Green";
+
+            String layout = "Green";
+            int peo_uid = int.Parse(new SessionObject().sessionUserID);
+            
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+                //刪除
+                try
+                {
+                    layout = (from d in model.setting where d.peo_uid == peo_uid && d.set_variable == "CssLayout" select d.set_value).Single();
+                }
+                catch { 
+                
+                }   
+              
+
+            }
+
+
+
+            return layout;
         }
 
 

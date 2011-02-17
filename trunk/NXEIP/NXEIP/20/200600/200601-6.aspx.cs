@@ -218,8 +218,6 @@ public partial class _20_200600_200601_5 : System.Web.UI.Page
     //回應通知
     public void Boardcast(int tao_no, int t01_no, string subject, string content)
     {
-        //TODO 討論區通知
-
         PersonalMessageUtil MsgUtil = new PersonalMessageUtil();
         int sendPeouid = int.Parse(sessionObj.sessionUserID);
 
