@@ -156,6 +156,7 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                 + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + edate + "') AND (c02_edate <= '" + edate + "') AND (c02_edate >= '" + sdate + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate + "') AND (c02_edate >= '" + sdate + "') AND (c02_sdate <= '" + edate + "') "
                 + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate + "') AND (c02_edate > '" + edate + "') ORDER BY c02_sdate, c02_edate, c02_no";
+                //Response.Write(sqlstr99);
                 dt99 = dbo.ExecuteQuery(sqlstr99);
                 if (dt99.Rows.Count > 0)
                 {
