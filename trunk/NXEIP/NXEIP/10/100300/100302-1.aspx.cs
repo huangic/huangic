@@ -40,7 +40,7 @@ public partial class _10_100300_100302_1 : System.Web.UI.Page
                         new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 1, "新增開放人員");
                     }
                 }
-                this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.update('新增成功');", true);
+                this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100302_1), "closeThickBox", "self.parent.update('新增成功');self.parent.location.reload(true);self.parent.tb_remove();", true);
             }
         }
         catch (Exception ex)

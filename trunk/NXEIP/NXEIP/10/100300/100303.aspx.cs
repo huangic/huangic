@@ -26,8 +26,11 @@ public partial class _10_100300_100303 : System.Web.UI.Page
         {
             if (Session["100303_pageIndex"]!=null)
             {
-                this.GridView1.DataBind();
-                this.GridView1.PageIndex = Convert.ToInt32(Session["100303_pageIndex"].ToString());
+                if (Session["100303_pageIndex"].ToString().Length > 0)
+                {
+                    this.GridView1.DataBind();
+                    this.GridView1.PageIndex = Convert.ToInt32(Session["100303_pageIndex"].ToString());
+                }
             }
             else
                 Session.Add("100303_pageIndex", "");

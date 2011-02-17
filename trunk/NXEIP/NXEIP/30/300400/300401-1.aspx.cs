@@ -136,7 +136,7 @@ public partial class _30_300400_300401_1 : System.Web.UI.Page
                     #endregion                    
                 }
 
-                this.Page.ClientScript.RegisterStartupScript(typeof(_30_300400_300401_1), "closeThickBox", "self.parent.update('" + msg + "');", true);
+                this.Page.ClientScript.RegisterStartupScript(typeof(_30_300400_300401_1), "closeThickBox", "self.parent.update('" + msg + "');self.parent.location.reload(true);self.parent.tb_remove();", true);
             }
         }
         catch (Exception ex)
