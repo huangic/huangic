@@ -28,16 +28,31 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
             this.ddl_type_2.Items[0].Selected = true;
 
-            this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = System.DateTime.Now;
+            this.calendar1._ADDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01"));
+            this.calendar2._ADDate = DateTime.Now;
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
-                this.LoadData(Request["sdate"], Request["edate"], Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], new SessionObject().sessionUserID, Request["pageIndex"]);
+                this.calendar1._ADDate = Convert.ToDateTime(Request["sdate"]);
+                this.calendar2._ADDate = Convert.ToDateTime(Request["edate"]);
+
+                string sdate = "", edate = "";
+                if (Request["sdate"] == DateTime.Now.ToString("yyyy-01-01") && Request["edate"] == DateTime.Now.ToString("yyyy-MM-dd"))
+                {
+                    sdate = DateTime.Now.ToString("yyyy-MM-dd");
+                    edate = "";
+                }
+                else
+                {
+                    sdate = Request["sdate"];
+                    edate = Request["edate"];
+                }
+
+                this.LoadData(sdate, edate, Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], new SessionObject().sessionUserID, Request["pageIndex"]);
             }
             else
             {
-                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID,"0");
+                this.LoadData(DateTime.Now.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID, "0");
             }
 
             OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程管理");
