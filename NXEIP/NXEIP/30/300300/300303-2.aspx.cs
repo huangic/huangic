@@ -49,46 +49,65 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
                 this.tbox_flag.Text = edata.e02_flag.ToString();
 
                 //課程名稱
-                int typ_no_1 = (from t in model.types where t.typ_no == edata.typ_no select t.typ_parent).FirstOrDefault().Value;
-                if (typ_no_1 == 0)
-                {   //屬於父類別
+                int? typ_no_1 = (from t in model.types
+                                 where t.typ_no == edata.typ_no && t.typ_status == "1"
+                                 select t.typ_parent).FirstOrDefault();
 
-                    //定位父類別
-                    this.ddl_type_1.Items[0].Selected = false;
-                    this.ddl_type_1.Items.FindByValue(edata.typ_no.ToString()).Selected = true;
+                //課程類別是否被刪除
+                if (typ_no_1.HasValue)
+                {
+                    if (typ_no_1 == 0)
+                    {   //屬於父類別
 
-                    //帶入父類別參數
-                    this.ODS_type_2.SelectParameters[0].DefaultValue = this.ddl_type_1.SelectedValue;
-                    this.ddl_type_2.Items.Clear();
-                    this.ddl_type_2.DataBind();
-                    this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
-                    //加入父類別,定位子類別
-                    this.ddl_type_2.Items.Insert(1, new ListItem(this.ddl_type_1.SelectedItem.Text, this.ddl_type_1.SelectedValue));
-                    this.ddl_type_2.Items[1].Selected = true;
+                        //定位父類別
+                        this.ddl_type_1.Items[0].Selected = false;
+                        this.ddl_type_1.Items.FindByValue(edata.typ_no.ToString()).Selected = true;
+
+                        //帶入父類別參數
+                        this.ODS_type_2.SelectParameters[0].DefaultValue = this.ddl_type_1.SelectedValue;
+                        this.ddl_type_2.Items.Clear();
+                        this.ddl_type_2.DataBind();
+                        this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
+
+                        //加入父類別,定位子類別
+                        this.ddl_type_2.Items.Insert(1, new ListItem(this.ddl_type_1.SelectedItem.Text, this.ddl_type_1.SelectedValue));
+                        this.ddl_type_2.Items[1].Selected = true;
+                    }
+                    else
+                    {   //屬於子類別處理
+
+                        //定位父類別
+                        this.ddl_type_1.Items[0].Selected = false;
+                        this.ddl_type_1.Items.FindByValue(typ_no_1.ToString()).Selected = true;
+
+                        //帶入父類別參數
+                        this.ODS_type_2.SelectParameters[0].DefaultValue = this.ddl_type_1.SelectedValue;
+                        this.ddl_type_2.Items.Clear();
+                        this.ddl_type_2.DataBind();
+                        this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
+                        //加入父類別,定位子類別
+                        this.ddl_type_2.Items.Insert(1, new ListItem(this.ddl_type_1.SelectedItem.Text, this.ddl_type_1.SelectedValue));
+                        this.ddl_type_2.Items.FindByValue(edata.typ_no.ToString()).Selected = true;
+                    }
                 }
-                else
-                {   //屬於子類別處理
 
-                    //定位父類別
-                    this.ddl_type_1.Items[0].Selected = false;
-                    this.ddl_type_1.Items.FindByValue(typ_no_1.ToString()).Selected = true;
-
-                    //帶入父類別參數
-                    this.ODS_type_2.SelectParameters[0].DefaultValue = this.ddl_type_1.SelectedValue;
-                    this.ddl_type_2.Items.Clear();
-                    this.ddl_type_2.DataBind();
-                    this.ddl_type_2.Items.Insert(0, new ListItem("請選擇", "0"));
-                    //加入父類別,定位子類別
-                    this.ddl_type_2.Items.Insert(1, new ListItem(this.ddl_type_1.SelectedItem.Text, this.ddl_type_1.SelectedValue));
-                    this.ddl_type_2.Items.FindByValue(edata.typ_no.ToString()).Selected = true;
-                }
                 //課程名稱,課程簡介,資格說明
                 this.tbox_name.Text = edata.e02_name;
                 this.tbox_memo.Text = edata.e02_memo;
                 this.tbox_limit.Text = edata.e02_limit;
+
                 //上課地點
-                this.ddl_e01.Items[0].Selected = false;
-                this.ddl_e01.Items.FindByValue(edata.e01_no.ToString()).Selected = true;
+                try
+                {
+                    this.ddl_e01.Items[0].Selected = false;
+                    this.ddl_e01.Items.FindByValue(edata.e01_no.ToString()).Selected = true;
+                }
+                catch
+                {
+                    //上課地點被刪除
+                    this.ddl_e01.Items[0].Selected = true;
+                }
+
                 //名額上限
                 if (edata.e02_people.HasValue)
                 {
