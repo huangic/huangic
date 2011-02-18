@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="300702.aspx.cs" Inherits="_30_300700_300702" EnableEventValidation="false" %>
+    CodeFile="300802.aspx.cs" Inherits="_30_300800_300802" EnableEventValidation="false" %>
 
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
@@ -38,13 +38,17 @@
     </asp:ToolkitScriptManager>
     
     <asp:ObjectDataSource ID="ObjectDataSource3" runat="server"  OldValuesParameterFormatString="original_{0}"
-         SelectMethod="GetCheckAll" TypeName="NXEIP.DAO.TaolunDAO">
+         SelectMethod="GetPeopleAlbum" TypeName="NXEIP.DAO._300802DAO" 
+        SelectCountMethod="GetPeopleAlbumCount">
+        <SelectParameters>
+            <asp:Parameter Name="peo_uid" Type="Int32" />
+        </SelectParameters>
         
     </asp:ObjectDataSource>
     
     
     
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300702" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300801" />
     
     
     
@@ -72,43 +76,41 @@
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料"
                     GridLines="None"  
                      
-                    DataKeyNames="tao_no" onrowcommand="GridView1_RowCommand">
+                    DataKeyNames="alb_no" onrowcommand="GridView1_RowCommand">
                     <Columns>
                                                  
                         
-                        
+                         <asp:TemplateField HeaderText="部門" ItemStyle-Width="100px">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# GetDepartmentName((Int32)Eval("alb_dep")) %>'></asp:Label>
+                                  
+                            </ItemTemplate>
+                        </asp:TemplateField>
                          
 
 
-                       <asp:TemplateField HeaderText="申請人">
+                       <asp:TemplateField HeaderText="申請人" ItemStyle-Width="100px">
                             <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("people.peo_name") %>'></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("people.peo_name") %>'></asp:Label>
                                   <uc2:PeopleDetail ID="PeopleDetail1" runat="server" peo_uid='<%# Eval("peo_uid") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
                        
                        
-                        <asp:TemplateField HeaderText="討論區名稱">
+                        <asp:TemplateField HeaderText="相簿名稱">
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("tao_name") %>'></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("alb_name") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
 
-                         <asp:TemplateField HeaderText="討論區簡介">
+                         <asp:TemplateField HeaderText="相簿說明" ItemStyle-Width="500px">
                             <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("tao_descript") %>'></asp:Label>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("alb_desc") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                      
-                         <asp:TemplateField HeaderText="討論區型別">
-                            <ItemTemplate>
-                                <asp:Label ID="Label5" runat="server" Text='<%# GetLayoutName((String)Eval("tao_type")) %>'></asp:Label>
-
-                              
-
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        
 
                                                 
                         <asp:TemplateField HeaderText="審核" ItemStyle-Width="100px">
@@ -128,13 +130,9 @@
                         
                     </Columns>
                 </cc1:GridView>
-            </ContentTemplate>
            
-             
            
-        </asp:UpdatePanel>
-        
-        <div class="footer">
+                 <div class="footer">
             <div class="f1">
             </div>
             <div class="f2">
@@ -143,6 +141,22 @@
             </div>
         </div>
 
+        <div class="pager">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10">
+                        <Fields>
+                            <NXEIP:GooglePagerField />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
+           
+           
+           
+            </ContentTemplate>
+           
+       
+           
+        </asp:UpdatePanel>
+        
         
         
     </div>
