@@ -22,6 +22,18 @@
         <table>
             <tbody>
                 <tr>
+                    <th>調查時間</th>
+                    <td colspan="3">
+                        開始時間<uc3:calendar ID="cl_sdate" runat="server" _Show="False" />
+                        <asp:TextBox ID="txt_shour" runat="server" Columns="2"></asp:TextBox>
+                        時<asp:TextBox ID="txt_smin" runat="server" Columns="2"></asp:TextBox>
+                        分<br />
+                        結束時間<uc3:calendar ID="cl_edate" runat="server" _Show="False" /><asp:TextBox ID="txt_ehour" runat="server" Columns="2"></asp:TextBox>
+                        時<asp:TextBox ID="txt_emin" runat="server" Columns="2"></asp:TextBox>
+                        分
+                    </td>
+                </tr>
+                <tr>
                     <th>問卷名稱</th>
                     <td colspan="3">
                         <asp:TextBox ID="txt_name" runat="server" Columns="60" Rows="2" TextMode="MultiLine"></asp:TextBox>
@@ -56,18 +68,7 @@
                         </asp:RadioButtonList>
                     </td>
                 </tr>
-                <tr>
-                    <th>調查時間</th>
-                    <td colspan="3">
-                        開始時間<uc3:calendar ID="cl_sdate" runat="server" _Show="False" />
-                        <asp:TextBox ID="txt_shour" runat="server" Columns="2"></asp:TextBox>
-                        時<asp:TextBox ID="txt_smin" runat="server" Columns="2"></asp:TextBox>
-                        分<br />
-                        結束時間<uc3:calendar ID="cl_edate" runat="server" _Show="False" /><asp:TextBox ID="txt_ehour" runat="server" Columns="2"></asp:TextBox>
-                        時<asp:TextBox ID="txt_emin" runat="server" Columns="2"></asp:TextBox>
-                        分
-                    </td>
-                </tr>
+                
                 <tr>
                     <th>是否上架</th>
                     <td colspan="3">
