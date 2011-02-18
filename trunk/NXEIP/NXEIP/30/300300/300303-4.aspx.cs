@@ -91,11 +91,13 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
 
     private void Updata(int id,string status,string reason)
     {
-        e04 e04Data = (from d in model.e04 where d.e04_no == id select d).FirstOrDefault();
+        int e02_no = int.Parse(this.hidd_no.Value);
+        e04 e04Data = (from d in model.e04 where d.e04_no == id && d.e02_no == e02_no select d).FirstOrDefault();
         e04Data.e04_check = status;
         e04Data.e04_reason = reason;
         e04Data.e04_checkuid = Convert.ToInt32(new SessionObject().sessionUserID);
         e04Data.e04_checkdate = DateTime.Now;
+
         if (status.Equals("1"))
         {
             
@@ -105,7 +107,7 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
             //e04Data.e04_checkdate = ;
         }
         model.SaveChanges();
-        OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新報名審核狀態 e04_no:" + id);
+        OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, string.Format("更新報名審核狀態為{0} e02_no:{1} e04_no:{2}", status, e02_no, id));
     }
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
