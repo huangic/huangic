@@ -152,7 +152,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             {
                 //報名人數
                 int _count = (from dd in model.e04 where dd.e02_no == e02_no && _check.Contains(dd.e04_check) select dd).Count();
-                if (_count >= e02Data.e02_people.Value)
+                if (e02Data.e02_people.HasValue && _count >= e02Data.e02_people.Value)
                 {
                     ((Label)e.Row.FindControl("lab_msg")).Text = "人數已達上限";
                 }
