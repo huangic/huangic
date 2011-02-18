@@ -20,16 +20,28 @@ public partial class _20_200400_200402 : System.Web.UI.Page
         {
             this.ODS_type_2.SelectParameters["typ_parent"].DefaultValue = "-1";
 
-            this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = System.DateTime.Now;
+            this.calendar1._ADDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01"));
+            this.calendar2._ADDate = DateTime.Now;
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
-                this.LoadData(Request["sdate"], Request["edate"], Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], Request["pageIndex"]);
+                string sdate = "", edate = "";
+                if (Request["sdate"] == DateTime.Now.ToString("yyyy-01-01") && Request["edate"] == DateTime.Now.ToString("yyyy-MM-dd"))
+                {
+                    sdate = DateTime.Now.ToString("yyyy-MM-dd");
+                    edate = "";
+                }
+                else
+                {
+                    sdate = Request["sdate"];
+                    edate = Request["edate"];
+                }
+
+                this.LoadData(sdate, edate, Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], Request["pageIndex"]);
             }
             else
             {
-                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
+                this.LoadData(DateTime.Now.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
             }
 
             OperatesObject.OperatesExecute(200402, new SessionObject().sessionUserID, 2, "查詢線上報名");
