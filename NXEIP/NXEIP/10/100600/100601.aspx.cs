@@ -34,11 +34,18 @@ public partial class _10_100600_100601 : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
-        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
-        this.ObjectDataSource1.SelectParameters["key"].DefaultValue = this.tbox_reason.Text.Trim();
-        this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.ddl_status.SelectedValue;
-        this.GridView1.DataBind();
+        if (this.calendar1.CheckDateTime() && this.calendar2.CheckDateTime())
+        {
+            this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
+            this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
+            this.ObjectDataSource1.SelectParameters["key"].DefaultValue = this.tbox_reason.Text.Trim();
+            this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.ddl_status.SelectedValue;
+            this.GridView1.DataBind();
+        }
+        else
+        {
+            JsUtil.AlertJs(this, "請輸入正確日期!");
+        }
     }
 
     protected static bool GetModifyVisible(int peo_uid)

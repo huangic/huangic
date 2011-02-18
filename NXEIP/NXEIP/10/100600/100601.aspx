@@ -157,9 +157,6 @@
                     </asp:DataPager>
                 </div>
             </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
-            </Triggers>
         </asp:UpdatePanel>
     </div>
 
