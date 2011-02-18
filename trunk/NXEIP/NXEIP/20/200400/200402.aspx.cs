@@ -25,11 +25,11 @@ public partial class _20_200400_200402 : System.Web.UI.Page
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
-                this.LoadData(Request["sdate"], Request["edate"], Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], new SessionObject().sessionUserID, Request["pageIndex"]);
+                this.LoadData(Request["sdate"], Request["edate"], Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], Request["pageIndex"]);
             }
             else
             {
-                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID, "0");
+                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
             }
 
             OperatesObject.OperatesExecute(200402, new SessionObject().sessionUserID, 2, "查詢線上報名");
@@ -39,7 +39,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
     /// <summary>
     /// 撈資料
     /// </summary>
-    private void LoadData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, string openuid, string pageIndex)
+    private void LoadData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, string pageIndex)
     {
         this.ODS_1.SelectParameters["sdate"].DefaultValue = sdate;
         this.ODS_1.SelectParameters["edate"].DefaultValue = edate;
@@ -47,7 +47,8 @@ public partial class _20_200400_200402 : System.Web.UI.Page
         this.ODS_1.SelectParameters["type_2"].DefaultValue = type_2;
         this.ODS_1.SelectParameters["e01_no"].DefaultValue = e01_no;
         this.ODS_1.SelectParameters["e02_name"].DefaultValue = e02_name;
-        this.ODS_1.SelectParameters["openuid"].DefaultValue = openuid;
+        //建立者
+        //this.ODS_1.SelectParameters["openuid"].DefaultValue = openuid;
         this.GridView1.DataBind();
         this.GridView1.PageIndex = Convert.ToInt32(pageIndex);
     }
@@ -55,7 +56,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
     {
         if (this.CheckUI())
         {
-            this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID, "0");
+            this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
         }
     }
     private bool CheckUI()

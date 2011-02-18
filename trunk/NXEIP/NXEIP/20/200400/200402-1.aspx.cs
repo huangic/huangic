@@ -73,7 +73,7 @@ public partial class _20_200400_200402_1 : System.Web.UI.Page
         int _dep_app = (from t1 in model.e04 where t1.e02_no == e02_no && t1.e04_depno == user_depno && _check.Contains(t1.e04_check) select t1).Count();
         if (_dep_count > 0 && _dep_app >= _dep_count)
         {
-            this.ShowMsg("很抱歉，該課程部門人數已達上限");
+            this.ShowMsg("該課程報名人員已達人數上限");
         }
         else
         {
