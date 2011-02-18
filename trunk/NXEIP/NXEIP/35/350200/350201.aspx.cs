@@ -60,7 +60,7 @@ public partial class _35_350200_350201 : System.Web.UI.Page
         TypesDAO dao = new TypesDAO();
         types t=dao.GetTypes(typ_no);
 
-        t.typ_status = "0";
+        t.typ_status = "2";
 
         dao.Update();
 

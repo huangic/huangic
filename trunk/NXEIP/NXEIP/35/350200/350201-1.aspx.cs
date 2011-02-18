@@ -113,7 +113,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         }
         catch
         {
-
+            newType.typ_order = 1;
         }
 
         //Dao
@@ -157,7 +157,7 @@ public partial class _35_350200_350201_1 : System.Web.UI.Page
         }
         catch
         {
-
+            newType.typ_order = 1;
         }
 
         //Dao
