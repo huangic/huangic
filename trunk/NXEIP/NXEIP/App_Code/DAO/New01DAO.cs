@@ -28,18 +28,30 @@ namespace NXEIP.DAO
         /// <param name="sd"></param>
         /// <param name="ed"></param>
         /// <returns></returns>
-        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime ed)
+        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime? ed)
         {
-            return (from d in model.new01
-                    where d.n01_status == "1" && d.n01_depno == dep_no && d.n01_date >= sd && d.n01_date <= ed
-                    && d.n01_use == "2" orderby d.n01_date
-                    select d);
+            var data = (from d in model.new01
+                        where d.n01_status != "4" && d.n01_depno == dep_no && d.n01_use == "2"
+                        select d);
+
+            if (ed.HasValue)
+            {
+                data = data.Where(o => o.n01_date >= sd && o.n01_date <= ed);
+            }
+            else
+            {
+                data = data.Where(o => o.n01_date >= sd);
+            }
+
+            return data.OrderBy(o => o.n01_date);
+
         }
-        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime ed, int startRowIndex, int maximumRows)
+
+        public IQueryable<new01> Get_CheckData(int dep_no, DateTime sd, DateTime? ed, int startRowIndex, int maximumRows)
         {
             return Get_CheckData(dep_no, sd, ed).Skip(startRowIndex).Take(maximumRows);
         }
-        public int Get_CheckDataCount(int dep_no, DateTime sd, DateTime ed)
+        public int Get_CheckDataCount(int dep_no, DateTime sd, DateTime? ed)
         {
             return Get_CheckData(dep_no, sd, ed).Count();
         }
