@@ -48,7 +48,7 @@
     
     
     
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300801" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300802" />
     
     
     
