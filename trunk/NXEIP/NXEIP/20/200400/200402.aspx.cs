@@ -25,6 +25,9 @@ public partial class _20_200400_200402 : System.Web.UI.Page
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
+                this.calendar1._ADDate = Convert.ToDateTime(Request["sdate"]);
+                this.calendar2._ADDate = Convert.ToDateTime(Request["edate"]);
+
                 string sdate = "", edate = "";
                 if (Request["sdate"] == DateTime.Now.ToString("yyyy-01-01") && Request["edate"] == DateTime.Now.ToString("yyyy-MM-dd"))
                 {
