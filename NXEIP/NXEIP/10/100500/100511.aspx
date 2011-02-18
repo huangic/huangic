@@ -79,11 +79,9 @@
               
               </div>
                    <div class="ps5">
-                     
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>'></asp:Label> 
-                        <br> 
-                        </br>           
-                    <asp:Button ID="Button1" runat="server" Text="設為預設版型"  CommandName="Layout"/>
+                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("Name") %>'></asp:Label> 
+                         <br />         
+                    <asp:Button ID="Button1" runat="server" Text="設為預設版型"  Enabled='<%# IsCurrent((String)Eval("Name")) %>' CommandName="Layout"/>
                 </div>
               </div>
 

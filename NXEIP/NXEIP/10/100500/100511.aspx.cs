@@ -25,10 +25,7 @@ public partial class _10_100500_100511 : System.Web.UI.Page
             //建立GRID VIEW
             //this.GridView1.DataBind();
 
-
             //NXEIPEntities model = new NXEIPEntities();
-
-            
 
             this.ListView1.DataBind();
         }
@@ -93,4 +90,12 @@ public partial class _10_100500_100511 : System.Web.UI.Page
          JsUtil.AlertJs(this, "設定完成");
 
     }
+
+    protected bool IsCurrent(String layout) { 
+        
+        SessionObject sessionObj=new SessionObject();
+
+            return (layout != sessionObj.sessionLayoutCss); 
+        }       
+        
 }

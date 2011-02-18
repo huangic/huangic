@@ -47,9 +47,14 @@ public partial class _20_200100_200107_2 : System.Web.UI.Page
             this.Label1.Text = sessionObj.sessionUserDepartName;
             this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
             
-          
-
-
+            //設定預設類別
+            string cat_no = Request["cat_no"];
+            if (!String.IsNullOrEmpty(cat_no))
+            {
+                //如果有預設類別就不能下拉
+                this.ddl_cat.SelectedValue = cat_no;
+                this.ddl_cat.Enabled = false;
+            }
         }
 
     }
