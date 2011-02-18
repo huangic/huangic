@@ -83,7 +83,7 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
         if (e.CommandName.Equals("del2"))
         {
             //取消報名
-            this.Updata(e04_no, "4", "");
+            this.Updata(e04_no, "3", "");
         }
 
         this.GridView1.DataBind();
@@ -181,7 +181,14 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
     {
         int e02_no = Convert.ToInt32(this.hidd_no.Value);
         var e02data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
-        int count = (from dd in model.e04 where dd.e04_check=="1" && dd.e02_no == e02_no select dd).Count();
-        this.lab_titile.Text = "以下為報名『" + e02data.e02_name + "第" + e02data.e02_flag + "期』的成員列表(目前此班報名" + this.GridView1.Rows.Count + "人，已核准" + count + "人)";
+
+        //核可人員
+        int count = (from dd in model.e04 where dd.e04_check == "1" && dd.e02_no == e02_no select dd).Count();
+
+        //報名人數
+        string[] check = { "0", "1" };
+        int count2 = (from dd in model.e04 where check.Contains(dd.e04_check) && dd.e02_no == e02_no select dd).Count();
+
+        this.lab_titile.Text = "以下為報名『" + e02data.e02_name + "第" + e02data.e02_flag + "期』的成員列表(目前此班報名" + count2 + "人，已核准" + count + "人)";
     }
 }
