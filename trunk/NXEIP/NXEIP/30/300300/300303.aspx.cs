@@ -29,7 +29,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             this.ddl_type_2.Items[0].Selected = true;
 
             this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = System.DateTime.Now.AddMonths(1);
+            this.calendar2._ADDate = System.DateTime.Now;
 
             if (Request["sdate"] != null && Request["edate"] != null)
             {
@@ -37,7 +37,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             }
             else
             {
-                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID,"0");
+                this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, new SessionObject().sessionUserID,"0");
             }
 
             OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程管理");

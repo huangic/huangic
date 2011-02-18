@@ -190,10 +190,19 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         {
             data.e02_people = Convert.ToInt32(this.tbox_people.Text);
         }
+        else
+        {
+            data.e02_people = 0;
+        }
         if (this.tbox_hour.Text != "")
         {
             data.e02_hour = Convert.ToInt32(this.tbox_hour.Text);
         }
+        else
+        {
+            data.e02_hour = 0;
+        }
+
         data.e02_teacher = this.tbox_teacher.Text;
         data.e02_mechani = this.lab_mechani.Text;
         data.e02_money = 0;
