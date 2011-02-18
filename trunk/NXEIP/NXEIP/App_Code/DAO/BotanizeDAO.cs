@@ -53,7 +53,7 @@ namespace NXEIP.DAO
                                  bot_date = tb1.bot_date.Value,
                                  dep_order = tb3.dep_order.Value,
                                  typ_order = tb4.typ_order.Value
-                             }).Distinct().OrderBy(x=>x.peo_name).OrderBy(x=>x.typ_order).OrderBy(x=>x.dep_order);
+                             }).Distinct().OrderBy(x => x.peo_name).OrderBy(x => x.typ_order).OrderBy(x => x.dep_order);
             return itemColl;
         }
         public IQueryable<NewBotanize> GetAll(int que_no, int startRowIndex, int maximumRows)

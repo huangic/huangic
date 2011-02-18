@@ -35,8 +35,9 @@
                         問卷名稱
                     </th>
                     <td>
-                        <asp:Label ID="lab_name" runat="server"></asp:Label><asp:Label ID="lab_no" runat="server"
-                            Visible="False"></asp:Label>
+                        <asp:Label ID="lab_name" runat="server"></asp:Label>
+                        <asp:Label ID="lab_no" 
+                            runat="server" Visible="False"></asp:Label>
                     </td>
                 </tr>
                 <tr>
