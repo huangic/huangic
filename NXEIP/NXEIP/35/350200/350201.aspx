@@ -65,11 +65,6 @@
                             DataFormatString="{0:yyyy-MM-dd hh:mm}" />
                         <asp:TemplateField HeaderText="修改" ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <!--
-                                                <input  type="button" class="thickbox edit" name='<%# Eval("typ_cname", "修改{0}") %>'
-                                                alt='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'
-                                                </input>
-                                               -->
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("typ_cname", "修改{0}") %>'
                                     href='<%# Eval("typ_no", "350201-1.aspx?modal=true&mode=edit&ID={0}&TB_iframe=true&height=250&width=600") %>'>
                                     <span><span>修改</span></span> </a>
