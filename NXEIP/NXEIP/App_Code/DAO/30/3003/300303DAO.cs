@@ -25,14 +25,24 @@ namespace NXEIP.DAO
         /// 依據條件查詢資料
         /// </summary>
         /// <returns></returns>
-        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int openuid)
+        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid)
         {
             DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
-            DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
+            
 
             var d = (from data in model.e02
-                     where data.e02_status == "1" && data.e02_sdate >= sd
+                     where data.e02_status == "1"
                      select data);
+
+            if (string.IsNullOrEmpty(edate))
+            {
+                d = d.Where(o => o.e02_sdate >= sd);
+            }
+            else
+            {
+                DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
+                d = d.Where(o => o.e02_sdate >= sd && o.e02_sdate <= ed);
+            }
             
             //課程父類別
             if (type_1 != "0" && type_2.Equals("0"))
@@ -64,7 +74,10 @@ namespace NXEIP.DAO
             }
 
             //建立人
-            d = d.Where("e02_openuid = @0", openuid);
+            if (openuid.HasValue)
+            {
+                d = d.Where("e02_openuid = @0", openuid.Value);
+            }
             
             //排序
             d = d.OrderBy(o => o.e02_sdate);
@@ -78,7 +91,7 @@ namespace NXEIP.DAO
         /// <param name="startRowIndex">起始筆數</param>
         /// <param name="maximumRows">結束筆數</param>
         /// <returns></returns>
-        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int openuid, int startRowIndex, int maximumRows)
+        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid, int startRowIndex, int maximumRows)
         {
             return GetData(sdate, edate, type_1, type_2, e01_no, e02_name, openuid).Skip(startRowIndex).Take(maximumRows);
         }
@@ -87,7 +100,7 @@ namespace NXEIP.DAO
         /// 查詢總筆數
         /// </summary>
         /// <returns></returns>
-        public int GetDataCount(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int openuid)
+        public int GetDataCount(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid)
         {
             return GetData(sdate, edate, type_1, type_2, e01_no, e02_name, openuid).Count();
         }
