@@ -13,7 +13,7 @@ namespace NXEIP.DAO
     /// _300802DAO 的摘要描述
     /// </summary>
     [DataObject]
-    public class _300801DAO
+    public class _300802DAO
     {
 
         private NXEIPEntities model = new NXEIPEntities();
