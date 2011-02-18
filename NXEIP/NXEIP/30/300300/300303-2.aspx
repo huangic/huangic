@@ -625,7 +625,6 @@
             </div>
         </div>
         <div class="bottom">
-            <input id="Text3" type="text" style="width:65px" value="100-10-10" />
             <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click"
                 OnClientClick="return checkInput()" />
             &nbsp;&nbsp;&nbsp;
