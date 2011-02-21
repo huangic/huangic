@@ -26,7 +26,7 @@ public partial class _10_100500_100506 : WidgetPageTemplate
     /// <summary>
     /// 頁面形態
     /// </summary>
-    public override String PageType { get { return "P"; } }
+    public override String PageType { get { return "U"; } }
     /// <summary>
     /// 頁面UID (不是PAGE_NO)
     /// </summary>
@@ -38,7 +38,7 @@ public partial class _10_100500_100506 : WidgetPageTemplate
     protected override bool IsEditable{get{return true;}}
 
     /// <summary>
-    /// 取自己的沒有就拿父代範本(UID=0 AND PAGE_TYPE=P)
+    /// 取自己的沒有就拿父代範本(UID=0 AND PAGE_TYPE=U)
     /// </summary>
     /// <returns></returns>
     protected override int GetCurrentPage()
