@@ -35,7 +35,7 @@
         <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
             AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
             EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound" GridLines="None"
-            OnRowCommand="GridView1_RowCommand" EnableViewState="False" 
+            OnRowCommand="GridView1_RowCommand"  
             DataKeyNames="mes_no">
             <Columns>
                 <asp:BoundField DataField="mes_senduid" HeaderText="發訊息者" 

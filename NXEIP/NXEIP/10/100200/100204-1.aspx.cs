@@ -224,6 +224,25 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             int n01_no = data.n01_no;
             this.hidd_newno.Value = n01_no.ToString();
 
+            //發送訊息至審核人
+            if (ischeck.Equals("1"))
+            {
+                int me = int.Parse(sobj.sessionUserID);
+                int dep_no = int.Parse(sobj.sessionUserDepartID);
+
+                string body = string.Format("{0}欲發佈至全府之最新消息，類別「{1}」，標題「{2}」，請您至最新消息審核功能進行審核", sobj.sessionUserName, this.ddl_sys06.SelectedItem.Text, this.tbox_subject.Text.Trim());
+
+                PersonalMessageUtil msg = new PersonalMessageUtil();
+
+                //單位管理者
+                var m = (from d in model.manager where d.dep_no == dep_no && d.man_type == "1" select d);
+
+                foreach (var d in m)
+                {
+                    msg.SendMessage("最新消息審核", body, "", d.peo_uid, me, true, false, false);
+                }
+            }
+
             //相關連結
             this.SaveLink(n01_no);
 

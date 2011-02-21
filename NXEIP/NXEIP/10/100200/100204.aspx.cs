@@ -51,6 +51,7 @@ public partial class _10_100200_100204 : System.Web.UI.Page
             d.n01_status = "4";
             dao.SaveChang();
             this.GridView1.DataBind();
+            this.ListView1.DataBind();
         }
         
         if (e.CommandName.Equals("edit"))
