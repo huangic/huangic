@@ -33,7 +33,7 @@ namespace NXEIP.DAO
             return (from e05d in model.e05
                     where e05d.e02_no == e02_no
                     from dc10 in model.doc10
-                    where dc10.d10_no == e05d.e05_d10no
+                    where dc10.d10_no == e05d.e05_d10no && dc10.d09_no == e05d.e05_d09no
                     orderby dc10.d10_no
                     select dc10);
         }
