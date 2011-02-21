@@ -57,6 +57,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
 
             OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程管理");
         }
+
     }
 
     protected void btn_ok_Click(object sender, EventArgs e)
