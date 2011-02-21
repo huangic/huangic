@@ -49,6 +49,11 @@ public partial class _20_200400_200402 : System.Web.UI.Page
 
             OperatesObject.OperatesExecute(200402, new SessionObject().sessionUserID, 2, "查詢線上報名");
         }
+
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     /// <summary>
