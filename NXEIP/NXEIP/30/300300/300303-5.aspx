@@ -35,8 +35,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" DataKeyNames="e04_no,e04_result" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" 
-                    EnableViewState="False">
+                    GridLines="None">
                     <Columns>
                         <asp:BoundField DataField="e04_depno" HeaderText="單位" SortExpression="e04_depno" />
                         <asp:BoundField DataField="e04_prono" HeaderText="職稱" SortExpression="e04_prono" />

@@ -151,7 +151,7 @@
                         </th>
                         <td colspan="3">
                             <cc1:GridView ID="GridView1" runat="server" DataSourceID="ODS_1" AutoGenerateColumns="False"
-                                Width="100%" CellPadding="3" CellSpacing="3" GridLines="None" EnableViewState="False"
+                                Width="100%" CellPadding="3" CellSpacing="3" GridLines="None"
                                 EmptyDataText="目前無資料" DataKeyNames="d09_no,d10_no">
                                 <Columns>
                                     <asp:TemplateField HeaderText="選取">

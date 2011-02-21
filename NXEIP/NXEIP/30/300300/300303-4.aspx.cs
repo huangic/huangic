@@ -27,6 +27,7 @@ public partial class _30_300300_300303_4 : System.Web.UI.Page
                 OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢報名審核 e02_no:" + this.hidd_no.Value);
             }
         }
+        
     }
 
     protected void btn_pass_Click(object sender, EventArgs e)

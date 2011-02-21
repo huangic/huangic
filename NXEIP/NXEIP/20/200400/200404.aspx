@@ -83,8 +83,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ODS_1" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" 
-                    GridLines="None" DataKeyNames="e02_no,e02_edate,e02_flag"
-                    EnableViewState="False" EmptyDataText="目前無資料" 
+                    GridLines="None" DataKeyNames="e02_no,e02_edate,e02_flag" EmptyDataText="目前無資料" 
                     OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:BoundField DataField="e02_name" HeaderText="課程名稱(期別)" SortExpression="e02_name" />

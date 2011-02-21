@@ -61,6 +61,15 @@ public partial class _30_300800_300801_1 : System.Web.UI.Page
 
                     model.SaveChanges();
 
+                    //發送訊息至申請人
+                    int to = d.n01_peouid.Value;
+                    string type = d.s06_no.HasValue ? (from x in model.sys06 where x.s06_no == d.s06_no.Value select x.s06_name).First() : "最新消息";
+                    string status = this.rbl_status.SelectedValue == "1" ? "同意" : "不同意";
+                    string body = string.Format("您所申請欲發佈至全府之最新消息，類別「{0}」，標題「{1}」，管理者已{2}您申請。", type, d.n01_subject, status);
+
+                    PersonalMessageUtil msg = new PersonalMessageUtil();
+                    msg.SendMessage("最新消息審核結果", body, "", to, peo_uid, true, false, false);
+
                     OperatesObject.OperatesExecute(300801, 3, string.Format("最新消息審核回覆 n01_no={0} peo_uid={1}", n01_no, peo_uid));
                 }
             }
