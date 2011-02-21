@@ -115,7 +115,7 @@
                         <asp:TemplateField HeaderText="講義">
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("e02_name", "下載{0}講義") %>'
-                                    href='<%# Eval("e02_no", "200402-2.aspx?modal=true&mode=modify&e02_no={0}&TB_iframe=true&height=250&width=600") %>'>
+                                    href='<%# Eval("e02_no", "200402-2.aspx?modal=true&mode=modify&e02_no={0}&TB_iframe=true") %>'>
                                     <span>下載</span></a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
