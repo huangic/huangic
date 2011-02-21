@@ -24,6 +24,13 @@ namespace NXEIP.FileManager
         public static int GetParentId(String pid)
         {
             //如果可以轉INT 那就不用處理
+            if (pid == null) {
+                return 0;
+            }
+            
+            
+            
+            
             int result;
 
             if (int.TryParse(pid, out result))
