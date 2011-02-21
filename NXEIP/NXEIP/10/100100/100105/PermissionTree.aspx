@@ -98,13 +98,14 @@
             //id = data.rslt.obj.attr("id");
             //nodeType = data.rslt.obj.attr("nType");
             //nodeName = data.rslt.obj.attr("nName");
-            item = $(this).parent();
+            itemA = $(this).parent();
+            
 
 
 
-            id = $(item).attr("id");
-            nodeType = $(item).attr("nType");
-            nodeName = $(item).attr("nName");
+            id = $(itemA).attr("id");
+            nodeType = $(itemA).attr("nType");
+            nodeName = $(itemA).attr("nName");
 
 
             if (nodeType=="depart") {
