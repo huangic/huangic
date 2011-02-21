@@ -5,6 +5,21 @@
     <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register src="../../lib/Navigator.ascx" tagname="Navigator" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<script type="text/javascript">
+    function update(msg) {
+        tb_remove();
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        //alert(msg);
+    }
+
+    function pageLoad(sender, args) {
+        if (args.get_isPartialLoad()) {
+            //  reapply the thick box stuff
+            tb_init('a.thickbox');
+        }
+    }
+    
+    </script>
 <style type="text/css">
 .title1
 {
@@ -44,6 +59,9 @@
             <div class="h1">
             </div>
             <div class="h2">
+                <div class="function">
+                    <input type="button" class="thickbox b-input" alt="../../20/200100/200107-2.aspx?cat_no=<%=Get_CatNO() %>&modal=true&model=new&TB_iframe=true" value="上傳講義" />
+                </div>
             </div>
             <div class="h3">
             </div>
@@ -85,12 +103,13 @@
                         </th>
                         <td colspan="3">
                             <cc1:GridView ID="GridView2" runat="server" DataSourceID="ODS_2" AutoGenerateColumns="False"
-                                Width="100%" CellPadding="3" CellSpacing="3" GridLines="None" EnableViewState="True"
-                                EmptyDataText="目前無資料" DataKeyNames="e05_no" AllowPaging="True" OnRowCommand="GridView2_RowCommand"
+                                Width="100%" CellPadding="3" CellSpacing="3" GridLines="None"
+                                EmptyDataText="目前無資料" DataKeyNames="e05_no,e05_d09no,e05_d10no" 
+                                AllowPaging="True" OnRowCommand="GridView2_RowCommand"
                                 PageSize="5" onrowdatabound="GridView2_RowDataBound">
                                 <Columns>
-                                    <asp:BoundField DataField="e05_d10no" HeaderText="檔案" 
-                                        SortExpression="e05_d10no" />
+                                    <asp:BoundField DataField="e05_no" HeaderText="檔案名稱" 
+                                        SortExpression="e05_no" />
                                     <asp:TemplateField HeaderText="刪除">
                                         <ItemTemplate>
                                             <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"

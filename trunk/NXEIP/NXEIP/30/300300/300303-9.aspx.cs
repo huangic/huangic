@@ -32,17 +32,38 @@ public partial class _30_300300_300303_9 : System.Web.UI.Page
                 var typ_name = (from t in model.types where t.typ_no == data.typ_no select t.typ_cname).FirstOrDefault();
                 this.lab_typ_name.Text = typ_name;
 
-                //類別選擇
-                this.ods_level2.SelectParameters["s06_no"].DefaultValue = "0";
-                
                 //課程所屬講義
                 this.ODS_2.SelectParameters["e02_no"].DefaultValue = this.hidd_no.Value;
+
+                //子類別選擇
+                this.ods_level2.SelectParameters["s06_no"].DefaultValue = "0";
+
+                string cat_no = Get_CatNO();
+                if(!string.IsNullOrEmpty(cat_no)){
+                    this.ddl_level_1.SelectedValue = cat_no;
+                    this.ddl_level_1.Enabled = false;
+                    this.ods_level2.SelectParameters["s06_no"].DefaultValue = cat_no;
+                }
+
+                
 
                 OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程講義 e02_no:" + this.hidd_no.Value);
             }
 
+            
+        }
+
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
         }
     }
+
+    public string Get_CatNO()
+    {
+        return new ArgumentsObject().Get_argValue("300303_CatNo");
+    }
+
     protected void ddl_level_1_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (this.ddl_level_1.SelectedValue != "0")
@@ -154,8 +175,10 @@ public partial class _30_300300_300303_9 : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            int dc10_no = int.Parse(e.Row.Cells[0].Text);
-            e.Row.Cells[0].Text = (from d in model.doc10 where d.d10_no == dc10_no select d.d10_file).FirstOrDefault();
+            int dc09_no = int.Parse(this.GridView2.DataKeys[e.Row.RowIndex].Values[1].ToString());
+            int dc10_no = int.Parse(this.GridView2.DataKeys[e.Row.RowIndex].Values[2].ToString());
+
+            e.Row.Cells[0].Text = (from d in model.doc10 where d.d09_no == dc09_no && d.d10_no == dc10_no select d.d10_file).FirstOrDefault();
         }
     }
 }
