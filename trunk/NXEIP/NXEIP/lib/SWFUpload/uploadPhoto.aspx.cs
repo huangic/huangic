@@ -13,7 +13,7 @@ using Entity;
 
 namespace lib.SWFUpload
 {
-    public partial class uploadFileManager : System.Web.UI.Page
+    public partial class upload : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,8 +45,12 @@ namespace lib.SWFUpload
             string[] imgExtension = new string[] { "jpg", "gif", "png", "bmp" };
             //已上传文件的文件名
             string nameList = SWFUrlOper.GetFormStringParamValue("data");
+
+            string pathArg = SWFUrlOper.GetFormStringParamValue("PathArg");
+
             //可上傳空間大小(MB)
             double quota = 100;
+
             try
             {
                 // 获取上传的文件信息
@@ -54,14 +58,9 @@ namespace lib.SWFUpload
                 string extension = string.Empty;
                 string fileName = string.Empty;
                 //bool isImg = false;
-                
-              
-                
-                
-                
                 if (file_upload.ContentLength > 0)
                 {
-                    int KBsize=(int)Math.Ceiling(((decimal)file_upload.ContentLength)/1024);
+                    int KBsize = (int)Math.Ceiling(((decimal)file_upload.ContentLength) / 1024);
                     
                     fileName = file_upload.FileName;
                     if (fileName.IndexOf(".") != -1)
@@ -69,57 +68,54 @@ namespace lib.SWFUpload
 
                     SWFUploadFile uf = new SWFUploadFile();
 
-
-                    #region 上傳抓資料庫
-                    //上傳抓資料庫
                     //取上傳目錄
                     ArgumentsObject args = new ArgumentsObject();
+                    //quota = int.Parse();
 
-                    string path = args.Get_argValue("100105_dir");
+                    quota=int.Parse(args.Get_argValue("100103_album_size"));
+                    string path = args.Get_argValue(pathArg);
                     if (!string.IsNullOrEmpty(path))
                     {
                         uf.Path = path;
                     }
 
 
-
-                    //判斷重復檔名
+                    #region 上傳抓資料庫
+                  
+                    
                     NXEIPEntities model = new NXEIPEntities();
-
-                    SessionObject sessionObj = new SessionObject();
-                    //要改用COOKIES的值來判斷
-                    int peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
-
-                    var files = from d in model.doc01
-                                where d.peo_uid == peo_uid && d.d01_file.ToLower() == file_upload.FileName.ToLower()
-                                select d;
-                    if (files.Count() > 0)
-                    {
-                        Response.StatusCode = 500;
-                        Response.Write("檔案重複上傳");
-                        HttpContext.Current.ApplicationInstance.CompleteRequest();
-                        return;
-                    }
+                          
 
                     //判斷TOTAL檔案空間
-                    //使用資料庫判斷 減少IO
-                    var currentsize = (from d2 in model.doc02
-                                       from d in model.doc01
-                                       where d.d01_no == d2.d01_no && d.peo_uid == peo_uid
-                                       select d2).Sum(c => c.d02_KB);
+                    //抓IO目錄判斷大小
+                    //
 
-                    double total = currentsize.GetValueOrDefault(0) + KBsize;
+                    String[] Files=Directory.GetFiles(uf.Path+"\\"+savePath);
+                    long totalSize = 0;
+                    foreach (string name in Files)
+                    {
+                        // 3
+                        // Use FileInfo to get length of each file.
+                        FileInfo info = new FileInfo(name);
+                        totalSize += info.Length;
+                    }
+
+                    double total = Math.Ceiling((double)(totalSize/1024)) + KBsize;
 
                     if (((total) / 1024) >= quota)
                     {
                         Response.StatusCode = 500;
-                        Response.Write("空間不足");
+                        Response.Write("相簿空間已滿");
                         HttpContext.Current.ApplicationInstance.CompleteRequest();
                         return;
                     }
-                    
+
                     #endregion
-                    
+
+
+
+
+
                     if (isSmall)
                     {
                         uf.SmallPic = true;
@@ -156,8 +152,7 @@ namespace lib.SWFUpload
                         FileName = newFileName,
                         OriginalFileName = fileName,
                         Path = savePath,
-                        Size=KBsize,
-                        Extension=extension
+                        Extension = extension
                     });
                     string postData = "";
                     //序列化
@@ -186,20 +181,20 @@ namespace lib.SWFUpload
         public void DelFile()
         {
             string name = SWFUrlOper.GetStringParamValue("name");
-            string path = SWFUrlOper.GetStringParamValue("f");
+            string path=SWFUrlOper.GetStringParamValue("f");
             string pathArg = SWFUrlOper.GetStringParamValue("PathArg");
 
-            ArgumentsObject argObj = new ArgumentsObject();
+            ArgumentsObject argObj=new ArgumentsObject();
 
-            string arg_path = argObj.Get_argValue(pathArg);
-            if (!string.IsNullOrEmpty(arg_path))
-            {
-                path = arg_path + path;
-            }
+             string arg_path = argObj.Get_argValue(pathArg);
+             if (!string.IsNullOrEmpty(arg_path))
+                    {
+                        path = arg_path+path;
+                    }
 
 
 
-            string msg = new SWFUploadFile().Delete(path, SWFUrlOper.GetStringParamValue("name"), true);
+                    string msg = new SWFUploadFile().Delete(path, SWFUrlOper.GetStringParamValue("name"), true);
             Response.Write(msg);
             Response.End();
         }
