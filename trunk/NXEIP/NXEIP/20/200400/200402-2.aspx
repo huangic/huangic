@@ -39,7 +39,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ODS_1" AutoGenerateColumns="False"
                     Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
-                    OnRowCommand="GridView1_RowCommand" EnableViewState="False" EmptyDataText="目前無資料"
+                    OnRowCommand="GridView1_RowCommand" EmptyDataText="目前無資料"
                     OnRowDataBound="GridView1_RowDataBound" DataKeyNames="d10_no">
                     <Columns>
                         <asp:BoundField DataField="d10_file" HeaderText="檔案名稱" SortExpression="d10_file" />
