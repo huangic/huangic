@@ -18,6 +18,10 @@ public partial class _10_100100_100103_4 : System.Web.UI.Page
 
 
             String albumId=Request["id"];
+            int fileSize = int.Parse(new ArgumentsObject().Get_argValue("100103_size"));
+
+            this.Label2.Text = String.Format("單張相片最大{0}MB", fileSize);
+
 
             this.UC_SWFUpload1.SwfUploadInfo = new SWFUploadInfo()
             {
@@ -31,8 +35,12 @@ public partial class _10_100100_100103_4 : System.Web.UI.Page
                 Path = "/upload/100103/"+albumId+"/",
                 //部門目錄  
                 PathArg="100103_dir",
+                //File_size_limit
 
-                Upload_url = "~/lib/SWFUpload/upload.aspx",
+                File_size_limit=fileSize,
+
+
+                Upload_url = "~/lib/SWFUpload/uploadPhoto.aspx",
 
                 SubmitButtonId = this.btn_ok.ClientID
             };

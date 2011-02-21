@@ -36,6 +36,9 @@
             <div class="h1">
             </div>
             <div class="h2">
+            <div class="name">
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            </div>
             </div>
             <div class="h3">
             </div>
