@@ -22,7 +22,13 @@ namespace NXEIP.DAO
 
         public IQueryable<e05> GetDataBye02no(int e02_no)
         {
-            return (from d in model.e05 where d.e02_no == e02_no orderby d.e05_no select d);
+            var data = (from d in model.e05
+                        where d.e02_no == e02_no
+                        orderby d.e05_no
+                        select d);
+
+            return data;
+
         }
 
         public IQueryable<e05> GetDataBye02no(int e02_no, int startRowIndex, int maximumRows)
