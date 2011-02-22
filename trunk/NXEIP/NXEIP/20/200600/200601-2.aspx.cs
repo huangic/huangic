@@ -48,6 +48,21 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
             InitHyperLink(permission);
 
 
+
+            if (!String.IsNullOrEmpty(mode))
+            {
+                this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
+                this.Navigator1.SubFunc = "精華區主題列表";
+            }
+
+            this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
+
+            this.GridView1.DataBind();
+
+            this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+
+
+
             if (Page.PreviousPage != null && PreviousPage.IsCrossPagePostBack)
             {
                 //取查詢條件
@@ -109,17 +124,7 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
                 if (!Page.IsPostBack)
                 {
 
-                    if (!String.IsNullOrEmpty(mode))
-                    {
-                        this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
-                        this.Navigator1.SubFunc = "精華區主題列表";
-                    }
-
-                    this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
-
-                    this.GridView1.DataBind();
-
-                    this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+                    
 
 
                     //主題的計數器
@@ -208,7 +213,7 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
 
                 //SEARCH
                 this.hl_search.Visible = true;
-                this.hl_search.NavigateUrl = String.Format("200601-11.aspx?tao_no={0}", Request["tao_no"]);
+                this.hl_search.NavigateUrl = String.Format("200601-11.aspx?tao_no={0}&f={1}", Request["tao_no"],mode);
 
                 
 
