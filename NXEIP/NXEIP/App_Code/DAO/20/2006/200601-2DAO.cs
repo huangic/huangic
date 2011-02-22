@@ -68,21 +68,23 @@ namespace NXEIP.DAO
 
             }
 
-
-
-            //取關鍵字條件
-            if (option == "1") {
-                taos = taos.Where(x => x.Name.Contains(keyword));
-            }
-            if (option == "2")
+            if (!String.IsNullOrEmpty(keyword))
             {
-                taos = taos.Where(x => x.Content.Contains(keyword));
-            }
-            if (option == "3")
-            {
-                taos = taos.Where(x => x.FileName.Contains(keyword));
-            }
 
+                //取關鍵字條件
+                if (option == "1")
+                {
+                    taos = taos.Where(x => x.Name.Contains(keyword));
+                }
+                if (option == "2")
+                {
+                    taos = taos.Where(x => x.Content.Contains(keyword));
+                }
+                if (option == "3")
+                {
+                    taos = taos.Where(x => x.FileName.Contains(keyword));
+                }
+            }
 
             //取日期
             if (sdate.HasValue && edate.HasValue) {

@@ -21,7 +21,27 @@ public partial class _20_200600_200601_11 : System.Web.UI.Page
     {
 
         if (!Page.IsPostBack) {
-            this.LinkButton1.PostBackUrl = String.Format("200601-2.aspx?tao_no={0}", Request["tao_no"]);
+
+            String mode = Request["f"];
+
+
+
+            if (String.IsNullOrEmpty(mode))
+            {
+                
+                
+                
+                
+                this.LinkButton1.PostBackUrl = String.Format("200601-2.aspx?tao_no={0}", Request["tao_no"]);
+            }
+            else {
+
+
+                this.Navigator1.SubFunc = "精華區文章查詢";
+                
+                
+                this.LinkButton1.PostBackUrl = String.Format("200601-2.aspx?tao_no={0}&f={1}", Request["tao_no"],mode);
+            }
         }
 
     }
