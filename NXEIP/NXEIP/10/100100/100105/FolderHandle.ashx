@@ -64,74 +64,81 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
             depid = parentFolder.dep_no;
             folderType = parentFolder.d01_type;
         }
-        
-        
-        
-        
-        if(!String.IsNullOrEmpty(handle)&&handle.Equals("move")){
-        
-            try{
-           
-             //目錄搬移
-                
-             
-                
-                
-                
-                
-                
-              doc01 folder=(from f in model.doc01 where f.d01_no==id select f).First();  
-                
-              
-               int oldPid=folder.d01_parentid;
-               
-                
-                folder.d01_parentid=pid;
-                
-                folder.d01_createuid=System.Convert.ToInt32(sessionObj.sessionUserID); 
-                
-                folder.d01_createtime=DateTime.Now;
+
+
+
+
+        #region 搬移
+        if (!String.IsNullOrEmpty(handle) && handle.Equals("move"))
+        {
+
+            try
+            {
+
+                //目錄搬移
+
+
+
+
+
+
+
+                doc01 folder = (from f in model.doc01 where f.d01_no == id select f).First();
+
+
+                int oldPid = folder.d01_parentid;
+
+
+                folder.d01_parentid = pid;
+
+                folder.d01_createuid = System.Convert.ToInt32(sessionObj.sessionUserID);
+
+                folder.d01_createtime = DateTime.Now;
 
                 folder.dep_no = depid;
                 folder.d01_type = folderType.ToString();
-                
-                
+
+
                 model.SaveChanges();
-                
-                
+
+
                 //判斷舊目錄的有沒有下層目錄
                 if (oldPid != 0)
                 {
                     ResetChildFolder(oldPid);
                 }
-                
-                
-                   //pid =0 表示他是根目路 不需要處理子目錄判斷
-                if(pid!=0){
-                      
-                doc01 parentFolder=(from f in model.doc01 where f.d01_no==pid select f).First();  
-                    
-                 //計算屬於下屬的目錄   
-                ResetChildFolder(pid);
-                    
-                    
-               
-              }
+
+
+                //pid =0 表示他是根目路 不需要處理子目錄判斷
+                if (pid != 0)
+                {
+
+                    doc01 parentFolder = (from f in model.doc01 where f.d01_no == pid select f).First();
+
+                    //計算屬於下屬的目錄   
+                    ResetChildFolder(pid);
+
+
+
+                }
 
                 ChangeFolderType(id, depid, folderType.ToString());
                 model.SaveChanges();
 
                 OperatesObject.OperatesExecute(100105, 3, String.Format("目錄搬移 doc01_no:{0}, doc01_parentid:{1}", id, pid));
-                      
-                
-            context.Response.Write("success");
-            }catch(Exception ex){
-            context.Response.Write(ex.Message);
+
+
+                context.Response.Write("success");
+            }
+            catch (Exception ex)
+            {
+                context.Response.Write(ex.Message);
             }
             return;
-           
-        }
 
+        }
+        
+        #endregion
 
         if (!String.IsNullOrEmpty(handle) && handle.Equals("create")) {
             try
@@ -221,6 +228,9 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
                     model.SaveChanges();
                     //TODO 目錄下的所有檔案 要怎麼處理?
 
+                    
+                    
+                    
 
 
                     OperatesObject.OperatesExecute(100105, 3, String.Format("目錄刪除 doc01_no:{0}",id));

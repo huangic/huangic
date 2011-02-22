@@ -74,11 +74,28 @@ public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
 
         if (mode == "save") {
             //   
-
+            PersonalMessageUtil MsgUtil = new PersonalMessageUtil();
+            SessionObject sessionObj=new SessionObject();
+            
+            
             DocPermissionDAO dao=new DocPermissionDAO();
-
+            
+            int doc01_no=int.Parse(context.Request.Cookies["PermissionFiles"].Value);
+            
+                doc01 file=null;
+            
+            
+            using(NXEIPEntities model=new NXEIPEntities()){
+            file=(from d in model.doc01 where d.d01_no==doc01_no select d).Single();
+                
+            }
+            
+        
+            
+            
+            
             int value;
-            int doc03_no=dao.GetDoc03NoFromDoc01NO(int.Parse(context.Request.Cookies["PermissionFiles"].Value)).Value;
+            int doc03_no=dao.GetDoc03NoFromDoc01NO(doc01_no).Value;
             string type;
 
 
@@ -109,7 +126,19 @@ public class PermissionTreeMethod : IHttpHandler,IRequiresSessionState {
                     if (!dao.HasPeoplePermission(doc03_no,value))
                     {
                        dao.AddDocPeopleAndSetPK(new doc05 { d03_no = doc03_no, d05_peouid = value });
-                       OperatesObject.OperatesExecute(100105, 1, String.Format("新增人員權限 doc03_no:{0},doc05__peouid:{1}", +doc03_no, value));
+                       
+                       // dao.g
+                       try
+                       {
+                           //加入個人通知
+
+                           MsgUtil.SendMessage("分享檔案", String.Format("{0}分享檔案{1}給你", sessionObj.sessionUserName, file.d01_file), "", value, int.Parse(sessionObj.sessionUserID), true, false, false);
+                       }
+                       catch { 
+                       
+                       }
+                        
+                        OperatesObject.OperatesExecute(100105, 1, String.Format("新增人員權限 doc03_no:{0},doc05__peouid:{1}", +doc03_no, value));
 
                     }
                     
