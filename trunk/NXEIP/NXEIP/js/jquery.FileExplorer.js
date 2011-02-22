@@ -277,7 +277,7 @@ validate套件
 
 
                 "drop_finish": function () {
-                    alert("DROP");
+                    //alert("DROP");
                 },
                 "drag_check": function (data) {
                     if (data.r.attr("id") == "userFolder") {
@@ -508,7 +508,7 @@ validate套件
                         var data=new Array();
                         data[0]=$(this).parent().parent().attr("id");
 
-                        alert(data );
+                        //alert(data );
                         if(confirm("確定要刪除?")){
                             delFiles(data);
                         }

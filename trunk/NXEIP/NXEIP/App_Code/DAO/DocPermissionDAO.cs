@@ -154,6 +154,11 @@ namespace NXEIP.DAO
             model.SaveChanges();
         }
 
+
+        /// <summary>
+        /// 設定部門權限
+        /// </summary>
+        /// <param name="doc"></param>
         public void AddDocDepartmentAndSetPK(doc04 doc)
         {
             doc.d04_no = GetDocDepartmentMax(doc.d03_no);
@@ -168,7 +173,12 @@ namespace NXEIP.DAO
              return data;
          }
 
-
+        /// <summary>
+        /// 判斷人員全縣
+        /// </summary>
+        /// <param name="d03_no"></param>
+        /// <param name="peo_uid"></param>
+        /// <returns></returns>
         public bool HasPeoplePermission(int d03_no,int peo_uid){
             int count = (from d in model.doc05 where d.d03_no == d03_no && d.d05_peouid == peo_uid select d).Count();
             if (count > 0)
@@ -182,6 +192,12 @@ namespace NXEIP.DAO
 
         }
 
+        /// <summary>
+        /// 判斷部門權限
+        /// </summary>
+        /// <param name="d03_no"></param>
+        /// <param name="dep_no"></param>
+        /// <returns></returns>
         public bool HasDepartmentPermission(int d03_no, int dep_no)
         {
             int count = (from d in model.doc04 where d.d03_no == d03_no && d.d04_depno == dep_no select d).Count();
