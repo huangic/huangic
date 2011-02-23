@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div class="pager">
-                        <asp:DataPager ID="DataPager2" runat="server" PagedControlID="GridView_dep" PageSize="10">
+                        <asp:DataPager ID="DataPager2" runat="server" PagedControlID="GridView_dep" PageSize="25">
                             <Fields>
                                 <NXEIP:GooglePagerField />
                             </Fields>
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                     <div class="pager">
-                        <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView_peo" PageSize="10">
+                        <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView_peo" PageSize="25">
                             <Fields>
                                 <NXEIP:GooglePagerField />
                             </Fields>
