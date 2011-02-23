@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.DAO;
 using System.Data;
+using NXEIP.Widget;
 
-public partial class widget_10_100300_100301 : NXEIP.Widget.WidgetBaseControl
+public partial class widget_10_100300_100301 : WidgetBaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {

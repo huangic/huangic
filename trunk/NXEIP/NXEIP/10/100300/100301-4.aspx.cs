@@ -106,20 +106,22 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
             this.Table1.Dispose();
             int rowcount = -1;
             string sdate = this.Calendar1.VisibleDate.ToString("yyyy/MM/01") + " 00:00:00";
-            string edate = this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
+            string edate = Convert.ToDateTime(this.Calendar1.VisibleDate.ToString("yyyy/MM/01")).AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
             if (isShow)
             {
                 DateTime sdate1 = Convert.ToDateTime(this.Calendar1.VisibleDate.ToString("yyyy/MM/01"));
-                DateTime edate1 = Convert.ToDateTime(this.Calendar1.VisibleDate.AddMonths(1).AddDays(-1).ToString("yyyy/MM/dd"));
+                DateTime edate1 = Convert.ToDateTime(this.Calendar1.VisibleDate.ToString("yyyy/MM/01")).AddMonths(1).AddDays(-1);
                 while (sdate1 <= edate1)
                 {
                     bool iaAdd = false;
                     dt99.Clear();
+                    #region 行事曆
                     sqlstr99 = "SELECT peo_uid, c02_no, c02_sdate, c02_edate, c02_title, c02_bgcolor, c02_setuid,c02_appointmen,c02_check FROM c02 "
                     + " WHERE (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') "
                     + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate >= '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_sdate <= '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') "
                     + " OR (peo_uid = " + this.lab_people.Text + ") and (c02_check<>'2') AND (c02_sdate < '" + sdate1.ToString("yyyy/MM/dd") + " 00:00:00') AND (c02_edate > '" + sdate1.ToString("yyyy/MM/dd") + " 23:59:59') ORDER BY c02_sdate, c02_edate, c02_no";
                     dt99 = dbo.ExecuteQuery(sqlstr99);
+                    //Response.Write(sqlstr99 + "<br>");
                     if (dt99.Rows.Count > 0)
                     {
                         rowcount++;
@@ -141,6 +143,7 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                             this.Table1.Rows[rowcount].Cells[1].Text += "<li class=\"p1\">" + Display(changeobj.ADDTtoROCDT(sdate1.ToString("yyyy-MM-dd")), stime + "~" + etime + " " + dt99.Rows[i]["c02_title"].ToString(), Convert.ToInt32(dt99.Rows[i]["c02_no"].ToString()), Convert.ToInt32(dt99.Rows[i]["c02_setuid"].ToString()),dt99.Rows[i]["c02_appointmen"].ToString(),dt99.Rows[i]["c02_check"].ToString()) + "</li>";
                         }
                     }
+                    #endregion
 
                     #region 會議資料
                     if (iaAdd)
@@ -170,16 +173,16 @@ public partial class _10_100300_100301_4 : System.Web.UI.Page
                     sdate1 = sdate1.AddDays(1);
                 }
                 #region 有值時
-                if (rowcount > 0)
-                {
-                    this.Table1.Visible = true;
-                    this.hl_print.Visible = true;
-                }
-                else
+                if (rowcount < 0)
                 {
                     this.Table1.Visible = false;
                     this.lab_msg.Text = "目前無排定任何行事曆";
                     this.hl_print.Visible = false;
+                }
+                else
+                {
+                    this.Table1.Visible = true;
+                    this.hl_print.Visible = true;
                 }
                 #endregion
             }
