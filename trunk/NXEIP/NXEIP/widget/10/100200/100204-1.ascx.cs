@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.DAO;
 
-public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
+public partial class widget_10_100200_100204_1 : NXEIP.Widget.WidgetBaseControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -14,11 +14,12 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
 
         int count = 0;
 
-        //全府
-        var ndata1 = dao.GetData("2", "-1");
-        if (ndata1.Count() > 0)
+        //單位
+        count = 0;
+        var ndata2 = dao.GetData("1", "-1");
+        if (ndata2.Count() > 0)
         {
-            foreach (var d in ndata1)
+            foreach (var d in ndata2)
             {
                 TableCell cell1 = new TableCell();
                 string subject = d.n01_subject.Length > 40 ? d.n01_subject.Substring(0, 40) + "..." : d.n01_subject;
@@ -32,7 +33,7 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
                 row.Cells.Add(cell1);
                 row.Cells.Add(cell2);
 
-                this.Table1.Rows.Add(row);
+                this.Table2.Rows.Add(row);
 
                 count++;
                 if (count == 5)
@@ -41,17 +42,17 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
                 }
             }
 
-            TableCell cell_more1_1 = new TableCell();
-            cell_more1_1.Text = "&nbsp;";
+            TableCell cell_more2_1 = new TableCell();
+            cell_more2_1.Text = "&nbsp;";
 
-            TableCell cell_more1_2 = new TableCell();
-            cell_more1_2.Text = "<li><a href=\"../../10/100200/100204.aspx\">更多訊息</a></li>";
+            TableCell cell_more2_2 = new TableCell();
+            cell_more2_2.Text = "<li><a href=\"../../10/100200/100204.aspx\">更多訊息</a></li>";
 
-            TableRow row_more1 = new TableRow();
-            row_more1.Cells.Add(cell_more1_1);
-            row_more1.Cells.Add(cell_more1_2);
+            TableRow row_more2 = new TableRow();
+            row_more2.Cells.Add(cell_more2_1);
+            row_more2.Cells.Add(cell_more2_2);
 
-            this.Table1.Rows.Add(row_more1);
+            this.Table2.Rows.Add(row_more2);
         }
         else
         {
@@ -66,9 +67,8 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
             row.Cells.Add(cell1);
             row.Cells.Add(cell2);
 
-            this.Table1.Rows.Add(row);
+            this.Table2.Rows.Add(row);
         }
-        
     }
 
     public override string Name
