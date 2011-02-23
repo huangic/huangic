@@ -47,7 +47,7 @@ public class JsUtil
     /// <param name="url"></param>
     /// <returns></returns>
     public static String GetAlertAndRedirectJs(String msg, String url) {
-        String js = String.Format("alert('{0}');window.location.href='{1}'",msg,url);
+        String js = String.Format("alert('{0}');window.location.href='{1}';",msg,url);
 
         return  js;
     }
@@ -56,9 +56,9 @@ public class JsUtil
         
         
         //page.ClientScript.RegisterClientScriptBlock(page,page.GetType(), "Redirect", GetAlertAndRedirectJs(msg, url), true);
-    
-        
-        ScriptManager.RegisterClientScriptBlock(page,page.GetType(), "Redirect", GetAlertAndRedirectJs(msg, url), true);
+
+
+        CallRegigterClientScript(page, "Redirect", GetAlertAndRedirectJs(msg, url));
     }
 
 

@@ -43,10 +43,14 @@ public partial class _10_100100_100103_3 : System.Web.UI.Page
             using(NXEIPEntities model=new NXEIPEntities()){
 
             try{
-             var Album=(from d in model.album where d.alb_no==albumId && d.peo_uid==peo_uid select d).First();
+             var Album=(from d in model.album where d.alb_no==albumId && d.peo_uid==peo_uid && d.alb_status=="1" select d).FirstOrDefault();
                 if(Album!=null){
                     this.Control.Visible=true;
                     
+                }else{
+                    this.Control.Visible = false;
+                    JsUtil.AlertAndRedirectJs(this, "相簿未審核通過!","100103.aspx");
+
                 }
             
             }catch{
