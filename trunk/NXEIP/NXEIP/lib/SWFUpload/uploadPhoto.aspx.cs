@@ -89,17 +89,23 @@ namespace lib.SWFUpload
                     //判斷TOTAL檔案空間
                     //抓IO目錄判斷大小
                     //
-
-                    String[] Files=Directory.GetFiles(uf.Path+"\\"+savePath);
                     long totalSize = 0;
-                    foreach (string name in Files)
+                   //如果是新目錄就要TRY
+                    try
                     {
-                        // 3
-                        // Use FileInfo to get length of each file.
-                        FileInfo info = new FileInfo(name);
-                        totalSize += info.Length;
-                    }
+                        String[] Files = Directory.GetFiles(uf.Path + "\\" + savePath);
 
+                        foreach (string name in Files)
+                        {
+                            // 3
+                            // Use FileInfo to get length of each file.
+                            FileInfo info = new FileInfo(name);
+                            totalSize += info.Length;
+                        }
+                    }
+                    catch { 
+                    
+                    }
                     double total = Math.Ceiling((double)(totalSize/1024)) + KBsize;
 
                     if (((total) / 1024) >= quota)
