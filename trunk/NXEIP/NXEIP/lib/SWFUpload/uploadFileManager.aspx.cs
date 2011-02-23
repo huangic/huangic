@@ -82,24 +82,26 @@ namespace lib.SWFUpload
                     }
 
 
+                   
+                   //判斷重復檔名
+                   NXEIPEntities model = new NXEIPEntities();
+ 
+                   SessionObject sessionObj = new SessionObject();
+                    
+                   int peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
 
-                    //判斷重復檔名
-                    NXEIPEntities model = new NXEIPEntities();
-
-                    SessionObject sessionObj = new SessionObject();
-                    //要改用COOKIES的值來判斷
-                    int peo_uid = System.Convert.ToInt32(sessionObj.sessionUserID);
-
-                    var files = from d in model.doc01
-                                where d.peo_uid == peo_uid && d.d01_file.ToLower() == file_upload.FileName.ToLower()
-                                select d;
-                    if (files.Count() > 0)
-                    {
-                        Response.StatusCode = 500;
-                        Response.Write("檔案重複上傳");
-                        HttpContext.Current.ApplicationInstance.CompleteRequest();
-                        return;
-                    }
+                   /*
+                   var files = from d in model.doc01
+                               where d.peo_uid == peo_uid && d.d01_file.ToLower() == file_upload.FileName.ToLower()
+                               select d;
+                   if (files.Count() > 0)
+                   {
+                       Response.StatusCode = 500;
+                       Response.Write("檔案重複上傳");
+                       HttpContext.Current.ApplicationInstance.CompleteRequest();
+                       return;
+                   }
+                   */
 
                     //判斷TOTAL檔案空間
                     //使用資料庫判斷 減少IO
