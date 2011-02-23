@@ -106,7 +106,7 @@
                                 Width="100%" CellPadding="3" CellSpacing="3" GridLines="None"
                                 EmptyDataText="目前無資料" DataKeyNames="e05_no,e05_d09no,e05_d10no" 
                                 AllowPaging="True" OnRowCommand="GridView2_RowCommand"
-                                PageSize="5" onrowdatabound="GridView2_RowDataBound">
+                                PageSize="25" onrowdatabound="GridView2_RowDataBound">
                                 <Columns>
                                     <asp:BoundField DataField="e05_no" HeaderText="檔案名稱" 
                                         SortExpression="e05_no" />
@@ -120,7 +120,7 @@
                                 </Columns>
                             </cc1:GridView>
                             <div class="pager">
-                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView2" PageSize="5">
+                                <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView2" PageSize="25">
                                     <Fields>
                                         <NXEIP:GooglePagerField />
                                     </Fields>

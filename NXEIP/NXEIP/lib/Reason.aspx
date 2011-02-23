@@ -46,7 +46,7 @@
                 AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                 EmptyDataText="查無資料"
                 GridLines="None" OnRowCommand="GridView1_RowCommand" 
-                EnableViewState="False" DataSourceID="ObjectDataSource1" PageSize="5" 
+                EnableViewState="False" DataSourceID="ObjectDataSource1" PageSize="25" 
                 Width="100%">
                 <Columns>
                     <asp:BoundField DataField="ter_name" HeaderText="個人詞庫" SortExpression="ter_name" />
@@ -61,7 +61,7 @@
             </cc1:GridView>
             <div class="pager">
             <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" 
-                    PageSize="5">
+                    PageSize="25">
                 <Fields>
                     <NXEIP:GooglePagerField />
                 </Fields>

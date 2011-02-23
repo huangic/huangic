@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="5">
+                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="25">
                         <Fields>
                             <NXEIP:GooglePagerField />
                         </Fields>
