@@ -438,6 +438,27 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                  }
                  
                    
+                   //權限刪除
+
+                 #region 權限刪除
+                 //找DOC03的權限表
+                 var filePermission = (from d in model.doc03 where d.d01_no == file.d01_no select d).Single();
+
+                 //通通砍
+                 foreach (var d04 in filePermission.doc04)
+                 {
+                     model.DeleteObject(d04);
+                 }
+
+                 foreach (var d05 in filePermission.doc05)
+                 {
+                     model.DeleteObject(d05);
+                 }
+
+                 model.DeleteObject(filePermission);  
+                 #endregion
+                   
+                   
                    model.DeleteObject(file);
                    foreach (var d in fileDetial)
                    {
@@ -449,6 +470,11 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                       
                    }
                    //資料庫刪除
+                   
+                   
+                   
+                   
+                   
                }
 
                model.SaveChanges();
