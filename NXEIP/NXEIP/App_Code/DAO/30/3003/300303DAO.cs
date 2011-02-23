@@ -127,6 +127,23 @@ namespace NXEIP.DAO
             return Get_e04Data(e02_no).Count();
         }
 
+        public IQueryable<e04> Get_e04Data_2(int e02_no)
+        {
+            //未審核,審核通過
+            string[] check = { "0", "1" };
+            return (from d in model.e04 where d.e02_no == e02_no && check.Contains(d.e04_check) orderby d.e04_depno, d.e04_applydate select d);
+        }
+
+        public IQueryable<e04> Get_e04Data_2(int e02_no, int startRowIndex, int maximumRows)
+        {
+            return Get_e04Data_2(e02_no).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int Get_e04DataCount_2(int e02_no)
+        {
+            return Get_e04Data_2(e02_no).Count();
+        }
+
         /// <summary>
         /// 查詢已審核資料
         /// </summary>
