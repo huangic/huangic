@@ -90,6 +90,15 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
                 }
                 model.SaveChanges();
 
+                //傳送開會訊息至個人訊息
+                PersonalMessageUtil msg = new PersonalMessageUtil();
+                foreach (var d in this.DepartTreeListBox1.Items)
+                {
+                    int to = int.Parse(d.Key);
+                    string body = string.Format("{0}邀請您出席「{1}」會議，請您至會議管理功能進行出席回覆!", new SessionObject().sessionUserName, this.tbox_reason.Text);
+                    msg.SendMessage("會議通知", body, "", to, peo_uid, true, false, false);
+                }
+
                 //會前資料
                 String FilePath = "/upload/100601/";
                 String uploadDir = new ArgumentsObject().Get_argValue("100601_dir");
