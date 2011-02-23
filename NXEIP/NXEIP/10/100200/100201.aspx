@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="pager">
-            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="10"
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="25"
                 class="googleNavegationBar">
                 <Fields>
                     <NXEIP:GooglePagerField />
