@@ -12,7 +12,7 @@
         tb_remove();
         alert(msg);
     }
-
+    
     function pageLoad(sender, args) {
         if (args.get_isPartialLoad()) {
             //  reapply the thick box stuff
@@ -123,7 +123,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="活動狀態">
                             <ItemTemplate>
-                                <asp:LinkButton ID="linkBut_1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="applic">開放報名</asp:LinkButton>
+                                <asp:LinkButton ID="linkBut_1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="applic" >開放報名</asp:LinkButton>
                                 <asp:LinkButton ID="linkBut_2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="cancel" OnClientClick=" return confirm('確定要取消報名?')">取消報名</asp:LinkButton>
                                 <asp:Label ID="lab_msg" runat="server" ></asp:Label>
                             </ItemTemplate>

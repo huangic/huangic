@@ -121,9 +121,11 @@ public partial class _20_200400_200402 : System.Web.UI.Page
         {
             string[] _check = { "0", "1" };
             int peo_uid = Convert.ToInt32(new SessionObject().sessionUserID);
+            
             int e04_no = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_peouid == peo_uid && _check.Contains(t2.e04_check) select t2.e04_no).FirstOrDefault();
-            logger.Debug("e04_no="+e04_no.ToString());
+
             e04 e04Data = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_no == e04_no && t2.e04_peouid == peo_uid select t2).FirstOrDefault();
+            
             if (e04Data != null)
             {
                 e04Data.e04_check = "3";
@@ -156,10 +158,11 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             e.Row.Cells[3].Text = sdate + "~" + edate;
 
             //報名10人，已核准5人
-            string[] check = { "0", "1", "2" };
+            string[] check = { "0", "1"};
             int count = (from d in model.e04 where d.e02_no == e02_no && check.Contains(d.e04_check) select d).Count();
             int check_count = (from dd in model.e04 where dd.e02_no == e02_no && dd.e04_check == "1" select dd).Count();
-            e.Row.Cells[4].Text = "報名" + count + "人，已核准" + check_count + "人";
+            string str = "<a class='thickbox' href='200402-3.aspx?e02_no="+e02_no+"&modal=true&TB_iframe=true&height=600'>報名" + count + "人，已核准" + check_count + "人</a>";
+            e.Row.Cells[4].Text = str;
 
             //活動狀態
             SessionObject sobj = new SessionObject();
@@ -168,6 +171,8 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             ((LinkButton)e.Row.FindControl("linkBut_1")).Visible = false;
             ((LinkButton)e.Row.FindControl("linkBut_2")).Visible = false;
             e02 e02Data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();
+
+            ((Label)e.Row.FindControl("lab_msg")).Text = "";
 
             if (DateTime.Now >= e02Data.e02_signdate.Value && DateTime.Now <= e02Data.e02_signedate.Value)
             {
@@ -191,14 +196,22 @@ public partial class _20_200400_200402 : System.Web.UI.Page
                     {
                         //是否已經報名
                         int peo_uid = Convert.ToInt32(sobj.sessionUserID);
-                        int e04_no = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_peouid == peo_uid && _check.Contains(t2.e04_check) select t2.e04_no).FirstOrDefault();
-                        if (e04_no == 0)
+                        e04 e04_data = (from t2 in model.e04 where t2.e02_no == e02_no && t2.e04_peouid == peo_uid && _check.Contains(t2.e04_check) select t2).FirstOrDefault();
+                        if (e04_data == null)
                         {
                             ((LinkButton)e.Row.FindControl("linkBut_1")).Visible = true;
                         }
                         else
                         {
                             ((LinkButton)e.Row.FindControl("linkBut_2")).Visible = true;
+                            if (e04_data.e04_check == "0")
+                            {
+                                ((Label)e.Row.FindControl("lab_msg")).Text = "審核中";
+                            }
+                            if (e04_data.e04_check == "1")
+                            {
+                                ((Label)e.Row.FindControl("lab_msg")).Text = "已核准";
+                            }
                         }
                     }
                 }
