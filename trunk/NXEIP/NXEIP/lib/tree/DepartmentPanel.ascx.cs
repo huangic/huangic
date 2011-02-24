@@ -178,6 +178,7 @@ public partial class lib_tree_DepartmentPanel : System.Web.UI.UserControl
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "JQuery", ResolveClientUrl("~/js/jquery-1.4.2.min.js"));
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "JsTree", ResolveClientUrl("~/js/jquery.jstree.js"));
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "jQuery.Cookie", ResolveClientUrl("~/js/jquery.cookie.js"));
+        ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "Json2", ResolveClientUrl("~/js/json.js"));
 
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "DepartTree", ResolveClientUrl("~/js/jquery.department.tree.js"));
 
