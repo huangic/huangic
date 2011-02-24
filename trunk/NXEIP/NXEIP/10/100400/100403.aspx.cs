@@ -57,7 +57,38 @@ public partial class _10_100400_100403 : System.Web.UI.Page
                     this.div_maintain.InnerHtml += strDiv;
 
                 }
-                
+
+                //維修廠商
+                strDiv = @"<div class='box'>
+                                <div class='head'>
+                                <div class='p1'></div>
+                                <div class='p2'><a href='100403-3.aspx'>維修廠商名錄</a></div></div>";
+
+                //維修廠商資料
+                strDiv += "<div class='content'>";
+                var r04Data = (from d in model.rep04
+                               where d.r04_status == "1"
+                               orderby d.r04_createtime descending
+                               select d).Take(3);
+
+                if (r04Data.Count() > 0)
+                {
+                    foreach (var rr in r04Data)
+                    {
+                        strDiv += @"<li class='ps1'>
+                                        <a class='a-letter-mq' href='100403-3.aspx'>" + rr.r04_name + @"</a></li>
+                                        <div class='border-bottom-block2'></div>";
+                    }
+
+                    strDiv += @"<div class='b2'><span class='pmore'><a class='pmore' href='100403-3.aspx'></a></span></div>";
+                }
+                else
+                {
+                    strDiv += "<li class='ps1'><a class='a-letter-mq' href='#'>查無資料</a></li>";
+                }
+
+                strDiv += "</div></div>";
+                this.div_maintain.InnerHtml += strDiv;
             }
 
         }
