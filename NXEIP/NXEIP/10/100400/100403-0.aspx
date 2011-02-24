@@ -46,6 +46,7 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:HiddenField ID="hidd_type" runat="server" />
+    <asp:HiddenField ID="hidd_r05name" runat="server" />
     <asp:HiddenField ID="hidd_r05_no" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100403" />
     <div class="select">
@@ -134,6 +135,10 @@
                             <NXEIP:GooglePagerField />
                         </Fields>
                     </asp:DataPager>
+                </div>
+                <div class="bottom">
+                    <asp:Button ID="Button5" runat="server" Text="回線上報修" CssClass="a-input" 
+                        onclick="Button5_Click" />
                 </div>
             </ContentTemplate>
             <Triggers>

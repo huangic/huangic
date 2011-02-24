@@ -22,10 +22,18 @@
             <div class="h3">
             </div>
         </div>
-    </div>
-    <div class="PersonalCalendarLayout">
+        <div class="PersonalCalendarLayout">
             <div class="maintain" id="div_maintain" runat="server">
             </div>
         </div>
+        <div class="footer">
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
+    </div>
 </asp:Content>
 

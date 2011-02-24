@@ -18,11 +18,19 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
             this.calendar2._ADDate = DateTime.Now;
 
             //預設個人
-            this.Navigator1.SubFunc = "個人維修";
             this.hidd_type.Value = "3";
             if (Request.QueryString["r05_no"] != null)
             {
                 this.hidd_r05_no.Value = Request.QueryString["r05_no"];
+
+                //維修類別名稱
+                using (NXEIPEntities model = new NXEIPEntities())
+                {
+                    int r05_no = int.Parse(this.hidd_r05_no.Value);
+                    this.Navigator1.SubFunc = (from d in model.rep05 where d.r05_no == r05_no select d.r05_name).FirstOrDefault();
+                }
+
+                //取資料
                 this.LoadData();
             }
         }
@@ -133,19 +141,20 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         this.hidd_type.Value = "3";
-        this.Navigator1.SubFunc = "個人維修";
         this.LoadData();
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
         this.hidd_type.Value = "2";
-        this.Navigator1.SubFunc = "單位維修";
         this.LoadData();
     }
     protected void Button3_Click(object sender, EventArgs e)
     {
         this.hidd_type.Value = "1";
-        this.Navigator1.SubFunc = "全府維修";
         this.LoadData();
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("100403.aspx");
     }
 }
