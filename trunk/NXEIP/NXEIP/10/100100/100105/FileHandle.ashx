@@ -442,20 +442,23 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
 
                  #region 權限刪除
                  //找DOC03的權限表
-                 var filePermission = (from d in model.doc03 where d.d01_no == file.d01_no select d).Single();
+                 var filePermission = (from d in model.doc03 where d.d01_no == file.d01_no select d).SingleOrDefault();
 
-                 //通通砍
-                 foreach (var d04 in filePermission.doc04)
+                 if (filePermission != null)
                  {
-                     model.DeleteObject(d04);
-                 }
+                     //通通砍
+                     foreach (var d04 in filePermission.doc04)
+                     {
+                         model.DeleteObject(d04);
+                     }
 
-                 foreach (var d05 in filePermission.doc05)
-                 {
-                     model.DeleteObject(d05);
-                 }
+                     foreach (var d05 in filePermission.doc05)
+                     {
+                         model.DeleteObject(d05);
+                     }
 
-                 model.DeleteObject(filePermission);  
+                     model.DeleteObject(filePermission);
+                 }
                  #endregion
                    
                    
