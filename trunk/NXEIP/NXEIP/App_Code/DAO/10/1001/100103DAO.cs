@@ -103,7 +103,12 @@ namespace NXEIP.DAO
 
 
         public IQueryable<photo> GetTopUploadPhoto(int num,int peo_uid) {
-            var ps = (from d in model.photo where d.pho_createuid == peo_uid orderby d.pho_createtime select d).Take(num);
+            var ps = (from a in model.album
+                      from d in model.photo 
+                      where 
+                      a.alb_no==d.alb_no
+                      && a.alb_status=="1"
+                      && d.pho_createuid == peo_uid orderby d.pho_createtime select d).Take(num);
 
             return ps;
         }
@@ -115,6 +120,7 @@ namespace NXEIP.DAO
                       where a.alb_no==d.alb_no 
                       && a.alb_dep == dep_no
                       && a.alb_public=="2"
+                      && a.alb_status == "1"
                       orderby d.pho_createtime select d).Take(num);
 
             return ps;
