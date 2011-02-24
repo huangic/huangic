@@ -19,6 +19,7 @@
     <script type="text/javascript" src='<%#ResolveUrl("~/js/jquery.log.js") %>'></script>
     <script type="text/javascript" src='<%#ResolveUrl("~/js/thickbox.js") %>'></script>
     <script type="text/javascript" src='<%#ResolveUrl("~/js/jquery.autocomplete.js") %>'></script>
+    <script type="text/javascript" src="<%#ResolveUrl("~/js/json2.js") %></script>
     <script type="text/javascript"></script>
     
     <asp:ContentPlaceHolder id="head" runat="server">
