@@ -331,7 +331,23 @@ validate套件
                },
                "remove": {
                 "label": "刪除"
-                ,"action"			: function (obj) { this.remove(obj); }
+                ,"action"			: function (obj) { 
+                
+                //驗證有沒有子項目
+                //有就不能刪除
+                    url="100105/FolderCheckHandle.ashx";
+                    postdata = {id:$(node).attr("id")};
+
+                    AjaxHandle(url,postdata,function(d){ result=d.check; } ); 
+
+                    if(result){
+                    this.remove(obj);
+                    }else{
+                    alert("目錄中有檔案或目錄，無法刪除!!"); 
+                    
+                    } 
+                
+                }
                }
           };
                 
