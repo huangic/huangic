@@ -210,14 +210,24 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             }
             //是否需審核 1:是 2:否
             string ischeck = new ArgumentsObject().Get_argValue("100204_ischeck");
-            if (ischeck.Equals("1"))
+            //全府
+            if (this.rbl_use.SelectedValue == "2")
             {
-                data.n01_status = "3";
+                if (ischeck.Equals("1"))
+                {
+                    data.n01_status = "3";
+                }
+                else
+                {
+                    data.n01_status = "1";
+                }
             }
             else
             {
                 data.n01_status = "1";
             }
+            
+
             model.new01.AddObject(data);
             model.SaveChanges();
 
