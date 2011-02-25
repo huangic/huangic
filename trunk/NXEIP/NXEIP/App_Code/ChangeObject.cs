@@ -163,7 +163,7 @@ public class ChangeObject
 
     #region 西元年月日時間轉 民國年月日時間  ADDTtoROCDT
     /// <summary>
-    /// 西元年月日時間轉 民國年月日時間
+    /// 西元年月日時間轉 民國年月日時分秒
     /// </summary>
     /// <param name="ADDT"> 2005-05-06-23-11-15  西元年-月-日-小時-分</param>
     /// <returns>民國年-月-日 時間 94-05-06 23:11:15</returns>
