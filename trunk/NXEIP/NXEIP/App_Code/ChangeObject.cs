@@ -171,7 +171,7 @@ public class ChangeObject
     {
         TaiwanCalendar tc = new TaiwanCalendar();
 
-        return tc.GetYear(ADDT) + "-" + ADDT.ToString("MM-dd hh:mm:ss");
+        return tc.GetYear(ADDT) + "-" + ADDT.ToString("MM-dd HH:mm:ss");
 
       
     }
