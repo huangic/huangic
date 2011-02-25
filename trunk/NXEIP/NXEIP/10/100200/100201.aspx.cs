@@ -36,7 +36,6 @@ public partial class _10_100200_100201 : System.Web.UI.Page
 
             OperatesObject.OperatesExecute(100201, 4, "刪除個人訊息 mes_no:" + d.mes_no);
 
-            this.ObjectDataSource1.SelectParameters["peo_uid"].DefaultValue = new SessionObject().sessionUserID;
             this.GridView1.DataBind();
         }
     }
@@ -46,12 +45,30 @@ public partial class _10_100200_100201 : System.Web.UI.Page
         {
             UtilityDAO dao = new UtilityDAO();
 
-            int peo_uid = Convert.ToInt32(e.Row.Cells[0].Text);
-            e.Row.Cells[0].Text = dao.Get_PeopleName(peo_uid);
+            int peo_uid = Convert.ToInt32(e.Row.Cells[1].Text);
+            e.Row.Cells[1].Text = dao.Get_PeopleName(peo_uid);
 
-            DateTime date = Convert.ToDateTime(e.Row.Cells[3].Text);
-            e.Row.Cells[3].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
+            DateTime date = Convert.ToDateTime(e.Row.Cells[4].Text);
+            e.Row.Cells[4].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
 
         }
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        for (int i = 0; i < this.GridView1.Rows.Count; i++)
+        {
+            if (((CheckBox)(this.GridView1.Rows[i].FindControl("CheckBox1"))).Checked)
+            {
+                int mes_no = int.Parse(this.GridView1.DataKeys[i].Value.ToString());
+                MessageDAO dao = new MessageDAO();
+                message d = dao.GetDataByNo(mes_no);
+                d.mes_status = "2";
+                dao.Update();
+                OperatesObject.OperatesExecute(100201, 4, "刪除個人訊息 mes_no:" + d.mes_no);
+            }
+        }
+
+        this.GridView1.DataBind();
     }
 }

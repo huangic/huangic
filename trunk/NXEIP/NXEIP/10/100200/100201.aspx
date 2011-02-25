@@ -38,6 +38,12 @@
             OnRowCommand="GridView1_RowCommand"  
             DataKeyNames="mes_no">
             <Columns>
+                <asp:TemplateField HeaderText="選取">
+                    <ItemTemplate>
+                        <asp:CheckBox ID="CheckBox1" runat="server" />
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="5%" />
+                </asp:TemplateField>
                 <asp:BoundField DataField="mes_senduid" HeaderText="發訊息者" 
                     SortExpression="mes_senduid">
                     <ItemStyle Width="10%" />
@@ -76,6 +82,9 @@
                     <NXEIP:GooglePagerField />
                 </Fields>
             </asp:DataPager>
+        </div>
+        <div class="bottom">
+            <asp:Button ID="Button9" runat="server" Text="刪除" CssClass="b-input" OnClientClick=" return confirm('確定要刪除?')" OnClick="Button9_Click" />
         </div>
     </div>
 </asp:Content>

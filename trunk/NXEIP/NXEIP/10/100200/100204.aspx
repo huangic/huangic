@@ -39,7 +39,7 @@
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100204" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="select" style="text-align: right">
+            <div class="select" >
                 <div class="center0">
                     查詢最新消息：</div>
                 <div class="center1">
@@ -97,6 +97,12 @@
                     EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound" GridLines="None"
                     OnRowCommand="GridView1_RowCommand" EnableViewState="False" DataKeyNames="n01_no">
                     <Columns>
+                        <asp:TemplateField HeaderText="選取">
+                            <ItemTemplate>
+                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="5%" />
+                        </asp:TemplateField>
                         <asp:BoundField DataField="n01_subject" HeaderText="消息主旨" SortExpression="n01_subject" />
                         <asp:BoundField DataField="n01_status" HeaderText="審核狀態" SortExpression="n01_status">
                             <ItemStyle Width="7%" />
@@ -141,6 +147,10 @@
                             <NXEIP:GooglePagerField />
                         </Fields>
                     </asp:DataPager>
+                </div>
+                <div class="bottom">
+                    <asp:Button ID="Button9" runat="server" Text="刪除" OnClientClick=" return confirm('確定要刪除?')" CssClass="b-input" 
+                        onclick="Button9_Click" />
                 </div>
             </div>
         </ContentTemplate>

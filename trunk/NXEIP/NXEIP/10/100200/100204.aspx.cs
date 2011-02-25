@@ -50,6 +50,9 @@ public partial class _10_100200_100204 : System.Web.UI.Page
             new01 d = dao.GetByNo(n01_no);
             d.n01_status = "4";
             dao.SaveChang();
+
+            OperatesObject.OperatesExecute(100204, 4, "刪除最新消息 n01_no:" + d.n01_no);
+
             this.GridView1.DataBind();
             this.ListView1.DataBind();
         }
@@ -65,29 +68,29 @@ public partial class _10_100200_100204 : System.Web.UI.Page
         {
             UtilityDAO dao = new UtilityDAO();
 
-            if (e.Row.Cells[1].Text.Equals("1"))
+            if (e.Row.Cells[2].Text.Equals("1"))
             {
-                e.Row.Cells[1].Text = "通過";
+                e.Row.Cells[2].Text = "通過";
             }
-            if (e.Row.Cells[1].Text.Equals("2"))
+            if (e.Row.Cells[2].Text.Equals("2"))
             {
-                e.Row.Cells[1].Text = "未通過";
+                e.Row.Cells[2].Text = "未通過";
             }
-            if (e.Row.Cells[1].Text.Equals("3"))
+            if (e.Row.Cells[2].Text.Equals("3"))
             {
-                e.Row.Cells[1].Text = "送審中";
+                e.Row.Cells[2].Text = "送審中";
             }
             try
             {
-                e.Row.Cells[2].Text = dao.Get_PeopleName(int.Parse(e.Row.Cells[2].Text));
+                e.Row.Cells[3].Text = dao.Get_PeopleName(int.Parse(e.Row.Cells[3].Text));
             }
             catch { }
             try
             {
-                e.Row.Cells[3].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[3].Text);
-                if (e.Row.Cells[3].Text.Equals("0"))
+                e.Row.Cells[4].Text = new ChangeObject().ADDTtoROCDT(e.Row.Cells[4].Text);
+                if (e.Row.Cells[4].Text.Equals("0"))
                 {
-                    e.Row.Cells[3].Text = "";
+                    e.Row.Cells[4].Text = "";
                 }
             }
             catch { }
@@ -144,5 +147,24 @@ public partial class _10_100200_100204 : System.Web.UI.Page
         {
            
         }
+    }
+
+    protected void Button9_Click(object sender, EventArgs e)
+    {
+        for (int i = 0; i < this.GridView1.Rows.Count; i++)
+        {
+            if (((CheckBox)(this.GridView1.Rows[i].FindControl("CheckBox1"))).Checked)
+            {
+                int n01_no = int.Parse(this.GridView1.DataKeys[i].Value.ToString());
+                New01DAO dao = new New01DAO();
+                new01 d = dao.GetByNo(n01_no);
+                d.n01_status = "4";
+                dao.SaveChang();
+                OperatesObject.OperatesExecute(100204, 4, "刪除最新消息 n01_no:" + d.n01_no);
+            }
+        }
+
+        this.GridView1.DataBind();
+        this.ListView1.DataBind();
     }
 }
