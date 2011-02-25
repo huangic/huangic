@@ -31,7 +31,7 @@ namespace NXEIP.DAO
         {
             return (from d in model.message
                     where d.mes_peouid == peo_uid && d.mes_status == "1"
-                    orderby d.mes_datetime
+                    orderby d.mes_datetime descending
                     select d);
         }
 
