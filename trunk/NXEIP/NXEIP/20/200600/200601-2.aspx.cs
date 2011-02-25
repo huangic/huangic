@@ -45,21 +45,7 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
         if (HasPermission)
         {
 
-            InitHyperLink(permission);
-
-
-
-            if (!String.IsNullOrEmpty(mode))
-            {
-                this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
-                this.Navigator1.SubFunc = "精華區主題列表";
-            }
-
-            this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
-
-            this.GridView1.DataBind();
-
-            this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+            
 
 
 
@@ -124,7 +110,24 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
                 if (!Page.IsPostBack)
                 {
 
-                    
+
+                    InitHyperLink(permission);
+
+
+
+                    if (!String.IsNullOrEmpty(mode))
+                    {
+                        this.ObjectDataSource1.SelectParameters[2].DefaultValue = "True";
+                        this.Navigator1.SubFunc = "精華區主題列表";
+                    }
+
+                    this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
+
+                    this.GridView1.DataBind();
+
+                    this.Navigator1.SubFunc += String.Format("-{0}", f.Name);
+
+
 
 
                     //主題的計數器
