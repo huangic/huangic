@@ -86,7 +86,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_date")) %>'></asp:Label>
                                <br />
-                                <asp:Label ID="Label2"  CssClass="a-letter-Red" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_edate")) %>'></asp:Label>
+                                <asp:Label ID="Label2"  CssClass="a02-15-Red" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_edate")) %>'></asp:Label>
                             </ItemTemplate>
 
 
