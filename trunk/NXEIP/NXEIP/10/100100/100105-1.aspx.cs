@@ -261,7 +261,7 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
             doc02 newFile = new doc02();
 
             newFile.d01_no = newStruts.d01_no;
-            newFile.d02_path = f.Path + f.FileName;
+            newFile.d02_path = f.Path+"/" + f.FileName;
             newFile.d02_depname = sessionObj.sessionUserDepartName;
             newFile.d02_creator = sessionObj.sessionUserName;
             newFile.d02_no = 1;
