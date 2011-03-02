@@ -110,6 +110,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ATTENDS_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "attends", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.attends), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CONFEREN_RELATIONS_MEETINGS", "meetings", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.meetings), "conferen", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.conferen), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_HUIYI_RELATIONS_MEETINGS", "meetings", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.meetings), "huiyi", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.huiyi), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "ipaddress", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ipaddress), true)]
 
 #endregion
 
@@ -1664,6 +1665,22 @@ namespace Entity
             }
         }
         private ObjectSet<leading> _leading;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<ipaddress> ipaddress
+        {
+            get
+            {
+                if ((_ipaddress == null))
+                {
+                    _ipaddress = base.CreateObjectSet<ipaddress>("ipaddress");
+                }
+                return _ipaddress;
+            }
+        }
+        private ObjectSet<ipaddress> _ipaddress;
 
         #endregion
         #region AddTo 方法
@@ -2418,6 +2435,14 @@ namespace Entity
         public void AddToleading(leading leading)
         {
             base.AddObject("leading", leading);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 ipaddress EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToipaddress(ipaddress ipaddress)
+        {
+            base.AddObject("ipaddress", ipaddress);
         }
 
         #endregion
@@ -15295,6 +15320,320 @@ namespace Entity
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="ipaddress")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ipaddress : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 ipaddress 物件。
+        /// </summary>
+        /// <param name="ipa_no">ipa_no 屬性的初始值。</param>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        public static ipaddress Createipaddress(global::System.Int32 ipa_no, global::System.Int32 peo_uid)
+        {
+            ipaddress ipaddress = new ipaddress();
+            ipaddress.ipa_no = ipa_no;
+            ipaddress.peo_uid = peo_uid;
+            return ipaddress;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ipa_no
+        {
+            get
+            {
+                return _ipa_no;
+            }
+            set
+            {
+                if (_ipa_no != value)
+                {
+                    Onipa_noChanging(value);
+                    ReportPropertyChanging("ipa_no");
+                    _ipa_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ipa_no");
+                    Onipa_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ipa_no;
+        partial void Onipa_noChanging(global::System.Int32 value);
+        partial void Onipa_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                Onpeo_uidChanging(value);
+                ReportPropertyChanging("peo_uid");
+                _peo_uid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("peo_uid");
+                Onpeo_uidChanged();
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_start
+        {
+            get
+            {
+                return _ipa_start;
+            }
+            set
+            {
+                Onipa_startChanging(value);
+                ReportPropertyChanging("ipa_start");
+                _ipa_start = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_start");
+                Onipa_startChanged();
+            }
+        }
+        private global::System.String _ipa_start;
+        partial void Onipa_startChanging(global::System.String value);
+        partial void Onipa_startChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_end
+        {
+            get
+            {
+                return _ipa_end;
+            }
+            set
+            {
+                Onipa_endChanging(value);
+                ReportPropertyChanging("ipa_end");
+                _ipa_end = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_end");
+                Onipa_endChanged();
+            }
+        }
+        private global::System.String _ipa_end;
+        partial void Onipa_endChanging(global::System.String value);
+        partial void Onipa_endChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_name
+        {
+            get
+            {
+                return _ipa_name;
+            }
+            set
+            {
+                Onipa_nameChanging(value);
+                ReportPropertyChanging("ipa_name");
+                _ipa_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_name");
+                Onipa_nameChanged();
+            }
+        }
+        private global::System.String _ipa_name;
+        partial void Onipa_nameChanging(global::System.String value);
+        partial void Onipa_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_memo
+        {
+            get
+            {
+                return _ipa_memo;
+            }
+            set
+            {
+                Onipa_memoChanging(value);
+                ReportPropertyChanging("ipa_memo");
+                _ipa_memo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_memo");
+                Onipa_memoChanged();
+            }
+        }
+        private global::System.String _ipa_memo;
+        partial void Onipa_memoChanging(global::System.String value);
+        partial void Onipa_memoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_group
+        {
+            get
+            {
+                return _ipa_group;
+            }
+            set
+            {
+                Onipa_groupChanging(value);
+                ReportPropertyChanging("ipa_group");
+                _ipa_group = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_group");
+                Onipa_groupChanged();
+            }
+        }
+        private global::System.String _ipa_group;
+        partial void Onipa_groupChanging(global::System.String value);
+        partial void Onipa_groupChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ipa_status
+        {
+            get
+            {
+                return _ipa_status;
+            }
+            set
+            {
+                Onipa_statusChanging(value);
+                ReportPropertyChanging("ipa_status");
+                _ipa_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ipa_status");
+                Onipa_statusChanged();
+            }
+        }
+        private global::System.String _ipa_status;
+        partial void Onipa_statusChanging(global::System.String value);
+        partial void Onipa_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ipa_createuid
+        {
+            get
+            {
+                return _ipa_createuid;
+            }
+            set
+            {
+                Onipa_createuidChanging(value);
+                ReportPropertyChanging("ipa_createuid");
+                _ipa_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ipa_createuid");
+                Onipa_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ipa_createuid;
+        partial void Onipa_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onipa_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ipa_createtime
+        {
+            get
+            {
+                return _ipa_createtime;
+            }
+            set
+            {
+                Onipa_createtimeChanging(value);
+                ReportPropertyChanging("ipa_createtime");
+                _ipa_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ipa_createtime");
+                Onipa_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ipa_createtime;
+        partial void Onipa_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onipa_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "people", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="leading")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -19771,6 +20110,28 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<attends>("NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE", "attends", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "ipaddress")]
+        public EntityCollection<ipaddress> ipaddress
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ipaddress>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "ipaddress");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ipaddress>("NXEIPModel.FK_IPADDRES_RELATIONS_PEOPLE", "ipaddress", value);
                 }
             }
         }
