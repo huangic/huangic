@@ -447,22 +447,30 @@ public class FileHandle : IHttpHandler, IRequiresSessionState
                  if (filePermission != null)
                  {
                      //通通砍
-                     foreach (var d04 in filePermission.doc04)
-                     {
-                         model.DeleteObject(d04);
-                     }
-
-                     foreach (var d05 in filePermission.doc05)
-                     {
-                         model.DeleteObject(d05);
-                     }
+                     //foreach (var d04 in filePermission.doc04)
+                     //{
+                     //    model.DeleteObject(d04);
+                     //}
+                     //把關聯的資料一起建立
+                     filePermission.doc04.Load();
+                     filePermission.doc05.Load();
+                     
+                     //foreach (var d05 in filePermission.doc05)
+                     //{
+                     //    model.DeleteObject(d05);
+                     //}
 
                      model.DeleteObject(filePermission);
                  }
+
+                 //model.SaveChanges();
+                 
                  #endregion
                    
                    
                    model.DeleteObject(file);
+                  
+                   
                    foreach (var d in fileDetial)
                    {
 
