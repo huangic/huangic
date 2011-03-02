@@ -773,7 +773,7 @@
 	width: 636px;
 	vertical-align: middle;
 	float: left;
-	margin-left: 15px;
+	margin-left: 4px;
 	margin-top: 4px;
 }
 .talkn .back .bg1_title {
@@ -1386,6 +1386,19 @@
 	border-bottom-color: #afde6c;
 	text-decoration: none;
 }
+
+.first .row_n{word-break:break-all;width:180px; overflow:auto; 
+}
+        
+/*ie 6 跑掉.first .row_n{ width:180px;  word-wrap: break-word; word-break: normal;} */
+
+
+
+/*.first .row_n{white-space:normal; width:180px; overflow:auto; }*/
+
+
+
+
 .first .row_1 {
 	width: 180px;
 	float: left;
