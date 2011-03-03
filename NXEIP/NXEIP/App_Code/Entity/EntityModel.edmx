@@ -938,6 +938,7 @@
           <Property Name="e02_check" Type="char" MaxLength="1" />
           <Property Name="e02_openuid" Type="int" />
           <Property Name="e02_applydate" Type="datetime" />
+          <Property Name="e02_place" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="e03">
           <Key>
@@ -4401,6 +4402,7 @@
           <NavigationProperty Name="e03" Relationship="NXEIPModel.FK_E03_RELATIONS_E02" FromRole="e02" ToRole="e03" />
           <NavigationProperty Name="e04" Relationship="NXEIPModel.FK_E04_RELATIONS_E02" FromRole="e02" ToRole="e04" />
           <NavigationProperty Name="e05" Relationship="NXEIPModel.FK_E05_RELATIONS_E02" FromRole="e02" ToRole="e05" />
+          <Property Type="String" Name="e02_place" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_E02_RELATIONS_E01">
           <End Type="NXEIPModel.e01" Role="e01" Multiplicity="1" />
@@ -6471,6 +6473,7 @@
           <EntitySetMapping Name="e02">
             <EntityTypeMapping TypeName="NXEIPModel.e02">
               <MappingFragment StoreEntitySet="e02">
+                <ScalarProperty Name="e02_place" ColumnName="e02_place" />
                 <ScalarProperty Name="e02_applydate" ColumnName="e02_applydate" />
                 <ScalarProperty Name="e02_openuid" ColumnName="e02_openuid" />
                 <ScalarProperty Name="e02_check" ColumnName="e02_check" />
