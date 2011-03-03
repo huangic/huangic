@@ -450,7 +450,7 @@
                                 <span style="color: Red">*</span>上課地點
                             </th>
                             <td>
-                                <asp:TextBox ID="tbox_place" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="tbox_place" runat="server" MaxLength="30"></asp:TextBox>
                             </td>
                             <th>
                                 招收名額上限
