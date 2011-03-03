@@ -36,15 +36,16 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ODS_1" runat="server" SelectMethod="GetData" TypeName="NXEIP.DAO._300303DAO"
-        EnablePaging="True" SelectCountMethod="GetDataCount">
+        EnablePaging="True" SelectCountMethod="GetDataCount" 
+        OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
             <asp:Parameter Name="sdate" Type="String" />
             <asp:Parameter Name="edate" Type="String" />
             <asp:Parameter Name="type_1" Type="String" />
             <asp:Parameter Name="type_2" Type="String" />
-            <asp:Parameter Name="e01_no" Type="String" />
+            <asp:Parameter Name="e02_place" Type="String" />
             <asp:Parameter Name="e02_name" Type="String" />
-            <asp:Parameter Name="openuid" Type="String" />
+            <asp:Parameter Name="openuid" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="200402" />
@@ -61,11 +62,7 @@
                     <tr>
                         <td>
                             課程名稱：<asp:TextBox ID="tbox_name" runat="server" Width="230px"></asp:TextBox>
-                            &nbsp;&nbsp; 上課地點：<asp:DropDownList ID="ddl_e01" runat="server" DataSourceID="ODS_e01"
-                                DataTextField="e01_name" DataValueField="e01_no" 
-                                AppendDataBoundItems="True">
-                                <asp:ListItem Value="0">請選擇</asp:ListItem>
-                            </asp:DropDownList>
+                            &nbsp;&nbsp; 上課地點：<asp:TextBox ID="tbox_place" runat="server"></asp:TextBox>
                             &nbsp;&nbsp;&nbsp; 課程大類&nbsp;
                             <asp:DropDownList ID="ddl_type_1" runat="server" AutoPostBack="True" DataSourceID="ODS_type_1"
                                 DataTextField="typ_cname" DataValueField="typ_no" 
@@ -111,7 +108,7 @@
                         <asp:BoundField DataField="e02_signdate" HeaderText="報名起迄日期" SortExpression="e02_signdate"
                             DataFormatString="{0:yyyy-MM-dd}" />
                         <asp:BoundField DataField="e02_sdate" HeaderText="上課起迄日期" SortExpression="e02_sdate"
-                            DataFormatString="{0:yyyy-MM-dd}" />
+                            DataFormatString="{0:yyyy-MM-dd HH:mm}" />
                         <asp:BoundField DataField="e02_no" HeaderText="報名狀況" SortExpression="e02_no"></asp:BoundField>
                         <asp:TemplateField HeaderText="講義">
                             <ItemTemplate>

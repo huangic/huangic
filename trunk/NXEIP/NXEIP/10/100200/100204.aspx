@@ -39,14 +39,15 @@
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100204" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            
             <div class="select" >
-                <div class="center0">
-                    查詢最新消息：</div>
-                <div class="center1">
-                    <asp:TextBox ID="tbox_search" runat="server"></asp:TextBox></div>
-                <div class="b5">
-                    <asp:Button ID="Button1" runat="server" Text="查詢" CssClass="b-input" OnClick="Button1_Click" /></div>
-                <div>
+                <span class="a-letter-2">
+                    查詢最新消息：<asp:TextBox ID="tbox_search" runat="server"></asp:TextBox>
+                    <span class="a-letter-1">
+                        <asp:Button ID="Button1" runat="server" Text="查詢" CssClass="b-input" OnClick="Button1_Click" />
+                    </span>
+                </span>
+                <span class="a-letter-2">
                     <asp:Button ID="Button5" runat="server" Text="全府RSS訂閱" CssClass="b-input" Visible="False" />
                     &nbsp;&nbsp;
                     <asp:Button ID="Button6" runat="server" Text="單位RSS訂閱" CssClass="b-input" Visible="False" />
@@ -54,8 +55,10 @@
                     <asp:Button ID="Button7" runat="server" Text="全府最新消息" CssClass="b-input" OnClick="Button7_Click" />
                     &nbsp;&nbsp;
                     <asp:Button ID="Button8" runat="server" Text="單位最新消息" CssClass="b-input" OnClick="Button8_Click" />
-                </div>
+                </span>
+                
             </div>
+            
             <div class="select-3">
                 <asp:ListView ID="ListView1" runat="server" DataKeyNames="n01_no" DataSourceID="ObjectDataSource1">
                     <ItemTemplate>

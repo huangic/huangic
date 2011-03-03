@@ -192,7 +192,7 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
         url += "&edate=" + Request["edate"];
         url += "&type_1=" + Request["type_1"];
         url += "&type_2=" + Request["type_2"];
-        url += "&e01_no=" + Request["e01_no"];
+        url += "&e02_place=" + Request["e02_place"];
         url += "&e02_name=" + Request["e02_name"];
         url += "&e02_no=" + Request["e02_no"];
         url += "&model=" + Request["model"];
@@ -225,7 +225,7 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
         Sheet sheet1 = hssfworkbook.CreateSheet("Sheet1");
         int e02_no = Convert.ToInt32(this.hidd_no.Value);
         string[] isShow = this.hidd_checked.Value.Split(',');
-        string[] colname = { "單位", "姓名", "職稱", "身分證字號", "電話" };
+        string[] colname = { "單位", "職稱", "姓名", "身分證字號", "電話" };
 
         //表頭
         var e02Data = (from d in model.e02 where d.e02_no == e02_no select d).FirstOrDefault();

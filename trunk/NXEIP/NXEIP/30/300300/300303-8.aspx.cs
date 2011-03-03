@@ -21,7 +21,7 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                 int e02_no = Convert.ToInt32(this.hidd_no.Value);
                 string arg = Request["arg"];
                 string[] isShow = arg.Split(',');
-                string[] colname = { "單位", "姓名", "職稱", "身分證字號", "電話" };
+                string[] colname = { "單位", "職稱", "姓名", "身分證字號", "電話" };
                 int colSpan = 6;
                 for (int i = 0; i < isShow.Length; i++)
                 {

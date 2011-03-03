@@ -17,10 +17,6 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         {
             this.Navigator1.SubFunc = "課程新增";
 
-            this.ddl_e01.DataBind();
-            this.ddl_e01.Items.Insert(0, new ListItem("請選擇", "0"));
-            this.ddl_e01.Items[0].Selected = true;
-
             this.ddl_type_1.DataBind();
             this.ddl_type_1.Items.Insert(0, new ListItem("請選擇", "0"));
             this.ddl_type_1.Items[0].Selected = true;
@@ -97,15 +93,9 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
                 this.tbox_limit.Text = edata.e02_limit;
 
                 //上課地點
-                try
+                if (!string.IsNullOrEmpty(edata.e02_place))
                 {
-                    this.ddl_e01.Items[0].Selected = false;
-                    this.ddl_e01.Items.FindByValue(edata.e01_no.ToString()).Selected = true;
-                }
-                catch
-                {
-                    //上課地點被刪除
-                    this.ddl_e01.Items[0].Selected = true;
+                    this.tbox_place.Text = edata.e02_place;
                 }
 
                 //名額上限
@@ -263,8 +253,10 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         //狀態
         data.e02_status = "1";
 
-        //上課地點
-        data.e01_no = Convert.ToInt32(this.ddl_e01.SelectedValue);
+        //上課地點,改由使用者輸入
+        data.e01_no = 1;//舊的上課地點欄位,固定輸入1
+        data.e02_place = this.tbox_place.Text.Trim();
+
         //課程類別
         data.typ_no = Convert.ToInt32(this.ddl_type_2.SelectedValue);
 
@@ -326,7 +318,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         data.e02_check = this.rbl_check.SelectedValue;
 
         //上課地點
-        data.e01_no = Convert.ToInt32(this.ddl_e01.SelectedValue);
+        data.e02_place = this.tbox_place.Text.Trim();
 
         //課程類別
         data.typ_no = Convert.ToInt32(this.ddl_type_2.SelectedValue);
@@ -383,7 +375,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         url += "&edate=" + Request["edate"];
         url += "&type_1=" + Request["type_1"];
         url += "&type_2=" + Request["type_2"];
-        url += "&e01_no=" + Request["e01_no"];
+        url += "&e02_place=" + Request["e02_place"];
         url += "&e02_name=" + Request["e02_name"];
         url += "&e02_no=" + Request["e02_no"];
         url += "&model=" + Request["model"];
@@ -417,7 +409,8 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
 
     private void ShowMsg_URL(string msg, string url)
     {
-        string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        //string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
+        //this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        JsUtil.AlertAndRedirectJs(this, msg, url);
     }
 }

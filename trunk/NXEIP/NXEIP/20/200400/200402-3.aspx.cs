@@ -26,7 +26,9 @@ public partial class _20_200400_200402_3 : System.Web.UI.Page
                     this.lab_name_flag.Text = d.e02_name + "(第" + d.e02_flag + "期)";
                     this.lab_memo.Text = d.e02_memo;
                     this.lab_limit.Text = d.e02_limit;
-                    this.lab_e01_name.Text = (from tt in model.e01 where tt.e01_no == d.e01_no select tt.e01_name).FirstOrDefault();
+
+                    this.lab_e01_name.Text = d.e02_place;
+                    
                     this.lab_teacher.Text = d.e02_teacher;
                     if (d.e02_hour.HasValue)
                     {

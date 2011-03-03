@@ -40,11 +40,11 @@ public partial class _20_200400_200402 : System.Web.UI.Page
                     edate = Request["edate"];
                 }
 
-                this.LoadData(sdate, edate, Request["type_1"], Request["type_2"], Request["e01_no"], Request["e02_name"], Request["pageIndex"]);
+                this.LoadData(sdate, edate, Request["type_1"], Request["type_2"], Request["e02_place"], Request["e02_name"], Request["pageIndex"]);
             }
             else
             {
-                this.LoadData(DateTime.Now.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
+                this.LoadData(DateTime.Now.ToString("yyyy-MM-dd"), "", this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.tbox_place.Text.Trim(), this.tbox_name.Text, "0");
             }
 
             OperatesObject.OperatesExecute(200402, new SessionObject().sessionUserID, 2, "查詢線上報名");
@@ -59,13 +59,13 @@ public partial class _20_200400_200402 : System.Web.UI.Page
     /// <summary>
     /// 撈資料
     /// </summary>
-    private void LoadData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, string pageIndex)
+    private void LoadData(string sdate, string edate, string type_1, string type_2, string e02_place, string e02_name, string pageIndex)
     {
         this.ODS_1.SelectParameters["sdate"].DefaultValue = sdate;
         this.ODS_1.SelectParameters["edate"].DefaultValue = edate;
         this.ODS_1.SelectParameters["type_1"].DefaultValue = type_1;
         this.ODS_1.SelectParameters["type_2"].DefaultValue = type_2;
-        this.ODS_1.SelectParameters["e01_no"].DefaultValue = e01_no;
+        this.ODS_1.SelectParameters["e02_place"].DefaultValue = e02_place;
         this.ODS_1.SelectParameters["e02_name"].DefaultValue = e02_name;
         //建立者
         //this.ODS_1.SelectParameters["openuid"].DefaultValue = openuid;
@@ -76,7 +76,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
     {
         if (this.CheckUI())
         {
-            this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.ddl_e01.SelectedValue, this.tbox_name.Text, "0");
+            this.LoadData(this.calendar1._ADDate.ToString("yyyy-MM-dd"), this.calendar2._ADDate.ToString("yyyy-MM-dd"), this.ddl_type_1.SelectedValue, this.ddl_type_2.SelectedValue, this.tbox_place.Text.Trim(), this.tbox_name.Text, "0");
         }
     }
     private bool CheckUI()
@@ -243,7 +243,7 @@ public partial class _20_200400_200402 : System.Web.UI.Page
         url += "&edate=" + this.calendar2._ADDate.ToString("yyyy-MM-dd");
         url += "&type_1=" + this.ddl_type_1.SelectedValue;
         url += "&type_2=" + this.ddl_type_2.SelectedValue;
-        url += "&e01_no=" + this.ddl_e01.SelectedValue;
+        url += "&e02_place=" + this.tbox_place.Text.Trim();
         url += "&e02_name=" + this.tbox_name.Text;
         url += "&e02_no=" + e02_no;
         url += "&model=" + model;
