@@ -17,6 +17,16 @@ public class ChangeObject
 	}
 
     /// <summary>
+    /// 回傳時間格式 08時00分
+    /// </summary>
+    /// <param name="dt"></param>
+    /// <returns></returns>
+    public string _ADtoTime(DateTime dt)
+    {
+        return dt.ToString("HH時mm分");
+    }
+
+    /// <summary>
     /// 回傳民國年格式日期時間 100-02-14 08:00
     /// </summary>
     /// <param name="dt"></param>
