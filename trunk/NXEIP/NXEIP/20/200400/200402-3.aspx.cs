@@ -51,7 +51,7 @@ public partial class _20_200400_200402_3 : System.Web.UI.Page
                     ChangeObject cboj = new ChangeObject();
                     this.lab_opendate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_opendate.ToString())));
                     this.lab_signdate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signdate.ToString()))) + "至" + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signedate.ToString())));
-                    this.lab_date.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_sdate.ToString()))) + "至" + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_edate.ToString())));
+                    this.lab_date.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_sdate.ToString()))) + cboj._ADtoTime(d.e02_sdate.Value) + " 至 " + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_edate.ToString()))) + cboj._ADtoTime(d.e02_edate.Value);
                 }
 
                 this.ODS_1.SelectParameters["e02_no"].DefaultValue = this.hidd_no.Value;
