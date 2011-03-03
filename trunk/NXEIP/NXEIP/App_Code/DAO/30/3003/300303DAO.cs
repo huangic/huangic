@@ -25,7 +25,7 @@ namespace NXEIP.DAO
         /// 依據條件查詢資料
         /// </summary>
         /// <returns></returns>
-        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid)
+        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e02_place, string e02_name, int? openuid)
         {
             DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
             
@@ -60,10 +60,10 @@ namespace NXEIP.DAO
             }
 
             //上課地點
-            if (e01_no != null && e01_no != "0")
+            if (!string.IsNullOrEmpty(e02_place))
             {
                 //條件值
-                d = d.Where("e01_no = @0", Convert.ToInt32(e01_no));
+                d = d.Where(o => o.e02_place.Contains(e02_place));
             }
 
             //課程名稱e02_name
@@ -91,18 +91,18 @@ namespace NXEIP.DAO
         /// <param name="startRowIndex">起始筆數</param>
         /// <param name="maximumRows">結束筆數</param>
         /// <returns></returns>
-        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid, int startRowIndex, int maximumRows)
+        public IQueryable<e02> GetData(string sdate, string edate, string type_1, string type_2, string e02_place, string e02_name, int? openuid, int startRowIndex, int maximumRows)
         {
-            return GetData(sdate, edate, type_1, type_2, e01_no, e02_name, openuid).Skip(startRowIndex).Take(maximumRows);
+            return GetData(sdate, edate, type_1, type_2, e02_place, e02_name, openuid).Skip(startRowIndex).Take(maximumRows);
         }
 
         /// <summary>
         /// 查詢總筆數
         /// </summary>
         /// <returns></returns>
-        public int GetDataCount(string sdate, string edate, string type_1, string type_2, string e01_no, string e02_name, int? openuid)
+        public int GetDataCount(string sdate, string edate, string type_1, string type_2, string e02_place, string e02_name, int? openuid)
         {
-            return GetData(sdate, edate, type_1, type_2, e01_no, e02_name, openuid).Count();
+            return GetData(sdate, edate, type_1, type_2, e02_place, e02_name, openuid).Count();
         }
 
         /// <summary>

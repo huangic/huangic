@@ -12051,6 +12051,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _e02_applydate;
         partial void One02_applydateChanging(Nullable<global::System.DateTime> value);
         partial void One02_applydateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String e02_place
+        {
+            get
+            {
+                return _e02_place;
+            }
+            set
+            {
+                One02_placeChanging(value);
+                ReportPropertyChanging("e02_place");
+                _e02_place = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("e02_place");
+                One02_placeChanged();
+            }
+        }
+        private global::System.String _e02_place;
+        partial void One02_placeChanging(global::System.String value);
+        partial void One02_placeChanged();
 
         #endregion
     
