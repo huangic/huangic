@@ -287,8 +287,8 @@
                 alert('請輸入課程名稱!');
                 c = false;
             }
-            if (c && $('#<%=ddl_e01.ClientID%>').val() == '請選擇') {
-                alert('請選擇上課地點!');
+            if (c && $('#<%=tbox_place.ClientID%>').val() == '') {
+                alert('請輸入上課地點!');
                 c = false;
             }
 //            if (c && $('#<%=tbox_people.ClientID%>').val() == '') {
@@ -352,33 +352,15 @@
         //日期比較
         function twoDateComp(sd, ed) {
             var check = false;
-            var tmp1 = sd.split('-');
-            var tmp2 = ed.split('-');
-            var y1 = parseInt(tmp1[0]) + 1911;
-            var y2 = parseInt(tmp2[0]) + 1911;
 
-            var newsd = new Date();
-            newsd.setFullYear(y1);
-            newsd.setMonth(parseInt(tmp1[1]));
-            newsd.setDate(parseInt(tmp1[2]));
-            newsd.setHours(parseInt(tmp1[3]));
-            newsd.setMinutes(parseInt(tmp1[4]));
-            newsd.setSeconds(0);
-            newsd.setMilliseconds(0);
+            // 把 - 取代成空白
+            var sd_number = parseInt(sd.replace(/\-/g, ""));
+            var ed_number = parseInt(ed.replace(/\-/g, ""));
 
-            var newed = new Date();
-            newed.setFullYear(y2);
-            newed.setMonth(parseInt(tmp2[1]));
-            newed.setDate(parseInt(tmp2[2]));
-            newed.setHours(parseInt(tmp2[3]));
-            newed.setMinutes(parseInt(tmp2[4]));
-            newed.setSeconds(0);
-            newed.setMilliseconds(0);
-
-            if (newsd > newed) {
+            if (sd_number > ed_number) {
                 check = true;
             }
-
+            
             return check;
         }
         
@@ -392,8 +374,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:ObjectDataSource ID="ODS_e01" runat="server" SelectMethod="GetAll" TypeName="NXEIP.DAO.e01DAO">
-    </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ODS_type_1" runat="server" SelectMethod="GetClassParentData"
         TypeName="NXEIP.DAO.TypesDAO"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ODS_type_2" runat="server" SelectMethod="GetClassData"
@@ -470,9 +450,7 @@
                                 <span style="color: Red">*</span>上課地點
                             </th>
                             <td>
-                                <asp:DropDownList ID="ddl_e01" runat="server" DataSourceID="ODS_e01" DataTextField="e01_name"
-                                    DataValueField="e01_no">
-                                </asp:DropDownList>
+                                <asp:TextBox ID="tbox_place" runat="server"></asp:TextBox>
                             </td>
                             <th>
                                 招收名額上限

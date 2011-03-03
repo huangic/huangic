@@ -117,7 +117,7 @@ public partial class _30_300300_300303_6 : System.Web.UI.Page
         url += "&edate=" + Request["edate"];
         url += "&type_1=" + Request["type_1"];
         url += "&type_2=" + Request["type_2"];
-        url += "&e01_no=" + Request["e01_no"];
+        url += "&e02_place=" + Request["e02_place"];
         url += "&e02_name=" + Request["e02_name"];
         url += "&e02_no=" + Request["e02_no"];
         url += "&model=" + Request["model"];
