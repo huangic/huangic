@@ -83,7 +83,7 @@
                         <asp:RadioButtonList ID="RadioButtonList2" runat="server" BorderStyle="None" 
                             RepeatDirection="Horizontal" RepeatLayout="Flow">
                             
-                            <asp:ListItem Value="1" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="1" Selected="True">全府</asp:ListItem>
                             <asp:ListItem Value="2">單位</asp:ListItem>
                         </asp:RadioButtonList>
                     </td>

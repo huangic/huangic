@@ -1,7 +1,7 @@
 
 
 .widget {
-  margin: 1em;
+  /*margin: 1em; */
   
 }
 .widget-menu
@@ -54,8 +54,8 @@ font-size:0;
 
 .widget-placeholder {
   color: #000;
-  margin: 1em;
-  background-color: #ebebeb;
+  /*margin: 1em;*/
+  background-color: #000000;
 }
 
 
