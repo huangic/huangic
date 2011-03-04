@@ -195,14 +195,17 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
         data.e02_name = this.tbox_name.Text;
         data.e02_memo = this.tbox_memo.Text;
         data.e02_limit = this.tbox_limit.Text;
+
+        //名額限制
         if (this.tbox_people.Text != "")
         {
             data.e02_people = Convert.ToInt32(this.tbox_people.Text);
         }
         else
         {
-            data.e02_people = 0;
+            data.e02_people = 9999;
         }
+
         if (this.tbox_hour.Text != "")
         {
             data.e02_hour = Convert.ToInt32(this.tbox_hour.Text);

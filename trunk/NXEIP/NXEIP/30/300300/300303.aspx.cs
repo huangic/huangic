@@ -170,13 +170,13 @@ public partial class _30_300300_300303 : System.Web.UI.Page
             //上課起迄日期
             sdate = cobj._ADtoROCDT(Convert.ToDateTime(e.Row.Cells[3].Text));
             edate = cobj._ADtoROCDT(Convert.ToDateTime(this.GridView1.DataKeys[rowIndex].Values[2]));
-            e.Row.Cells[3].Text = sdate + "<br/>" + edate;
+            e.Row.Cells[3].Text = "起：" + sdate + "<br/>迄：" + edate;
 
             //報名10人，已核准5人
             string[] check = { "0", "1", "2" };
             int count = (from d in model.e04 where d.e02_no == e02_no && check.Contains(d.e04_check) select d).Count();
             int check_count = (from dd in model.e04 where dd.e02_no == e02_no && dd.e04_check == "1" select dd).Count();
-            e.Row.Cells[4].Text = "報名" + count + "人，已核准" + check_count + "人";
+            e.Row.Cells[4].Text = "報名" + count + "人<br/>已核准" + check_count + "人";
 
         }
     }

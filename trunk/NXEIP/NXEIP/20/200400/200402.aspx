@@ -106,17 +106,23 @@
                             <ItemStyle HorizontalAlign="Center" Width="7%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="e02_signdate" HeaderText="報名起迄日期" SortExpression="e02_signdate"
-                            DataFormatString="{0:yyyy-MM-dd}" />
+                            DataFormatString="{0:yyyy-MM-dd}" >
+                        <ItemStyle Width="15%" />
+                        </asp:BoundField>
                         <asp:BoundField DataField="e02_sdate" HeaderText="上課起迄日期" SortExpression="e02_sdate"
-                            DataFormatString="{0:yyyy-MM-dd HH:mm}" />
-                        <asp:BoundField DataField="e02_no" HeaderText="報名狀況" SortExpression="e02_no"></asp:BoundField>
+                            DataFormatString="{0:yyyy-MM-dd HH:mm}" >
+                        <ItemStyle Width="15%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="e02_no" HeaderText="報名狀況" SortExpression="e02_no">
+                        <ItemStyle Width="10%" />
+                        </asp:BoundField>
                         <asp:TemplateField HeaderText="講義">
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("e02_name", "下載{0}講義") %>'
                                     href='<%# Eval("e02_no", "200402-2.aspx?modal=true&mode=modify&e02_no={0}&TB_iframe=true") %>'>
                                     <span>下載</span></a>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="活動狀態">
                             <ItemTemplate>
@@ -124,7 +130,7 @@
                                 <asp:LinkButton ID="linkBut_2" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="cancel" OnClientClick=" return confirm('確定要取消報名?')">取消報名</asp:LinkButton>
                                 <asp:Label ID="lab_msg" runat="server" ></asp:Label>
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="10%" />
+                            <ItemStyle HorizontalAlign="Left" Width="10%" />
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>

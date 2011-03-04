@@ -35,7 +35,14 @@ public partial class _20_200400_200402_1 : System.Web.UI.Page
                 }
                 if (d.e02_people.HasValue)
                 {
-                    this.lab_people.Text = d.e02_people.ToString();
+                    if (d.e02_people.Value >= 9999)
+                    {
+                        this.lab_people.Text = "無限制";
+                    }
+                    else
+                    {
+                        this.lab_people.Text = d.e02_people.ToString();
+                    }
                 }
                 this.hidd_check.Value = d.e02_check;
                 if (d.e02_check.Equals("1"))

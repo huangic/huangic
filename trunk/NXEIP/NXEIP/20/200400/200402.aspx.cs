@@ -153,15 +153,15 @@ public partial class _20_200400_200402 : System.Web.UI.Page
             edate = cobj._ADtoROC(Convert.ToDateTime(this.GridView1.DataKeys[rowIndex].Values[1]));
             e.Row.Cells[2].Text = sdate + "~" + edate;
 
-            sdate = cobj._ADtoROC(Convert.ToDateTime(e.Row.Cells[3].Text));
-            edate = cobj._ADtoROC(Convert.ToDateTime(this.GridView1.DataKeys[rowIndex].Values[2]));
-            e.Row.Cells[3].Text = sdate + "~" + edate;
+            sdate = cobj._ADtoROCDT(Convert.ToDateTime(e.Row.Cells[3].Text));
+            edate = cobj._ADtoROCDT(Convert.ToDateTime(this.GridView1.DataKeys[rowIndex].Values[2]));
+            e.Row.Cells[3].Text = "起：" + sdate + "<bt/>迄：" + edate;
 
             //報名10人，已核准5人
             string[] check = { "0", "1"};
             int count = (from d in model.e04 where d.e02_no == e02_no && check.Contains(d.e04_check) select d).Count();
             int check_count = (from dd in model.e04 where dd.e02_no == e02_no && dd.e04_check == "1" select dd).Count();
-            string str = "<a class='thickbox' href='200402-3.aspx?e02_no="+e02_no+"&modal=true&TB_iframe=true&height=600'>報名" + count + "人，已核准" + check_count + "人</a>";
+            string str = "<a class='thickbox' href='200402-3.aspx?e02_no="+e02_no+"&modal=true&TB_iframe=true&height=600'>報名" + count + "人<br/>已核准" + check_count + "人</a>";
             e.Row.Cells[4].Text = str;
 
             //活動狀態

@@ -36,7 +36,14 @@ public partial class _30_300300_300303_3 : System.Web.UI.Page
                 }
                 if (d.e02_people.HasValue)
                 {
-                    this.lab_people.Text = d.e02_people.ToString();
+                    if (d.e02_people.Value >= 9999)
+                    {
+                        this.lab_people.Text = "無限制";
+                    }
+                    else
+                    {
+                        this.lab_people.Text = d.e02_people.ToString();
+                    }
                 }
                 if (d.e02_check.Equals("1"))
                 {
@@ -49,7 +56,7 @@ public partial class _30_300300_300303_3 : System.Web.UI.Page
 
                 ChangeObject cboj = new ChangeObject();
                 this.lab_opendate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_opendate.ToString())));
-                this.lab_signdate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signdate.ToString()))) + "至" + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signedate.ToString())));
+                this.lab_signdate.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signdate.ToString()))) + " 至 " + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_signedate.ToString())));
                 this.lab_date.Text = cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_sdate.ToString()))) + cboj._ADtoTime(d.e02_sdate.Value) + " 至 " + cboj._ROCtoROCYMD(cboj._ADtoROC(Convert.ToDateTime(d.e02_edate.ToString()))) + cboj._ADtoTime(d.e02_edate.Value);
 
                 OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "檢視課程 e02_no:" + this.hidd_no.Value);

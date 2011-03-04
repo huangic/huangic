@@ -87,13 +87,19 @@
                     <Columns>
                         <asp:BoundField DataField="e02_name" HeaderText="課程名稱(期別)" SortExpression="e02_name" />
                         <asp:BoundField DataField="e02_hour" HeaderText="認證時數" SortExpression="e02_hour">
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="8%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="e02_signdate" HeaderText="報名起迄日期" SortExpression="e02_signdate"
-                            DataFormatString="{0:yyyy-MM-dd}" />
+                            DataFormatString="{0:yyyy-MM-dd}" >
+                        <ItemStyle Width="15%" />
+                        </asp:BoundField>
                         <asp:BoundField DataField="e02_sdate" HeaderText="上課起迄日期" SortExpression="e02_sdate"
-                            DataFormatString="{0:yyyy-MM-dd HH:mm}" />
-                        <asp:BoundField DataField="e02_no" HeaderText="報名狀況" SortExpression="e02_no"></asp:BoundField>
+                            DataFormatString="{0:yyyy-MM-dd HH:mm}" >
+                        <ItemStyle Width="15%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="e02_no" HeaderText="報名狀況" SortExpression="e02_no">
+                        <ItemStyle Width="8%" />
+                        </asp:BoundField>
                         <asp:TemplateField HeaderText="部門限制">
                             <ItemTemplate>
                                 <asp:Button ID="Button4" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
@@ -106,21 +112,21 @@
                                 <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
                                     CommandName="book" CssClass="edit" />
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
                                 <asp:Button ID="Button2" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
                                     CommandName="edit" CssClass="edit" />
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
                                 <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
                                     CommandName="disable" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
                             </ItemTemplate>
-                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                            <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
