@@ -13,9 +13,7 @@
 <div class="block-1">
           <div class="headerin">
             <div class="in4">應用系統資訊</div>
-              <!--  
-              <div class="more"></div>
-          -->
+              <!--  <div class="more"></div> -->
           </div>
           <table cellspacing="0" cellpadding="0" border="0" class="first">
             <tbody><tr>
@@ -27,18 +25,15 @@
             <tr>
               <td>&nbsp;</td>
               <td>
-              
+              <div class="row_n">
              <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
-               
+              
                 <ItemTemplate>
                      <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/10/100200/100202.aspx"><%# Eval("Treat.tre_name") %></asp:HyperLink></li>
-                
                 </ItemTemplate>
-                
-             
-             </asp:DataList>
+                </asp:DataList>
                         
-                
+                </div>
              </td>
             </tr>
             

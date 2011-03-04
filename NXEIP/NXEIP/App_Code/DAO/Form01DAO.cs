@@ -165,5 +165,16 @@ namespace NXEIP.DAO
         #endregion
 
 
+        /// <summary>
+        /// 取最新的表單
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public IQueryable<form01> GetNewForm(int num) {
+
+            return (from d in model.form01 where d.f01_status == "1" orderby d.f01_createtime select d).Take(num);
+        }
+
+
     }
 }
