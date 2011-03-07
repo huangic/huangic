@@ -253,15 +253,7 @@
 	width: 100px;
 	line-height: 28px;
 }
-/*.talk .box .headt2{
-	font-size: 13px;
-	color: #333333;
-	text-decoration: none;
-	font-weight: bold;
-	text-indent: 6px;
-	line-height: 24px;
-	background-color: #F7fdea;
-}*/
+
  .talk .box .head {
 	padding: 4px;
 	height: 20px;
@@ -272,18 +264,7 @@
 	font-weight: bold;
 	background-color: #E8f8c7;
 }
-.talk .box .row1_bg {
-	background-color: #fefee7;
-	font-size: 13px;
-	color: #333333;
-	text-decoration: none;
-	width: 16%;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-}
-	
+
 .talk .box .t1 {
 	width: 94%;
 	float: left;
@@ -296,13 +277,8 @@
 	padding-left: 24px;
 }
 
-/*.talk .box .t1 {
-	
-	width: 36px;
-	float: left;
-	height: 20px;
-	}*/
-	.talk .box .t2 {
+
+.talk .box .t2 {
 	width: 94%;
 	float: left;
 	border-bottom-width: 1px;
@@ -313,12 +289,7 @@
 	background-repeat: no-repeat;
 	padding-left: 24px;
 }	
-/*.talk .box .t3 {
-	width: 324px;
-	float: left;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}*/
+
 .talk .box .t3 {
 	width: 94%;
 	float: left;
@@ -334,6 +305,10 @@
 	width: 120px;
 	float: left;
 	height: 20px;
+}
+.talk .box .t5 {
+	width: 120px;
+	float: left;
 }
 
 /*.talk .box .t11 {
@@ -473,10 +448,6 @@
 	padding: 4px;
 	text-align: center;
 	height: 14px;
-}
-.talk .box .t5 {
-	width: 120px;
-	float: left;
 }
 .talk .arrow_ms02 {
 	background-image: url(../image/ms02.gif);
@@ -721,6 +692,11 @@
 	height: 22px;
 	margin-right: 10px;
 	margin-top: 8px;
+
+
+
+
+
 }
 .talkn .b5 {
 	width: 40px;
@@ -762,10 +738,8 @@
 	height: 22px;
 }
 .talkn .b0 {
-	width: 67%;
+	width: 60%;
 	text-decoration: none;
-	margin-right: auto;
-	margin-left: auto;
 	float: left;
 }
 
@@ -779,6 +753,7 @@
 .talkn .back .bg1_title {
 	height: 24px;
 	background-color: #A0CB3D;
+/*	background-color: #F3AF92; orange*/
 	font-size: 17px;
 	color: #FFFFFF;
 	line-height: 22px;
@@ -792,6 +767,7 @@
 	height: 28px;
 	width: 110px;
 	background-color: #EBF9CE;
+/*background-color: #fff6ed; orange*/
 	font-size: 13px;
 	color: #333333;
 	line-height: 24px;
@@ -812,7 +788,8 @@
 
 .talkn .back .bg4 {
 	width: 133px;
-	background-color: #EBF9CE;
+	background-color: #EBF9CE;/*green*/
+    /*background-color: #fff6ed;orange*/
 	text-align: center;
 	float: left;
 	padding-left: 190px;
@@ -821,7 +798,8 @@
 }
 .talkn .back .bg_ {
 	width:100%;
-	background-color: #EBF9CE;
+	background-color: #EBF9CE;/*green*/
+    /*background-color:#FFF6ED;   orange*/
 	text-align: center;
 	/*padding-left: 190px;
 	padding-right: 190px;*/
@@ -1387,9 +1365,7 @@
 	text-decoration: none;
 }
 
-.first .row_n{word-break:break-all;
-              width:180px; overflow:hidden;
-               
+.first .row_n{word-break:break-all;width:180px; overflow:auto; 
 }
         
 /*ie 6 跑掉.first .row_n{ width:180px;  word-wrap: break-word; word-break: normal;} */

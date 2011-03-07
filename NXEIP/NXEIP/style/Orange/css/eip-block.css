@@ -48,10 +48,8 @@
 	position:relative;
 	height:30px;
 }
- .block-1 .headerin
-{
+ .block-1 .headerin{
 	text-align:left;
-	position:relative;
 	height:32px;
 	background-image: url(../image/in_bg.gif);
 	background-repeat: repeat;

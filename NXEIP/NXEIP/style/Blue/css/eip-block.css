@@ -48,10 +48,8 @@
 	position:relative;
 	height:30px;
 }
- .block-1 .headerin
-{
-	text-align:left;
-	position:relative;
+ .block-1 .headerin{ 
+    text-align:left;
 	height:32px;
 	background-image: url(../image/in_bg.gif);
 	background-repeat: repeat;
@@ -73,12 +71,8 @@
 	height: 28px;
 	width: 40px;
 }
-
-
-
-
-
 .block-1 .headerin .in1 {
+
 	background-image: url(../image/a07.gif);
 	background-repeat: no-repeat;
 	height: 30px;
@@ -86,6 +80,9 @@
 	width: 120px;
 	float: left;
 	padding-left: 45px;
+
+
+
 }
 .block-1 .headerin .in2 {
 	background-image: url(../image/a11.gif);
@@ -313,15 +310,15 @@
 
 .border-bottom-block
 {
-	border-bottom-style:solid;
-	border-bottom-color:#C5DD93;
+	border-bottom-style:dotted;
+	border-bottom-color:#879291;
 	padding:10px 5px 10px 5px;
 	border-bottom-width: 1px;
 }
 .border-bottom-block2
 {
-	border-bottom-style:solid;
-	border-bottom-color:#5ba5c8;
+	border-bottom-style:dotted;
+	border-bottom-color:#879291;
 	border-bottom-width: 1px;
 	padding-bottom: 1px;
 	margin-right: 8px;
