@@ -194,10 +194,26 @@ public partial class _10_100100_100105_1 : System.Web.UI.Page
         //TODO: 根目錄要處理一下
 
         //取COOKIES 的父代目錄
-        int pid = 0;
-         int depid = int.Parse(Request.Cookies["depid"].Value);
-         string folderType = Request.Cookies["folderType"].Value;
-             
+        int pid = 0,depid=int.Parse(sessionObj.sessionUserDepartID);
+        string folderType = "1";
+
+        try
+        {
+
+            depid = int.Parse(Request.Cookies["depid"].Value);
+        }
+        catch { 
+        
+        }
+
+
+        try
+        {
+            folderType = Request.Cookies["folderType"].Value;
+        }
+        catch { 
+        
+        }
         try
         {
             pid = int.Parse(Request.Cookies["jstree_select"].Value.Replace("%23", ""));
