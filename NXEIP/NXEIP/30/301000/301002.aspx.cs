@@ -104,11 +104,36 @@ public partial class _30_301000_301002 : System.Web.UI.Page
         bool feedback = true;
 
         #region 日期區間
-        if (this.calendar1._ADDate == null || this.calendar2._ADDate == null)
+        DateTime sdate = new DateTime();
+        DateTime edate = new DateTime();
+        try
         {
-            ShowMsg("請選擇開始時間與結束時間");
+            sdate = Convert.ToDateTime(this.calendar1._ADDate.ToString("yyyy/MM/dd") + " 00:00:00");
+        }
+        catch
+        {
+            ShowMsg("開始時間 日期格式錯誤!!");
             feedback = false;
         }
+        try
+        {
+            edate = Convert.ToDateTime(this.calendar2._ADDate.ToString("yyyy/MM/dd") + " 00:00:00");
+        }
+        catch
+        {
+            ShowMsg("結束時間 日期格式錯誤!!");
+            feedback = false;
+        }
+        //try
+        //{
+        //    string sd = this.calendar1._ADDate.ToString("yyyy-MM-dd");
+        //    string ed = this.calendar2._ADDate.ToString("yyyy-MM-dd");
+        //}
+        //catch
+        //{
+        //    ShowMsg("日期格式錯誤!!");
+        //    feedback = false;
+        //}
         if (this.calendar1._ADDate > this.calendar2._ADDate)
         {
             ShowMsg("結束時間不得小於開始時間");

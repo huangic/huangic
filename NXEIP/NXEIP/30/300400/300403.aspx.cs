@@ -106,14 +106,17 @@ public partial class _30_300400_300403 : System.Web.UI.Page
         bool feedback = true;
 
         #region 日期區間
-        if (this.calendar1._ADDate == null || this.calendar2._ADDate == null)
+        try
         {
-            ShowMsg("請選擇開始時間與結束時間");
-            feedback = false;
+            if (this.calendar1._ADDate > this.calendar2._ADDate)
+            {
+                this.ShowMsg("結束時間不得小於開始時間!");
+                feedback = false;
+            }
         }
-        if (this.calendar1._ADDate > this.calendar2._ADDate)
+        catch
         {
-            ShowMsg("結束時間不得小於開始時間");
+            this.ShowMsg("請輸入正確日期!");
             feedback = false;
         }
         #endregion
