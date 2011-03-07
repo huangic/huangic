@@ -21,6 +21,7 @@ public partial class lib_calendar : System.Web.UI.UserControl
             catch 
             {
                 throw new Exception("日期格式錯誤!!");
+                //return default(DateTime);
             }
         }
         

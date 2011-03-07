@@ -47,24 +47,28 @@ public partial class _30_300400_300403 : System.Web.UI.Page
             this.ddl_spot.Items.Insert(0, allitem);
             this.ddl_rooms.Items.Insert(0, allitem);
             #endregion
+
+            ShowDataList();
         }
-        ShowDataList();
     }
 
     #region 畫面：List
     private void ShowDataList()
     {
-        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy/MM/dd");
-        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy/MM/dd");
-        this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["rooms1"].DefaultValue = this.ddl_rooms.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
-        this.GridView1.DataBind();
-        if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
+        if (this.calendar1._AD.Length > 0 && this.calendar2._AD.Length > 0)
+        {
+            this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._AD;
+            this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._AD;
+            this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["rooms1"].DefaultValue = this.ddl_rooms.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
+            this.GridView1.DataBind();
+            if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
 
-        //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-        new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 2, "場地資料列表");
+            //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+            new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 2, "場地資料列表");
+        }
     }
     #endregion
 

@@ -52,17 +52,20 @@ public partial class _30_301000_301002 : System.Web.UI.Page
     #region 畫面：List
     private void ShowDataList()
     {
-        this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy/MM/dd");
-        this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy/MM/dd");
-        this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["equ1"].DefaultValue = this.ddl_equ.SelectedValue;
-        this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
-        this.GridView1.DataBind();
-        if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
+        if (this.calendar1._AD.Length > 0 && this.calendar2._AD.Length > 0)
+        {
+            this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._AD;
+            this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._AD;
+            this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["equ1"].DefaultValue = this.ddl_equ.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
+            this.GridView1.DataBind();
+            if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
 
-        //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-        new OperatesObject().ExecuteOperates(301002, sobj.sessionUserID, 2, "設備借用資料列表");
+            //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+            new OperatesObject().ExecuteOperates(301002, sobj.sessionUserID, 2, "設備借用資料列表");
+        }
     }
     #endregion
 
@@ -104,41 +107,20 @@ public partial class _30_301000_301002 : System.Web.UI.Page
         bool feedback = true;
 
         #region 日期區間
-        DateTime sdate = new DateTime();
-        DateTime edate = new DateTime();
         try
         {
-            sdate = Convert.ToDateTime(this.calendar1._ADDate.ToString("yyyy/MM/dd") + " 00:00:00");
+            if (this.calendar1._ADDate > this.calendar2._ADDate)
+            {
+                ShowMsg("結束時間不得小於開始時間");
+                feedback = false;
+            }
         }
         catch
         {
-            ShowMsg("開始時間 日期格式錯誤!!");
+            ShowMsg("日期格式錯誤!!");
             feedback = false;
         }
-        try
-        {
-            edate = Convert.ToDateTime(this.calendar2._ADDate.ToString("yyyy/MM/dd") + " 00:00:00");
-        }
-        catch
-        {
-            ShowMsg("結束時間 日期格式錯誤!!");
-            feedback = false;
-        }
-        //try
-        //{
-        //    string sd = this.calendar1._ADDate.ToString("yyyy-MM-dd");
-        //    string ed = this.calendar2._ADDate.ToString("yyyy-MM-dd");
-        //}
-        //catch
-        //{
-        //    ShowMsg("日期格式錯誤!!");
-        //    feedback = false;
-        //}
-        if (this.calendar1._ADDate > this.calendar2._ADDate)
-        {
-            ShowMsg("結束時間不得小於開始時間");
-            feedback = false;
-        }
+        
         #endregion
 
         return feedback;
