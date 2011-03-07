@@ -186,8 +186,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
         string sd = "", ed = "";
         try
         {
-            DateTime tmp = this.calendar1._ADDate;
-            sd = tmp.ToString("yyyy-MM-dd");
+            sd = this.calendar1._ADDate.ToString("yyyy-MM-dd");
         }
         catch
         {
@@ -195,8 +194,7 @@ public partial class _30_300300_300303 : System.Web.UI.Page
         }
         try
         {
-            DateTime tmp = this.calendar2._ADDate;
-            ed = tmp.ToString("yyyy-MM-dd");
+            ed = this.calendar2._ADDate.ToString("yyyy-MM-dd");
         }
         catch
         {
