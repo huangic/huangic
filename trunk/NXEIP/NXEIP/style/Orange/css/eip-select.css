@@ -270,7 +270,15 @@
 	height: 20px;
 	padding-top: 10px;
 }
-
+/*.select-s .b0 {
+	float: left;
+	height: 28px;
+	font-size: 13px;
+	color: #666666;
+	text-decoration: none;
+	vertical-align: bottom;
+	width: 80%;
+}*/
 
 .select-s .b1 {
 	float: left;
@@ -295,12 +303,12 @@
 .select-s .b2 {
 	float: left;
 	height: 25px;
-	width: 130px;
 	padding-top: 4px;
 	font-size: 13px;
 	color: #666666;
 	text-decoration: none;
 	vertical-align: bottom;
+	padding-right: 18px;
 }
 .select-s .b4 {
 	float: right;
