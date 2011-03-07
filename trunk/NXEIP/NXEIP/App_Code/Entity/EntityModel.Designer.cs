@@ -1681,6 +1681,38 @@ namespace Entity
             }
         }
         private ObjectSet<ipaddress> _ipaddress;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<medetail> medetail
+        {
+            get
+            {
+                if ((_medetail == null))
+                {
+                    _medetail = base.CreateObjectSet<medetail>("medetail");
+                }
+                return _medetail;
+            }
+        }
+        private ObjectSet<medetail> _medetail;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<email> email
+        {
+            get
+            {
+                if ((_email == null))
+                {
+                    _email = base.CreateObjectSet<email>("email");
+                }
+                return _email;
+            }
+        }
+        private ObjectSet<email> _email;
 
         #endregion
         #region AddTo 方法
@@ -2443,6 +2475,22 @@ namespace Entity
         public void AddToipaddress(ipaddress ipaddress)
         {
             base.AddObject("ipaddress", ipaddress);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 medetail EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTomedetail(medetail medetail)
+        {
+            base.AddObject("medetail", medetail);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 email EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToemail(email email)
+        {
+            base.AddObject("email", email);
         }
 
         #endregion
@@ -13037,6 +13085,253 @@ namespace Entity
     /// <summary>
     /// 沒有可用的中繼資料文件。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="email")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class email : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 email 物件。
+        /// </summary>
+        /// <param name="ema_no">ema_no 屬性的初始值。</param>
+        public static email Createemail(global::System.Int32 ema_no)
+        {
+            email email = new email();
+            email.ema_no = ema_no;
+            return email;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ema_no
+        {
+            get
+            {
+                return _ema_no;
+            }
+            set
+            {
+                if (_ema_no != value)
+                {
+                    Onema_noChanging(value);
+                    ReportPropertyChanging("ema_no");
+                    _ema_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ema_no");
+                    Onema_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ema_no;
+        partial void Onema_noChanging(global::System.Int32 value);
+        partial void Onema_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ema_mail
+        {
+            get
+            {
+                return _ema_mail;
+            }
+            set
+            {
+                Onema_mailChanging(value);
+                ReportPropertyChanging("ema_mail");
+                _ema_mail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ema_mail");
+                Onema_mailChanged();
+            }
+        }
+        private global::System.String _ema_mail;
+        partial void Onema_mailChanging(global::System.String value);
+        partial void Onema_mailChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ema_apply
+        {
+            get
+            {
+                return _ema_apply;
+            }
+            set
+            {
+                Onema_applyChanging(value);
+                ReportPropertyChanging("ema_apply");
+                _ema_apply = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ema_apply");
+                Onema_applyChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ema_apply;
+        partial void Onema_applyChanging(Nullable<global::System.DateTime> value);
+        partial void Onema_applyChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ema_peouid
+        {
+            get
+            {
+                return _ema_peouid;
+            }
+            set
+            {
+                Onema_peouidChanging(value);
+                ReportPropertyChanging("ema_peouid");
+                _ema_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ema_peouid");
+                Onema_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ema_peouid;
+        partial void Onema_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onema_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ema_depno
+        {
+            get
+            {
+                return _ema_depno;
+            }
+            set
+            {
+                Onema_depnoChanging(value);
+                ReportPropertyChanging("ema_depno");
+                _ema_depno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ema_depno");
+                Onema_depnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ema_depno;
+        partial void Onema_depnoChanging(Nullable<global::System.Int32> value);
+        partial void Onema_depnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ema_status
+        {
+            get
+            {
+                return _ema_status;
+            }
+            set
+            {
+                Onema_statusChanging(value);
+                ReportPropertyChanging("ema_status");
+                _ema_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ema_status");
+                Onema_statusChanged();
+            }
+        }
+        private global::System.String _ema_status;
+        partial void Onema_statusChanging(global::System.String value);
+        partial void Onema_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ema_checkdate
+        {
+            get
+            {
+                return _ema_checkdate;
+            }
+            set
+            {
+                Onema_checkdateChanging(value);
+                ReportPropertyChanging("ema_checkdate");
+                _ema_checkdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ema_checkdate");
+                Onema_checkdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ema_checkdate;
+        partial void Onema_checkdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onema_checkdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ema_check
+        {
+            get
+            {
+                return _ema_check;
+            }
+            set
+            {
+                Onema_checkChanging(value);
+                ReportPropertyChanging("ema_check");
+                _ema_check = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ema_check");
+                Onema_checkChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ema_check;
+        partial void Onema_checkChanging(Nullable<global::System.Int32> value);
+        partial void Onema_checkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ema_note
+        {
+            get
+            {
+                return _ema_note;
+            }
+            set
+            {
+                Onema_noteChanging(value);
+                ReportPropertyChanging("ema_note");
+                _ema_note = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ema_note");
+                Onema_noteChanged();
+            }
+        }
+        private global::System.String _ema_note;
+        partial void Onema_noteChanging(global::System.String value);
+        partial void Onema_noteChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="equipments")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -16172,6 +16467,138 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="medetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class medetail : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 medetail 物件。
+        /// </summary>
+        /// <param name="mes_no">mes_no 屬性的初始值。</param>
+        /// <param name="med_no">med_no 屬性的初始值。</param>
+        public static medetail Createmedetail(global::System.Int32 mes_no, global::System.Int32 med_no)
+        {
+            medetail medetail = new medetail();
+            medetail.mes_no = mes_no;
+            medetail.med_no = med_no;
+            return medetail;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 mes_no
+        {
+            get
+            {
+                return _mes_no;
+            }
+            set
+            {
+                if (_mes_no != value)
+                {
+                    Onmes_noChanging(value);
+                    ReportPropertyChanging("mes_no");
+                    _mes_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("mes_no");
+                    Onmes_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _mes_no;
+        partial void Onmes_noChanging(global::System.Int32 value);
+        partial void Onmes_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 med_no
+        {
+            get
+            {
+                return _med_no;
+            }
+            set
+            {
+                if (_med_no != value)
+                {
+                    Onmed_noChanging(value);
+                    ReportPropertyChanging("med_no");
+                    _med_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("med_no");
+                    Onmed_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _med_no;
+        partial void Onmed_noChanging(global::System.Int32 value);
+        partial void Onmed_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> med_peouid
+        {
+            get
+            {
+                return _med_peouid;
+            }
+            set
+            {
+                Onmed_peouidChanging(value);
+                ReportPropertyChanging("med_peouid");
+                _med_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("med_peouid");
+                Onmed_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _med_peouid;
+        partial void Onmed_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onmed_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String med_status
+        {
+            get
+            {
+                return _med_status;
+            }
+            set
+            {
+                Onmed_statusChanging(value);
+                ReportPropertyChanging("med_status");
+                _med_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("med_status");
+                Onmed_statusChanged();
+            }
+        }
+        private global::System.String _med_status;
+        partial void Onmed_statusChanging(global::System.String value);
+        partial void Onmed_statusChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
