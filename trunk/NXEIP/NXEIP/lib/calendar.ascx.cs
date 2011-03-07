@@ -18,7 +18,7 @@ public partial class lib_calendar : System.Web.UI.UserControl
             {
                 return new ChangeObject()._ROCtoAD(this.tbox_date.Text);
             }
-            catch
+            catch 
             {
                 throw new Exception("日期格式錯誤!!");
             }
@@ -63,7 +63,14 @@ public partial class lib_calendar : System.Web.UI.UserControl
     {
         get
         {
-            return new ChangeObject()._ADtoROC(this._ADDate);
+            try
+            {
+                return new ChangeObject()._ADtoROC(this._ADDate);
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 
@@ -74,7 +81,14 @@ public partial class lib_calendar : System.Web.UI.UserControl
     {
         get
         {
-            return new ChangeObject()._ROCtoAD(this._ROC).ToString("yyyy-MM-dd");
+            try
+            {
+                return new ChangeObject()._ROCtoAD(this._ROC).ToString("yyyy-MM-dd");
+            }
+            catch
+            {
+                return "";
+            }
         }
     }
 
