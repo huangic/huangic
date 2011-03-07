@@ -40,6 +40,7 @@
           <EntitySet Name="e03" EntityType="NXEIPModel.Store.e03" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e04" EntityType="NXEIPModel.Store.e04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="e05" EntityType="NXEIPModel.Store.e05" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="email" EntityType="NXEIPModel.Store.email" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="equipments" EntityType="NXEIPModel.Store.equipments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="floors" EntityType="NXEIPModel.Store.floors" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="foods" EntityType="NXEIPModel.Store.foods" store:Type="Tables" Schema="dbo" />
@@ -52,6 +53,7 @@
           <EntitySet Name="leading" EntityType="NXEIPModel.Store.leading" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="loginlog" EntityType="NXEIPModel.Store.loginlog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="manager" EntityType="NXEIPModel.Store.manager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="medetail" EntityType="NXEIPModel.Store.medetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="meetings" EntityType="NXEIPModel.Store.meetings" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="message" EntityType="NXEIPModel.Store.message" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="new01" EntityType="NXEIPModel.Store.new01" store:Type="Tables" Schema="dbo" />
@@ -982,6 +984,20 @@
           <Property Name="e05_d09no" Type="int" />
           <Property Name="e05_d10no" Type="int" />
         </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="ema_no" />
+          </Key>
+          <Property Name="ema_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ema_mail" Type="varchar" MaxLength="100" />
+          <Property Name="ema_apply" Type="datetime" />
+          <Property Name="ema_peouid" Type="int" />
+          <Property Name="ema_depno" Type="int" />
+          <Property Name="ema_status" Type="char" MaxLength="1" />
+          <Property Name="ema_checkdate" Type="datetime" />
+          <Property Name="ema_check" Type="int" />
+          <Property Name="ema_note" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="equipments">
           <Key>
             <PropertyRef Name="equ_no" />
@@ -1136,6 +1152,16 @@
           <Property Name="man_no" Type="int" Nullable="false" />
           <Property Name="peo_uid" Type="int" Nullable="false" />
           <Property Name="man_type" Type="char" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="medetail">
+          <Key>
+            <PropertyRef Name="mes_no" />
+            <PropertyRef Name="med_no" />
+          </Key>
+          <Property Name="mes_no" Type="int" Nullable="false" />
+          <Property Name="med_no" Type="int" Nullable="false" />
+          <Property Name="med_peouid" Type="int" />
+          <Property Name="med_status" Type="char" MaxLength="1" />
         </EntityType>
         <EntityType Name="meetings">
           <Key>
@@ -3427,6 +3453,8 @@
             <End Role="people" EntitySet="people" />
             <End Role="ipaddress" EntitySet="ipaddress" />
           </AssociationSet>
+          <EntitySet Name="medetail" EntityType="NXEIPModel.medetail" />
+          <EntitySet Name="email" EntityType="NXEIPModel.email" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6094,6 +6122,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="medetail">
+          <Key>
+            <PropertyRef Name="mes_no" />
+            <PropertyRef Name="med_no" />
+          </Key>
+          <Property Type="Int32" Name="mes_no" Nullable="false" />
+          <Property Type="Int32" Name="med_no" Nullable="false" />
+          <Property Type="Int32" Name="med_peouid" />
+          <Property Type="String" Name="med_status" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="ema_no" />
+          </Key>
+          <Property Type="Int32" Name="ema_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ema_mail" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ema_apply" />
+          <Property Type="Int32" Name="ema_peouid" />
+          <Property Type="Int32" Name="ema_depno" />
+          <Property Type="String" Name="ema_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="ema_checkdate" />
+          <Property Type="Int32" Name="ema_check" />
+          <Property Type="String" Name="ema_note" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7389,6 +7441,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="medetail">
+            <EntityTypeMapping TypeName="NXEIPModel.medetail">
+              <MappingFragment StoreEntitySet="medetail">
+                <ScalarProperty Name="med_status" ColumnName="med_status" />
+                <ScalarProperty Name="med_peouid" ColumnName="med_peouid" />
+                <ScalarProperty Name="med_no" ColumnName="med_no" />
+                <ScalarProperty Name="mes_no" ColumnName="mes_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="email">
+            <EntityTypeMapping TypeName="NXEIPModel.email">
+              <MappingFragment StoreEntitySet="email">
+                <ScalarProperty Name="ema_note" ColumnName="ema_note" />
+                <ScalarProperty Name="ema_check" ColumnName="ema_check" />
+                <ScalarProperty Name="ema_checkdate" ColumnName="ema_checkdate" />
+                <ScalarProperty Name="ema_status" ColumnName="ema_status" />
+                <ScalarProperty Name="ema_depno" ColumnName="ema_depno" />
+                <ScalarProperty Name="ema_peouid" ColumnName="ema_peouid" />
+                <ScalarProperty Name="ema_apply" ColumnName="ema_apply" />
+                <ScalarProperty Name="ema_mail" ColumnName="ema_mail" />
+                <ScalarProperty Name="ema_no" ColumnName="ema_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -8058,8 +8135,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.casework" Width="1.5" PointX="21.875" PointY="46.75" Height="2.3772591145833246" />
         <AssociationConnector Association="NXEIPModel.FK_CASEWORK_RELATIONS_THEME" >
-          <ConnectorPoint PointX="20.375" PointY="15.518697916666666" />
-          <ConnectorPoint PointX="20.375" PointY="48.028595377604169" />
+          <ConnectorPoint PointX="21.03125" PointY="15.518697916666666" />
+          <ConnectorPoint PointX="21.03125" PointY="48.028595377604169" />
           <ConnectorPoint PointX="21.875" PointY="48.028595377604169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.botanize" Width="1.5" PointX="7" PointY="81.375" Height="2.5532031249999818" />
@@ -8268,38 +8345,42 @@
         <EntityTypeShape EntityType="NXEIPModel.meetings" Width="1.5" PointX="17.625" PointY="20.375" Height="4.6725065104166674" />
         <AssociationConnector Association="NXEIPModel.FK_ATTENDS_RELATIONS_MEETINGS" >
           <ConnectorPoint PointX="19.125" PointY="24.766297200520825" />
-          <ConnectorPoint PointX="20.291666666666668" PointY="24.766297200520825" />
-          <ConnectorPoint PointX="20.458333333333332" PointY="24.766297200520825" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="24.766297200520825" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="24.766297200520825" />
           <ConnectorPoint PointX="24.625" PointY="24.766297200520825" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_ATTENDS_RELATIONS_PEOPLE" >
-          <ConnectorPoint PointX="6.25" PointY="23.836346604567307" />
-          <ConnectorPoint PointX="6.541666666666667" PointY="23.836346604567307" />
-          <ConnectorPoint PointX="6.880208333333333" PointY="23.836346604567307" />
-          <ConnectorPoint PointX="9.5" PointY="23.836346604567307" />
-          <ConnectorPoint PointX="9.5" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="9.5416666666666661" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="9.7708333333333339" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="12.166666666666666" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="12.333333333333334" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="20.291666666666668" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="20.458333333333332" PointY="26.970602213541667" />
-          <ConnectorPoint PointX="21.375" PointY="26.970602213541667" />
+          <ConnectorPoint PointX="6.25" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="6.895833333333333" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="9.484375" PointY="25.730079224561873" />
+          <ConnectorPoint PointX="9.484375" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="9.5416666666666661" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="9.7708333333333339" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="12.166666666666666" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="12.333333333333334" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="14.166666666666666" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="14.333333333333334" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="27.220602213541667" />
+          <ConnectorPoint PointX="21.375" PointY="27.220602213541667" />
           <ConnectorPoint PointX="21.375" PointY="27.739889322916611" />
           <ConnectorPoint PointX="25.375" PointY="27.739889322916611" />
           <ConnectorPoint PointX="25.375" PointY="26.307190755208353" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_CONFEREN_RELATIONS_MEETINGS" >
           <ConnectorPoint PointX="19.125" PointY="23.336293945312491" />
-          <ConnectorPoint PointX="20.291666666666668" PointY="23.336293945312491" />
-          <ConnectorPoint PointX="20.458333333333332" PointY="23.336293945312491" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="23.336293945312491" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="23.336293945312491" />
           <ConnectorPoint PointX="21.625" PointY="23.336293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_HUIYI_RELATIONS_MEETINGS" >
           <ConnectorPoint PointX="18.375" PointY="25.047506510416667" />
           <ConnectorPoint PointX="18.375" PointY="26.047801106770834" />
-          <ConnectorPoint PointX="20.291666666666668" PointY="26.047801106770834" />
-          <ConnectorPoint PointX="20.458333333333332" PointY="26.047801106770834" />
+          <ConnectorPoint PointX="20.947916666666668" PointY="26.047801106770834" />
+          <ConnectorPoint PointX="21.114583333333332" PointY="26.047801106770834" />
           <ConnectorPoint PointX="21.625" PointY="26.047801106770834" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.leading" Width="1.5" PointX="5.375" PointY="6.75" Height="1.321595052083353" />
@@ -8317,6 +8398,8 @@
           <ConnectorPoint PointX="7.75" PointY="95.875" />
           <ConnectorPoint PointX="7.75" PointY="96.25" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.medetail" Width="1.5" PointX="19.375" PointY="16.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="NXEIPModel.email" Width="1.5" PointX="21.375" PointY="0.75" Height="2.7494921874999818" />
         </Diagram>
     </Diagrams>
   </Designer>
