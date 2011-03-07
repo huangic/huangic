@@ -99,7 +99,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
             PeopleDAO peopleDao = new PeopleDAO();
             Entity.people peopleData = peopleDao.GetByPeoUID(peo_uid);
 
-            peopleData.peo_idcard = this.tbox_cardid.Text;
+            peopleData.peo_idcard = this.tbox_cardid.Text.ToUpper();
             peopleData.peo_name = this.tbox_name.Text;
             peopleData.peo_account = this.tbox_account.Text;
             peopleData.peo_workid = this.tbox_workid.Text;
@@ -168,7 +168,7 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
         }
         else
         {
-            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text))
+            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text.ToUpper()))
             {
                 this.ShowMSG("身份證字號錯誤!");
                 ret = false;

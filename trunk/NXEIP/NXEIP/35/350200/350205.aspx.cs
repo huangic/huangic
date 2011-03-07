@@ -30,7 +30,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
 
             Entity.people newPeople = new Entity.people();
 
-            newPeople.peo_idcard = this.tbox_cardid.Text;
+            newPeople.peo_idcard = this.tbox_cardid.Text.ToUpper();
             newPeople.peo_name = this.tbox_name.Text;
             newPeople.peo_account = this.tbox_account.Text;
             newPeople.peo_workid = this.tbox_workid.Text;
@@ -167,7 +167,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
         }
         else
         {
-            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text))
+            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text.ToUpper()))
             {
                 this.ShowMSG("身份證字號錯誤!");
                 ret = false;
