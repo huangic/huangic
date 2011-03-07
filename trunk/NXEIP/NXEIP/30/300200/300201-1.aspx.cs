@@ -118,16 +118,12 @@ public partial class _30_300200_300201_1 : System.Web.UI.Page
         #endregion
 
         #region 調查時間
-        if (this.cl_sdate._ADDate == null || this.cl_edate._ADDate == null)
-        {
-            ShowMSG("請選擇開始時間與結束時間");
-            return false;
-        }
-        if (this.txt_shour.Text.Length != 2 || this.txt_smin.Text.Length != 2 || this.txt_ehour.Text.Length != 2 || this.txt_emin.Text.Length != 2)
-        {
-            ShowMSG("時間格式錯誤!!");
-            return false;
-        }
+        //if (this.cl_sdate._ADDate == null || this.cl_edate._ADDate == null)
+        //{
+        //    ShowMSG("請選擇開始時間與結束時間");
+        //    return false;
+        //}
+        
         DateTime sdate = new DateTime();
         DateTime edate = new DateTime();
         try
@@ -146,6 +142,12 @@ public partial class _30_300200_300201_1 : System.Web.UI.Page
         catch
         {
             ShowMSG("結束時間錯誤!!");
+            return false;
+        }
+
+        if (this.txt_shour.Text.Length != 2 || this.txt_smin.Text.Length != 2 || this.txt_ehour.Text.Length != 2 || this.txt_emin.Text.Length != 2)
+        {
+            ShowMSG("時間格式錯誤!!");
             return false;
         }
 

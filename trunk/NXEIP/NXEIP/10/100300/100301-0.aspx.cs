@@ -246,13 +246,25 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             string c03_ctype = "";//規則別
             string c03_crule = "";//循環範圍規則
             #region 檢查輸入值--基本(日期、時間、標題、地點)
-            if (this.cl_sdate._ADDate == null || this.cl_edate._ADDate == null)
+            try
             {
-                ShowMSG("請選擇開始時間與結束時間");
+                sdate = Convert.ToDateTime(this.cl_sdate._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_stime.SelectedValue + ":00");
+            }
+            catch
+            {
+                ShowMSG("請選擇開始時間");
                 return;
             }
-            sdate = Convert.ToDateTime(this.cl_sdate._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_stime.SelectedValue + ":00");
-            edate = Convert.ToDateTime(this.cl_edate._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_etime.SelectedValue + ":00");
+            try
+            {
+                edate = Convert.ToDateTime(this.cl_edate._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_etime.SelectedValue + ":00");
+            }
+            catch
+            {
+                ShowMSG("請選擇結束時間");
+                return;
+            }
+            
 
             if (sdate > edate)
             {

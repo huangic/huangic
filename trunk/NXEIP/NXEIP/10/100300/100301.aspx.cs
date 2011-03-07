@@ -65,6 +65,10 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                 this.hl_back.Text = "返回" + sobj.sessionUserName;
                 this.hl_back.Visible = true;
             }
+
+            #region 快速新增--日期預設值
+            this.cl_date._ADDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text));
+            #endregion
         }
         Show();
     }
@@ -275,9 +279,8 @@ public partial class _10_100300_100301 : System.Web.UI.Page
             this.hl_back.NavigateUrl = localurl + "?today=" + this.lab_date.Text + "&peo_uid=" + sobj.sessionUserID + "&depart=" + this.ddl_QryDepart.SelectedValue;
             #endregion
 
-            #region 快速新增--日期預設值
-            this.cl_date._ADDate = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_date.Text));
-            #endregion
+            
+            
         }
         catch (Exception ex)
         {
@@ -486,7 +489,11 @@ public partial class _10_100300_100301 : System.Web.UI.Page
                 ShowMSG("標題 長度不可超過100個中文字");
                 return;
             }
-            if (this.cl_date._ADDate == null)
+            try
+            {
+                sdate = Convert.ToDateTime(this.cl_date._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_stime.SelectedValue + ":00");
+            }
+            catch
             {
                 ShowMSG("請選擇 日期");
                 return;

@@ -266,11 +266,6 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         #endregion
 
         #region 開會開始時間
-        if (this.cl_mdate._ADDate == null || this.cl_mdate._ADDate == null)
-        {
-            ShowMSG("請選擇 開會開始時間之日期");
-            return false;
-        }
         if (this.ddl_hour.SelectedValue.Equals("0"))
         {
             ShowMSG("請選擇 開會開始時間之時數");
@@ -281,10 +276,25 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
             ShowMSG("請選擇 開會開始時間之分鐘");
             return false;
         }
+        DateTime mdate = new DateTime();
+        try
+        {
+            mdate = Convert.ToDateTime(this.cl_mdate._ADDate.ToString("yyyy/MM/dd") + " " + this.ddl_hour.SelectedValue + ":" + this.ddl_min.SelectedValue);
+        }
+        catch
+        {
+            ShowMSG("開會開始時間!!");
+            return false;
+        }
         #endregion
 
         #region 事由
-        if (this.txt_reason.Text.Trim().Length > 200)
+        if (this.txt_reason.Text.Trim().Length <= 0)
+        {
+            ShowMSG("請輸入 申請事由");
+            return false;
+        }
+        else if (this.txt_reason.Text.Trim().Length > 200)
         {
             ShowMSG("申請事由 長度為200個中文字");
             return false;
