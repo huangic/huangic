@@ -35,19 +35,45 @@ public class PersonalMessageUtil
     {
         try
         {
-            message d = new message();
-
-            d.mes_subject = subject;
-            d.mes_content = body;
-            d.mes_link = link;
-            d.mes_peouid = to;
-            d.mes_senduid = me;
-            d.mes_status = "1";
-            d.mes_datetime = DateTime.Now;
-            d.mes_type = (sysMsg == true ? "1" : "0") + (email == true ? "1" : "0") + (phone == true ? "1" : "0");
-
+            int mes_no = 0;
+            
             MessageDAO dao = new MessageDAO();
-            dao.AddToMessage(d);
+
+            //找詢是否有相同之訊息
+            message search = dao.Search(subject, body, link,me);
+
+            if (search == null)
+            {
+                message d = new message();
+
+                d.mes_subject = subject;
+                d.mes_content = body;
+                d.mes_link = link;
+                d.mes_peouid = 0;
+                d.mes_senduid = me;
+                d.mes_status = "1";
+                d.mes_datetime = DateTime.Now;
+                d.mes_type = (sysMsg == true ? "1" : "0") + (email == true ? "1" : "0") + (phone == true ? "1" : "0");
+
+                dao.AddToMessage(d);
+                dao.Update();
+
+                mes_no = d.mes_no;
+
+            }
+            else
+            {
+                mes_no = search.mes_no;
+            }
+
+            //加入訊息明細
+            int max_medno = dao.maxMedNO(mes_no) + 1;
+            medetail x = new medetail();
+            x.mes_no = mes_no;
+            x.med_no = max_medno;
+            x.med_peouid = to;
+            x.med_status = "1";
+            dao.AddToMedetail(x);
             dao.Update();
 
             //email 通知
@@ -70,7 +96,7 @@ public class PersonalMessageUtil
         }
         catch (Exception ex)
         {
-            logger.Debug("Error:{0}", ex.Message);
+            logger.Debug("Error:{0}", ex.ToString());
         }
     }
 }
