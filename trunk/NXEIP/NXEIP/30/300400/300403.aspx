@@ -40,9 +40,8 @@
         <table>
             <tr>
                 <td>
-                    欲查詢日期：起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="False" />
-                    迄&nbsp;
-                    <uc2:calendar ID="calendar2" runat="server" />&nbsp;&nbsp;
+                    欲查詢日期：起<uc2:calendar ID="calendar1" runat="server" _Show="False" />
+                    &nbsp;迄&nbsp;<uc2:calendar ID="calendar2" runat="server" />&nbsp;&nbsp;&nbsp;
                     審核狀況：<asp:RadioButtonList ID="rbl_status" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                         <asp:ListItem Selected="True" Value="1">未核可</asp:ListItem>
                         <asp:ListItem Value="2">核可</asp:ListItem>
