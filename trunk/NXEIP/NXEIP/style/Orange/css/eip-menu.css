@@ -1,13 +1,14 @@
  
  
 .mlmenu {
-	margin: 0 0 0 0;
-	padding: 0 0 0 0; 
+	margin: 0;
+	padding: 0;
+	height: 32px;
 	}
   
 .mlmenu img {
 	border: 0;
-	height: 56px;
+	height: 32px;
 	width: 72px;
 }
  
@@ -17,8 +18,7 @@
 	font-size:15px;
 	border-top: 5px;
 	line-height: 24px;
-	padding-left: 3px;
-	padding-right: 3px;
+	padding-right: 2px;
 	}
 /*.mlmenu li a {
 	color: #333333;
@@ -54,7 +54,7 @@
  /*Level 1 MENU 消除文字連結*/ 
  .mlmenu .imageMenu
 {
-	height: 56px;
+	height: 32px;
 	width: 72px;
 	/*text-indent: -1px;*/
 	display: inline-block;
@@ -95,32 +95,34 @@
 	/**/
 	background-color: Transparent;
 	width: 800px;
-	#top: 61px;
-	_top: 61px;
+	#top: 38px;
+	_top: 38px;
 	/*ie6bug*/
-
 	position: absolute;
 	/*
-	left: -50px;
+	left: -50px;(ie6 第二層文字 的位置)
 	*/
+
 	/*	padding-top:5px;*/
     padding-top:2px;
 	margin-top: 0px;
 	display: none;
+	_left: 0px;/*第二層MENU左的位置ie6*/
 }
   /*第三層MENU*/
 	.mlmenu ul li ul li ul {
-	background-color: #f3c79e;
+	/*background-color: #d8eeaf;green*/
+    /* background-color: #CFE9E8;blue */
+    background-color: #F5D2B4;  /*organe*/
 	width: 140px;
 
 
 	#top: 25px;
-	_top: 25px;
+	_top: 22px;
 	/*ie6bug*/
 	
 	left: 1px;
 	list-style-type: none;
-	z-index:1000;
 	padding-right: 0px;
 	padding-bottom: 0px;
 	padding-left: 0px;
@@ -129,6 +131,8 @@
 	margin-left: 0px;
 	float: left;
 	clear: both;
+	z-index: 1000;
+   
 		}
 /*第三層*/ 
 .mlmenu ul li ul li ul li {
@@ -136,7 +140,7 @@
 	display: block;
 	margin: 0px;
 	padding-top: 3px;
-}
+	}
  
 /*
 .mlmenu ul li ul li a span {

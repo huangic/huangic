@@ -87,6 +87,9 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
+
+
+
 }
 .tabHeader-bigmonth {
 	height: 29px;
@@ -284,16 +287,16 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
   }
 
 
-
+/*orange*/
 
 .tabHead {
-	width:245px;
+	width:100px;
 	height:29px;
+	margin-top: 0;
 	margin-right: auto;
+	margin-bottom: 0;
 	margin-left: auto;
 	text-decoration: none;
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 
 .tabHead ul li {
@@ -316,13 +319,72 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 	text-decoration: none;
 }
 .tabHead ul li a:hover {
+
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-image: url(../image/b1-2.gif);
+	text-decoration: none;
+	color: #333333;
+
+
+}
+.tabHead ul li a:current {
+
+	font-weight:bold;
+	color:#fff;
+	background-image: url(images/b1-1.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	height: 29px;
+	width: 44px;
+
+}
+.tabHead ul li a#ctl00_ContentPlaceHolder1_current {
+
+	background-image: url(../image/b1.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 29px;
+	width: 44px;
+	text-decoration: none;
+}
+.tabHead_big {
+	width:100px;
+	height:29px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	text-decoration: none;
+}
+
+.tabHead_big ul li {
+	float:left;
+	margin-left:4px;
+	text-decoration: none;
+	margin-right: 0px;
+}
+.tabHead_big ul li a {
+	display:block;
+	width:44px;
+	height:29px;
+	line-height:28px;
+	text-align:center;
+	font-size:14px;
+	background-image: url(../image/b1-1.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	color: #999999;
+	text-decoration: none;
+}
+.tabHead_big ul li a:hover {
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	background-image: url(../image/b1-2.gif);
 	text-decoration: none;
 	color: #333333;
 }
-.tabHead ul li a:current {
+.tabHead_big ul li a:current {
 	font-weight:bold;
 	color:#fff;
 	background-image: url(images/b1-1.gif);
@@ -331,7 +393,7 @@ background:url(images/ajax__tab_default_01.jpg) no-repeat;/*背景圖片，不�
 	height: 29px;
 	width: 44px;
 }
-.tabHead ul li a#ctl00_ContentPlaceHolder1_current {
+.tabHead_big ul li a#ctl00_ContentPlaceHolder1_current {
 	background-image: url(../image/b1.gif);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;

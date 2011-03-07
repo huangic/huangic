@@ -42,6 +42,37 @@
      cursor:hand;
      text-decoration:none;
 }
+.count
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v03.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+.editor
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v05.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.circle
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/v04.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+
+
 .view
 {
     border:0 none;
@@ -127,6 +158,44 @@
     height:22px;
     width:22px;
     background:url(../image/b010.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.modify
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/modify.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+
+.exit
+{
+    border:0 none;
+    height:18px;
+    width:18px;
+    background:url(../image/collapse.png) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+.order
+{
+    border:0 none;
+    height:18px;
+    width:36px;
+    background:url(../image/order.gif) no-repeat;  
+     cursor:hand;
+     text-decoration:none;
+}
+.unorder
+{
+    border:0 none;
+    height:18px;
+    width:36px;
+    background:url(../image/unorder.gif) no-repeat;  
      cursor:hand;
      text-decoration:none;
 }
