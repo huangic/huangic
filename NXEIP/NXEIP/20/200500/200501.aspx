@@ -36,16 +36,14 @@
     
     <div>
         <div class="select">
-            <div class="center0">
-                最新消息[<asp:Label ID="lab_newtitle" runat="server"></asp:Label>]查詢：
-            </div>
-            <div class="center1">
-                <asp:TextBox ID="tbox_newkey" runat="server"></asp:TextBox>
-            </div>
-            <div class="b5">
+            <span class="a-letter-2">
+                <span class="a-letter-1">
+                    最新消息[<asp:Label ID="lab_newtitle" runat="server"></asp:Label>]查詢：
+                    <asp:TextBox ID="tbox_newkey" runat="server"></asp:TextBox>
+                </span>
                 <asp:Button ID="Button1" runat="server" Text="查詢" CssClass="b-input" 
                     onclick="Button1_Click" />
-            </div>
+            </span>
         </div>
         <div class="select-3">
             <asp:ListView ID="ListView1" runat="server" DataKeyNames="n01_no" 
