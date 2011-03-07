@@ -183,9 +183,28 @@ public partial class _30_300300_300303 : System.Web.UI.Page
 
     private string GetUrl(string tag,string e02_no,string model)
     {
+        string sd = "", ed = "";
+        try
+        {
+            DateTime tmp = this.calendar1._ADDate;
+            sd = tmp.ToString("yyyy-MM-dd");
+        }
+        catch
+        {
+            sd = DateTime.Now.ToString("yyyy-01-01");
+        }
+        try
+        {
+            DateTime tmp = this.calendar2._ADDate;
+            ed = tmp.ToString("yyyy-MM-dd");
+        }
+        catch
+        {
+            ed = DateTime.Now.ToString("yyyy-MM-dd");
+        }
         string url = tag;
-        url += "?sdate=" + this.calendar1._ADDate.ToString("yyyy-MM-dd");
-        url += "&edate=" + this.calendar2._ADDate.ToString("yyyy-MM-dd");
+        url += "?sdate=" + sd;
+        url += "&edate=" + ed;
         url += "&type_1=" + this.ddl_type_1.SelectedValue;
         url += "&type_2=" + this.ddl_type_2.SelectedValue;
         url += "&e02_place=" + this.tbox_place.Text.Trim();
