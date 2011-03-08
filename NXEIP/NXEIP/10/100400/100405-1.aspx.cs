@@ -205,10 +205,22 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
             return false;
         }
         #endregion
+
         #region 事由
         if (this.txt_reason.Text.Trim().Length > 200)
         {
             ShowMSG("申請事由 長度為200個中文字");
+            return false;
+        }
+        #endregion
+
+        #region 判斷是否重複
+        string sqlstr = "select bor_no from  borrows where (equ_no = " + this.lab_equ.Text + ") and (bor_stime <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (bor_etime >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "') and (bor_apply in ('1', '2'))";
+        DataTable dt = new DataTable();
+        dt = dbo.ExecuteQuery(sqlstr);
+        if (dt.Rows.Count > 0)
+        {
+            ShowMSG("此時間已有人申請借用");
             return false;
         }
         #endregion
@@ -223,15 +235,15 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
         string aMSG = "";   //記錄錯誤訊息
         try
         {
+            #region 取得「場地申請核可方式」:1表不需審核，直接核可(不可重覆);2表需審核，(不可重覆)
+            if (dbo.GetArguments("Equipments_BorrowsSignType") != null)
+                this.lab_BorrowsSignType.Text = dbo.GetArguments("Equipments_BorrowsSignType");
+            else
+                this.lab_BorrowsSignType.Text = "1";
+            #endregion
+
             if (CheckInputValue())
             {
-                #region 取得「場地申請核可方式」:1表不需審核，直接核可(不可重覆);2表需審核，(不可重覆)
-                if (dbo.GetArguments("Equipments_BorrowsSignType") != null)
-                    this.lab_BorrowsSignType.Text = dbo.GetArguments("Equipments_BorrowsSignType");
-                else
-                    this.lab_BorrowsSignType.Text = "1";
-                #endregion
-
                 BorrowsDAO borDAO = new BorrowsDAO();
                 borrows newRow = new borrows();
                 newRow.equ_no = Convert.ToInt32(this.lab_equ.Text);
