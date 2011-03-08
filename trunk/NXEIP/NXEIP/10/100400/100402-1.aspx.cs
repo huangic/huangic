@@ -301,6 +301,19 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         }
         #endregion
 
+        #region 判斷是否重複
+        if (!this.lab_PetitionSignType.Text.Equals("3"))
+        {
+            string sqlstr = "select pet_no from petition where (roo_no = " + this.lab_rooms.Text + ") and (pet_stime <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (pet_etime >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "') and (pet_apply in ('1', '2'))";
+            DataTable dt = new DataTable();
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                ShowMSG("此時間已有人申請借用");
+                return false;
+            }
+        }
+        #endregion
         return true;
     }
     #endregion
@@ -311,15 +324,15 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         string aMSG = "";   //記錄錯誤訊息
         try
         {
+            #region 取得「申請核可方式」：1表不需審核，直接核可，但不可重覆;2表需審核，但不可重覆;3表需審核，但可重覆
+            if (dbo.GetArguments("Rooms_PetitionSignType") != null)
+                this.lab_PetitionSignType.Text = dbo.GetArguments("Rooms_PetitionSignType");
+            else
+                this.lab_PetitionSignType.Text = "1";
+            #endregion
+
             if (CheckInputValue())
             {
-                #region 取得「申請核可方式」：1表不需審核，直接核可，但不可重覆;2表需審核，但不可重覆;3表需審核，但可重覆
-                if (dbo.GetArguments("Rooms_PetitionSignType") != null)
-                    this.lab_PetitionSignType.Text = dbo.GetArguments("Rooms_PetitionSignType");
-                else
-                    this.lab_PetitionSignType.Text = "1";
-                #endregion
-
                 PetitionDAO petDAO = new PetitionDAO();
                 petition newRow = new petition();
                 newRow.roo_no = Convert.ToInt32(this.lab_rooms.Text);

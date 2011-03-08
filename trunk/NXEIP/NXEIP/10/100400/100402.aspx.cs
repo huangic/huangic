@@ -313,7 +313,7 @@ public partial class _10_100400_100402 : System.Web.UI.Page
 
                                 LinkButton lbtn_applied = new LinkButton();
                                 lbtn_applied.Text = dt.Rows[c]["pet_name"].ToString() + status;
-                                lbtn_applied.ID = "lbtn_d" + txtdate.Replace("-", "") + txttime.Replace(":", "");
+                                lbtn_applied.ID = "lbtn_d" + txtdate.Replace("-", "") + txttime.Replace(":", "") + dt.Rows[c]["pet_no"].ToString();
                                 lbtn_applied.CommandArgument = this.lab_spot1.Text + "," + this.lab_rooms1.Text + "," + txtdate  +"," + txttime + "," + dt.Rows[c]["pet_no"].ToString();
                                 lbtn_applied.CssClass = "row";
                                 lbtn_applied.Click += new EventHandler(lbtnfunction);

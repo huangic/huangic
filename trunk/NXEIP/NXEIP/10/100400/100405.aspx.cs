@@ -41,7 +41,6 @@ public partial class _10_100400_100405 : System.Web.UI.Page
             if (Request["count"] == null) Session["100405_value"] = "";
 
             if (this.lab_today.Text.Trim().Length <= 0) this.lab_today.Text = System.DateTime.Now.ToString("yyyy-MM-dd");//日期：民國年月日
-
             #region 所在地、場所 預設限制單位
             this.ddl_spot_CascadingDropDown.ContextKey = sobj.sessionUserDepartID + "," + this.lab_spot1.Text;
             this.ddl_equipments_CascadingDropDown.ContextKey = sobj.sessionUserDepartID + "," + this.lab_equ1.Text;
@@ -309,7 +308,7 @@ public partial class _10_100400_100405 : System.Web.UI.Page
 
                                 LinkButton lbtn_applied = new LinkButton();
                                 lbtn_applied.Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(dt.Rows[c]["bor_applyuid"].ToString())) + status;
-                                lbtn_applied.ID = "lbtn_d" + txtdate.Replace("-", "") + txttime.Replace(":", "");
+                                lbtn_applied.ID = "lbtn_d" + txtdate.Replace("-", "") + txttime.Replace(":", "") + dt.Rows[c]["bor_no"].ToString();
                                 lbtn_applied.CommandArgument = this.lab_spot1.Text + "," + this.lab_equ1.Text + "," + txtdate + "," + txttime + "," + dt.Rows[c]["bor_no"].ToString();
                                 lbtn_applied.CssClass = "row";
                                 lbtn_applied.Click += new EventHandler(lbtnfunction);
