@@ -28,7 +28,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100507" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100701" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
