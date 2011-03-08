@@ -32,7 +32,7 @@ public partial class _30_300400_300403 : System.Web.UI.Page
             this.calendar2._ADDate = Convert.ToDateTime((System.DateTime.Today.Year+1)+"-01-01").AddDays(-1);
             ListItem allitem = new ListItem("全部", "0");
             #region 場管之所在地、場所
-            string sqlstr = "select spot.spo_no, spot.spo_name from spot inner join rooms on spot.spo_no = rooms.spo_no inner join checker on rooms.roo_no = checker.roo_no"
+            string sqlstr = "select distinct spot.spo_no, spot.spo_name from spot inner join rooms on spot.spo_no = rooms.spo_no inner join checker on rooms.roo_no = checker.roo_no"
                 + " where (spot.spo_function like '____1%') and (spot.spo_status = '1') and (rooms.roo_status = '1') and (checker.che_peouid = " + sobj.sessionUserID + ")";
             DataTable dt = new DataTable();
             dt = dbo.ExecuteQuery(sqlstr);
@@ -154,7 +154,7 @@ public partial class _30_300400_300403 : System.Web.UI.Page
         this.ddl_rooms.Items.Clear();
         ListItem allitem = new ListItem("全部","0");
         #region 場所
-        string sqlstr = "select rooms.roo_no, rooms.roo_name from rooms inner join checker on rooms.roo_no = checker.roo_no where (rooms.roo_status = '1') and (checker.che_peouid = " + sobj.sessionUserID + ")";
+        string sqlstr = "select distinct rooms.roo_no, rooms.roo_name from rooms inner join checker on rooms.roo_no = checker.roo_no where (rooms.roo_status = '1') and (checker.che_peouid = " + sobj.sessionUserID + ") and (rooms.spo_no="+this.ddl_spot.SelectedValue+")";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)
