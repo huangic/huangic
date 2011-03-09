@@ -52,7 +52,9 @@
                                     <asp:RadioButton ID="rb_s06no" runat="server" Text="業務資訊類" GroupName="G1" />
                                     &nbsp;
                                     <asp:DropDownList ID="ddl_sysfun" runat="server" DataSourceID="ObjectDataSource1"
-                                        DataTextField="sfu_name" DataValueField="sfu_no">
+                                        DataTextField="sfu_name" DataValueField="sfu_no" 
+                                        AppendDataBoundItems="True">
+                                        <asp:ListItem Value="0">請選擇</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -61,7 +63,9 @@
                                     <asp:RadioButton ID="rb_r05no" runat="server" Text="維修類" GroupName="G1" />
                                     &nbsp;
                                     <asp:DropDownList ID="ddl_r05" runat="server" DataSourceID="ObjectDataSource2"
-                                        DataTextField="r05_name" DataValueField="r05_no">
+                                        DataTextField="r05_name" DataValueField="r05_no" 
+                                        AppendDataBoundItems="True">
+                                        <asp:ListItem Value="0">請選擇</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>

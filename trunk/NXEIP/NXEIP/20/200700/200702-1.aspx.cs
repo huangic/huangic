@@ -17,22 +17,29 @@ public partial class _20_200700_200702_1 : System.Web.UI.Page
             {
                 //業務類別
                 _200702DAO dao = new _200702DAO();
-                var sfu_no = dao.Get_qatype("2").Select(o => o.qat_s06no).ToArray();
-                var sysfuc = (from d in model.sysfuction where sfu_no.Contains(d.sfu_no) select d);
-                foreach (var p in sysfuc)
+                var sfu_no = dao.Get_qatype("2");
+                foreach (var p in sfu_no)
                 {
-                    ListItem item = new ListItem(p.sfu_name, p.sfu_no.ToString());
+                    string sfu_name = (from d in model.sysfuction
+                                     where d.sfu_no == p.qat_s06no
+                                     select d.sfu_name).FirstOrDefault();
+                    ListItem item = new ListItem(sfu_name,p.qat_no.ToString());
                     this.ddl_sysfun.Items.Add(item);
                 }
+                this.ddl_sysfun.Items.Insert(0, new ListItem("請選擇", "0"));
 
                 //維修類別
-                var r05_no = dao.Get_qatype("3").Select(o => o.qat_r05no).ToArray();
-                var r05 = (from d in model.rep05 where r05_no.Contains(d.r05_no) select d);
-                foreach (var p in r05)
+                var r05_no = dao.Get_qatype("3");
+                foreach (var p in r05_no)
                 {
-                    ListItem item = new ListItem(p.r05_name, p.r05_no.ToString());
+                    string r05_name = (from d in model.rep05
+                                       where d.r05_no == p.qat_r05no
+                                       select d.r05_name).FirstOrDefault();
+
+                    ListItem item = new ListItem(r05_name, p.qat_no.ToString());
                     this.ddl_r05.Items.Add(item);
                 }
+                this.ddl_r05.Items.Insert(0, new ListItem("請選擇", "0"));
             }
 
             SessionObject sobj = new SessionObject();
@@ -57,15 +64,40 @@ public partial class _20_200700_200702_1 : System.Web.UI.Page
 
             if (rb_self.Checked)
             {
-                qat_no = this.ddl_self.SelectedValue;
+                if (this.ddl_self.SelectedValue == "0")
+                {
+                    JsUtil.AlertJs(this, "請選擇其它類別");
+                    return;
+                }
+                else
+                {
+                    qat_no = this.ddl_self.SelectedValue;
+                }
             }
             if (rb_s06no.Checked)
             {
-                qat_no = this.ddl_sysfun.SelectedValue;
+                if (this.ddl_sysfun.SelectedValue == "0")
+                {
+                    JsUtil.AlertJs(this, "請選擇業務資訊類別");
+                    return;
+                }
+                else
+                {
+                    qat_no = this.ddl_sysfun.SelectedValue;
+                }
+                
             }
             if (rb_r05no.Checked)
             {
-                qat_no = this.ddl_r05.SelectedValue;
+                if (this.ddl_r05.SelectedValue == "0")
+                {
+                    JsUtil.AlertJs(this, "請選擇維修類別");
+                    return;
+                }
+                else
+                {
+                    qat_no = this.ddl_r05.SelectedValue;
+                }
             }
 
             ask d = new ask();

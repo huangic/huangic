@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200702-1.aspx.cs" Inherits="_20_200700_200702_1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="200702-2.aspx.cs" Inherits="_20_200700_200702_2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Src="../../lib/CssLayout.ascx" TagName="CssLayout" TagPrefix="uc1" %>
@@ -58,47 +58,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <th style="width:15%">
-                        問題類別
-                    </th>
-                    <td colspan="3">
-                        <table width="100%">
-                            <tr>
-                                <td>
-                                    <asp:RadioButton ID="rb_self" runat="server" Text="其它類別" Checked="True" GroupName="G1" />
-                                    &nbsp;
-                                    <asp:DropDownList ID="ddl_self" runat="server" DataSourceID="ObjectDataSource1" 
-                                        DataTextField="qat_name" DataValueField="qat_no" 
-                                        AppendDataBoundItems="True">
-                                        <asp:ListItem Value="0">請選擇</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:RadioButton ID="rb_s06no" runat="server" Text="業務資訊類" GroupName="G1" />
-                                    &nbsp;
-                                    <asp:DropDownList ID="ddl_sysfun" runat="server">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:RadioButton ID="rb_r05no" runat="server" Text="維修類" GroupName="G1" />
-                                    &nbsp;
-                                    <asp:DropDownList ID="ddl_r05" runat="server">
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
                     <th>
                         發問問題
                     </th>
                     <td colspan="3">
-                        <asp:TextBox ID="tbox_question" runat="server" Width="295px" Height="85px" 
+                        <asp:Label ID="lab_question" runat="server"></asp:Label>
+                        </td>
+                </tr>
+                <tr>
+                    <th>
+                        回覆問題
+                    </th>
+                    <td colspan="3">
+                        <asp:TextBox ID="tbox_ans" runat="server" Width="295px" Height="85px" 
                             MaxLength="200" TextMode="MultiLine"></asp:TextBox>
                         </td>
                 </tr>

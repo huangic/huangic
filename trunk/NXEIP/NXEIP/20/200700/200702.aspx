@@ -36,10 +36,40 @@
             <asp:Parameter Name="key" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="Get_qatype" 
+        TypeName="NXEIP.DAO._200702DAO">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="self" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc3:Navigator ID="Navigator1" runat="server" SysFuncNo="200701" />
     
     <div class="tableDiv">
-    
+        <table>
+            <tr>
+                <td>關鍵字：<asp:TextBox ID="tbox_key" runat="server"></asp:TextBox>
+                    &nbsp;&nbsp;
+                    <asp:RadioButton ID="rbl_self" runat="server" Text="其它類別：" GroupName="G1" />
+                    <asp:DropDownList ID="ddl_self" runat="server" AppendDataBoundItems="True" 
+                        DataSourceID="ObjectDataSource2" DataTextField="qat_name" 
+                        DataValueField="qat_no">
+                        <asp:ListItem Value="0">全部</asp:ListItem>
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;
+                    <asp:RadioButton ID="rbl_sfu" runat="server" Text="業務資訊類：" GroupName="G1" />
+                    <asp:DropDownList ID="ddl_sfuno" runat="server">
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;
+                    <asp:RadioButton ID="rbl_r05" runat="server" Text="維修類：" GroupName="G1" />
+                    <asp:DropDownList ID="ddl_r05no" runat="server">
+                    </asp:DropDownList>
+                    &nbsp;&nbsp;
+                    <asp:Button ID="Button2" runat="server" Text="查詢" CssClass="b-input" 
+                        onclick="Button2_Click" />
+                </td>
+            </tr>
+        </table>
     </div>
     
     <div class="tableDiv">

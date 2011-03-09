@@ -9,20 +9,96 @@ using NXEIP.DAO;
 
 public partial class _20_200700_200702 : System.Web.UI.Page
 {
-    private int[] my_qatno = null;
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
         {
             this.LoadData("", null, "");
-            my_qatno = new _200702DAO().Get_MyQAtype(int.Parse(new SessionObject().sessionUserID));
+            
+            
+
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+                //業務類別
+                _200702DAO dao = new _200702DAO();
+                
+                var sfu_no = dao.Get_qatype("2");
+                foreach (var p in sfu_no)
+                {
+                    string sfu_name = (from d in model.sysfuction
+                                       where d.sfu_no == p.qat_s06no
+                                       select d.sfu_name).FirstOrDefault();
+                    ListItem item = new ListItem(sfu_name, p.qat_no.ToString());
+                    this.ddl_sfuno.Items.Add(item);
+                }
+                this.ddl_sfuno.Items.Insert(0, new ListItem("全部", "0"));
+
+                //維修類別
+                var r05_no = dao.Get_qatype("3");
+                foreach (var p in r05_no)
+                {
+                    string r05_name = (from d in model.rep05
+                                       where d.r05_no == p.qat_r05no
+                                       select d.r05_name).FirstOrDefault();
+                    ListItem item = new ListItem(r05_name, p.qat_no.ToString());
+                    this.ddl_r05no.Items.Add(item);
+                }
+                this.ddl_r05no.Items.Insert(0, new ListItem("全部", "0"));
+            }
         }
 
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
         {
             this.GridView1.DataBind();
         }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string key = this.tbox_key.Text.Trim();
+        string self = "";
+        int? qat_no = null;
+
+        if (this.rbl_self.Checked)
+        {
+            if (this.ddl_self.SelectedValue == "0")
+            {
+                self = "1";
+            }
+            else
+            {
+                self = "";
+                qat_no = int.Parse(this.ddl_self.SelectedValue);
+            }
+        }
+
+        if (this.rbl_sfu.Checked)
+        {
+            if (this.ddl_sfuno.SelectedValue == "0")
+            {
+                self = "2";
+            }
+            else
+            {
+                self = "";
+                qat_no = int.Parse(this.ddl_sfuno.SelectedValue);
+            }
+        }
+
+        if (this.rbl_r05.Checked)
+        {
+            if (this.ddl_r05no.SelectedValue == "0")
+            {
+                self = "3";
+            }
+            else
+            {
+                self = "";
+                qat_no = int.Parse(this.ddl_r05no.SelectedValue);
+            }
+        }
+
+        this.LoadData(self, qat_no, key);
     }
 
     /// <summary>
@@ -49,11 +125,28 @@ public partial class _20_200700_200702 : System.Web.UI.Page
 
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
+        int rowIndex = int.Parse(e.CommandArgument.ToString());
+        int ask_no = int.Parse(this.GridView1.DataKeys[rowIndex].Value.ToString());
 
+        if (e.CommandName.Equals("del"))
+        {
+            _200702DAO dao = new _200702DAO();
+
+            ask d = dao.Get_ask(ask_no);
+            d.ask_status = "2";
+            dao.Update();
+
+            OperatesObject.OperatesExecute(200702, 4, "刪除問答 ask_no:" + ask_no);
+
+            this.GridView1.DataBind();
+        }
     }
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        //可查詢類別
+        int[] my_qatno = new _200702DAO().Get_MyQAtype(int.Parse(new SessionObject().sessionUserID));
+
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             int ask_no = int.Parse(this.GridView1.DataKeys[e.Row.DataItemIndex].Value.ToString());
@@ -100,4 +193,5 @@ public partial class _20_200700_200702 : System.Web.UI.Page
 
 
 
+    
 }
