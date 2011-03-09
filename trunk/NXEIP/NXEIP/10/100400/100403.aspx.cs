@@ -22,8 +22,6 @@ public partial class _10_100400_100403 : System.Web.UI.Page
                 //大類別
                 var r05Data = (from d in model.rep05 where d.r05_status == "1" orderby d.r05_no select new { d.r05_no, d.r05_name });
 
-                int[] r05_no = r05Data.Select(o => o.r05_no).ToArray();
-
                 foreach (var r in r05Data)
                 {
                     strDiv = @"<div class='box'>
@@ -33,7 +31,7 @@ public partial class _10_100400_100403 : System.Web.UI.Page
 
                     //維修Q&A資料
                     int[] qat_no = (from d in model.qatype
-                                    where r05_no.Contains( d.qat_r05no.Value)
+                                    where  d.qat_r05no.Value == r.r05_no
                                     select d.qat_no).ToArray();
 
                     strDiv += "<div class='content'>";
