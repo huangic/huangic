@@ -58,6 +58,10 @@ public partial class _10_100400_100401_1 : System.Web.UI.Page
             }
         }
         this.DataList1.DataBind();
+
+        this.btn_submit.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_submit, "");
+        this.btn_cancel.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_cancel, "");
+        this.btn_goback.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_goback, "");
     }
 
     #region 調整格式
