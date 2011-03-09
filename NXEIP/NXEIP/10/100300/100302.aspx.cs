@@ -32,7 +32,12 @@ public partial class _10_100300_100302 : System.Web.UI.Page
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100302, sobj.sessionUserID, 2, "開放他人設定");
         }
-              
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            this.GridView1.DataBind();
+        }
     }
 
     #region 調整輸出格式

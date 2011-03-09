@@ -96,7 +96,7 @@ public partial class _10_100300_100301_5 : System.Web.UI.Page
     #region 取消
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
-        this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_5), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
     }
     #endregion
 
@@ -163,7 +163,7 @@ public partial class _10_100300_100301_5 : System.Web.UI.Page
             }
             #endregion
 
-            this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_5), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
         catch (Exception ex)
         {

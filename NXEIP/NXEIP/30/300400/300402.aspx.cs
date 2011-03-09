@@ -84,7 +84,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     #region 所在地列表及新增或修改預設值
     private void ShowSpot()
     {
-        ListItem selectitem = new ListItem("請選擇", "0");
+        this.ddl_spot.Items.Clear();
         string sqlstr = "select spo_no,spo_name from spot where spo_status='1' and (spo_function LIKE '____1%') order by spo_no";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
@@ -96,7 +96,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
                 this.ddl_spot.Items.Add(newitem);
             }
         }
-        this.ddl_spot.Items.Insert(0, selectitem);
+        this.ddl_spot.Items.Insert(0, new ListItem("請選擇", "0"));
     }
     #endregion
 

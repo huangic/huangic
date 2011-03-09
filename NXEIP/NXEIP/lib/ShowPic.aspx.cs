@@ -58,6 +58,17 @@ public partial class lib_ShowPic : System.Web.UI.Page
                         }
                         #endregion
                     }
+                    else if (tb.Equals("m02"))
+                    {
+                        #region 設備圖片
+                        m02 tbdata = (from tbm02 in model.m02 where tbm02.m02_no == pkno select tbm02).FirstOrDefault();
+                        if (tbdata != null)
+                        {
+                            filename = tbdata.m02_pictype;
+                            files1 = tbdata.m02_pic;
+                        }
+                        #endregion
+                    }
                 }
                 if (filename.Length > 0)
                 {
