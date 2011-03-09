@@ -176,7 +176,7 @@ namespace NXEIP.DAO
 
         public void Adde02(e02 e02)
         {
-            model.AddToe02(e02);
+            model.e02.AddObject(e02);
         }
 
         public int Update()
