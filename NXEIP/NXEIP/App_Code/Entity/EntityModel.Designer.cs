@@ -113,10 +113,10 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "ipaddress", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ipaddress), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "ask", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ask), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "qamanager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.qamanager), true)]
-[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc03", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc03), "doc14", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc14), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M04_RELATIONS_M03", "m03", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m03), "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m04), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M05_RELATIONS_M04", "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m04), "m05", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m05), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MEDETAIL_RELATIONS_MESSAGE", "message", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.message), "medetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.medetail), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC01", "doc01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc14", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc14), true)]
 
 #endregion
 
@@ -1771,22 +1771,6 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        public ObjectSet<doc14> doc14
-        {
-            get
-            {
-                if ((_doc14 == null))
-                {
-                    _doc14 = base.CreateObjectSet<doc14>("doc14");
-                }
-                return _doc14;
-            }
-        }
-        private ObjectSet<doc14> _doc14;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
         public ObjectSet<m01> m01
         {
             get
@@ -1863,6 +1847,22 @@ namespace Entity
             }
         }
         private ObjectSet<m05> _m05;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<doc14> doc14
+        {
+            get
+            {
+                if ((_doc14 == null))
+                {
+                    _doc14 = base.CreateObjectSet<doc14>("doc14");
+                }
+                return _doc14;
+            }
+        }
+        private ObjectSet<doc14> _doc14;
 
         #endregion
         #region AddTo 方法
@@ -2668,14 +2668,6 @@ namespace Entity
         }
     
         /// <summary>
-        /// 將新物件加入 doc14 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTodoc14(doc14 doc14)
-        {
-            base.AddObject("doc14", doc14);
-        }
-    
-        /// <summary>
         /// 將新物件加入 m01 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
         /// </summary>
         public void AddTom01(m01 m01)
@@ -2713,6 +2705,14 @@ namespace Entity
         public void AddTom05(m05 m05)
         {
             base.AddObject("m05", m05);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 doc14 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTodoc14(doc14 doc14)
+        {
+            base.AddObject("doc14", doc14);
         }
 
         #endregion
@@ -8160,6 +8160,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC01", "doc14")]
+        public EntityCollection<doc14> doc14
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc14");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc14", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -9124,28 +9146,6 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc05>("NXEIPModel.FK_DOC05_RELATIONS_DOC03", "doc05", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc14")]
-        public EntityCollection<doc14> doc14
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc14");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc14", value);
                 }
             }
         }
@@ -11839,12 +11839,12 @@ namespace Entity
         /// 建立新 doc14 物件。
         /// </summary>
         /// <param name="d14_no">d14_no 屬性的初始值。</param>
-        /// <param name="d03_no">d03_no 屬性的初始值。</param>
-        public static doc14 Createdoc14(global::System.Int32 d14_no, global::System.Int32 d03_no)
+        /// <param name="d01_no">d01_no 屬性的初始值。</param>
+        public static doc14 Createdoc14(global::System.Int32 d14_no, global::System.Int32 d01_no)
         {
             doc14 doc14 = new doc14();
             doc14.d14_no = d14_no;
-            doc14.d03_no = d03_no;
+            doc14.d01_no = d01_no;
             return doc14;
         }
 
@@ -11883,24 +11883,24 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 d03_no
+        public global::System.Int32 d01_no
         {
             get
             {
-                return _d03_no;
+                return _d01_no;
             }
             set
             {
-                Ond03_noChanging(value);
-                ReportPropertyChanging("d03_no");
-                _d03_no = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("d03_no");
-                Ond03_noChanged();
+                Ond01_noChanging(value);
+                ReportPropertyChanging("d01_no");
+                _d01_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("d01_no");
+                Ond01_noChanged();
             }
         }
-        private global::System.Int32 _d03_no;
-        partial void Ond03_noChanging(global::System.Int32 value);
-        partial void Ond03_noChanged();
+        private global::System.Int32 _d01_no;
+        partial void Ond01_noChanging(global::System.Int32 value);
+        partial void Ond01_noChanged();
     
         /// <summary>
         /// 沒有可用的中繼資料文件。
@@ -11960,16 +11960,16 @@ namespace Entity
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc03")]
-        public doc03 doc03
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC01", "doc01")]
+        public doc01 doc01
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc01").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc01").Value = value;
             }
         }
         /// <summary>
@@ -11977,17 +11977,17 @@ namespace Entity
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<doc03> doc03Reference
+        public EntityReference<doc01> doc01Reference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc01>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc01");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<doc01>("NXEIPModel.FK_DOC14_RELATIONS_DOC01", "doc01", value);
                 }
             }
         }
