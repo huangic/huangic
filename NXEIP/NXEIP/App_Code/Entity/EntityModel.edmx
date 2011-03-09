@@ -10,6 +10,7 @@
           <EntitySet Name="album" EntityType="NXEIPModel.Store.album" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="answers" EntityType="NXEIPModel.Store.answers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="arguments" EntityType="NXEIPModel.Store.arguments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ask" EntityType="NXEIPModel.Store.ask" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="attends" EntityType="NXEIPModel.Store.attends" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="block" EntityType="NXEIPModel.Store.block" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="borrows" EntityType="NXEIPModel.Store.borrows" store:Type="Tables" Schema="dbo" />
@@ -67,6 +68,8 @@
           <EntitySet Name="per01" EntityType="NXEIPModel.Store.per01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="petition" EntityType="NXEIPModel.Store.petition" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="photo" EntityType="NXEIPModel.Store.photo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="qamanager" EntityType="NXEIPModel.Store.qamanager" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="qatype" EntityType="NXEIPModel.Store.qatype" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="questionary" EntityType="NXEIPModel.Store.questionary" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rauthority" EntityType="NXEIPModel.Store.rauthority" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rep01" EntityType="NXEIPModel.Store.rep01" store:Type="Tables" Schema="dbo" />
@@ -128,6 +131,10 @@
           <AssociationSet Name="FK_ANSWERS_RELATIONS_THEME" Association="NXEIPModel.Store.FK_ANSWERS_RELATIONS_THEME">
             <End Role="theme" EntitySet="theme" />
             <End Role="answers" EntitySet="answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASK_RELATIONS_QATYPE" Association="NXEIPModel.Store.FK_ASK_RELATIONS_QATYPE">
+            <End Role="qatype" EntitySet="qatype" />
+            <End Role="ask" EntitySet="ask" />
           </AssociationSet>
           <AssociationSet Name="FK_ATTENDS_RELATIONS_MEETINGS" Association="NXEIPModel.Store.FK_ATTENDS_RELATIONS_MEETINGS">
             <End Role="meetings" EntitySet="meetings" />
@@ -337,6 +344,10 @@
             <End Role="album" EntitySet="album" />
             <End Role="photo" EntitySet="photo" />
           </AssociationSet>
+          <AssociationSet Name="FK_QAMANAGE_RELATIONS_QATYPE" Association="NXEIPModel.Store.FK_QAMANAGE_RELATIONS_QATYPE">
+            <End Role="qatype" EntitySet="qatype" />
+            <End Role="qamanager" EntitySet="qamanager" />
+          </AssociationSet>
           <AssociationSet Name="FK_RAUTHORI_RELATIONS_ROLE" Association="NXEIPModel.Store.FK_RAUTHORI_RELATIONS_ROLE">
             <End Role="role" EntitySet="role" />
             <End Role="rauthority" EntitySet="rauthority" />
@@ -540,6 +551,24 @@
           <Property Name="arg_describe" Type="nvarchar" MaxLength="500" />
           <Property Name="arg_variable" Type="varchar" MaxLength="50" />
           <Property Name="arg_value" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ask">
+          <Key>
+            <PropertyRef Name="ask_no" />
+          </Key>
+          <Property Name="ask_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="qat_no" Type="int" Nullable="false" />
+          <Property Name="ask_date" Type="datetime" />
+          <Property Name="ask_peouid" Type="int" />
+          <Property Name="ask_depno" Type="int" />
+          <Property Name="ask_question" Type="text" />
+          <Property Name="ask_rdate" Type="datetime" />
+          <Property Name="ask_rpeouid" Type="int" />
+          <Property Name="ask_rdepno" Type="int" />
+          <Property Name="ask_answer" Type="text" />
+          <Property Name="ask_status" Type="char" MaxLength="1" />
+          <Property Name="ask_createuid" Type="int" />
+          <Property Name="ask_createtime" Type="datetime" />
         </EntityType>
         <EntityType Name="attends">
           <Key>
@@ -1403,6 +1432,29 @@
           <Property Name="pho_createuid" Type="int" />
           <Property Name="pho_createtime" Type="datetime" />
         </EntityType>
+        <EntityType Name="qamanager">
+          <Key>
+            <PropertyRef Name="qat_no" />
+            <PropertyRef Name="qam_no" />
+          </Key>
+          <Property Name="qat_no" Type="int" Nullable="false" />
+          <Property Name="qam_no" Type="int" Nullable="false" />
+          <Property Name="qam_peouid" Type="int" />
+        </EntityType>
+        <EntityType Name="qatype">
+          <Key>
+            <PropertyRef Name="qat_no" />
+          </Key>
+          <Property Name="qat_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="qat_name" Type="nvarchar" MaxLength="30" />
+          <Property Name="qat_s06no" Type="int" />
+          <Property Name="qat_r05no" Type="int" />
+          <Property Name="qat_self" Type="char" MaxLength="1" />
+          <Property Name="qat_note" Type="nvarchar" MaxLength="200" />
+          <Property Name="qat_status" Type="char" MaxLength="1" />
+          <Property Name="qat_createuid" Type="int" />
+          <Property Name="qat_createtime" Type="datetime" />
+        </EntityType>
         <EntityType Name="questionary">
           <Key>
             <PropertyRef Name="que_no" />
@@ -1902,6 +1954,18 @@
             <Dependent Role="answers">
               <PropertyRef Name="que_no" />
               <PropertyRef Name="the_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASK_RELATIONS_QATYPE">
+          <End Role="qatype" Type="NXEIPModel.Store.qatype" Multiplicity="1" />
+          <End Role="ask" Type="NXEIPModel.Store.ask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qatype">
+              <PropertyRef Name="qat_no" />
+            </Principal>
+            <Dependent Role="ask">
+              <PropertyRef Name="qat_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2530,6 +2594,18 @@
             </Principal>
             <Dependent Role="photo">
               <PropertyRef Name="alb_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QAMANAGE_RELATIONS_QATYPE">
+          <End Role="qatype" Type="NXEIPModel.Store.qatype" Multiplicity="1" />
+          <End Role="qamanager" Type="NXEIPModel.Store.qamanager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qatype">
+              <PropertyRef Name="qat_no" />
+            </Principal>
+            <Dependent Role="qamanager">
+              <PropertyRef Name="qat_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3455,6 +3531,17 @@
           </AssociationSet>
           <EntitySet Name="medetail" EntityType="NXEIPModel.medetail" />
           <EntitySet Name="email" EntityType="NXEIPModel.email" />
+          <EntitySet Name="ask" EntityType="NXEIPModel.ask" />
+          <EntitySet Name="qamanager" EntityType="NXEIPModel.qamanager" />
+          <EntitySet Name="qatype" EntityType="NXEIPModel.qatype" />
+          <AssociationSet Name="FK_ASK_RELATIONS_QATYPE" Association="NXEIPModel.FK_ASK_RELATIONS_QATYPE">
+            <End Role="qatype" EntitySet="qatype" />
+            <End Role="ask" EntitySet="ask" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QAMANAGE_RELATIONS_QATYPE" Association="NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE">
+            <End Role="qatype" EntitySet="qatype" />
+            <End Role="qamanager" EntitySet="qamanager" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6146,6 +6233,75 @@
           <Property Type="Int32" Name="ema_check" />
           <Property Type="String" Name="ema_note" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="ask">
+          <Key>
+            <PropertyRef Name="ask_no" />
+          </Key>
+          <Property Type="Int32" Name="ask_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="qat_no" Nullable="false" />
+          <Property Type="DateTime" Name="ask_date" />
+          <Property Type="Int32" Name="ask_peouid" />
+          <Property Type="Int32" Name="ask_depno" />
+          <Property Type="String" Name="ask_question" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ask_rdate" />
+          <Property Type="Int32" Name="ask_rpeouid" />
+          <Property Type="Int32" Name="ask_rdepno" />
+          <Property Type="String" Name="ask_answer" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ask_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="ask_createuid" />
+          <Property Type="DateTime" Name="ask_createtime" />
+          <NavigationProperty Name="qatype" Relationship="NXEIPModel.FK_ASK_RELATIONS_QATYPE" FromRole="ask" ToRole="qatype" />
+        </EntityType>
+        <EntityType Name="qamanager">
+          <Key>
+            <PropertyRef Name="qat_no" />
+            <PropertyRef Name="qam_no" />
+          </Key>
+          <Property Type="Int32" Name="qat_no" Nullable="false" />
+          <Property Type="Int32" Name="qam_no" Nullable="false" />
+          <Property Type="Int32" Name="qam_peouid" />
+          <NavigationProperty Name="qatype" Relationship="NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE" FromRole="qamanager" ToRole="qatype" />
+        </EntityType>
+        <EntityType Name="qatype">
+          <Key>
+            <PropertyRef Name="qat_no" />
+          </Key>
+          <Property Type="Int32" Name="qat_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="qat_name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="qat_s06no" />
+          <Property Type="Int32" Name="qat_r05no" />
+          <Property Type="String" Name="qat_self" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="qat_note" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="qat_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="qat_createuid" />
+          <Property Type="DateTime" Name="qat_createtime" />
+          <NavigationProperty Name="ask" Relationship="NXEIPModel.FK_ASK_RELATIONS_QATYPE" FromRole="qatype" ToRole="ask" />
+          <NavigationProperty Name="qamanager" Relationship="NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE" FromRole="qatype" ToRole="qamanager" />
+        </EntityType>
+        <Association Name="FK_ASK_RELATIONS_QATYPE">
+          <End Type="NXEIPModel.qatype" Role="qatype" Multiplicity="1" />
+          <End Type="NXEIPModel.ask" Role="ask" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qatype">
+              <PropertyRef Name="qat_no" />
+            </Principal>
+            <Dependent Role="ask">
+              <PropertyRef Name="qat_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QAMANAGE_RELATIONS_QATYPE">
+          <End Type="NXEIPModel.qatype" Role="qatype" Multiplicity="1" />
+          <End Type="NXEIPModel.qamanager" Role="qamanager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="qatype">
+              <PropertyRef Name="qat_no" />
+            </Principal>
+            <Dependent Role="qamanager">
+              <PropertyRef Name="qat_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7466,6 +7622,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ask">
+            <EntityTypeMapping TypeName="NXEIPModel.ask">
+              <MappingFragment StoreEntitySet="ask">
+                <ScalarProperty Name="ask_createtime" ColumnName="ask_createtime" />
+                <ScalarProperty Name="ask_createuid" ColumnName="ask_createuid" />
+                <ScalarProperty Name="ask_status" ColumnName="ask_status" />
+                <ScalarProperty Name="ask_answer" ColumnName="ask_answer" />
+                <ScalarProperty Name="ask_rdepno" ColumnName="ask_rdepno" />
+                <ScalarProperty Name="ask_rpeouid" ColumnName="ask_rpeouid" />
+                <ScalarProperty Name="ask_rdate" ColumnName="ask_rdate" />
+                <ScalarProperty Name="ask_question" ColumnName="ask_question" />
+                <ScalarProperty Name="ask_depno" ColumnName="ask_depno" />
+                <ScalarProperty Name="ask_peouid" ColumnName="ask_peouid" />
+                <ScalarProperty Name="ask_date" ColumnName="ask_date" />
+                <ScalarProperty Name="qat_no" ColumnName="qat_no" />
+                <ScalarProperty Name="ask_no" ColumnName="ask_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qamanager">
+            <EntityTypeMapping TypeName="NXEIPModel.qamanager">
+              <MappingFragment StoreEntitySet="qamanager">
+                <ScalarProperty Name="qam_peouid" ColumnName="qam_peouid" />
+                <ScalarProperty Name="qam_no" ColumnName="qam_no" />
+                <ScalarProperty Name="qat_no" ColumnName="qat_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qatype">
+            <EntityTypeMapping TypeName="NXEIPModel.qatype">
+              <MappingFragment StoreEntitySet="qatype">
+                <ScalarProperty Name="qat_createtime" ColumnName="qat_createtime" />
+                <ScalarProperty Name="qat_createuid" ColumnName="qat_createuid" />
+                <ScalarProperty Name="qat_status" ColumnName="qat_status" />
+                <ScalarProperty Name="qat_note" ColumnName="qat_note" />
+                <ScalarProperty Name="qat_self" ColumnName="qat_self" />
+                <ScalarProperty Name="qat_r05no" ColumnName="qat_r05no" />
+                <ScalarProperty Name="qat_s06no" ColumnName="qat_s06no" />
+                <ScalarProperty Name="qat_name" ColumnName="qat_name" />
+                <ScalarProperty Name="qat_no" ColumnName="qat_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -8400,6 +8599,18 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.medetail" Width="1.5" PointX="19.375" PointY="16.75" Height="1.5956835937499818" />
         <EntityTypeShape EntityType="NXEIPModel.email" Width="1.5" PointX="21.375" PointY="0.75" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="NXEIPModel.ask" Width="1.5" PointX="25.625" PointY="1.125" Height="3.710999348958353" />
+        <EntityTypeShape EntityType="NXEIPModel.qamanager" Width="1.5" PointX="25.625" PointY="5.625" Height="1.7879850260416106" />
+        <EntityTypeShape EntityType="NXEIPModel.qatype" Width="1.5" PointX="23.375" PointY="2.75" Height="3.134095052083353" />
+        <AssociationConnector Association="NXEIPModel.FK_ASK_RELATIONS_QATYPE" >
+          <ConnectorPoint PointX="24.875" PointY="3.7929996744791765" />
+          <ConnectorPoint PointX="25.625" PointY="3.7929996744791765" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE" >
+          <ConnectorPoint PointX="24.125" PointY="5.884095052083353" />
+          <ConnectorPoint PointX="24.125" PointY="6.6485405390624823" />
+          <ConnectorPoint PointX="25.625" PointY="6.6485405390624823" />
+        </AssociationConnector>
         </Diagram>
     </Diagrams>
   </Designer>

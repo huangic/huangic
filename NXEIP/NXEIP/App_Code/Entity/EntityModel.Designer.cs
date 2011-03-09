@@ -111,6 +111,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_CONFEREN_RELATIONS_MEETINGS", "meetings", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.meetings), "conferen", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.conferen), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_HUIYI_RELATIONS_MEETINGS", "meetings", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.meetings), "huiyi", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Entity.huiyi), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "ipaddress", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ipaddress), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "ask", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ask), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "qamanager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.qamanager), true)]
 
 #endregion
 
@@ -1713,6 +1715,54 @@ namespace Entity
             }
         }
         private ObjectSet<email> _email;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<ask> ask
+        {
+            get
+            {
+                if ((_ask == null))
+                {
+                    _ask = base.CreateObjectSet<ask>("ask");
+                }
+                return _ask;
+            }
+        }
+        private ObjectSet<ask> _ask;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<qamanager> qamanager
+        {
+            get
+            {
+                if ((_qamanager == null))
+                {
+                    _qamanager = base.CreateObjectSet<qamanager>("qamanager");
+                }
+                return _qamanager;
+            }
+        }
+        private ObjectSet<qamanager> _qamanager;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<qatype> qatype
+        {
+            get
+            {
+                if ((_qatype == null))
+                {
+                    _qatype = base.CreateObjectSet<qatype>("qatype");
+                }
+                return _qatype;
+            }
+        }
+        private ObjectSet<qatype> _qatype;
 
         #endregion
         #region AddTo 方法
@@ -2491,6 +2541,30 @@ namespace Entity
         public void AddToemail(email email)
         {
             base.AddObject("email", email);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 ask EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToask(ask ask)
+        {
+            base.AddObject("ask", ask);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 qamanager EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToqamanager(qamanager qamanager)
+        {
+            base.AddObject("qamanager", qamanager);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 qatype EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddToqatype(qatype qatype)
+        {
+            base.AddObject("qatype", qatype);
         }
 
         #endregion
@@ -3606,6 +3680,392 @@ namespace Entity
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="ask")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ask : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 ask 物件。
+        /// </summary>
+        /// <param name="ask_no">ask_no 屬性的初始值。</param>
+        /// <param name="qat_no">qat_no 屬性的初始值。</param>
+        public static ask Createask(global::System.Int32 ask_no, global::System.Int32 qat_no)
+        {
+            ask ask = new ask();
+            ask.ask_no = ask_no;
+            ask.qat_no = qat_no;
+            return ask;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ask_no
+        {
+            get
+            {
+                return _ask_no;
+            }
+            set
+            {
+                if (_ask_no != value)
+                {
+                    Onask_noChanging(value);
+                    ReportPropertyChanging("ask_no");
+                    _ask_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ask_no");
+                    Onask_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ask_no;
+        partial void Onask_noChanging(global::System.Int32 value);
+        partial void Onask_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 qat_no
+        {
+            get
+            {
+                return _qat_no;
+            }
+            set
+            {
+                Onqat_noChanging(value);
+                ReportPropertyChanging("qat_no");
+                _qat_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qat_no");
+                Onqat_noChanged();
+            }
+        }
+        private global::System.Int32 _qat_no;
+        partial void Onqat_noChanging(global::System.Int32 value);
+        partial void Onqat_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ask_date
+        {
+            get
+            {
+                return _ask_date;
+            }
+            set
+            {
+                Onask_dateChanging(value);
+                ReportPropertyChanging("ask_date");
+                _ask_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_date");
+                Onask_dateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ask_date;
+        partial void Onask_dateChanging(Nullable<global::System.DateTime> value);
+        partial void Onask_dateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ask_peouid
+        {
+            get
+            {
+                return _ask_peouid;
+            }
+            set
+            {
+                Onask_peouidChanging(value);
+                ReportPropertyChanging("ask_peouid");
+                _ask_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_peouid");
+                Onask_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ask_peouid;
+        partial void Onask_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onask_peouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ask_depno
+        {
+            get
+            {
+                return _ask_depno;
+            }
+            set
+            {
+                Onask_depnoChanging(value);
+                ReportPropertyChanging("ask_depno");
+                _ask_depno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_depno");
+                Onask_depnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ask_depno;
+        partial void Onask_depnoChanging(Nullable<global::System.Int32> value);
+        partial void Onask_depnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ask_question
+        {
+            get
+            {
+                return _ask_question;
+            }
+            set
+            {
+                Onask_questionChanging(value);
+                ReportPropertyChanging("ask_question");
+                _ask_question = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ask_question");
+                Onask_questionChanged();
+            }
+        }
+        private global::System.String _ask_question;
+        partial void Onask_questionChanging(global::System.String value);
+        partial void Onask_questionChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ask_rdate
+        {
+            get
+            {
+                return _ask_rdate;
+            }
+            set
+            {
+                Onask_rdateChanging(value);
+                ReportPropertyChanging("ask_rdate");
+                _ask_rdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_rdate");
+                Onask_rdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ask_rdate;
+        partial void Onask_rdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onask_rdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ask_rpeouid
+        {
+            get
+            {
+                return _ask_rpeouid;
+            }
+            set
+            {
+                Onask_rpeouidChanging(value);
+                ReportPropertyChanging("ask_rpeouid");
+                _ask_rpeouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_rpeouid");
+                Onask_rpeouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ask_rpeouid;
+        partial void Onask_rpeouidChanging(Nullable<global::System.Int32> value);
+        partial void Onask_rpeouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ask_rdepno
+        {
+            get
+            {
+                return _ask_rdepno;
+            }
+            set
+            {
+                Onask_rdepnoChanging(value);
+                ReportPropertyChanging("ask_rdepno");
+                _ask_rdepno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_rdepno");
+                Onask_rdepnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ask_rdepno;
+        partial void Onask_rdepnoChanging(Nullable<global::System.Int32> value);
+        partial void Onask_rdepnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ask_answer
+        {
+            get
+            {
+                return _ask_answer;
+            }
+            set
+            {
+                Onask_answerChanging(value);
+                ReportPropertyChanging("ask_answer");
+                _ask_answer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ask_answer");
+                Onask_answerChanged();
+            }
+        }
+        private global::System.String _ask_answer;
+        partial void Onask_answerChanging(global::System.String value);
+        partial void Onask_answerChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ask_status
+        {
+            get
+            {
+                return _ask_status;
+            }
+            set
+            {
+                Onask_statusChanging(value);
+                ReportPropertyChanging("ask_status");
+                _ask_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ask_status");
+                Onask_statusChanged();
+            }
+        }
+        private global::System.String _ask_status;
+        partial void Onask_statusChanging(global::System.String value);
+        partial void Onask_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ask_createuid
+        {
+            get
+            {
+                return _ask_createuid;
+            }
+            set
+            {
+                Onask_createuidChanging(value);
+                ReportPropertyChanging("ask_createuid");
+                _ask_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_createuid");
+                Onask_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ask_createuid;
+        partial void Onask_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onask_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ask_createtime
+        {
+            get
+            {
+                return _ask_createtime;
+            }
+            set
+            {
+                Onask_createtimeChanging(value);
+                ReportPropertyChanging("ask_createtime");
+                _ask_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ask_createtime");
+                Onask_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ask_createtime;
+        partial void Onask_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onask_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "qatype")]
+        public qatype qatype
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "qatype").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "qatype").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<qatype> qatypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "qatype");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<qatype>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "qatype", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -22228,6 +22688,449 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<album>("NXEIPModel.FK_PHOTO_RELATIONS_ALBUM", "album", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="qamanager")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class qamanager : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 qamanager 物件。
+        /// </summary>
+        /// <param name="qat_no">qat_no 屬性的初始值。</param>
+        /// <param name="qam_no">qam_no 屬性的初始值。</param>
+        public static qamanager Createqamanager(global::System.Int32 qat_no, global::System.Int32 qam_no)
+        {
+            qamanager qamanager = new qamanager();
+            qamanager.qat_no = qat_no;
+            qamanager.qam_no = qam_no;
+            return qamanager;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 qat_no
+        {
+            get
+            {
+                return _qat_no;
+            }
+            set
+            {
+                if (_qat_no != value)
+                {
+                    Onqat_noChanging(value);
+                    ReportPropertyChanging("qat_no");
+                    _qat_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("qat_no");
+                    Onqat_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _qat_no;
+        partial void Onqat_noChanging(global::System.Int32 value);
+        partial void Onqat_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 qam_no
+        {
+            get
+            {
+                return _qam_no;
+            }
+            set
+            {
+                if (_qam_no != value)
+                {
+                    Onqam_noChanging(value);
+                    ReportPropertyChanging("qam_no");
+                    _qam_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("qam_no");
+                    Onqam_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _qam_no;
+        partial void Onqam_noChanging(global::System.Int32 value);
+        partial void Onqam_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> qam_peouid
+        {
+            get
+            {
+                return _qam_peouid;
+            }
+            set
+            {
+                Onqam_peouidChanging(value);
+                ReportPropertyChanging("qam_peouid");
+                _qam_peouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qam_peouid");
+                Onqam_peouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _qam_peouid;
+        partial void Onqam_peouidChanging(Nullable<global::System.Int32> value);
+        partial void Onqam_peouidChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qatype")]
+        public qatype qatype
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qatype").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qatype").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<qatype> qatypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<qatype>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qatype");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<qatype>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qatype", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="qatype")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class qatype : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 qatype 物件。
+        /// </summary>
+        /// <param name="qat_no">qat_no 屬性的初始值。</param>
+        public static qatype Createqatype(global::System.Int32 qat_no)
+        {
+            qatype qatype = new qatype();
+            qatype.qat_no = qat_no;
+            return qatype;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 qat_no
+        {
+            get
+            {
+                return _qat_no;
+            }
+            set
+            {
+                if (_qat_no != value)
+                {
+                    Onqat_noChanging(value);
+                    ReportPropertyChanging("qat_no");
+                    _qat_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("qat_no");
+                    Onqat_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _qat_no;
+        partial void Onqat_noChanging(global::System.Int32 value);
+        partial void Onqat_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String qat_name
+        {
+            get
+            {
+                return _qat_name;
+            }
+            set
+            {
+                Onqat_nameChanging(value);
+                ReportPropertyChanging("qat_name");
+                _qat_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("qat_name");
+                Onqat_nameChanged();
+            }
+        }
+        private global::System.String _qat_name;
+        partial void Onqat_nameChanging(global::System.String value);
+        partial void Onqat_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> qat_s06no
+        {
+            get
+            {
+                return _qat_s06no;
+            }
+            set
+            {
+                Onqat_s06noChanging(value);
+                ReportPropertyChanging("qat_s06no");
+                _qat_s06no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qat_s06no");
+                Onqat_s06noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _qat_s06no;
+        partial void Onqat_s06noChanging(Nullable<global::System.Int32> value);
+        partial void Onqat_s06noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> qat_r05no
+        {
+            get
+            {
+                return _qat_r05no;
+            }
+            set
+            {
+                Onqat_r05noChanging(value);
+                ReportPropertyChanging("qat_r05no");
+                _qat_r05no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qat_r05no");
+                Onqat_r05noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _qat_r05no;
+        partial void Onqat_r05noChanging(Nullable<global::System.Int32> value);
+        partial void Onqat_r05noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String qat_self
+        {
+            get
+            {
+                return _qat_self;
+            }
+            set
+            {
+                Onqat_selfChanging(value);
+                ReportPropertyChanging("qat_self");
+                _qat_self = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("qat_self");
+                Onqat_selfChanged();
+            }
+        }
+        private global::System.String _qat_self;
+        partial void Onqat_selfChanging(global::System.String value);
+        partial void Onqat_selfChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String qat_note
+        {
+            get
+            {
+                return _qat_note;
+            }
+            set
+            {
+                Onqat_noteChanging(value);
+                ReportPropertyChanging("qat_note");
+                _qat_note = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("qat_note");
+                Onqat_noteChanged();
+            }
+        }
+        private global::System.String _qat_note;
+        partial void Onqat_noteChanging(global::System.String value);
+        partial void Onqat_noteChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String qat_status
+        {
+            get
+            {
+                return _qat_status;
+            }
+            set
+            {
+                Onqat_statusChanging(value);
+                ReportPropertyChanging("qat_status");
+                _qat_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("qat_status");
+                Onqat_statusChanged();
+            }
+        }
+        private global::System.String _qat_status;
+        partial void Onqat_statusChanging(global::System.String value);
+        partial void Onqat_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> qat_createuid
+        {
+            get
+            {
+                return _qat_createuid;
+            }
+            set
+            {
+                Onqat_createuidChanging(value);
+                ReportPropertyChanging("qat_createuid");
+                _qat_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qat_createuid");
+                Onqat_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _qat_createuid;
+        partial void Onqat_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onqat_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> qat_createtime
+        {
+            get
+            {
+                return _qat_createtime;
+            }
+            set
+            {
+                Onqat_createtimeChanging(value);
+                ReportPropertyChanging("qat_createtime");
+                _qat_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("qat_createtime");
+                Onqat_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _qat_createtime;
+        partial void Onqat_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onqat_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "ask")]
+        public EntityCollection<ask> ask
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ask>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "ask");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ask>("NXEIPModel.FK_ASK_RELATIONS_QATYPE", "ask", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qamanager")]
+        public EntityCollection<qamanager> qamanager
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<qamanager>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qamanager");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<qamanager>("NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE", "qamanager", value);
                 }
             }
         }
