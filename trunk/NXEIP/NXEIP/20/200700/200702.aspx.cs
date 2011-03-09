@@ -9,12 +9,14 @@ using NXEIP.DAO;
 
 public partial class _20_200700_200702 : System.Web.UI.Page
 {
+    private int[] my_qatno = null;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
         {
             this.LoadData("", null, "");
-
+            my_qatno = new _200702DAO().Get_MyQAtype(int.Parse(new SessionObject().sessionUserID));
         }
 
         if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
@@ -52,8 +54,6 @@ public partial class _20_200700_200702 : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        
-
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             int ask_no = int.Parse(this.GridView1.DataKeys[e.Row.DataItemIndex].Value.ToString());
@@ -62,21 +62,42 @@ public partial class _20_200700_200702 : System.Web.UI.Page
             
             ChangeObject cobj = new ChangeObject();
 
-            string str = "問：" + e.Row.Cells[0].Text;
-
-            if (!string.IsNullOrEmpty(data.ask_answer))
-            {
-                str += "<br/>答：" + data.ask_answer;
-            }
-
-            //e.Row.Cells[0].Text = str;
-
             e.Row.Cells[1].Text = cobj._ADtoROCDT(data.ask_date.Value);
             if (data.ask_rdate.HasValue)
             {
                 e.Row.Cells[2].Text = cobj._ADtoROCDT(data.ask_rdate.Value);
             }
             e.Row.Cells[3].Text = new UtilityDAO().Get_PeopleName(int.Parse(new SessionObject().sessionUserID));
+
+            //是否為自己發問
+            int peo_uid = int.Parse(new SessionObject().sessionUserID);
+            if (data.ask_peouid != peo_uid)
+            {
+                e.Row.Cells[5].Text = "&nbsp;";
+            }
+
+            //是否可回覆
+            bool yes = false;
+            if (my_qatno != null)
+            {
+                for (int i = 0; i < my_qatno.Length; i++)
+                {
+                    if (my_qatno[i] == data.qat_no)
+                    {
+                        yes = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!yes)
+            {
+                e.Row.Cells[4].Text = "&nbsp;";
+            }
+
         }
     }
+
+
+
 }
