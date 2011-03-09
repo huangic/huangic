@@ -28,6 +28,9 @@ validate套件
     $(_setting.permissionButton).bind("click",openPermissionDialog);
 
 
+
+     $(_setting.shareDialog).dialog({ autoOpen: false });
+
     function test(){
        
         //alert($.jstree._focused().get_selected());
@@ -348,6 +351,123 @@ validate套件
                     } 
                 
                 }
+               },"share":{
+                "label":"分享",
+                "action":function(obj){
+                    
+                    
+                   
+                    
+                    
+                    if($(obj).attr("foldertype")==2){
+                        alert("非使用者目錄不可以分享");
+                        return;
+                    }
+                    
+                     if($(obj).attr("id")==0){
+                        alert("使用者根目錄不可以分享");
+                        return;
+                    }
+
+                        var result;
+                       
+                     //顯示分享的設定
+
+                      //建立樹狀
+                        $(_setting.shareDialog).dialog({
+                        modal:true,
+                        title:"目錄分享",
+                        width:400,
+                        autoOpen:false,
+                        buttons: {
+                         "關閉":function(){$(_setting.shareDialog).dialog('close')},
+                                               
+                         "分享":function(){
+                              
+
+                                if($("#"+$(_setting.shareDialog).attr("id")+" #pwd2").val()!=$("#"+$(_setting.shareDialog).attr("id")+" #pwd").val()){
+                                    alert("確認密碼不一致");
+                                    return;
+                                }else{
+                                   if($("#"+$(_setting.shareDialog).attr("id")+" #pwd").val()!="")
+                                    result.pwd=$("#"+$(_setting.shareDialog).attr("id")+" #pwd").val();
+
+                                }
+                                
+
+                                //密碼判斷
+                                if(result.pwd==""){
+                                
+                                    alert("請設定密碼");
+                                    return;                       
+                                }
+
+                                //寫入
+                                data={handle:"add",id:$(obj).attr("id"),network:result.network,pwd:result.pwd};
+                                //回傳
+                                AjaxHandle("100105/FolderShare.ashx",data,function(d){
+                                
+                                 if(d.result==""){
+                                 alert("已設定分享");
+                                 $(_setting.shareDialog).dialog("close");
+                                 }else{
+                                 alert(d.result);
+                                 }
+                                });
+                              
+                                
+                             },"取消分享":function(){
+                                 //寫入
+                                data={handle:"stop",id:$(obj).attr("id")};
+                                //回傳
+                                AjaxHandle("100105/FolderShare.ashx",data,function(d){
+                                
+                                 if(d.result==""){
+                                 alert("已取消分享");
+                                 $(_setting.shareDialog).dialog("close");
+                                 }else{
+                                 alert(d.result);
+                                 }
+                                });
+                             }
+                             
+                             
+                             }
+                        });              
+
+
+
+
+                        
+
+
+                        data={handle:"check",id:$(obj).attr("id")};
+
+                        //AJAX讀取現在的設定
+
+                        AjaxHandle("100105/FolderShare.ashx",data,function(d){
+                        
+                          result=d;
+                          
+                          $("#"+$(_setting.shareDialog).attr("id")+" #uri").val(d.root+d.network);
+                        
+                          
+                          $("#"+$(_setting.shareDialog).attr("id")+" #pwd").val("");
+                          $("#"+$(_setting.shareDialog).attr("id")+" #pwd2").val("");
+
+
+                          
+                          $(_setting.shareDialog).dialog("open");
+                        
+                        });
+          
+                     
+                    
+                    
+                    
+                    
+                }
+               
                }
           };
                 
@@ -758,8 +878,7 @@ validate套件
                 "theme": "classic"
             },
            
-
-            
+           
           
 
 
@@ -791,7 +910,8 @@ validate套件
             fileCopyButton:"#copyFile",
             fileUploadButton:"#addFile",
             fileHandleOKButton:"#handleOK",
-            filePublicButton:"#publicFile"
+            filePublicButton:"#publicFile",
+            shareDialog:"#shareDialog"
         };
 
 

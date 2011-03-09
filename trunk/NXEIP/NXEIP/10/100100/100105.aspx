@@ -102,6 +102,13 @@
  </div>
 
 
+ <div id="shareDialog" class="dialog">
+ 分享網址:<input id="uri"  class="a01-13"  style=" width:300px" type="text" readonly /><br /><br />
+ 設定密碼:<input id="pwd" type="password" /><br />
+ 確認密碼:<input id="pwd2" type="password" /><br />
+ </div>
+
+
 
     
 
