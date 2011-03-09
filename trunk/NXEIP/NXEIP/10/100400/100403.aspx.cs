@@ -46,8 +46,8 @@ public partial class _10_100400_100403 : System.Web.UI.Page
                         foreach (var rr in askData)
                         {
                             strDiv += @"<li class='ps1'>
-                                        <a class='a-letter-mq' href='200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_question + @"</a></li>
-                                        <li class='arrow_ms02'><a class='a-letter-ma' href='200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_answer + @"</a></li>
+                                        <a class='a-letter-mq' href='../../20/200700/200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_question + @"</a></li>
+                                        <li class='arrow_ms02'><a class='a-letter-ma' href='../../20/200700/200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_answer + @"</a></li>
                                         <div class='border-bottom-block2'></div>";
                         }
 
