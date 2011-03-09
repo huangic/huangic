@@ -29,24 +29,21 @@ public partial class _20_200700_200701_1 : System.Web.UI.Page
                     {
                         this.tbox_name.Text = data.qat_name;
                     }
-                    else
+                    
+                    if (data.qat_self == "2")
                     {
-                        this.rb_self.Checked = false;
-
-                        if (data.qat_r05no.HasValue)
-                        {
-                            this.rb_r05no.Checked = true;
-                            this.ddl_r05.DataBind();
-                            this.ddl_r05.Items.FindByValue(data.qat_r05no.Value.ToString()).Selected = true;
-                        }
-
-                        if (data.qat_s06no.HasValue)
-                        {
-                            this.rb_s06no.Checked = true;
-                            this.ddl_sysfun.DataBind();
-                            this.ddl_sysfun.Items.FindByValue(data.qat_s06no.Value.ToString()).Selected = true;
-                        }
+                        this.rb_s06no.Checked = true;
+                        this.ddl_sysfun.DataBind();
+                        this.ddl_sysfun.Items.FindByValue(data.qat_s06no.Value.ToString()).Selected = true;
                     }
+
+                    if (data.qat_self == "3")
+                    {
+                        this.rb_r05no.Checked = true;
+                        this.ddl_r05.DataBind();
+                        this.ddl_r05.Items.FindByValue(data.qat_r05no.Value.ToString()).Selected = true;
+                    }
+
                 }
                 else
                 {
@@ -61,6 +58,18 @@ public partial class _20_200700_200701_1 : System.Web.UI.Page
         if (this.rb_self.Checked && this.tbox_name.Text.Trim().Length == 0)
         {
             JsUtil.AlertJs(this, "請輸入類別名稱!");
+            return;
+        }
+
+        if (this.rb_s06no.Checked && this.ddl_sysfun.SelectedValue == "0")
+        {
+            JsUtil.AlertJs(this, "請選擇業務資訊類別!");
+            return;
+        }
+
+        if (this.rb_r05no.Checked && this.ddl_r05.SelectedValue == "0")
+        {
+            JsUtil.AlertJs(this, "請選擇維修類別!");
             return;
         }
 

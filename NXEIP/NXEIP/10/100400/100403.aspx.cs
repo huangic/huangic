@@ -22,6 +22,8 @@ public partial class _10_100400_100403 : System.Web.UI.Page
                 //大類別
                 var r05Data = (from d in model.rep05 where d.r05_status == "1" orderby d.r05_no select new { d.r05_no, d.r05_name });
 
+                int[] r05_no = r05Data.Select(o => o.r05_no).ToArray();
+
                 foreach (var r in r05Data)
                 {
                     strDiv = @"<div class='box'>
@@ -29,19 +31,23 @@ public partial class _10_100400_100403 : System.Web.UI.Page
                                 <div class='p1'></div>
                                 <div class='p2'><a href='100403-0.aspx?r05_no=" + r.r05_no + "'>" + r.r05_name + "</a></div></div>";
 
-                    //維修資料
-                    strDiv += "<div class='content'>";
-                    var r02Data = (from d in model.rep02
-                                   where d.r05_no == r.r05_no
-                                   select d).OrderByDescending(o => o.r02_date).Take(3);
+                    //維修Q&A資料
+                    int[] qat_no = (from d in model.qatype
+                                    where r05_no.Contains( d.qat_r05no.Value)
+                                    select d.qat_no).ToArray();
 
-                    if (r02Data.Count() > 0)
+                    strDiv += "<div class='content'>";
+                    var askData = (from d in model.ask
+                                   where qat_no.Contains( d.qat_no)
+                                   select d).OrderByDescending(o => o.ask_createtime).Take(3);
+
+                    if (askData.Count() > 0)
                     {
-                        foreach (var rr in r02Data)
+                        foreach (var rr in askData)
                         {
                             strDiv += @"<li class='ps1'>
-                                        <a class='a-letter-mq' href='100403-0.aspx?r05_no=" + rr.r05_no + "'>" + rr.r02_reason + @"</a></li>
-                                        <li class='arrow_ms02'><a class='a-letter-ma' href='100403-0.aspx?r05_no=" + rr.r05_no + "'>" + rr.r02_reply + @"</a></li>
+                                        <a class='a-letter-mq' href='200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_question + @"</a></li>
+                                        <li class='arrow_ms02'><a class='a-letter-ma' href='200702.aspx?qat_no=" + rr.qat_no + "'>" + rr.ask_answer + @"</a></li>
                                         <div class='border-bottom-block2'></div>";
                         }
 
