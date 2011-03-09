@@ -27,6 +27,12 @@ namespace NXEIP.DAO
                     select d);
         }
 
+        //可回覆類別
+        public int[] Get_MyQAtype(int peo_uid)
+        {
+           return (from d in model.qamanager where d.qam_peouid == peo_uid select d.qat_no).ToArray();
+        }
+
         public IQueryable<ask> Get_askData(string self,int? qat_no,string key)
         {
             var data = (from d in model.ask where d.ask_status == "1" select d);
