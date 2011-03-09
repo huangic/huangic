@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="100201.ascx.cs" Inherits="widget_10_100200_100201" %>
-<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData"
+<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetData2"
         TypeName="NXEIP.DAO.MessageDAO" 
     OldValuesParameterFormatString="original_{0}">
         <SelectParameters>
