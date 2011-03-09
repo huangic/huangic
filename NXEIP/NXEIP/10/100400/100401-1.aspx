@@ -71,10 +71,8 @@
                 </div>
             </div>
             <div class="bottom">
-                <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定送出" 
-                    OnClick="btn_submit_Click" />&nbsp;&nbsp;
-                <asp:Button ID="btn_cancel" runat="server" CssClass="b-input" Text="取消重填" 
-                    OnClick="btn_cancel_Click" />&nbsp;&nbsp;
+                <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定送出" OnClick="btn_submit_Click" />&nbsp;&nbsp;
+                <asp:Button ID="btn_cancel" runat="server" CssClass="b-input" Text="取消重填" OnClick="btn_cancel_Click" />&nbsp;&nbsp;
                 <asp:Button ID="btn_goback" runat="server" CssClass="a-input" Text="回上一頁" OnClick="btn_goback_Click" />
             </div>
         </div>

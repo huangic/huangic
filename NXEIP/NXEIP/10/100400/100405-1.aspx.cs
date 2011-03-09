@@ -164,6 +164,10 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
                 }
             }
         }
+
+        this.btn_apply.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_apply, "");
+        this.btn_delete.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_delete, "");
+        this.btn_goback.Attributes["onclick"] = "javascript:this.disabled=true;" + this.Page.ClientScript.GetPostBackEventReference(this.btn_goback, "");
     }
 
     #region 顯示錯誤訊息
