@@ -113,6 +113,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "ipaddress", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ipaddress), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "ask", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ask), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "qamanager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.qamanager), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc03", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc03), "doc14", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc14), true)]
 
 #endregion
 
@@ -1763,6 +1764,22 @@ namespace Entity
             }
         }
         private ObjectSet<qatype> _qatype;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<doc14> doc14
+        {
+            get
+            {
+                if ((_doc14 == null))
+                {
+                    _doc14 = base.CreateObjectSet<doc14>("doc14");
+                }
+                return _doc14;
+            }
+        }
+        private ObjectSet<doc14> _doc14;
 
         #endregion
         #region AddTo 方法
@@ -2565,6 +2582,14 @@ namespace Entity
         public void AddToqatype(qatype qatype)
         {
             base.AddObject("qatype", qatype);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 doc14 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTodoc14(doc14 doc14)
+        {
+            base.AddObject("doc14", doc14);
         }
 
         #endregion
@@ -8979,6 +9004,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc14")]
+        public EntityCollection<doc14> doc14
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc14");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<doc14>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc14", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -11648,6 +11695,176 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<doc11>("NXEIPModel.FK_DOC13_RELATIONS_DOC11", "doc11", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="doc14")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class doc14 : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 doc14 物件。
+        /// </summary>
+        /// <param name="d14_no">d14_no 屬性的初始值。</param>
+        /// <param name="d03_no">d03_no 屬性的初始值。</param>
+        public static doc14 Createdoc14(global::System.Int32 d14_no, global::System.Int32 d03_no)
+        {
+            doc14 doc14 = new doc14();
+            doc14.d14_no = d14_no;
+            doc14.d03_no = d03_no;
+            return doc14;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 d14_no
+        {
+            get
+            {
+                return _d14_no;
+            }
+            set
+            {
+                if (_d14_no != value)
+                {
+                    Ond14_noChanging(value);
+                    ReportPropertyChanging("d14_no");
+                    _d14_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("d14_no");
+                    Ond14_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _d14_no;
+        partial void Ond14_noChanging(global::System.Int32 value);
+        partial void Ond14_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 d03_no
+        {
+            get
+            {
+                return _d03_no;
+            }
+            set
+            {
+                Ond03_noChanging(value);
+                ReportPropertyChanging("d03_no");
+                _d03_no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("d03_no");
+                Ond03_noChanged();
+            }
+        }
+        private global::System.Int32 _d03_no;
+        partial void Ond03_noChanging(global::System.Int32 value);
+        partial void Ond03_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d14_network
+        {
+            get
+            {
+                return _d14_network;
+            }
+            set
+            {
+                Ond14_networkChanging(value);
+                ReportPropertyChanging("d14_network");
+                _d14_network = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d14_network");
+                Ond14_networkChanged();
+            }
+        }
+        private global::System.String _d14_network;
+        partial void Ond14_networkChanging(global::System.String value);
+        partial void Ond14_networkChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String d14_passwd
+        {
+            get
+            {
+                return _d14_passwd;
+            }
+            set
+            {
+                Ond14_passwdChanging(value);
+                ReportPropertyChanging("d14_passwd");
+                _d14_passwd = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("d14_passwd");
+                Ond14_passwdChanged();
+            }
+        }
+        private global::System.String _d14_passwd;
+        partial void Ond14_passwdChanging(global::System.String value);
+        partial void Ond14_passwdChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC03", "doc03")]
+        public doc03 doc03
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<doc03> doc03Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<doc03>("NXEIPModel.FK_DOC14_RELATIONS_DOC03", "doc03", value);
                 }
             }
         }
