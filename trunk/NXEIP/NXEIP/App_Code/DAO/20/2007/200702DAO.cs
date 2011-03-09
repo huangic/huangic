@@ -30,7 +30,8 @@ namespace NXEIP.DAO
         //可回覆類別
         public int[] Get_MyQAtype(int peo_uid)
         {
-           return (from d in model.qamanager where d.qam_peouid == peo_uid select d.qat_no).ToArray();
+           return (from d in model.qamanager 
+                   where d.qam_peouid == peo_uid select d.qat_no).ToArray();
         }
 
         public IQueryable<ask> Get_askData(string self,int? qat_no,string key)
