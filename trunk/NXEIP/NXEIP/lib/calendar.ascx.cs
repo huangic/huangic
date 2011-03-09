@@ -111,6 +111,11 @@ public partial class lib_calendar : System.Web.UI.UserControl
         }
     }
 
+    public void ClearValue()
+    {
+        this.tbox_date.Text = "";
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         ScriptManager.RegisterClientScriptInclude(this, typeof(UserControl), "calendar_js", ResolveClientUrl("~/js/calendar.js"));

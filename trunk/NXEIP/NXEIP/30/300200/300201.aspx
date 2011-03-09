@@ -7,7 +7,10 @@
     function update(msg) {
         __doPostBack('<%=UpdatePanel1.ClientID%>', '');
         tb_remove();
-        alert(msg);
+
+        if (msg) {
+            alert(msg);
+        }
     }
 
     function pageLoad(sender, args) {

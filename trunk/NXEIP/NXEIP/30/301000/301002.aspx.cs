@@ -44,8 +44,28 @@ public partial class _30_301000_301002 : System.Web.UI.Page
             this.ddl_spot.Items.Insert(0, new ListItem("全部", "0"));
             this.ddl_equ.Items.Insert(0, new ListItem("全部", "0"));
             #endregion
+
+            ShowDataList();
         }
-        ShowDataList();
+
+        //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
+        if (Request["__EVENTTARGET"] == this.UpdatePanel1.ClientID && String.IsNullOrEmpty(Request["__EVENTARGUMENT"]))
+        {
+            if (this.calendar1._AD.Length > 0 && this.calendar2._AD.Length > 0)
+            {
+                this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._AD;
+                this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._AD;
+                this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
+                this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
+                this.ObjectDataSource1.SelectParameters["equ1"].DefaultValue = this.ddl_equ.SelectedValue;
+                this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
+                this.GridView1.DataBind();
+                if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
+
+                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                new OperatesObject().ExecuteOperates(301002, sobj.sessionUserID, 2, "設備借用資料列表");
+            }
+        }
     }
 
 

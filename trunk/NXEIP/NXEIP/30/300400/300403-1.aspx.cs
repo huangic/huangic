@@ -97,7 +97,7 @@ public partial class _30_300400_300403_1 : System.Web.UI.Page
                 //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
                 new OperatesObject().ExecuteOperates(300403, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",審核狀態：" + this.rbl_apply.SelectedItem.Text + ",原因：" + this.txt_signmemo.Text);
 
-                this.Page.ClientScript.RegisterStartupScript(typeof(_30_300400_300403_1), "closeThickBox", "self.parent.update('" + msg + "');self.parent.location.reload(true);self.parent.tb_remove();", true);
+                this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('" + msg + "');", true);
             }
         }
         catch (Exception ex)

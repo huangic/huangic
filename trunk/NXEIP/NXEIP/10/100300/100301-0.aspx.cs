@@ -228,7 +228,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
     #region 取消
     protected void btn_cancel_Click(object sender, EventArgs e)
     {
-        this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
+        this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
     }
     #endregion
 
@@ -600,7 +600,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
                 #endregion
             }
 
-            this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
         catch (Exception ex)
         {
@@ -1174,7 +1174,7 @@ public partial class _10_100300_100301_0 : System.Web.UI.Page
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 1, "計畫--刪除 peo_uid" + this.lab_peo_uid.Text + ",c03_no=" + this.lab_c03_no.Text + "或c02_no=" + this.lab_no.Text);
 
-            this.Page.ClientScript.RegisterStartupScript(typeof(_10_100300_100301_0), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.location.reload(true);self.parent.tb_remove();", true);
         }
         catch (Exception ex)
         {
