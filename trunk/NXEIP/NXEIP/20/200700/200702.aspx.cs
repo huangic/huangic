@@ -13,7 +13,14 @@ public partial class _20_200700_200702 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            this.LoadData("", null, "");
+            if (Request.QueryString["qat_no"] != null)
+            {
+                this.LoadData("", int.Parse(Request.QueryString["qat_no"]), "");
+            }
+            else
+            {
+                this.LoadData("", null, "");
+            }
             
             
 
