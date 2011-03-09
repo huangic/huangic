@@ -85,8 +85,8 @@
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="回覆">
                             <ItemTemplate>
-                                <a id="btnShowPopup2" runat="server" class="thickbox imageButton edit" href='<%# Eval("qat_no", "200701-1.aspx?qat_no={0}&mode=modify&modal=true&TB_iframe=true") %>'>
-                                    <span>下載</span></a>
+                                <a id="btnShowPopup2" runat="server" class="thickbox imageButton edit" href='<%# Eval("ask_no", "200702-2.aspx?ask_no={0}&modal=true&TB_iframe=true") %>'>
+                                    <span>回覆</span></a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
