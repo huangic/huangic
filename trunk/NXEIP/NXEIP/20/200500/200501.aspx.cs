@@ -118,7 +118,7 @@ public partial class _20_200500_200501 : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            int ask_no = int.Parse(this.GridView1.DataKeys[e.Row.DataItemIndex].Value.ToString());
+            int ask_no = int.Parse(this.GridView2.DataKeys[e.Row.DataItemIndex].Value.ToString());
 
             ask data = new _200702DAO().Get_ask(ask_no);
 
