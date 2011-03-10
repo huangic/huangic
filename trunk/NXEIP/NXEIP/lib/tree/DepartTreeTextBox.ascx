@@ -15,8 +15,7 @@
      <div style="display:inline;text-align:center;width: 20px">
          
        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="thickbox">
-       
-           <asp:Image ID="Image1" runat="server" ImageUrl="~/image/peruse.gif" />
+           <asp:Image ID="Image1" runat="server" ImageUrl="~/image/peruse.gif" ImageAlign="AbsMiddle" />
        </asp:HyperLink>
      </div>
 </div>  
