@@ -116,6 +116,21 @@ public partial class _20_200500_200501 : System.Web.UI.Page
 
     protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            int ask_no = int.Parse(this.GridView1.DataKeys[e.Row.DataItemIndex].Value.ToString());
 
+            ask data = new _200702DAO().Get_ask(ask_no);
+
+            ChangeObject cobj = new ChangeObject();
+
+            e.Row.Cells[1].Text = cobj._ADtoROCDT(data.ask_date.Value);
+            if (data.ask_rdate.HasValue)
+            {
+                e.Row.Cells[2].Text = cobj._ADtoROCDT(data.ask_rdate.Value);
+            }
+            e.Row.Cells[3].Text = new UtilityDAO().Get_PeopleName(int.Parse(new SessionObject().sessionUserID));
+
+        }
     }
 }
