@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="301102.aspx.cs" Inherits="_30_301100_301102" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"CodeFile="301102.aspx.cs" Inherits="_30_301100_301102" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
@@ -140,7 +139,7 @@
                             <uc6:calendar ID="cal_sdate" runat="server" />
                         </td>
                         <th>
-                            <span class="a-letter-Red">*</span> 換照日期
+                            &nbsp; &nbsp;換照日期
                         </th>
                         <td>
                             <uc6:calendar ID="cal_change" runat="server" />
@@ -210,7 +209,7 @@
                     </tr>
                     <tr>
                         <th>
-                            使用年限
+                            &nbsp; &nbsp;使用年限
                         </th>
                         <td>
                             <asp:TextBox ID="txt_useyear" runat="server" Columns="3"></asp:TextBox>

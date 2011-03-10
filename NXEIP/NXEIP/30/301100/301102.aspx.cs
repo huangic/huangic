@@ -113,92 +113,106 @@ public partial class _30_301100_301102 : System.Web.UI.Page
     #region 畫面：修改
     private void ShowDataModify()
     {
-        this.MultiView1.ActiveViewIndex = 1;
-        ClearControlValue();
-        ShowM01();
+        string aMSG = "";
+        try
+        {
+            this.MultiView1.ActiveViewIndex = 1;
+            ClearControlValue();
+            ShowM01();
+            
+            DataTable dt = new DataTable();
+            this.Navigator1.SubFunc = "修改";
+            Entity.m02 tbData = new M02DAO().GetByNo(Convert.ToInt32(this.lab_no.Text));
 
-        DataTable dt = new DataTable();
-        this.Navigator1.SubFunc = "修改";
-        Entity.m02 tbData = new M02DAO().GetByNo(Convert.ToInt32(this.lab_no.Text));
-        
-        #region textbox
-        this.txt_cc.Text = tbData.m02_cc.Value.ToString();
-        this.txt_code.Text = tbData.m02_code;
-        this.txt_count.Text = tbData.m02_count.Value.ToString();
-        this.txt_engine.Text = tbData.m02_engine;
-        this.txt_memo.Text = tbData.m02_memo;
-        this.txt_number.Text = tbData.m02_number;
-        this.txt_type.Text = tbData.m02_type;
-        this.txt_useyear.Text = tbData.m02_useyear.Value.ToString();
-        this.txt_year.Text = tbData.m02_year.Value.ToString();
-        #endregion
+            #region textbox
+            this.txt_cc.Text = tbData.m02_cc;
+            this.txt_code.Text = tbData.m02_code;
+            this.txt_count.Text = tbData.m02_count.Value.ToString();
+            this.txt_engine.Text = tbData.m02_engine;
+            this.txt_memo.Text = tbData.m02_memo;
+            this.txt_number.Text = tbData.m02_number;
+            this.txt_type.Text = tbData.m02_type;
+            this.txt_useyear.Text = tbData.m02_useyear.Value.ToString();
+            this.txt_year.Text = tbData.m02_year.Value.ToString();
+            #endregion
 
-        #region 下拉式選單、單選選單
-        try
-        {
-            this.ddl_chekuan.Items.FindByValue(tbData.m02_chekuan.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_color.Items.FindByValue(tbData.m02_color.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_energy.Items.FindByValue(tbData.m02_energy.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_factory.Items.FindByValue(tbData.m02_factory.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_mark.Items.FindByValue(tbData.m02_mark.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_platoon.Items.FindByValue(tbData.m02_platoon.Value.ToString()).Selected = true;
-        }
-        catch { }
-        try
-        {
-            this.ddl_source.Items.FindByValue(tbData.m02_source.Value.ToString()).Selected = true;
-        }
-        catch { }
+            #region 下拉式選單、單選選單
+            try
+            {
+                this.ddl_chekuan.Items.FindByValue(tbData.m02_chekuan.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_color.Items.FindByValue(tbData.m02_color.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_energy.Items.FindByValue(tbData.m02_energy.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_factory.Items.FindByValue(tbData.m02_factory.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_mark.Items.FindByValue(tbData.m02_mark.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_platoon.Items.FindByValue(tbData.m02_platoon.Value.ToString()).Selected = true;
+            }
+            catch { }
+            try
+            {
+                this.ddl_source.Items.FindByValue(tbData.m02_source.Value.ToString()).Selected = true;
+            }
+            catch { }
 
-        try
-        {
-            this.rbl_status.Items.FindByValue(tbData.m02_status).Selected = true;
-        }
-        catch { }
-        #endregion
+            try
+            {
+                this.rbl_status.Items.FindByValue(tbData.m02_status).Selected = true;
+            }
+            catch { }
+            #endregion
 
-        #region 保管人
-        this.DepartTreeTextBox1.Add(tbData.m02_peouid.Value.ToString());
-        #endregion
+            #region 保管人
+            this.DepartTreeTextBox1.Add(tbData.m02_peouid.Value.ToString());
+            #endregion
 
-        #region 車輛圖片
-        if (tbData.m02_pictype != null && tbData.m02_pictype.Length > 0)
-        {
-            string src = "../../lib/ShowPic.aspx?tb=m02&picorder=1&pkno=" + this.lab_no.Text;
-            this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"車輛圖片\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
-            this.lbtn_delpic1.Visible = true;
-            this.Panel1.Visible = true;
-        }
-        else
-        {
-            this.div_pic1.InnerHtml = "無圖示";
-            this.ImageUpload1.Visible = true;
-        }
-        #endregion
+            #region 車輛圖片
+            if (tbData.m02_pictype != null && tbData.m02_pictype.Length > 0)
+            {
+                string src = "../../lib/ShowPic.aspx?tb=m02&picorder=1&pkno=" + this.lab_no.Text;
+                this.div_pic1.InnerHtml = "<a href=\"" + src + "\" rel=\"lytebox\" title=\"車輛圖片\" OnClick=\"return false;\" OnLoad=\"return true;\"><img src=" + src + " width=\"60\" height=\"50\"  /></a>";
+                this.lbtn_delpic1.Visible = true;
+                this.Panel1.Visible = true;
+            }
+            else
+            {
+                this.div_pic1.InnerHtml = "無圖示";
+                this.ImageUpload1.Visible = true;
+            }
+            #endregion
 
-        #region 日期
-        if(tbData.m02_buydate!=null) this.cal_buydate._ADDate = tbData.m02_buydate.Value;
-        #endregion
+            #region 日期
+            if (tbData.m02_buydate != null) this.cal_buydate._ADDate = tbData.m02_buydate.Value;
+            if (tbData.m02_cdate != null) this.cal_cdate._ADDate = tbData.m02_cdate.Value;
+            if (tbData.m02_change != null) this.cal_change._ADDate = tbData.m02_change.Value;
+            if (tbData.m02_overdate != null) this.cal_overdate._ADDate = tbData.m02_overdate.Value;
+            if (tbData.m02_sdate != null) this.cal_sdate._ADDate = tbData.m02_sdate.Value;
+            if (tbData.m02_testdate != null) this.cal_testdate._ADDate = tbData.m02_testdate.Value;
+            #endregion
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
     }
     #endregion
 
@@ -279,52 +293,15 @@ public partial class _30_301100_301102 : System.Web.UI.Page
     {
         bool feedback = true;
 
-        #region 所在地
-        if (this.ddl_platoon.SelectedValue.Equals("0"))
+        #region 車輛編號
+        if (string.IsNullOrEmpty(this.txt_code.Text.Trim()))
         {
-            ShowMsg("請選擇 所在地");
+            ShowMsg("車輛編號 不可為空白");
             feedback = false;
         }
-        #endregion
-        #region 資產編號
-        if (string.IsNullOrEmpty(this.txt_number.Text))
+        else if (this.txt_code.Text.Trim().Length > 20)
         {
-            ShowMsg("請輸入 資產編號");
-            feedback = false;
-        }
-        else if (!checkobj.IsValidLen(this.txt_number.Text.Trim(), 30))
-        {
-            ShowMsg("資產編號 長度不可超過30個字");
-            feedback = false;
-        }
-        #endregion
-        #region 設備名稱
-        if (string.IsNullOrEmpty(this.txt_code.Text))
-        {
-            ShowMsg("請輸入 設備名稱");
-            feedback = false;
-        }
-        else if (!checkobj.IsValidLen(this.txt_code.Text.Trim(), 40))
-        {
-            ShowMsg("設備名稱 長度不可超過40個字");
-            feedback = false;
-        }
-        #endregion
-        #region 可借用時間
-        if (this.ddl_chekuan.SelectedValue.Equals("0"))
-        {
-            ShowMsg("請選擇 可借用時間-起");
-            feedback = false;
-        }
-        if (this.ddl_energy.SelectedValue.Equals("0"))
-        {
-            ShowMsg("請選擇 可借用時間-迄");
-            feedback = false;
-        }
-        if (Convert.ToDateTime(System.DateTime.Today.ToString("yyyy/MM/dd") + " " + this.ddl_chekuan.SelectedValue) >=
-            Convert.ToDateTime(System.DateTime.Today.ToString("yyyy/MM/dd") + " " + this.ddl_energy.SelectedValue))
-        {
-            ShowMsg("可借用時間-起 不可大於等於 可借用時間-迄");
+            ShowMsg("車輛編號 長度不可超過20個中文字");
             feedback = false;
         }
         #endregion
@@ -335,48 +312,243 @@ public partial class _30_301100_301102 : System.Web.UI.Page
             feedback = false;
         }
         #endregion
-        #region 保管人電話&分機
-        if (string.IsNullOrEmpty(this.txt_type.Text))
+        #region 牌照種類
+        if (this.ddl_platoon.SelectedValue.Equals("0"))
         {
-            ShowMsg("請輸入 保管人電話");
-            feedback = false;
-        }
-        else if (!checkobj.IsValidLen(this.txt_type.Text.Trim(), 20))
-        {
-            ShowMsg("保管人電話 長度不可超過20個數字");
-            feedback = false;
-        }
-        if (!checkobj.IsValidLen(this.txt_engine.Text.Trim(), 10))
-        {
-            ShowMsg("保管人電話分機 長度不可超過10個數字");
+            ShowMsg("請選擇 牌照種類");
             feedback = false;
         }
         #endregion
+        #region 牌照號碼
+        if (string.IsNullOrEmpty(this.txt_number.Text.Trim()))
+        {
+            ShowMsg("牌照號碼 不可為空白");
+            feedback = false;
+        }
+        else if (this.txt_number.Text.Trim().Length > 20)
+        {
+            ShowMsg("牌照號碼 長度不可超過20個中文字");
+            feedback = false;
+        }
+        #endregion
+        #region 發照日期
+        try
+        {
+            if (this.cal_sdate._AD.Length <= 0)
+            {
+                ShowMsg("發照日期 不可為空白");
+                feedback = false;
+            }
+        }
+        catch
+        {
+            ShowMsg("發照日期 格式錯誤");
+            feedback = false;
+        }
+        #endregion
+        #region 換照日期
+        try
+        {
+            string tmp = this.cal_change._AD;
+        }
+        catch
+        {
+            ShowMsg("換照日期 格式錯誤");
+            feedback = false;
+        }
+        #endregion
+        #region 車別名稱、能源種類、顏色
+        if (this.ddl_chekuan.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 車別名稱");
+            feedback = false;
+        }
 
-        #region 設備圖片
+        if (this.ddl_energy.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 能源種類");
+            feedback = false;
+        }
+
+        if (this.ddl_color.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 顏色");
+            feedback = false;
+        }
+        #endregion
+        #region 引擎號碼
+        if (string.IsNullOrEmpty(this.txt_engine.Text.Trim()))
+        {
+            ShowMsg("引擎號碼 不可為空白");
+            feedback = false;
+        }
+        else if (this.txt_engine.Text.Trim().Length > 30)
+        {
+            ShowMsg("引擎號碼 長度不可超過30個中文字");
+            feedback = false;
+        }
+        #endregion
+        #region 廠牌
+        if (this.ddl_mark.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 廠牌");
+            feedback = false;
+        }
+        #endregion
+        #region 廠牌
+        if (this.txt_type.Text.Trim().Length > 30)
+        {
+            ShowMsg("型式 長度不可超過30個數字");
+            feedback = false;
+        }
+        #endregion
+        #region 年份
+        if (string.IsNullOrEmpty(this.txt_year.Text.Trim()))
+        {
+            ShowMsg("年份 不可空白");
+            feedback = false;
+        }
+        else if (this.txt_year.Text.Trim().Length > 10)
+        {
+            ShowMsg("年份 長度不可超過10個數字");
+            feedback = false;
+        }
+        else
+        {
+            try
+            {
+                int tmp = Convert.ToInt32(this.txt_year.Text);
+            }
+            catch
+            {
+                ShowMsg("年份 需為整數");
+                feedback = false;
+            }
+        }
+        #endregion
+        #region 排氣量
+        if (string.IsNullOrEmpty(this.txt_cc.Text.Trim()))
+        {
+            ShowMsg("排氣量 不可空白");
+            feedback = false;
+        }
+        else if (this.txt_cc.Text.Trim().Length > 10)
+        {
+            ShowMsg("排氣量 長度不可超過10個數字");
+            feedback = false;
+        }
+        #endregion
+        #region 使用年限
+        if (string.IsNullOrEmpty(this.txt_useyear.Text.Trim()))
+        {
+            this.txt_useyear.Text = "0";
+        }
+        else
+        {
+            try
+            {
+                int tmp = Convert.ToInt32(this.txt_useyear.Text);
+            }
+            catch
+            {
+                ShowMsg("使用年限 需為數字");
+                feedback = false;
+            }
+        }
+        #endregion
+        #region 座位
+        if (string.IsNullOrEmpty(this.txt_count.Text.Trim()))
+        {
+            ShowMsg("座位 不可為空白");
+            feedback = false;
+        }
+        else
+        {
+            try
+            {
+                int tmp = Convert.ToInt32(this.txt_count.Text);
+            }
+            catch
+            {
+                ShowMsg("座位 需為整數");
+                feedback = false;
+            }
+        }
+        #endregion
+        #region 車輛來源、廠商
+        if (this.ddl_source.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 車輛來源");
+            feedback = false;
+        }
+
+        if (this.ddl_factory.SelectedValue.Equals("0"))
+        {
+            ShowMsg("請選擇 廠商");
+            feedback = false;
+        }
+        #endregion
+        #region 購入日期、移入日期、檢驗日期、報廢日期
+        try
+        {
+            string tmp = this.cal_buydate._AD;
+        }
+        catch
+        {
+            ShowMsg("購入日期 格式錯誤");
+            feedback = false;
+        }
+        try
+        {
+            string tmp = this.cal_cdate._AD;
+        }
+        catch
+        {
+            ShowMsg("移入日期 格式錯誤");
+            feedback = false;
+        }
+        try
+        {
+            string tmp = this.cal_testdate._AD;
+        }
+        catch
+        {
+            ShowMsg("檢驗日期 格式錯誤");
+            feedback = false;
+        }
+        try
+        {
+            string tmp = this.cal_overdate._AD;
+        }
+        catch
+        {
+            ShowMsg("報廢日期 格式錯誤");
+            feedback = false;
+        }
+        #endregion
+        #region 車輛備註
+        if (this.txt_memo.Text.Trim().Length > 100)
+        {
+            ShowMsg("車輛備註 長度不可超過100個中文字");
+            feedback = false;
+        }
+        #endregion
+        #region 車輛圖片
         this.ImageUpload1.UploadPic();
         if (this.ImageUpload1.HasFile)
         {
             if (!this.ImageUpload1.CheckFileType)
             {
-                ShowMsg("設備圖片 檔案類型錯誤");
+                ShowMsg("車輛圖片 檔案類型錯誤");
                 feedback = false;
             }
             if (!this.ImageUpload1.CheckFileSize)
             {
-                ShowMsg("設備圖片 檔案大小錯誤");
+                ShowMsg("車輛圖片 檔案大小錯誤");
                 feedback = false;
             }
         }
         #endregion
-        #region 設備圖片
-        if (!checkobj.IsValidLen(this.txt_memo.Text.Trim(), 200))
-        {
-            ShowMsg("設備描述 長度不可超過200個數文字");
-            feedback = false;
-        }
-        #endregion
-
         return feedback;
     }
     #endregion
@@ -384,137 +556,200 @@ public partial class _30_301100_301102 : System.Web.UI.Page
     #region 刪除檔案
     protected void lbtn_delpic1_Click(object sender, EventArgs e)
     {
-        //string aMSG = "";
-        //try
-        //{
-        //    #region equipments
-        //    EquipmentsDAO equDAO = new EquipmentsDAO();
-        //    equipments newRow = equDAO.GetByNo(Convert.ToInt32(this.lab_no.Text));
-
-        //    newRow.equ_createtime = System.DateTime.Now;
-        //    newRow.equ_createuid = Convert.ToInt32(sobj.sessionUserID);
-        //    newRow.equ_pic = null;
-        //    newRow.equ_pictype = "";
-        //    equDAO.Update();
-        //    #endregion
-
-        //    ShowDataModify(); //顯示修改畫面
-        //}
-        //catch (Exception ex)
-        //{
-        //    aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
-        //    Response.Write(aMSG);
-        //}
+        string aMSG = "";
+        try
+        {
+            #region m02
+            M02DAO tbDAO = new M02DAO();
+            m02 newRow = tbDAO.GetByNo(Convert.ToInt32(this.lab_no.Text));
+            newRow.m02_createtime = System.DateTime.Now;
+            newRow.m02_createuid = Convert.ToInt32(sobj.sessionUserID);
+            newRow.m02_pic = null;
+            newRow.m02_pictype = "";
+            tbDAO.Update();
+            #endregion
+            ShowDataModify(); //顯示修改畫面
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
     }
     #endregion
 
     #region 確定
     protected void btn_submit_Click(object sender, EventArgs e)
     {
-        //string aMSG = "";
-        //try
-        //{
-        //    if (CheckInputValue())
-        //    {
-        //        if (this.lab_no.Text.Trim().Length > 0)
-        //        {
-        //            #region 修改
-        //            string sqlstr = "select equ_no from equipments where equ_number='" + this.txt_number.Text + "' and equ_status='1' and equ_no<>" + this.lab_no.Text;
-        //            DataTable dt = new DataTable();
-        //            dt = dbo.ExecuteQuery(sqlstr);
-        //            if (dt.Rows.Count > 0)
-        //            {
-        //                ShowMsg("此 資產編號[" + this.txt_number.Text + "] 已存在");
-        //                return;
-        //            }
-        //            else
-        //            {
-        //                #region equipments
-        //                EquipmentsDAO equDAO = new EquipmentsDAO();
-        //                equipments newRow = equDAO.GetByNo(Convert.ToInt32(this.lab_no.Text));
-        //                newRow.spo_no = Convert.ToInt32(this.ddl_platoon.SelectedValue);
-        //                newRow.equ_createtime = System.DateTime.Now;
-        //                newRow.equ_createuid = Convert.ToInt32(sobj.sessionUserID);
-        //                newRow.equ_descript = this.txt_memo.Text;
-        //                newRow.equ_etime = this.ddl_energy.SelectedValue;
-        //                newRow.equ_ext = this.txt_engine.Text;
-        //                newRow.equ_name = this.txt_code.Text;
-        //                newRow.equ_number = this.txt_number.Text;
-        //                if (this.ImageUpload1.HasFile)
-        //                {
-        //                    newRow.equ_pic = this.ImageUpload1.GetFileBytes;
-        //                    newRow.equ_pictype = this.ImageUpload1.GetExtension;
-        //                }
-        //                newRow.equ_stime = this.ddl_chekuan.SelectedValue;
-        //                newRow.equ_tel = this.txt_type.Text;
-        //                if (this.DepartTreeTextBox1.Value.Length > 0)
-        //                    newRow.peo_uid = Convert.ToInt32(this.DepartTreeTextBox1.Value);
-        //                else
-        //                    newRow.peo_uid = 0;
-        //                equDAO.Update();
-        //                #endregion
+        string aMSG = "";
+        try
+        {
+            if (CheckInputValue())
+            {
+                if (this.lab_no.Text.Trim().Length > 0)
+                {
+                    #region 修改
+                    string sqlstr = "select m02_no from m02 where m02_code='" + this.txt_code.Text + "' and m02_status<>'4' and m02_no<>" + this.lab_no.Text;
+                    DataTable dt = new DataTable();
+                    dt = dbo.ExecuteQuery(sqlstr);
+                    if (dt.Rows.Count > 0)
+                    {
+                        ShowMsg("此 車輛編號[" + this.txt_code.Text + "] 已存在");
+                        return;
+                    }
+                    else
+                    {
+                        #region m02
+                        M02DAO tbDAO = new M02DAO();
+                        m02 newRow = tbDAO.GetByNo(Convert.ToInt32(this.lab_no.Text));
+                        if (this.cal_buydate._AD.Length > 0)
+                            newRow.m02_buydate = this.cal_buydate._ADDate;
+                        else
+                            newRow.m02_buydate = null;
+                        newRow.m02_cc = this.txt_cc.Text;
+                        if (this.cal_cdate._AD.Length > 0)
+                            newRow.m02_cdate = this.cal_cdate._ADDate;
+                        else
+                            newRow.m02_cdate = null;
+                        if (this.cal_change._AD.Length > 0)
+                            newRow.m02_change = this.cal_change._ADDate;
+                        else
+                            newRow.m02_change = null;
+                        newRow.m02_chekuan = Convert.ToInt32(this.ddl_chekuan.SelectedValue);
+                        newRow.m02_code = this.txt_code.Text;
+                        newRow.m02_color = Convert.ToInt32(this.ddl_color.SelectedValue);
+                        newRow.m02_count = Convert.ToInt32(this.txt_count.Text);
+                        newRow.m02_createtime = System.DateTime.Now;
+                        newRow.m02_createuid = Convert.ToInt32(sobj.sessionUserID);
+                        newRow.m02_energy = Convert.ToInt32(this.ddl_energy.SelectedValue);
+                        newRow.m02_engine = this.txt_engine.Text;
+                        newRow.m02_factory = Convert.ToInt32(this.ddl_factory.SelectedValue);
+                        newRow.m02_mark = Convert.ToInt32(this.ddl_mark.SelectedValue);
+                        newRow.m02_memo = this.txt_memo.Text;
+                        newRow.m02_number = this.txt_number.Text;
+                        if (this.cal_overdate._AD.Length > 0)
+                            newRow.m02_overdate = this.cal_overdate._ADDate;
+                        else
+                            newRow.m02_overdate = null;
+                        if (this.DepartTreeTextBox1.Value.Length > 0)
+                            newRow.m02_peouid = Convert.ToInt32(this.DepartTreeTextBox1.Value);
+                        else
+                            newRow.m02_peouid = 0;
+                        if (this.ImageUpload1.HasFile)
+                        {
+                            newRow.m02_pic = this.ImageUpload1.GetFileBytes;
+                            newRow.m02_pictype = this.ImageUpload1.GetExtension;
+                        }
+                        newRow.m02_platoon = Convert.ToInt32(this.ddl_platoon.SelectedValue);
+                        if (this.cal_sdate._AD.Length > 0)
+                            newRow.m02_sdate = this.cal_sdate._ADDate;
+                        else
+                            newRow.m02_sdate = null;
+                        newRow.m02_source = Convert.ToInt32(this.ddl_source.SelectedValue);
+                        newRow.m02_status = this.rbl_status.SelectedValue;
+                        if (this.cal_testdate._AD.Length > 0)
+                            newRow.m02_testdate = this.cal_testdate._ADDate;
+                        else
+                            newRow.m02_testdate = null;
+                        newRow.m02_type = this.txt_type.Text;
+                        newRow.m02_useyear = Convert.ToInt32(this.txt_useyear.Text);
+                        newRow.m02_year = Convert.ToInt32(this.txt_year.Text);
+                        tbDAO.Update();
+                        #endregion
 
-        //                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-        //                new OperatesObject().ExecuteOperates(301001, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",所在地：" + this.ddl_platoon.SelectedItem.Text + ",設備名稱：" + this.txt_code.Text.Trim() + "...等");
-        //            }
-        //            #endregion
-        //        }
-        //        else
-        //        {
-        //            #region 新增
-        //            string sqlstr = "select equ_no from equipments where equ_number='" + this.txt_number.Text + "' and equ_status='1'";
-        //            DataTable dt = new DataTable();
-        //            dt = dbo.ExecuteQuery(sqlstr);
-        //            if (dt.Rows.Count > 0)
-        //            {
-        //                ShowMsg("此 資產編號[" + this.txt_number.Text + "] 已存在");
-        //                return;
-        //            }
-        //            else
-        //            {
-        //                #region equipments
-        //                EquipmentsDAO equDAO = new EquipmentsDAO();
-        //                equipments newRow = new equipments();
-        //                newRow.spo_no = Convert.ToInt32(this.ddl_platoon.SelectedValue);
-        //                newRow.equ_createtime = System.DateTime.Now;
-        //                newRow.equ_createuid = Convert.ToInt32(sobj.sessionUserID);
-        //                newRow.equ_descript = this.txt_memo.Text;
-        //                newRow.equ_etime = this.ddl_energy.SelectedValue;
-        //                newRow.equ_ext = this.txt_engine.Text;
-        //                newRow.equ_name = this.txt_code.Text;
-        //                newRow.equ_number = this.txt_number.Text;
-        //                if (this.ImageUpload1.HasFile)
-        //                {
-        //                    newRow.equ_pic = this.ImageUpload1.GetFileBytes;
-        //                    newRow.equ_pictype = this.ImageUpload1.GetExtension;
-        //                }
-        //                newRow.equ_status = "1";
-        //                newRow.equ_stime = this.ddl_chekuan.SelectedValue;
-        //                newRow.equ_tel = this.txt_type.Text;
-        //                if (this.DepartTreeTextBox1.Value.Length > 0)
-        //                    newRow.peo_uid = Convert.ToInt32(this.DepartTreeTextBox1.Value);
-        //                else
-        //                    newRow.peo_uid = 0;
-        //                equDAO.AddEquipments(newRow);
-        //                equDAO.Update();
-        //                #endregion
-        //                int equ_no = newRow.equ_no;
+                        //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                        new OperatesObject().ExecuteOperates(301102, sobj.sessionUserID, 3, "編號：" + this.lab_no.Text + ",所在地：" + this.ddl_platoon.SelectedItem.Text + ",設備名稱：" + this.txt_code.Text.Trim() + "...等");
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region 新增
+                    string sqlstr = "select m02_no from m02 where m02_code='" + this.txt_code.Text + "' and m02_status<>'4'";
+                    DataTable dt = new DataTable();
+                    dt = dbo.ExecuteQuery(sqlstr);
+                    if (dt.Rows.Count > 0)
+                    {
+                        ShowMsg("此 車輛編號[" + this.txt_code.Text + "] 已存在");
+                        return;
+                    }
+                    else
+                    {
+                        #region m02
+                        M02DAO tbDAO = new M02DAO();
+                        m02 newRow = new m02();
+                        if (this.cal_buydate._AD.Length > 0)
+                        {
+                            newRow.m02_buydate = this.cal_buydate._ADDate;
+                        }
+                        newRow.m02_cc = this.txt_cc.Text;
+                        if (this.cal_cdate._AD.Length > 0)
+                        {
+                            newRow.m02_cdate = this.cal_cdate._ADDate;
+                        }
+                        if (this.cal_change._AD.Length > 0)
+                        {
+                            newRow.m02_change = this.cal_change._ADDate;
+                        }
+                        newRow.m02_chekuan = Convert.ToInt32(this.ddl_chekuan.SelectedValue);
+                        newRow.m02_code = this.txt_code.Text;
+                        newRow.m02_color = Convert.ToInt32(this.ddl_color.SelectedValue);
+                        newRow.m02_count = Convert.ToInt32(this.txt_count.Text);
+                        newRow.m02_createtime = System.DateTime.Now;
+                        newRow.m02_createuid = Convert.ToInt32(sobj.sessionUserID);
+                        newRow.m02_energy = Convert.ToInt32(this.ddl_energy.SelectedValue);
+                        newRow.m02_engine = this.txt_engine.Text;
+                        newRow.m02_factory = Convert.ToInt32(this.ddl_factory.SelectedValue);
+                        newRow.m02_mark = Convert.ToInt32(this.ddl_mark.SelectedValue);
+                        newRow.m02_memo = this.txt_memo.Text;
+                        newRow.m02_number = this.txt_number.Text;
+                        if (this.cal_overdate._AD.Length > 0)
+                        {
+                            newRow.m02_overdate = this.cal_overdate._ADDate;
+                        }
+                        if (this.DepartTreeTextBox1.Value.Length > 0)
+                            newRow.m02_peouid = Convert.ToInt32(this.DepartTreeTextBox1.Value);
+                        else
+                            newRow.m02_peouid = 0;
+                        if (this.ImageUpload1.HasFile)
+                        {
+                            newRow.m02_pic = this.ImageUpload1.GetFileBytes;
+                            newRow.m02_pictype = this.ImageUpload1.GetExtension;
+                        }
+                        newRow.m02_platoon = Convert.ToInt32(this.ddl_platoon.SelectedValue);
+                        if (this.cal_sdate._AD.Length > 0)
+                        {
+                            newRow.m02_sdate = this.cal_sdate._ADDate;
+                        }
+                        newRow.m02_source = Convert.ToInt32(this.ddl_source.SelectedValue);
+                        newRow.m02_status = this.rbl_status.SelectedValue;
+                        if (this.cal_testdate._AD.Length > 0)
+                        {
+                            newRow.m02_testdate = this.cal_testdate._ADDate;
+                        }
+                        newRow.m02_type = this.txt_type.Text;
+                        newRow.m02_useyear = Convert.ToInt32(this.txt_useyear.Text);
+                        newRow.m02_year = Convert.ToInt32(this.txt_year.Text);
+                        tbDAO.AddM02(newRow);
+                        tbDAO.Update();
+                        #endregion
+                        int equ_no = newRow.m02_no;
 
-        //                //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-        //                new OperatesObject().ExecuteOperates(301001, sobj.sessionUserID, 1, "所在地：" + this.ddl_platoon.SelectedItem.Text + ",場地名稱：" + this.txt_code.Text.Trim() + "....等");
-        //            }
-        //            #endregion
-        //        }
-        //        //ShowDataList(); //呼叫列表
+                        //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
+                        new OperatesObject().ExecuteOperates(301102, sobj.sessionUserID, 1, "車輛編號：" + this.txt_code.Text + ",牌照號碼：" + this.txt_number.Text.Trim() + "....等");
+                    }
+                    #endregion
+                }
+                //ShowDataList(); //呼叫列表
 
-        //        Response.Write(PCalendarUtil.ShowMsg_URL("", "301001.aspx"));
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
-        //    Response.Write(aMSG);
-        //}
+                Response.Write(PCalendarUtil.ShowMsg_URL("", "301102.aspx"));
+            }
+        }
+        catch (Exception ex)
+        {
+            aMSG = "功能名稱：" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            Response.Write(aMSG);
+        }
     }
     #endregion
 
