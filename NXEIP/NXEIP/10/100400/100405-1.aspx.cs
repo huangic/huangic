@@ -190,10 +190,10 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
     #region 檢查輸入值
     private bool CheckInputValue()
     {
-        #region 使用時限
+        #region 使用時數
         if (this.ddl_usehour.SelectedValue.Equals("0"))
         {
-            ShowMSG("請選擇 使用時限");
+            ShowMSG("請選擇 使用時數");
             return false;
         }
         #endregion
@@ -211,7 +211,12 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
         #endregion
 
         #region 事由
-        if (this.txt_reason.Text.Trim().Length > 200)
+        if (this.txt_reason.Text.Trim().Length <= 0)
+        {
+            ShowMSG("請輸入 申請事由");
+            return false;
+        }
+        else if (this.txt_reason.Text.Trim().Length > 200)
         {
             ShowMSG("申請事由 長度為200個中文字");
             return false;
