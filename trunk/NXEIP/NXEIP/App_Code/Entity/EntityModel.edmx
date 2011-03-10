@@ -4835,7 +4835,7 @@
           <Property Type="Int32" Name="d06_peouid" />
           <Property Type="DateTime" Name="d06_date" />
           <Property Type="String" Name="d06_tel" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="d06_ext" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="d06_ext" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="d06_open" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="d06_createuid" />
           <Property Type="DateTime" Name="d06_createtime" />
