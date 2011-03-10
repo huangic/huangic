@@ -1787,22 +1787,6 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        public ObjectSet<m02> m02
-        {
-            get
-            {
-                if ((_m02 == null))
-                {
-                    _m02 = base.CreateObjectSet<m02>("m02");
-                }
-                return _m02;
-            }
-        }
-        private ObjectSet<m02> _m02;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
         public ObjectSet<m03> m03
         {
             get
@@ -1863,6 +1847,22 @@ namespace Entity
             }
         }
         private ObjectSet<doc14> _doc14;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<m02> m02
+        {
+            get
+            {
+                if ((_m02 == null))
+                {
+                    _m02 = base.CreateObjectSet<m02>("m02");
+                }
+                return _m02;
+            }
+        }
+        private ObjectSet<m02> _m02;
 
         #endregion
         #region AddTo 方法
@@ -2676,14 +2676,6 @@ namespace Entity
         }
     
         /// <summary>
-        /// 將新物件加入 m02 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTom02(m02 m02)
-        {
-            base.AddObject("m02", m02);
-        }
-    
-        /// <summary>
         /// 將新物件加入 m03 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
         /// </summary>
         public void AddTom03(m03 m03)
@@ -2713,6 +2705,14 @@ namespace Entity
         public void AddTodoc14(doc14 doc14)
         {
             base.AddObject("doc14", doc14);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 m02 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTom02(m02 m02)
+        {
+            base.AddObject("m02", m02);
         }
 
         #endregion
@@ -17623,7 +17623,7 @@ namespace Entity
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> m02_cc
+        public global::System.String m02_cc
         {
             get
             {
@@ -17633,13 +17633,13 @@ namespace Entity
             {
                 Onm02_ccChanging(value);
                 ReportPropertyChanging("m02_cc");
-                _m02_cc = StructuralObject.SetValidValue(value);
+                _m02_cc = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("m02_cc");
                 Onm02_ccChanged();
             }
         }
-        private Nullable<global::System.Int32> _m02_cc;
-        partial void Onm02_ccChanging(Nullable<global::System.Int32> value);
+        private global::System.String _m02_cc;
+        partial void Onm02_ccChanging(global::System.String value);
         partial void Onm02_ccChanged();
     
         /// <summary>
