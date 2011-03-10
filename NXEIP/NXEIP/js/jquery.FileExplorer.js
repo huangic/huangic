@@ -41,7 +41,9 @@ validate套件
      $(_setting.fileMoveButton).show();
      $(_setting.permissionButton).show();
      $(_setting.fileUploadButton).show();
-     $(_setting.filePublicButton).show();
+     
+     //$(_setting.filePublicButton).show();
+     
      $(_setting.fileCopyButton).show();
    }
 
@@ -377,7 +379,7 @@ validate套件
                         $(_setting.shareDialog).dialog({
                         modal:true,
                         title:"目錄分享",
-                        width:400,
+                        width:500,
                         autoOpen:false,
                         buttons: {
                          "關閉":function(){$(_setting.shareDialog).dialog('close')},

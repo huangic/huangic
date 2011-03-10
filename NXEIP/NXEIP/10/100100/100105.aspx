@@ -86,7 +86,9 @@
                 <input id="copyFile" type="button" title="複製" value="複製" class="b-input" />
     
                 <input id="permissionButton" type="button" alt="100105-2.aspx?modal=true&TB_iframe=true&width=600" title="權限"  value="權限" class="b-input" />
+                <!--
                 <input id="publicFile" type="button"  title="公開"  value="公開" class="thickbox b-input" />
+                -->
             </div>
             <table id="filelist">
             </table>
@@ -103,7 +105,7 @@
 
 
  <div id="shareDialog" class="dialog">
- 分享網址:<input id="uri"  class="a01-13"  style=" width:300px" type="text" readonly /><br /><br />
+ 分享網址:<input id="uri"  class="a01-13"  style=" width:400px" type="text" readonly /><br /><br />
  設定密碼:<input id="pwd" type="password" /><br />
  確認密碼:<input id="pwd2" type="password" /><br />
  </div>
