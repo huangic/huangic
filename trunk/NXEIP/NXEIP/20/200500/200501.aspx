@@ -75,16 +75,12 @@
         <br />
         <div class="tableDiv">
             <div class="select">
-                <div class="center0">
-                    檔案區[<asp:Label ID="lab_d09title" runat="server"></asp:Label>]查詢：
-                </div>
-                <div class="center1">
+                <span class="a-letter-2"><span class="a-letter-1">檔案區[<asp:Label ID="lab_d09title"
+                    runat="server"></asp:Label>]查詢：
                     <asp:TextBox ID="tbox_d09key" runat="server"></asp:TextBox>
-                </div>
-                <div class="b5">
-                    <asp:Button ID="Button2" runat="server" Text="查詢" CssClass="b-input" 
-                        onclick="Button2_Click" />
-                </div>
+                </span>
+                    <asp:Button ID="Button2" runat="server" Text="查詢" CssClass="b-input" OnClick="Button2_Click" />
+                </span>
             </div>
             <div class="header">
                 <div class="h1">
