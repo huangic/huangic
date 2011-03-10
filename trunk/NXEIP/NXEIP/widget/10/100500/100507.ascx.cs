@@ -13,6 +13,7 @@ public partial class widget_10_100500_100507 : NXEIP.Widget.WidgetBaseControl
     protected void Page_Load(object sender, EventArgs e)
     {
          SessionObject sessionObj = new SessionObject();
+        
 
         string user_login = sessionObj.sessionUserAccount;
         int peouid = int.Parse(sessionObj.sessionUserID);
@@ -44,9 +45,8 @@ public partial class widget_10_100500_100507 : NXEIP.Widget.WidgetBaseControl
             int number=0;
             HtmlGenericControl ul_1 = new HtmlGenericControl("ul");
             HtmlGenericControl ul_2 = new HtmlGenericControl("ul");
-
             ul_2.Attributes.Add("class", "app_more");
-
+            
 
             this.application.Controls.Add(ul_1);
             this.application.Controls.Add(ul_2);
