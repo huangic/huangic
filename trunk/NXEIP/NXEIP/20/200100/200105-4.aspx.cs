@@ -94,19 +94,24 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
     {
 
 
-        string mode = "new";
-        
-             SessionObject sessionObj=new SessionObject();
-            
+        if (UC_SWFUpload1.SWFUploadFileInfoList.Count > 0)
+        {
+
+
+            string mode = "new";
+
+            SessionObject sessionObj = new SessionObject();
 
 
 
-            
+
+
             //存檔
-            using (NXEIPEntities model = new NXEIPEntities()) {
-            
-                
-                int id=int.Parse(this.hidden_doc11no.Value);
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+
+
+                int id = int.Parse(this.hidden_doc11no.Value);
 
                 int peo_uid = int.Parse(sessionObj.sessionUserID);
                 //取使用者ID
@@ -117,7 +122,8 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 {
                     doc = new doc13();
                 }
-                else {
+                else
+                {
                     mode = "edit";
                 }
 
@@ -126,12 +132,17 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 doc.d13_date = DateTime.Now;
                 doc.d13_ext = this.tb_ext.Text;
                 doc.d13_tel = this.tb_tel.Text;
-                doc.d13_peouid=peo_uid;
-                
+                doc.d13_peouid = peo_uid;
+
+
+
+
+
+
                 //取第一筆檔案
                 SWFUploadFileInfo file = UC_SWFUpload1.SWFUploadFileInfoList[0];
 
-                doc.d13_path = file.Path+file.FileName;
+                doc.d13_path = file.Path + file.FileName;
 
                 doc.d13_type = file.Extension;
                 doc.d13_name = file.OriginalFileName;
@@ -141,25 +152,30 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
                 if (mode == "new")
                 {
                     model.doc13.AddObject(doc);
-                    OperatesObject.OperatesExecute(200105, 1, String.Format("新增回傳 d11_no:{0},d13_no", doc.d11_no,doc.d13_no));
-                
-                } else{
+                    OperatesObject.OperatesExecute(200105, 1, String.Format("新增回傳 d11_no:{0},d13_no", doc.d11_no, doc.d13_no));
+
+                }
+                else
+                {
                     OperatesObject.OperatesExecute(200105, 3, String.Format("修改回傳 d11_no:{0},d13_no", doc.d11_no, doc.d13_no));
-                
+
                 }
                 model.SaveChanges();
 
-                
+
             }
 
 
 
-            
 
 
 
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update();", true);
 
-       
+            JsUtil.UpdateParentJs(this, "回傳成功");
+
+        }
+        else {
+            JsUtil.AlertJs(this, "請上傳檔案");
+        }
     }
 }
