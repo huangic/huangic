@@ -218,10 +218,10 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
     #region 檢查輸入值
     private bool CheckInputValue()
     {
-        #region 使用時限
+        #region 使用時數
         if (this.ddl_usehour.SelectedValue.Equals("0"))
         {
-            ShowMSG("請選擇 使用時限");
+            ShowMSG("請選擇 使用時數");
             return false;
         }
         #endregion
@@ -268,7 +268,6 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
             return false;
         }
         #endregion
-
         #region 開會開始時間
         if (this.ddl_hour.SelectedValue.Equals("0"))
         {
@@ -291,7 +290,6 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
             return false;
         }
         #endregion
-
         #region 事由
         if (this.txt_reason.Text.Trim().Length <= 0)
         {
@@ -304,7 +302,6 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
             return false;
         }
         #endregion
-
         #region 判斷是否重複
         if (!this.lab_PetitionSignType.Text.Equals("3"))
         {
