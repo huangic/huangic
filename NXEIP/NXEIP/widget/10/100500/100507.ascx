@@ -13,13 +13,13 @@
 <script type="text/javascript">
     $(function () {
         //先藏CONTENT
-        $(".app_more").hide();
+        $("#<%=this.application.ClientID%> .app_more").hide();
 
         $(".head").css("cursor", "pointer");
 
-        $(".more").click(function () {
+        $("#<%=this.app_more.ClientID%>").click(function () {
 
-            $(".app_more").toggle('slow');
+            $("#<%=this.application.ClientID%> .app_more").toggle('slow');
 
         });
 
@@ -36,7 +36,7 @@
                  
                  個人應用程式</div>
              
-              <div class="more"></div>
+              <div  runat="server" id="app_more" class="more"></div>
               
           
           </div>
