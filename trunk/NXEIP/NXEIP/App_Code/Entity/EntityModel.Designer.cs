@@ -1863,6 +1863,22 @@ namespace Entity
             }
         }
         private ObjectSet<m02> _m02;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<cooperactive> cooperactive
+        {
+            get
+            {
+                if ((_cooperactive == null))
+                {
+                    _cooperactive = base.CreateObjectSet<cooperactive>("cooperactive");
+                }
+                return _cooperactive;
+            }
+        }
+        private ObjectSet<cooperactive> _cooperactive;
 
         #endregion
         #region AddTo 方法
@@ -2713,6 +2729,14 @@ namespace Entity
         public void AddTom02(m02 m02)
         {
             base.AddObject("m02", m02);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 cooperactive EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTocooperactive(cooperactive cooperactive)
+        {
+            base.AddObject("cooperactive", cooperactive);
         }
 
         #endregion
@@ -7208,6 +7232,205 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="cooperactive")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class cooperactive : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 cooperactive 物件。
+        /// </summary>
+        /// <param name="coo_no">coo_no 屬性的初始值。</param>
+        public static cooperactive Createcooperactive(global::System.Int32 coo_no)
+        {
+            cooperactive cooperactive = new cooperactive();
+            cooperactive.coo_no = coo_no;
+            return cooperactive;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 coo_no
+        {
+            get
+            {
+                return _coo_no;
+            }
+            set
+            {
+                if (_coo_no != value)
+                {
+                    Oncoo_noChanging(value);
+                    ReportPropertyChanging("coo_no");
+                    _coo_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("coo_no");
+                    Oncoo_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _coo_no;
+        partial void Oncoo_noChanging(global::System.Int32 value);
+        partial void Oncoo_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String coo_name
+        {
+            get
+            {
+                return _coo_name;
+            }
+            set
+            {
+                Oncoo_nameChanging(value);
+                ReportPropertyChanging("coo_name");
+                _coo_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("coo_name");
+                Oncoo_nameChanged();
+            }
+        }
+        private global::System.String _coo_name;
+        partial void Oncoo_nameChanging(global::System.String value);
+        partial void Oncoo_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coo_price
+        {
+            get
+            {
+                return _coo_price;
+            }
+            set
+            {
+                Oncoo_priceChanging(value);
+                ReportPropertyChanging("coo_price");
+                _coo_price = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("coo_price");
+                Oncoo_priceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coo_price;
+        partial void Oncoo_priceChanging(Nullable<global::System.Int32> value);
+        partial void Oncoo_priceChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String coo_status
+        {
+            get
+            {
+                return _coo_status;
+            }
+            set
+            {
+                Oncoo_statusChanging(value);
+                ReportPropertyChanging("coo_status");
+                _coo_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("coo_status");
+                Oncoo_statusChanged();
+            }
+        }
+        private global::System.String _coo_status;
+        partial void Oncoo_statusChanging(global::System.String value);
+        partial void Oncoo_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coo_createuid
+        {
+            get
+            {
+                return _coo_createuid;
+            }
+            set
+            {
+                Oncoo_createuidChanging(value);
+                ReportPropertyChanging("coo_createuid");
+                _coo_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("coo_createuid");
+                Oncoo_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coo_createuid;
+        partial void Oncoo_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Oncoo_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> coo_createtime
+        {
+            get
+            {
+                return _coo_createtime;
+            }
+            set
+            {
+                Oncoo_createtimeChanging(value);
+                ReportPropertyChanging("coo_createtime");
+                _coo_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("coo_createtime");
+                Oncoo_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _coo_createtime;
+        partial void Oncoo_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Oncoo_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coo_s06no
+        {
+            get
+            {
+                return _coo_s06no;
+            }
+            set
+            {
+                Oncoo_s06noChanging(value);
+                ReportPropertyChanging("coo_s06no");
+                _coo_s06no = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("coo_s06no");
+                Oncoo_s06noChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coo_s06no;
+        partial void Oncoo_s06noChanging(Nullable<global::System.Int32> value);
+        partial void Oncoo_s06noChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
