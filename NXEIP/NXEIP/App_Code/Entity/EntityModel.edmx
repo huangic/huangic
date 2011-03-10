@@ -326,6 +326,10 @@
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
           </AssociationSet>
+          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
+            <End Role="message" EntitySet="message" />
+            <End Role="medetail" EntitySet="medetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
             <End Role="new01" EntitySet="new01" />
@@ -1229,7 +1233,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="int" />
+          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -2025,7 +2029,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2649,6 +2653,18 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
+          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
+          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="message">
+              <PropertyRef Name="mes_no" />
+            </Principal>
+            <Dependent Role="medetail">
+              <PropertyRef Name="mes_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3707,7 +3723,6 @@
           </AssociationSet>
          
           <EntitySet Name="m01" EntityType="NXEIPModel.m01" />
-          <EntitySet Name="m02" EntityType="NXEIPModel.m02" />
           <EntitySet Name="m03" EntityType="NXEIPModel.m03" />
           <EntitySet Name="m04" EntityType="NXEIPModel.m04" />
           <EntitySet Name="m05" EntityType="NXEIPModel.m05" />
@@ -3728,6 +3743,7 @@
             <End Role="doc01" EntitySet="doc01" />
             <End Role="doc14" EntitySet="doc14" />
           </AssociationSet>
+          <EntitySet Name="m02" EntityType="NXEIPModel.m02" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6506,40 +6522,6 @@
           <Property Type="Int32" Name="m01_createuid" />
           <Property Type="DateTime" Name="m01_createtime" />
         </EntityType>
-        <EntityType Name="m02">
-          <Key>
-            <PropertyRef Name="m02_no" />
-          </Key>
-          <Property Type="Int32" Name="m02_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="m02_code" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="m02_peouid" />
-          <Property Type="Int32" Name="m02_platoon" />
-          <Property Type="String" Name="m02_number" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="m02_sdate" />
-          <Property Type="DateTime" Name="m02_change" />
-          <Property Type="Int32" Name="m02_chekuan" />
-          <Property Type="Int32" Name="m02_energy" />
-          <Property Type="Int32" Name="m02_color" />
-          <Property Type="String" Name="m02_engine" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="m02_mark" />
-          <Property Type="String" Name="m02_type" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="m02_year" />
-          <Property Type="Int32" Name="m02_cc" />
-          <Property Type="Int32" Name="m02_useyear" />
-          <Property Type="Int32" Name="m02_count" />
-          <Property Type="Int32" Name="m02_source" />
-          <Property Type="Int32" Name="m02_factory" />
-          <Property Type="DateTime" Name="m02_buydate" />
-          <Property Type="DateTime" Name="m02_cdate" />
-          <Property Type="DateTime" Name="m02_testdate" />
-          <Property Type="DateTime" Name="m02_overdate" />
-          <Property Type="String" Name="m02_memo" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Binary" Name="m02_pic" MaxLength="Max" FixedLength="false" />
-          <Property Type="String" Name="m02_pictype" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="m02_status" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="m02_createuid" />
-          <Property Type="DateTime" Name="m02_createtime" />
-        </EntityType>
         <EntityType Name="m03">
           <Key>
             <PropertyRef Name="m03_no" />
@@ -6656,6 +6638,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="m02">
+          <Key>
+            <PropertyRef Name="m02_no" />
+          </Key>
+          <Property Type="Int32" Name="m02_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="m02_code" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="m02_peouid" />
+          <Property Type="Int32" Name="m02_platoon" />
+          <Property Type="String" Name="m02_number" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="m02_sdate" />
+          <Property Type="DateTime" Name="m02_change" />
+          <Property Type="Int32" Name="m02_chekuan" />
+          <Property Type="Int32" Name="m02_energy" />
+          <Property Type="Int32" Name="m02_color" />
+          <Property Type="String" Name="m02_engine" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="m02_mark" />
+          <Property Type="String" Name="m02_type" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="m02_year" />
+          <Property Type="String" Name="m02_cc" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="m02_useyear" />
+          <Property Type="Int32" Name="m02_count" />
+          <Property Type="Int32" Name="m02_source" />
+          <Property Type="Int32" Name="m02_factory" />
+          <Property Type="DateTime" Name="m02_buydate" />
+          <Property Type="DateTime" Name="m02_cdate" />
+          <Property Type="DateTime" Name="m02_testdate" />
+          <Property Type="DateTime" Name="m02_overdate" />
+          <Property Type="String" Name="m02_memo" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="m02_pic" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="m02_pictype" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="m02_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="m02_createuid" />
+          <Property Type="DateTime" Name="m02_createtime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8033,41 +8049,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="m02">
-            <EntityTypeMapping TypeName="NXEIPModel.m02">
-              <MappingFragment StoreEntitySet="m02">
-                <ScalarProperty Name="m02_createtime" ColumnName="m02_createtime" />
-                <ScalarProperty Name="m02_createuid" ColumnName="m02_createuid" />
-                <ScalarProperty Name="m02_status" ColumnName="m02_status" />
-                <ScalarProperty Name="m02_pictype" ColumnName="m02_pictype" />
-                <ScalarProperty Name="m02_pic" ColumnName="m02_pic" />
-                <ScalarProperty Name="m02_memo" ColumnName="m02_memo" />
-                <ScalarProperty Name="m02_overdate" ColumnName="m02_overdate" />
-                <ScalarProperty Name="m02_testdate" ColumnName="m02_testdate" />
-                <ScalarProperty Name="m02_cdate" ColumnName="m02_cdate" />
-                <ScalarProperty Name="m02_buydate" ColumnName="m02_buydate" />
-                <ScalarProperty Name="m02_factory" ColumnName="m02_factory" />
-                <ScalarProperty Name="m02_source" ColumnName="m02_source" />
-                <ScalarProperty Name="m02_count" ColumnName="m02_count" />
-                <ScalarProperty Name="m02_useyear" ColumnName="m02_useyear" />
-                <ScalarProperty Name="m02_cc" ColumnName="m02_cc" />
-                <ScalarProperty Name="m02_year" ColumnName="m02_year" />
-                <ScalarProperty Name="m02_type" ColumnName="m02_type" />
-                <ScalarProperty Name="m02_mark" ColumnName="m02_mark" />
-                <ScalarProperty Name="m02_engine" ColumnName="m02_engine" />
-                <ScalarProperty Name="m02_color" ColumnName="m02_color" />
-                <ScalarProperty Name="m02_energy" ColumnName="m02_energy" />
-                <ScalarProperty Name="m02_chekuan" ColumnName="m02_chekuan" />
-                <ScalarProperty Name="m02_change" ColumnName="m02_change" />
-                <ScalarProperty Name="m02_sdate" ColumnName="m02_sdate" />
-                <ScalarProperty Name="m02_number" ColumnName="m02_number" />
-                <ScalarProperty Name="m02_platoon" ColumnName="m02_platoon" />
-                <ScalarProperty Name="m02_peouid" ColumnName="m02_peouid" />
-                <ScalarProperty Name="m02_code" ColumnName="m02_code" />
-                <ScalarProperty Name="m02_no" ColumnName="m02_no" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="m03">
             <EntityTypeMapping TypeName="NXEIPModel.m03">
               <MappingFragment StoreEntitySet="m03">
@@ -8131,6 +8112,41 @@
                 <ScalarProperty Name="d14_network" ColumnName="d14_network" />
                 <ScalarProperty Name="d01_no" ColumnName="d01_no" />
                 <ScalarProperty Name="d14_no" ColumnName="d14_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m02">
+            <EntityTypeMapping TypeName="NXEIPModel.m02">
+              <MappingFragment StoreEntitySet="m02">
+                <ScalarProperty Name="m02_createtime" ColumnName="m02_createtime" />
+                <ScalarProperty Name="m02_createuid" ColumnName="m02_createuid" />
+                <ScalarProperty Name="m02_status" ColumnName="m02_status" />
+                <ScalarProperty Name="m02_pictype" ColumnName="m02_pictype" />
+                <ScalarProperty Name="m02_pic" ColumnName="m02_pic" />
+                <ScalarProperty Name="m02_memo" ColumnName="m02_memo" />
+                <ScalarProperty Name="m02_overdate" ColumnName="m02_overdate" />
+                <ScalarProperty Name="m02_testdate" ColumnName="m02_testdate" />
+                <ScalarProperty Name="m02_cdate" ColumnName="m02_cdate" />
+                <ScalarProperty Name="m02_buydate" ColumnName="m02_buydate" />
+                <ScalarProperty Name="m02_factory" ColumnName="m02_factory" />
+                <ScalarProperty Name="m02_source" ColumnName="m02_source" />
+                <ScalarProperty Name="m02_count" ColumnName="m02_count" />
+                <ScalarProperty Name="m02_useyear" ColumnName="m02_useyear" />
+                <ScalarProperty Name="m02_cc" ColumnName="m02_cc" />
+                <ScalarProperty Name="m02_year" ColumnName="m02_year" />
+                <ScalarProperty Name="m02_type" ColumnName="m02_type" />
+                <ScalarProperty Name="m02_mark" ColumnName="m02_mark" />
+                <ScalarProperty Name="m02_engine" ColumnName="m02_engine" />
+                <ScalarProperty Name="m02_color" ColumnName="m02_color" />
+                <ScalarProperty Name="m02_energy" ColumnName="m02_energy" />
+                <ScalarProperty Name="m02_chekuan" ColumnName="m02_chekuan" />
+                <ScalarProperty Name="m02_change" ColumnName="m02_change" />
+                <ScalarProperty Name="m02_sdate" ColumnName="m02_sdate" />
+                <ScalarProperty Name="m02_number" ColumnName="m02_number" />
+                <ScalarProperty Name="m02_platoon" ColumnName="m02_platoon" />
+                <ScalarProperty Name="m02_peouid" ColumnName="m02_peouid" />
+                <ScalarProperty Name="m02_code" ColumnName="m02_code" />
+                <ScalarProperty Name="m02_no" ColumnName="m02_no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9115,7 +9131,6 @@
         </AssociationConnector>
        
         <EntityTypeShape EntityType="NXEIPModel.m01" Width="1.5" PointX="21.375" PointY="16.75" Height="2.2013151041666674" />
-        <EntityTypeShape EntityType="NXEIPModel.m02" Width="1.5" PointX="24.375" PointY="15.75" Height="6.072083333333353" />
         <EntityTypeShape EntityType="NXEIPModel.m03" Width="1.5" PointX="24.375" PointY="9.125" Height="5.1923632812499818" />
         <EntityTypeShape EntityType="NXEIPModel.m04" Width="1.5" PointX="26.625" PointY="10.375" Height="2.7291471354166674" />
         <EntityTypeShape EntityType="NXEIPModel.m05" Width="1.5" PointX="28.875" PointY="10.5" Height="2.377259114583353" />
@@ -9139,6 +9154,7 @@
           <ConnectorPoint PointX="9" PointY="45.365143229166677" />
           <ConnectorPoint PointX="9.5" PointY="45.365143229166677" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.m02" Width="1.5" PointX="24.375" PointY="15.75" Height="6.072083333333353" />
         </Diagram>
     </Diagrams>
   </Designer>
