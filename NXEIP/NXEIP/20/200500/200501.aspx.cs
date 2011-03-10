@@ -25,6 +25,13 @@ public partial class _20_200500_200501 : System.Web.UI.Page
 
                     this.lab_newtitle.Text = sfu_name;
                     this.lab_d09title.Text = sfu_name;
+
+                    //Q&A
+                    int qat_no = (from d in model.qatype where d.qat_s06no == sfu_no select d.qat_no).FirstOrDefault();
+                    this.ObjectDataSource1.SelectParameters["self"].DefaultValue = "";
+                    this.ObjectDataSource1.SelectParameters["qat_no"].DefaultValue = qat_no.ToString();
+                    this.ObjectDataSource1.SelectParameters["key"].DefaultValue = "";
+                    this.GridView2.DataBind();
                 }
 
                 this.hidd_newS06no.Value = Request.QueryString["newS06no"];
@@ -33,6 +40,7 @@ public partial class _20_200500_200501 : System.Web.UI.Page
 
                 this.newLoadData(this.hidd_newS06no.Value, string.Empty);
                 this.d09LoadData(this.hidd_d09S06no.Value, string.Empty);
+
             }
         }
     }
@@ -106,8 +114,8 @@ public partial class _20_200500_200501 : System.Web.UI.Page
         }
     }
 
-    
+    protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
 
-
-    
+    }
 }

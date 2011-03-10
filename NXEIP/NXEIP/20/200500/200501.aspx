@@ -29,6 +29,15 @@
             <asp:Parameter Name="key" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
+        SelectCountMethod="Get_askDataCount" SelectMethod="Get_askData" TypeName="NXEIP.DAO._200702DAO"
+        EnablePaging="True">
+        <SelectParameters>
+            <asp:Parameter Name="self" Type="String" />
+            <asp:Parameter Name="qat_no" Type="Int32" />
+            <asp:Parameter Name="key" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <asp:HiddenField ID="hidd_newS06no" runat="server" />
     <asp:HiddenField ID="hidd_d09S06no" runat="server" />
     
@@ -135,6 +144,66 @@
                 </asp:DataPager>
             </div>
         </div>
+        <br />
+
+        <div class="tableDiv">
+        <div class="header">
+            <div class="h1">
+            </div>
+            <div class="h2">
+            </div>
+            <div class="h3">
+            </div>
+        </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <cc1:GridView ID="GridView2" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
+                    Width="100%" AllowPaging="True" CellPadding="3" CellSpacing="3" GridLines="None"
+                    EmptyDataText="目前無資料" 
+                    DataKeyNames="ask_no" onrowdatabound="GridView2_RowDataBound">
+                    <Columns>
+                        
+                        <asp:TemplateField HeaderText="問題">
+                            <ItemTemplate>
+                                <div><%# Eval("ask_question","問：{0}") %></div>
+                                <div><%# Eval("ask_answer","答：{0}")%></div>
+                            </ItemTemplate>
+                            <ItemStyle Width="70%" />
+                        </asp:TemplateField>
+
+                        <asp:BoundField DataField="ask_date" HeaderText="發問時間" 
+                            SortExpression="ask_date" DataFormatString="{0:yyyy-MM-dd HH:mm}">
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="ask_rdate" HeaderText="回覆時間" 
+                            SortExpression="ask_rdate" DataFormatString="{0:yyyy-MM-dd HH:mm}">
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="ask_peouid" HeaderText="發問者" 
+                            SortExpression="ask_peouid" >
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
+                       
+                    </Columns>
+                </cc1:GridView>
+                <div class="footer">
+                    <div class="f1">
+                    </div>
+                    <div class="f2">
+                    </div>
+                    <div class="f3">
+                    </div>
+                </div>
+                <div class="pager">
+                    <asp:DataPager ID="DataPager3" runat="server" PagedControlID="GridView2" PageSize="25">
+                        <Fields>
+                            <NXEIP:GooglePagerField />
+                        </Fields>
+                    </asp:DataPager>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
     </div>
 </asp:Content>
 
