@@ -22,6 +22,7 @@
           <EntitySet Name="casework" EntityType="NXEIPModel.Store.casework" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="checker" EntityType="NXEIPModel.Store.checker" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="conferen" EntityType="NXEIPModel.Store.conferen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cooperactive" EntityType="NXEIPModel.Store.cooperactive" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="departments" EntityType="NXEIPModel.Store.departments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc01" EntityType="NXEIPModel.Store.doc01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc02" EntityType="NXEIPModel.Store.doc02" store:Type="Tables" Schema="dbo" />
@@ -325,10 +326,6 @@
           <AssociationSet Name="FK_MANAGER_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_MANAGER_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
-            <End Role="message" EntitySet="message" />
-            <End Role="medetail" EntitySet="medetail" />
           </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
@@ -733,6 +730,18 @@
           <Property Name="con_path" Type="nvarchar" MaxLength="200" />
           <Property Name="con_type" Type="nvarchar" MaxLength="20" />
           <Property Name="con_file" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="cooperactive">
+          <Key>
+            <PropertyRef Name="coo_no" />
+          </Key>
+          <Property Name="coo_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="coo_name" Type="nvarchar" MaxLength="40" />
+          <Property Name="coo_price" Type="int" />
+          <Property Name="coo_status" Type="char" MaxLength="1" />
+          <Property Name="coo_createuid" Type="int" />
+          <Property Name="coo_createtime" Type="datetime" />
+          <Property Name="coo_s06no" Type="int" />
         </EntityType>
         <EntityType Name="departments">
           <Key>
@@ -1233,7 +1242,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
+          <Property Name="m02_cc" Type="varchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -2029,7 +2038,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2653,18 +2662,6 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
-          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
-          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="message">
-              <PropertyRef Name="mes_no" />
-            </Principal>
-            <Dependent Role="medetail">
-              <PropertyRef Name="mes_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3744,6 +3741,7 @@
             <End Role="doc14" EntitySet="doc14" />
           </AssociationSet>
           <EntitySet Name="m02" EntityType="NXEIPModel.m02" />
+          <EntitySet Name="cooperactive" EntityType="NXEIPModel.cooperactive" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6672,6 +6670,18 @@
           <Property Type="Int32" Name="m02_createuid" />
           <Property Type="DateTime" Name="m02_createtime" />
         </EntityType>
+        <EntityType Name="cooperactive">
+          <Key>
+            <PropertyRef Name="coo_no" />
+          </Key>
+          <Property Type="Int32" Name="coo_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="coo_name" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="coo_price" />
+          <Property Type="String" Name="coo_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="coo_createuid" />
+          <Property Type="DateTime" Name="coo_createtime" />
+          <Property Type="Int32" Name="coo_s06no" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8150,6 +8160,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cooperactive">
+            <EntityTypeMapping TypeName="NXEIPModel.cooperactive">
+              <MappingFragment StoreEntitySet="cooperactive">
+                <ScalarProperty Name="coo_s06no" ColumnName="coo_s06no" />
+                <ScalarProperty Name="coo_createtime" ColumnName="coo_createtime" />
+                <ScalarProperty Name="coo_createuid" ColumnName="coo_createuid" />
+                <ScalarProperty Name="coo_status" ColumnName="coo_status" />
+                <ScalarProperty Name="coo_price" ColumnName="coo_price" />
+                <ScalarProperty Name="coo_name" ColumnName="coo_name" />
+                <ScalarProperty Name="coo_no" ColumnName="coo_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -9155,6 +9178,7 @@
           <ConnectorPoint PointX="9.5" PointY="45.365143229166677" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.m02" Width="1.5" PointX="24.375" PointY="15.75" Height="6.072083333333353" />
+        <EntityTypeShape EntityType="NXEIPModel.cooperactive" Width="1.5" PointX="26.375" PointY="14.75" Height="2.3648893229166674" />
         </Diagram>
     </Diagrams>
   </Designer>
