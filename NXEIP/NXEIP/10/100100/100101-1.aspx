@@ -24,7 +24,7 @@
             </div>
             <div class="h2">
             <div class="function">
-                <a href="#" target="_blank">登錄說明</a>
+                <a href="100101/ip.html" target="_blank">登錄說明</a>
             </div>
             </div>
             <div class="h3">
