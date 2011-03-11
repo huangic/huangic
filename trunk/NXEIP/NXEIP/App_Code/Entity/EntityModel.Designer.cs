@@ -113,11 +113,11 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_IPADDRES_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "ipaddress", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ipaddress), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_ASK_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "ask", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.ask), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_QAMANAGE_RELATIONS_QATYPE", "qatype", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.qatype), "qamanager", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.qamanager), true)]
-[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M04_RELATIONS_M03", "m03", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m03), "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m04), true)]
-[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M05_RELATIONS_M04", "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m04), "m05", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m05), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MEDETAIL_RELATIONS_MESSAGE", "message", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.message), "medetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.medetail), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC01", "doc01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc14", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc14), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_RSS_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "rss", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rss), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M04_RELATIONS_M03", "m03", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m03), "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m04), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M05_RELATIONS_M04", "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m04), "m05", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m05), true)]
 
 #endregion
 
@@ -1788,54 +1788,6 @@ namespace Entity
         /// <summary>
         /// 沒有可用的中繼資料文件。
         /// </summary>
-        public ObjectSet<m03> m03
-        {
-            get
-            {
-                if ((_m03 == null))
-                {
-                    _m03 = base.CreateObjectSet<m03>("m03");
-                }
-                return _m03;
-            }
-        }
-        private ObjectSet<m03> _m03;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        public ObjectSet<m04> m04
-        {
-            get
-            {
-                if ((_m04 == null))
-                {
-                    _m04 = base.CreateObjectSet<m04>("m04");
-                }
-                return _m04;
-            }
-        }
-        private ObjectSet<m04> _m04;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        public ObjectSet<m05> m05
-        {
-            get
-            {
-                if ((_m05 == null))
-                {
-                    _m05 = base.CreateObjectSet<m05>("m05");
-                }
-                return _m05;
-            }
-        }
-        private ObjectSet<m05> _m05;
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
         public ObjectSet<doc14> doc14
         {
             get
@@ -1896,6 +1848,54 @@ namespace Entity
             }
         }
         private ObjectSet<rss> _rss;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<m03> m03
+        {
+            get
+            {
+                if ((_m03 == null))
+                {
+                    _m03 = base.CreateObjectSet<m03>("m03");
+                }
+                return _m03;
+            }
+        }
+        private ObjectSet<m03> _m03;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<m04> m04
+        {
+            get
+            {
+                if ((_m04 == null))
+                {
+                    _m04 = base.CreateObjectSet<m04>("m04");
+                }
+                return _m04;
+            }
+        }
+        private ObjectSet<m04> _m04;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<m05> m05
+        {
+            get
+            {
+                if ((_m05 == null))
+                {
+                    _m05 = base.CreateObjectSet<m05>("m05");
+                }
+                return _m05;
+            }
+        }
+        private ObjectSet<m05> _m05;
 
         #endregion
         #region AddTo 方法
@@ -2709,30 +2709,6 @@ namespace Entity
         }
     
         /// <summary>
-        /// 將新物件加入 m03 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTom03(m03 m03)
-        {
-            base.AddObject("m03", m03);
-        }
-    
-        /// <summary>
-        /// 將新物件加入 m04 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTom04(m04 m04)
-        {
-            base.AddObject("m04", m04);
-        }
-    
-        /// <summary>
-        /// 將新物件加入 m05 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
-        /// </summary>
-        public void AddTom05(m05 m05)
-        {
-            base.AddObject("m05", m05);
-        }
-    
-        /// <summary>
         /// 將新物件加入 doc14 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
         /// </summary>
         public void AddTodoc14(doc14 doc14)
@@ -2762,6 +2738,30 @@ namespace Entity
         public void AddTorss(rss rss)
         {
             base.AddObject("rss", rss);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 m03 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTom03(m03 m03)
+        {
+            base.AddObject("m03", m03);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 m04 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTom04(m04 m04)
+        {
+            base.AddObject("m04", m04);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 m05 EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTom05(m05 m05)
+        {
+            base.AddObject("m05", m05);
         }
 
         #endregion
