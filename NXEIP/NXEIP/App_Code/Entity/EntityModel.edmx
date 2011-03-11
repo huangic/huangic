@@ -328,6 +328,10 @@
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
           </AssociationSet>
+          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
+            <End Role="message" EntitySet="message" />
+            <End Role="medetail" EntitySet="medetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
             <End Role="new01" EntitySet="new01" />
@@ -856,7 +860,7 @@
           <Property Name="d06_peouid" Type="int" />
           <Property Name="d06_date" Type="datetime" />
           <Property Name="d06_tel" Type="varchar" MaxLength="20" />
-          <Property Name="d06_ext" Type="varchar" MaxLength="10" />
+          <Property Name="d06_ext" Type="varchar" MaxLength="6" />
           <Property Name="d06_open" Type="char" MaxLength="1" />
           <Property Name="d06_createuid" Type="int" />
           <Property Name="d06_createtime" Type="datetime" />
@@ -1247,7 +1251,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="varchar" MaxLength="10" />
+          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -1289,7 +1293,6 @@
           <Property Name="m03_applydepno" Type="int" />
           <Property Name="m03_createtime" Type="datetime" />
           <Property Name="m03_createuid" Type="int" />
-          <Property Name="m03_flowid" Type="int" />
         </EntityType>
         <EntityType Name="m04">
           <Key>
@@ -2057,7 +2060,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2681,6 +2684,18 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
+          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
+          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="message">
+              <PropertyRef Name="mes_no" />
+            </Principal>
+            <Dependent Role="medetail">
+              <PropertyRef Name="mes_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3751,17 +3766,6 @@
           </AssociationSet>
          
           <EntitySet Name="m01" EntityType="NXEIPModel.m01" />
-          <EntitySet Name="m03" EntityType="NXEIPModel.m03" />
-          <EntitySet Name="m04" EntityType="NXEIPModel.m04" />
-          <EntitySet Name="m05" EntityType="NXEIPModel.m05" />
-          <AssociationSet Name="FK_M04_RELATIONS_M03" Association="NXEIPModel.FK_M04_RELATIONS_M03">
-            <End Role="m03" EntitySet="m03" />
-            <End Role="m04" EntitySet="m04" />
-          </AssociationSet>
-          <AssociationSet Name="FK_M05_RELATIONS_M04" Association="NXEIPModel.FK_M05_RELATIONS_M04">
-            <End Role="m04" EntitySet="m04" />
-            <End Role="m05" EntitySet="m05" />
-          </AssociationSet>
           <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.FK_MEDETAIL_RELATIONS_MESSAGE">
             <End Role="message" EntitySet="message" />
             <End Role="medetail" EntitySet="medetail" />
@@ -3777,6 +3781,17 @@
           <AssociationSet Name="FK_RSS_RELATIONS_PEOPLE" Association="NXEIPModel.FK_RSS_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="rss" EntitySet="rss" />
+          </AssociationSet>
+          <EntitySet Name="m03" EntityType="NXEIPModel.m03" />
+          <EntitySet Name="m04" EntityType="NXEIPModel.m04" />
+          <EntitySet Name="m05" EntityType="NXEIPModel.m05" />
+          <AssociationSet Name="FK_M04_RELATIONS_M03" Association="NXEIPModel.FK_M04_RELATIONS_M03">
+            <End Role="m03" EntitySet="m03" />
+            <End Role="m04" EntitySet="m04" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M05_RELATIONS_M04" Association="NXEIPModel.FK_M05_RELATIONS_M04">
+            <End Role="m04" EntitySet="m04" />
+            <End Role="m05" EntitySet="m05" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
@@ -6557,87 +6572,6 @@
           <Property Type="Int32" Name="m01_createuid" />
           <Property Type="DateTime" Name="m01_createtime" />
         </EntityType>
-        <EntityType Name="m03">
-          <Key>
-            <PropertyRef Name="m03_no" />
-          </Key>
-          <Property Type="Int32" Name="m03_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="m03_peouid" />
-          <Property Type="Int32" Name="m03_depno" />
-          <Property Type="Int32" Name="m03_type" />
-          <Property Type="String" Name="m03_driver" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="m03_driveruid" />
-          <Property Type="Int32" Name="m03_people" />
-          <Property Type="String" Name="m03_material" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="m03_place" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="m03_reason" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="m03_sdate" />
-          <Property Type="DateTime" Name="m03_edate" />
-          <Property Type="Int32" Name="m03_hour" />
-          <Property Type="String" Name="m03_night" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="m03_verify" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="m03_m02no" />
-          <Property Type="DateTime" Name="m03_usedate" />
-          <Property Type="Int32" Name="m03_applyuid" />
-          <Property Type="DateTime" Name="m03_applydate" />
-          <Property Type="Int32" Name="m03_applydepno" />
-          <Property Type="DateTime" Name="m03_createtime" />
-          <Property Type="Int32" Name="m03_createuid" />
-          <NavigationProperty Name="m04" Relationship="NXEIPModel.FK_M04_RELATIONS_M03" FromRole="m03" ToRole="m04" />
-        </EntityType>
-        <EntityType Name="m04">
-          <Key>
-            <PropertyRef Name="m04_no" />
-          </Key>
-          <Property Type="Int32" Name="m04_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="m03_no" Nullable="false" />
-          <Property Type="String" Name="m04_before" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="m04_after" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="mo4_usekm" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="m04_cc" />
-          <Property Type="Int32" Name="m04_createuid" />
-          <Property Type="DateTime" Name="m04_createtime" />
-          <NavigationProperty Name="m03" Relationship="NXEIPModel.FK_M04_RELATIONS_M03" FromRole="m04" ToRole="m03" />
-          <NavigationProperty Name="m05" Relationship="NXEIPModel.FK_M05_RELATIONS_M04" FromRole="m04" ToRole="m05" />
-        </EntityType>
-        <EntityType Name="m05">
-          <Key>
-            <PropertyRef Name="m04_no" />
-            <PropertyRef Name="m05_no" />
-          </Key>
-          <Property Type="Int32" Name="m04_no" Nullable="false" />
-          <Property Type="Int32" Name="m05_no" Nullable="false" />
-          <Property Type="String" Name="m05_count" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="m05_place" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="m05_time" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="m05_usetime" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="m05_usekm" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="m04" Relationship="NXEIPModel.FK_M05_RELATIONS_M04" FromRole="m05" ToRole="m04" />
-        </EntityType>
-        <Association Name="FK_M04_RELATIONS_M03">
-          <End Type="NXEIPModel.m03" Role="m03" Multiplicity="1" />
-          <End Type="NXEIPModel.m04" Role="m04" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="m03">
-              <PropertyRef Name="m03_no" />
-            </Principal>
-            <Dependent Role="m04">
-              <PropertyRef Name="m03_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_M05_RELATIONS_M04">
-          <End Type="NXEIPModel.m04" Role="m04" Multiplicity="1" />
-          <End Type="NXEIPModel.m05" Role="m05" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="m04">
-              <PropertyRef Name="m04_no" />
-            </Principal>
-            <Dependent Role="m05">
-              <PropertyRef Name="m04_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
           <End Type="NXEIPModel.message" Role="message" Multiplicity="1" />
           <End Type="NXEIPModel.medetail" Role="medetail" Multiplicity="*" />
@@ -6742,6 +6676,87 @@
             </Principal>
             <Dependent Role="rss">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="m03">
+          <Key>
+            <PropertyRef Name="m03_no" />
+          </Key>
+          <Property Type="Int32" Name="m03_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="m03_peouid" />
+          <Property Type="Int32" Name="m03_depno" />
+          <Property Type="Int32" Name="m03_type" />
+          <Property Type="String" Name="m03_driver" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="m03_driveruid" />
+          <Property Type="Int32" Name="m03_people" />
+          <Property Type="String" Name="m03_material" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="m03_place" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="m03_reason" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="m03_sdate" />
+          <Property Type="DateTime" Name="m03_edate" />
+          <Property Type="Int32" Name="m03_hour" />
+          <Property Type="String" Name="m03_night" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="m03_verify" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="m03_m02no" />
+          <Property Type="DateTime" Name="m03_usedate" />
+          <Property Type="Int32" Name="m03_applyuid" />
+          <Property Type="DateTime" Name="m03_applydate" />
+          <Property Type="Int32" Name="m03_applydepno" />
+          <Property Type="DateTime" Name="m03_createtime" />
+          <Property Type="Int32" Name="m03_createuid" />
+          <NavigationProperty Name="m04" Relationship="NXEIPModel.FK_M04_RELATIONS_M03" FromRole="m03" ToRole="m04" />
+        </EntityType>
+        <EntityType Name="m04">
+          <Key>
+            <PropertyRef Name="m04_no" />
+          </Key>
+          <Property Type="Int32" Name="m04_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="m03_no" Nullable="false" />
+          <Property Type="String" Name="m04_before" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="m04_after" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mo4_usekm" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="m04_cc" />
+          <Property Type="Int32" Name="m04_createuid" />
+          <Property Type="DateTime" Name="m04_createtime" />
+          <NavigationProperty Name="m03" Relationship="NXEIPModel.FK_M04_RELATIONS_M03" FromRole="m04" ToRole="m03" />
+          <NavigationProperty Name="m05" Relationship="NXEIPModel.FK_M05_RELATIONS_M04" FromRole="m04" ToRole="m05" />
+        </EntityType>
+        <EntityType Name="m05">
+          <Key>
+            <PropertyRef Name="m04_no" />
+            <PropertyRef Name="m05_no" />
+          </Key>
+          <Property Type="Int32" Name="m04_no" Nullable="false" />
+          <Property Type="Int32" Name="m05_no" Nullable="false" />
+          <Property Type="String" Name="m05_count" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="m05_place" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="m05_time" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="m05_usetime" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="m05_usekm" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="m04" Relationship="NXEIPModel.FK_M05_RELATIONS_M04" FromRole="m05" ToRole="m04" />
+        </EntityType>
+        <Association Name="FK_M04_RELATIONS_M03">
+          <End Type="NXEIPModel.m03" Role="m03" Multiplicity="1" />
+          <End Type="NXEIPModel.m04" Role="m04" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m03">
+              <PropertyRef Name="m03_no" />
+            </Principal>
+            <Dependent Role="m04">
+              <PropertyRef Name="m03_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M05_RELATIONS_M04">
+          <End Type="NXEIPModel.m04" Role="m04" Multiplicity="1" />
+          <End Type="NXEIPModel.m05" Role="m05" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="m04">
+              <PropertyRef Name="m04_no" />
+            </Principal>
+            <Dependent Role="m05">
+              <PropertyRef Name="m04_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8122,61 +8137,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="m03">
-            <EntityTypeMapping TypeName="NXEIPModel.m03">
-              <MappingFragment StoreEntitySet="m03">
-                <ScalarProperty Name="m03_createuid" ColumnName="m03_createuid" />
-                <ScalarProperty Name="m03_createtime" ColumnName="m03_createtime" />
-                <ScalarProperty Name="m03_applydepno" ColumnName="m03_applydepno" />
-                <ScalarProperty Name="m03_applydate" ColumnName="m03_applydate" />
-                <ScalarProperty Name="m03_applyuid" ColumnName="m03_applyuid" />
-                <ScalarProperty Name="m03_usedate" ColumnName="m03_usedate" />
-                <ScalarProperty Name="m03_m02no" ColumnName="m03_m02no" />
-                <ScalarProperty Name="m03_verify" ColumnName="m03_verify" />
-                <ScalarProperty Name="m03_night" ColumnName="m03_night" />
-                <ScalarProperty Name="m03_hour" ColumnName="m03_hour" />
-                <ScalarProperty Name="m03_edate" ColumnName="m03_edate" />
-                <ScalarProperty Name="m03_sdate" ColumnName="m03_sdate" />
-                <ScalarProperty Name="m03_reason" ColumnName="m03_reason" />
-                <ScalarProperty Name="m03_place" ColumnName="m03_place" />
-                <ScalarProperty Name="m03_material" ColumnName="m03_material" />
-                <ScalarProperty Name="m03_people" ColumnName="m03_people" />
-                <ScalarProperty Name="m03_driveruid" ColumnName="m03_driveruid" />
-                <ScalarProperty Name="m03_driver" ColumnName="m03_driver" />
-                <ScalarProperty Name="m03_type" ColumnName="m03_type" />
-                <ScalarProperty Name="m03_depno" ColumnName="m03_depno" />
-                <ScalarProperty Name="m03_peouid" ColumnName="m03_peouid" />
-                <ScalarProperty Name="m03_no" ColumnName="m03_no" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="m04">
-            <EntityTypeMapping TypeName="NXEIPModel.m04">
-              <MappingFragment StoreEntitySet="m04">
-                <ScalarProperty Name="m04_createtime" ColumnName="m04_createtime" />
-                <ScalarProperty Name="m04_createuid" ColumnName="m04_createuid" />
-                <ScalarProperty Name="m04_cc" ColumnName="m04_cc" />
-                <ScalarProperty Name="mo4_usekm" ColumnName="mo4_usekm" />
-                <ScalarProperty Name="m04_after" ColumnName="m04_after" />
-                <ScalarProperty Name="m04_before" ColumnName="m04_before" />
-                <ScalarProperty Name="m03_no" ColumnName="m03_no" />
-                <ScalarProperty Name="m04_no" ColumnName="m04_no" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="m05">
-            <EntityTypeMapping TypeName="NXEIPModel.m05">
-              <MappingFragment StoreEntitySet="m05">
-                <ScalarProperty Name="m05_usekm" ColumnName="m05_usekm" />
-                <ScalarProperty Name="m05_usetime" ColumnName="m05_usetime" />
-                <ScalarProperty Name="m05_time" ColumnName="m05_time" />
-                <ScalarProperty Name="m05_place" ColumnName="m05_place" />
-                <ScalarProperty Name="m05_count" ColumnName="m05_count" />
-                <ScalarProperty Name="m05_no" ColumnName="m05_no" />
-                <ScalarProperty Name="m04_no" ColumnName="m04_no" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="doc14">
             <EntityTypeMapping TypeName="NXEIPModel.doc14">
               <MappingFragment StoreEntitySet="doc14">
@@ -8246,6 +8206,61 @@
                 <ScalarProperty Name="rss_subject" ColumnName="rss_subject" />
                 <ScalarProperty Name="rss_no" ColumnName="rss_no" />
                 <ScalarProperty Name="peo_uid" ColumnName="peo_uid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m03">
+            <EntityTypeMapping TypeName="NXEIPModel.m03">
+              <MappingFragment StoreEntitySet="m03">
+                <ScalarProperty Name="m03_createuid" ColumnName="m03_createuid" />
+                <ScalarProperty Name="m03_createtime" ColumnName="m03_createtime" />
+                <ScalarProperty Name="m03_applydepno" ColumnName="m03_applydepno" />
+                <ScalarProperty Name="m03_applydate" ColumnName="m03_applydate" />
+                <ScalarProperty Name="m03_applyuid" ColumnName="m03_applyuid" />
+                <ScalarProperty Name="m03_usedate" ColumnName="m03_usedate" />
+                <ScalarProperty Name="m03_m02no" ColumnName="m03_m02no" />
+                <ScalarProperty Name="m03_verify" ColumnName="m03_verify" />
+                <ScalarProperty Name="m03_night" ColumnName="m03_night" />
+                <ScalarProperty Name="m03_hour" ColumnName="m03_hour" />
+                <ScalarProperty Name="m03_edate" ColumnName="m03_edate" />
+                <ScalarProperty Name="m03_sdate" ColumnName="m03_sdate" />
+                <ScalarProperty Name="m03_reason" ColumnName="m03_reason" />
+                <ScalarProperty Name="m03_place" ColumnName="m03_place" />
+                <ScalarProperty Name="m03_material" ColumnName="m03_material" />
+                <ScalarProperty Name="m03_people" ColumnName="m03_people" />
+                <ScalarProperty Name="m03_driveruid" ColumnName="m03_driveruid" />
+                <ScalarProperty Name="m03_driver" ColumnName="m03_driver" />
+                <ScalarProperty Name="m03_type" ColumnName="m03_type" />
+                <ScalarProperty Name="m03_depno" ColumnName="m03_depno" />
+                <ScalarProperty Name="m03_peouid" ColumnName="m03_peouid" />
+                <ScalarProperty Name="m03_no" ColumnName="m03_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m04">
+            <EntityTypeMapping TypeName="NXEIPModel.m04">
+              <MappingFragment StoreEntitySet="m04">
+                <ScalarProperty Name="m04_createtime" ColumnName="m04_createtime" />
+                <ScalarProperty Name="m04_createuid" ColumnName="m04_createuid" />
+                <ScalarProperty Name="m04_cc" ColumnName="m04_cc" />
+                <ScalarProperty Name="mo4_usekm" ColumnName="mo4_usekm" />
+                <ScalarProperty Name="m04_after" ColumnName="m04_after" />
+                <ScalarProperty Name="m04_before" ColumnName="m04_before" />
+                <ScalarProperty Name="m03_no" ColumnName="m03_no" />
+                <ScalarProperty Name="m04_no" ColumnName="m04_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="m05">
+            <EntityTypeMapping TypeName="NXEIPModel.m05">
+              <MappingFragment StoreEntitySet="m05">
+                <ScalarProperty Name="m05_usekm" ColumnName="m05_usekm" />
+                <ScalarProperty Name="m05_usetime" ColumnName="m05_usetime" />
+                <ScalarProperty Name="m05_time" ColumnName="m05_time" />
+                <ScalarProperty Name="m05_place" ColumnName="m05_place" />
+                <ScalarProperty Name="m05_count" ColumnName="m05_count" />
+                <ScalarProperty Name="m05_no" ColumnName="m05_no" />
+                <ScalarProperty Name="m04_no" ColumnName="m04_no" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9226,17 +9241,6 @@
         </AssociationConnector>
        
         <EntityTypeShape EntityType="NXEIPModel.m01" Width="1.5" PointX="21.375" PointY="16.75" Height="2.2013151041666674" />
-        <EntityTypeShape EntityType="NXEIPModel.m03" Width="1.5" PointX="24.375" PointY="9.125" Height="5.0164192708333335" />
-        <EntityTypeShape EntityType="NXEIPModel.m04" Width="1.5" PointX="26.625" PointY="10.375" Height="2.7291471354166674" />
-        <EntityTypeShape EntityType="NXEIPModel.m05" Width="1.5" PointX="28.875" PointY="10.5" Height="2.377259114583353" />
-        <AssociationConnector Association="NXEIPModel.FK_M04_RELATIONS_M03" >
-          <ConnectorPoint PointX="25.875" PointY="11.739573567708334" />
-          <ConnectorPoint PointX="26.625" PointY="11.739573567708334" />
-        </AssociationConnector>
-        <AssociationConnector Association="NXEIPModel.FK_M05_RELATIONS_M04" >
-          <ConnectorPoint PointX="28.125" PointY="11.688629557291677" />
-          <ConnectorPoint PointX="28.875" PointY="11.688629557291677" />
-        </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_MEDETAIL_RELATIONS_MESSAGE" >
           <ConnectorPoint PointX="19.46875" PointY="3.4791471354166665" />
           <ConnectorPoint PointX="19.46875" PointY="16.75" />
@@ -9266,6 +9270,17 @@
           <ConnectorPoint PointX="6.375" PointY="100.125" />
           <ConnectorPoint PointX="7.75" PointY="100.125" />
           <ConnectorPoint PointX="7.75" PointY="100.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.m03" Width="1.5" PointX="27.375" PointY="18.125" Height="5.016419270833353" />
+        <EntityTypeShape EntityType="NXEIPModel.m04" Width="1.5" PointX="29.625" PointY="19.25" Height="2.7291471354166674" />
+        <EntityTypeShape EntityType="NXEIPModel.m05" Width="1.5" PointX="31.875" PointY="19.375" Height="2.377259114583353" />
+        <AssociationConnector Association="NXEIPModel.FK_M04_RELATIONS_M03" >
+          <ConnectorPoint PointX="28.875" PointY="20.614573567708334" />
+          <ConnectorPoint PointX="29.625" PointY="20.614573567708334" />
+        </AssociationConnector>
+        <AssociationConnector Association="NXEIPModel.FK_M05_RELATIONS_M04" >
+          <ConnectorPoint PointX="31.125" PointY="20.563629557291677" />
+          <ConnectorPoint PointX="31.875" PointY="20.563629557291677" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>
