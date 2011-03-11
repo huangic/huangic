@@ -6583,7 +6583,6 @@
           <Property Type="Int32" Name="m03_applydepno" />
           <Property Type="DateTime" Name="m03_createtime" />
           <Property Type="Int32" Name="m03_createuid" />
-          <Property Type="Int32" Name="m03_flowid" />
           <NavigationProperty Name="m04" Relationship="NXEIPModel.FK_M04_RELATIONS_M03" FromRole="m03" ToRole="m04" />
         </EntityType>
         <EntityType Name="m04">
@@ -8126,7 +8125,6 @@
           <EntitySetMapping Name="m03">
             <EntityTypeMapping TypeName="NXEIPModel.m03">
               <MappingFragment StoreEntitySet="m03">
-                <ScalarProperty Name="m03_flowid" ColumnName="m03_flowid" />
                 <ScalarProperty Name="m03_createuid" ColumnName="m03_createuid" />
                 <ScalarProperty Name="m03_createtime" ColumnName="m03_createtime" />
                 <ScalarProperty Name="m03_applydepno" ColumnName="m03_applydepno" />
@@ -9228,7 +9226,7 @@
         </AssociationConnector>
        
         <EntityTypeShape EntityType="NXEIPModel.m01" Width="1.5" PointX="21.375" PointY="16.75" Height="2.2013151041666674" />
-        <EntityTypeShape EntityType="NXEIPModel.m03" Width="1.5" PointX="24.375" PointY="9.125" Height="5.1923632812499818" />
+        <EntityTypeShape EntityType="NXEIPModel.m03" Width="1.5" PointX="24.375" PointY="9.125" Height="5.0164192708333335" />
         <EntityTypeShape EntityType="NXEIPModel.m04" Width="1.5" PointX="26.625" PointY="10.375" Height="2.7291471354166674" />
         <EntityTypeShape EntityType="NXEIPModel.m05" Width="1.5" PointX="28.875" PointY="10.5" Height="2.377259114583353" />
         <AssociationConnector Association="NXEIPModel.FK_M04_RELATIONS_M03" >

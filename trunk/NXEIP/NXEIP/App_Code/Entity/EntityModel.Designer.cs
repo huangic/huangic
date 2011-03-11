@@ -18788,30 +18788,6 @@ namespace Entity
         private Nullable<global::System.Int32> _m03_createuid;
         partial void Onm03_createuidChanging(Nullable<global::System.Int32> value);
         partial void Onm03_createuidChanged();
-    
-        /// <summary>
-        /// 沒有可用的中繼資料文件。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> m03_flowid
-        {
-            get
-            {
-                return _m03_flowid;
-            }
-            set
-            {
-                Onm03_flowidChanging(value);
-                ReportPropertyChanging("m03_flowid");
-                _m03_flowid = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("m03_flowid");
-                Onm03_flowidChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _m03_flowid;
-        partial void Onm03_flowidChanging(Nullable<global::System.Int32> value);
-        partial void Onm03_flowidChanged();
 
         #endregion
     
