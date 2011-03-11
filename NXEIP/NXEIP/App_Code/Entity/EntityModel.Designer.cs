@@ -117,6 +117,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_M05_RELATIONS_M04", "m04", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.m04), "m05", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.m05), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_MEDETAIL_RELATIONS_MESSAGE", "message", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.message), "medetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.medetail), true)]
 [assembly: EdmRelationshipAttribute("NXEIPModel", "FK_DOC14_RELATIONS_DOC01", "doc01", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.doc01), "doc14", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.doc14), true)]
+[assembly: EdmRelationshipAttribute("NXEIPModel", "FK_RSS_RELATIONS_PEOPLE", "people", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Entity.people), "rss", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Entity.rss), true)]
 
 #endregion
 
@@ -1879,6 +1880,22 @@ namespace Entity
             }
         }
         private ObjectSet<cooperactive> _cooperactive;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<rss> rss
+        {
+            get
+            {
+                if ((_rss == null))
+                {
+                    _rss = base.CreateObjectSet<rss>("rss");
+                }
+                return _rss;
+            }
+        }
+        private ObjectSet<rss> _rss;
 
         #endregion
         #region AddTo 方法
@@ -2737,6 +2754,14 @@ namespace Entity
         public void AddTocooperactive(cooperactive cooperactive)
         {
             base.AddObject("cooperactive", cooperactive);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 rss EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTorss(rss rss)
+        {
+            base.AddObject("rss", rss);
         }
 
         #endregion
@@ -23748,6 +23773,28 @@ namespace Entity
                 }
             }
         }
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RSS_RELATIONS_PEOPLE", "rss")]
+        public EntityCollection<rss> rss
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<rss>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "rss");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<rss>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "rss", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -29329,6 +29376,275 @@ namespace Entity
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<petition>("NXEIPModel.FK_PETITION_RELATIONS_ROOMS", "petition", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="rss")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class rss : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 rss 物件。
+        /// </summary>
+        /// <param name="peo_uid">peo_uid 屬性的初始值。</param>
+        /// <param name="rss_no">rss_no 屬性的初始值。</param>
+        public static rss Createrss(global::System.Int32 peo_uid, global::System.Int32 rss_no)
+        {
+            rss rss = new rss();
+            rss.peo_uid = peo_uid;
+            rss.rss_no = rss_no;
+            return rss;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 peo_uid
+        {
+            get
+            {
+                return _peo_uid;
+            }
+            set
+            {
+                if (_peo_uid != value)
+                {
+                    Onpeo_uidChanging(value);
+                    ReportPropertyChanging("peo_uid");
+                    _peo_uid = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("peo_uid");
+                    Onpeo_uidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _peo_uid;
+        partial void Onpeo_uidChanging(global::System.Int32 value);
+        partial void Onpeo_uidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 rss_no
+        {
+            get
+            {
+                return _rss_no;
+            }
+            set
+            {
+                if (_rss_no != value)
+                {
+                    Onrss_noChanging(value);
+                    ReportPropertyChanging("rss_no");
+                    _rss_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("rss_no");
+                    Onrss_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _rss_no;
+        partial void Onrss_noChanging(global::System.Int32 value);
+        partial void Onrss_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String rss_subject
+        {
+            get
+            {
+                return _rss_subject;
+            }
+            set
+            {
+                Onrss_subjectChanging(value);
+                ReportPropertyChanging("rss_subject");
+                _rss_subject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("rss_subject");
+                Onrss_subjectChanged();
+            }
+        }
+        private global::System.String _rss_subject;
+        partial void Onrss_subjectChanging(global::System.String value);
+        partial void Onrss_subjectChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String rss_address
+        {
+            get
+            {
+                return _rss_address;
+            }
+            set
+            {
+                Onrss_addressChanging(value);
+                ReportPropertyChanging("rss_address");
+                _rss_address = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("rss_address");
+                Onrss_addressChanged();
+            }
+        }
+        private global::System.String _rss_address;
+        partial void Onrss_addressChanging(global::System.String value);
+        partial void Onrss_addressChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> rss_order
+        {
+            get
+            {
+                return _rss_order;
+            }
+            set
+            {
+                Onrss_orderChanging(value);
+                ReportPropertyChanging("rss_order");
+                _rss_order = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rss_order");
+                Onrss_orderChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _rss_order;
+        partial void Onrss_orderChanging(Nullable<global::System.Int32> value);
+        partial void Onrss_orderChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String rss_status
+        {
+            get
+            {
+                return _rss_status;
+            }
+            set
+            {
+                Onrss_statusChanging(value);
+                ReportPropertyChanging("rss_status");
+                _rss_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("rss_status");
+                Onrss_statusChanged();
+            }
+        }
+        private global::System.String _rss_status;
+        partial void Onrss_statusChanging(global::System.String value);
+        partial void Onrss_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> rss_createuid
+        {
+            get
+            {
+                return _rss_createuid;
+            }
+            set
+            {
+                Onrss_createuidChanging(value);
+                ReportPropertyChanging("rss_createuid");
+                _rss_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rss_createuid");
+                Onrss_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _rss_createuid;
+        partial void Onrss_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onrss_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> rss_createtime
+        {
+            get
+            {
+                return _rss_createtime;
+            }
+            set
+            {
+                Onrss_createtimeChanging(value);
+                ReportPropertyChanging("rss_createtime");
+                _rss_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rss_createtime");
+                Onrss_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _rss_createtime;
+        partial void Onrss_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onrss_createtimeChanged();
+
+        #endregion
+    
+        #region 導覽屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("NXEIPModel", "FK_RSS_RELATIONS_PEOPLE", "people")]
+        public people people
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "people").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "people").Value = value;
+            }
+        }
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<people> peopleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<people>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "people");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<people>("NXEIPModel.FK_RSS_RELATIONS_PEOPLE", "people", value);
                 }
             }
         }
