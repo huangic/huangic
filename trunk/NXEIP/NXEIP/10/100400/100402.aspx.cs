@@ -140,7 +140,9 @@ public partial class _10_100400_100402 : System.Web.UI.Page
             DateTime sdate = new DateTime();
             DateTime edate = new DateTime();
             sdate = Convert.ToDateTime(this.lab_today.Text);
-            sdate = sdate.AddDays(-(int)changeobj.ChangeWeek(sdate)).AddDays(1);
+            int weeks = changeobj.ChangeWeek(sdate);
+            if (weeks == 0) weeks = 7;
+            sdate = sdate.AddDays(-(int)weeks).AddDays(1);
             edate = sdate.AddDays(7);
             int Rows = -1;
 
