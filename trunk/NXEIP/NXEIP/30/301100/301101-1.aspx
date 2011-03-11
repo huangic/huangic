@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>選項設定</title>
+    <title>車輛屬性設定</title>
     <uc1:CssLayout ID="CssLayout1" runat="server" />
 </head>
 <body>
@@ -15,14 +15,14 @@
         <div class="header">
             <div class="h1">
             </div>
-            <div class="h2"><div class="name">選項設定</div></div>
+            <div class="h2"><div class="name">車輛屬性設定</div></div>
             <div class="h3">
             </div>
         </div>
         <table>
             <tbody>
                 <tr>
-                    <th>選項類別</th>
+                    <th>屬性類別</th>
                     <td>
                         <asp:RadioButtonList ID="rbl_number" runat="server" AutoPostBack="True" 
                             RepeatDirection="Horizontal" RepeatLayout="Flow">
@@ -37,13 +37,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>選項代碼</th>
+                    <th>屬性代碼</th>
                     <td>
                         <asp:TextBox ID="txt_code" runat="server" Columns="3" MaxLength="2"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
-                    <th>選項名稱</th>
+                    <th>屬性名稱</th>
                     <td>
                         <asp:TextBox ID="txt_name" runat="server" Columns="30" MaxLength="30"></asp:TextBox>
                     </td>

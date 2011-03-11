@@ -33,7 +33,7 @@
       <table>
             <tr>
                 <td valign="bottom">
-                    選項類別：<asp:RadioButtonList ID="rbl_number" runat="server" 
+                    屬性類別：<asp:RadioButtonList ID="rbl_number" runat="server" 
                         RepeatDirection="Horizontal" RepeatLayout="Flow" AutoPostBack="True" 
                         onselectedindexchanged="rbl_number_SelectedIndexChanged">
                         <asp:ListItem Value="platoon">排照種類</asp:ListItem>
@@ -55,7 +55,7 @@
             <div class="h2">
                 <div class="name"><asp:Label ID="lab_number" runat="server"></asp:Label></div>
                 <div class="function">
-                    <input type="button" class="thickbox b-input" alt="301101-1.aspx?number=<%=rbl_number.SelectedValue%>&height=300&width=700&TB_iframe=true&modal=true" value="新增選項" />
+                    <input type="button" class="thickbox b-input" alt="301101-1.aspx?number=<%=rbl_number.SelectedValue%>&height=300&width=700&TB_iframe=true&modal=true" value="新增屬性" />
                 </div>
             </div>
             <div class="h3">
@@ -68,12 +68,9 @@
                     EmptyDataText="查無資料" DataKeyNames="m01_no" OnRowDataBound="GridView1_RowDataBound"
                     GridLines="None" OnRowCommand="GridView1_RowCommand">
                     <Columns>
-                        <asp:BoundField DataField="m01_number" HeaderText="選項類別" 
-                            SortExpression="m01_number" />
-                        <asp:BoundField DataField="m01_code" HeaderText="選項編碼" 
-                            SortExpression="m01_code" />
-                        <asp:BoundField DataField="m01_name" HeaderText="選項名稱" 
-                            SortExpression="m01_name" />
+                        <asp:BoundField DataField="m01_number" HeaderText="屬性類別" SortExpression="m01_number" />
+                        <asp:BoundField DataField="m01_code" HeaderText="屬性編碼" SortExpression="m01_code" />
+                        <asp:BoundField DataField="m01_name" HeaderText="屬性名稱" SortExpression="m01_name" />
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='<%# Eval("m01_name", "修改{0}") %>'
@@ -85,7 +82,8 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
-                                <asp:Button ID="btn_delete" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>" CssClass="delete" OnClientClick="return confirm('確定要刪除?')" />
+                                <asp:Button ID="btn_delete" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>"
+                                    CssClass="delete" OnClientClick="return confirm('確定要刪除?')" />
                             </ItemTemplate>
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="40" />
