@@ -112,6 +112,7 @@
           <EntitySet Name="treatdetail" EntityType="NXEIPModel.Store.treatdetail" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="turning" EntityType="NXEIPModel.Store.turning" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="types" EntityType="NXEIPModel.Store.types" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="unmarried" EntityType="NXEIPModel.Store.unmarried" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="widget" EntityType="NXEIPModel.Store.widget" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="View_c04" EntityType="NXEIPModel.Store.View_c04" store:Type="Views" store:Schema="dbo" store:Name="View_c04">
             <DefiningQuery>SELECT 
@@ -327,10 +328,6 @@
           <AssociationSet Name="FK_MANAGER_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_MANAGER_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
-            <End Role="message" EntitySet="message" />
-            <End Role="medetail" EntitySet="medetail" />
           </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
@@ -860,7 +857,7 @@
           <Property Name="d06_peouid" Type="int" />
           <Property Name="d06_date" Type="datetime" />
           <Property Name="d06_tel" Type="varchar" MaxLength="20" />
-          <Property Name="d06_ext" Type="varchar" MaxLength="6" />
+          <Property Name="d06_ext" Type="varchar" MaxLength="10" />
           <Property Name="d06_open" Type="char" MaxLength="1" />
           <Property Name="d06_createuid" Type="int" />
           <Property Name="d06_createtime" Type="datetime" />
@@ -1251,7 +1248,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
+          <Property Name="m02_cc" Type="varchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -2046,6 +2043,31 @@
           <Property Name="typ_parent" Type="int" />
           <Property Name="typ_kind" Type="char" MaxLength="1" />
         </EntityType>
+        <EntityType Name="unmarried">
+          <Key>
+            <PropertyRef Name="unm_no" />
+          </Key>
+          <Property Name="unm_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="unm_depno" Type="int" />
+          <Property Name="unm_typno" Type="int" />
+          <Property Name="unm_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="unm_age" Type="nvarchar" MaxLength="10" />
+          <Property Name="unm_sex" Type="char" MaxLength="1" />
+          <Property Name="unm_height" Type="nvarchar" MaxLength="20" />
+          <Property Name="unm_weight" Type="nvarchar" MaxLength="20" />
+          <Property Name="unm_school" Type="nvarchar" MaxLength="200" />
+          <Property Name="unm_interest" Type="nvarchar" MaxLength="200" />
+          <Property Name="unm_introduce" Type="nvarchar" MaxLength="200" />
+          <Property Name="unm_condition" Type="nvarchar" MaxLength="200" />
+          <Property Name="unm_contact" Type="nvarchar" MaxLength="100" />
+          <Property Name="unm_open" Type="char" MaxLength="1" />
+          <Property Name="unm_order" Type="int" />
+          <Property Name="unm_path" Type="nvarchar" MaxLength="200" />
+          <Property Name="unm_file" Type="nvarchar" MaxLength="100" />
+          <Property Name="unm_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="unm_createuid" Type="int" />
+          <Property Name="unm_createtime" Type="datetime" />
+        </EntityType>
         <EntityType Name="widget">
           <Key>
             <PropertyRef Name="wid_no" />
@@ -2060,7 +2082,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2684,18 +2706,6 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
-          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
-          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="message">
-              <PropertyRef Name="mes_no" />
-            </Principal>
-            <Dependent Role="medetail">
-              <PropertyRef Name="mes_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3793,6 +3803,7 @@
             <End Role="m04" EntitySet="m04" />
             <End Role="m05" EntitySet="m05" />
           </AssociationSet>
+          <EntitySet Name="unmarried" EntityType="NXEIPModel.unmarried" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6760,6 +6771,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="unmarried">
+          <Key>
+            <PropertyRef Name="unm_no" />
+          </Key>
+          <Property Type="Int32" Name="unm_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="unm_depno" />
+          <Property Type="Int32" Name="unm_typno" />
+          <Property Type="String" Name="unm_name" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_age" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_sex" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="unm_height" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_weight" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_school" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_interest" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_introduce" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_condition" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_contact" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_open" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="unm_order" />
+          <Property Type="String" Name="unm_path" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_file" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="unm_type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="unm_createuid" />
+          <Property Type="DateTime" Name="unm_createtime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8264,6 +8300,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="unmarried">
+            <EntityTypeMapping TypeName="NXEIPModel.unmarried">
+              <MappingFragment StoreEntitySet="unmarried">
+                <ScalarProperty Name="unm_createtime" ColumnName="unm_createtime" />
+                <ScalarProperty Name="unm_createuid" ColumnName="unm_createuid" />
+                <ScalarProperty Name="unm_type" ColumnName="unm_type" />
+                <ScalarProperty Name="unm_file" ColumnName="unm_file" />
+                <ScalarProperty Name="unm_path" ColumnName="unm_path" />
+                <ScalarProperty Name="unm_order" ColumnName="unm_order" />
+                <ScalarProperty Name="unm_open" ColumnName="unm_open" />
+                <ScalarProperty Name="unm_contact" ColumnName="unm_contact" />
+                <ScalarProperty Name="unm_condition" ColumnName="unm_condition" />
+                <ScalarProperty Name="unm_introduce" ColumnName="unm_introduce" />
+                <ScalarProperty Name="unm_interest" ColumnName="unm_interest" />
+                <ScalarProperty Name="unm_school" ColumnName="unm_school" />
+                <ScalarProperty Name="unm_weight" ColumnName="unm_weight" />
+                <ScalarProperty Name="unm_height" ColumnName="unm_height" />
+                <ScalarProperty Name="unm_sex" ColumnName="unm_sex" />
+                <ScalarProperty Name="unm_age" ColumnName="unm_age" />
+                <ScalarProperty Name="unm_name" ColumnName="unm_name" />
+                <ScalarProperty Name="unm_typno" ColumnName="unm_typno" />
+                <ScalarProperty Name="unm_depno" ColumnName="unm_depno" />
+                <ScalarProperty Name="unm_no" ColumnName="unm_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -9282,6 +9344,7 @@
           <ConnectorPoint PointX="31.125" PointY="20.563629557291677" />
           <ConnectorPoint PointX="31.875" PointY="20.563629557291677" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="NXEIPModel.unmarried" Width="1.5" PointX="24.375" PointY="8.75" Height="4.864807942708353" />
         </Diagram>
     </Diagrams>
   </Designer>
