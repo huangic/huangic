@@ -26,9 +26,13 @@ public partial class _20_200300_200304 : System.Web.UI.Page
 
             sys06 sys = (from d in model.sys06 where d.s06_status == "1" && d.sfu_no == 200304 orderby d.s06_order orderby d.s06_no select d).FirstOrDefault();
 
-
-            this.hidden_cat.Value = sys.s06_no.ToString();
-
+            try
+            {
+                this.hidden_cat.Value = sys.s06_no.ToString();
+            }
+            catch { 
+            
+            }
             }
 
 
