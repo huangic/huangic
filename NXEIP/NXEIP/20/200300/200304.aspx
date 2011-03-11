@@ -107,7 +107,7 @@
                 <div class="function">
                  
                     <input type="button" class="thickbox b-input" alt="200304-1.aspx?modal=true&TB_iframe=true&height=378&width=800"
-                        value="新增檔案" />
+                        value="新增商品" />
                 </div>
             </div>
             <div class="h3">
