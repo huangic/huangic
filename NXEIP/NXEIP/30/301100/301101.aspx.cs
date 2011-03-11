@@ -9,7 +9,7 @@ using Entity;
 
 
 /// <summary>
-/// 功能名稱：管理作業 / 車輛管理 / 選項設定
+/// 功能名稱：管理作業 / 車輛管理 / 車輛屬性設定
 /// 功能編號：30/301100/301101
 /// 撰寫者：Lina
 /// 撰寫時間：2011/03/09
@@ -27,7 +27,7 @@ public partial class _30_301100_301101 : System.Web.UI.Page
             ShowList();
             
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(301101, sobj.sessionUserID, 2, "選項設定列表");
+            new OperatesObject().ExecuteOperates(301101, sobj.sessionUserID, 2, "車輛屬性列表");
         }
 
         //判斷來自JS 使用_doPostBack(updatePanel,"") 的情況 
@@ -57,14 +57,14 @@ public partial class _30_301100_301101 : System.Web.UI.Page
             dbo.ExecuteNonQuery(sqlstr);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(301101, sobj.sessionUserID, 3, "刪除 選項 編號:" + pkno);
+            new OperatesObject().ExecuteOperates(301101, sobj.sessionUserID, 3, "刪除 屬性 編號:" + pkno);
 
             ShowList();
         }
     }
     #endregion
 
-    #region 選項類別變換時
+    #region 屬性類別變換時
     protected void rbl_number_SelectedIndexChanged(object sender, EventArgs e)
     {
         ShowList();

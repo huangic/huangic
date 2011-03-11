@@ -10,7 +10,7 @@ using Entity;
 
 
 /// <summary>
-/// 功能名稱：管理作業 / 車輛管理 / 選項設定--新增、修改
+/// 功能名稱：管理作業 / 車輛管理 / 車輛屬性設定--新增、修改
 /// 功能編號：30/301100/301101
 /// 撰寫者：Lina
 /// 撰寫時間：2011/03/09
@@ -62,27 +62,27 @@ public partial class _30_301100_301101_1 : System.Web.UI.Page
 
     private bool CheckInputValue()
     {
-        #region 輸入值檢查--選項代碼
+        #region 輸入值檢查--屬性代碼
         if (string.IsNullOrEmpty(this.txt_code.Text))
         {
-            ShowMSG("請輸入 選項代碼");
+            ShowMSG("請輸入 屬性代碼");
             return false;
         }
         else if (!checkobj.IsValidLen(this.txt_code.Text.Trim(), 2))
         {
-            ShowMSG("選項代碼 長度不可超過2個英數字");
+            ShowMSG("屬性代碼 長度不可超過2個英數字");
             return false;
         }
         #endregion
-        #region 輸入值檢查--選項名稱
+        #region 輸入值檢查--屬性名稱
         if (string.IsNullOrEmpty(this.txt_name.Text))
         {
-            ShowMSG("請輸入 選項名稱");
+            ShowMSG("請輸入 屬性名稱");
             return false;
         }
         else if (!checkobj.IsValidLen(this.txt_name.Text.Trim(), 30))
         {
-            ShowMSG("選項名稱 長度不可超過30個數文字");
+            ShowMSG("屬性名稱 長度不可超過30個數文字");
             return false;
         }
         #endregion
@@ -91,7 +91,7 @@ public partial class _30_301100_301101_1 : System.Web.UI.Page
         if (this.lab_mode.Text.Equals("modify")) pkno = Convert.ToInt32(this.lab_no.Text);
         if ((new M01DAO().GetByNumberCodeCount(this.rbl_number.SelectedValue, this.txt_code.Text.Trim(),pkno))>0)
         {
-            ShowMSG("此選項代碼已存在，請修改選項代碼");
+            ShowMSG("此屬性代碼已存在，請修改屬性代碼");
             return false;
         }
         #endregion
