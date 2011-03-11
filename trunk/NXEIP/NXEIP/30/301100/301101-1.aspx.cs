@@ -149,7 +149,7 @@ public partial class _30_301100_301101_1 : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            aMSG = "功能名稱：選項設定-" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
+            aMSG = "功能名稱：屬性設定-" + this.Navigator1.SubFunc + "<br>錯誤訊息:" + ex.ToString();
             Response.Write(aMSG);
         }
     }
