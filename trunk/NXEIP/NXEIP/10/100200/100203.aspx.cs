@@ -67,7 +67,7 @@ public partial class _10_100200_100203 : System.Web.UI.Page
         }
         catch
         {
-            JsUtil.AlertJs(this, "請輸入正確網址!!");
+            JsUtil.AlertJs(this, "請輸入正確網址與排序!!");
         }
     }
 
