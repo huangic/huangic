@@ -14,10 +14,7 @@ namespace NXEIP.Lib
     /// </summary>
     public static class EntityLib
     {
-        public EntityLib()
-        {
-            
-        }
+       
 
         public static String[] GetAllEntityProperties(this Object obj)
         {

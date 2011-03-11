@@ -8,12 +8,7 @@ using System.Web;
 /// </summary>
 public static class DateUtil
 {
-	public DateUtil()
-	{
-		//
-		// TODO: 在此加入建構函式的程式碼
-		//
-	}
+	
     /// <summary>
     /// 轉換成yyyy-MM-dd-00-00-00
     /// </summary>
