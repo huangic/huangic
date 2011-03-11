@@ -8,15 +8,14 @@ using System.Data;
 using NXEIP.DAO;
 using Entity;
 
-
 /// <summary>
-/// 功能名稱：管理作業 / 設備管理 / 場地審核
-/// 功能編號：30/301000/301002
+/// 功能名稱：管理作業 / 車輛管理 / 派車審核
+/// 功能編號：30/301100/301103
 /// 撰寫者：Lina
-/// 撰寫時間：2011/01/24
+/// 撰寫時間：2011/03/11
 /// </summary>
 /// 
-public partial class _30_301000_301002 : System.Web.UI.Page
+public partial class _30_301100_301103 : System.Web.UI.Page
 {
     ChangeObject changeobj = new ChangeObject();
     DBObject dbo = new DBObject();
@@ -29,20 +28,19 @@ public partial class _30_301000_301002 : System.Web.UI.Page
             //第一部份：查詢項目
             this.calendar1._ADDate = Convert.ToDateTime(System.DateTime.Today.ToString("yyyy-MM-01"));
             this.calendar2._ADDate = Convert.ToDateTime((System.DateTime.Today.Year + 1) + "-01-01").AddDays(-1);
-            #region 場管之所在地、場所
-            string sqlstr = "select spot.spo_no, spot.spo_name from spot inner join equipments on spot.spo_no = equipments.spo_no "
-                + " where (spot.spo_function like '_____1%') and (spot.spo_status = '1') and (equipments.equ_status = '1') and (equipments.peo_uid = " + sobj.sessionUserID + ")";
+            #region 車輛種類、牌照號嗎
+            string sqlstr = "select m01_no, m01_name from m01 where (m01_number = 'chekuan') and (m01_status = '1') order by m01_code";
             DataTable dt = new DataTable();
             dt = dbo.ExecuteQuery(sqlstr);
             if (dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    this.ddl_spot.Items.Add(new ListItem(dt.Rows[i]["spo_name"].ToString(), dt.Rows[i]["spo_no"].ToString()));
+                    this.ddl_chekuan.Items.Add(new ListItem(dt.Rows[i]["m01_name"].ToString(), dt.Rows[i]["m01_no"].ToString()));
                 }
             }
-            this.ddl_spot.Items.Insert(0, new ListItem("全部", "0"));
-            this.ddl_equ.Items.Insert(0, new ListItem("全部", "0"));
+            this.ddl_chekuan.Items.Insert(0, new ListItem("全部", "0"));
+            this.ddl_car.Items.Insert(0, new ListItem("全部", "0"));
             #endregion
 
             ShowDataList();
@@ -56,18 +54,17 @@ public partial class _30_301000_301002 : System.Web.UI.Page
                 this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._AD;
                 this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._AD;
                 this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
-                this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
-                this.ObjectDataSource1.SelectParameters["equ1"].DefaultValue = this.ddl_equ.SelectedValue;
+                this.ObjectDataSource1.SelectParameters["chekuan"].DefaultValue = this.ddl_chekuan.SelectedValue;
+                this.ObjectDataSource1.SelectParameters["car"].DefaultValue = this.ddl_car.SelectedValue;
                 this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
                 this.GridView1.DataBind();
                 if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
 
                 //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-                new OperatesObject().ExecuteOperates(301002, sobj.sessionUserID, 2, "設備借用資料列表");
+                new OperatesObject().ExecuteOperates(301103, sobj.sessionUserID, 2, "派車申請資料列表");
             }
         }
     }
-
 
     #region 畫面：List
     private void ShowDataList()
@@ -77,14 +74,14 @@ public partial class _30_301000_301002 : System.Web.UI.Page
             this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._AD;
             this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._AD;
             this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.rbl_status.SelectedValue;
-            this.ObjectDataSource1.SelectParameters["spots1"].DefaultValue = this.ddl_spot.SelectedValue;
-            this.ObjectDataSource1.SelectParameters["equ1"].DefaultValue = this.ddl_equ.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["chekuan"].DefaultValue = this.ddl_chekuan.SelectedValue;
+            this.ObjectDataSource1.SelectParameters["car"].DefaultValue = this.ddl_car.SelectedValue;
             this.ObjectDataSource1.SelectParameters["loginuser"].DefaultValue = sobj.sessionUserID;
             this.GridView1.DataBind();
             if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
 
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(301002, sobj.sessionUserID, 2, "設備借用資料列表");
+            new OperatesObject().ExecuteOperates(301103, sobj.sessionUserID, 2, "派車申請資料列表");
         }
     }
     #endregion
@@ -100,7 +97,7 @@ public partial class _30_301000_301002 : System.Web.UI.Page
             if (e.Row.Cells[6].Text.Equals("1"))
             {
                 e.Row.Cells[6].Text = "送審中";
-                string c6 = "<a href=\"301002-1.aspx?no=" + pkno + "&height=450&width=800&TB_iframe=true&modal=true\" class=\"thickbox imageButton alter\"><span>審核</span></a>";
+                string c6 = "<a href=\"301103-1.aspx?no=" + pkno + "&height=450&width=800&TB_iframe=true&modal=true\" class=\"thickbox imageButton alter\"><span>審核</span></a>";
                 e.Row.Cells[7].Text = c6;
             }
             else if (e.Row.Cells[6].Text.Equals("2"))
@@ -140,7 +137,7 @@ public partial class _30_301000_301002 : System.Web.UI.Page
             ShowMsg("日期格式錯誤!!");
             feedback = false;
         }
-        
+
         #endregion
 
         return feedback;
@@ -167,21 +164,21 @@ public partial class _30_301000_301002 : System.Web.UI.Page
     #endregion
 
     #region 所在地更換時
-    protected void ddl_spot_SelectedIndexChanged(object sender, EventArgs e)
+    protected void ddl_chekuan_SelectedIndexChanged(object sender, EventArgs e)
     {
-        this.ddl_equ.Items.Clear();
-        #region 設備
-        string sqlstr = "select equ_no, equ_name from equipments where (equ_status = '1') and (peo_uid = " + sobj.sessionUserID + ") and (spo_no="+this.ddl_spot.SelectedValue+")";
+        this.ddl_car.Items.Clear();
+        #region 車輛
+        string sqlstr = "select m02_no,m02_number from m02 where (m02_chekuan=" + this.ddl_chekuan.SelectedValue + ") and (m02_status='1') and (m02_peouid = " + sobj.sessionUserID + ")";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)
         {
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                this.ddl_equ.Items.Add(new ListItem(dt.Rows[i]["equ_name"].ToString(), dt.Rows[i]["equ_no"].ToString()));
+                this.ddl_car.Items.Add(new ListItem(dt.Rows[i]["m02_number"].ToString(), dt.Rows[i]["m02_no"].ToString()));
             }
         }
-        this.ddl_equ.Items.Insert(0, new ListItem("全部", "0"));
+        this.ddl_car.Items.Insert(0, new ListItem("全部", "0"));
         #endregion
     }
     #endregion
