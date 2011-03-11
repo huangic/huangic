@@ -10,7 +10,7 @@ namespace NXEIP.Lib
     /// <summary>
     /// 驗證字串格式
     /// </summary>
-    public class ValidUtil
+    public static class ValidUtil
     {
         
 
@@ -19,7 +19,7 @@ namespace NXEIP.Lib
         /// </summary>
         /// <param name="strIn"></param>
         /// <returns></returns>
-        public static bool IsValidEmail(string strIn)
+        public static bool IsValidEmail(this string strIn)
         {
             // Return true if strIn is in valid e-mail format.
             return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
@@ -34,8 +34,11 @@ namespace NXEIP.Lib
         /// </summary>
         /// <param name="addr">Address to validate</param>
         /// <returns></returns>
-        public static bool IsValidIP(string addr)
+        public static bool IsValidIP(this string addr)
         {
+            
+            
+            
             //create our match pattern
             string pattern = @"^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$";
             //create our Regular Expression object

@@ -52,8 +52,7 @@ namespace NXEIP.DAO
             
             if (eDate.HasValue)
             {
-
-                eDate = DateUtil.ConvertToMaxHout(eDate.Value);
+                                eDate = DateUtil.ConvertToMaxHour(eDate.Value);
                 
                 forms=forms.Where(x => x.Submit.f02_createtime <= eDate.Value);
 

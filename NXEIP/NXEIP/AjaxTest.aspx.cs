@@ -12,6 +12,9 @@ using Microsoft.Practices.EnterpriseLibrary.Caching;
 using NXEIP.Lib;
 using Entity;
 using NXEIP.MyGov;
+using System.Linq.Dynamic;
+using System.Collections;
+using System.Reflection;
 
 
 public partial class AjaxTest : System.Web.UI.Page
@@ -34,12 +37,28 @@ public partial class AjaxTest : System.Web.UI.Page
             String[] array={"1","2"};
 
         
+            using(NXEIPEntities model=new NXEIPEntities()){
+                
+                
+               //MethodInfo 
+                
+                var data=Eval("from d in model.widget select d");
+                if(data is ICollection){
+                foreach(var d in data as ICollection){
+                    logger.Debug(d);
+                
+                }
+                }
+
+            }
         
         }
 
         //測試CACHE 項目
 
-        
+      
+
+
 
 
 

@@ -32,6 +32,11 @@ public class JsUtil
         return js;
     }
 
+    /// <summary>
+    /// redirect to url
+    /// </summary>
+    /// <param name="page"></param>
+    /// <param name="url"></param>
     public static void  RedirectJs(Page page,String url)
     {
 

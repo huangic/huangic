@@ -12,22 +12,24 @@ namespace NXEIP.Lib
     /// <summary>
     /// EntityLib 的摘要描述
     /// </summary>
-    public class EntityLib
+    public static class EntityLib
     {
         public EntityLib()
         {
             
         }
 
-        public static String[] GetAllEntityProperties(Object obj)
+        public static String[] GetAllEntityProperties(this Object obj)
         {
             IList<String> properties = new List<String>();
             PropertyInfo[] propInfo = GetEntityPropertyInfo(obj);
 
+            
+
             return propInfo.Select(d => d.Name).ToArray();
         }
 
-        public static PropertyInfo[] GetEntityPropertyInfo(Object obj)
+        public static PropertyInfo[] GetEntityPropertyInfo(this Object obj)
         {
             PropertyInfo[] propInfo = obj.GetType().GetProperties();
 
@@ -37,12 +39,12 @@ namespace NXEIP.Lib
                               select p).ToArray();
 
 
-
+            
 
             return properties;
         }
 
-        public static void CopyProperties(Object source, Object dist)
+        public static void CopyProperties(this Object source, Object dist)
         {
             foreach (var propInfo in EntityLib.GetEntityPropertyInfo(source))
             {
