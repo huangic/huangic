@@ -165,5 +165,25 @@ namespace lib.SWFUpload
             }
         }
 
+        /// <summary>
+        /// 清除目前上傳項目
+        /// </summary>
+        public void ClearFile() { 
+        
+            //this.SwfUploadInfo.PathArg
+            SWFUploadFile uf = new SWFUploadFile();
+            //設定刪除
+            String rootDir = new ArgumentsObject().Get_argValue(this.SwfUploadInfo.PathArg);
+            
+            foreach (var f in this.SWFUploadFileInfoList)
+            {
+
+                String del_msg = uf.Delete(rootDir + f.Path, f.FileName, true);
+            }
+
+
+
+        }
+
     }
 }

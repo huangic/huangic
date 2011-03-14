@@ -60,5 +60,13 @@ namespace NXEIP.Lib
             //return the results
             return valid;
         }
+
+
+        public static bool IsNumber(this string number) {
+            decimal result = 0;
+            return decimal.TryParse(number, out result);
+        
+        }
+
     }
 }
