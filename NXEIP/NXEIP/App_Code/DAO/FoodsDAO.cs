@@ -33,6 +33,7 @@ namespace NXEIP.DAO
         {
             return (from d in model.foods
                     where d.foo_status == "1" && d.foo_s06no == s06_no
+                    orderby d.foo_createtime descending
                     select d);
         }
 
@@ -45,6 +46,7 @@ namespace NXEIP.DAO
         {
             return (from d in model.foods
                     where d.foo_status == "1" && d.foo_name.Contains(name)
+                    orderby d.foo_createtime descending
                     select d);
         }
 
