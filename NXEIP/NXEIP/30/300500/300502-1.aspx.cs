@@ -107,7 +107,7 @@ public partial class _30_300500_300502_1 : System.Web.UI.Page
                 f.spo_no = int.Parse(this.ddl_spot.SelectedValue);
                 f.flo_name = this.tbx_flo_name.Text;
                 f.flo_ename = this.tbx_flo_ename.Text;
-                f.flo_level = this.tbx_flo_level.Text;
+                f.flo_level = this.tbx_flo_level.Text.PadLeft(2,'0');
                 f.flo_createtime = DateTime.Now;
                 f.flo_createuid = int.Parse(new SessionObject().sessionUserID);
                 f.flo_status = "1";

@@ -1896,6 +1896,22 @@ namespace Entity
             }
         }
         private ObjectSet<m05> _m05;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<unmarried> unmarried
+        {
+            get
+            {
+                if ((_unmarried == null))
+                {
+                    _unmarried = base.CreateObjectSet<unmarried>("unmarried");
+                }
+                return _unmarried;
+            }
+        }
+        private ObjectSet<unmarried> _unmarried;
 
         #endregion
         #region AddTo 方法
@@ -2762,6 +2778,14 @@ namespace Entity
         public void AddTom05(m05 m05)
         {
             base.AddObject("m05", m05);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 unmarried EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTounmarried(unmarried unmarried)
+        {
+            base.AddObject("unmarried", unmarried);
         }
 
         #endregion
@@ -35542,6 +35566,517 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="unmarried")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class unmarried : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 unmarried 物件。
+        /// </summary>
+        /// <param name="unm_no">unm_no 屬性的初始值。</param>
+        public static unmarried Createunmarried(global::System.Int32 unm_no)
+        {
+            unmarried unmarried = new unmarried();
+            unmarried.unm_no = unm_no;
+            return unmarried;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 unm_no
+        {
+            get
+            {
+                return _unm_no;
+            }
+            set
+            {
+                if (_unm_no != value)
+                {
+                    Onunm_noChanging(value);
+                    ReportPropertyChanging("unm_no");
+                    _unm_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("unm_no");
+                    Onunm_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _unm_no;
+        partial void Onunm_noChanging(global::System.Int32 value);
+        partial void Onunm_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> unm_depno
+        {
+            get
+            {
+                return _unm_depno;
+            }
+            set
+            {
+                Onunm_depnoChanging(value);
+                ReportPropertyChanging("unm_depno");
+                _unm_depno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("unm_depno");
+                Onunm_depnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _unm_depno;
+        partial void Onunm_depnoChanging(Nullable<global::System.Int32> value);
+        partial void Onunm_depnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> unm_typno
+        {
+            get
+            {
+                return _unm_typno;
+            }
+            set
+            {
+                Onunm_typnoChanging(value);
+                ReportPropertyChanging("unm_typno");
+                _unm_typno = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("unm_typno");
+                Onunm_typnoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _unm_typno;
+        partial void Onunm_typnoChanging(Nullable<global::System.Int32> value);
+        partial void Onunm_typnoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_name
+        {
+            get
+            {
+                return _unm_name;
+            }
+            set
+            {
+                Onunm_nameChanging(value);
+                ReportPropertyChanging("unm_name");
+                _unm_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_name");
+                Onunm_nameChanged();
+            }
+        }
+        private global::System.String _unm_name;
+        partial void Onunm_nameChanging(global::System.String value);
+        partial void Onunm_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_age
+        {
+            get
+            {
+                return _unm_age;
+            }
+            set
+            {
+                Onunm_ageChanging(value);
+                ReportPropertyChanging("unm_age");
+                _unm_age = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_age");
+                Onunm_ageChanged();
+            }
+        }
+        private global::System.String _unm_age;
+        partial void Onunm_ageChanging(global::System.String value);
+        partial void Onunm_ageChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_sex
+        {
+            get
+            {
+                return _unm_sex;
+            }
+            set
+            {
+                Onunm_sexChanging(value);
+                ReportPropertyChanging("unm_sex");
+                _unm_sex = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_sex");
+                Onunm_sexChanged();
+            }
+        }
+        private global::System.String _unm_sex;
+        partial void Onunm_sexChanging(global::System.String value);
+        partial void Onunm_sexChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_height
+        {
+            get
+            {
+                return _unm_height;
+            }
+            set
+            {
+                Onunm_heightChanging(value);
+                ReportPropertyChanging("unm_height");
+                _unm_height = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_height");
+                Onunm_heightChanged();
+            }
+        }
+        private global::System.String _unm_height;
+        partial void Onunm_heightChanging(global::System.String value);
+        partial void Onunm_heightChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_weight
+        {
+            get
+            {
+                return _unm_weight;
+            }
+            set
+            {
+                Onunm_weightChanging(value);
+                ReportPropertyChanging("unm_weight");
+                _unm_weight = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_weight");
+                Onunm_weightChanged();
+            }
+        }
+        private global::System.String _unm_weight;
+        partial void Onunm_weightChanging(global::System.String value);
+        partial void Onunm_weightChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_school
+        {
+            get
+            {
+                return _unm_school;
+            }
+            set
+            {
+                Onunm_schoolChanging(value);
+                ReportPropertyChanging("unm_school");
+                _unm_school = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_school");
+                Onunm_schoolChanged();
+            }
+        }
+        private global::System.String _unm_school;
+        partial void Onunm_schoolChanging(global::System.String value);
+        partial void Onunm_schoolChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_interest
+        {
+            get
+            {
+                return _unm_interest;
+            }
+            set
+            {
+                Onunm_interestChanging(value);
+                ReportPropertyChanging("unm_interest");
+                _unm_interest = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_interest");
+                Onunm_interestChanged();
+            }
+        }
+        private global::System.String _unm_interest;
+        partial void Onunm_interestChanging(global::System.String value);
+        partial void Onunm_interestChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_introduce
+        {
+            get
+            {
+                return _unm_introduce;
+            }
+            set
+            {
+                Onunm_introduceChanging(value);
+                ReportPropertyChanging("unm_introduce");
+                _unm_introduce = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_introduce");
+                Onunm_introduceChanged();
+            }
+        }
+        private global::System.String _unm_introduce;
+        partial void Onunm_introduceChanging(global::System.String value);
+        partial void Onunm_introduceChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_condition
+        {
+            get
+            {
+                return _unm_condition;
+            }
+            set
+            {
+                Onunm_conditionChanging(value);
+                ReportPropertyChanging("unm_condition");
+                _unm_condition = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_condition");
+                Onunm_conditionChanged();
+            }
+        }
+        private global::System.String _unm_condition;
+        partial void Onunm_conditionChanging(global::System.String value);
+        partial void Onunm_conditionChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_contact
+        {
+            get
+            {
+                return _unm_contact;
+            }
+            set
+            {
+                Onunm_contactChanging(value);
+                ReportPropertyChanging("unm_contact");
+                _unm_contact = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_contact");
+                Onunm_contactChanged();
+            }
+        }
+        private global::System.String _unm_contact;
+        partial void Onunm_contactChanging(global::System.String value);
+        partial void Onunm_contactChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_open
+        {
+            get
+            {
+                return _unm_open;
+            }
+            set
+            {
+                Onunm_openChanging(value);
+                ReportPropertyChanging("unm_open");
+                _unm_open = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_open");
+                Onunm_openChanged();
+            }
+        }
+        private global::System.String _unm_open;
+        partial void Onunm_openChanging(global::System.String value);
+        partial void Onunm_openChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> unm_order
+        {
+            get
+            {
+                return _unm_order;
+            }
+            set
+            {
+                Onunm_orderChanging(value);
+                ReportPropertyChanging("unm_order");
+                _unm_order = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("unm_order");
+                Onunm_orderChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _unm_order;
+        partial void Onunm_orderChanging(Nullable<global::System.Int32> value);
+        partial void Onunm_orderChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_path
+        {
+            get
+            {
+                return _unm_path;
+            }
+            set
+            {
+                Onunm_pathChanging(value);
+                ReportPropertyChanging("unm_path");
+                _unm_path = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_path");
+                Onunm_pathChanged();
+            }
+        }
+        private global::System.String _unm_path;
+        partial void Onunm_pathChanging(global::System.String value);
+        partial void Onunm_pathChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_file
+        {
+            get
+            {
+                return _unm_file;
+            }
+            set
+            {
+                Onunm_fileChanging(value);
+                ReportPropertyChanging("unm_file");
+                _unm_file = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_file");
+                Onunm_fileChanged();
+            }
+        }
+        private global::System.String _unm_file;
+        partial void Onunm_fileChanging(global::System.String value);
+        partial void Onunm_fileChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String unm_type
+        {
+            get
+            {
+                return _unm_type;
+            }
+            set
+            {
+                Onunm_typeChanging(value);
+                ReportPropertyChanging("unm_type");
+                _unm_type = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("unm_type");
+                Onunm_typeChanged();
+            }
+        }
+        private global::System.String _unm_type;
+        partial void Onunm_typeChanging(global::System.String value);
+        partial void Onunm_typeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> unm_createuid
+        {
+            get
+            {
+                return _unm_createuid;
+            }
+            set
+            {
+                Onunm_createuidChanging(value);
+                ReportPropertyChanging("unm_createuid");
+                _unm_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("unm_createuid");
+                Onunm_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _unm_createuid;
+        partial void Onunm_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Onunm_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> unm_createtime
+        {
+            get
+            {
+                return _unm_createtime;
+            }
+            set
+            {
+                Onunm_createtimeChanging(value);
+                ReportPropertyChanging("unm_createtime");
+                _unm_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("unm_createtime");
+                Onunm_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _unm_createtime;
+        partial void Onunm_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Onunm_createtimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

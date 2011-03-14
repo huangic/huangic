@@ -37,20 +37,7 @@ public partial class AjaxTest : System.Web.UI.Page
             String[] array={"1","2"};
 
         
-            using(NXEIPEntities model=new NXEIPEntities()){
-                
-                
-               //MethodInfo 
-                
-                var data=Eval("from d in model.widget select d");
-                if(data is ICollection){
-                foreach(var d in data as ICollection){
-                    logger.Debug(d);
-                
-                }
-                }
-
-            }
+         
         
         }
 
