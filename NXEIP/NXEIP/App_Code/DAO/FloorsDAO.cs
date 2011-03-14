@@ -25,7 +25,10 @@ namespace NXEIP.DAO
         NXEIPEntities model = new NXEIPEntities();
 
         public IQueryable<floors> GetDataBySpotNo(int spot_no){
-                return from d in model.floors where d.spo_no==spot_no && d.flo_status=="1" select d;
+                return from d in model.floors 
+                       where d.spo_no==spot_no && d.flo_status=="1" 
+                       orderby d.flo_level,d.flo_order
+                       select d;
         }
     
     
