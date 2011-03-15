@@ -1390,6 +1390,10 @@
           <Property Name="n01_checkuid" Type="int" />
           <Property Name="n01_checkdate" Type="datetime" />
           <Property Name="n01_reason" Type="nvarchar" MaxLength="100" />
+          <Property Name="n01_top" Type="char" MaxLength="1" />
+          <Property Name="n01_deadline" Type="char" MaxLength="1" />
+          <Property Name="n01_sdate" Type="datetime" />
+          <Property Name="n01_edate" Type="datetime" />
         </EntityType>
         <EntityType Name="new02">
           <Key>
@@ -5104,6 +5108,10 @@
           <Property Type="Int32" Name="n01_checkuid" />
           <Property Type="DateTime" Name="n01_checkdate" />
           <Property Type="String" Name="n01_reason" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="n01_top" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="n01_deadline" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="DateTime" Name="n01_sdate" />
+          <Property Type="DateTime" Name="n01_edate" />
         </EntityType>
         <EntityType Name="new02">
           <Key>
@@ -7394,6 +7402,10 @@
           <EntitySetMapping Name="new01">
             <EntityTypeMapping TypeName="NXEIPModel.new01">
               <MappingFragment StoreEntitySet="new01">
+                <ScalarProperty Name="n01_edate" ColumnName="n01_edate" />
+                <ScalarProperty Name="n01_sdate" ColumnName="n01_sdate" />
+                <ScalarProperty Name="n01_deadline" ColumnName="n01_deadline" />
+                <ScalarProperty Name="n01_top" ColumnName="n01_top" />
                 <ScalarProperty Name="n01_reason" ColumnName="n01_reason" />
                 <ScalarProperty Name="n01_checkdate" ColumnName="n01_checkdate" />
                 <ScalarProperty Name="n01_checkuid" ColumnName="n01_checkuid" />

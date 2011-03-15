@@ -20897,6 +20897,102 @@ namespace Entity
         private global::System.String _n01_reason;
         partial void Onn01_reasonChanging(global::System.String value);
         partial void Onn01_reasonChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String n01_top
+        {
+            get
+            {
+                return _n01_top;
+            }
+            set
+            {
+                Onn01_topChanging(value);
+                ReportPropertyChanging("n01_top");
+                _n01_top = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("n01_top");
+                Onn01_topChanged();
+            }
+        }
+        private global::System.String _n01_top;
+        partial void Onn01_topChanging(global::System.String value);
+        partial void Onn01_topChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String n01_deadline
+        {
+            get
+            {
+                return _n01_deadline;
+            }
+            set
+            {
+                Onn01_deadlineChanging(value);
+                ReportPropertyChanging("n01_deadline");
+                _n01_deadline = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("n01_deadline");
+                Onn01_deadlineChanged();
+            }
+        }
+        private global::System.String _n01_deadline;
+        partial void Onn01_deadlineChanging(global::System.String value);
+        partial void Onn01_deadlineChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> n01_sdate
+        {
+            get
+            {
+                return _n01_sdate;
+            }
+            set
+            {
+                Onn01_sdateChanging(value);
+                ReportPropertyChanging("n01_sdate");
+                _n01_sdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n01_sdate");
+                Onn01_sdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _n01_sdate;
+        partial void Onn01_sdateChanging(Nullable<global::System.DateTime> value);
+        partial void Onn01_sdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> n01_edate
+        {
+            get
+            {
+                return _n01_edate;
+            }
+            set
+            {
+                Onn01_edateChanging(value);
+                ReportPropertyChanging("n01_edate");
+                _n01_edate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("n01_edate");
+                Onn01_edateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _n01_edate;
+        partial void Onn01_edateChanging(Nullable<global::System.DateTime> value);
+        partial void Onn01_edateChanged();
 
         #endregion
     
