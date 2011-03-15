@@ -69,14 +69,7 @@ public class SearchFilesGrid : IHttpHandler, IRequiresSessionState
     }
 
 
-   /// <summary>
-   /// getChildFile
-   /// </summary>
-   /// <param name="pid">人員編號</param>
-   /// <param name="folderId">目錄ID</param>
-   /// <param name="field">欄位</param>
-   /// <param name="order">順序</param>
-   /// <returns></returns>
+  
     private JqGridJSON getFiles(string name, string context, String field, String order)
     {
         int peo_uid = int.Parse(sessionObj.sessionUserID);
@@ -96,8 +89,11 @@ public class SearchFilesGrid : IHttpHandler, IRequiresSessionState
                         && !String.IsNullOrEmpty(f.d01_file)
                         && f.d01_file.Contains(name)
                           select new { doc1 = f, doc2 = f2 };
-                        
+               
+            
+                   
             //取使用者分享的所有檔案
+            /*
             var publicfiles = from f in model.doc01
                         from f2 in model.doc02
                         from f3 in model.doc03
@@ -116,7 +112,7 @@ public class SearchFilesGrid : IHttpHandler, IRequiresSessionState
                         && !String.IsNullOrEmpty(f.d01_file)
                         && f.d01_file.Contains(name)
                         select new { doc1 = f, doc2 = f2 };
-
+*/
             var files=userfiles;
             
             

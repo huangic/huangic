@@ -56,7 +56,7 @@ jquery.jqGrid
        
         $( _setting.fileDiv).setGridParam({ 
         loadComplete:loadComplete,
-        url: "100105/SearchFilesGrid.ashx?n=" + name+"&c="+context
+        url: "100105/SearchFilesGrid.ashx?n=" + encodeURIComponent(name)+"&c="+encodeURIComponent(context)
         
         });
 
