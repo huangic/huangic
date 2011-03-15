@@ -262,6 +262,7 @@
                             <HeaderStyle Width="300px" />
                         </asp:TemplateField>
                         <asp:TemplateField>
+                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
                                 <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200107-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d09_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d09_peouid"))%>'><span>修改</span></asp:HyperLink>
                                 <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete" 
