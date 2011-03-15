@@ -29,11 +29,8 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
             this.ViewModify.Visible = false;
             this.ViewList.Visible = false;
-
             ShowDataList();
         }
-        else
-            return;
     }
 
     #region 畫面：列表

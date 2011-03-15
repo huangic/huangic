@@ -319,7 +319,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && pet.roo_no == rooms1
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -348,7 +347,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && room.spo_no == spots1
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -377,7 +375,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2")
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -411,7 +408,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && pet.roo_no == rooms1
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -440,7 +436,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && room.spo_no == spots1
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -469,7 +464,6 @@ namespace NXEIP.DAO
                             var itemColl = from pet in model.petition
                                            join room in model.rooms on pet.roo_no equals room.roo_no
                                            join spo in model.spot on room.spo_no equals spo.spo_no
-                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                            where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status
                                            orderby pet.pet_stime ascending, pet.pet_etime ascending
                                            select new NewPetition
@@ -501,7 +495,6 @@ namespace NXEIP.DAO
                     var itemColl = from pet in model.petition
                                    join room in model.rooms on pet.roo_no equals room.roo_no
                                    join spo in model.spot on room.spo_no equals spo.spo_no
-                                   join checkertb in model.checker on room.roo_no equals checkertb.roo_no
                                    orderby pet.pet_stime ascending, pet.pet_etime ascending
                                    select new NewPetition
                                    {

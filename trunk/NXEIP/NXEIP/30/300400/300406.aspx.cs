@@ -89,6 +89,7 @@ public partial class _30_300400_300406 : System.Web.UI.Page
             string pkno = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
             e.Row.Cells[2].Text = new DepartmentsDAO().GetNameByNo(Convert.ToInt32(e.Row.Cells[2].Text));
             e.Row.Cells[3].Text = e.Row.Cells[3].Text.Replace(System.Environment.NewLine, "<br />");
+            e.Row.Cells[4].Text = e.Row.Cells[4].Text.Replace(" ", "<br />");
             if (e.Row.Cells[8].Text.Equals("1"))
                 e.Row.Cells[8].Text = "送審中";
             else if (e.Row.Cells[8].Text.Equals("2"))
