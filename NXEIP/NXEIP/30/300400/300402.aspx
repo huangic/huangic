@@ -49,7 +49,10 @@
                             <asp:BoundField DataField="roo_oneuid" HeaderText="保管人" SortExpression="roo_oneuid" />
                             <asp:BoundField DataField="roo_tel" HeaderText="保管人電話" SortExpression="roo_tel" />
                             <asp:BoundField DataField="roo_floor" HeaderText="所在樓層" SortExpression="roo_floor" />
-                            <asp:BoundField DataField="roo_describe" HeaderText="場地描述" SortExpression="roo_describe" />
+                            <asp:BoundField DataField="roo_describe" HeaderText="場地描述" 
+                                SortExpression="roo_describe" >
+                            <ItemStyle Width="19%" />
+                            </asp:BoundField>
                             <asp:TemplateField HeaderText="修改">
                                 <ItemTemplate>
                                     <asp:Button ID="btn_modify" runat="server" CommandName="modify" CssClass="edit" /></ItemTemplate>

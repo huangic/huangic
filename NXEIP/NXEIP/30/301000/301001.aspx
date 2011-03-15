@@ -51,7 +51,10 @@
                                 <asp:BoundField DataField="equ_name" HeaderText="設備名稱" SortExpression="equ_name" />
                                 <asp:BoundField DataField="peo_uid" HeaderText="保管人" SortExpression="peo_uid" />
                                 <asp:BoundField DataField="equ_tel" HeaderText="保管人電話" SortExpression="equ_tel" />
-                                <asp:BoundField DataField="equ_descript" HeaderText="設備描述" SortExpression="equ_descript" />
+                                <asp:BoundField DataField="equ_descript" HeaderText="設備描述" 
+                                    SortExpression="equ_descript" >
+                                <ItemStyle Width="19%" />
+                                </asp:BoundField>
                                 <asp:TemplateField HeaderText="修改">
                                     <ItemTemplate>
                                         <asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>"

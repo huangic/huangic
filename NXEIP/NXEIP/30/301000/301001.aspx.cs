@@ -27,7 +27,19 @@ public partial class _30_301000_301001 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
-            ShowDataList();
+            if (Session["301001_value"] != null && Session["301001_value"].ToString().Length > 0 && Request["count"] != null)
+            {
+                string[] val = Session["301001_value"].ToString().Split(','); //0:mode,1:pkno,2:pageIndex
+                this.lab_mode.Text = val[0];
+                this.lab_no.Text = val[1];
+                this.lab_pageIndex.Text = val[2];
+                ShowDataModify();
+                Session["301001_value"] = "";
+            }
+            else
+            {
+                ShowDataList();
+            }
         }
     }
 
@@ -156,6 +168,7 @@ public partial class _30_301000_301001 : System.Web.UI.Page
         {
             e.Row.Cells[0].Text = new SpotDAO().GetNameBySpoNo(Convert.ToInt32(e.Row.Cells[0].Text));
             e.Row.Cells[3].Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(e.Row.Cells[3].Text));
+            e.Row.Cells[5].Text = e.Row.Cells[5].Text.Replace(System.Environment.NewLine, "<br />");
         }
     }
     #endregion
@@ -176,9 +189,8 @@ public partial class _30_301000_301001 : System.Web.UI.Page
             #region 呼叫修改
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(301001, sobj.sessionUserID, 2, "查詢 設備資料 編號:" + this.lab_no.Text);
-            this.lab_pageIndex.Text = this.GridView1.PageIndex.ToString();
-            this.lab_no.Text = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            ShowDataModify();
+            Session["301001_value"] = "modify," + this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString() + "," + this.GridView1.PageIndex.ToString();
+            Response.Redirect("301001.aspx?count=" + new System.Random().Next(10000).ToString());
             #endregion
         }
         else if (e.CommandName.Equals("del"))
@@ -437,7 +449,7 @@ public partial class _30_301000_301001 : System.Web.UI.Page
                 }
                 //ShowDataList(); //呼叫列表
 
-                Response.Write(PCalendarUtil.ShowMsg_URL("", "301001.aspx"));
+                Response.Write(PCalendarUtil.ShowMsg_URL("", "301001.aspx?count=" + new System.Random().Next(10000).ToString() + "&pageIndex=" + this.lab_pageIndex.Text));
             }
         }
         catch (Exception ex)
