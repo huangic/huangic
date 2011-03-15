@@ -12,10 +12,20 @@ public partial class widget_10_100200_100204 : NXEIP.Widget.WidgetBaseControl
     {
         New01DAO dao = new New01DAO();
 
+        //往前取幾天
+        int days = 30;
+        try
+        {
+            days = int.Parse(new ArgumentsObject().Get_argValue("100204_A_ShowDays"));
+        }
+        catch { }
+
         int count = 0;
 
         //全府
-        var ndata1 = dao.GetData("2", "-1");
+        string todays = DateTime.Now.AddDays(days * -1).ToString("yyyy-MM-dd");
+        var ndata1 = dao.Get_DataForWidget("2", todays);
+
         if (ndata1.Count() > 0)
         {
             foreach (var d in ndata1)

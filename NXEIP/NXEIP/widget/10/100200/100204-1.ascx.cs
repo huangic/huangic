@@ -14,9 +14,17 @@ public partial class widget_10_100200_100204_1 : NXEIP.Widget.WidgetBaseControl
 
         int count = 0;
 
+        //往前取幾天
+        int days = 30;
+        try
+        {
+            days = int.Parse(new ArgumentsObject().Get_argValue("100204_D_ShowDays"));
+        }
+        catch { }
+
         //單位
-        count = 0;
-        var ndata2 = dao.GetData("1", "-1");
+        string todays = DateTime.Now.AddDays(days * -1).ToString("yyyy-MM-dd");
+        var ndata2 = dao.Get_DataForWidget("1", todays);
         if (ndata2.Count() > 0)
         {
             foreach (var d in ndata2)
