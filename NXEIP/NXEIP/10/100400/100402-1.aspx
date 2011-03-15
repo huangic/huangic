@@ -137,8 +137,8 @@
                         <asp:DropDownList ID="ddl_min" runat="server">
                             <asp:ListItem Value="0">請選擇</asp:ListItem>
                             <asp:ListItem Value="00">00</asp:ListItem>
-                            <asp:ListItem Value="10">20</asp:ListItem>
-                            <asp:ListItem Value="20">10</asp:ListItem>
+                            <asp:ListItem Value="10">10</asp:ListItem>
+                            <asp:ListItem Value="20">20</asp:ListItem>
                             <asp:ListItem Value="30">40</asp:ListItem>
                             <asp:ListItem Value="40">30</asp:ListItem>
                             <asp:ListItem Value="50">50</asp:ListItem>
