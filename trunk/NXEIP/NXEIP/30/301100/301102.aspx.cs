@@ -26,7 +26,19 @@ public partial class _30_301100_301102 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
-            ShowDataList();
+            if (Session["301102_value"] != null && Session["301102_value"].ToString().Length > 0 && Request["count"] != null)
+            {
+                string[] val = Session["301102_value"].ToString().Split(','); //0:mode,1:pkno,2:pageIndex
+                this.lab_mode.Text = val[0];
+                this.lab_no.Text = val[1];
+                this.lab_pageIndex.Text = val[2];
+                ShowDataModify();
+                Session["301102_value"] = "";
+            }
+            else
+            {
+                ShowDataList();
+            }
         }
     }
 
@@ -260,9 +272,8 @@ public partial class _30_301100_301102 : System.Web.UI.Page
             #region 呼叫修改
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(301102, sobj.sessionUserID, 2, "查詢 車輛 編號:" + this.lab_no.Text);
-            this.lab_pageIndex.Text = this.GridView1.PageIndex.ToString();
-            this.lab_no.Text = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            ShowDataModify();
+            Session["301102_value"] = "modify," + this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString() + "," + this.GridView1.PageIndex.ToString();
+            Response.Redirect("301102.aspx?count=" + new System.Random().Next(10000).ToString());
             #endregion
         }
         else if (e.CommandName.Equals("del"))
@@ -742,7 +753,7 @@ public partial class _30_301100_301102 : System.Web.UI.Page
                 }
                 //ShowDataList(); //呼叫列表
 
-                Response.Write(PCalendarUtil.ShowMsg_URL("", "301102.aspx"));
+                Response.Write(PCalendarUtil.ShowMsg_URL("", "301102.aspx?count=" + new System.Random().Next(10000).ToString() + "&pageIndex=" + this.lab_pageIndex.Text));
             }
         }
         catch (Exception ex)
