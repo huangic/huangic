@@ -26,18 +26,14 @@ public partial class _10_100100_100104 : System.Web.UI.Page
             peoData.peo_pincode = cardDN;
             peoDao.Update();
 
-            this.ShowMessage("註冊完成!!");
             this.cardDN.Value = "";
             this.tbox_pin.Text = "";
+
+            JsUtil.AlertJs(this, "註冊完成!");
         }
         else
         {
-            this.ShowMessage("註冊失敗，請重新登入系統!!");
+            JsUtil.AlertJs(this, "註冊失敗!");
         }
-    }
-
-    private void ShowMessage(string msg)
-    {
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", "<script>alert('" + msg + "');</script>");
     }
 }
