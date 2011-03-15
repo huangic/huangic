@@ -145,7 +145,7 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
                     //取最大值
                     int max=1;
                     try{
-                        max=(from d in model.doc10 where d.d09_no==d09.d09_no select d.d09_no).Max();
+                        max=(from d in model.doc10 where d.d09_no==d09.d09_no select d.d10_no).Max();
                         max++;
                     }catch{
                     
@@ -212,7 +212,17 @@ public partial class _20_200100_200107_3 : System.Web.UI.Page
         {
             StringDictionary kv = CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
 
-            int no=int.Parse(category);
+            int no=0;
+
+            try
+            {
+                //如果他的CATEGORY 不是NO 表示他沒有子類別
+                no = int.Parse(category);
+            }
+            catch { 
+            
+            }
+
 
             int parentId = int.Parse(kv["undefined"]);
 
