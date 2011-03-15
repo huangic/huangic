@@ -6,6 +6,8 @@
 
 <%@ Register src="../../lib/SWFUpload/UC_SWFUpload.ascx" tagname="UC_SWFUpload" tagprefix="uc2" %>
 
+<%@ Register src="../../lib/calendar.ascx" tagname="calendar" tagprefix="uc3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -67,7 +69,7 @@
                 發佈日期
                 </th>
                 <td>
-                    <asp:Label ID="lab_date" runat="server" ></asp:Label>
+                    <uc3:calendar ID="calendar1" runat="server" _Show="False" />
                 </td>
             </tr>
             <tr>
@@ -82,10 +84,43 @@
                 </th>
                 <td>
                     <asp:RadioButtonList ID="rbl_use" runat="server" RepeatDirection="Horizontal" 
-                        RepeatLayout="Flow">
+                        CellPadding="0" CellSpacing="0" Width="100px">
                         <asp:ListItem Selected="True" Value="1">單位</asp:ListItem>
                         <asp:ListItem Value="2">全府</asp:ListItem>
                     </asp:RadioButtonList>
+                </td>
+            </tr>
+            <tr>
+                <th style="width:15%">
+                    是否置頂
+                </th>
+                <td>
+                    <asp:RadioButtonList ID="rbl_top" runat="server" RepeatDirection="Horizontal" 
+                        CellPadding="0" CellSpacing="0" Width="100px">
+                        <asp:ListItem Selected="True" Value="2">否</asp:ListItem>
+                        <asp:ListItem Value="1">是</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                <th style="width:15%">
+                    發佈期限
+                </th>
+                <td>
+                    <asp:RadioButtonList ID="rbl_line" runat="server" RepeatDirection="Horizontal" 
+                        CellPadding="0" CellSpacing="0" Width="100px">
+                        <asp:ListItem Selected="True" Value="1">無</asp:ListItem>
+                        <asp:ListItem Value="2">有</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+            </tr>
+            <tr>
+                <th style="width:15%">
+                    最新消息期限
+                </th>
+                <td colspan="3">
+                    開始日期：<uc3:calendar 
+                        ID="calendar2" runat="server" _Show="False" />
+                    &nbsp;
+                    結束日期：<uc3:calendar ID="calendar3" runat="server" _Show="True" />
                 </td>
             </tr>
             <tr>
