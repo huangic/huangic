@@ -174,6 +174,21 @@ public partial class lib_tree_DepartTreeTextBox : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
+        //註冊THICKBOX 的變數
+        String ThickboxInit = "var tb_pathToImage = \"" + Page.ResolveUrl("~/image/loadingAnimation.gif") + "\";";
+
+        try
+        {
+            ScriptManager.RegisterClientScriptBlock(this, typeof(UserControl), "ThickBox", ThickboxInit, true);
+        }
+        catch
+        {
+
+        }
+        
+        
+        
         this.HyperLink1.NavigateUrl = @"~/lib/tree/DepartTreePage.aspx
             ?session=" + this.SessionName + 
             "&TreeType="+(int)this.TreeType+
