@@ -42,6 +42,13 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
 
             UtilityDAO dao = new UtilityDAO();
 
+            //發佈日期
+            this.calendar1._ADDate = DateTime.Now;
+
+            //期限
+            this.calendar2._ADDate = DateTime.Now;
+            this.calendar3._ADDate = DateTime.Now;
+
             if (Request.QueryString["mode"].Equals("edit"))
             {
                 this.Navigator1.SubFunc = "修改";
@@ -52,7 +59,30 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
 
                 this.lab_people.Text = dao.Get_PeopleName(data.n01_peouid.Value);
                 this.lab_dep.Text = dao.Get_DepartmentName(data.n01_depno.Value);
-                this.lab_date.Text = new ChangeObject()._ADtoROC(data.n01_date.Value);
+
+                this.calendar1._ADDate = data.n01_date.Value;
+                
+                //有無期限 1:沒有 2:有
+                if (data.n01_deadline != null)
+                {
+                    this.rbl_line.SelectedItem.Selected = false;
+                    this.rbl_line.Items.FindByValue(data.n01_deadline).Selected = true;
+
+                    //有期限
+                    if (data.n01_deadline == "2" && data.n01_sdate.HasValue && data.n01_edate.HasValue)
+                    {
+                        this.calendar2._ADDate = data.n01_sdate.Value;
+                        this.calendar3._ADDate = data.n01_edate.Value;
+                    }
+                }
+
+                //置頂
+                if (data.n01_top != null)
+                {
+                    this.rbl_top.SelectedItem.Selected = false;
+                    this.rbl_top.Items.FindByValue(data.n01_top).Selected = true;
+                }
+                
                 this.ddl_sys06.DataBind();
                 if (data.s06_no.HasValue)
                 {
@@ -85,7 +115,8 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
 
                 this.lab_people.Text = dao.Get_PeopleName(int.Parse(sobj.sessionUserID));
                 this.lab_dep.Text = dao.Get_DepartmentName(int.Parse(sobj.sessionUserDepartID));
-                this.lab_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+                
+                
             }
         }
     }
@@ -140,6 +171,7 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
                 }
                 else
                 {
+                    //修改
                     data.n01_content = this.tbox_content.Text.Trim();
                     data.n01_subject = this.tbox_subject.Text.Trim();
                     data.n01_use = this.rbl_use.SelectedValue;
@@ -148,6 +180,25 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
                     if (!this.ddl_sys06.SelectedValue.Equals("0"))
                     {
                         data.s06_no = int.Parse(this.ddl_sys06.SelectedValue);
+                    }
+
+                    //發佈日期
+                    data.n01_date = this.calendar1._ADDate;
+
+                    //是否置頂
+                    data.n01_top = this.rbl_top.SelectedValue;
+
+                    //期限
+                    data.n01_deadline = this.rbl_line.SelectedValue;
+                    if (this.rbl_line.SelectedValue == "2")
+                    {
+                        data.n01_sdate = this.calendar2._ADDate;
+                        data.n01_edate = this.calendar3._ADDate;
+                    }
+                    else
+                    {
+                        data.n01_sdate = this.calendar1._ADDate;
+                        data.n01_edate = this.calendar1._ADDate.AddYears(20);
                     }
 
                     model.SaveChanges();
@@ -201,7 +252,7 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             data.n01_use = this.rbl_use.SelectedValue;
             data.n01_peouid = int.Parse(sobj.sessionUserID);
             data.n01_depno = int.Parse(sobj.sessionUserDepartID);
-            data.n01_date = DateTime.Now;
+            data.n01_date = this.calendar1._ADDate;
             data.n01_createuid = int.Parse(sobj.sessionUserID);
             data.n01_createtime = DateTime.Now;
             if (!this.ddl_sys06.SelectedValue.Equals("0"))
@@ -210,6 +261,7 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             }
             //是否需審核 1:是 2:否
             string ischeck = new ArgumentsObject().Get_argValue("100204_ischeck");
+
             //全府
             if (this.rbl_use.SelectedValue == "2")
             {
@@ -225,6 +277,22 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             else
             {
                 data.n01_status = "1";
+            }
+
+            //是否置頂
+            data.n01_top = this.rbl_top.SelectedValue;
+
+            //期限
+            data.n01_deadline = this.rbl_line.SelectedValue;
+            if (this.rbl_line.SelectedValue == "2")
+            {
+                data.n01_sdate = this.calendar2._ADDate;
+                data.n01_edate = this.calendar3._ADDate;
+            }
+            else
+            {
+                data.n01_sdate = this.calendar1._ADDate;
+                data.n01_edate = this.calendar1._ADDate.AddYears(20);
             }
             
 
@@ -320,8 +388,6 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
 
     private bool checkInput()
     {
-        bool ret = true;
-
         if (this.tbox_subject.Text.Trim().Length == 0)
         {
             this.ShowMsg("請輸入標題!");
@@ -332,6 +398,36 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
         {
             this.ShowMsg("請輸入消息內容!");
             return false;
+        }
+
+        try
+        {
+            DateTime tmp = this.calendar1._ADDate;
+        }
+        catch
+        {
+            this.ShowMsg("請輸入正確發佈日期!");
+            return false;
+        }
+
+        //期限
+        if (rbl_line.SelectedValue == "2")
+        {
+            try
+            {
+                DateTime tmps = Convert.ToDateTime(this.calendar2._ADDate.ToString("yyyy-MM-dd"));
+                DateTime tmpe = Convert.ToDateTime(this.calendar3._ADDate.ToString("yyyy-MM-dd"));
+                if (tmps > tmpe)
+                {
+                    this.ShowMsg("開始日期需早於結束日期!");
+                    return false;
+                }
+            }
+            catch
+            {
+                this.ShowMsg("請輸入正確期限日期!");
+                return false;
+            }
         }
 
         //相關連結
@@ -350,7 +446,7 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
             }
         }
 
-        return ret;
+        return true;
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -385,14 +481,14 @@ public partial class _10_100200_100204_1 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        string script = "<script>window.alert('" + msg + "');</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        JsUtil.AlertJs(this, msg);
     }
 
     private void ShowMsg_URL(string msg, string url)
     {
-        string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        //string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
+        //this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        JsUtil.AlertAndRedirectJs(this, msg, url);
     }
 
     private string GetURL()
