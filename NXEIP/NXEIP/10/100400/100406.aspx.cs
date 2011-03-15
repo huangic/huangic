@@ -286,6 +286,7 @@ public partial class _10_100400_100406 : System.Web.UI.Page
                         if (dt.Rows.Count > 0)
                         {
                             this.Table1.Rows[a].Cells[b].Controls.Clear();
+                            this.Table1.Rows[a].Cells[b].CssClass = "Nholiday_bg2";
                             //Rooms_PetitionSignType 1表不需審核，直接核可，但不可重覆;2表需審核，但不可重覆;3表需審核，但可重覆
                             string celltxt = "";
                             int icount = 0;
