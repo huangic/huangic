@@ -54,39 +54,35 @@
                 <Columns>
                     <asp:BoundField DataField="spo_name" HeaderText="所在地" SortExpression="spo_name">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="15%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="roo_name" HeaderText="場地名稱" SortExpression="roo_name">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="12%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="pet_depno" HeaderText="借用單位" SortExpression="pet_depno">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="12%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="uidtel" HeaderText="申請人" SortExpression="uidtel">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="10%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="stet" HeaderText="借用時間" SortExpression="stet">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="12%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="pet_host" HeaderText="主持人" SortExpression="pet_host">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="10%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="pet_count" HeaderText="與會人數" SortExpression="pet_count">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="10%" />
                     </asp:BoundField>
                     <asp:BoundField DataField="pet_reason" HeaderText="申請事由" SortExpression="pet_reason">
                         <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="pet_apply" HeaderText="狀態" SortExpression="pet_apply">
-                        <HeaderStyle CssClass="timecss2" />
-                        <ItemStyle CssClass="timecss3" />
+                        <ItemStyle CssClass="timecss3" Width="19%" />
                     </asp:BoundField>
                 </Columns>
                 <HeaderStyle HorizontalAlign="Left" Height="26px" />

@@ -77,7 +77,10 @@
                         <asp:BoundField DataField="stet" HeaderText="借用時間" SortExpression="stet" />
                         <asp:BoundField DataField="pet_host" HeaderText="主持人" SortExpression="pet_host" />
                         <asp:BoundField DataField="pet_count" HeaderText="與會人數" SortExpression="pet_count" />
-                        <asp:BoundField DataField="pet_reason" HeaderText="申請事由" SortExpression="pet_reason" />
+                        <asp:BoundField DataField="pet_reason" HeaderText="申請事由" 
+                            SortExpression="pet_reason" >
+                        <ItemStyle Width="19%" />
+                        </asp:BoundField>
                         <asp:BoundField DataField="pet_apply" HeaderText="狀態" SortExpression="pet_apply" />
                     </Columns>
                     <HeaderStyle HorizontalAlign="Left" />

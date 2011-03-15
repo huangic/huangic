@@ -57,14 +57,7 @@ public partial class _30_300400_300406_p : System.Web.UI.Page
             string pkno = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
             e.Row.Cells[2].Text = new DepartmentsDAO().GetNameByNo(Convert.ToInt32(e.Row.Cells[2].Text));
             e.Row.Cells[3].Text = e.Row.Cells[3].Text.Replace(System.Environment.NewLine, "<br />");
-            if (e.Row.Cells[8].Text.Equals("1"))
-                e.Row.Cells[8].Text = "送審中";
-            else if (e.Row.Cells[8].Text.Equals("2"))
-                e.Row.Cells[8].Text = "核可";
-            else if (e.Row.Cells[8].Text.Equals("3"))
-                e.Row.Cells[8].Text = "不核可";
-            else
-                e.Row.Cells[8].Text = "自行取消";
+            e.Row.Cells[4].Text = e.Row.Cells[4].Text.Replace(" ", "<br />");
         }
     }
     #endregion
