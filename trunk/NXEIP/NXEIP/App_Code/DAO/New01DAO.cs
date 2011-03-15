@@ -43,7 +43,7 @@ namespace NXEIP.DAO
                 data = data.Where(o => o.n01_date >= sd);
             }
 
-            return data.OrderBy(o => o.n01_date);
+            return data.OrderByDescending(o => o.n01_createtime);
 
         }
 
@@ -58,20 +58,23 @@ namespace NXEIP.DAO
 
         public IQueryable<new01> GetData(string use,string key)
         {
+            DateTime today = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+
+            var data = from d in model.new01
+                       where d.n01_status == "1" && d.n01_use == use
+                       && today >= d.n01_sdate && today <= d.n01_edate
+                       select d;
+
             if (!key.Equals("-1"))
             {
-                return (from d in model.new01
-                        where d.n01_status == "1" && d.n01_use == use && d.n01_subject.Contains(key)
-                        orderby d.n01_date descending
-                        select d);
+                data = data.Where(o => o.n01_subject.Contains(key));
             }
-            else
-            {
-                return (from d in model.new01
-                        where d.n01_status == "1" && d.n01_use == use
-                        orderby d.n01_date descending
-                        select d);
-            }
+
+            data = data.OrderByDescending(o => o.n01_sdate).OrderBy(o => o.n01_top);
+
+            return data;
+
+            
         }
 
         public IQueryable<new01> GetData(string use, string key, int startRowIndex, int maximumRows)
@@ -89,13 +92,19 @@ namespace NXEIP.DAO
             if (status == "0")
             {
                 string[] n01_status = {"1","2","3" };
-                return (from d in model.new01 where d.n01_peouid == peo_uid && n01_status.Contains(d.n01_status) 
-                        orderby d.n01_date descending select d);
+
+                return from d in model.new01
+                       where d.n01_peouid == peo_uid && n01_status.Contains(d.n01_status)
+                       orderby d.n01_top, d.n01_sdate descending
+                       select d;
             }
             else
             {
-                return (from d in model.new01 where d.n01_peouid == peo_uid && d.n01_status == status
-                        orderby d.n01_date descending select d);
+
+                return from d in model.new01
+                       where d.n01_peouid == peo_uid && d.n01_status == status
+                       orderby d.n01_top, d.n01_sdate descending
+                       select d;
             }
         }
 
@@ -115,14 +124,14 @@ namespace NXEIP.DAO
             {
                 return (from d in model.new01
                         where d.n01_status == "1" && d.s06_no == s06_no
-                        orderby d.n01_date descending
+                        orderby d.n01_top, d.n01_sdate descending
                         select d);
             }
             else
             {
                 return (from d in model.new01
                         where d.n01_status == "1" && d.s06_no == s06_no && d.n01_subject.Contains(key)
-                        orderby d.n01_date descending
+                        orderby d.n01_top, d.n01_sdate descending
                         select d);
             }
         }

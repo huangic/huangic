@@ -42,6 +42,20 @@
                 </tr>
                 <tr>
                     <th style="width:15%">
+                        是否置頂
+                    </th>
+                    <td >
+                       <asp:Label ID="lab_top" runat="server"></asp:Label>
+                    </td>
+                    <th style="width:15%">
+                        發布期限
+                    </th>
+                    <td >
+                       <asp:Label ID="lab_line" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:15%">
                         最新消息標題
                     </th>
                     <td >

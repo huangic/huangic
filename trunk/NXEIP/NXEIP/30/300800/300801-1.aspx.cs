@@ -31,6 +31,28 @@ public partial class _30_300800_300801_1 : System.Web.UI.Page
                     this.rbl_status.SelectedItem.Selected = false;
                     this.rbl_status.Items.FindByValue(data.n01_status).Selected = true;
                 }
+
+                if (data.n01_top != null)
+                {
+                    string str = "置頂";
+                    if (data.n01_top == "2")
+                    {
+                        str = "不置頂";
+                    }
+                    this.lab_top.Text = str;
+                }
+
+                if (data.n01_deadline != null)
+                {
+                    string str = "沒有期限";
+                    if (data.n01_deadline == "2")
+                    {
+                        ChangeObject cobj = new ChangeObject();
+                        str = cobj._ADtoROC(data.n01_sdate.Value) + "~" + cobj._ADtoROC(data.n01_edate.Value);
+                    }
+                    this.lab_line.Text = str;
+                }
+
             }
 
         }
