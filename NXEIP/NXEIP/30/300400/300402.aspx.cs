@@ -27,21 +27,24 @@ public partial class _30_300400_300402 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             if (Request["pageIndex"] != null) this.lab_pageIndex.Text = Request["pageIndex"];
+            this.ViewModify.Visible = false;
+            this.ViewList.Visible = false;
+
             ShowDataList();
         }
+        else
+            return;
     }
 
     #region 畫面：列表
     private void ShowDataList()
     {
         this.lab_no.Text = "";
-        this.MultiView1.ActiveViewIndex = 0;
+        this.ViewList.Visible = true;
+        this.ViewModify.Visible = false;
         this.Navigator1.SubFunc = "";
-        if (this.lab_pageIndex.Text.Length > 0)
-        {
-            this.GridView1.DataBind();
-            this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
-        }
+        this.GridView1.DataBind();
+        if (this.lab_pageIndex.Text.Length > 0) this.GridView1.PageIndex = Convert.ToInt32(this.lab_pageIndex.Text);
         //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
         new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "場地資料列表");
     }
@@ -101,15 +104,15 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     #endregion
 
     #region 畫面：修改
-    private void ShowDataModify()
+    private void ShowDataModify(int pkno)
     {
-        this.MultiView1.ActiveViewIndex = 1;
+        this.ViewList.Visible = false;
+        this.ViewModify.Visible = true;
         ClearControlValue();
         ShowSpot();
-
         DataTable dt = new DataTable();
         this.Navigator1.SubFunc = "修改";
-        Entity.rooms roomsData = new RoomsDAO().GetByRoomsNo(Convert.ToInt32(this.lab_no.Text));
+        Entity.rooms roomsData = new RoomsDAO().GetByRoomsNo(pkno);
 
         #region textbox
         this.txt_name.Text = roomsData.roo_name;
@@ -196,7 +199,8 @@ public partial class _30_300400_300402 : System.Web.UI.Page
     #region 畫面：新增
     private void ShowDataInsert()
     {
-        this.MultiView1.ActiveViewIndex = 1;
+        this.ViewList.Visible = false;
+        this.ViewModify.Visible = true;
         ClearControlValue();
         ShowSpot();
 
@@ -214,6 +218,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
         {
             e.Row.Cells[0].Text = new SpotDAO().GetNameBySpoNo(Convert.ToInt32(e.Row.Cells[0].Text));
             e.Row.Cells[3].Text = new PeopleDAO().GetPeopleNameByUid(Convert.ToInt32(e.Row.Cells[3].Text));
+            ((Button)e.Row.FindControl("btn_modify")).CommandArgument = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
         }
     }
     #endregion
@@ -235,8 +240,8 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(300402, sobj.sessionUserID, 2, "查詢 場地資料 編號:" + this.lab_no.Text);
             this.lab_pageIndex.Text = this.GridView1.PageIndex.ToString();
-            this.lab_no.Text = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
-            ShowDataModify();
+            this.lab_no.Text = e.CommandArgument.ToString();
+            ShowDataModify(Convert.ToInt32(this.lab_no.Text));
             #endregion
         }
         else if (e.CommandName.Equals("del"))
@@ -457,7 +462,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             RoomsDAO1.Update();
             #endregion
 
-            ShowDataModify(); //顯示修改畫面
+            ShowDataModify(Convert.ToInt32(this.lab_no.Text)); //顯示修改畫面
         }
         catch (Exception ex)
         {
@@ -481,7 +486,7 @@ public partial class _30_300400_300402 : System.Web.UI.Page
             RoomsDAO1.Update();
             #endregion
 
-            ShowDataModify(); //顯示修改畫面
+            ShowDataModify(Convert.ToInt32(this.lab_no.Text)); //顯示修改畫面
         }
         catch (Exception ex)
         {
@@ -661,4 +666,5 @@ public partial class _30_300400_300402 : System.Web.UI.Page
         ShowDataList(); //呼叫列表
     }
     #endregion
+
 }

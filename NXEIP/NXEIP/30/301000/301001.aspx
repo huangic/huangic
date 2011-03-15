@@ -44,14 +44,31 @@
                         <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                             AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                             EmptyDataText="查無資料" DataKeyNames="equ_no" OnRowDataBound="GridView1_RowDataBound"
-                            GridLines="None" OnRowCommand="GridView1_RowCommand"><Columns><asp:BoundField DataField="spo_no" HeaderText="所在地" SortExpression="spo_no" /><asp:BoundField 
-                                DataField="equ_number" HeaderText="資產編號" SortExpression="equ_number" /><asp:BoundField 
-                                DataField="equ_name" HeaderText="設備名稱" SortExpression="equ_name" /><asp:BoundField 
-                                DataField="peo_uid" HeaderText="保管人" SortExpression="peo_uid" /><asp:BoundField 
-                                DataField="equ_tel" HeaderText="保管人電話" SortExpression="equ_tel" /><asp:BoundField 
-                                DataField="equ_descript" HeaderText="設備描述" SortExpression="equ_descript" /><asp:TemplateField HeaderText="修改"><ItemTemplate><asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>"
-                                            CssClass="edit" /></ItemTemplate><HeaderStyle HorizontalAlign="Center" /><ItemStyle HorizontalAlign="Center" Width="35px" /></asp:TemplateField><asp:TemplateField HeaderText="刪除"><ItemTemplate><asp:Button ID="Button3" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>"
-                                            CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" /></ItemTemplate><HeaderStyle HorizontalAlign="Center" /><ItemStyle HorizontalAlign="Center" Width="35px" /></asp:TemplateField></Columns><HeaderStyle HorizontalAlign="Left" /></cc1:GridView>
+                            GridLines="None" OnRowCommand="GridView1_RowCommand">
+                            <Columns>
+                                <asp:BoundField DataField="spo_no" HeaderText="所在地" SortExpression="spo_no" />
+                                <asp:BoundField DataField="equ_number" HeaderText="資產編號" SortExpression="equ_number" />
+                                <asp:BoundField DataField="equ_name" HeaderText="設備名稱" SortExpression="equ_name" />
+                                <asp:BoundField DataField="peo_uid" HeaderText="保管人" SortExpression="peo_uid" />
+                                <asp:BoundField DataField="equ_tel" HeaderText="保管人電話" SortExpression="equ_tel" />
+                                <asp:BoundField DataField="equ_descript" HeaderText="設備描述" SortExpression="equ_descript" />
+                                <asp:TemplateField HeaderText="修改">
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button2" runat="server" CommandName="modify" CommandArgument="<%# Container.DataItemIndex %>"
+                                            CssClass="edit" /></ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Center" Width="35px" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="刪除">
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button3" runat="server" CommandName="del" CommandArgument="<%# Container.DataItemIndex %>"
+                                            CssClass="delete" OnClientClick=" return confirm('確定要刪除?')" /></ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <ItemStyle HorizontalAlign="Center" Width="35px" />
+                                </asp:TemplateField>
+                            </Columns>
+                            <HeaderStyle HorizontalAlign="Left" />
+                        </cc1:GridView>
                         <div class="footer">
                             <div class="f1">
                             </div>

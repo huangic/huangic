@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300403.aspx.cs" Inherits="_30_300400_300403" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="300406.aspx.cs" Inherits="_30_300400_300406" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
 <%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls" TagPrefix="cc1" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
@@ -35,28 +35,20 @@
     </asp:ObjectDataSource>
     <script type="text/javascript" src="../../js/lytebox.js"></script>
     <asp:Label ID="lab_pageIndex" runat="server" Visible="False"></asp:Label>
-    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300403" />
+    <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300406" />
     <div class="tableDiv">
         <table>
             <tr>
                 <td>
                     欲查詢日期：起<uc2:calendar ID="calendar1" runat="server" _Show="False" />
-                    &nbsp;迄&nbsp;<uc2:calendar ID="calendar2" runat="server" />&nbsp;&nbsp;&nbsp;
-                    審核狀況：<asp:RadioButtonList ID="rbl_status" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                        <asp:ListItem Selected="True" Value="1">未核可</asp:ListItem>
-                        <asp:ListItem Value="2">核可</asp:ListItem>
-                        <asp:ListItem Value="0">全部皆有</asp:ListItem>
-                    </asp:RadioButtonList>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                    &nbsp;迄&nbsp;<uc2:calendar ID="calendar2" runat="server" />&nbsp;&nbsp;
                     所在地：<asp:DropDownList ID="ddl_spot" runat="server" CssClass="select4" AutoPostBack="True"
                         OnSelectedIndexChanged="ddl_spot_SelectedIndexChanged">
                     </asp:DropDownList>
                     場地名稱：<asp:DropDownList ID="ddl_rooms" runat="server" CssClass="select4">
                     </asp:DropDownList>&nbsp;&nbsp;
-                    <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="查詢申請單" OnClick="btn_submit_Click" />
+                    <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="查詢" 
+                        OnClick="btn_submit_Click" />
                 </td>
             </tr>
         </table>
@@ -64,36 +56,29 @@
         </div>
         <div class="header">
             <div class="h1"></div>
-            <div class="h2"></div>
+            <div class="h2">
+                <div class="function">
+                    <asp:Button ID="btn_print" runat="server" Text="列印" CssClass="b-input" />
+                </div>
+            </div>
             <div class="h3"></div>
         </div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
-                    EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound"
-                    GridLines="None" DataKeyNames="pet_no">
+                    EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound" GridLines="None"
+                    DataKeyNames="pet_no">
                     <Columns>
-                        <asp:BoundField DataField="spo_name" HeaderText="所在地" 
-                            SortExpression="spo_name" />
-                        <asp:BoundField DataField="roo_name" HeaderText="場地名稱" 
-                            SortExpression="roo_name" />
-                        <asp:BoundField DataField="pet_depno" HeaderText="借用單位" 
-                            SortExpression="pet_depno" />
-                        <asp:BoundField DataField="uidtel" HeaderText="申請人" 
-                            SortExpression="uidtel" />
+                        <asp:BoundField DataField="spo_name" HeaderText="所在地" SortExpression="spo_name" />
+                        <asp:BoundField DataField="roo_name" HeaderText="場地名稱" SortExpression="roo_name" />
+                        <asp:BoundField DataField="pet_depno" HeaderText="借用單位" SortExpression="pet_depno" />
+                        <asp:BoundField DataField="uidtel" HeaderText="申請人" SortExpression="uidtel" />
                         <asp:BoundField DataField="stet" HeaderText="借用時間" SortExpression="stet" />
-                        <asp:BoundField DataField="pet_host" HeaderText="主持人" 
-                            SortExpression="pet_host" />
-                        <asp:BoundField DataField="pet_count" HeaderText="與會人數" 
-                            SortExpression="pet_count" />
-                        <asp:BoundField DataField="pet_reason" HeaderText="申請事由" 
-                            SortExpression="pet_reason" />
-                        <asp:BoundField DataField="pet_apply" HeaderText="狀態" 
-                            SortExpression="pet_apply" />
-                        <asp:TemplateField HeaderText="審核">
-                            <ItemStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="pet_host" HeaderText="主持人" SortExpression="pet_host" />
+                        <asp:BoundField DataField="pet_count" HeaderText="與會人數" SortExpression="pet_count" />
+                        <asp:BoundField DataField="pet_reason" HeaderText="申請事由" SortExpression="pet_reason" />
+                        <asp:BoundField DataField="pet_apply" HeaderText="狀態" SortExpression="pet_apply" />
                     </Columns>
                     <HeaderStyle HorizontalAlign="Left" />
                 </cc1:GridView>

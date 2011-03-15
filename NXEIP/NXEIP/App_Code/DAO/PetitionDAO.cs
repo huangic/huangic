@@ -44,6 +44,7 @@ namespace NXEIP.DAO
             public int pet_count { get; set; }
             public string pet_reason { get; set; }
             public string pet_apply { get; set; }
+            public string pet_tel { get; set; }
             public string stet
             {
                 get
@@ -61,6 +62,17 @@ namespace NXEIP.DAO
                     stet = value;
                 }
             }
+            public string uidtel
+            {
+                get
+                {
+                    return new PeopleDAO().GetPeopleNameByUid(pet_applyuid) + System.Environment.NewLine + pet_tel;
+                }
+                set
+                {
+                    uidtel = value;
+                }
+            }
             
         }
         #endregion
@@ -68,215 +80,449 @@ namespace NXEIP.DAO
         #region 分頁列表使用
         public IQueryable<NewPetition> GetAll(string sdate, string edate, string status, int spots1, int rooms1,int loginuser)
         {
-            if (sdate != null && edate != null && status != null)
+            if (loginuser >= 0)
             {
-                DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
-                DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
-                if (status.Equals("0"))
+                #region 有審核人時
+                if (sdate != null && edate != null && status != null)
                 {
-                    #region 當申請狀態選全部時
-                    if (rooms1 > 0)
+                    DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
+                    DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
+                    if (status.Equals("0"))
                     {
-                        #region 查某個場地
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending, pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
-                        #endregion
-                    }
-                    else if (spots1 > 0)
-                    {
-                        #region 查某個所在地
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && room.spo_no == spots1 && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending, pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
+                        #region 當申請狀態選全部時
+                        if (rooms1 > 0)
+                        {
+                            #region 查某個場地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else if (spots1 > 0)
+                        {
+                            #region 查某個所在地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && room.spo_no == spots1 && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else
+                        {
+                            #region 查全部
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
                         #endregion
                     }
                     else
                     {
-                        #region 查全部
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending,pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
+                        #region 當申請狀態選非全部時
+                        if (rooms1 > 0)
+                        {
+                            #region 查某個場地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else if (spots1 > 0)
+                        {
+                            #region 查某個所在地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && room.spo_no == spots1 && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else
+                        {
+                            #region 查全部
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && checkertb.che_peouid == loginuser
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
                         #endregion
                     }
-                    #endregion
                 }
                 else
                 {
-                    #region 當申請狀態選非全部時
-                    if (rooms1>0)
+                    #region 查出全部
+                    var itemColl = from pet in model.petition
+                                   join room in model.rooms on pet.roo_no equals room.roo_no
+                                   join spo in model.spot on room.spo_no equals spo.spo_no
+                                   join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                   where checkertb.che_peouid == loginuser
+                                   orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                   select new NewPetition
+                                   {
+                                       pet_no = pet.pet_no,
+                                       spo_no = spo.spo_no,
+                                       spo_name = spo.spo_name,
+                                       roo_no = room.roo_no,
+                                       roo_name = room.roo_name,
+                                       pet_depno = pet.pet_depno.Value,
+                                       pet_applyuid = pet.pet_applyuid.Value,
+                                       pet_stime = pet.pet_stime.Value,
+                                       pet_etime = pet.pet_etime.Value,
+                                       pet_host = pet.pet_host,
+                                       pet_count = pet.pet_count.Value,
+                                       pet_reason = pet.pet_reason,
+                                       pet_apply = pet.pet_apply,
+                                       pet_tel = pet.pet_tel
+                                   };
+                    return itemColl;
+                    #endregion
+                }
+                #endregion
+            }
+            else
+            {
+                #region 無審核人時
+                if (sdate != null && edate != null && status != null)
+                {
+                    DateTime sd = Convert.ToDateTime(sdate + " 00:00:00");
+                    DateTime ed = Convert.ToDateTime(edate + " 23:59:59");
+                    if (status.Equals("0"))
                     {
-                        #region 查某個場地
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && pet.roo_no == rooms1 && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending, pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
-                        #endregion
-                    }
-                    else if (spots1 > 0)
-                    {
-                        #region 查某個所在地
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && room.spo_no == spots1 && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending, pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
+                        #region 當申請狀態選全部時
+                        if (rooms1 > 0)
+                        {
+                            #region 查某個場地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && pet.roo_no == rooms1
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else if (spots1 > 0)
+                        {
+                            #region 查某個所在地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2") && room.spo_no == spots1
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else
+                        {
+                            #region 查全部
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && (pet.pet_apply == "1" || pet.pet_apply == "2")
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
                         #endregion
                     }
                     else
                     {
-                        #region 查全部
-                        var itemColl = from pet in model.petition
-                                       join room in model.rooms on pet.roo_no equals room.roo_no
-                                       join spo in model.spot on room.spo_no equals spo.spo_no
-                                       join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                                       where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && checkertb.che_peouid == loginuser
-                                       orderby pet.pet_stime descending, pet.pet_etime descending
-                                       select new NewPetition
-                                       {
-                                           pet_no = pet.pet_no,
-                                           spo_no = spo.spo_no,
-                                           spo_name = spo.spo_name,
-                                           roo_no = room.roo_no,
-                                           roo_name = room.roo_name,
-                                           pet_depno = pet.pet_depno.Value,
-                                           pet_applyuid = pet.pet_applyuid.Value,
-                                           pet_stime = pet.pet_stime.Value,
-                                           pet_etime = pet.pet_etime.Value,
-                                           pet_host = pet.pet_host,
-                                           pet_count = pet.pet_count.Value,
-                                           pet_reason = pet.pet_reason,
-                                           pet_apply = pet.pet_apply
-                                       };
-                        return itemColl;
+                        #region 當申請狀態選非全部時
+                        if (rooms1 > 0)
+                        {
+                            #region 查某個場地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && pet.roo_no == rooms1
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else if (spots1 > 0)
+                        {
+                            #region 查某個所在地
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status && room.spo_no == spots1
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
+                        else
+                        {
+                            #region 查全部
+                            var itemColl = from pet in model.petition
+                                           join room in model.rooms on pet.roo_no equals room.roo_no
+                                           join spo in model.spot on room.spo_no equals spo.spo_no
+                                           join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                           where pet.pet_stime >= sd && pet.pet_etime <= ed && pet.pet_apply == status
+                                           orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                           select new NewPetition
+                                           {
+                                               pet_no = pet.pet_no,
+                                               spo_no = spo.spo_no,
+                                               spo_name = spo.spo_name,
+                                               roo_no = room.roo_no,
+                                               roo_name = room.roo_name,
+                                               pet_depno = pet.pet_depno.Value,
+                                               pet_applyuid = pet.pet_applyuid.Value,
+                                               pet_stime = pet.pet_stime.Value,
+                                               pet_etime = pet.pet_etime.Value,
+                                               pet_host = pet.pet_host,
+                                               pet_count = pet.pet_count.Value,
+                                               pet_reason = pet.pet_reason,
+                                               pet_apply = pet.pet_apply,
+                                               pet_tel = pet.pet_tel
+                                           };
+                            return itemColl;
+                            #endregion
+                        }
                         #endregion
                     }
+                }
+                else
+                {
+                    #region 查出全部
+                    var itemColl = from pet in model.petition
+                                   join room in model.rooms on pet.roo_no equals room.roo_no
+                                   join spo in model.spot on room.spo_no equals spo.spo_no
+                                   join checkertb in model.checker on room.roo_no equals checkertb.roo_no
+                                   orderby pet.pet_stime ascending, pet.pet_etime ascending
+                                   select new NewPetition
+                                   {
+                                       pet_no = pet.pet_no,
+                                       spo_no = spo.spo_no,
+                                       spo_name = spo.spo_name,
+                                       roo_no = room.roo_no,
+                                       roo_name = room.roo_name,
+                                       pet_depno = pet.pet_depno.Value,
+                                       pet_applyuid = pet.pet_applyuid.Value,
+                                       pet_stime = pet.pet_stime.Value,
+                                       pet_etime = pet.pet_etime.Value,
+                                       pet_host = pet.pet_host,
+                                       pet_count = pet.pet_count.Value,
+                                       pet_reason = pet.pet_reason,
+                                       pet_apply = pet.pet_apply,
+                                       pet_tel = pet.pet_tel
+                                   };
+                    return itemColl;
                     #endregion
                 }
-            }
-            else
-            {
-                #region 查出全部
-                var itemColl = from pet in model.petition
-                               join room in model.rooms on pet.roo_no equals room.roo_no
-                               join spo in model.spot on room.spo_no equals spo.spo_no
-                               join checkertb in model.checker on room.roo_no equals checkertb.roo_no
-                               where checkertb.che_peouid == loginuser
-                               orderby pet.pet_stime descending, pet.pet_etime descending
-                               select new NewPetition
-                               {
-                                   pet_no = pet.pet_no,
-                                   spo_no = spo.spo_no,
-                                   spo_name = spo.spo_name,
-                                   roo_no = room.roo_no,
-                                   roo_name = room.roo_name,
-                                   pet_depno = pet.pet_depno.Value,
-                                   pet_applyuid = pet.pet_applyuid.Value,
-                                   pet_stime = pet.pet_stime.Value,
-                                   pet_etime = pet.pet_etime.Value,
-                                   pet_host = pet.pet_host,
-                                   pet_count = pet.pet_count.Value,
-                                   pet_reason = pet.pet_reason,
-                                   pet_apply = pet.pet_apply
-                               };
-                return itemColl;
                 #endregion
             }
         }
