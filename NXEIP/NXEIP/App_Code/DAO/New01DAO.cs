@@ -73,8 +73,6 @@ namespace NXEIP.DAO
             data = data.OrderByDescending(o => o.n01_sdate).OrderBy(o => o.n01_top);
 
             return data;
-
-            
         }
 
         public IQueryable<new01> GetData(string use, string key, int startRowIndex, int maximumRows)
@@ -134,6 +132,20 @@ namespace NXEIP.DAO
                         orderby d.n01_top, d.n01_sdate descending
                         select d);
             }
+        }
+
+        public IQueryable<new01> Get_DataForWidget(string use, string date)
+        {
+            DateTime today = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            DateTime n01_date = Convert.ToDateTime(date);
+
+            var data = from d in model.new01
+                       where d.n01_status == "1" && d.n01_use == use
+                       && today >= d.n01_sdate && today <= d.n01_edate && d.n01_date >= n01_date
+                       orderby d.n01_top, d.n01_sdate descending
+                       select d;
+
+            return data;
         }
 
         public IQueryable<new01> GetDataBySysNo(int s06_no, string key, int startRowIndex, int maximumRows)
