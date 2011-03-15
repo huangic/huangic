@@ -26,13 +26,14 @@
               <td>&nbsp;</td>
               <td>
               <div class="row_n">
-             <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
+                <ul>
+                 <asp:Repeater ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
               
                 <ItemTemplate>
                      <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/10/100200/100202.aspx"><%# Eval("Treat.tre_name") %></asp:HyperLink></li>
                 </ItemTemplate>
-                </asp:DataList>
-                        
+                </asp:Repeater>
+                        </ul>
                 </div>
              </td>
             </tr>

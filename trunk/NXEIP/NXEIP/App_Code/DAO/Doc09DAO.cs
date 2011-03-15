@@ -59,7 +59,7 @@ namespace NXEIP.DAO
                 from d in model.doc09
                 where p.peo_uid == d.d09_peouid
                 &&d.d09_status=="1"
-                orderby d.d09_createtime
+                orderby d.d09_date descending
                 select new { doc = d, people = p };
 
             if (dep_no != null)
@@ -305,6 +305,16 @@ namespace NXEIP.DAO
             return doc.Select(x => x.doc);
 
         }
+
+
+        public IQueryable<doc09> GetDepartmentData(int dep_no,int takeNum) {
+            return this.GetSearchData(dep_no, null, "").Take(takeNum);
+        }
+
+        public IQueryable<doc09> GetUnitData(int takeNum)
+        {
+            return this.GetSearchData(null, null, "").Take(takeNum);
+        } 
 
     }
 }

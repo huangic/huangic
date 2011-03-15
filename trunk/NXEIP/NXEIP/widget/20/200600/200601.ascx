@@ -28,24 +28,36 @@
               
           
           </div>
+          
+          <div>
           <div class="first">
+          
+          
             
-            <div class="row_n">           
+            <div class="row_1">           
 
 
 
-            
-              <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
-            
-                <ItemTemplate>
-                 <li class="dot_a51">
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# String.Format("~/20/200600/200601-2.aspx?tao_no={0}",Eval("tao_no")) %>'><%#Eval("t01_subject") %></asp:HyperLink></li>
-                
-                </ItemTemplate>
-            
-              </asp:DataList>
-                   
+            <ul>
+              
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1" >
+                    <ItemTemplate>
+                     <li class="dot_a51">
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# String.Format("~/20/200600/200601-2.aspx?tao_no={0}",Eval("tao_no")) %>'><%#Eval("t01_subject") %></asp:HyperLink>
+                 </li>
+                    
+                    </ItemTemplate>
+
+                </asp:Repeater>
+              
+              
+           
+                 </ul>  
            </div>
+          
+
+          </div>
+
           </div>
           </div> 
           
