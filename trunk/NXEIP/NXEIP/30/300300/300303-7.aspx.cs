@@ -82,41 +82,48 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
 
     private string dataStr(int uid, string arg)
     {
+        string data = "";
+
         string[] isShow = arg.Split(',');
 
-        var peo_data = (from p in model.people
-                        where p.peo_uid == uid
-                        from d in model.departments
-                        where d.dep_no == p.dep_no
-                        from t in model.types
-                        where t.typ_no == p.peo_pfofess
-                        select new { name = p.peo_name, depname = d.dep_name, proname = t.typ_cname, idcard = p.peo_idcard, tel = p.peo_tel }).FirstOrDefault();
+        int peopleCount = (from d in model.people where d.peo_uid == uid select d).Count();
 
-        string data = "X";
-        //單位
-        if (isShow[0].Equals("1"))
+        if (peopleCount > 0)
         {
-            data += ","+peo_data.depname;
-        }
-        //職稱
-        if (isShow[1].Equals("1"))
-        {
-            data += "," + peo_data.proname;
-        }
-        //姓名
-        if (isShow[2].Equals("1"))
-        {
-            data += "," + peo_data.name;
-        }
-        //身份證
-        if (isShow[3].Equals("1"))
-        {
-            data += "," + peo_data.idcard;
-        }
-        //電話
-        if (isShow[4].Equals("1"))
-        {
-            data += "," + peo_data.tel;
+            var peo_data = (from p in model.people
+                            where p.peo_uid == uid
+                            from d in model.departments
+                            where d.dep_no == p.dep_no
+                            from t in model.types
+                            where t.typ_no == p.peo_pfofess
+                            select new { name = p.peo_name, depname = d.dep_name, proname = t.typ_cname, idcard = p.peo_idcard, tel = p.peo_tel }).FirstOrDefault();
+
+            data = "X";
+            //單位
+            if (isShow[0].Equals("1"))
+            {
+                data += "," + peo_data.depname;
+            }
+            //職稱
+            if (isShow[1].Equals("1"))
+            {
+                data += "," + peo_data.proname;
+            }
+            //姓名
+            if (isShow[2].Equals("1"))
+            {
+                data += "," + peo_data.name;
+            }
+            //身份證
+            if (isShow[3].Equals("1"))
+            {
+                data += "," + peo_data.idcard;
+            }
+            //電話
+            if (isShow[4].Equals("1"))
+            {
+                data += "," + peo_data.tel;
+            }
         }
         
         return data;
@@ -235,7 +242,7 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
         //日期,地點
         ChangeObject cboj = new ChangeObject();
         string date = cboj._ROCtoROCYMD(cboj._ADtoROC(e02Data.e02_sdate.Value));
-        string place = (from t in model.e01 where t.e01_no == e02Data.e01_no select t.e01_name).FirstOrDefault();
+        string place = e02Data.e02_place;
         Row row2 = sheet1.CreateRow(1);
         row2.CreateCell(0).SetCellValue("日期：" + date);
         row2.CreateCell(1).SetCellValue("上課地點：" + place);
@@ -260,10 +267,14 @@ public partial class _30_300300_300303_7 : System.Web.UI.Page
         for (int i = 0; i < e04_uid.Length; i++)
         {
             Row row = sheet1.CreateRow(i + 3);
-            string[] data = this.dataStr(e04_uid[i], this.hidd_checked.Value).Split(',');
-            for (int j = 1; j < data.Length; j++)
+            string peopleStr = this.dataStr(e04_uid[i], this.hidd_checked.Value);
+            if (peopleStr.Length > 0)
             {
-                row.CreateCell(j - 1).SetCellValue(data[j]);
+                string[] data = peopleStr.Split(',');
+                for (int j = 1; j < data.Length; j++)
+                {
+                    row.CreateCell(j - 1).SetCellValue(data[j]);
+                }
             }
         }
     }
