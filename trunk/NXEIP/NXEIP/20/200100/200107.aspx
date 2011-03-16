@@ -154,7 +154,7 @@
                         onclick="btn_dep_Click" />
                         <asp:Button ID="btn_my" runat="server" Text="我的檔案" CssClass="show b-input" onclick="btn_my_Click" 
                          />
-                    <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=800"
+                    <input type="button" class="thickbox b-input" alt="200107-2.aspx?modal=true&TB_iframe=true&height=378&width=600"
                         value="新增檔案" />
                 </div>
             </div>

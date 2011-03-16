@@ -79,7 +79,7 @@
                    <th>
                         適用單位
                     </th>
-                    <td colspan="3">
+                    <td >
                         <asp:RadioButtonList ID="RadioButtonList2" runat="server" BorderStyle="None" 
                             RepeatDirection="Horizontal" RepeatLayout="Flow">
                             
