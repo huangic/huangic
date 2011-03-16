@@ -57,7 +57,7 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                 //日期,地點
                 ChangeObject cboj = new ChangeObject();
                 string date = cboj._ROCtoROCYMD(cboj._ADtoROC(e02Data.e02_sdate.Value));
-                string place = (from t in model.e01 where t.e01_no == e02Data.e01_no select t.e01_name).FirstOrDefault();
+                string place = e02Data.e02_place;
                 table_place = @"<tr style='height:25px'><td colspan='" + colSpan + "'>"+
                                     "<span style='float:left'>日期：" + date + "</span>" +
                                     "<span style='float:right'>上課地點：" + place + "</span>"+
@@ -89,7 +89,11 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
                     string table_body = "";
                     for (int i = 0; i < e04_uid.Length; i++)
                     {
-                        table_body += this.dataStr(e04_uid[i],arg);
+                        string peopleStr = this.dataStr(e04_uid[i], arg);
+                        if (peopleStr.Length > 0)
+                        {
+                            table_body += peopleStr;
+                        }
                     }
 
                     //此頁字串
@@ -120,45 +124,51 @@ public partial class _30_300300_300303_8 : System.Web.UI.Page
     /// <returns></returns>
     private string dataStr(int uid, string arg)
     {
+        string data = "";
         string[] isShow = arg.Split(',');
 
-        var peo_data = (from p in model.people
-                    where p.peo_uid == uid
-                    from d in model.departments
-                    where d.dep_no == p.dep_no
-                    from t in model.types
-                    where t.typ_no == p.peo_pfofess
-                    select new { name = p.peo_name, depname = d.dep_name, proname = t.typ_cname, idcard = p.peo_idcard, tel = p.peo_tel }).FirstOrDefault();
+        int peopleCount = (from d in model.people where d.peo_uid == uid select d).Count();
 
-        string data = "<tr style='height:25px'>";
-        //單位
-        if (isShow[0].Equals("1"))
+        if (peopleCount > 0)
         {
-            data += "<td>" + peo_data.depname + "</td>";
+            var peo_data = (from p in model.people
+                            where p.peo_uid == uid
+                            from d in model.departments
+                            where d.dep_no == p.dep_no
+                            from t in model.types
+                            where t.typ_no == p.peo_pfofess
+                            select new { name = p.peo_name, depname = d.dep_name, proname = t.typ_cname, idcard = p.peo_idcard, tel = p.peo_tel }).FirstOrDefault();
+
+            data = "<tr style='height:25px'>";
+            //單位
+            if (isShow[0].Equals("1"))
+            {
+                data += "<td>" + peo_data.depname + "</td>";
+            }
+            //職稱
+            if (isShow[1].Equals("1"))
+            {
+                data += "<td>" + peo_data.proname + "</td>";
+            }
+            //姓名
+            if (isShow[2].Equals("1"))
+            {
+                data += "<td>" + peo_data.name + "</td>";
+            }
+            //身份證
+            if (isShow[3].Equals("1"))
+            {
+                data += "<td>" + peo_data.idcard + "</td>";
+            }
+            //電話
+            if (isShow[4].Equals("1"))
+            {
+                data += "<td>" + peo_data.tel + "</td>";
+            }
+            //簽到欄
+            data += "<td>&nbsp;</td>";
+            data += "</tr>";
         }
-        //職稱
-        if (isShow[1].Equals("1"))
-        {
-            data += "<td>" + peo_data.proname + "</td>";
-        }
-        //姓名
-        if (isShow[2].Equals("1"))
-        {
-            data += "<td>" + peo_data.name + "</td>";
-        }
-        //身份證
-        if (isShow[3].Equals("1"))
-        {
-            data += "<td>" + peo_data.idcard + "</td>";
-        }
-        //電話
-        if (isShow[4].Equals("1"))
-        {
-            data += "<td>" + peo_data.tel + "</td>";
-        }
-        //簽到欄
-        data += "<td>&nbsp;</td>";
-        data += "</tr>";
 
         return data;
 
