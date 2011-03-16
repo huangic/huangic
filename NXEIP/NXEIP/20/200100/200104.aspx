@@ -99,12 +99,14 @@
                     onrowcommand="GridView1_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="發文單位">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d06_depno")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="d06_number" HeaderText="公文文號" />
                         <asp:TemplateField HeaderText="建檔人員">
+                            <HeaderStyle Width="100px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d06_peouid")) %>'></asp:Label>
 
@@ -117,11 +119,13 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="建檔日期">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label3" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d06_date")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="電話(分機)">
+                           <HeaderStyle Width="100px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# string.Format("電話:{0}<br/>分機:{1}", Eval("d06_tel"), Eval("d06_ext")) %>'></asp:Label>
                             </ItemTemplate>
@@ -129,7 +133,8 @@
 
 
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="是否公開">
+                        <asp:TemplateField HeaderText="公開">
+                            <HeaderStyle Width="40px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label5" runat="server" Text='<%# ((string)Eval("d06_open")).Equals("1")?"否":"是" %>'></asp:Label>
                             </ItemTemplate>
@@ -164,9 +169,10 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
+                            <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200104-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d06_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>'><span>修改</span></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Enabled='<%# GetModifyVisible((int)Eval("d06_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200104-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d06_no"))%>'  Visible='<%# GetModifyVisible((int)Eval("d06_peouid"))%>'><span>修改</span></asp:HyperLink>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del"  Visible='<%# GetModifyVisible((int)Eval("d06_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
                             
                             
                             </ItemTemplate>

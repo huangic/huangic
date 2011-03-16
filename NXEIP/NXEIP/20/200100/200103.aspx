@@ -125,6 +125,7 @@
                         <Columns>
                             
                             <asp:TemplateField HeaderText="所屬單位">
+                               <HeaderStyle Width="80px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# GetSys06Name(Eval("off_type")) %>'></asp:Label>
                                 </ItemTemplate>
@@ -133,6 +134,7 @@
 
 
                             <asp:TemplateField HeaderText="上傳單位">
+                               <HeaderStyle Width="80px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%#Eval("off_depname") %>'></asp:Label>
                                 </ItemTemplate>
@@ -141,6 +143,7 @@
 
                            
                             <asp:TemplateField HeaderText="上傳人員">
+                               <HeaderStyle Width="100px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("off_peouid")) %>'></asp:Label>
                                 </ItemTemplate>
@@ -208,6 +211,7 @@
                         <Columns>
                           
                             <asp:TemplateField HeaderText="所屬單位">
+                                <HeaderStyle Width="80px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# GetDepartmentName((Int32)Eval("dep_no")) %>'></asp:Label>
                                 </ItemTemplate>
@@ -216,6 +220,7 @@
                                                      
                             
                             <asp:TemplateField HeaderText="人員名稱">
+                                <HeaderStyle Width="100px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("peo_name") %>'></asp:Label>
                                    
@@ -223,6 +228,7 @@
                             </asp:TemplateField>
 
                               <asp:TemplateField HeaderText="電話">
+                               <HeaderStyle Width="80px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("peo_tel") %>'></asp:Label>
                                    
@@ -230,6 +236,7 @@
                             </asp:TemplateField>
 
                               <asp:TemplateField HeaderText="行動電話">
+                                <HeaderStyle Width="80px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Eval("peo_cellphone") %>'></asp:Label>
                                    
@@ -237,6 +244,7 @@
                             </asp:TemplateField>
 
                               <asp:TemplateField HeaderText="E-Mail">
+                                <HeaderStyle Width="150px" />
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Eval("peo_email") %>'></asp:Label>
                                    
