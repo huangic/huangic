@@ -68,7 +68,7 @@ public partial class _35_350300_350303 : System.Web.UI.Page
                         
                         startno = dt1.Rows[i]["serial_no"].ToString();
                         #region 查看看是不是有此人名
-                        string sqlstr2 = "SELECT peo_uid FROM people WHERE (peo_name = '" + dt1.Rows[i]["c_name"].ToString().Trim() + "')";
+                        string sqlstr2 = "SELECT peo_uid FROM people WHERE (peo_name = N'" + dt1.Rows[i]["c_name"].ToString().Trim() + "')";
                         dt2.Clear();
                         dt2 = dbo.ExecuteQuery(sqlstr2);
                         if (dt2.Rows.Count > 0)
