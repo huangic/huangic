@@ -83,6 +83,7 @@
                         <asp:BoundField DataField="d11_subject" HeaderText="主旨" 
                             SortExpression="d11_subject" />
                         <asp:TemplateField HeaderText="上傳日期&lt;br/&gt;截止日期">
+                           <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d11_date")) %>'></asp:Label>
                                <br />
@@ -92,6 +93,7 @@
 
                         </asp:TemplateField>
                           <asp:TemplateField HeaderText="上傳單位">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label3" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d11_depno")) %>'></asp:Label>
                             </ItemTemplate>
@@ -103,6 +105,7 @@
 
 
                         <asp:TemplateField HeaderText="人員&lt;br/&gt;電話(分機)">
+                           <HeaderStyle Width="100px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# new NXEIP.DAO.PeopleDAO().GetPeopleNameByUid((Int32)Eval("d11_peouid")) %>'></asp:Label>
                                 <br />
@@ -141,6 +144,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="我要回傳">
+                          <HeaderStyle Width="70px" />
                           <ItemTemplate>
                              
                              
@@ -154,6 +158,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="已回傳">
+                           <HeaderStyle Width="70px" />
                             <ItemTemplate>
                              
                              
@@ -168,9 +173,10 @@
 
                         </asp:TemplateField>
                        <asp:TemplateField>
+                           <HeaderStyle Width="60px" />
                             <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200105-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d11_no"))%>' Enabled='<%# GetModifyVisible((int)Eval("d11_peouid"))%>'><span>修改</span></asp:HyperLink>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Enabled='<%# GetModifyVisible((int)Eval("d11_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="thickbox imageButton edit" NavigateUrl='<%# string.Format("200105-3.aspx?id={0}&modal=true&TB_iframe=true&height=378&width=600",Eval("d11_no"))%>'  Visible='<%# GetModifyVisible((int)Eval("d11_peouid"))%>'><span>修改</span></asp:HyperLink>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass=" imageButton delete"  CommandName="del" Visible='<%# GetModifyVisible((int)Eval("d11_peouid"))%>' OnClientClick="return confirm('確定要刪除?')"><span>刪除</span></asp:LinkButton>
                             
                             
                             </ItemTemplate>

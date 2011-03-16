@@ -170,11 +170,13 @@
                     DataKeyNames="d09_no">
                     <Columns>
                         <asp:TemplateField HeaderText="檔案類別">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# GetCatName((Int32)Eval("s06_no")) %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="檔案類別">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# GetCatChildName((Int32)Eval("s06_no")) %>'></asp:Label>
                             </ItemTemplate>
@@ -185,6 +187,7 @@
                        
                        
                         <asp:TemplateField HeaderText="上傳日期">
+                            <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label3" runat="server" Text='<%# new ChangeObject()._ADtoROC((DateTime)Eval("d09_date")) %>'></asp:Label>
                             </ItemTemplate>
@@ -192,6 +195,7 @@
 
 
                          <asp:TemplateField HeaderText="上傳單位">
+                          <HeaderStyle Width="80px" />
                             <ItemTemplate>
                                 <asp:Label ID="Label4" runat="server" Text='<%# GetDepartmentName((Int32)Eval("d09_depno")) %>'></asp:Label>
                             </ItemTemplate>
