@@ -20,7 +20,18 @@
     <script type="text/javascript" src='<%#ResolveUrl("~/js/thickbox.js") %>'></script>
     <script type="text/javascript" src='<%#ResolveUrl("~/js/jquery.autocomplete.js") %>'></script>
     <script type="text/javascript" src='<%#ResolveUrl("~/js/json2.js") %>'></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $(".tableDiv tr:has(td)").hover(function () {
+                $(this).css("background-color", "#EEEEEE");
+                $(this).children().css("background-color", "transparent");
+            }, function () {
+                $(this).css('background-color', '#FFFFFF');
+            });
+        });
+    
+    </script>
     
     <asp:ContentPlaceHolder id="head" runat="server">
     
