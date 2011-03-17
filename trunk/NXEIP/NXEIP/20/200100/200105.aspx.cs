@@ -137,4 +137,16 @@ public partial class _20_200100_200105 : System.Web.UI.Page
             this.GridView1.DataBind();
         }
     }
+
+
+    protected String GetROCDT(DateTime? dt)
+    {
+        if (dt.HasValue)
+        {
+            return new ChangeObject()._ADtoROC(dt.Value);
+        }
+        else { 
+            return "";
+        }
+    }
 }

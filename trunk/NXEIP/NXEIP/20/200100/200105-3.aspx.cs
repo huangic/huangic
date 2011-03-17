@@ -48,7 +48,15 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
             
             this.lb_peo.Text = sessionObj.sessionUserName;
             this.lb_dep.Text = sessionObj.sessionUserDepartName;
-            this.lb_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+
+            try
+            {
+                this.lb_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+            }
+            catch { 
+            
+            }
+            
             this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
             this.hidden_doc11no.Value = Request["id"];
 
@@ -61,8 +69,14 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
                  this.tb_subject.Text = d11.d11_subject;
                  this.tb_use.Text = d11.d11_use;
-                 this.calendar1._ADDate = d11.d11_edate.Value;
-                
+                 try
+                 {
+                     this.calendar1._ADDate = d11.d11_edate.Value;
+                 }
+                 catch { 
+                 
+                 }
+
                 var people =(from p in model.people where p.peo_uid==peo_uid select p).First();
                 this.tb_tel.Text = people.peo_tel;
                 this.tb_ext.Text = people.peo_extension;
@@ -112,7 +126,13 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
 
                 doc.d11_date = DateTime.Now;
-                doc.d11_edate = this.calendar1._ADDate;
+                try
+                {
+                    doc.d11_edate = this.calendar1._ADDate;
+                }
+                catch {
+                    doc.d11_edate = null;
+                }
                 doc.d11_peouid = int.Parse(sessionObj.sessionUserID);
                 doc.d11_ext = this.tb_ext.Text;
                 doc.d11_depno = int.Parse(sessionObj.sessionUserDepartID);
