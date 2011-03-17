@@ -32,6 +32,16 @@ namespace NXEIP.DAO
             public int dep_order { get; set; }
             public int typ_order { get; set; }
         }
+
+        public class NewBotanize1
+        {
+            public int peo_uid { get; set; }
+            public string dep_name { get; set; }
+            public string pro_name { get; set; }
+            public string peo_name { get; set; }
+            public int dep_order { get; set; }
+            public int typ_order { get; set; }
+        }
         #endregion
 
         #region 分頁列表使用
@@ -67,6 +77,35 @@ namespace NXEIP.DAO
         }
         #endregion
 
+        #region 未填寫者列表(分頁)
+        public IQueryable<NewBotanize1> GetAll(int que_no,int jobtype)
+        {
+            var itemColl = (from tb1 in model.people
+                            join tb2 in model.departments on tb1.dep_no equals tb2.dep_no
+                            join tb3 in model.types on tb1.peo_pfofess equals tb3.typ_no
+                            where !(from tb6 in model.botanize join tb7 in model.casework on tb6.bot_no equals tb7.bot_no where tb7.que_no == que_no && tb6.bot_status == "1" select tb6.peo_uid).Contains(tb1.peo_uid) && tb1.peo_jobtype==jobtype
+                            orderby tb2.dep_order ascending, tb3.typ_order ascending, tb1.peo_name ascending
+                            select new NewBotanize1
+                            {
+                                peo_uid=tb1.peo_uid,
+                                dep_name = tb2.dep_name,
+                                pro_name = tb3.typ_cname,
+                                peo_name = tb1.peo_name,
+                                dep_order = tb2.dep_order.Value,
+                                typ_order = tb3.typ_order.Value
+                            }).Distinct().OrderBy(x => x.peo_name).OrderBy(x => x.typ_order).OrderBy(x => x.dep_order);
+            return itemColl;
+        }
+        public IQueryable<NewBotanize1> GetAll(int que_no, int jobtype, int startRowIndex, int maximumRows)
+        {
+            return GetAll(que_no,jobtype).Skip(startRowIndex).Take(maximumRows);
+        }
+
+        public int GetAllCount(int que_no, int jobtype)
+        {
+            return GetAll(que_no,jobtype).Count();
+        }
+        #endregion
 
         #region 新增&修改
         public void AddBotanize(botanize tb)

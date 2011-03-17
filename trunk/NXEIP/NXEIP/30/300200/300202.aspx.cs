@@ -62,7 +62,11 @@ public partial class _30_300200_300202 : System.Web.UI.Page
             string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
             Response.Redirect("300202-3.aspx?no=" + pkno + "&count=" + new System.Random().Next(10000).ToString());
         }
-
+        else if (e.CommandName.Equals("Unfilled"))
+        {
+            string pkno = this.GridView1.DataKeys[Convert.ToInt32(e.CommandArgument)].Value.ToString();
+            Response.Redirect("300202-4.aspx?no=" + pkno + "&count=" + new System.Random().Next(10000).ToString());
+        }
     }
     #endregion
 }

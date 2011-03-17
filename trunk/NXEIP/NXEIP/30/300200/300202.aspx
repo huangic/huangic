@@ -69,6 +69,14 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" Width="50" />
                         </asp:TemplateField>
+                        <asp:TemplateField HeaderText="未填寫者">
+                        <ItemTemplate>
+                                <asp:Button ID="btn_nolist" runat="server" CommandName="Unfilled" CommandArgument="<%# Container.DataItemIndex %>"
+                                    CssClass="people" />
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" Width="60" />
+                        </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
                 <div class="footer">
