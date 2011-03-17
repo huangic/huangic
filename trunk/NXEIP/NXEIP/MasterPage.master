@@ -24,10 +24,10 @@
 
         $(function () {
             $(".tableDiv tr:has(td)").hover(function () {
-                $(this).css("background-color", "#EEEEEE");
-                $(this).children().css("background-color", "transparent");
+                $(this).children().addClass("hover");
+                
             }, function () {
-                $(this).css('background-color', '#FFFFFF');
+                $(this).children().removeClass("hover");
             });
         });
     
