@@ -48,7 +48,13 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
             
             this.lb_peo.Text = sessionObj.sessionUserName;
             this.lb_dep.Text = sessionObj.sessionUserDepartName;
-            this.lb_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+            try
+            {
+                this.lb_date.Text = new ChangeObject()._ADtoROC(DateTime.Now);
+            }
+            catch {
+                this.lb_date.Text = "";
+            }
             this.lb_size.Text = String.Format("(單一檔案限制{0}MB)", size);
             this.hidden_doc11no.Value = Request["id"];
 

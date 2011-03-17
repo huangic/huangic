@@ -88,7 +88,13 @@ public partial class _20_200100_200105_2 : System.Web.UI.Page
 
 
                 doc.d11_date = DateTime.Now;
-                doc.d11_edate = this.calendar1._ADDate;
+                try
+                {
+                    doc.d11_edate = this.calendar1._ADDate;
+                }
+                catch { 
+                
+                }
                 doc.d11_peouid = int.Parse(sessionObj.sessionUserID);
                 doc.d11_ext = this.tb_ext.Text;
                 doc.d11_depno = int.Parse(sessionObj.sessionUserDepartID);
