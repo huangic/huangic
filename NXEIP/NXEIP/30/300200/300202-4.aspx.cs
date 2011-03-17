@@ -8,7 +8,7 @@ using System.Data;
 using NXEIP.DAO;
 using Entity;
 
-public partial class _30_300200_300202_2 : System.Web.UI.Page
+public partial class _30_300200_300202_4 : System.Web.UI.Page
 {
     ChangeObject changeobj = new ChangeObject();
     DBObject dbo = new DBObject();
@@ -18,6 +18,9 @@ public partial class _30_300200_300202_2 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             if (Request["no"] != null) this.lab_no.Text = Request["no"];
+            this.ObjectDataSource1.SelectParameters["que_no"].DefaultValue=this.lab_no.Text;
+            this.ObjectDataSource1.SelectParameters["jobtype"].DefaultValue = new TypesDAO().GetNoByCodeNumber("work", "1").ToString();
+            this.GridView1.DataBind();
             #region 問卷基本資料
             questionary que = new QuestionaryDAO().GetByNo(Convert.ToInt32(this.lab_no.Text));
             if (que != null)
@@ -28,16 +31,6 @@ public partial class _30_300200_300202_2 : System.Web.UI.Page
             #endregion
         }
     }
-
-    #region 調整輸出格式
-    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            e.Row.Cells[3].Text = changeobj.ADDTtoROCDT(e.Row.Cells[3].Text);
-        }
-    }
-    #endregion
 
     #region 回上一頁
     protected void btn_submit_Click(object sender, EventArgs e)
