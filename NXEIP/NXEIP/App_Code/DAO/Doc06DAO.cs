@@ -180,7 +180,7 @@ namespace NXEIP.DAO
         }
 
 
-        public IQueryable<doc06> GetPublicData(string number,string peo_name) {
+        public IQueryable<doc06> GetPublicData(string number,string peo_name,DateTime? publicDate) {
             var doc =
                    from p in model.people
                    from d in model.doc06
@@ -191,6 +191,16 @@ namespace NXEIP.DAO
                    && p.peo_name.Equals(peo_name)
                    orderby d.d06_createtime
                    select d;
+
+
+            if (publicDate.HasValue)
+            {
+                DateTime ed = DateUtil.ConvertToMaxHour(publicDate.Value);
+
+                doc = doc.Where(x => x.d06_date.Value >= publicDate && x.d06_date <= ed);
+
+            }
+
 
             return doc;
         }

@@ -6,6 +6,8 @@
     TagPrefix="cc1" %>
 <%@ Register src="~/lib/people/PeopleDetail.ascx" tagname="PeopleDetail" tagprefix="uc2" %>
 
+<%@ Register src="../lib/calendar.ascx" tagname="calendar" tagprefix="uc3" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,7 +40,7 @@
         $(function () {
             $("#form1").validate(
             {
-                errorClass: "a-letter-Red"
+                errorClass: "a02-15-Red"
             }
             );
         });
@@ -58,6 +60,7 @@
            
             <asp:Parameter DefaultValue="" Name="number" Type="String" />
             <asp:Parameter DefaultValue="" Name="peo_name" Type="String" />
+            <asp:Parameter DefaultValue="" Name="publicDate" Type="DateTime" />
         </SelectParameters>
     </asp:ObjectDataSource>
     
@@ -65,9 +68,13 @@
             <span class="a-letter-2">&nbsp;文號：<span class="a-letter-1">
                     <asp:TextBox ID="tb_number" runat="server" CssClass="required"  minlength="10" MaxLength="10" ToolTip="請輸入10位數文號"></asp:TextBox>
                    
-                </span>建檔人員：<span class="a-letter-1">
-                   <asp:TextBox ID="tb_peoname" runat="server" CssClass="required" ToolTip="請輸入建檔人員"></asp:TextBox>
-                     &nbsp;<asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
+                </span>承辦人：<span class="a-letter-1">
+                   <asp:TextBox ID="tb_peoname" runat="server" CssClass="required" ToolTip="請輸入承辦人"></asp:TextBox>
+                     &nbsp;
+                     
+                     建檔日期:
+                     <uc3:calendar ID="calendar1" runat="server" />
+            <asp:Button ID="Button1" runat="server" Text="搜尋" CssClass="b-input" CausesValidation="False"
                         OnClick="Button1_Click" />
                 </span>
                 

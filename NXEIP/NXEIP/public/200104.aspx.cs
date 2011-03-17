@@ -94,9 +94,19 @@ public partial class public_200104 : System.Web.UI.Page
         number = this.tb_number.Text;
         peo_name = this.tb_peoname.Text;
 
+        
+
+
         this.ObjectDataSource3.SelectParameters[0].DefaultValue = number;
         this.ObjectDataSource3.SelectParameters[1].DefaultValue = peo_name;
-      
+
+        try
+        {
+            this.ObjectDataSource3.SelectParameters[2].DefaultValue = this.calendar1._AD;
+        }
+        catch { 
+        
+        }
 
         this.GridView1.DataBind();
     }
