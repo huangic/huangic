@@ -142,5 +142,9 @@ public partial class _30_300900_300901_2 : System.Web.UI.Page
     }
 
 
-    
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        JsUtil.RedirectJs(this, String.Format("300901.aspx"));
+    }
 }

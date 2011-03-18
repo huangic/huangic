@@ -151,10 +151,19 @@
                         </Fields>
                     </asp:DataPager>
                 </div>
+            
+             <div class="pager">
+        <asp:Button ID="Button2" runat="server" Text="¦^¤W¤@­¶" CssClass="a-input" 
+                 onclick="Button2_Click" />
+        </div>
+            
+            
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="btn_search" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
+        
+
     </div>
 </asp:Content>
