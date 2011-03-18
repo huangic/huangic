@@ -15,11 +15,7 @@ public partial class _10_100100_100101_1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-
-
-
-        
+              
         SessionObject sessionObj=new SessionObject();
 
         //init
@@ -224,17 +220,17 @@ public partial class _10_100100_100101_1 : System.Web.UI.Page
         }
 
         
-        if (String.IsNullOrWhiteSpace(this.tb_group.Text))
-        {
-            msg += "請輸入群組名稱\\n";
-        }
+        //if (String.IsNullOrWhiteSpace(this.tb_group.Text))
+        //{
+        //    msg += "請輸入群組名稱\\n";
+        //}
 
 
         String ip = this.tb_ip1.Text + "." + this.tb_ip2.Text + "." + this.tb_ip3.Text + "." + this.tb_ip4.Text;
 
         if (! ValidUtil.IsValidIP(ip))
         {
-            msg += "請輸入正確IP位置\\n";
+            msg += "請輸入正確IP位址\\n";
             return msg;
         }
 

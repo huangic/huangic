@@ -114,11 +114,11 @@ public partial class _10_100400_100404_1 : System.Web.UI.Page
 
         //Response.Redirect();
 
-        JsUtil.AlertAndRedirectJs(this, "新增成功", String.Format("200108.aspx"));
+        JsUtil.AlertAndRedirectJs(this, "新增成功", String.Format("100404.aspx"));
 
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        JsUtil.RedirectJs(this, String.Format("200108.aspx"));
+        JsUtil.RedirectJs(this, String.Format("100404.aspx"));
     }
 }

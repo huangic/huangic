@@ -66,7 +66,7 @@
                         
                     </td>
                    <th>
-                        電腦名稱
+                        *電腦名稱
                     </th>
                     <td>
                         <asp:TextBox ID="tb_pcname"  MaxLength="30" runat="server"></asp:TextBox>
@@ -75,7 +75,7 @@
                 </tr>
                 <tr>
                     <th>
-                       IP位址
+                       *IP位址
                     </th>
                     <td colspan="3" >
                       

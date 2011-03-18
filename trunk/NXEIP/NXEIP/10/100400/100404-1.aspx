@@ -48,7 +48,12 @@
                         <asp:Label ID="lb_name" runat="server" Text=""></asp:Label>
                                                
                     </td>
-                     <th>
+                   
+
+
+                </tr>
+                <tr>
+                  <th>
                         承辦人員
                     </th>
                     <td>
@@ -56,14 +61,14 @@
                         <asp:Label ID="lb_people" runat="server" Text=""></asp:Label>
                                                
                     </td>
-
-
                 </tr>
+                
+                
                 <tr>
                     <th>
                         表單說明
                     </th>
-                    <td colspan="3">
+                    <td >
                         <asp:Label ID="lb_description" runat="server" Text=""></asp:Label>
                     </td>
                    
