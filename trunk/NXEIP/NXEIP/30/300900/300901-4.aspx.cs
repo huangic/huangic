@@ -168,4 +168,8 @@ public partial class _30_300900_300901_4 : System.Web.UI.Page
 
         this.GridView1.DataBind();
     }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        JsUtil.RedirectJs(this, String.Format("300901.aspx"));
+    }
 }

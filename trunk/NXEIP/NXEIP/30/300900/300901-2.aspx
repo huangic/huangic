@@ -110,7 +110,7 @@
                             <ItemStyle Width="30px" />
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='修改'
-                                    href='<%# String.Format("300901-3.aspx?modal=true&mode=edit&ID={0}&UID={1}&TB_iframe=true&height=600&width=600",Request.QueryString["ID"],Eval("UID")) %>'>
+                                    href='<%# String.Format("300901-3.aspx?modal=true&mode=edit&ID={0}&UID={1}&TB_iframe=true&height=400&width=600",Request.QueryString["ID"],Eval("UID")) %>'>
                                     <span>修改</span>
                                 </a>
                             </ItemTemplate>
@@ -198,8 +198,17 @@
                     <div class="f3">
                     </div>
                 </div>
+              
+              
+               <div class="pager">
+        <asp:Button ID="Button2" runat="server" Text="回上一頁" CssClass="a-input" 
+                onclick="Button2_Click" />
+        </div>
+              
               </ContentTemplate>
         </asp:UpdatePanel>
+    
+       
     </div>
 
 </asp:Content>
