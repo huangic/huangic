@@ -16,7 +16,35 @@ public class UtilityDAO
 
     private NXEIPEntities model = new NXEIPEntities();
 
+    /// <summary>
+    /// 檢查身份證是否重覆 true:重覆
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckIDCard(string idcard)
+    {
+        //在職人員
+        int count = (from p in model.types
+                     where p.typ_code == "work" && p.typ_number == "1" && p.typ_status == "1"
+                     from d in model.people
+                     where d.peo_idcard == idcard && d.peo_jobtype == p.typ_no
+                     select d).Count();
+        return count > 0 ? true : false; 
+    }
 
+    /// <summary>
+    /// 檢查帳號是否重覆 true:重覆
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckAccount(string accStr)
+    {
+        //account 啟用帳號
+        int count = (from d in model.accounts where d.acc_status == "1" && d.acc_login == accStr select d).Count();
+
+        //帳號申請表 送審中
+        count += (from d in model.applys where d.app_login == accStr && d.app_check == "0" select d).Count();
+
+        return count > 0 ? true : false;
+    }
 
 
     public int GetPeoUidByAccount(string account)
@@ -129,5 +157,17 @@ public class UtilityDAO
     public string Get_TypesNumber(int typ_no)
     {
         return (from d in model.types where d.typ_no == typ_no select d.typ_number).FirstOrDefault();
+    }
+
+    /// <summary>
+    /// 取得類別ID
+    /// </summary>
+    /// <param name="code">類別代碼(ptype,work,profess)</param>
+    /// <param name="number">子類別代碼</param>
+    /// <returns></returns>
+    public int Get_TypesTypNo(string code, string number)
+    {
+        return (from d in model.types where d.typ_code == code && d.typ_number == number select d.typ_no).FirstOrDefault();
+
     }
 }
