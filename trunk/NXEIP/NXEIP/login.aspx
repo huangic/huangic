@@ -1,13 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>
         <%Response.Write(System.Configuration.ConfigurationManager.AppSettings["WebName"]); %>
     </title>
-    <link href="./style/Default/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="style/Green/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="style/Green/css/thickbox.css" rel="stylesheet" type="text/css" />
+    
+    <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="js/thickbox.js" type="text/javascript"></script>
     <script type="text/JavaScript">
 <!--
         function MM_preloadImages() { //v3.0
@@ -35,18 +40,34 @@
             var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
                 if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
         }
+
+        function update(msg) {
+            tb_remove();
+            alert(msg);
+        }
+
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                //  reapply the thick box stuff
+                tb_init('a.thickbox');
+            }
+        }
 //-->
     </script>
 </head>
 <body onload="MM_preloadImages('image/login-06-1.gif','image/login-07-1.gif')">
     <form id="form1" runat="server">
-    <div>
+    <div style="text-align:center">
+        
         <br />
         <br />
         <br />
         <br />
         <br />
-        <table width="610" border="0" align="center" cellpadding="18" cellspacing="1" bgcolor="#9C9A9C">
+        
+    </div>
+    <div class="tableDiv">
+    <table width="610" border="0" align="center" cellpadding="18" cellspacing="1" bgcolor="#9C9A9C">
             <tr>
                 <td bgcolor="#FFFFFF">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -105,7 +126,7 @@
                                     <tr>
                                         <td>
                                             <div align="right">
-                                                <a href="#" class="login-a">帳號申請</a><img src="image/login-08.gif" width="19" height="19"
+                                                <a href="./public/applys.aspx?TB_iframe=true&modal=true&width=777" class="thickbox login-a">帳號申請</a><img src="image/login-08.gif" width="19" height="19"
                                                     align="absmiddle" /></div>
                                         </td>
                                     </tr>
@@ -137,7 +158,7 @@
                 </td>
             </tr>
         </table>
-    </div>
+        </div>
     </form>
 </body>
 </html>

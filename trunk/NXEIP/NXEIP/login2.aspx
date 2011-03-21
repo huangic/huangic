@@ -6,7 +6,11 @@
     <title>
         <%Response.Write(System.Configuration.ConfigurationManager.AppSettings["WebName"]); %>
     </title>
-    <link href="./style/Default/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="style/Green/css/login.css" rel="stylesheet" type="text/css" />
+    <link href="style/Green/css/thickbox.css" rel="stylesheet" type="text/css" />
+    
+    <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="js/thickbox.js" type="text/javascript"></script>
     <script type="text/JavaScript">
 <!--
         function MM_preloadImages() { //v3.0
@@ -34,6 +38,20 @@
             var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
                 if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
         }
+
+        function update(msg) {
+            tb_remove();
+            alert(msg);
+        }
+
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                //  reapply the thick box stuff
+                tb_init('a.thickbox');
+            }
+        }
+
+
         function startCheckCert() {
             var iCardType = '1';
 
@@ -354,7 +372,7 @@
                                     <tr>
                                         <td>
                                             <div align="right">
-                                                <a href="#" class="login-a">帳號申請</a><img src="image/login-08.gif" width="19" height="19"
+                                                <a href="./public/applys.aspx?TB_iframe=true&modal=true&width=777" class="thickbox login-a">帳號申請</a><img src="image/login-08.gif" width="19" height="19"
                                                     align="absmiddle" /></div>
                                         </td>
                                     </tr>
