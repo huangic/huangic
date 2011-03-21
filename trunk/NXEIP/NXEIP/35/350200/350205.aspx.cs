@@ -114,32 +114,33 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             accountable.acc_status = "1";
             accountable.acc_createuid = Convert.ToInt32(peo_uid);
             accountable.acc_createtime = System.DateTime.Now;
-            accountable.people = newPeople;
+            accountable.peo_uid = newPeople.peo_uid;
             model.AddToaccounts(accountable);
             model.SaveChanges();
 
-            DBObject dbo = new DBObject();
-
             //角色權限 1.部門預設角色 2.系統預設角色
-            string rol_no = "";
-            string defrole = dbo.ExecuteScalar("select rol_no from roldefault where dep_no =" + dep_no);
-            if (!defrole.Equals(""))
-            {
-                rol_no = defrole;
-            }
-            else
-            {
-                rol_no = dbo.ExecuteScalar("select rol_no from role where rol_default='1'");
-            }
-            //尋找 rac_no 最大值
-            int rac_no = 1;
-            try
-            {
-                rac_no = Convert.ToInt32(dbo.ExecuteScalar("select max(rac_no) as rac_no from roleaccount")) + 1;
-            }
-            catch { }
+            new PeopleDAO().addRoleAccount(newPeople.peo_uid, newPeople.dep_no, accountable.acc_no);
 
-            dbo.ExecuteNonQuery("insert into roleaccount (rol_no,rac_no,acc_no) values (" + rol_no + "," + rac_no + "," + accountable.acc_no + ")");
+            //DBObject dbo = new DBObject();
+            //string rol_no = "";
+            //string defrole = dbo.ExecuteScalar("select rol_no from roldefault where dep_no =" + dep_no);
+            //if (!defrole.Equals(""))
+            //{
+            //    rol_no = defrole;
+            //}
+            //else
+            //{
+            //    rol_no = dbo.ExecuteScalar("select rol_no from role where rol_default='1'");
+            //}
+            ////尋找 rac_no 最大值
+            //int rac_no = 1;
+            //try
+            //{
+            //    rac_no = Convert.ToInt32(dbo.ExecuteScalar("select max(rac_no) as rac_no from roleaccount")) + 1;
+            //}
+            //catch { }
+
+            //dbo.ExecuteNonQuery("insert into roleaccount (rol_no,rac_no,acc_no) values (" + rol_no + "," + rac_no + "," + accountable.acc_no + ")");
 
             //操作記錄
             try
