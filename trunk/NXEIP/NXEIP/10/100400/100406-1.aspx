@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <span class="a-letter-Red">* </span>褡乘人數
+                        <span class="a-letter-Red">* </span>搭乘人數
                     </th>
                     <td>
                         <asp:TextBox ID="txt_people" runat="server" Columns="5"></asp:TextBox>
