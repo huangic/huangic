@@ -109,12 +109,31 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
                         this.ddl_usehour.Items.Add(newitem);
                     }
                     #endregion
+
+                    #region 取得會議資料
+                    this.btn_reading.Enabled = true;
+                    this.ddl_meetings.Items.Add(new ListItem("請選擇", "0"));
+                    string sqlstr1 = "select mee_no, mee_reason, mee_sdate, mee_edate from meetings where (mee_status = '1') and (mee_peouid = " + sobj.sessionUserID + ") and (mee_sdate >= '" + changeobj.ROCDTtoADDT(this.lab_today.Text + " " + this.lab_stime.Text+":00") + "' and mee_edate<'"+changeobj.ROCDTtoADDT(this.lab_today.Text)+" 23:59:59') order by mee_sdate, mee_edate, mee_reason";
+                    DataTable dt1 = new DataTable();
+                    dt1 = dbo.ExecuteQuery(sqlstr1);
+                    if (dt1.Rows.Count > 0)
+                    {
+                        for (int itemi = 0; itemi < dt1.Rows.Count; itemi++)
+                        {
+                            string sdate = changeobj.ADDTtoROCDT(Convert.ToDateTime(dt1.Rows[itemi]["mee_sdate"].ToString()).ToString("yyyy-MM-dd HH:mm")) + " ~ " + Convert.ToDateTime(dt1.Rows[itemi]["mee_edate"].ToString()).ToString("HH:mm");
+                            this.ddl_meetings.Items.Add(new ListItem(sdate + " " + dt1.Rows[itemi]["mee_reason"].ToString(), dt1.Rows[itemi]["mee_no"].ToString()));
+                        }
+                    }
+                    #endregion
                 }
                 else
                 {
                     this.Navigator1.SubFunc = "查看";
                     this.btn_apply.Enabled = false;
                     this.btn_apply.Visible = false;
+                    this.ddl_meetings.Items.Insert(0, new ListItem("請選擇", "0"));
+                    this.btn_reading.Enabled = false;
+                    this.ddl_meetings.Enabled = false;
                     #region 查看
                     Entity.petition sorData = new PetitionDAO().GetByPetNo(Convert.ToInt32(this.lab_no.Text));
                     if (sorData != null)
@@ -188,6 +207,16 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
                         #endregion
                     }
                     #endregion
+
+                    //this.ddl_usehour.Enabled = false;
+                    //this.txt_host.Enabled = false;
+                    //this.txt_count.Enabled = false;
+                    //this.txt_reason.Enabled = false;
+                    //this.txt_tel.Enabled = false;
+                    //this.ddl_hour.Enabled = false;
+                    //this.ddl_usehour.Enabled = false;
+                    //this.ddl_min.Enabled = false;
+                    //this.rbl_open.Enabled = false;
                 }
             }
         }
@@ -406,6 +435,66 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         Session["100402_value"] = this.lab_spot.Text + "," + this.lab_rooms.Text + "," + changeobj.ROCDTtoADDT(this.lab_today.Text);
         Response.Redirect("100402.aspx?count=" + new System.Random().Next(10000).ToString());
         //Response.Redirect("100402.aspx?spot=" + this.lab_spot.Text + "&rooms=" + this.lab_rooms.Text + "&today=" + changeobj.ROCDTtoADDT(this.lab_today.Text) + "&count=" + new System.Random().Next(10000).ToString());
+    }
+    #endregion
+
+    #region 讀取會議資料
+    protected void btn_reading_Click(object sender, EventArgs e)
+    {
+        if (this.ddl_meetings.SelectedValue.Equals("0"))
+        {
+            ShowMSG("請選擇 會議資料");
+            return;
+        }
+        else
+        {
+            string sqlstr = "select meetings.mee_reason, meetings.mee_sdate, meetings.mee_edate, meetings.mee_tel, meetings.mee_memo, people.peo_name from meetings inner join people on meetings.mee_host = people.peo_uid where (meetings.mee_no = "+this.ddl_meetings.SelectedValue+")";
+            DataTable dt = new DataTable();
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                #region 基本資料
+                DateTime sdate=Convert.ToDateTime(dt.Rows[0]["mee_sdate"].ToString());
+                DateTime edate=Convert.ToDateTime(dt.Rows[0]["mee_edate"].ToString());
+                int usetime = PCalendarUtil.TimeDiff(sdate, edate, "m");
+                int usehour = PCalendarUtil.TimeDiff(sdate, edate, "H");
+                if ((usetime % 60) > 0) usehour++;
+
+                this.txt_host.Text = dt.Rows[0]["peo_name"].ToString();
+                this.txt_reason.Text = dt.Rows[0]["mee_reason"].ToString();
+                this.txt_tel.Text = dt.Rows[0]["mee_tel"].ToString();
+                this.cl_mdate._ADDate = Convert.ToDateTime(sdate.ToString("yyyy-MM-dd"));
+                try
+                {
+                    this.ddl_hour.SelectedItem.Selected = false;
+                    this.ddl_hour.Items.FindByValue(sdate.ToString("HH")).Selected = true;
+                }
+                catch { }
+                try
+                {
+                    this.ddl_min.SelectedItem.Selected = false;
+                    this.ddl_min.Items.FindByValue(sdate.ToString("mm")).Selected = true;
+                }
+                catch { }
+
+                try
+                {
+                    this.ddl_usehour.SelectedItem.Selected = false;
+                    this.ddl_usehour.Items.FindByValue(usehour.ToString()).Selected = true;
+                }
+                catch { }
+                #endregion
+            }
+            #region 與會人數
+            sqlstr = "select count(*) as recount from attends where (mee_no = "+this.ddl_meetings.SelectedValue+") and (att_status <> '3')";
+            dt.Clear();
+            dt = dbo.ExecuteQuery(sqlstr);
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["recount"].ToString().Length > 0) this.txt_count.Text = dt.Rows[0]["recount"].ToString();
+            }
+            #endregion
+        }
     }
     #endregion
 }

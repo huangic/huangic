@@ -27,6 +27,15 @@
                 </td>
               </tr>
               <tr>
+                <th>會議資訊</th>
+                <td  colspan="3">
+                    <asp:DropDownList ID="ddl_meetings" runat="server">
+                    </asp:DropDownList>
+                    <asp:Button ID="btn_reading" runat="server" CssClass="b-input" 
+                        onclick="btn_reading_Click" Text="讀取會議資料" />
+                  </td>
+              </tr>
+              <tr>
                 <th style="width:13%"><span class="a-letter-Red">* </span>申請日期</th>
                 <td style="width:37%"><asp:Label ID="lab_today" runat="server"></asp:Label>
                     (<asp:Label ID="lab_week" runat="server"></asp:Label>)
@@ -63,7 +72,7 @@
               <tr>
                 <th><span class="a-letter-Red">* </span>主持人</th>
                 <td><asp:TextBox ID="txt_host" runat="server" Columns="20"></asp:TextBox></td>
-                <th>場地分機</th>
+                <th>場地電話</th>
                 <td>
                     <asp:Label ID="lab_telephone" runat="server"></asp:Label>
                 </td>

@@ -74,6 +74,33 @@ public class PCalendarUtil
     }
     #endregion
 
+    #region 計算時間
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="DT1">開始時間</param>
+    /// <param name="DT2">結束時間</param>
+    /// <param name="type">回傳單位(H:小時 m:分鐘)</param>
+    /// <returns></returns>
+    public static int TimeDiff(DateTime DT1, DateTime DT2, string type)
+    {
+        int ret = 0;
+        TimeSpan ts1 = new TimeSpan(DT1.Ticks);
+        TimeSpan ts2 = new TimeSpan(DT2.Ticks);
+        TimeSpan ts = ts2.Subtract(ts1).Duration();
+        if (type.Equals("H")) //小時制
+        {
+            ret = ts.Days * 24 + ts.Hours;
+        }
+        else
+        {
+            //分鐘制
+            ret = (ts.Days * 24 + ts.Hours) * 60 + ts.Minutes;
+        }
+        return ret;
+    }
+    #endregion
+
     #region 轉頁時之script
     public static string ShowMsg_URL(string msg, string url)
     {
