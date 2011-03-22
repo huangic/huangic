@@ -30,21 +30,21 @@
           </div>
           <div class="first">
             
-            <div class="row_n">           
+            <div class="row_1">           
 
 
 
-            
-              <asp:DataList ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
-            
+                <ul>
+              <asp:Repeater ID="DataList1" runat="server" DataSourceID="ObjectDataSource1">
+                 
                 <ItemTemplate>
                  <li class="dot_a51">
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# String.Format("~/10/100400/100404.aspx") %>'><%#Eval("f01_name") %></asp:HyperLink></li>
                 
                 </ItemTemplate>
             
-              </asp:DataList>
-                   
+              </asp:Repeater>
+                 </ul>  
            </div>
           </div>
           </div> 
