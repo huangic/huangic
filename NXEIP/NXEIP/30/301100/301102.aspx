@@ -43,7 +43,7 @@
                             GridLines="None" OnRowCommand="GridView1_RowCommand">
                             <Columns>
                                 <asp:BoundField DataField="m02_chekuan" HeaderText="車別" SortExpression="m02_chekuan" />
-                                <asp:BoundField DataField="m02_number" HeaderText="排照號碼" SortExpression="m02_number" />
+                                <asp:BoundField DataField="m02_number" HeaderText="牌照號碼" SortExpression="m02_number" />
                                 <asp:BoundField DataField="m02_code" HeaderText="車輛編號" SortExpression="m02_code" />
                                 <asp:BoundField DataField="m02_peouid" HeaderText="保管人" SortExpression="m02_peouid" />
                                 <asp:BoundField DataField="m02_mark" HeaderText="廠牌" SortExpression="m02_mark" />

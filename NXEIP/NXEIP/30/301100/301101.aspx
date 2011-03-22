@@ -36,7 +36,7 @@
                     屬性類別：<asp:RadioButtonList ID="rbl_number" runat="server" 
                         RepeatDirection="Horizontal" RepeatLayout="Flow" AutoPostBack="True" 
                         onselectedindexchanged="rbl_number_SelectedIndexChanged">
-                        <asp:ListItem Value="platoon">排照種類</asp:ListItem>
+                        <asp:ListItem Value="platoon">牌照種類</asp:ListItem>
                         <asp:ListItem Value="chekuan">車別</asp:ListItem>
                         <asp:ListItem Value="mark">車輛廠牌</asp:ListItem>
                         <asp:ListItem Value="color">車輛顏色</asp:ListItem>
