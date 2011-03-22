@@ -6,108 +6,28 @@
     Namespace="System.Web.UI.WebControls" TagPrefix="asp" %>
 <%@ Register Src="../../lib/Navigator.ascx" TagName="Navigator" TagPrefix="uc1" %>
 <%@ Register src="../../lib/tree/DepartTreeListBox.ascx" tagname="DepartTreeListBox" tagprefix="uc2" %>
+<%@ Register Assembly="MattBerseth.WebControls" Namespace="MattBerseth.WebControls"
+    TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-<script type="text/javascript" language="javascript">
-
-    var TableName = '<%=Table3.ClientID%>';
-
-    $(document).ready(function () {
-
-        //刪除row
-        $('#' + TableName + ' td img.delete').live('click', function () {
-            DeleteRow(this);
+<script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //須與form表單ID名稱相同
+            $("#ContentPlaceHolder1").validate();
         });
-
-        //TextBox檢核互動,以Table的ID=ItemTable,找這個Table裡的textbox (input type=textbox)
-        $('#Text1').keyup(function () {
-            check = true;
-            //檢查是否含非數字字元     
-            if (isNaN($(this).val())) {
-                alert('只可輸入數字字元!');
-                this.value = this.value.replace(/[\D]/g, '');
-            }
-            //檢查是否只輸入0     
-            if ($(this).val() == '0') {
-                alert('至少是1人!');
-                this.value = '1';
-            }
-        }).focusout(function () {
-            //檢查是否未輸入數量     
-            if ($(this).val() == '') {
-                alert('至少是1人!');
-                this.value = '1';
-            }
-        });
-
-    });
-
-    
-    function InsertRows() {
-
-        //人數
-        var people = $('#Text1').val();
-        
-        //檢查是否有部門
-        if ($('#<%=DepartTreeListBox1.ClientID%> option:first').text() == '') {
-            alert('請選擇部門!');
-            return false;
-        }
-        
-        //加入列表
-        $('#<%=DepartTreeListBox1.ClientID%> option').each(function () {
-            var dep_val = $(this).val();
-            var dep_text = $(this).text();
-            //是否已有在列表上
-            var check = true;
-            var trlen = $("#" + TableName + " tr").length;
-            for (var i = 1; i <= trlen; i++) {
-                var dep_no = $('#tbox_' + i).val();
-                if (dep_val == dep_no) {
-                    check = false;
-                    //更換人數
-                    var oldpeo = parseInt($("#" + TableName).find("tr:eq(" + i + ")").find("td:eq(1)").text());
-                    $("#" + TableName).find("tr:eq(" + i + ")").find("td:eq(1)").text((parseInt(people) + oldpeo));
-                    break;
-                }
-            }
-            if (check) {
-                var idnum = $("#" + TableName + " tr").length;
-                var str = "<tr>";
-                str += "<td><input id='tbox_" + idnum + "' type='hidden' value='" + dep_val + "' />" + dep_text + "</td>";
-                str += "<td align='center'>" + people + "</td>";
-                str += "<td align='center'><img class='delete' src='../../image/delete.gif' /></td>";
-                str += "</tr>";
-                $(str).appendTo($("#" + TableName));
-            }
-        });
-    }
-
-    function DeleteRow(elem) {
-        var row = $(elem).parent().parent();
-        row.remove();
-    }
-
-    function GetTableValue() {
-        var str = "";
-        var trlen = $("#" + TableName + " tr").length;
-        for (var i = 1; i < trlen; i++) {
-            var dep_no = $('#tbox_'+i).val();
-            var people = $("#" + TableName).find("tr:eq(" + i + ")").find("td:eq(1)").text();
-
-            if (str == "") {
-                str = dep_no + "_" + people;
-            } else {
-                str += "," + dep_no + "_" + people;
-            }
-        }
-        $('#<%=hidd_data.ClientID%>').val(str);
-    }
-
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="Get_Data" 
+        TypeName="NXEIP.DAO.e03DAO">
+        <SelectParameters>
+            <asp:Parameter Name="e02_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <asp:HiddenField ID="hidd_no" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="300303" />
     <div class="tableDiv">
@@ -156,8 +76,12 @@
                 <td colspan="3">
                     部門&nbsp;
                     <uc2:DepartTreeListBox ID="DepartTreeListBox1" runat="server" />
-&nbsp;&nbsp;限制人數&nbsp;<input id="Text1" type="text" style="width: 50px" value="1" />
-                    &nbsp;<input id="Button1" type="button" value="加入" class="b-input" onclick="InsertRows()" />
+                    &nbsp;&nbsp;
+                    限制人數&nbsp;<asp:TextBox ID="tbox_people" runat="server" MaxLength="3" 
+                        Width="50px"></asp:TextBox>
+                    &nbsp;
+
+                    <asp:Button ID="Button2" runat="server" Text="加入" onclick="Button2_Click" CssClass="b-input" />
                 </td>
             </tr>
             <tr>
@@ -166,22 +90,39 @@
                 </th>
                 <td colspan="3">
                     <div>
-                        <asp:Table ID="Table3" runat="server">
-                            <asp:TableRow runat="server">
-                                <asp:TableCell runat="server" HorizontalAlign="Center" Width="150px">部門</asp:TableCell>
-                                <asp:TableCell runat="server" HorizontalAlign="Center" Width="75px">人數限制</asp:TableCell>
-                                <asp:TableCell runat="server" HorizontalAlign="Center" Width="45px">刪除</asp:TableCell>
-                            </asp:TableRow>
-                        </asp:Table>
+                        <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
+                            Width="100%" CellPadding="3" CellSpacing="3" GridLines="None" OnRowCommand="GridView1_RowCommand"
+                            EmptyDataText="查無資料" DataKeyNames="e03_no">
+                            <Columns>
+                                <asp:TemplateField HeaderText="部門">
+                                    <ItemTemplate>
+                                        <div>
+                                            <%# new UtilityDAO().Get_DepartmentName((int)Eval("e03_depno"))%></div>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="70%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="人數">
+                                    <ItemTemplate>
+                                        <div>
+                                            <%# Eval("e03_people")%></div>
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" Width="20%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="刪除">
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                                            CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
+                                    </ItemTemplate>
+                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                </asp:TemplateField>
+                            </Columns>
+                        </cc1:GridView>
                     </div>
                 </td>
             </tr>
         </table>
         <div class="bottom">
-            <asp:Button ID="btn_submit" runat="server" CssClass="b-input" Text="確定" OnClick="btn_submit_Click"
-                OnClientClick="GetTableValue()" />
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btn_cancel" runat="server" CssClass="a-input" Text="取消" OnClick="btn_cancel_Click" />
+            <asp:Button ID="btn_cancel" runat="server" CssClass="b-input" Text="回課程管理" OnClick="btn_cancel_Click" />
         </div>
     <div>
     </div>
