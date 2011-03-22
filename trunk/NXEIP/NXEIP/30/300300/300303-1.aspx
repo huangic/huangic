@@ -86,37 +86,47 @@
             </tr>
             <tr>
                 <th>
-                    &nbsp;
+                    人數限制列表
                 </th>
                 <td colspan="3">
                     <div>
-                        <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
-                            Width="100%" CellPadding="3" CellSpacing="3" GridLines="None" OnRowCommand="GridView1_RowCommand"
-                            EmptyDataText="查無資料" DataKeyNames="e03_no">
-                            <Columns>
-                                <asp:TemplateField HeaderText="部門">
-                                    <ItemTemplate>
-                                        <div>
-                                            <%# new UtilityDAO().Get_DepartmentName((int)Eval("e03_depno"))%></div>
-                                    </ItemTemplate>
-                                    <ItemStyle Width="70%" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="人數">
-                                    <ItemTemplate>
-                                        <div>
-                                            <%# Eval("e03_people")%></div>
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" Width="20%" />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="刪除">
-                                    <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                            CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
-                                    </ItemTemplate>
-                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
-                                </asp:TemplateField>
-                            </Columns>
-                        </cc1:GridView>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False"
+                                    Width="100%" CellPadding="3" CellSpacing="3" GridLines="None" OnRowCommand="GridView1_RowCommand"
+                                    EmptyDataText="查無資料" DataKeyNames="e03_no">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="部門">
+                                            <ItemTemplate>
+                                                <div>
+                                                    <%# new UtilityDAO().Get_DepartmentName((int)Eval("e03_depno"))%></div>
+                                            </ItemTemplate>
+                                            <ItemStyle Width="70%" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="人數">
+                                            <ItemTemplate>
+                                                <div>
+                                                    <%# Eval("e03_people")%></div>
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="20%" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="刪除">
+                                            <ItemTemplate>
+                                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                                                    CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
+                                            </ItemTemplate>
+                                            <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </cc1:GridView>
+                            </ContentTemplate>
+                            
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+                            </Triggers>
+                            
+                        </asp:UpdatePanel>
+                        
                     </div>
                 </td>
             </tr>
