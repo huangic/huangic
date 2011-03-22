@@ -26,7 +26,7 @@
                     <td>
                         <asp:RadioButtonList ID="rbl_number" runat="server" AutoPostBack="True" 
                             RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="platoon">排照種類</asp:ListItem>
+                            <asp:ListItem Value="platoon">牌照種類</asp:ListItem>
                             <asp:ListItem Value="chekuan">車別</asp:ListItem>
                             <asp:ListItem Value="mark">車輛廠牌</asp:ListItem>
                             <asp:ListItem Value="color">車輛顏色</asp:ListItem>
