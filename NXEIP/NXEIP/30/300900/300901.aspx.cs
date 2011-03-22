@@ -33,7 +33,7 @@ public partial class _30_300900_300901 : System.Web.UI.Page
         int rowIndex = System.Convert.ToInt32(e.CommandArgument);
         int no = System.Convert.ToInt32(this.GridView1.DataKeys[rowIndex].Value.ToString());
 
-        if (e.CommandName.Equals("delete"))
+        if (e.CommandName.Equals("change"))
         {
             delete(no);
             return;
@@ -50,6 +50,8 @@ public partial class _30_300900_300901 : System.Web.UI.Page
             disable(no);
             return;
         }
+
+       
     }
 
 

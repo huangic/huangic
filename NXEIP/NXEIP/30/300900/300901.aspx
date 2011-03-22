@@ -154,7 +154,7 @@
                         <asp:TemplateField HeaderText="刪除">
                             <ItemStyle Width="30px" />
                             <ItemTemplate>
-                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="delete" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete"  />
+                                <asp:Button ID="Button1" runat="server" CommandArgument="<%# Container.DataItemIndex %>" CommandName="change" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete"  />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>
