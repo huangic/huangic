@@ -20,10 +20,16 @@
 
 .first .row_1
 {
-    background-color:inherit;
+ background-color:inherit;
  float:none;
  height:auto;
 
+}
+
+.first .dot_a51
+{
+ height:auto;
+    
 }
 
 
