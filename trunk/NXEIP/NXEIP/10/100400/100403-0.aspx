@@ -87,7 +87,7 @@
                 <cc1:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AllowPaging="True"
                     AutoGenerateColumns="False" CellPadding="3" CellSpacing="3" CssClass="tableData"
                     EmptyDataText="查無資料" OnRowDataBound="GridView1_RowDataBound" GridLines="None"
-                    OnRowCommand="GridView1_RowCommand" DataKeyNames="r02_no" OnDataBound="GridView1_DataBound">
+                    OnRowCommand="GridView1_RowCommand" DataKeyNames="r02_no">
                     <Columns>
                         <asp:BoundField DataField="r02_depno" HeaderText="叫修單位" SortExpression="r02_depno">
                             <ItemStyle Width="15%" />
@@ -108,13 +108,13 @@
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
                                 <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
-                                    CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" />
+                                    CommandName="del" OnClientClick=" return confirm('確定要刪除?')" CssClass="delete" Visible='<%# ShowHide((int)Eval("peo_uid")) %>' />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="評分">
                             <ItemTemplate>
-                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "100403-2.aspx?modal=true&r02_no={0}&TB_iframe=true") %>'>
+                                <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "100403-2.aspx?modal=true&r02_no={0}&TB_iframe=true") %>' Visible='<%# ShowHide((int)Eval("peo_uid"),(string)Eval("r02_status")) %>'>
                                     <span><span>評分</span></span> </a>
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />

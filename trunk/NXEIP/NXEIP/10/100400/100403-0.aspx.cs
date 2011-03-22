@@ -75,10 +75,10 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
 
             e.Row.Cells[2].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
 
-            if (e.Row.Cells[4].Text != "3")
-            {
-                e.Row.Cells[6].Text = "&nbsp;";
-            }
+            //if (e.Row.Cells[4].Text != "3")
+            //{
+            //    e.Row.Cells[6].Text = "&nbsp;";
+            //}
 
             e.Row.Cells[4].Text = status[int.Parse(e.Row.Cells[4].Text)];
 
@@ -105,19 +105,40 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
 
     }
 
-    protected void GridView1_DataBound(object sender, EventArgs e)
+    //刪除按鈕
+    protected static bool ShowHide(int peo_uid)
     {
-        if (this.hidd_type.Value != "3")
+        SessionObject session = new SessionObject();
+
+        if (int.Parse(session.sessionUserID) == peo_uid)
         {
-            this.GridView1.Columns[5].Visible = false;
-            this.GridView1.Columns[6].Visible = false;
-            this.GridView1.Columns[3].ItemStyle.Width = Unit.Parse("25%");
-            this.GridView1.Columns[4].ItemStyle.Width = Unit.Parse("25%");
+            return true;
         }
         else
         {
-            this.GridView1.Columns[5].Visible = true;
-            this.GridView1.Columns[6].Visible = true;
+            return false;
+        }
+    }
+
+    //評分按鈕是否出現
+    protected static bool ShowHide(int peo_uid,string status)
+    {
+        SessionObject session = new SessionObject();
+
+        if (int.Parse(session.sessionUserID) == peo_uid)
+        {
+            if (status == "3")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -135,9 +156,11 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        string script = "<script>window.alert('" + msg + "');</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        //string script = "<script>window.alert('" + msg + "');</script>";
+        //this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        JsUtil.AlertJs(this, msg);
     }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         this.hidd_type.Value = "3";
