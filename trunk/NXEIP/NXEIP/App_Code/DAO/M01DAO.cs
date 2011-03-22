@@ -95,7 +95,7 @@ namespace NXEIP.DAO
             string feedback="";
 
             if (number.Equals("platoon"))
-                feedback = "排照種類";
+                feedback = "牌照種類";
             else if (number.Equals("chekuan"))
                 feedback = "車別";
             else if (number.Equals("mark"))
