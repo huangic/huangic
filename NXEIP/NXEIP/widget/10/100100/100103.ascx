@@ -25,7 +25,7 @@
          
           <div class="headerin">
           <ul>
-            <li class="in1">網路相片</li>
+            <li class="in1">網路相簿</li>
           </ul>
           </div>
               

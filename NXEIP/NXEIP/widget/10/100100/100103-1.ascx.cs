@@ -46,7 +46,7 @@ public partial class widget_10_100100_100103_1 : WidgetBaseControl
 
         if (this.PageType == "D")
         {
-            this.Label.Text = "單位網路相片";
+            this.Label.Text = "單位相簿";
             
             SessionObject sessionObj = new SessionObject();
 
@@ -63,7 +63,7 @@ public partial class widget_10_100100_100103_1 : WidgetBaseControl
 
         if (this.PageType == "U")
         {
-            this.Label.Text = "全府網路相片";
+            this.Label.Text = "全府相簿";
 
             this.ObjectDataSource_Unit.SelectParameters[0].DefaultValue = "10";
 
