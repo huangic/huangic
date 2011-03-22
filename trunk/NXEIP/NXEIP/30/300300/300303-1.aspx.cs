@@ -31,76 +31,75 @@ public partial class _30_300300_300303_1 : System.Web.UI.Page
                 var typ_name = (from t in model.types where t.typ_no == data.typ_no select t.typ_cname).FirstOrDefault();
                 this.lab_typ_name.Text = typ_name;
 
-                //復原原有部門限制
-                int e02no = Convert.ToInt32(this.hidd_no.Value);
-                IQueryable<e03> e03data = (from d in model.e03 where d.e02_no == e02no select d);
-                int idnum = 1;
-                foreach (var e03 in e03data)
-                {
-                    string dep_name = (from d in model.departments where d.dep_no == e03.e03_depno select d.dep_name).FirstOrDefault();
-                    string people = e03.e03_people.ToString();
-                    
-                    TableCell cell1 = new TableCell();
-                    cell1.Text = "<input id='tbox_" + idnum + "' type='hidden' value='" + e03.e03_depno + "' />" + dep_name;
+                this.ObjectDataSource1.SelectParameters["e02_no"].DefaultValue = this.hidd_no.Value;
 
-                    TableCell cell2 = new TableCell();
-                    cell2.Text = people;
-                    cell2.HorizontalAlign = HorizontalAlign.Center;
-
-                    TableCell cell3 = new TableCell();
-                    cell3.Text = "<img class='delete' src='../../image/delete.gif' />";
-                    cell3.HorizontalAlign = HorizontalAlign.Center;
-                    
-                    TableRow row = new TableRow();
-                    row.Cells.Add(cell1);
-                    row.Cells.Add(cell2);
-                    row.Cells.Add(cell3);
-
-                    this.Table3.Rows.Add(row);
-
-                    idnum++;
-                }
-
-                OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 2, "查詢課程部門限制 e02_no:" + e02no);
+                
             }
         }
     }
-    
-    protected void btn_submit_Click(object sender, EventArgs e)
+
+    protected void Button2_Click(object sender, EventArgs e)
     {
-        if (this.hidd_data.Value != "")
+        if (this.DepartTreeListBox1.Items.Count == 0)
         {
-            //刪除原有部門限制
-            int e02no = Convert.ToInt32(this.hidd_no.Value);
-            int[] e03data = (from d in model.e03 where d.e02_no == e02no select d.e03_no).ToArray();
-            foreach (int e03no in e03data)
+            JsUtil.AlertJs(this, "請選擇部門!");
+            return;
+        }
+        if (this.tbox_people.Text.Length > 0)
+        {
+            try
             {
-                e03 del = (from ed in model.e03 where ed.e03_no == e03no && ed.e02_no == e02no select ed).FirstOrDefault();
-                if (del != null)
+                int tmp = int.Parse(this.tbox_people.Text);
+                if (tmp <= 0)
                 {
-                    model.e03.DeleteObject(del);
+                    JsUtil.AlertJs(this, "限制人數需大於0!");
+                    return;
                 }
             }
-            model.SaveChanges();
-
-            //新增部門限制
-            string[] tmp = this.hidd_data.Value.Split(',');
-            int max_e03no = 1;
-            
-            for (int i = 0; i < tmp.Length; i++)
+            catch
             {
-                e03 data = new e03();
-                data.e03_depno = Convert.ToInt32(tmp[i].Split('_')[0]);
-                data.e03_people = Convert.ToInt32(tmp[i].Split('_')[1]);
-                data.e02_no = e02no;
-                data.e03_no = max_e03no + i;
-                model.AddToe03(data);
+                JsUtil.AlertJs(this, "限制人數請輸入數字!");
+                return;
             }
-
-            model.SaveChanges();
-            OperatesObject.OperatesExecute(300303, new SessionObject().sessionUserID, 3, "更新部門限制 e02_no:" + e02no);
-            this.ShowMsg_URL("部門限制完成!", this.GetUrl());
         }
+        else
+        {
+            JsUtil.AlertJs(this, "請輸入限制人數!");
+            return;
+        }
+
+        e03DAO dao = new e03DAO();
+
+        int e02no = int.Parse(this.hidd_no.Value);
+        int people = int.Parse(this.tbox_people.Text);
+
+        foreach (var d in this.DepartTreeListBox1.Items)
+        {
+            int dep_no = int.Parse(d.Key);
+
+            //是否存在
+            e03 data = dao.Get_e03_2(e02no, dep_no);
+            if (data != null)
+            {
+                data.e03_people = people;
+                dao.Update();
+            }
+            else
+            {
+                data = new e03();
+                data.e03_depno = dep_no;
+                data.e03_people = people;
+                data.e02_no = e02no;
+                data.e03_no = dao.Max_e03No(e02no) + 1;
+                dao.addToe03(data);
+                dao.Update();
+            }
+        }
+
+        OperatesObject.OperatesExecute(300303, 3, "更新部門限制 e02_no:" + e02no);
+
+        this.GridView1.DataBind();
+
     }
 
     protected void btn_cancel_Click(object sender, EventArgs e)
@@ -124,9 +123,21 @@ public partial class _30_300300_300303_1 : System.Web.UI.Page
 
     }
 
-    private void ShowMsg_URL(string msg, string url)
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        string script = "<script>window.alert('" + msg + "');location.replace('" + url + "')</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        int rowIndex = int.Parse(e.CommandArgument.ToString());
+        int e03_no = int.Parse(this.GridView1.DataKeys[rowIndex].Value.ToString());
+
+        if (e.CommandName.Equals("del"))
+        {
+            e03DAO dao = new e03DAO();
+            e03 d = dao.Get_e03(int.Parse(this.hidd_no.Value), e03_no);
+            dao.delete(d);
+            dao.Update();
+
+            OperatesObject.OperatesExecute(300303, 3, "更新部門限制 e02_no:" + int.Parse(this.hidd_no.Value));
+
+            this.GridView1.DataBind();
+        }
     }
 }
