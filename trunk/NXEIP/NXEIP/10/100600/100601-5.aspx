@@ -28,6 +28,13 @@
             <asp:Parameter Name="mee_no" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="Get_AttendsPeople" TypeName="NXEIP.DAO._100601DAO">
+        <SelectParameters>
+            <asp:Parameter Name="mee_no" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100601" SubFunc="檔案下載" />
     <asp:HiddenField ID="hidd_meeno" runat="server" />
     <div class="tableDiv">
@@ -81,6 +88,14 @@
                     </th>
                     <td>
                         <asp:Label ID="lab_tel" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:15%">
+                        會議記錄
+                    </th>
+                    <td colspan="3">
+                        <asp:Label ID="lab_record" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -139,7 +154,36 @@
                         </cc1:GridView>
                     </td>
                 </tr>
-                
+                <tr>
+                    <th style="width: 15%">
+                        會議出席人員
+                    </th>
+                    <td colspan="3">
+                        <cc1:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="3"
+                            CellSpacing="3" DataSourceID="ObjectDataSource3" EmptyDataText="查無資料" GridLines="None">
+                            <Columns>
+                                <asp:TemplateField HeaderText="部門">
+                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# new UtilityDAO().Get_DepartmentNameByUID((int)Eval("peo_uid")) %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="職稱">
+                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# new UtilityDAO().Get_PeopleProName( (int)Eval("peo_uid")) %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="姓名">
+                                    <ItemStyle HorizontalAlign="Center" Width="10%" />
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# new UtilityDAO().Get_PeopleName((int)Eval("peo_uid")) %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </cc1:GridView>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="footer">

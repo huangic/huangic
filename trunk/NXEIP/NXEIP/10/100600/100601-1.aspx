@@ -119,7 +119,7 @@
                 </tr>
                 <tr>
                     <th style="width:15%">
-                        <span class="a-letter-Red">*</span>聯絡人
+                        聯絡人
                     </th>
                     <td>
                         
@@ -155,7 +155,19 @@
                 </tr>
                 <tr>
                     <th style="width:15%">
-                        <span class="a-letter-Red">*</span>出席人員
+                        線上邀請
+                    </th>
+                    <td colspan="3">
+                        <asp:RadioButtonList ID="rbl_invite" runat="server" CellPadding="0" 
+                            CellSpacing="0" RepeatDirection="Horizontal" Width="165px">
+                            <asp:ListItem Value="1">發訊息</asp:ListItem>
+                            <asp:ListItem Value="2" Selected="True">不發訊息</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:15%">
+                        出席人員
                     </th>
                     <td>
                         

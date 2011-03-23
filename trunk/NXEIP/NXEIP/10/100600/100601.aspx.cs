@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NXEIP.DAO;
+using Entity;
 
 public partial class _10_100600_100601 : System.Web.UI.Page
 {
@@ -14,12 +15,12 @@ public partial class _10_100600_100601 : System.Web.UI.Page
         {
 
             this.calendar1._ADDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01"));
-            this.calendar2._ADDate = DateTime.Now.AddMonths(1);
+            this.calendar2._ADDate = DateTime.Now;
 
             this.ObjectDataSource1.SelectParameters["sdate"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
             this.ObjectDataSource1.SelectParameters["edate"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
             this.ObjectDataSource1.SelectParameters["key"].DefaultValue = "";
-            this.ObjectDataSource1.SelectParameters["status"].DefaultValue = "0";
+            this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.ddl_status.SelectedValue;
             this.GridView1.DataBind();
 
         }
@@ -100,22 +101,33 @@ public partial class _10_100600_100601 : System.Web.UI.Page
         
         string att_status = dao.GetAttendsStatus(mee_no, int.Parse(new SessionObject().sessionUserID));
 
-        if (att_status == "1")
+        meetings d = dao.GetMeetings(mee_no);
+
+        if (d.mee_status == "1")
         {
-            return "尚未回覆";
-        }
-        else if (att_status == "2")
-        {
-            return "出席";
-        }
-        else if (att_status == "3")
-        {
-            return "不出席";
+            if (att_status == "1")
+            {
+                return "尚未回覆";
+            }
+            else if (att_status == "2")
+            {
+                return "出席";
+            }
+            else if (att_status == "3")
+            {
+                return "不出席";
+            }
+            else
+            {
+                return "";
+            }
         }
         else
         {
             return "";
         }
+
+        
     }
 
     protected static string GetConferenFile(int mee_no,DateTime ed,String status)
