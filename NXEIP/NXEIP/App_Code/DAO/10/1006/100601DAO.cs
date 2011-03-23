@@ -90,6 +90,14 @@ namespace NXEIP.DAO
             return (from d in model.meetings where d.mee_no == mee_no select d).FirstOrDefault();
         }
 
+        public IQueryable<attends> Get_AttendsPeople(int mee_no)
+        {
+            return (from d in model.attends
+                    where d.att_status == "1" && d.mee_no == mee_no
+                    orderby d.att_no
+                    select d);
+        }
+
         /// <summary>
         /// 會議出席
         /// </summary>

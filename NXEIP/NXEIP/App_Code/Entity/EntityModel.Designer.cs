@@ -20787,6 +20787,30 @@ namespace Entity
         private Nullable<global::System.DateTime> _mee_createtime;
         partial void Onmee_createtimeChanging(Nullable<global::System.DateTime> value);
         partial void Onmee_createtimeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String mee_invite
+        {
+            get
+            {
+                return _mee_invite;
+            }
+            set
+            {
+                Onmee_inviteChanging(value);
+                ReportPropertyChanging("mee_invite");
+                _mee_invite = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("mee_invite");
+                Onmee_inviteChanged();
+            }
+        }
+        private global::System.String _mee_invite;
+        partial void Onmee_inviteChanging(global::System.String value);
+        partial void Onmee_inviteChanged();
 
         #endregion
     
