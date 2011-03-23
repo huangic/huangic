@@ -22,7 +22,7 @@ public partial class _20_200100_200102_3 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 2, "點選首長行程-預約記錄");
+            new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 2, "點選首長行程-預約記錄");
 
             ListItem newitem = new ListItem("請選擇", "0");
             DataTable dt = new DataTable();

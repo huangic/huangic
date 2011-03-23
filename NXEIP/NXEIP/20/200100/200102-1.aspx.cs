@@ -21,7 +21,7 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
-            new OperatesObject().ExecuteOperates(100301, sobj.sessionUserID, 2, "點選首長行程-週");
+            new OperatesObject().ExecuteOperates(200102, sobj.sessionUserID, 2, "點選首長行程-週");
 
             ListItem newitem = new ListItem("請選擇", "0");
             DataTable dt = new DataTable();
@@ -94,7 +94,7 @@ public partial class _20_200100_200102_1 : System.Web.UI.Page
                 #region 日期、連結
                 int weeks = changeobj.ChangeWeek(sdate);
                 ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).Text = sdate1;
-                ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "100301-0.aspx?today=" + sdate1 + "&" + parem + "&stime=06:00&source=weeks&height=480&width=800&TB_iframe=true&modal=true";
+                ((HyperLink)this.Master.FindControl("ContentPlaceHolder1").FindControl("hl_" + weeks.ToString())).NavigateUrl = "200102-0.aspx?today=" + sdate1 + "&" + parem + "&stime=06:00&source=weeks&height=480&width=800&TB_iframe=true&modal=true";
                 #endregion
 
                 #region 首長行程
