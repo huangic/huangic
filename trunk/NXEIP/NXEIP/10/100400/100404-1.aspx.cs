@@ -110,7 +110,7 @@ public partial class _10_100400_100404_1 : System.Web.UI.Page
         }
         
 
-        OperatesObject.OperatesExecute(200108,1,"提交表單 ID:{0}",f.f01_no);
+        OperatesObject.OperatesExecute(100404,1,"提交表單 ID:{0}",f.f01_no);
 
         //Response.Redirect();
 
