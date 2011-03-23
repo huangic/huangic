@@ -60,8 +60,7 @@
             &nbsp;訖<uc1:calendar ID="calendar2" runat="server" _Show="False" />
             &nbsp;狀態：
             <asp:DropDownList ID="ddl_status" runat="server">
-                <asp:ListItem Selected="True" Value="0">全部</asp:ListItem>
-                <asp:ListItem Value="1">會議成立</asp:ListItem>
+                <asp:ListItem Value="1" Selected="True">會議成立</asp:ListItem>
                 <asp:ListItem Value="2">會議取消</asp:ListItem>
             </asp:DropDownList>
             &nbsp;&nbsp;

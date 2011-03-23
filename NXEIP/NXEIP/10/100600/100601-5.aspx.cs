@@ -25,6 +25,9 @@ public partial class _10_100600_100601_5 : System.Web.UI.Page
             this.ObjectDataSource2.SelectParameters["mee_no"].DefaultValue = this.hidd_meeno.Value;
             this.GridView2.DataBind();
 
+            this.ObjectDataSource3.SelectParameters["mee_no"].DefaultValue = this.hidd_meeno.Value;
+            this.GridView3.DataBind();
+
             meetings d = new _100601DAO().GetMeetings(mee_no);
             ChangeObject cobj = new ChangeObject();
             UtilityDAO udao = new UtilityDAO();
@@ -35,6 +38,7 @@ public partial class _10_100600_100601_5 : System.Web.UI.Page
             this.lab_date.Text = cobj._ADtoROCDT(d.mee_sdate.Value) + "~" + cobj._ADtoROCDT(d.mee_edate.Value);
             this.lab_peoname.Text = udao.Get_PeopleName(d.mee_peouid.Value);
             this.lab_tel.Text = d.mee_tel;
+            this.lab_record.Text = udao.Get_PeopleName(d.mee_recorduid.Value);
 
             
         }

@@ -69,6 +69,7 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
                 meet.mee_peouid = peo_uid;
                 meet.mee_memo = this.tbox_memo.Text;
                 meet.mee_status = "1";
+                meet.mee_invite = this.rbl_invite.SelectedValue;
 
                 model.meetings.AddObject(meet);
                 model.SaveChanges();
@@ -90,14 +91,18 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
                 }
                 model.SaveChanges();
 
-                //傳送開會訊息至個人訊息
-                PersonalMessageUtil msg = new PersonalMessageUtil();
-                foreach (var d in this.DepartTreeListBox1.Items)
+                //傳送開會訊息至個人訊息,點選發訊息才發
+                if (this.rbl_invite.SelectedValue == "1")
                 {
-                    int to = int.Parse(d.Key);
-                    string body = string.Format("{0}邀請您出席「{1}」會議，請您至會議管理功能進行出席回覆!", new SessionObject().sessionUserName, this.tbox_reason.Text);
-                    msg.SendMessage("會議通知", body, "", to, peo_uid, true, false, false);
+                    PersonalMessageUtil msg = new PersonalMessageUtil();
+                    foreach (var d in this.DepartTreeListBox1.Items)
+                    {
+                        int to = int.Parse(d.Key);
+                        string body = string.Format("{0}邀請您出席「{1}」會議，請您至會議管理功能進行出席回覆!", new SessionObject().sessionUserName, this.tbox_reason.Text);
+                        msg.SendMessage("會議通知", body, "", to, peo_uid, true, false, false);
+                    }
                 }
+                
 
                 //會前資料
                 String FilePath = "/upload/100601/";
@@ -196,11 +201,17 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
             JsUtil.AlertJs(this, "請輸入聯絡人E-Mail!");
             return false;
         }
-        if (this.DepartTreeListBox1.Items.Count == 0)
+
+        //是否發送訊息
+        if (this.rbl_invite.SelectedValue == "1")
         {
-            JsUtil.AlertJs(this, "請選擇出席人員!");
-            return false;
+            if (this.DepartTreeListBox1.Items.Count == 0)
+            {
+                JsUtil.AlertJs(this, "請選擇出席人員!");
+                return false;
+            }
         }
+        
 
         return true;
 
