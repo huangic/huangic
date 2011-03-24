@@ -14,6 +14,11 @@
         alert(msg);
     }
 
+    function update2() {
+        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+        tb_remove();
+    }
+
     function Redir(msg) {
         alert(msg);
         tb_remove();
