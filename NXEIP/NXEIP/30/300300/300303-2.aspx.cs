@@ -99,7 +99,7 @@ public partial class _30_300300_300303_2 : System.Web.UI.Page
                 }
 
                 //名額上限
-                if (edata.e02_people.HasValue)
+                if (edata.e02_people.HasValue && edata.e02_people.Value != 9999)
                 {
                     this.tbox_people.Text = edata.e02_people.ToString();
                 }
