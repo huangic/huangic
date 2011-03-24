@@ -44,13 +44,31 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
 
     protected void btn_ok_Click(object sender, EventArgs e)
     {
+        if (SaveData())
+        {
+            //this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('新增完成!');", true);
+            JsUtil.UpdateParentJs(this, "新增完成!");
+        }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        if (SaveData())
+        {
+            //完成後,關閉本身,父頁轉向場地申請
+            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.Redir('新增完成!');", true);
+        }
+    }
+
+    private bool SaveData()
+    {
         if (CheckInput())
         {
-            
+
             using (NXEIPEntities model = new NXEIPEntities())
             {
                 int peo_uid = int.Parse(new SessionObject().sessionUserID);
-                
+
                 //會議資料
                 meetings meet = new meetings();
 
@@ -102,7 +120,7 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
                         msg.SendMessage("會議通知", body, "", to, peo_uid, true, false, false);
                     }
                 }
-                
+
 
                 //會前資料
                 String FilePath = "/upload/100601/";
@@ -154,8 +172,13 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
                 OperatesObject.OperatesExecute(100601, 1, string.Format("新增會議 mee_no={0}", mee_no));
             }
 
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "closeThickBox", "self.parent.update('新增完成!');", true);
+            return true;
             
+
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -216,5 +239,6 @@ public partial class _10_100600_100601_1 : System.Web.UI.Page
         return true;
 
     }
+
     
 }
