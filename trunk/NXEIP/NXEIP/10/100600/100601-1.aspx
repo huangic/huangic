@@ -20,6 +20,7 @@
 
      <script type="text/javascript">
 
+        
 
          function pageLoad(sender, args) {
              if (args.get_isPartialLoad()) {
@@ -219,10 +220,14 @@
             </div>
         </div>
         <div class="bottom">
+            <asp:Button ID="Button2" runat="server" CssClass="b-input" Text="儲存並預約場地" 
+                onclick="Button2_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btn_ok" runat="server" CssClass="b-input" Text="確定" OnClick="btn_ok_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button1" runat="server" CssClass="a-input" OnClientClick="self.parent.tb_remove()"
                 UseSubmitBehavior="false" Text="取消" />
+            
         </div>
     </div>
     </form>

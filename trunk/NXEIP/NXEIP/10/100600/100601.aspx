@@ -14,9 +14,10 @@
         alert(msg);
     }
 
-    function update2() {
-        __doPostBack('<%=UpdatePanel1.ClientID%>', '');
+    function Redir(msg) {
+        alert(msg);
         tb_remove();
+        window.location.href = '../../10/100400/100402.aspx';
     }
 
     function pageLoad(sender, args) {
