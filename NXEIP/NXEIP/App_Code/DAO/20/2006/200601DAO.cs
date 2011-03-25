@@ -96,6 +96,7 @@ namespace NXEIP.DAO
                 ProcessPermission(d, peo_uid);
                 ProcessSubscribe(d, peo_uid);
                 ProcessRoot(d, peo_uid);
+                ProcessCountRelay(d);
             }
 
 
@@ -263,8 +264,22 @@ namespace NXEIP.DAO
         }
 
 
-       
+        /// <summary>
+        /// count relay
+        /// </summary>
+        /// <param name="f"></param>
+        private void ProcessCountRelay(Forum f) { 
+        
+            int total=(
+                from p in model.tao01  
+                from d in model.tao01 
+                where 
+                p.t01_parent==0 && p.t01_status=="1" &&
+                d.tao_no==f.Id && d.t01_parent ==p.t01_no && d.t01_status=="1" select d).Count();
 
+            f.RelayCount = total;
+
+        }
         
     }
 }
