@@ -64,12 +64,36 @@ public partial class _20_200600_200601_5 : System.Web.UI.Page
         String msg = String.Empty;
 
        
+        //check applyform
+
+          int tao_no = int.Parse(Request["tao_no"]);
+            int peo_uid= int.Parse(sessionObj.sessionUserID);
+
+
+            using (NXEIPEntities model = new NXEIPEntities())
+            {
+                int valid = (from d in model.tao03 where d.tao_no == tao_no && d.peo_uid == peo_uid && d.t03_status == "0" select d).Count();
+
+                
+                if (valid != 0)
+                {
+                    msg = "你目前申請中!!請勿重複申請";
+                }
+
+            }
+
+
 
         if (String.IsNullOrEmpty(msg))
         {
-            int tao_no = int.Parse(Request["tao_no"]);
+          
 
             //會員存檔
+
+            //
+
+
+
             //寫入會員
 
             using (NXEIPEntities model = new NXEIPEntities())
