@@ -82,6 +82,8 @@ public partial class _20_200600_200601_2 : System.Web.UI.Page
                 
                 }
 
+                this.ObjectDataSource1.SelectParameters[1].DefaultValue = sessionObj.sessionUserID;
+
                 //查詢
                 this.ObjectDataSource1.SelectParameters[3].DefaultValue = keyword;
                 this.ObjectDataSource1.SelectParameters[4].DefaultValue = option;
