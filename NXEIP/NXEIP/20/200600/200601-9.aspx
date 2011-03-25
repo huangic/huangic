@@ -111,11 +111,11 @@
                             <asp:TemplateField HeaderText="管理">
                             <ItemStyle CssClass="row5_bg" />
                                 <ItemTemplate>
-                                     <asp:Button ID="Button2" runat="server" CssClass="add" 
+                                     <asp:Button ID="Button2" runat="server" CssClass="add" Visible='<%# ((String)Eval("t03_status")=="0")%>'
                                         CommandName="apply" OnClientClick="return confirm('確定要通過申請?')" />
                                     
                                     
-                                    <asp:Button ID="Button1" runat="server" CssClass="delete"  Visible='<%# ((String)Eval("t03_status")=="0") %>'
+                                    <asp:Button ID="Button1" runat="server" CssClass="delete"  Visible='<%# ((String)Eval("t03_status")!="2") %>'
                                         CommandName="del" OnClientClick="return confirm('確定要刪除?')" />
                                     
 

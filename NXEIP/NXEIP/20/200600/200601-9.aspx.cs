@@ -90,7 +90,6 @@ public partial class _20_200600_200601_9 : System.Web.UI.Page
                 model.tao03.Attach(t);
                 t.t03_status = "2";
                 
-
                 model.SaveChanges();
 
             }
