@@ -96,5 +96,27 @@ public partial class _20_200600_200601 : System.Web.UI.Page
             this.GridView1.DataBind(); 
             #endregion
         }
+
+
+        if (e.CommandName == "close") {
+
+            using (NXEIPEntities model = new NXEIPEntities()) {
+                taolun tao = new taolun();
+
+                tao.tao_no = tao_no;
+
+                model.taolun.Attach(tao);
+
+                tao.tao_status = "2";
+
+                model.SaveChanges();
+
+
+            }
+
+            this.GridView1.DataBind();
+        
+        }
+
     }
 }
