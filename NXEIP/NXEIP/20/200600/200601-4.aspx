@@ -133,7 +133,7 @@
                
               </div>
               <div class="b4" runat="server"  visible='<%# IsCanWrite() %>'>
-                <asp:HyperLink ID="HyperLink5" CssClass="thickbox" runat="server" NavigateUrl='<%# String.Format("200601-5.aspx?tao_no={0}&t01_no={1}&TB_iframe=true&height=450&width=650&modal=true",Eval("ForumId"),Eval("Id")) %>'>回應</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" CssClass="thickbox" runat="server" NavigateUrl='<%# String.Format("200601-5.aspx?tao_no={0}&t01_no={1}&TB_iframe=true&height=450&width=650&modal=true",Eval("ForumId"),Request.QueryString["t01_no"]) %>'>回應</asp:HyperLink>
                 
               </div>
           </div>
