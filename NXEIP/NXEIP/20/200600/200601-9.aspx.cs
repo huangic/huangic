@@ -81,7 +81,7 @@ public partial class _20_200600_200601_9 : System.Web.UI.Page
 
             tao03 t = new tao03();
 
-            t.tao_no = t.tao_no;
+            t.tao_no = tao_no;
             t.t03_no = t03_no;
 
 
@@ -107,7 +107,7 @@ public partial class _20_200600_200601_9 : System.Web.UI.Page
 
             tao03 t = new tao03();
 
-            t.tao_no = t.tao_no;
+            t.tao_no = tao_no;
             t.t03_no = t03_no;
 
 
