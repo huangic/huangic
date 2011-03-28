@@ -191,7 +191,7 @@
                  
                  <tr>
                     <th>
-                        個人相片<br/><asp:Label ID="lb_size" runat="server" Text="Label"></asp:Label>
+                        個人相片<br/></asp:Label>
                     </th>
                     <td colspan="3">
                         
