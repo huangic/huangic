@@ -87,6 +87,20 @@ public partial class _30_300500_300504_1 : System.Web.UI.Page
             return false;
         }
         #endregion
+        #region 移出人
+        if (this.DepartTreeTextBox1.Items.Count <= 0 || this.DepartTreeTextBox1.Items == null)
+        {
+            ShowMSG("請選擇 移出人");
+            return false;
+        }
+        #endregion
+        #region 移入人
+        if (this.DepartTreeTextBox2.Items.Count <= 0 || this.DepartTreeTextBox2.Items == null)
+        {
+            ShowMSG("請選擇 移入人");
+            return false;
+        }
+        #endregion
         #region 移出日期、移入日期
         DateTime outdate = new DateTime();
         DateTime indate = new DateTime();
@@ -109,6 +123,7 @@ public partial class _30_300500_300504_1 : System.Web.UI.Page
             return false;
         }
         #endregion
+        
         return true;
     }
     #endregion
