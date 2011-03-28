@@ -111,7 +111,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="預覽">
                                 <ItemTemplate>
-                                    <a class="imageButton download" title='預覽' href='<%# Eval("unm_no", "200802-2.ashx?ID={0}") %>'>
+                                    <a class="imageButton download" title='預覽' href='<%# Eval("unm_no", "200801-2.aspx?ID={0}&TB_iframe=true&height=450&width=620") %>'>
                                         <span>預覽</span> </a>
                                     
                                 </ItemTemplate>
