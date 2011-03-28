@@ -26,6 +26,7 @@
           <EntitySet Name="conferen" EntityType="NXEIPModel.Store.conferen" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cooperactive" EntityType="NXEIPModel.Store.cooperactive" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="departments" EntityType="NXEIPModel.Store.departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dispatch" EntityType="NXEIPModel.Store.dispatch" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc01" EntityType="NXEIPModel.Store.doc01" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc02" EntityType="NXEIPModel.Store.doc02" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="doc03" EntityType="NXEIPModel.Store.doc03" store:Type="Tables" Schema="dbo" />
@@ -330,6 +331,10 @@
           <AssociationSet Name="FK_MANAGER_RELATIONS_PEOPLE" Association="NXEIPModel.Store.FK_MANAGER_RELATIONS_PEOPLE">
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
+            <End Role="message" EntitySet="message" />
+            <End Role="medetail" EntitySet="medetail" />
           </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
@@ -802,6 +807,23 @@
           <Property Name="dep_createtime" Type="datetime" />
           <Property Name="dep_introduce" Type="text" />
         </EntityType>
+        <EntityType Name="dispatch">
+          <Key>
+            <PropertyRef Name="dis_no" />
+          </Key>
+          <Property Name="dis_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="dis_name" Type="nvarchar" MaxLength="40" />
+          <Property Name="dis_memo" Type="nvarchar" MaxLength="200" />
+          <Property Name="dis_outpeouid" Type="int" />
+          <Property Name="dis_outdate" Type="datetime" />
+          <Property Name="dis_inpeouid" Type="int" />
+          <Property Name="dis_indate" Type="datetime" />
+          <Property Name="dis_change" Type="char" MaxLength="1" />
+          <Property Name="dis_return" Type="char" MaxLength="1" />
+          <Property Name="dis_status" Type="char" MaxLength="1" />
+          <Property Name="dis_createuid" Type="int" />
+          <Property Name="dis_createtime" Type="datetime" />
+        </EntityType>
         <EntityType Name="doc01">
           <Key>
             <PropertyRef Name="d01_no" />
@@ -890,7 +912,7 @@
           <Property Name="d06_peouid" Type="int" />
           <Property Name="d06_date" Type="datetime" />
           <Property Name="d06_tel" Type="varchar" MaxLength="20" />
-          <Property Name="d06_ext" Type="varchar" MaxLength="10" />
+          <Property Name="d06_ext" Type="varchar" MaxLength="6" />
           <Property Name="d06_open" Type="char" MaxLength="1" />
           <Property Name="d06_createuid" Type="int" />
           <Property Name="d06_createtime" Type="datetime" />
@@ -1281,7 +1303,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="varchar" MaxLength="10" />
+          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -2120,7 +2142,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2744,6 +2766,18 @@
             </Principal>
             <Dependent Role="manager">
               <PropertyRef Name="peo_uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
+          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
+          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="message">
+              <PropertyRef Name="mes_no" />
+            </Principal>
+            <Dependent Role="medetail">
+              <PropertyRef Name="mes_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3844,6 +3878,7 @@
           <EntitySet Name="unmarried" EntityType="NXEIPModel.unmarried" />
           <EntitySet Name="applys" EntityType="NXEIPModel.applys" />
           <EntitySet Name="commend" EntityType="NXEIPModel.commend" />
+          <EntitySet Name="dispatch" EntityType="NXEIPModel.dispatch" />
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -6872,6 +6907,23 @@
           <Property Type="Int32" Name="com_createuid" />
           <Property Type="DateTime" Name="com_createtime" />
         </EntityType>
+        <EntityType Name="dispatch">
+          <Key>
+            <PropertyRef Name="dis_no" />
+          </Key>
+          <Property Type="Int32" Name="dis_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="dis_name" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dis_memo" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="dis_outpeouid" />
+          <Property Type="DateTime" Name="dis_outdate" />
+          <Property Type="Int32" Name="dis_inpeouid" />
+          <Property Type="DateTime" Name="dis_indate" />
+          <Property Type="String" Name="dis_change" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="dis_return" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="dis_status" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="dis_createuid" />
+          <Property Type="DateTime" Name="dis_createtime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -8440,6 +8492,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="dispatch">
+            <EntityTypeMapping TypeName="NXEIPModel.dispatch">
+              <MappingFragment StoreEntitySet="dispatch">
+                <ScalarProperty Name="dis_createtime" ColumnName="dis_createtime" />
+                <ScalarProperty Name="dis_createuid" ColumnName="dis_createuid" />
+                <ScalarProperty Name="dis_status" ColumnName="dis_status" />
+                <ScalarProperty Name="dis_return" ColumnName="dis_return" />
+                <ScalarProperty Name="dis_change" ColumnName="dis_change" />
+                <ScalarProperty Name="dis_indate" ColumnName="dis_indate" />
+                <ScalarProperty Name="dis_inpeouid" ColumnName="dis_inpeouid" />
+                <ScalarProperty Name="dis_outdate" ColumnName="dis_outdate" />
+                <ScalarProperty Name="dis_outpeouid" ColumnName="dis_outpeouid" />
+                <ScalarProperty Name="dis_memo" ColumnName="dis_memo" />
+                <ScalarProperty Name="dis_name" ColumnName="dis_name" />
+                <ScalarProperty Name="dis_no" ColumnName="dis_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -9495,6 +9565,7 @@
         <EntityTypeShape EntityType="NXEIPModel.unmarried" Width="1.5" PointX="24.375" PointY="8.75" Height="4.864807942708353" />
         <EntityTypeShape EntityType="NXEIPModel.applys" Width="1.5" PointX="16.375" PointY="25.75" Height="3.432923177083353" />
         <EntityTypeShape EntityType="NXEIPModel.commend" Width="1.5" PointX="18.375" PointY="25.75" Height="2.2013151041666674" />
+        <EntityTypeShape EntityType="NXEIPModel.dispatch" Width="1.5" PointX="26.375" PointY="8.75" Height="3.0810351562499818" />
         </Diagram>
     </Diagrams>
   </Designer>

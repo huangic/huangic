@@ -1944,6 +1944,22 @@ namespace Entity
             }
         }
         private ObjectSet<commend> _commend;
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        public ObjectSet<dispatch> dispatch
+        {
+            get
+            {
+                if ((_dispatch == null))
+                {
+                    _dispatch = base.CreateObjectSet<dispatch>("dispatch");
+                }
+                return _dispatch;
+            }
+        }
+        private ObjectSet<dispatch> _dispatch;
 
         #endregion
         #region AddTo 方法
@@ -2834,6 +2850,14 @@ namespace Entity
         public void AddTocommend(commend commend)
         {
             base.AddObject("commend", commend);
+        }
+    
+        /// <summary>
+        /// 將新物件加入 dispatch EntitySet 的方法已被取代。請考慮改為使用關聯的 ObjectSet&lt;T&gt; 屬性的 .Add 方法。
+        /// </summary>
+        public void AddTodispatch(dispatch dispatch)
+        {
+            base.AddObject("dispatch", dispatch);
         }
 
         #endregion
@@ -8598,6 +8622,325 @@ namespace Entity
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// 沒有可用的中繼資料文件。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="NXEIPModel", Name="dispatch")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class dispatch : EntityObject
+    {
+        #region Factory 方法
+    
+        /// <summary>
+        /// 建立新 dispatch 物件。
+        /// </summary>
+        /// <param name="dis_no">dis_no 屬性的初始值。</param>
+        public static dispatch Createdispatch(global::System.Int32 dis_no)
+        {
+            dispatch dispatch = new dispatch();
+            dispatch.dis_no = dis_no;
+            return dispatch;
+        }
+
+        #endregion
+        #region 基本屬性
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 dis_no
+        {
+            get
+            {
+                return _dis_no;
+            }
+            set
+            {
+                if (_dis_no != value)
+                {
+                    Ondis_noChanging(value);
+                    ReportPropertyChanging("dis_no");
+                    _dis_no = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("dis_no");
+                    Ondis_noChanged();
+                }
+            }
+        }
+        private global::System.Int32 _dis_no;
+        partial void Ondis_noChanging(global::System.Int32 value);
+        partial void Ondis_noChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dis_name
+        {
+            get
+            {
+                return _dis_name;
+            }
+            set
+            {
+                Ondis_nameChanging(value);
+                ReportPropertyChanging("dis_name");
+                _dis_name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dis_name");
+                Ondis_nameChanged();
+            }
+        }
+        private global::System.String _dis_name;
+        partial void Ondis_nameChanging(global::System.String value);
+        partial void Ondis_nameChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dis_memo
+        {
+            get
+            {
+                return _dis_memo;
+            }
+            set
+            {
+                Ondis_memoChanging(value);
+                ReportPropertyChanging("dis_memo");
+                _dis_memo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dis_memo");
+                Ondis_memoChanged();
+            }
+        }
+        private global::System.String _dis_memo;
+        partial void Ondis_memoChanging(global::System.String value);
+        partial void Ondis_memoChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> dis_outpeouid
+        {
+            get
+            {
+                return _dis_outpeouid;
+            }
+            set
+            {
+                Ondis_outpeouidChanging(value);
+                ReportPropertyChanging("dis_outpeouid");
+                _dis_outpeouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_outpeouid");
+                Ondis_outpeouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _dis_outpeouid;
+        partial void Ondis_outpeouidChanging(Nullable<global::System.Int32> value);
+        partial void Ondis_outpeouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dis_outdate
+        {
+            get
+            {
+                return _dis_outdate;
+            }
+            set
+            {
+                Ondis_outdateChanging(value);
+                ReportPropertyChanging("dis_outdate");
+                _dis_outdate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_outdate");
+                Ondis_outdateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dis_outdate;
+        partial void Ondis_outdateChanging(Nullable<global::System.DateTime> value);
+        partial void Ondis_outdateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> dis_inpeouid
+        {
+            get
+            {
+                return _dis_inpeouid;
+            }
+            set
+            {
+                Ondis_inpeouidChanging(value);
+                ReportPropertyChanging("dis_inpeouid");
+                _dis_inpeouid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_inpeouid");
+                Ondis_inpeouidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _dis_inpeouid;
+        partial void Ondis_inpeouidChanging(Nullable<global::System.Int32> value);
+        partial void Ondis_inpeouidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dis_indate
+        {
+            get
+            {
+                return _dis_indate;
+            }
+            set
+            {
+                Ondis_indateChanging(value);
+                ReportPropertyChanging("dis_indate");
+                _dis_indate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_indate");
+                Ondis_indateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dis_indate;
+        partial void Ondis_indateChanging(Nullable<global::System.DateTime> value);
+        partial void Ondis_indateChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dis_change
+        {
+            get
+            {
+                return _dis_change;
+            }
+            set
+            {
+                Ondis_changeChanging(value);
+                ReportPropertyChanging("dis_change");
+                _dis_change = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dis_change");
+                Ondis_changeChanged();
+            }
+        }
+        private global::System.String _dis_change;
+        partial void Ondis_changeChanging(global::System.String value);
+        partial void Ondis_changeChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dis_return
+        {
+            get
+            {
+                return _dis_return;
+            }
+            set
+            {
+                Ondis_returnChanging(value);
+                ReportPropertyChanging("dis_return");
+                _dis_return = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dis_return");
+                Ondis_returnChanged();
+            }
+        }
+        private global::System.String _dis_return;
+        partial void Ondis_returnChanging(global::System.String value);
+        partial void Ondis_returnChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dis_status
+        {
+            get
+            {
+                return _dis_status;
+            }
+            set
+            {
+                Ondis_statusChanging(value);
+                ReportPropertyChanging("dis_status");
+                _dis_status = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dis_status");
+                Ondis_statusChanged();
+            }
+        }
+        private global::System.String _dis_status;
+        partial void Ondis_statusChanging(global::System.String value);
+        partial void Ondis_statusChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> dis_createuid
+        {
+            get
+            {
+                return _dis_createuid;
+            }
+            set
+            {
+                Ondis_createuidChanging(value);
+                ReportPropertyChanging("dis_createuid");
+                _dis_createuid = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_createuid");
+                Ondis_createuidChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _dis_createuid;
+        partial void Ondis_createuidChanging(Nullable<global::System.Int32> value);
+        partial void Ondis_createuidChanged();
+    
+        /// <summary>
+        /// 沒有可用的中繼資料文件。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dis_createtime
+        {
+            get
+            {
+                return _dis_createtime;
+            }
+            set
+            {
+                Ondis_createtimeChanging(value);
+                ReportPropertyChanging("dis_createtime");
+                _dis_createtime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dis_createtime");
+                Ondis_createtimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dis_createtime;
+        partial void Ondis_createtimeChanging(Nullable<global::System.DateTime> value);
+        partial void Ondis_createtimeChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
