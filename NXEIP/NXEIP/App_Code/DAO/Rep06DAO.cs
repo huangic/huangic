@@ -49,6 +49,18 @@ namespace NXEIP.DAO
                     select d);
         }
 
+        /// <summary>
+        /// 尋找子類別
+        /// </summary>
+        /// <param name="r06_no"></param>
+        /// <returns></returns>
+        public int SearchSub(int r06_no)
+        {
+            return (from d in model.rep06
+                    where d.r06_parent == r06_no && d.r06_status == "1"
+                    select d).Count();
+        }
+
         public IQueryable<rep06> GetData(int r05_no, int startRowIndex, int maximumRows)
         {
             return GetData(r05_no).Skip(startRowIndex).Take(maximumRows);
