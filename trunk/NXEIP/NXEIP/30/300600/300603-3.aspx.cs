@@ -15,6 +15,7 @@ public partial class _30_300600_300603_3 : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.hidd_r05no.Value = Request.QueryString["r05_no"];
+
             this.ObjectDataSource1.SelectParameters["r05_no"].DefaultValue = this.hidd_r05no.Value;
 
             this.Navigator1.SubFunc = new Rep05DAO().GetRep05Name(int.Parse(this.hidd_r05no.Value));
@@ -32,6 +33,10 @@ public partial class _30_300600_300603_3 : System.Web.UI.Page
                     this.DropDownList1.DataBind();
                     this.DropDownList1.Items[this.DropDownList1.SelectedIndex].Selected = false;
                     this.DropDownList1.Items.FindByValue(data.r06_parent.ToString()).Selected = true;
+                }
+                else
+                {
+                    this.DropDownList1.Enabled = false;
                 }
 
                 this.tbox_name.Text = data.r06_name;
