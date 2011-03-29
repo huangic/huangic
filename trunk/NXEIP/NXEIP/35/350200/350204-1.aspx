@@ -11,7 +11,8 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NXEIPConnectionString %>"
-        SelectCommand="SELECT people.peo_uid, people.peo_workid, people.peo_name, departments.dep_name, people.peo_jobtype, people.peo_pfofess, people.peo_ptype, people.peo_arrivedate, people.peo_leave FROM people INNER JOIN departments ON people.dep_no = departments.dep_no">
+        
+        SelectCommand="SELECT people.peo_uid, people.peo_workid, people.peo_name, departments.dep_name, people.peo_jobtype, people.peo_pfofess, people.peo_ptype, people.peo_arrivedate, people.peo_leave, types.typ_cname AS pro_name, types_1.typ_cname AS pty_name FROM people INNER JOIN departments ON people.dep_no = departments.dep_no INNER JOIN types ON people.peo_pfofess = types.typ_no INNER JOIN types AS types_1 ON people.peo_ptype = types_1.typ_no">
     </asp:SqlDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="350204" />
     <div class="tableDiv">
