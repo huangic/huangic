@@ -22,7 +22,14 @@ public partial class public_100105 : System.Web.UI.Page
         {
           //驗證CODE 
 
-            string code = Page.RouteData.Values["code"].ToString();
+            string code = "";
+            try
+            {
+                code = Page.RouteData.Values["code"].ToString();
+            }
+            catch {
+                code = Request["code"];
+            }
 
             using (NXEIPEntities model = new NXEIPEntities()) {
                 var share = (from d in model.doc14 where d.d14_network == code select d).Count();

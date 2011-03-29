@@ -93,6 +93,14 @@ public partial class _30_300500_300503_1 : System.Web.UI.Page
     }
 
     private void add() {
+        
+        
+        if(this.UC_SWFUpload1.SWFUploadFileInfoList.Count<1){
+        
+            
+        JsUtil.AlertJs(this, "請上傳檔案");
+        }
+        
         SessionObject sessionObj = new SessionObject();
 
 
@@ -220,7 +228,14 @@ public partial class _30_300500_300503_1 : System.Web.UI.Page
 
         if (Request["mode"] != "edit")
         {
+          
+            
+            
             add();
+
+
+
+
         }
         else {
             edit();
