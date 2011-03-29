@@ -26,8 +26,7 @@
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" EnablePaging="True" OldValuesParameterFormatString="original_{0}"
-        SelectCountMethod="Get_DataCount" SelectMethod="Get_Data" 
-        TypeName="NXEIP.DAO.ApplysDAO">
+        SelectCountMethod="Get_DataCount" SelectMethod="Get_Data" TypeName="NXEIP.DAO.ApplysDAO">
         <SelectParameters>
             <asp:Parameter Name="type" Type="String" />
         </SelectParameters>
@@ -35,8 +34,7 @@
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="300704" />
     <div class="select">
         <span class="a-letter-2"><span class="a-letter-1">審核狀態：<asp:DropDownList ID="DropDownList1"
-            runat="server" AutoPostBack="True" 
-            onselectedindexchanged="DropDownList1_SelectedIndexChanged">
+            runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             <asp:ListItem Value="1">未審核</asp:ListItem>
             <asp:ListItem Value="2">已審核</asp:ListItem>
         </asp:DropDownList>
@@ -55,8 +53,7 @@
             <ContentTemplate>
                 <cc1:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                     CellPadding="3" CellSpacing="3" DataSourceID="ObjectDataSource1" EmptyDataText="查無資料"
-                    GridLines="None" DataKeyNames="app_no" 
-                    OnRowDataBound="GridView1_RowDataBound">
+                    GridLines="None" DataKeyNames="app_no" OnRowDataBound="GridView1_RowDataBound">
                     <Columns>
                         <asp:TemplateField HeaderText="選取">
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
@@ -64,37 +61,31 @@
                                 <asp:CheckBox ID="cbox_1" runat="server" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="app_depno" HeaderText="單位" 
-                            SortExpression="app_depno">
+                        <asp:BoundField DataField="app_depno" HeaderText="單位" SortExpression="app_depno">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="app_profess" HeaderText="職稱" 
-                            SortExpression="app_profess">
+                        <asp:BoundField DataField="app_profess" HeaderText="職稱" SortExpression="app_profess">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="app_name" HeaderText="姓名" SortExpression="app_name">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="app_officetel" HeaderText="公務電話" 
-                            SortExpression="app_officetel">
-                        <ItemStyle Width="10%" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="app_date" HeaderText="申請日期" 
-                            SortExpression="app_date" DataFormatString="{0:yyyy-MM-dd HH:mm}">
+                        <asp:BoundField DataField="app_officetel" HeaderText="公務電話" SortExpression="app_officetel">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="app_check" HeaderText="審核狀態" 
-                            SortExpression="app_check">
+                        <asp:BoundField DataField="app_date" HeaderText="申請日期" SortExpression="app_date"
+                            DataFormatString="{0:yyyy-MM-dd HH:mm}">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="app_checkuid" HeaderText="審核人員" 
-                            SortExpression="app_checkuid">
+                        <asp:BoundField DataField="app_check" HeaderText="審核狀態" SortExpression="app_check">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="app_checkdate" 
-                            DataFormatString="{0:yyyy-MM-dd HH:mm}" HeaderText="審核日期" 
-                            SortExpression="app_checkdate">
-                        <ItemStyle Width="10%" />
+                        <asp:BoundField DataField="app_checkuid" HeaderText="審核人員" SortExpression="app_checkuid">
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="app_checkdate" DataFormatString="{0:yyyy-MM-dd HH:mm}"
+                            HeaderText="審核日期" SortExpression="app_checkdate">
+                            <ItemStyle Width="10%" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="檢視" Visible="False">
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
@@ -105,35 +96,30 @@
                         </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
-                
-                <div class="pager">
-                    <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="25">
-                        <Fields>
-                            <NXEIP:GooglePagerField />
-                        </Fields>
-                    </asp:DataPager>
-                </div>
-                
             </ContentTemplate>
             <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="DropDownList1" 
-                    EventName="SelectedIndexChanged" />
+                <asp:AsyncPostBackTrigger ControlID="DropDownList1" EventName="SelectedIndexChanged" />
             </Triggers>
         </asp:UpdatePanel>
         <div class="footer">
-                    <div class="f1">
-                    </div>
-                    <div class="f2">
-                    </div>
-                    <div class="f3">
-                    </div>
-                </div>
+            <div class="f1">
+            </div>
+            <div class="f2">
+            </div>
+            <div class="f3">
+            </div>
+        </div>
+        <div class="pager">
+            <asp:DataPager ID="DataPager1" runat="server" PagedControlID="GridView1" PageSize="25">
+                <Fields>
+                    <NXEIP:GooglePagerField />
+                </Fields>
+            </asp:DataPager>
+        </div>
         <div class="bottom">
-            <asp:Button ID="Button1" runat="server" Text="同意" CssClass="b-input" 
-                onclick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" Text="同意" CssClass="b-input" OnClick="Button1_Click" />
             &nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" Text="不同意" CssClass="b-input" 
-                        onclick="Button2_Click" />
+            <asp:Button ID="Button2" runat="server" Text="不同意" CssClass="b-input" OnClick="Button2_Click" />
         </div>
     </div>
 </asp:Content>
