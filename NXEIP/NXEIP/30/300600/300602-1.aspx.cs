@@ -24,6 +24,8 @@ public partial class _30_300600_300602_1 : System.Web.UI.Page
                     this.hidd_r05no.Value = Request.QueryString["r05_no"];
                     this.hidd_r01no.Value = Request.QueryString["r01_no"];
 
+                    //this.DropDownList1.Enabled = false;
+
                     rep01 data = new Rep01DAO().GetRep01(int.Parse(this.hidd_r05no.Value), int.Parse(this.hidd_r01no.Value));
 
                     this.DropDownList1.DataBind();
@@ -60,21 +62,26 @@ public partial class _30_300600_300602_1 : System.Web.UI.Page
             {
 
                 rep01 data = dao.GetRep01(int.Parse(this.hidd_r05no.Value), int.Parse(this.hidd_r01no.Value));
+                //刪除原本
+                dao.deleteRep01(data);
+                dao.Update();
 
-                data.r05_no = int.Parse(this.DropDownList1.SelectedValue);
-                data.r01_peouid = int.Parse(this.DepartTreeTextBox1.Value);
-                data.r01_type = this.GetTypeStr();
-
+                //新增
+                rep01 data2 = new rep01();
+                data2.r01_no = dao.GetMAXr01NO(int.Parse(this.DropDownList1.SelectedValue)) + 1;
+                data2.r05_no = int.Parse(this.DropDownList1.SelectedValue);
+                data2.r01_peouid = int.Parse(this.DepartTreeTextBox1.Value);
+                data2.r01_type = this.GetTypeStr();
+                dao.addToRep01(data2);
                 dao.Update();
 
                 msg = "修改完成!";
 
-                OperatesObject.OperatesExecute(300601, 3, string.Format("修改管理者 r05_no:{0} r01_no:{1}",data.r05_no,data.r01_no));
+                OperatesObject.OperatesExecute(300601, 3, string.Format("修改管理者 r05_no:{0} r01_no:{1}",data2.r05_no,data2.r01_no));
             }
             else
             {
                 rep01 data = new rep01();
-
                 data.r01_no = dao.GetMAXr01NO(int.Parse(this.DropDownList1.SelectedValue)) + 1;
                 data.r05_no = int.Parse(this.DropDownList1.SelectedValue);
                 data.r01_peouid = int.Parse(this.DepartTreeTextBox1.Value);
@@ -93,6 +100,18 @@ public partial class _30_300600_300602_1 : System.Web.UI.Page
 
 
         
+    }
+
+    private void InsertData()
+    {
+        Rep01DAO dao = new Rep01DAO();
+        rep01 data = new rep01();
+        data.r01_no = dao.GetMAXr01NO(int.Parse(this.DropDownList1.SelectedValue)) + 1;
+        data.r05_no = int.Parse(this.DropDownList1.SelectedValue);
+        data.r01_peouid = int.Parse(this.DepartTreeTextBox1.Value);
+        data.r01_type = this.GetTypeStr();
+        dao.addToRep01(data);
+        dao.Update();
     }
 
     private string GetTypeStr()
