@@ -157,7 +157,16 @@ public class FolderHandle : IHttpHandler, IRequiresSessionState
             var setting = (from d in model.doc14 where d.d01_no == id select d).FirstOrDefault();
 
 
-            String root = context.Request.Url.GetLeftPart(UriPartial.Authority) + context.Request.ApplicationPath + (context.Request.ApplicationPath == "/" ? "" : "/")+"Share/";
+            //IIS7 有問題
+            
+            //String root = context.Request.Url.GetLeftPart(UriPartial.Authority) + context.Request.ApplicationPath + (context.Request.ApplicationPath == "/" ? "" : "/")+"Share/";
+           
+            //改為直接讀PUBLIC
+            String root = context.Request.Url.GetLeftPart(UriPartial.Authority) + context.Request.ApplicationPath + (context.Request.ApplicationPath == "/" ? "" : "/")+"public/100105.aspx?code=";
+           
+            
+            
+            
             string network = "", pwd = "", status = "0";
             
             
