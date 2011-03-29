@@ -34,13 +34,21 @@ public partial class _30_300600_300603_2 : System.Web.UI.Page
         if (e.CommandName.Equals("del"))
         {
             Rep06DAO dao = new Rep06DAO();
-            rep06 d = dao.GetRep06(r06_no);
-            d.r06_status = "2";
-            d.r06_createuid = int.Parse(new SessionObject().sessionUserID);
-            d.r06_createtime = DateTime.Now;
-            dao.Update();
-            OperatesObject.OperatesExecute(300603, 4, string.Format("刪除維修類別 r06_no:{0}", r06_no));
-            this.GridView1.DataBind();
+            if (dao.SearchSub(r06_no) > 0)
+            {
+                JsUtil.AlertJs(this, "該類別底下尚有子類別，欲刪除該類別，請先刪除子類別!!");
+            }
+            else
+            {
+                rep06 d = dao.GetRep06(r06_no);
+                d.r06_status = "2";
+                d.r06_createuid = int.Parse(new SessionObject().sessionUserID);
+                d.r06_createtime = DateTime.Now;
+                dao.Update();
+                OperatesObject.OperatesExecute(300603, 4, string.Format("刪除維修類別 r06_no:{0}", r06_no));
+                this.GridView1.DataBind();
+            }
+            
         }
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
