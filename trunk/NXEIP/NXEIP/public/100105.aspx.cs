@@ -18,18 +18,23 @@ public partial class public_100105 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        string code = "";
+        try
+        {
+            code = Page.RouteData.Values["code"].ToString();
+        }
+        catch
+        {
+            code = Request["code"];
+        }
+        
+        
+        
         if (!Page.IsPostBack)
         {
           //驗證CODE 
 
-            string code = "";
-            try
-            {
-                code = Page.RouteData.Values["code"].ToString();
-            }
-            catch {
-                code = Request["code"];
-            }
+          
 
             using (NXEIPEntities model = new NXEIPEntities()) {
                 var share = (from d in model.doc14 where d.d14_network == code select d).Count();
@@ -81,11 +86,18 @@ public partial class public_100105 : System.Web.UI.Page
 
         String network = "";
         String pwd = "";
-        
 
-              
 
-        network= Page.RouteData.Values["code"].ToString();
+
+        try
+        {
+            network = Page.RouteData.Values["code"].ToString();
+        }
+        catch {
+            network = Request["code"];
+        }
+
+
 
         pwd = this.tb_number.Text;
        
