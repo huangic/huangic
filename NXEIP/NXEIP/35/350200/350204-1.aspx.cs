@@ -66,7 +66,7 @@ public partial class _35_350200_350204_1 : System.Web.UI.Page
                 sql += " and people.peo_uid in (" + Request["people"] + ")";
             }
 
-            string sql_order = " order by departments.dep_order";
+            string sql_order = " order by departments.dep_order,types.typ_order,people.peo_name,types_1.typ_order ";
             this.SqlDataSource1.SelectCommand += sql + sql_order;
             this.lab_sql.Text = this.SqlDataSource1.SelectCommand;
             this.GridView1.DataBind();
