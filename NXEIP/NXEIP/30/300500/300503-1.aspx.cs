@@ -99,6 +99,7 @@ public partial class _30_300500_300503_1 : System.Web.UI.Page
         
             
         JsUtil.AlertJs(this, "請上傳檔案");
+        return;
         }
         
         SessionObject sessionObj = new SessionObject();
