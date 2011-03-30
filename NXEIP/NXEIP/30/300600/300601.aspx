@@ -58,24 +58,23 @@
                 </ItemTemplate>
             </asp:ListView>
         </div>
-        <div class="select" style="text-align: right">
-            <div class="center1">
-                叫修日期：</div>
-            <div class="center2">
-                起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />
-            </div>
-            <div class="center2">
-                迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="False" />
-            </div>
-            <div class="b5">
-                <asp:Button ID="Button4" runat="server" Text="查詢" CssClass="b-input" OnClick="Button4_Click" />
-            </div>
+        <div class="select">
+            <span class="a-letter-2">
+        <span class="a-letter-1">
+            叫修日期：起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />&nbsp;
+            迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="True" />
+        </span>
+            <asp:Button ID="Button4" runat="server" Text="查詢" CssClass="b-input" OnClick="Button4_Click" />
+        </span>            
         </div>
         <div class="header">
             <div class="h1">
             </div>
             <div class="h2">
                 <div class="function">
+                    <asp:Button ID="Button2" runat="server" Text="維修日報表" CssClass="b-input" 
+                        onclick="Button2_Click" />
+                    &nbsp;
                     <asp:Button ID="Button1" runat="server" Text="下載Excel" CssClass="b-input" OnClick="Button1_Click" />
                 </div>
             </div>

@@ -98,19 +98,45 @@ public partial class _30_300600_300601 : System.Web.UI.Page
     }
     protected void Button4_Click(object sender, EventArgs e)
     {
-        if (this.calendar1._ADDate > this.calendar2._ADDate)
-        {
-            this.ShowMsg("起始日期需小於迄日期");
-        }
-        else
+        if (this.CheckDate())
         {
             this.loadData();
         }
     }
+
+    private bool CheckDate()
+    {
+        try
+        {
+            if (this.calendar1.CheckDateTime() && this.calendar2.CheckDateTime())
+            {
+                if (this.calendar1._ADDate > this.calendar2._ADDate)
+                {
+                    JsUtil.AlertJs(this,"起始日期需早於結束日期!");
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                JsUtil.AlertJs(this, "請填入正確日期及格式!");
+                return false;
+            }
+        }
+        catch
+        {
+            JsUtil.AlertJs(this, "請填入正確日期及格式!");
+            return false;
+        }
+
+    }
+
     private void ShowMsg(string msg)
     {
-        string script = "<script>window.alert('" + msg + "');</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        JsUtil.AlertJs(this, msg);
     }
     /// <summary>
     /// 下載Excel
@@ -272,5 +298,101 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         }
     }
 
-   
+    /// <summary>
+    /// 維修日報表
+    /// </summary>
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        if (this.CheckDate())
+        {
+            DateTime sDate = this.calendar1._ADDate;
+            DateTime eDate = this.calendar2._ADDate;
+            _100403DAO dao = new _100403DAO();
+            ChangeObject cobj = new ChangeObject();
+            UtilityDAO udao = new UtilityDAO();
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            MemoryStream ms = new MemoryStream();
+
+            string print_name = new SessionObject().sessionUserName;
+
+            while (sDate <= eDate)
+            {
+                string date = cobj._ADtoROCYMD(sDate);
+                int i = 3;
+
+                //產生工作表
+                Sheet sheet1 = workbook.CreateSheet(date);
+
+                //表頭
+                Row row = sheet1.CreateRow(0);
+                Cell cell = row.CreateCell(0);
+                cell.SetCellValue("駐府人員-維修日報表");
+                //表頭字型
+                CellStyle style = workbook.CreateCellStyle();
+                //置中
+                style.Alignment = HorizontalAlignment.CENTER;
+                Font font = workbook.CreateFont();
+                font.FontHeightInPoints = 14;
+                
+                style.SetFont(font);
+                cell.CellStyle = style;
+
+                //合併欄位
+                sheet1.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0,0,0,7));
+
+                row = sheet1.CreateRow(1);
+                row.CreateCell(0).SetCellValue("列表人員：" + print_name);
+                row.CreateCell(1).SetCellValue("日期：" + date);
+
+                //資料表頭
+                row = sheet1.CreateRow(2);
+                row.CreateCell(0).SetCellValue("叫修單位");
+                row.CreateCell(1).SetCellValue("叫修人");
+                row.CreateCell(2).SetCellValue("故障原因");
+                row.CreateCell(3).SetCellValue("維修人員");
+                row.CreateCell(4).SetCellValue("維修紀錄");
+                row.CreateCell(5).SetCellValue("處理進度");
+                row.CreateCell(6).SetCellValue("備註");
+                
+                //讀取維修資料
+                DateTime sd = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 00:00:00"));
+                DateTime ed = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 23:59:59"));
+                IQueryable<rep02> data = dao.GetRep02Data2(int.Parse(this.hidd_r05no.Value), sd, ed);
+                foreach (rep02 d in data)
+                {
+                    row = sheet1.CreateRow(i);
+                    row.CreateCell(0).SetCellValue(udao.Get_DepartmentName(d.r02_depno.Value));
+                    row.CreateCell(1).SetCellValue(udao.Get_PeopleName(d.peo_uid) + " 分機：" + udao.Get_PeopleExtension(d.peo_uid));
+                    row.CreateCell(2).SetCellValue(d.r02_reason);
+                    if (d.r02_repairuid.HasValue)
+                    {
+                        row.CreateCell(3).SetCellValue(udao.Get_PeopleName(d.r02_repairuid.Value));
+                    }
+                    row.CreateCell(4).SetCellValue(d.r02_reply);
+                    row.CreateCell(5).SetCellValue(d.r02_status == "3" ? "完成" : "未完成");
+                    row.CreateCell(6).SetCellValue("");
+
+                    i++;
+                }
+
+                //取下一個日期
+                sDate = sDate.AddDays(1);
+            }
+
+            // 將 workbook 寫入 MemoryStream，準備匯出
+            workbook.Write(ms);
+
+            //匯出
+            string filename = "維修日報表.xls";
+            Response.AddHeader("Content-Disposition", string.Format("attachment; filename=" + filename));
+            Response.BinaryWrite(ms.ToArray());
+
+            workbook = null;
+            ms.Close();
+            ms.Dispose();
+            
+        }
+        
+
+    }
 }

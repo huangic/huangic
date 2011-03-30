@@ -94,7 +94,7 @@ public partial class lib_calendar : System.Web.UI.UserControl
     }
 
     /// <summary>
-    /// 檢查日期是否合法 True:合法
+    /// 檢查日期是否合法及符合格式 True:合法
     /// </summary>
     /// <returns></returns>
     public bool CheckDateTime()
@@ -102,14 +102,24 @@ public partial class lib_calendar : System.Web.UI.UserControl
         try
         {
             string[] temp = this.tbox_date.Text.Split('-');
-            DateTime d = new DateTime(int.Parse(temp[0]) + 1911, int.Parse(temp[1]), int.Parse(temp[2]));
-            return true;
+
+            if (temp[0].Length >= 1 && temp[0].Length <= 3 && temp[1].Length == 2 && temp[2].Length == 2)
+            {
+                DateTime d = new DateTime(int.Parse(temp[0]) + 1911, int.Parse(temp[1]), int.Parse(temp[2]));
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         catch
         {
             return false;
         }
     }
+
+
 
     public void ClearValue()
     {
