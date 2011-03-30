@@ -25,7 +25,17 @@ public partial class _10_100100_100102 : System.Web.UI.Page
             this.lab_name.Text = pdata.peo_name;
             this.lab_account.Text = pdata.peo_account;
             this.lab_workid.Text = pdata.peo_workid;
-            this.lab_proname.Text = udao.Get_TypesCName(pdata.peo_pfofess.Value);
+
+            this.DropDownList1.DataBind();
+            if (pdata.peo_pfofess.HasValue)
+            {
+                ListItem myitem = this.DropDownList1.Items.FindByValue(pdata.peo_pfofess.Value.ToString());
+                if (myitem != null)
+                {
+                    this.DropDownList1.Items.FindByValue(myitem.Value).Selected = true;
+                }
+            }
+
             this.lab_ptyname.Text = udao.Get_TypesCName(pdata.peo_ptype.Value);
             this.lab_depart.Text = sobj.sessionUserDepartName;
 
@@ -75,6 +85,12 @@ public partial class _10_100100_100102 : System.Web.UI.Page
             return;
         }
 
+        if (this.DropDownList1.SelectedValue == "0")
+        {
+            JsUtil.AlertJs(this,"謮選擇職稱!");
+            return;
+        }
+
         int peo_uid = Convert.ToInt32(new SessionObject().sessionUserID);
 
         PeopleDAO peopleDao = new PeopleDAO();
@@ -88,6 +104,7 @@ public partial class _10_100100_100102 : System.Web.UI.Page
         pdata.peo_tel = this.tbox_tel.Text;
         pdata.peo_arrivedate = this.calendar1._ADDate;
         pdata.peo_birthday = this.calendar2._ADDate;
+        pdata.peo_pfofess = int.Parse(this.DropDownList1.SelectedValue);
 
         //照片
         if (!this.FileUpload1.Get_FileName.Equals(""))
