@@ -14,6 +14,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetAll" 
+        TypeName="NXEIP.DAO.TypesDAO">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="profess" Name="type_code" Type="String" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100102" />
     <div class="tableDiv">
         <div class="header">
@@ -73,6 +80,11 @@
                 </th>
                 <td>
                     <asp:Label ID="lab_proname" runat="server" ></asp:Label>
+                    <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True" 
+                        DataSourceID="ObjectDataSource1" DataTextField="typ_cname" 
+                        DataValueField="typ_no">
+                        <asp:ListItem Value="0">請選擇</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
                 <th style="width:15%">
                 人員類別
