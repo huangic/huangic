@@ -325,27 +325,42 @@ public partial class _30_300600_300601 : System.Web.UI.Page
 
                 //表頭
                 Row row = sheet1.CreateRow(0);
+                
                 Cell cell = row.CreateCell(0);
                 cell.SetCellValue("駐府人員-維修日報表");
                 //表頭字型
                 CellStyle style = workbook.CreateCellStyle();
                 //置中
                 style.Alignment = HorizontalAlignment.CENTER;
+                style.VerticalAlignment = VerticalAlignment.CENTER;
                 Font font = workbook.CreateFont();
                 font.FontHeightInPoints = 14;
-                
+                font.Boldweight=(short)FontBoldWeight.BOLD;
                 style.SetFont(font);
                 cell.CellStyle = style;
+
+                row.HeightInPoints = (short)(font.FontHeightInPoints * 1.5);
+
+                //
+                CellStyle style2 = workbook.CreateCellStyle();
+                style2.VerticalAlignment = VerticalAlignment.CENTER;
+                Font font2 = workbook.CreateFont();
+                font2.FontHeightInPoints = 12;
+                style2.SetFont(font2);
+
 
                 //合併欄位
                 sheet1.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0,0,0,7));
 
                 row = sheet1.CreateRow(1);
+                row.HeightInPoints = (short)(12 * 1.5);
                 row.CreateCell(0).SetCellValue("列表人員：" + print_name);
                 row.CreateCell(1).SetCellValue("日期：" + date);
+                
 
                 //資料表頭
                 row = sheet1.CreateRow(2);
+                row.HeightInPoints = (short)(12 * 1.5);
                 row.CreateCell(0).SetCellValue("叫修單位");
                 row.CreateCell(1).SetCellValue("叫修人");
                 row.CreateCell(2).SetCellValue("故障原因");
@@ -354,6 +369,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
                 row.CreateCell(5).SetCellValue("處理進度");
                 row.CreateCell(6).SetCellValue("備註");
                 
+                
                 //讀取維修資料
                 DateTime sd = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 00:00:00"));
                 DateTime ed = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 23:59:59"));
@@ -361,6 +377,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
                 foreach (rep02 d in data)
                 {
                     row = sheet1.CreateRow(i);
+                    row.HeightInPoints = (short)(12 * 1.5);
                     row.CreateCell(0).SetCellValue(udao.Get_DepartmentName(d.r02_depno.Value));
                     row.CreateCell(1).SetCellValue(udao.Get_PeopleName(d.peo_uid) + " 分機：" + udao.Get_PeopleExtension(d.peo_uid));
                     row.CreateCell(2).SetCellValue(d.r02_reason);
@@ -371,6 +388,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
                     row.CreateCell(4).SetCellValue(d.r02_reply);
                     row.CreateCell(5).SetCellValue(d.r02_status == "3" ? "完成" : "未完成");
                     row.CreateCell(6).SetCellValue("");
+                    
 
                     i++;
                 }
