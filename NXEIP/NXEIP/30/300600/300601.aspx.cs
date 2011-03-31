@@ -303,7 +303,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
     /// </summary>
     protected void Button2_Click(object sender, EventArgs e)
     {
-        if (this.CheckDate())
+        if (this.CheckDate() && this.hidd_r05no.Value != "")
         {
             DateTime sDate = this.calendar1._ADDate;
             DateTime eDate = this.calendar2._ADDate;
