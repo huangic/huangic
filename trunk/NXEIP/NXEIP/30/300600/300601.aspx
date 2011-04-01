@@ -94,6 +94,9 @@
                         <asp:BoundField DataField="peo_uid" HeaderText="叫修人員(分機)" SortExpression="peo_uid">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
+                        <asp:BoundField DataField="r02_floor" HeaderText="樓層" SortExpression="r02_floor">
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
                         <asp:BoundField DataField="r02_date" HeaderText="叫修日期" SortExpression="r02_date">
                             <ItemStyle Width="12%" />
                         </asp:BoundField>
