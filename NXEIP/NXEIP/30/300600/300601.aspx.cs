@@ -90,9 +90,9 @@ public partial class _30_300600_300601 : System.Web.UI.Page
 
             e.Row.Cells[1].Text = dao.Get_PeopleName(peo_uid) + "(" + dao.Get_PeopleExtension(peo_uid) + ")";
 
-            DateTime date = Convert.ToDateTime(e.Row.Cells[2].Text);
+            DateTime date = Convert.ToDateTime(e.Row.Cells[3].Text);
 
-            e.Row.Cells[2].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
+            e.Row.Cells[3].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
 
 
 
