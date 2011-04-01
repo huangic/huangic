@@ -94,8 +94,49 @@ public partial class _30_300600_300601 : System.Web.UI.Page
 
             e.Row.Cells[2].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
 
+
+
         }
     }
+
+    protected static string GetReply(int r02_no)
+    {
+        string str = "";
+        _100403DAO dao = new _100403DAO();
+        rep02 d = dao.GetRep02ByNo(r02_no);
+
+        UtilityDAO udao = new UtilityDAO();
+
+        string name = "", date = "", reply = "", type = "";
+        if (d.r02_repairuid.HasValue)
+        {
+            name = udao.Get_PeopleName(d.r02_repairuid.Value);
+            date = new ChangeObject()._ADtoROCDT(d.r02_rdate.Value);
+            reply = d.r02_reply;
+        }
+
+        //維修大類別
+        type = new Rep05DAO().GetRep05Name(d.r05_no);
+
+        //子類別
+        if (d.r06_no.HasValue)
+        {
+            Rep06DAO r06dao = new Rep06DAO();
+            rep06 r06 = r06dao.GetRep06(d.r06_no.Value);
+            type += "." + r06.r06_name;
+            if (r06.r06_parent.Value != 0)
+            {
+                type += "." + r06dao.GetRep06Name(r06.r06_parent.Value);
+            }
+        }
+
+        str = string.Format("處理人員：{0}<br/>處理時間：{1}<br/>處理結果：{2}<br/>分類：{3}",name,date,reply,type);
+
+        return str;
+
+
+    }
+
     protected void Button4_Click(object sender, EventArgs e)
     {
         if (this.CheckDate())
