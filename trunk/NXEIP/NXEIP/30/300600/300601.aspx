@@ -100,9 +100,12 @@
                         <asp:BoundField DataField="r02_reason" HeaderText="故障原因" SortExpression="r02_reason">
                             <ItemStyle Width="20%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="r02_reply" HeaderText="處理狀況" SortExpression="r02_reply">
+                        <asp:TemplateField HeaderText="處理狀況">
+                            <ItemTemplate>
+                                <asp:Label ID="lab_reply" runat="server" Text='<%# GetReply((int)Eval("r02_no")) %>' ></asp:Label>
+                            </ItemTemplate>
                             <ItemStyle Width="20%" />
-                        </asp:BoundField>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="修改">
                             <ItemTemplate>
                                 <a id="btnShowPopup" runat="server" class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "300601-1.aspx?modal=true&r02_no={0}&TB_iframe=true") %>'>
