@@ -166,7 +166,8 @@ public partial class _20_200100_200107 : System.Web.UI.Page
         //忽略查詢的類別
         this.hidden_cat.Value = "";
         this.hidden_childcat.Value = "";
-
+        this.lv_cat.DataBind();
+        this.childDiv.Visible = false;
         
         if (this.hidden_show_myfile.Value != "1")
         {
@@ -177,6 +178,8 @@ public partial class _20_200100_200107 : System.Web.UI.Page
         else {
             SearchMyData();
         }
+
+       
     }
 
 
