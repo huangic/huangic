@@ -163,8 +163,14 @@ public partial class _20_200100_200107 : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
 
+        //忽略查詢的類別
+        this.hidden_cat.Value = "";
+        this.hidden_childcat.Value = "";
+
+        
         if (this.hidden_show_myfile.Value != "1")
         {
+                       
 
             Search();
         }
