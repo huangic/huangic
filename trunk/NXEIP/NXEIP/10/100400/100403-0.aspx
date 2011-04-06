@@ -50,17 +50,14 @@
     <asp:HiddenField ID="hidd_r05_no" runat="server" />
     <uc1:Navigator ID="Navigator1" runat="server" SysFuncNo="100403" />
     <div class="select">
-            <div class="center1">
-                叫修日期：</div>
-            <div class="center2">
-                起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />
-            </div>
-            <div class="center2">
-                迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="False" />
-            </div>
-            <div class="b5">
+            <span class="a-letter-2">
+                <span class="a-letter-1">
+                    叫修日期：起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />
+            
+                    迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="False" />
+                </span>
                 <asp:Button ID="Button4" runat="server" Text="查詢" CssClass="b-input" OnClick="Button4_Click" />
-            </div>
+            </span>
         </div>
     <div class="tableDiv">
         
@@ -90,21 +87,26 @@
                     OnRowCommand="GridView1_RowCommand" DataKeyNames="r02_no">
                     <Columns>
                         <asp:BoundField DataField="r02_depno" HeaderText="叫修單位" SortExpression="r02_depno">
-                            <ItemStyle Width="15%" />
+                            <ItemStyle Width="13%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="peo_uid" HeaderText="叫修人員(分機)" SortExpression="peo_uid">
-                            <ItemStyle Width="13%" />
+                            <ItemStyle Width="10%" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="r02_floor" HeaderText="樓層" SortExpression="r02_floor">
+                            <ItemStyle Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="r02_date" HeaderText="叫修日期" SortExpression="r02_date">
                             <ItemStyle Width="12%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="r02_reason" HeaderText="故障原因" SortExpression="r02_reason">
-                            <ItemStyle Width="30%" />
+                            <ItemStyle Width="20%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="r02_status" HeaderText="處理狀況" 
-                            SortExpression="r02_status">
-                            <ItemStyle Width="10%" HorizontalAlign="Center" />
-                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="處理狀況">
+                            <ItemTemplate>
+                                <asp:Label ID="lab_reply" runat="server" Text='<%# GetReply((int)Eval("r02_no")) %>' ></asp:Label>
+                            </ItemTemplate>
+                            <ItemStyle Width="20%" />
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="刪除">
                             <ItemTemplate>
                                 <asp:Button ID="Button3" runat="server" CommandArgument="<%# Container.DataItemIndex %>"

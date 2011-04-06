@@ -59,8 +59,6 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        string[] status = { "", "未處理", "進行中", "已完成" };
-
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             UtilityDAO dao = new UtilityDAO();
@@ -71,16 +69,9 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
 
             e.Row.Cells[1].Text = dao.Get_PeopleName(peo_uid) + "(" + dao.Get_PeopleExtension(peo_uid) + ")";
 
-            DateTime date = Convert.ToDateTime(e.Row.Cells[2].Text);
+            DateTime date = Convert.ToDateTime(e.Row.Cells[3].Text);
 
-            e.Row.Cells[2].Text = new ChangeObject()._ADtoROC(date) + " " + date.ToString("HH:mm");
-
-            //if (e.Row.Cells[4].Text != "3")
-            //{
-            //    e.Row.Cells[6].Text = "&nbsp;";
-            //}
-
-            e.Row.Cells[4].Text = status[int.Parse(e.Row.Cells[4].Text)];
+            e.Row.Cells[3].Text = new ChangeObject()._ADtoROCDT(date);
 
         }
     }
@@ -101,6 +92,45 @@ public partial class _10_100400_100403_0 : System.Web.UI.Page
             OperatesObject.OperatesExecute(100403, 4, "刪除叫修紀錄 r02_no:" + r02_no);
             this.GridView1.DataBind();
         }
+
+
+    }
+
+    protected static string GetReply(int r02_no)
+    {
+        string str = "";
+        _100403DAO dao = new _100403DAO();
+        rep02 d = dao.GetRep02ByNo(r02_no);
+
+        UtilityDAO udao = new UtilityDAO();
+
+        string name = "", date = "", reply = "", type = "";
+        if (d.r02_repairuid.HasValue)
+        {
+            name = udao.Get_PeopleName(d.r02_repairuid.Value);
+            date = new ChangeObject()._ADtoROCDT(d.r02_rdate.Value);
+            reply = d.r02_reply;
+        }
+
+        //維修大類別
+        type = new Rep05DAO().GetRep05Name(d.r05_no);
+
+        //子類別
+        if (d.r06_no.HasValue)
+        {
+            Rep06DAO r06dao = new Rep06DAO();
+            rep06 r06 = r06dao.GetRep06(d.r06_no.Value);
+            if (r06.r06_parent.Value != 0)
+            {
+                type += "." + r06dao.GetRep06Name(r06.r06_parent.Value);
+            }
+            type += "." + r06.r06_name;
+
+        }
+
+        str = string.Format("處理人員：{0}<br/>處理時間：{1}<br/>處理結果：{2}<br/>分類：{3}", name, date, reply, type);
+
+        return str;
 
 
     }
