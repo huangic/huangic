@@ -8,6 +8,7 @@ using System.IO;
 using System.Data;
 using NXEIP.DAO;
 using Entity;
+using NXEIP.Lib;
 
 public partial class _35_350200_350204_2 : System.Web.UI.Page
 {
@@ -168,7 +169,16 @@ public partial class _35_350200_350204_2 : System.Web.UI.Page
         }
         else
         {
-            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text.ToUpper()))
+            if (this.tbox_cardid.Text.IsIDNumber())
+            {
+                int peo_uid = Convert.ToInt32(Request["peo_uid"]);
+                if (new UtilityDAO().CheckIDCard(this.tbox_cardid.Text, peo_uid))
+                {
+                    this.ShowMSG("身份證字號重覆");
+                    return false;
+                }
+            }
+            else
             {
                 this.ShowMSG("身份證字號錯誤!");
                 ret = false;

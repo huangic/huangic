@@ -55,13 +55,13 @@
                     <span class="a-letter-Red">* </span>員工帳號
                 </th>
                 <td>
-                    <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
                 </td>
                 <th>
-                    <span class="a-letter-Red">* </span>人事編號
+                    人事編號
                 </th>
                 <td colspan="2">
-                    <asp:TextBox ID="tbox_workid" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="tbox_account" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
