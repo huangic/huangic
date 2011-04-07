@@ -13,57 +13,6 @@ public class CheckObject
 		
 	}
 
-    #region 身分證字號檢查(true：正確  false：錯誤)
-    /// <summary>
-    /// 身分證字號檢查(true：正確  false：錯誤)
-    /// </summary>
-    /// <param name="IDCARD">身份證字號</param>
-    /// <returns></returns>
-    public bool CheckIDCard(string IDCARD)
-    {
-        bool feedback = true;
-        ChangeObject co = new ChangeObject();
-        if (IDCARD.Length < 10)
-        {
-            feedback = false;
-        }
-        else
-        {
-            char[] str = IDCARD.ToCharArray();
-            if (co.ChangeIDcardLetter(str[0]) < 0)
-            {
-                feedback = false;
-            }
-            else if (Convert.ToInt32(str[1]) < 1 || Convert.ToInt32(str[1]) > 2)
-            {
-                feedback = false;
-            }
-            string str1 = co.ChangeIDcardLetter(str[0]).ToString();
-
-            int equation = Convert.ToInt32(str1.Substring(0, 1))
-                + Convert.ToInt32(str1.Substring(1, 1)) * 9
-                + Convert.ToInt32(str[1].ToString()) * 8
-                + Convert.ToInt32(str[2].ToString()) * 7
-                + Convert.ToInt32(str[3].ToString()) * 6
-                + Convert.ToInt32(str[4].ToString()) * 5
-                + Convert.ToInt32(str[5].ToString()) * 4
-                + Convert.ToInt32(str[6].ToString()) * 3
-                + Convert.ToInt32(str[7].ToString()) * 2
-                + Convert.ToInt32(str[8].ToString()) * 1;
-
-            if ((10 - (equation % 10) - Convert.ToInt32(str[9].ToString())) == 0)
-            {
-                feedback = true;
-            }
-            else
-            {
-                feedback = false;
-            }
-        }
-        return feedback;
-    }
-    #endregion
-
     #region Email是否正確(true：正確  false：錯誤)
     /// <summary>
     /// Email是否正確(true：正確  false：錯誤)
