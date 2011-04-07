@@ -9,6 +9,7 @@ using Entity;
 using System.Globalization;
 using System.IO;
 using System.Data;
+using NXEIP.Lib;
 
 public partial class _35_350200_350205 : System.Web.UI.Page
 {
@@ -88,7 +89,7 @@ public partial class _35_350200_350205 : System.Web.UI.Page
             //預設帳號{1:人事編號,2:員工帳號}  密碼，{1:身份證末4碼,2:同人事編號}
             string arg = "", acc_login = "", acc_passwd = "";
             arg = new ArgumentsObject().Get_argValue("320205_accounts");
-            if (arg.Equals("2"))
+            if (arg.Equals("1"))
             {
                 acc_login = this.tbox_account.Text;
             }
@@ -168,10 +169,19 @@ public partial class _35_350200_350205 : System.Web.UI.Page
         }
         else
         {
-            if (!new CheckObject().CheckIDCard(this.tbox_cardid.Text.ToUpper()))
+            if (!this.tbox_cardid.Text.IsIDNumber())
             {
                 this.ShowMSG("身份證字號錯誤!");
                 ret = false;
+            }
+            else
+            {
+                //檢查身份證是否重覆
+                if (new UtilityDAO().CheckIDCard(this.tbox_cardid.Text))
+                {
+                    this.ShowMSG("身份證字號重覆!");
+                    return false;
+                }
             }
             
         }
@@ -244,14 +254,12 @@ public partial class _35_350200_350205 : System.Web.UI.Page
 
     private void ShowMSG(string msg)
     {
-        string script = "<script>alert('" + msg + "');</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "msg", script);
+        JsUtil.AlertJs(this, msg);
     }
 
     private void ShowMsg_URL(string msg, string url)
     {
-        string script = "<script>window.alert('" + msg + "');location.href='" + url + "'</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MyScript", script);
+        JsUtil.AlertAndRedirectJs(this, msg, url);
     }
     
 }
