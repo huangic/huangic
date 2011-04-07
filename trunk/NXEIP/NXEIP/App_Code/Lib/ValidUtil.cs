@@ -37,8 +37,6 @@ namespace NXEIP.Lib
         public static bool IsValidIP(this string addr)
         {
             
-            
-            
             //create our match pattern
             string pattern = @"^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){3}$";
             //create our Regular Expression object
@@ -110,7 +108,7 @@ namespace NXEIP.Lib
         }
 
         /// <summary>
-        /// ID號碼是否正確
+        /// ID號碼是否正確 true:正確
         /// </summary>
         /// <param name="strID"></param>
         /// <returns></returns>
