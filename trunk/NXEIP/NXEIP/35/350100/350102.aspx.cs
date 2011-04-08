@@ -56,7 +56,7 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         {
             foreach (var people in this.DepartTreeListBox_people.Items)
             {
-                this.Accounts_process(people.Key);
+                this.Accounts_process(int.Parse(people.Key));
                 showMsg = true;
             }
         }
@@ -72,7 +72,7 @@ public partial class _35_350100_350102 : System.Web.UI.Page
                 var data = (from d in model.people where d.dep_no == dep_no select d);
                 foreach (var item in data)
                 {
-                    this.Accounts_process(item.peo_uid.ToString());
+                    this.Accounts_process(item.peo_uid);
                     showMsg = true;
                 }
             }
@@ -88,37 +88,40 @@ public partial class _35_350100_350102 : System.Web.UI.Page
         }
     }
 
-    private void Accounts_process(string peo_uid)
+    private void Accounts_process(int peo_uid)
     {
-        string sql = "";
-        DBObject dbo = new DBObject();
 
         //尋找人員帳號acc_no
-        string acc_no = dbo.ExecuteScalar("select acc_no from accounts where peo_uid = " + peo_uid);
+        int acc_no = (from d in model.accounts where d.peo_uid == peo_uid select d.acc_no).FirstOrDefault();
+
+        //刪除人員帳號權限
+        var roleData = (from d in model.roleaccount where d.acc_no == acc_no select d);
+        foreach (var d in roleData)
+        {
+            model.roleaccount.DeleteObject(d);
+        }
+        model.SaveChanges();
 
         //尋找 rac_no 最大值
-        sql = "select max(rac_no) as rac_no from roleaccount";
         int rac_no = 0;
         try
         {
-            rac_no = Convert.ToInt32(dbo.ExecuteScalar(sql));
+            rac_no = (from d in model.roleaccount select d.rac_no).Max();
         }
         catch { }
 
         //所設定之角色
         for (int i = 0; i < this.lbox_set.Items.Count; i++)
         {
-            string rol_no = this.lbox_set.Items[i].Value;
-            sql = "select count(*) as total from roleaccount where acc_no = " + acc_no + " and rol_no = " + rol_no;
-
-            //角色是否已存在 
-            if (Convert.ToInt32(dbo.ExecuteScalar(sql)) == 0)
-            {
-                //新增角色至帳號
-                rac_no++;
-                sql = "insert into roleaccount (rol_no,rac_no,acc_no) values (" + rol_no + "," + rac_no + "," + acc_no + ")";
-                dbo.ExecuteNonQuery(sql);
-            }
+            //新增角色至帳號
+            int rol_no = int.Parse(this.lbox_set.Items[i].Value);
+            rac_no++;
+            roleaccount data = new roleaccount();
+            data.rol_no = rol_no;
+            data.rac_no = rac_no;
+            data.acc_no = acc_no;
+            model.roleaccount.AddObject(data);
+            model.SaveChanges();
         }
     }
 
