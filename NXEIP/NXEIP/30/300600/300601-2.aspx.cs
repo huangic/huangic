@@ -27,17 +27,25 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
                 this.lab_reason.Text = data.r02_reason;
                 this.lab_spot.Text = dao.GetSpotName(data.r02_spono.Value) + " " + data.r02_floor;
 
-                //回覆
-                this.ObjectDataSource2.SelectParameters["r05_no"].DefaultValue = data.r05_no.ToString();
-                this.ddl_rep06_par.Items.Clear();
-                this.ddl_rep06_par.DataBind();
-                this.ddl_rep06_par.Items.Insert(0, new ListItem("請選擇","0"));
 
-                this.ddl_rep06_son.Items.Clear();
+                //回覆類別
+                this.ObjectDataSource2.SelectParameters["r05_no"].DefaultValue = data.r05_no.ToString();
+                this.ddl_rep06_par.DataBind();
                 this.ddl_rep06_son.DataBind();
-                this.ddl_rep06_son.Items.Insert(0, new ListItem("請選擇", "0"));
+
+                this.ddl_rep06_par.Items.FindByValue(data.r05_no.ToString()).Selected = true;
+                this.ObjectDataSource3.SelectParameters["r06_no"].DefaultValue = data.r05_no.ToString();
+                this.ddl_rep06_son.DataBind();
+
+                if (data.r06_no.HasValue)
+                {
+                    this.ddl_rep06_son.Items.FindByValue(data.r06_no.Value.ToString()).Selected = true;
+                }
 
                 this.lab_replyname.Text = udao.Get_PeopleName(int.Parse(new SessionObject().sessionUserID));
+
+                this.tbox_reply.Text = data.r02_reply;
+                
             }
             else
             {
@@ -70,7 +78,7 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
 
             data.r02_repairuid = int.Parse(new SessionObject().sessionUserID);
             data.r02_rdate = DateTime.Now;
-            data.r02_status = "3";
+            data.r02_status = this.ddl_status.SelectedValue;
             data.r02_reply = this.tbox_reply.Text;
             data.r06_no = int.Parse(this.ddl_rep06_son.SelectedValue);
 
@@ -104,7 +112,6 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
 
     private void ShowMsg(string msg)
     {
-        string script = "<script>window.alert('" + msg + "');</script>";
-        this.ClientScript.RegisterStartupScript(this.GetType(), "MSG", script);
+        JsUtil.AlertJs(this, msg);
     }
 }

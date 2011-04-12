@@ -37,6 +37,8 @@
             <asp:Parameter Name="r05_no" Type="Int32" />
             <asp:Parameter Name="sd" Type="DateTime" />
             <asp:Parameter Name="ed" Type="DateTime" />
+            <asp:Parameter Name="peo_uid" Type="Int32" />
+            <asp:Parameter Name="status" Type="String" />
         </SelectParameters>
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="SearchRep05Root"
@@ -63,6 +65,11 @@
         <span class="a-letter-1">
             叫修日期：起&nbsp;<uc2:calendar ID="calendar1" runat="server" _Show="false" />&nbsp;
             迄&nbsp;<uc2:calendar ID="calendar2" runat="server" _Show="True" />
+            &nbsp;維修狀態：<asp:DropDownList ID="ddl_status" runat="server">
+                <asp:ListItem Selected="True" Value="1">未處理</asp:ListItem>
+                <asp:ListItem Value="2">處理中</asp:ListItem>
+                <asp:ListItem Value="3">已完成</asp:ListItem>
+            </asp:DropDownList>&nbsp;
         </span>
             <asp:Button ID="Button4" runat="server" Text="查詢" CssClass="b-input" OnClick="Button4_Click" />
         </span>            
@@ -89,9 +96,9 @@
                     OnRowCommand="GridView1_RowCommand" DataKeyNames="r02_no">
                     <Columns>
                         <asp:BoundField DataField="r02_depno" HeaderText="叫修單位" SortExpression="r02_depno">
-                            <ItemStyle Width="13%" />
+                            <ItemStyle Width="11%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="peo_uid" HeaderText="叫修人員(分機)" SortExpression="peo_uid">
+                        <asp:BoundField DataField="peo_uid" HeaderText="叫修人員" SortExpression="peo_uid">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="r02_floor" HeaderText="樓層" SortExpression="r02_floor">
@@ -101,7 +108,7 @@
                             <ItemStyle Width="12%" />
                         </asp:BoundField>
                         <asp:BoundField DataField="r02_reason" HeaderText="故障原因" SortExpression="r02_reason">
-                            <ItemStyle Width="20%" />
+                            <ItemStyle Width="15%" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="處理狀況">
                             <ItemTemplate>
@@ -129,7 +136,13 @@
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" Width="5%" />
                         </asp:TemplateField>
-
+                        <asp:TemplateField HeaderText="回饋意見">
+                            <ItemTemplate>
+                                <a class="thickbox imageButton edit" title='' href='<%# Eval("r02_no", "../../10/100400/100403-2.aspx?look=true&modal=true&r02_no={0}&TB_iframe=true") %>'>
+                                    <span><span>回饋</span></span> </a>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" Width="7%" />
+                        </asp:TemplateField>
                     </Columns>
                 </cc1:GridView>
                 <div class="footer">

@@ -91,5 +91,13 @@ namespace NXEIP.DAO
         }
         #endregion
 
+        //取得維修類別所在地
+        public IQueryable<spot> Get_repSpot()
+        {
+            return from d in model.spot
+                   where d.spo_status == "1" && d.spo_function.Substring(3, 1) == "1"
+                   select d;
+        }
+
     }
 }

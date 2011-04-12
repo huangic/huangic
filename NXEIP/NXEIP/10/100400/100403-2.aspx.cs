@@ -42,6 +42,31 @@ public partial class _10_100400_100403_2 : System.Web.UI.Page
                     this.Button1.Enabled = false;
                 }
 
+                //評分及回饋意見
+                int r02_no = int.Parse(this.hidd_r02no.Value);
+                if (dao.CheckRep03(r02_no) > 0)
+                {
+                    rep03 d = dao.GetRep03ByNo(r02_no);
+                    this.rbl_rep03.Items.FindByValue(d.r03_item).Selected = true;
+                    this.tbox_msg.Text = d.r03_opinion;
+
+                    this.lab_rep03name.Text = this.rbl_rep03.Items.FindByValue(d.r03_item).Text;
+                }
+                else
+                {
+                    this.lab_rep03name.Text = "尚未進行評分";
+                }
+
+                //維修回覆查看回饋意見
+                if (Request.QueryString["look"] != null && Request.QueryString["look"] == "true")
+                {
+                    this.rbl_rep03.Visible = false;
+                    this.tbox_msg.Enabled = false;
+                    this.Button1.Visible = false;
+                    this.lab_rep03name.Visible = true;
+                }
+
+
             }
 
         }
@@ -81,6 +106,7 @@ public partial class _10_100400_100403_2 : System.Web.UI.Page
                 d.r03_date = DateTime.Now;
                 d.r03_peouid = int.Parse(new SessionObject().sessionUserID);
                 d.r03_item = this.rbl_rep03.SelectedValue;
+                d.r03_opinion = this.tbox_msg.Text;
 
                 OperatesObject.OperatesExecute(100403, 3, "評分維修紀錄 r02_no:" + r02_no);
             }
@@ -92,6 +118,7 @@ public partial class _10_100400_100403_2 : System.Web.UI.Page
                 d.r03_date = DateTime.Now;
                 d.r03_peouid = int.Parse(new SessionObject().sessionUserID);
                 d.r03_item = this.rbl_rep03.SelectedValue;
+                d.r03_opinion = this.tbox_msg.Text;
                 dao.addToRep03(d);
 
                 OperatesObject.OperatesExecute(100403, 1, "評分維修紀錄 r02_no:" + r02_no);

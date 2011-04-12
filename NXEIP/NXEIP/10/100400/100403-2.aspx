@@ -102,6 +102,16 @@
                         <asp:ListItem Value="3">普通</asp:ListItem>
                         <asp:ListItem Value="4">尚可</asp:ListItem>
                     </asp:RadioButtonList>
+                    <asp:Label ID="lab_rep03name" runat="server" Visible="False"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 15%">
+                    回饋意見
+                </th>
+                <td colspan="3">
+                    <asp:TextBox ID="tbox_msg" runat="server" Height="100px" TextMode="MultiLine" 
+                        Width="305px"></asp:TextBox>
                 </td>
             </tr>
         </table>
