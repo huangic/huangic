@@ -21,6 +21,9 @@
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
         TypeName="NXEIP.DAO.Rep05DAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" 
+        OldValuesParameterFormatString="original_{0}" SelectMethod="Get_repSpot" 
+        TypeName="NXEIP.DAO.SpotDAO"></asp:ObjectDataSource>
     <asp:HiddenField ID="hidd_r05no" runat="server" />
     <asp:HiddenField ID="hidd_r01no" runat="server" />
     <uc2:Navigator ID="Navigator1" runat="server" SysFuncNo="300602" />
@@ -59,6 +62,17 @@
                         <asp:ListItem Value="1">e公務訊息</asp:ListItem>
                     </asp:CheckBoxList>
 
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 15%">
+                    所在地
+                </th>
+                <td>
+                    <asp:CheckBoxList ID="cbox_spot" runat="server" CellPadding="0" CellSpacing="0" 
+                        DataSourceID="ObjectDataSource2" DataTextField="spo_name" 
+                        DataValueField="spo_no" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                    </asp:CheckBoxList>
                 </td>
             </tr>
             <tr>

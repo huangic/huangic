@@ -88,6 +88,7 @@
           <EntitySet Name="rep04" EntityType="NXEIPModel.Store.rep04" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rep05" EntityType="NXEIPModel.Store.rep05" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="rep06" EntityType="NXEIPModel.Store.rep06" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="rep07" EntityType="NXEIPModel.Store.rep07" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="roldefault" EntityType="NXEIPModel.Store.roldefault" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="role" EntityType="NXEIPModel.Store.role" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="roleaccount" EntityType="NXEIPModel.Store.roleaccount" store:Type="Tables" Schema="dbo" />
@@ -332,10 +333,6 @@
             <End Role="people" EntitySet="people" />
             <End Role="manager" EntitySet="manager" />
           </AssociationSet>
-          <AssociationSet Name="FK_MEDETAIL_RELATIONS_MESSAGE" Association="NXEIPModel.Store.FK_MEDETAIL_RELATIONS_MESSAGE">
-            <End Role="message" EntitySet="message" />
-            <End Role="medetail" EntitySet="medetail" />
-          </AssociationSet>
           <AssociationSet Name="FK_NEW01_RELATIONS_SYS06" Association="NXEIPModel.Store.FK_NEW01_RELATIONS_SYS06">
             <End Role="sys06" EntitySet="sys06" />
             <End Role="new01" EntitySet="new01" />
@@ -403,6 +400,10 @@
           <AssociationSet Name="FK_REP06_RELATIONS_REP05" Association="NXEIPModel.Store.FK_REP06_RELATIONS_REP05">
             <End Role="rep05" EntitySet="rep05" />
             <End Role="rep06" EntitySet="rep06" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REP07_RELATIONS_REP01" Association="NXEIPModel.Store.FK_REP07_RELATIONS_REP01">
+            <End Role="rep01" EntitySet="rep01" />
+            <End Role="rep07" EntitySet="rep07" />
           </AssociationSet>
           <AssociationSet Name="FK_ROLDEFAU_RELATIONS_DEPARTME" Association="NXEIPModel.Store.FK_ROLDEFAU_RELATIONS_DEPARTME">
             <End Role="departments" EntitySet="departments" />
@@ -912,7 +913,7 @@
           <Property Name="d06_peouid" Type="int" />
           <Property Name="d06_date" Type="datetime" />
           <Property Name="d06_tel" Type="varchar" MaxLength="20" />
-          <Property Name="d06_ext" Type="varchar" MaxLength="6" />
+          <Property Name="d06_ext" Type="varchar" MaxLength="10" />
           <Property Name="d06_open" Type="char" MaxLength="1" />
           <Property Name="d06_createuid" Type="int" />
           <Property Name="d06_createtime" Type="datetime" />
@@ -1303,7 +1304,7 @@
           <Property Name="m02_mark" Type="int" />
           <Property Name="m02_type" Type="nvarchar" MaxLength="30" />
           <Property Name="m02_year" Type="int" />
-          <Property Name="m02_cc" Type="nvarchar" MaxLength="10" />
+          <Property Name="m02_cc" Type="varchar" MaxLength="10" />
           <Property Name="m02_useyear" Type="int" />
           <Property Name="m02_count" Type="int" />
           <Property Name="m02_source" Type="int" />
@@ -1725,6 +1726,7 @@
           <Property Name="r03_peouid" Type="int" />
           <Property Name="r03_date" Type="datetime" />
           <Property Name="r03_item" Type="char" MaxLength="1" />
+          <Property Name="r03_opinion" Type="text" />
         </EntityType>
         <EntityType Name="rep04">
           <Key>
@@ -1763,6 +1765,15 @@
           <Property Name="r06_createuid" Type="int" />
           <Property Name="r06_createtime" Type="datetime" />
           <Property Name="r06_order" Type="int" />
+        </EntityType>
+        <EntityType Name="rep07">
+          <Key>
+            <PropertyRef Name="r07_no" />
+          </Key>
+          <Property Name="r07_no" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="r05_no" Type="int" Nullable="false" />
+          <Property Name="r01_no" Type="int" Nullable="false" />
+          <Property Name="r07_spono" Type="int" />
         </EntityType>
         <EntityType Name="roldefault">
           <Key>
@@ -2142,7 +2153,7 @@
           <Property Name="wid_type" Type="char" Nullable="false" MaxLength="1" />
         </EntityType>
         <!--產生期間發現錯誤:
-      警告 6002: 資料表/檢視 'NXEIP.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      警告 6002: 資料表/檢視 'nxeip.dbo.View_c04' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
       -->
         <EntityType Name="View_c04">
           <Key>
@@ -2769,18 +2780,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MEDETAIL_RELATIONS_MESSAGE">
-          <End Role="message" Type="NXEIPModel.Store.message" Multiplicity="1" />
-          <End Role="medetail" Type="NXEIPModel.Store.medetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="message">
-              <PropertyRef Name="mes_no" />
-            </Principal>
-            <Dependent Role="medetail">
-              <PropertyRef Name="mes_no" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_NEW01_RELATIONS_SYS06">
           <End Role="sys06" Type="NXEIPModel.Store.sys06" Multiplicity="0..1" />
           <End Role="new01" Type="NXEIPModel.Store.new01" Multiplicity="*" />
@@ -2982,6 +2981,20 @@
             </Principal>
             <Dependent Role="rep06">
               <PropertyRef Name="r05_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REP07_RELATIONS_REP01">
+          <End Role="rep01" Type="NXEIPModel.Store.rep01" Multiplicity="1" />
+          <End Role="rep07" Type="NXEIPModel.Store.rep07" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rep01">
+              <PropertyRef Name="r05_no" />
+              <PropertyRef Name="r01_no" />
+            </Principal>
+            <Dependent Role="rep07">
+              <PropertyRef Name="r05_no" />
+              <PropertyRef Name="r01_no" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3879,6 +3892,11 @@
           <EntitySet Name="applys" EntityType="NXEIPModel.applys" />
           <EntitySet Name="commend" EntityType="NXEIPModel.commend" />
           <EntitySet Name="dispatch" EntityType="NXEIPModel.dispatch" />
+          <EntitySet Name="rep07" EntityType="NXEIPModel.rep07" />
+          <AssociationSet Name="FK_REP07_RELATIONS_REP01" Association="NXEIPModel.FK_REP07_RELATIONS_REP01">
+            <End Role="rep01" EntitySet="rep01" />
+            <End Role="rep07" EntitySet="rep07" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="accounts">
           <Key>
@@ -5531,6 +5549,7 @@
           <Property Type="Int32" Name="r01_peouid" />
           <Property Type="String" Name="r01_type" MaxLength="3" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="rep05" Relationship="NXEIPModel.FK_REP01_RELATIONS_REP05" FromRole="rep01" ToRole="rep05" />
+          <NavigationProperty Name="rep07" Relationship="NXEIPModel.FK_REP07_RELATIONS_REP01" FromRole="rep01" ToRole="rep07" />
         </EntityType>
         <EntityType Name="rep02">
           <Key>
@@ -5566,6 +5585,7 @@
           <Property Type="DateTime" Name="r03_date" />
           <Property Type="String" Name="r03_item" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="rep02" Relationship="NXEIPModel.FK_REP03_RELATIONS_REP02" FromRole="rep03" ToRole="rep02" />
+          <Property Type="String" Name="r03_opinion" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="rep04">
           <Key>
@@ -6924,6 +6944,30 @@
           <Property Type="Int32" Name="dis_createuid" />
           <Property Type="DateTime" Name="dis_createtime" />
         </EntityType>
+        <EntityType Name="rep07">
+          <Key>
+            <PropertyRef Name="r07_no" />
+          </Key>
+          <Property Type="Int32" Name="r07_no" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="r05_no" Nullable="false" />
+          <Property Type="Int32" Name="r01_no" Nullable="false" />
+          <Property Type="Int32" Name="r07_spono" />
+          <NavigationProperty Name="rep01" Relationship="NXEIPModel.FK_REP07_RELATIONS_REP01" FromRole="rep07" ToRole="rep01" />
+        </EntityType>
+        <Association Name="FK_REP07_RELATIONS_REP01">
+          <End Type="NXEIPModel.rep01" Role="rep01" Multiplicity="1" />
+          <End Type="NXEIPModel.rep07" Role="rep07" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rep01">
+              <PropertyRef Name="r05_no" />
+              <PropertyRef Name="r01_no" />
+            </Principal>
+            <Dependent Role="rep07">
+              <PropertyRef Name="r05_no" />
+              <PropertyRef Name="r01_no" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7709,6 +7753,7 @@
           <EntitySetMapping Name="rep03">
             <EntityTypeMapping TypeName="NXEIPModel.rep03">
               <MappingFragment StoreEntitySet="rep03">
+                <ScalarProperty Name="r03_opinion" ColumnName="r03_opinion" />
                 <ScalarProperty Name="r03_item" ColumnName="r03_item" />
                 <ScalarProperty Name="r03_date" ColumnName="r03_date" />
                 <ScalarProperty Name="r03_peouid" ColumnName="r03_peouid" />
@@ -8510,6 +8555,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="rep07">
+            <EntityTypeMapping TypeName="NXEIPModel.rep07">
+              <MappingFragment StoreEntitySet="rep07">
+                <ScalarProperty Name="r07_spono" ColumnName="r07_spono" />
+                <ScalarProperty Name="r01_no" ColumnName="r01_no" />
+                <ScalarProperty Name="r05_no" ColumnName="r05_no" />
+                <ScalarProperty Name="r07_no" ColumnName="r07_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -9054,17 +9109,16 @@
           <ConnectorPoint PointX="7.479165591621399" PointY="66.5" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP01_RELATIONS_REP05" >
-          <ConnectorPoint PointX="18.125" PointY="6.75" />
-          <ConnectorPoint PointX="18.125" PointY="5.9374994999999995" />
-          <ConnectorPoint PointX="19.385416666666668" PointY="5.9374994999999986" />
-          <ConnectorPoint PointX="19.552083333333332" PointY="5.9374994999999995" />
-          <ConnectorPoint PointX="19.625" PointY="5.9374994999999995" />
+          <ConnectorPoint PointX="18.875" PointY="7.0237939453125" />
+          <ConnectorPoint PointX="19.385416666666668" PointY="7.0237939453124989" />
+          <ConnectorPoint PointX="19.552083333333332" PointY="7.0237939453125" />
+          <ConnectorPoint PointX="19.625" PointY="7.0237939453125" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP03_RELATIONS_REP02" >
-          <ConnectorPoint PointX="8.5" PointY="68.461293945312491" />
-          <ConnectorPoint PointX="8.7916666666666661" PointY="68.461293945312491" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="68.461293945312491" />
-          <ConnectorPoint PointX="9.25" PointY="68.461293945312491" />
+          <ConnectorPoint PointX="8.5" PointY="68.557444661458334" />
+          <ConnectorPoint PointX="8.7916666666666661" PointY="68.557444661458334" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="68.557444661458334" />
+          <ConnectorPoint PointX="9.25" PointY="68.557444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_REP06_RELATIONS_REP05" >
           <ConnectorPoint PointX="18.875" PointY="8.5011295572916659" />
@@ -9400,9 +9454,9 @@
           <ConnectorPoint PointX="11.5" PointY="94.047801106770834" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAO03_RELATIONS_TAOLUN" >
-          <ConnectorPoint PointX="8.5000000000000018" PointY="90.75" />
-          <ConnectorPoint PointX="8.875" PointY="90.375" />
-          <ConnectorPoint PointX="8.875" PointY="58.403595377604169" />
+          <ConnectorPoint PointX="8.5" PointY="90.756922076923075" />
+          <ConnectorPoint PointX="8.90625" PointY="90.350672076923075" />
+          <ConnectorPoint PointX="8.90625" PointY="58.403595377604169" />
           <ConnectorPoint PointX="8.9166666666666661" PointY="58.403595377604169" />
           <ConnectorPoint PointX="9.0833333333333339" PointY="58.403595377604169" />
           <ConnectorPoint PointX="9.9166666666666661" PointY="58.403595377604169" />
@@ -9410,17 +9464,15 @@
           <ConnectorPoint PointX="10.25" PointY="58.403595377604169" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAO04_RELATIONS_TAOLUN" >
-          <ConnectorPoint PointX="7.343748" PointY="90.75" />
-          <ConnectorPoint PointX="7.343748" PointY="88.983867187499982" />
-          <ConnectorPoint PointX="8.7916666666666661" PointY="88.983867187499982" />
-          <ConnectorPoint PointX="8.9895833333333339" PointY="88.983867187499982" />
-          <ConnectorPoint PointX="9" PointY="88.983867187499982" />
-          <ConnectorPoint PointX="9" PointY="54.549713541666669" />
-          <ConnectorPoint PointX="9.2291666666666661" PointY="54.549713541666669" />
-          <ConnectorPoint PointX="9.3958333333333339" PointY="54.549713541666669" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="54.549713541666669" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="54.549713541666669" />
-          <ConnectorPoint PointX="10.25" PointY="54.549713541666669" />
+          <ConnectorPoint PointX="7.429685000000001" PointY="90.75" />
+          <ConnectorPoint PointX="7.429685000000001" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="8.7916666666666661" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="8.9895833333333339" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="9" PointY="89.278300781249982" />
+          <ConnectorPoint PointX="9" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="54.615143229166669" />
+          <ConnectorPoint PointX="10.25" PointY="54.615143229166669" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.message" Width="1.5" PointX="19.375" PointY="0.75" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="NXEIPModel.tao06" Width="1.5" PointX="13.25" PointY="57.625" Height="2.1725878906249818" />
@@ -9442,13 +9494,15 @@
           <ConnectorPoint PointX="14" PointY="57.625" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_TAO06_RELATIONS_TAOLUN" >
-          <ConnectorPoint PointX="8.5" PointY="94.10775509244796" />
-          <ConnectorPoint PointX="9" PointY="94.10775509244796" />
-          <ConnectorPoint PointX="9" PointY="90.625" />
-          <ConnectorPoint PointX="11.25" PointY="90.625" />
-          <ConnectorPoint PointX="11.25" PointY="92.875" />
-          <ConnectorPoint PointX="14" PointY="92.875" />
-          <ConnectorPoint PointX="14" PointY="59.797587890624982" />
+          <ConnectorPoint PointX="8.5" PointY="90.775383615384612" />
+          <ConnectorPoint PointX="8.875" PointY="90.400383615384612" />
+          <ConnectorPoint PointX="8.875" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="10.916666666666666" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="11.083333333333334" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="12.875" PointY="60.172587890624982" />
+          <ConnectorPoint PointX="13.25" PointY="59.797587890624982" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.attends" Width="1.5" PointX="24.625" PointY="23.75" Height="2.557190755208353" />
         <EntityTypeShape EntityType="NXEIPModel.conferen" Width="1.5" PointX="21.625" PointY="22.25" Height="2.1725878906249818" />
@@ -9515,14 +9569,14 @@
           <ConnectorPoint PointX="25.625" PointY="3.7929996744791765" />
         </AssociationConnector>
         <AssociationConnector Association="NXEIPModel.FK_QAMANAGE_RELATIONS_QATYPE" >
-          <ConnectorPoint PointX="24.125" PointY="5.884095052083353" />
-          <ConnectorPoint PointX="24.125" PointY="6.6485405390624823" />
+          <ConnectorPoint PointX="24.15625" PointY="5.884095052083353" />
+          <ConnectorPoint PointX="24.15625" PointY="6.6485405390624823" />
           <ConnectorPoint PointX="25.625" PointY="6.6485405390624823" />
         </AssociationConnector>
        
         <EntityTypeShape EntityType="NXEIPModel.m01" Width="1.5" PointX="21.375" PointY="16.75" Height="2.2013151041666674" />
         <AssociationConnector Association="NXEIPModel.FK_MEDETAIL_RELATIONS_MESSAGE" >
-          <ConnectorPoint PointX="19.46875" PointY="3.4791471354166665" />
+          <ConnectorPoint PointX="19.46875" PointY="3.6917936197916665" />
           <ConnectorPoint PointX="19.46875" PointY="16.75" />
         </AssociationConnector>
         <EntityTypeShape EntityType="NXEIPModel.doc14" Width="1.5" PointX="9.5" PointY="44.375" Height="1.980286458333353" />
@@ -9566,6 +9620,12 @@
         <EntityTypeShape EntityType="NXEIPModel.applys" Width="1.5" PointX="16.375" PointY="25.75" Height="3.432923177083353" />
         <EntityTypeShape EntityType="NXEIPModel.commend" Width="1.5" PointX="18.375" PointY="25.75" Height="2.2013151041666674" />
         <EntityTypeShape EntityType="NXEIPModel.dispatch" Width="1.5" PointX="26.375" PointY="8.75" Height="3.0810351562499818" />
+        <EntityTypeShape EntityType="NXEIPModel.rep07" Width="1.5" PointX="21.875" PointY="7.25" Height="1.980286458333353" />
+        <AssociationConnector Association="NXEIPModel.FK_REP07_RELATIONS_REP01" >
+          <ConnectorPoint PointX="21.125" PointY="6.1874994999999995" />
+          <ConnectorPoint PointX="22.59375" PointY="6.1874994999999995" />
+          <ConnectorPoint PointX="22.59375" PointY="7.25" />
+        </AssociationConnector>
         </Diagram>
     </Diagrams>
   </Designer>

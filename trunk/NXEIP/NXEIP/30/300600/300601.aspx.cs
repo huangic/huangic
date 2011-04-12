@@ -47,6 +47,8 @@ public partial class _30_300600_300601 : System.Web.UI.Page
     private void loadData()
     {
         this.ObjectDataSource1.SelectParameters["r05_no"].DefaultValue = this.hidd_r05no.Value;
+        this.ObjectDataSource1.SelectParameters["peo_uid"].DefaultValue = new SessionObject().sessionUserID;
+        this.ObjectDataSource1.SelectParameters["status"].DefaultValue = this.ddl_status.SelectedValue;
         this.ObjectDataSource1.SelectParameters["sd"].DefaultValue = this.calendar1._ADDate.ToString("yyyy-MM-dd 00:00:00");
         this.ObjectDataSource1.SelectParameters["ed"].DefaultValue = this.calendar2._ADDate.ToString("yyyy-MM-dd 23:59:59");
         this.GridView1.DataBind();
@@ -57,6 +59,9 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         if (e.CommandName == "click_cat")
         {
             this.hidd_r05no.Value = this.lv_cat.DataKeys[e.Item.DataItemIndex].Value.ToString();
+            this.ddl_status.SelectedIndex = 0;
+            this.calendar1._ADDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01"));
+            this.calendar2._ADDate = DateTime.Now;
             this.loadData();
         }
         
@@ -414,7 +419,7 @@ public partial class _30_300600_300601 : System.Web.UI.Page
                 //讀取維修資料
                 DateTime sd = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 00:00:00"));
                 DateTime ed = Convert.ToDateTime(sDate.ToString("yyyy-MM-dd 23:59:59"));
-                IQueryable<rep02> data = dao.GetRep02Data2(int.Parse(this.hidd_r05no.Value), sd, ed);
+                IQueryable<rep02> data = dao.GetRep02Data2(int.Parse(this.hidd_r05no.Value), sd, ed, 0, "");
                 foreach (rep02 d in data)
                 {
                     row = sheet1.CreateRow(i);
@@ -454,4 +459,5 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         
 
     }
+
 }

@@ -80,11 +80,16 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:DropDownList ID="ddl_rep06_par" runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource2"
-                                DataTextField="r06_name" DataValueField="r06_no" OnSelectedIndexChanged="ddl_rep06_par_SelectedIndexChanged">
+                                DataTextField="r06_name" DataValueField="r06_no" 
+                                OnSelectedIndexChanged="ddl_rep06_par_SelectedIndexChanged" 
+                                AppendDataBoundItems="True">
+                                <asp:ListItem Value="0">請選擇</asp:ListItem>
                             </asp:DropDownList>
                             &nbsp;&nbsp;子分類：
                             <asp:DropDownList ID="ddl_rep06_son" runat="server" DataSourceID="ObjectDataSource3"
-                                DataTextField="r06_name" DataValueField="r06_no">
+                                DataTextField="r06_name" DataValueField="r06_no" 
+                                AppendDataBoundItems="True">
+                                <asp:ListItem Value="0">請選擇</asp:ListItem>
                             </asp:DropDownList>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -94,6 +99,18 @@
                 </th>
                 <td>
                     <asp:Label ID="lab_replyname" runat="server" ></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 15%">
+                    維修狀態
+                </th>
+                <td colspan="3">
+                    <asp:DropDownList ID="ddl_status" runat="server">
+                        <asp:ListItem Selected="True" Value="1">未處理</asp:ListItem>
+                        <asp:ListItem Value="2">處理中</asp:ListItem>
+                        <asp:ListItem Value="3">已完成</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>

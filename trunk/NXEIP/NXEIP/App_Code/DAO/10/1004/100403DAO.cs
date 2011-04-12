@@ -75,27 +75,42 @@ namespace NXEIP.DAO
         /// <param name="r05_no">分類</param>
         /// <param name="sd">起日期</param>
         /// <param name="ed">迄日期</param>
-        /// <param name="peo_uid"></param>
-        /// <param name="dep_no"></param>
+        /// <param name="peo_uid">維修管理者</param>
+        /// <param name="status">維修狀態</param>
         /// <returns></returns>
-        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed)
+        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed,int peo_uid,string status)
         {
-            //全部資料
-            var data = (from d in model.rep02
-                        where d.r02_status != "4" && d.r02_date >= sd && d.r02_date <= ed && d.r05_no == r05_no
-                        orderby d.r02_date descending
-                        select d);
-            return data;
+            if (peo_uid != 0)
+            {
+                //所屬維修所在地
+                int[] spo_no = new Rep07DAO().Get_rep07Data(peo_uid).Select(o => o.r07_spono.Value).ToArray();
+                
+                var data = (from d in model.rep02
+                            where d.r02_status == status && d.r02_date >= sd && d.r02_date <= ed && d.r05_no == r05_no && spo_no.Contains(d.r02_spono.Value)
+                            orderby d.r02_date descending
+                            select d);
+                return data;
+            }
+            else
+            {
+                //全部資料
+                var data = (from d in model.rep02
+                            where d.r02_status != "4" && d.r02_date >= sd && d.r02_date <= ed && d.r05_no == r05_no
+                            orderby d.r02_date descending
+                            select d);
+                return data;
+            }
+            
         }
 
-        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed, int startRowIndex, int maximumRows)
+        public IQueryable<rep02> GetRep02Data2(int r05_no, DateTime sd, DateTime ed, int peo_uid, string status, int startRowIndex, int maximumRows)
         {
-            return GetRep02Data2(r05_no, sd, ed).Skip(startRowIndex).Take(maximumRows);
+            return GetRep02Data2(r05_no, sd, ed,peo_uid,status).Skip(startRowIndex).Take(maximumRows);
         }
 
-        public int GetRep02DataCount2(int r05_no, DateTime sd, DateTime ed)
+        public int GetRep02DataCount2(int r05_no, DateTime sd, DateTime ed, int peo_uid, string status)
         {
-            return GetRep02Data2(r05_no, sd, ed).Count();
+            return GetRep02Data2(r05_no, sd, ed,peo_uid,status).Count();
         }
 
 
