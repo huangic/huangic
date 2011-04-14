@@ -48,6 +48,7 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
 
                 try
                 {
+                    
                     this.ddl_status.Items.FindByValue(data.r02_status).Selected = true;
                 }
                 catch { }
