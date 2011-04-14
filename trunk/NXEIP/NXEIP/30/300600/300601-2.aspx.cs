@@ -45,7 +45,14 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
                 this.lab_replyname.Text = udao.Get_PeopleName(int.Parse(new SessionObject().sessionUserID));
 
                 this.tbox_reply.Text = data.r02_reply;
+
+                try
+                {
+                    this.ddl_status.Items.FindByValue(data.r02_status).Selected = true;
+                }
+                catch { }
                 
+
             }
             else
             {
