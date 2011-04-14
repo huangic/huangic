@@ -101,9 +101,12 @@
                         <asp:BoundField DataField="peo_uid" HeaderText="叫修人員" SortExpression="peo_uid">
                             <ItemStyle Width="10%" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="r02_floor" HeaderText="樓層" SortExpression="r02_floor">
+                        <asp:TemplateField HeaderText="維修地點">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Get_place((int)Eval("r02_no")) %>' ></asp:Label>
+                            </ItemTemplate>
                             <ItemStyle Width="10%" />
-                        </asp:BoundField>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="r02_date" HeaderText="叫修日期" SortExpression="r02_date">
                             <ItemStyle Width="12%" />
                         </asp:BoundField>

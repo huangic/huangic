@@ -27,18 +27,18 @@ public partial class _30_300600_300601_2 : System.Web.UI.Page
                 this.lab_reason.Text = data.r02_reason;
                 this.lab_spot.Text = dao.GetSpotName(data.r02_spono.Value) + " " + data.r02_floor;
 
-
-                //回覆類別
                 this.ObjectDataSource2.SelectParameters["r05_no"].DefaultValue = data.r05_no.ToString();
                 this.ddl_rep06_par.DataBind();
-                this.ddl_rep06_son.DataBind();
 
-                this.ddl_rep06_par.Items.FindByValue(data.r05_no.ToString()).Selected = true;
-                this.ObjectDataSource3.SelectParameters["r06_no"].DefaultValue = data.r05_no.ToString();
-                this.ddl_rep06_son.DataBind();
-
+                //回覆類別
                 if (data.r06_no.HasValue)
                 {
+                    rep06 r06_data = new Rep06DAO().GetRep06(data.r06_no.Value);
+
+                    this.ddl_rep06_par.Items.FindByValue(r06_data.r06_parent.Value.ToString()).Selected = true;
+
+                    this.ObjectDataSource3.SelectParameters["r06_no"].DefaultValue = r06_data.r06_parent.Value.ToString();
+                    this.ddl_rep06_son.DataBind();
                     this.ddl_rep06_son.Items.FindByValue(data.r06_no.Value.ToString()).Selected = true;
                 }
 
