@@ -104,6 +104,13 @@ public partial class _30_300600_300601 : System.Web.UI.Page
         }
     }
 
+    protected static string Get_place(int r02_no)
+    {
+        rep02 d = new _100403DAO().GetRep02ByNo(r02_no);
+
+        return new SpotDAO().GetNameBySpoNo(d.r02_spono.Value) + "<br/>" + d.r02_floor;
+    }
+
     protected static string GetReply(int r02_no)
     {
         string str = "";

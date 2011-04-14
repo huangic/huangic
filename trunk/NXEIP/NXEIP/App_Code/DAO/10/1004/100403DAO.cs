@@ -153,15 +153,12 @@ namespace NXEIP.DAO
                     select d);
         }
 
-
         public IQueryable<rep05> GetRep05Data()
         {
             return (from d in model.rep05 where d.r05_status == "1" orderby d.r05_name select d);
         }
 
         #endregion
-
-        
 
         public IQueryable<spot> GetSpot()
         {
