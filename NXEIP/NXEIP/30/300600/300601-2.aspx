@@ -107,7 +107,7 @@
                 </th>
                 <td colspan="3">
                     <asp:DropDownList ID="ddl_status" runat="server">
-                        <asp:ListItem Selected="True" Value="1">未處理</asp:ListItem>
+                        <asp:ListItem Value="1">未處理</asp:ListItem>
                         <asp:ListItem Value="2">處理中</asp:ListItem>
                         <asp:ListItem Value="3">已完成</asp:ListItem>
                     </asp:DropDownList>
