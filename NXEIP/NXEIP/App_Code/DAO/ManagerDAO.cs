@@ -44,5 +44,42 @@ namespace NXEIP.DAO
 
 
 
+        /// <summary>
+        /// Gets the manager.
+        /// </summary>
+        /// <returns></returns>
+        /// <history>
+        /// 1. Small P ,2011/4/15-下午 01:40, Created
+        /// </history>
+        public IQueryable<manager> GetManager() {
+           return  (from d in model.manager orderby d.dep_no select d);
+        }
+
+        /// <summary>
+        /// Gets the manager.
+        /// </summary>
+        /// <param name="startRowIndex">Start index of the row.</param>
+        /// <param name="maximumRows">The maximum rows.</param>
+        /// <returns></returns>
+        /// <history>
+        /// 1. Small P ,2011/4/15-下午 01:42, Created
+        /// </history>
+        public IQueryable<manager> GetManager(int startRowIndex, int maximumRows)
+        {
+            return GetManager().Skip(startRowIndex).Take(maximumRows);
+        }
+
+
+        /// <summary>
+        /// Gets the manager count.
+        /// </summary>
+        /// <returns></returns>
+        /// <history>
+        /// 1. Small P ,2011/4/15-下午 01:45, Created
+        /// </history>
+        public int GetManagerCount() {
+            return GetManager().Count();
+        }
+
     }
 }
