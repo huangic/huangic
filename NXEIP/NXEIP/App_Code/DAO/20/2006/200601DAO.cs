@@ -116,6 +116,17 @@ namespace NXEIP.DAO
         {
             //依照使用者版型 與使用者是否登入會員來決定權限表
 
+            //總管理者(遇到總管理者就權限全開)
+
+            //因為這邊要轉FLAG型別很討厭 所以直接用字串
+            int count = (from d in model.manager where d.peo_uid == peo_uid && d.man_type == "2" select d).Count();
+            if (count>0) {
+                f.Permission = "11111";
+
+                return;
+            
+            }
+
 
 
 
@@ -256,6 +267,9 @@ namespace NXEIP.DAO
             if (count > 0)
             {
                 f.IsRoot = true;
+                //總管理者也加上管理權限
+                
+
 
             }
             else {
