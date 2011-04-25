@@ -22,6 +22,13 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
+            #region 取得「申請核可方式」：1表不需審核，直接核可，但不可重覆;2表需審核，但不可重覆;3表需審核，但可重覆
+            if (dbo.GetArguments("Rooms_PetitionSignType") != null)
+                this.lab_PetitionSignType.Text = dbo.GetArguments("Rooms_PetitionSignType");
+            else
+                this.lab_PetitionSignType.Text = "1";
+            #endregion
+
             Session["100402_value"] = null;
             //登入記錄(功能編號,人員編號,操作代碼[1新增 2查詢 3更新 4刪除 5保留],備註)
             new OperatesObject().ExecuteOperates(100402, sobj.sessionUserID, 2, "場地申請");
@@ -113,7 +120,7 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
                     #region 取得會議資料
                     this.btn_reading.Enabled = true;
                     this.ddl_meetings.Items.Add(new ListItem("請選擇", "0"));
-                    string sqlstr1 = "select mee_no, mee_reason, mee_sdate, mee_edate from meetings where (mee_status = '1') and (mee_peouid = " + sobj.sessionUserID + ") and (mee_sdate >= '" + changeobj.ROCDTtoADDT(this.lab_today.Text + " " + this.lab_stime.Text+":00") + "' and mee_edate<'"+changeobj.ROCDTtoADDT(this.lab_today.Text)+" 23:59:59') order by mee_sdate, mee_edate, mee_reason";
+                    string sqlstr1 = "select mee_no, mee_reason, mee_sdate, mee_edate from meetings where (mee_status = '1') and (mee_peouid = " + sobj.sessionUserID + ") and (mee_sdate >= '" + changeobj.ROCDTtoADDT(this.lab_today.Text + " " + this.lab_stime.Text + ":00") + "' and mee_edate<'" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " 23:59:59') order by mee_sdate, mee_edate, mee_reason";
                     DataTable dt1 = new DataTable();
                     dt1 = dbo.ExecuteQuery(sqlstr1);
                     if (dt1.Rows.Count > 0)
@@ -334,7 +341,9 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         #region 判斷是否重複
         if (!this.lab_PetitionSignType.Text.Equals("3"))
         {
-            string sqlstr = "select pet_no from petition where (roo_no = " + this.lab_rooms.Text + ") and (pet_stime <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (pet_etime >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "') and (pet_apply in ('1', '2'))";
+            string pet_stime = changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text;
+            string pet_etime = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss");
+            string sqlstr = "select pet_no from petition where (roo_no = " + this.lab_rooms.Text + ") and (pet_apply in ('1', '2')) and ((pet_stime<='" + pet_etime + "' and  pet_etime<='" + pet_etime + "' and pet_etime>'" + pet_stime + "') or (pet_stime>='" + pet_stime + "' and pet_etime>='" + pet_stime + "' and pet_stime<'" + pet_etime + "') or (pet_stime<'" + pet_stime + "' and pet_etime>'" + pet_etime + "'))";
             DataTable dt = new DataTable();
             dt = dbo.ExecuteQuery(sqlstr);
             if (dt.Rows.Count > 0)
@@ -354,13 +363,6 @@ public partial class _10_100400_100402_1 : System.Web.UI.Page
         string aMSG = "";   //記錄錯誤訊息
         try
         {
-            #region 取得「申請核可方式」：1表不需審核，直接核可，但不可重覆;2表需審核，但不可重覆;3表需審核，但可重覆
-            if (dbo.GetArguments("Rooms_PetitionSignType") != null)
-                this.lab_PetitionSignType.Text = dbo.GetArguments("Rooms_PetitionSignType");
-            else
-                this.lab_PetitionSignType.Text = "1";
-            #endregion
-
             if (CheckInputValue())
             {
                 PetitionDAO petDAO = new PetitionDAO();
