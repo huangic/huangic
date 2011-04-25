@@ -224,7 +224,10 @@ public partial class _10_100400_100405_1 : System.Web.UI.Page
         #endregion
 
         #region 判斷是否重複
-        string sqlstr = "select bor_no from  borrows where (equ_no = " + this.lab_equ.Text + ") and (bor_stime <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (bor_etime >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "') and (bor_apply in ('1', '2'))";
+        string bor_stime = changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text;
+        string bor_etime = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss");
+        string sqlstr = "select bor_no from borrows where (equ_no = " + this.lab_equ.Text + ") and (bor_apply in ('1', '2')) and ((bor_stime<='" + bor_etime + "' and  bor_etime<='" + bor_etime + "' and bor_etime>'" + bor_stime + "') or (bor_stime>='" + bor_stime + "' and bor_etime>='" + bor_stime + "' and bor_stime<'" + bor_etime + "') or (bor_stime<'" + bor_stime + "' and bor_etime>'" + bor_etime + "'))";
+        //string sqlstr = "select bor_no from  borrows where (equ_no = " + this.lab_equ.Text + ") and (bor_apply in ('1', '2')) and (bor_stime <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (bor_etime >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "')";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)

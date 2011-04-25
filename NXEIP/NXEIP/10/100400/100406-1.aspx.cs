@@ -240,7 +240,10 @@ public partial class _10_100400_100406_1 : System.Web.UI.Page
         #endregion
 
         #region 判斷是否重複
-        string sqlstr = "select m03_no from m03 where (m03_m02no = " + this.lab_car.Text + ") and (m03_sdate <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (m03_edate >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "') and (m03_verify in ('1', '2'))";
+        string m03_sdate = changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text;
+        string m03_edate = Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss");
+        string sqlstr = "select m03_no from m03 where (m03_m02no = " + this.lab_car.Text + ") and (m03_verify in ('1', '2')) and ((m03_sdate<='" + m03_edate + "' and  m03_edate<='" + m03_edate + "' and m03_edate>'" + m03_sdate + "') or (m03_sdate>='" + m03_sdate + "' and m03_edate>='" + m03_sdate + "' and m03_sdate<'" + m03_edate + "') or (m03_sdate<'" + m03_sdate + "' and m03_edate>'" + m03_edate + "'))";
+        //string sqlstr = "select m03_no from m03 where (m03_m02no = " + this.lab_car.Text + ") and (m03_verify in ('1', '2')) and (m03_sdate <= '" + changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text + "') and (m03_edate >= '" + Convert.ToDateTime(changeobj.ROCDTtoADDT(this.lab_today.Text) + " " + this.lab_stime.Text).AddHours(Convert.ToInt32(this.ddl_usehour.SelectedValue)).ToString("yyyy/MM/dd HH:mm:ss") + "')";
         DataTable dt = new DataTable();
         dt = dbo.ExecuteQuery(sqlstr);
         if (dt.Rows.Count > 0)
