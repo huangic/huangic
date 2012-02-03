@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Migrated rules for ViviTeachApp.ruleset" Description="這個規則集是從專案 &quot;C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\ViviTeachApp\ViviTeachApp.csproj&quot; 中 &quot;Release (x86)&quot; 組態的 CodeAnalysisRules 屬性建立的。" ToolsVersion="10.0">
+  <RuleHintPaths>
+    <Path>D:\Program Files\Microsoft Visual Studio 8\Team Tools\Static Analysis Tools\FxCop\\rules</Path>
+  </RuleHintPaths>
+</RuleSet>

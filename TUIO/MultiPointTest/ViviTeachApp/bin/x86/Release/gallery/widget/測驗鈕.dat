@@ -1,0 +1,16 @@
+﻿<NXiDEA>
+  <ID>m1026553989</ID>
+  <Bound>591.5,202,139,98</Bound>
+  <Alpha>1</Alpha>
+  <Rotation>0</Rotation>
+  <TypeName>CImage</TypeName>
+  <Selected>false</Selected>
+  <LockStatus>0</LockStatus>
+  <FlipStatus>1,1</FlipStatus>
+  <InfiniteStatus>false</InfiniteStatus>
+  <ScriptID>examboard</ScriptID>
+  <LinkFile>null</LinkFile>
+  <HitType>0</HitType>
+  <ShowBorder>true</ShowBorder>
+  <SourceFile>C:/Users/David/Desktop/click.png</SourceFile>
+</NXiDEA>

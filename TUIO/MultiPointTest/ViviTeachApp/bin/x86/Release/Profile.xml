@@ -1,0 +1,1558 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Files>
+  <File Name="fscommand\books\metadata\1_L-A.jpg" CRC="34e8a5da" KB="34" />
+  <File Name="fscommand\books\metadata\1_L-A.png" CRC="f84319a4" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-A.xml" CRC="bd42961d" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-B.jpg" CRC="e80d3cfa" KB="25" />
+  <File Name="fscommand\books\metadata\1_L-B.png" CRC="ed8696b1" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-B.xml" CRC="c75c04f5" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-C.jpg" CRC="196b9350" KB="36" />
+  <File Name="fscommand\books\metadata\1_L-C.png" CRC="99ee46cf" KB="3" />
+  <File Name="fscommand\books\metadata\1_L-C.xml" CRC="0e3cfdb6" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-D.jpg" CRC="1f308e0c" KB="35" />
+  <File Name="fscommand\books\metadata\1_L-D.png" CRC="25900648" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-D.xml" CRC="261f0bf8" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-E.jpg" CRC="15739b7d" KB="39" />
+  <File Name="fscommand\books\metadata\1_L-E.png" CRC="46df8573" KB="3" />
+  <File Name="fscommand\books\metadata\1_L-E.xml" CRC="773f07d1" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-F.jpg" CRC="be940295" KB="30" />
+  <File Name="fscommand\books\metadata\1_L-F.png" CRC="e5216459" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-F.xml" CRC="7aa73717" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-G.jpg" CRC="0a4bb553" KB="36" />
+  <File Name="fscommand\books\metadata\1_L-G.png" CRC="6ecde6e0" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-G.xml" CRC="956b163d" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-H.jpg" CRC="e506b093" KB="32" />
+  <File Name="fscommand\books\metadata\1_L-H.png" CRC="955ef792" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-H.xml" CRC="c7faf77d" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-I.jpg" CRC="6ae9de69" KB="23" />
+  <File Name="fscommand\books\metadata\1_L-I.png" CRC="814e7f29" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-I.xml" CRC="29e7a5de" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-J.jpg" CRC="802bb39a" KB="24" />
+  <File Name="fscommand\books\metadata\1_L-J.png" CRC="f7862fa3" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-J.xml" CRC="94d3f3e9" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-K.jpg" CRC="f4be4d7a" KB="36" />
+  <File Name="fscommand\books\metadata\1_L-K.png" CRC="92fb0e00" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-K.xml" CRC="742a8bc5" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-L.jpg" CRC="59cb4184" KB="29" />
+  <File Name="fscommand\books\metadata\1_L-L.png" CRC="6da23374" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-L.xml" CRC="d21f8d20" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-M.jpg" CRC="56a05eae" KB="34" />
+  <File Name="fscommand\books\metadata\1_L-M.png" CRC="59b9ac50" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-M.xml" CRC="577cbcd8" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-N.jpg" CRC="16798fd8" KB="50" />
+  <File Name="fscommand\books\metadata\1_L-N.png" CRC="06e840b9" KB="3" />
+  <File Name="fscommand\books\metadata\1_L-N.xml" CRC="3c151c5e" KB="1" />
+  <File Name="fscommand\books\metadata\1_L-O.jpg" CRC="a8c81e01" KB="36" />
+  <File Name="fscommand\books\metadata\1_L-O.png" CRC="903e196d" KB="2" />
+  <File Name="fscommand\books\metadata\1_L-O.xml" CRC="d40232fb" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-A.jpg" CRC="55e4714f" KB="38" />
+  <File Name="fscommand\books\metadata\2_L-A.png" CRC="a7e12a1c" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-A.xml" CRC="5141ff27" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-B.jpg" CRC="7ad41b93" KB="27" />
+  <File Name="fscommand\books\metadata\2_L-B.png" CRC="8a2256b0" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-B.xml" CRC="f52647b0" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-C.jpg" CRC="2a8b92e2" KB="33" />
+  <File Name="fscommand\books\metadata\2_L-C.png" CRC="398921be" KB="3" />
+  <File Name="fscommand\books\metadata\2_L-C.xml" CRC="134f5517" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-D.jpg" CRC="62a0d1ec" KB="34" />
+  <File Name="fscommand\books\metadata\2_L-D.png" CRC="c1ef64d1" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-D.xml" CRC="86222fcf" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-E.jpg" CRC="8fe3f7b4" KB="44" />
+  <File Name="fscommand\books\metadata\2_L-E.png" CRC="45fe56a2" KB="3" />
+  <File Name="fscommand\books\metadata\2_L-E.xml" CRC="18278ec5" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-F.jpg" CRC="42a0324e" KB="34" />
+  <File Name="fscommand\books\metadata\2_L-F.png" CRC="7a16eb55" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-F.xml" CRC="63384adb" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-G.jpg" CRC="c4326bae" KB="43" />
+  <File Name="fscommand\books\metadata\2_L-G.png" CRC="e98872ae" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-G.xml" CRC="7dd4fc00" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-H.jpg" CRC="bb175bee" KB="33" />
+  <File Name="fscommand\books\metadata\2_L-H.png" CRC="7426a9df" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-H.xml" CRC="fb5d2335" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-I.jpg" CRC="14f075e6" KB="22" />
+  <File Name="fscommand\books\metadata\2_L-I.png" CRC="5f4b3d4b" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-I.xml" CRC="17f21792" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-J.jpg" CRC="7ae162b9" KB="24" />
+  <File Name="fscommand\books\metadata\2_L-J.png" CRC="ad1924b7" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-J.xml" CRC="5237b838" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-K.jpg" CRC="e9948e94" KB="36" />
+  <File Name="fscommand\books\metadata\2_L-K.png" CRC="948498ec" KB="3" />
+  <File Name="fscommand\books\metadata\2_L-K.xml" CRC="0bf4c713" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-L.jpg" CRC="9cf9788e" KB="29" />
+  <File Name="fscommand\books\metadata\2_L-L.png" CRC="819c4379" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-L.xml" CRC="9048226f" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-M.jpg" CRC="63d98490" KB="33" />
+  <File Name="fscommand\books\metadata\2_L-M.png" CRC="5becf169" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-M.xml" CRC="64b50d18" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-N.jpg" CRC="f1f012af" KB="48" />
+  <File Name="fscommand\books\metadata\2_L-N.png" CRC="913c1cb3" KB="3" />
+  <File Name="fscommand\books\metadata\2_L-N.xml" CRC="a28d2d84" KB="1" />
+  <File Name="fscommand\books\metadata\2_L-O.jpg" CRC="531e4d7b" KB="34" />
+  <File Name="fscommand\books\metadata\2_L-O.png" CRC="9cf03910" KB="2" />
+  <File Name="fscommand\books\metadata\2_L-O.xml" CRC="7154771d" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-A.jpg" CRC="eb799f67" KB="32" />
+  <File Name="fscommand\books\metadata\3_L-A.png" CRC="68600b48" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-A.xml" CRC="e47c611e" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-B.jpg" CRC="b7875f3f" KB="27" />
+  <File Name="fscommand\books\metadata\3_L-B.png" CRC="d6e89845" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-B.xml" CRC="07aa6d05" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-C.jpg" CRC="b47ebd22" KB="36" />
+  <File Name="fscommand\books\metadata\3_L-C.png" CRC="5ed048be" KB="3" />
+  <File Name="fscommand\books\metadata\3_L-C.xml" CRC="40a443f8" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-D.jpg" CRC="f71e8cc8" KB="36" />
+  <File Name="fscommand\books\metadata\3_L-D.png" CRC="6cc93395" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-D.xml" CRC="bb1f23b4" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-E.jpg" CRC="331578c2" KB="32" />
+  <File Name="fscommand\books\metadata\3_L-E.png" CRC="34900d60" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-E.xml" CRC="8b1a7a7f" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-F.jpg" CRC="f8ccb67c" KB="32" />
+  <File Name="fscommand\books\metadata\3_L-F.png" CRC="5807a543" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-F.xml" CRC="1bc0b1c7" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-G.jpg" CRC="6b213420" KB="41" />
+  <File Name="fscommand\books\metadata\3_L-G.png" CRC="968d4798" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-G.xml" CRC="fefe9d50" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-H.jpg" CRC="4da7c481" KB="29" />
+  <File Name="fscommand\books\metadata\3_L-H.png" CRC="a029cd01" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-H.xml" CRC="c950ee87" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-I.jpg" CRC="5550ca64" KB="22" />
+  <File Name="fscommand\books\metadata\3_L-I.png" CRC="3c1b4f88" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-I.xml" CRC="0410ac19" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-J.jpg" CRC="e32e6634" KB="24" />
+  <File Name="fscommand\books\metadata\3_L-J.png" CRC="8bc9a703" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-J.xml" CRC="14329ea1" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-K.jpg" CRC="cc275286" KB="36" />
+  <File Name="fscommand\books\metadata\3_L-K.png" CRC="a6e11bbc" KB="3" />
+  <File Name="fscommand\books\metadata\3_L-K.xml" CRC="581869f7" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-L.jpg" CRC="2a60427e" KB="30" />
+  <File Name="fscommand\books\metadata\3_L-L.png" CRC="0ce0732c" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-L.xml" CRC="b43d3cf8" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-M.jpg" CRC="8b0e21ec" KB="34" />
+  <File Name="fscommand\books\metadata\3_L-M.png" CRC="b8fdf0c4" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-M.xml" CRC="04a9da2e" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-N.jpg" CRC="430b10e7" KB="43" />
+  <File Name="fscommand\books\metadata\3_L-N.png" CRC="747dfadc" KB="3" />
+  <File Name="fscommand\books\metadata\3_L-N.xml" CRC="1db85a4e" KB="1" />
+  <File Name="fscommand\books\metadata\3_L-O.jpg" CRC="aa1032d1" KB="33" />
+  <File Name="fscommand\books\metadata\3_L-O.png" CRC="bfd19498" KB="2" />
+  <File Name="fscommand\books\metadata\3_L-O.xml" CRC="389803b7" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-A.jpg" CRC="426d2bdb" KB="31" />
+  <File Name="fscommand\books\metadata\5_L-A.png" CRC="31e55ab5" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-A.xml" CRC="4a0cd969" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-B.jpg" CRC="bce074d1" KB="27" />
+  <File Name="fscommand\books\metadata\5_L-B.png" CRC="87ef9dfe" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-B.xml" CRC="29913f17" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-C.jpg" CRC="ccb66cf0" KB="31" />
+  <File Name="fscommand\books\metadata\5_L-C.png" CRC="b0eda5a4" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-C.xml" CRC="adda713a" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-D.jpg" CRC="fe5a8572" KB="31" />
+  <File Name="fscommand\books\metadata\5_L-D.png" CRC="686c16fd" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-D.xml" CRC="72d60554" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-E.jpg" CRC="124a801d" KB="31" />
+  <File Name="fscommand\books\metadata\5_L-E.png" CRC="2de3deb1" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-E.xml" CRC="7974a1e5" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-F.jpg" CRC="9796046b" KB="32" />
+  <File Name="fscommand\books\metadata\5_L-F.png" CRC="467d3cf6" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-F.xml" CRC="5e25a178" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-G.jpg" CRC="fc1bf287" KB="33" />
+  <File Name="fscommand\books\metadata\5_L-G.png" CRC="c0497877" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-G.xml" CRC="4f64f24c" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-H.jpg" CRC="205efba0" KB="28" />
+  <File Name="fscommand\books\metadata\5_L-H.png" CRC="cb9c8f28" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-H.xml" CRC="dace455a" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-I.jpg" CRC="c1a1251b" KB="22" />
+  <File Name="fscommand\books\metadata\5_L-I.png" CRC="f92ca0de" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-I.xml" CRC="fca9c45b" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-J.jpg" CRC="115b5130" KB="24" />
+  <File Name="fscommand\books\metadata\5_L-J.png" CRC="e79df44a" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-J.xml" CRC="23b61372" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-K.jpg" CRC="e7110f96" KB="33" />
+  <File Name="fscommand\books\metadata\5_L-K.png" CRC="8f334015" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-K.xml" CRC="0c4b5d14" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-L.jpg" CRC="fad76692" KB="30" />
+  <File Name="fscommand\books\metadata\5_L-L.png" CRC="0d70d104" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-L.xml" CRC="be101995" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-M.jpg" CRC="b3781954" KB="34" />
+  <File Name="fscommand\books\metadata\5_L-M.png" CRC="75dea027" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-M.xml" CRC="c11ea002" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-N.jpg" CRC="839966cb" KB="47" />
+  <File Name="fscommand\books\metadata\5_L-N.png" CRC="0b46d060" KB="3" />
+  <File Name="fscommand\books\metadata\5_L-N.xml" CRC="e9abd587" KB="1" />
+  <File Name="fscommand\books\metadata\5_L-O.jpg" CRC="fe26595b" KB="33" />
+  <File Name="fscommand\books\metadata\5_L-O.png" CRC="fca3e8a7" KB="2" />
+  <File Name="fscommand\books\metadata\5_L-O.xml" CRC="1d7141fa" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-A.jpg" CRC="73f358d1" KB="36" />
+  <File Name="fscommand\books\metadata\6_L-A.png" CRC="dc305d5f" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-A.xml" CRC="2e614548" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-B.jpg" CRC="a7fc479d" KB="26" />
+  <File Name="fscommand\books\metadata\6_L-B.png" CRC="5d7c1965" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-B.xml" CRC="8f212c70" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-C.jpg" CRC="ef07fdb8" KB="36" />
+  <File Name="fscommand\books\metadata\6_L-C.png" CRC="1e5a196e" KB="3" />
+  <File Name="fscommand\books\metadata\6_L-C.xml" CRC="53d5e080" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-D.jpg" CRC="2bbf62ab" KB="31" />
+  <File Name="fscommand\books\metadata\6_L-D.png" CRC="eec82b74" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-D.xml" CRC="b1d239b1" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-E.jpg" CRC="6048a89a" KB="30" />
+  <File Name="fscommand\books\metadata\6_L-E.png" CRC="e599862b" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-E.xml" CRC="2315aad3" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-F.jpg" CRC="61a8891d" KB="35" />
+  <File Name="fscommand\books\metadata\6_L-F.png" CRC="6a7b181e" KB="3" />
+  <File Name="fscommand\books\metadata\6_L-F.xml" CRC="fbb7399b" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-G.jpg" CRC="cb9a4363" KB="38" />
+  <File Name="fscommand\books\metadata\6_L-G.png" CRC="c4fb02d0" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-G.xml" CRC="141739c4" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-H.jpg" CRC="a80c2df7" KB="28" />
+  <File Name="fscommand\books\metadata\6_L-H.png" CRC="50989360" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-H.xml" CRC="1ccf91c5" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-I.jpg" CRC="4289e8b5" KB="21" />
+  <File Name="fscommand\books\metadata\6_L-I.png" CRC="7cab3bc2" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-I.xml" CRC="ba363773" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-J.jpg" CRC="6c8bdc11" KB="24" />
+  <File Name="fscommand\books\metadata\6_L-J.png" CRC="9f298704" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-J.xml" CRC="538e01f7" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-K.jpg" CRC="63215dc9" KB="33" />
+  <File Name="fscommand\books\metadata\6_L-K.png" CRC="7de31787" KB="3" />
+  <File Name="fscommand\books\metadata\6_L-K.xml" CRC="e3379fd9" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-L.jpg" CRC="633b9575" KB="29" />
+  <File Name="fscommand\books\metadata\6_L-L.png" CRC="7f79e9dc" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-L.xml" CRC="754cb0a9" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-M.jpg" CRC="dab9137b" KB="34" />
+  <File Name="fscommand\books\metadata\6_L-M.png" CRC="efdc88a4" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-M.xml" CRC="2801399d" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-N.jpg" CRC="390627ff" KB="45" />
+  <File Name="fscommand\books\metadata\6_L-N.png" CRC="81e382c5" KB="3" />
+  <File Name="fscommand\books\metadata\6_L-N.xml" CRC="a8e91f38" KB="1" />
+  <File Name="fscommand\books\metadata\6_L-O.jpg" CRC="57c0e741" KB="31" />
+  <File Name="fscommand\books\metadata\6_L-O.png" CRC="bddca64c" KB="2" />
+  <File Name="fscommand\books\metadata\6_L-O.xml" CRC="99e0a42d" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-A.jpg" CRC="114d0e80" KB="36" />
+  <File Name="fscommand\books\metadata\7_L-A.png" CRC="a911d9a1" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-A.xml" CRC="ffe58118" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-B.jpg" CRC="1998284f" KB="28" />
+  <File Name="fscommand\books\metadata\7_L-B.png" CRC="81379a6b" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-B.xml" CRC="88a73dba" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-C.jpg" CRC="7647c9fc" KB="31" />
+  <File Name="fscommand\books\metadata\7_L-C.png" CRC="62f2216d" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-C.xml" CRC="cedd6c66" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-D.jpg" CRC="7816c5d7" KB="29" />
+  <File Name="fscommand\books\metadata\7_L-D.png" CRC="13baf6a7" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-D.xml" CRC="69836fde" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-E.jpg" CRC="4ea0e42a" KB="33" />
+  <File Name="fscommand\books\metadata\7_L-E.png" CRC="6fcf02c0" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-E.xml" CRC="8d787672" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-F.jpg" CRC="af1d3c52" KB="31" />
+  <File Name="fscommand\books\metadata\7_L-F.png" CRC="d2d59e30" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-F.xml" CRC="d029d202" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-G.jpg" CRC="52a489d1" KB="34" />
+  <File Name="fscommand\books\metadata\7_L-G.png" CRC="9a1044da" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-G.xml" CRC="e30e5b31" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-H.jpg" CRC="84bcfd12" KB="27" />
+  <File Name="fscommand\books\metadata\7_L-H.png" CRC="f32714f7" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-H.xml" CRC="b501a3c2" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-I.jpg" CRC="214f8c18" KB="48" />
+  <File Name="fscommand\books\metadata\7_L-I.png" CRC="40dda47a" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-I.xml" CRC="cee00eff" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-J.jpg" CRC="50ef5780" KB="24" />
+  <File Name="fscommand\books\metadata\7_L-J.png" CRC="35d803f5" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-J.xml" CRC="2275b747" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-K.jpg" CRC="d4227f40" KB="33" />
+  <File Name="fscommand\books\metadata\7_L-K.png" CRC="1d516830" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-K.xml" CRC="fd5ce926" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-L.jpg" CRC="1c16dbf9" KB="28" />
+  <File Name="fscommand\books\metadata\7_L-L.png" CRC="76a00c49" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-L.xml" CRC="d1e24c49" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-M.jpg" CRC="1856d580" KB="32" />
+  <File Name="fscommand\books\metadata\7_L-M.png" CRC="f79f9ceb" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-M.xml" CRC="a3ee54ea" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-N.jpg" CRC="de742c0c" KB="48" />
+  <File Name="fscommand\books\metadata\7_L-N.png" CRC="9b5b1e0a" KB="3" />
+  <File Name="fscommand\books\metadata\7_L-N.xml" CRC="dd3af781" KB="1" />
+  <File Name="fscommand\books\metadata\7_L-O.jpg" CRC="42ce4c7a" KB="32" />
+  <File Name="fscommand\books\metadata\7_L-O.png" CRC="6fe430af" KB="2" />
+  <File Name="fscommand\books\metadata\7_L-O.xml" CRC="3f01b704" KB="1" />
+  <File Name="fscommand\books\metadata\r1_L-A.jpg" CRC="cac357c1" KB="38" />
+  <File Name="fscommand\books\metadata\r1_L-A.png" CRC="cfdc3534" KB="3" />
+  <File Name="fscommand\books\metadata\r1_L-A.xml" CRC="9fe72bb3" KB="1" />
+  <File Name="fscommand\books\metadata\r1_L-B.jpg" CRC="4c25e85d" KB="24" />
+  <File Name="fscommand\books\metadata\r1_L-B.png" CRC="bfd2c799" KB="2" />
+  <File Name="fscommand\books\metadata\r1_L-B.xml" CRC="194d77aa" KB="1" />
+  <File Name="fscommand\books\metadata\r1_L-C.jpg" CRC="3ec0e1be" KB="39" />
+  <File Name="fscommand\books\metadata\r1_L-C.png" CRC="f62a60be" KB="2" />
+  <File Name="fscommand\books\metadata\r1_L-C.xml" CRC="16693219" KB="1" />
+  <File Name="fscommand\books\metadata\r2_L-A.jpg" CRC="0362086f" KB="26" />
+  <File Name="fscommand\books\metadata\r2_L-A.png" CRC="12ff3773" KB="2" />
+  <File Name="fscommand\books\metadata\r2_L-A.xml" CRC="d7bf830f" KB="1" />
+  <File Name="fscommand\books\metadata\r2_L-B.jpg" CRC="02a43c02" KB="34" />
+  <File Name="fscommand\books\metadata\r2_L-B.png" CRC="ef75fe82" KB="2" />
+  <File Name="fscommand\books\metadata\r2_L-B.xml" CRC="ccbbdf7d" KB="1" />
+  <File Name="fscommand\books\metadata\r2_L-C.jpg" CRC="2a350f98" KB="23" />
+  <File Name="fscommand\books\metadata\r2_L-C.png" CRC="ff3e908f" KB="2" />
+  <File Name="fscommand\books\metadata\r2_L-C.xml" CRC="a211b73d" KB="1" />
+  <File Name="fscommand\books\metadata\r2_L-D.jpg" CRC="e169a0e4" KB="32" />
+  <File Name="fscommand\books\metadata\r2_L-D.png" CRC="a98b5ca8" KB="2" />
+  <File Name="fscommand\books\metadata\r2_L-D.xml" CRC="2fad9655" KB="1" />
+  <File Name="fscommand\books\metadata\r3_L-A.jpg" CRC="9d1df3c4" KB="38" />
+  <File Name="fscommand\books\metadata\r3_L-A.png" CRC="bbd6f1f4" KB="2" />
+  <File Name="fscommand\books\metadata\r3_L-A.xml" CRC="8ccc86b6" KB="1" />
+  <File Name="fscommand\books\metadata\r3_L-B.jpg" CRC="f9a292dc" KB="29" />
+  <File Name="fscommand\books\metadata\r3_L-B.png" CRC="775874ae" KB="2" />
+  <File Name="fscommand\books\metadata\r3_L-B.xml" CRC="21f1a74f" KB="1" />
+  <File Name="fscommand\books\metadata\r3_L-C.jpg" CRC="353556c0" KB="34" />
+  <File Name="fscommand\books\metadata\r3_L-C.png" CRC="a55021e3" KB="2" />
+  <File Name="fscommand\books\metadata\r3_L-C.xml" CRC="b3947bd7" KB="1" />
+  <File Name="fscommand\books\metadata\r3_L-D.jpg" CRC="6d5179fc" KB="50" />
+  <File Name="fscommand\books\metadata\r3_L-D.png" CRC="157c68bc" KB="3" />
+  <File Name="fscommand\books\metadata\r3_L-D.xml" CRC="714ed772" KB="1" />
+  <File Name="fscommand\books\review3\~L-A.swf" CRC="8983e30d" KB="998" />
+  <File Name="fscommand\books\review3\~L-D.swf" CRC="7a77954b" KB="1863" />
+  <File Name="fscommand\books\unit1\~L-A.swf" CRC="417f0b5f" KB="2352" />
+  <File Name="fscommand\books\unit1\~L-N.swf" CRC="c23b3caa" KB="1194" />
+  <File Name="fscommand\books\unit2\~L-A.swf" CRC="050f20b6" KB="5901" />
+  <File Name="fscommand\books\unit2\~L-N.swf" CRC="20aba4f5" KB="1481" />
+  <File Name="fscommand\books\unit3\~L-A.swf" CRC="a14dc570" KB="4621" />
+  <File Name="fscommand\books\unit3\~L-N.swf" CRC="d3d8a43d" KB="948" />
+  <File Name="fscommand\books\unit5\~L-A.swf" CRC="84b5b13f" KB="6155" />
+  <File Name="fscommand\books\unit5\~L-N.swf" CRC="c32b6d54" KB="706" />
+  <File Name="fscommand\books\unit6\~L-A.swf" CRC="48d931aa" KB="1018" />
+  <File Name="fscommand\books\unit6\~L-N.swf" CRC="eed810c3" KB="1286" />
+  <File Name="fscommand\books\unit7\~L-A.swf" CRC="f62c3b2f" KB="4304" />
+  <File Name="fscommand\books\unit7\~L-N.swf" CRC="11d390e2" KB="1173" />
+  <File Name="fscommand\books\1_L-A.swf" CRC="718b0307" KB="18" />
+  <File Name="fscommand\books\1_L-B.swf" CRC="c2be7a4e" KB="198" />
+  <File Name="fscommand\books\1_L-C.swf" CRC="c0c8463d" KB="539" />
+  <File Name="fscommand\books\1_L-D.swf" CRC="10f20863" KB="425" />
+  <File Name="fscommand\books\1_L-E.swf" CRC="e5b27d5f" KB="335" />
+  <File Name="fscommand\books\1_L-F.swf" CRC="214e3a90" KB="575" />
+  <File Name="fscommand\books\1_L-G.swf" CRC="639898c6" KB="995" />
+  <File Name="fscommand\books\1_L-H.swf" CRC="90d58e0a" KB="322" />
+  <File Name="fscommand\books\1_L-I.swf" CRC="ae0c6141" KB="225" />
+  <File Name="fscommand\books\1_L-J.swf" CRC="7984c283" KB="116" />
+  <File Name="fscommand\books\1_L-K.swf" CRC="01291f4d" KB="298" />
+  <File Name="fscommand\books\1_L-L.swf" CRC="c4bcd3cd" KB="276" />
+  <File Name="fscommand\books\1_L-M.swf" CRC="5987d637" KB="926" />
+  <File Name="fscommand\books\1_L-N.swf" CRC="872ac686" KB="22" />
+  <File Name="fscommand\books\1_L-O.swf" CRC="84c59439" KB="307" />
+  <File Name="fscommand\books\1_L-P.swf" CRC="97a27d2a" KB="4488" />
+  <File Name="fscommand\books\2_L-A.swf" CRC="e4770fb5" KB="18" />
+  <File Name="fscommand\books\2_L-B.swf" CRC="e03a1031" KB="204" />
+  <File Name="fscommand\books\2_L-C.swf" CRC="6c89ce99" KB="526" />
+  <File Name="fscommand\books\2_L-D.swf" CRC="18ebf948" KB="443" />
+  <File Name="fscommand\books\2_L-E.swf" CRC="6af37b56" KB="807" />
+  <File Name="fscommand\books\2_L-F.swf" CRC="49b13783" KB="425" />
+  <File Name="fscommand\books\2_L-G.swf" CRC="237bb913" KB="932" />
+  <File Name="fscommand\books\2_L-H.swf" CRC="eb492246" KB="471" />
+  <File Name="fscommand\books\2_L-I.swf" CRC="74a8924e" KB="191" />
+  <File Name="fscommand\books\2_L-J.swf" CRC="d23afdb8" KB="120" />
+  <File Name="fscommand\books\2_L-K.swf" CRC="a6a97760" KB="275" />
+  <File Name="fscommand\books\2_L-L.swf" CRC="9238236f" KB="300" />
+  <File Name="fscommand\books\2_L-M.swf" CRC="a971ae75" KB="831" />
+  <File Name="fscommand\books\2_L-N.swf" CRC="120d1eb5" KB="22" />
+  <File Name="fscommand\books\2_L-O.swf" CRC="0263cab4" KB="348" />
+  <File Name="fscommand\books\2_L-P.swf" CRC="7295ac23" KB="3530" />
+  <File Name="fscommand\books\3_L-A.swf" CRC="9b0dc14f" KB="18" />
+  <File Name="fscommand\books\3_L-B.swf" CRC="021f6e7e" KB="200" />
+  <File Name="fscommand\books\3_L-C.swf" CRC="cf8bd59c" KB="540" />
+  <File Name="fscommand\books\3_L-D.swf" CRC="013d0183" KB="417" />
+  <File Name="fscommand\books\3_L-E.swf" CRC="6efde1b0" KB="239" />
+  <File Name="fscommand\books\3_L-F.swf" CRC="cefe7e45" KB="571" />
+  <File Name="fscommand\books\3_L-G.swf" CRC="1032ef03" KB="831" />
+  <File Name="fscommand\books\3_L-H.swf" CRC="43df7fe4" KB="282" />
+  <File Name="fscommand\books\3_L-I.swf" CRC="7ea978e0" KB="145" />
+  <File Name="fscommand\books\3_L-J.swf" CRC="0a02c9ef" KB="128" />
+  <File Name="fscommand\books\3_L-K.swf" CRC="04d02387" KB="300" />
+  <File Name="fscommand\books\3_L-L.swf" CRC="a60c630a" KB="276" />
+  <File Name="fscommand\books\3_L-M.swf" CRC="389e3765" KB="469" />
+  <File Name="fscommand\books\3_L-N.swf" CRC="e63946ec" KB="22" />
+  <File Name="fscommand\books\3_L-O.swf" CRC="4407ebb0" KB="332" />
+  <File Name="fscommand\books\3_L-P.swf" CRC="fe1fbb7c" KB="3483" />
+  <File Name="fscommand\books\5_L-A.swf" CRC="19ad9bb7" KB="18" />
+  <File Name="fscommand\books\5_L-B.swf" CRC="88398a67" KB="199" />
+  <File Name="fscommand\books\5_L-C.swf" CRC="f2c7c2d9" KB="468" />
+  <File Name="fscommand\books\5_L-D.swf" CRC="ffa772c2" KB="257" />
+  <File Name="fscommand\books\5_L-E.swf" CRC="ae57e3e5" KB="264" />
+  <File Name="fscommand\books\5_L-F.swf" CRC="1a351960" KB="522" />
+  <File Name="fscommand\books\5_L-G.swf" CRC="bb5b642d" KB="755" />
+  <File Name="fscommand\books\5_L-H.swf" CRC="a16ba718" KB="264" />
+  <File Name="fscommand\books\5_L-I.swf" CRC="91c7d54e" KB="109" />
+  <File Name="fscommand\books\5_L-J.swf" CRC="0fb9dd40" KB="118" />
+  <File Name="fscommand\books\5_L-K.swf" CRC="51d72bb2" KB="302" />
+  <File Name="fscommand\books\5_L-L.swf" CRC="89b2c261" KB="459" />
+  <File Name="fscommand\books\5_L-M.swf" CRC="d78561e1" KB="404" />
+  <File Name="fscommand\books\5_L-N.swf" CRC="853605e3" KB="22" />
+  <File Name="fscommand\books\5_L-O.swf" CRC="c47ab404" KB="350" />
+  <File Name="fscommand\books\5_L-P.swf" CRC="410f63fe" KB="4439" />
+  <File Name="fscommand\books\6_L-A.swf" CRC="c055e7f8" KB="18" />
+  <File Name="fscommand\books\6_L-B.swf" CRC="f30ff647" KB="195" />
+  <File Name="fscommand\books\6_L-C.swf" CRC="7d5074fc" KB="354" />
+  <File Name="fscommand\books\6_L-D.swf" CRC="5fe12203" KB="332" />
+  <File Name="fscommand\books\6_L-E.swf" CRC="7c27ab46" KB="275" />
+  <File Name="fscommand\books\6_L-F.swf" CRC="f97924af" KB="470" />
+  <File Name="fscommand\books\6_L-G.swf" CRC="91f9346e" KB="2633" />
+  <File Name="fscommand\books\6_L-H.swf" CRC="d96fe10e" KB="270" />
+  <File Name="fscommand\books\6_L-I.swf" CRC="97053158" KB="103" />
+  <File Name="fscommand\books\6_L-J.swf" CRC="bf0589e4" KB="113" />
+  <File Name="fscommand\books\6_L-K.swf" CRC="8ca2fff8" KB="166" />
+  <File Name="fscommand\books\6_L-L.swf" CRC="0b6609c3" KB="445" />
+  <File Name="fscommand\books\6_L-M.swf" CRC="567a1739" KB="447" />
+  <File Name="fscommand\books\6_L-N.swf" CRC="1112f94e" KB="22" />
+  <File Name="fscommand\books\6_L-O.swf" CRC="062d8273" KB="219" />
+  <File Name="fscommand\books\6_L-P.swf" CRC="061b7a74" KB="3682" />
+  <File Name="fscommand\books\7_L-A.swf" CRC="6b6a9295" KB="18" />
+  <File Name="fscommand\books\7_L-B.swf" CRC="149bb2b1" KB="93" />
+  <File Name="fscommand\books\7_L-C.swf" CRC="5fba3649" KB="391" />
+  <File Name="fscommand\books\7_L-D.swf" CRC="8e7564af" KB="149" />
+  <File Name="fscommand\books\7_L-E.swf" CRC="05df7f58" KB="208" />
+  <File Name="fscommand\books\7_L-F.swf" CRC="8f1fd056" KB="459" />
+  <File Name="fscommand\books\7_L-G.swf" CRC="b59438bf" KB="443" />
+  <File Name="fscommand\books\7_L-H.swf" CRC="98567554" KB="282" />
+  <File Name="fscommand\books\7_L-I.swf" CRC="979c6064" KB="151" />
+  <File Name="fscommand\books\7_L-J.swf" CRC="e2addb7f" KB="127" />
+  <File Name="fscommand\books\7_L-K.swf" CRC="c90a7a86" KB="212" />
+  <File Name="fscommand\books\7_L-L.swf" CRC="9b0c2cef" KB="447" />
+  <File Name="fscommand\books\7_L-M.swf" CRC="ae635a79" KB="448" />
+  <File Name="fscommand\books\7_L-N.swf" CRC="39f9dcca" KB="22" />
+  <File Name="fscommand\books\7_L-O.swf" CRC="f209daf7" KB="223" />
+  <File Name="fscommand\books\7_L-P.swf" CRC="8001d214" KB="4764" />
+  <File Name="fscommand\books\book.ini" CRC="6b984582" KB="1" />
+  <File Name="fscommand\books\bookMenu.swf" CRC="2f0e1595" KB="1369" />
+  <File Name="fscommand\books\books.xml" CRC="a239c086" KB="13" />
+  <File Name="fscommand\books\r1_L-A.swf" CRC="3639529a" KB="4946" />
+  <File Name="fscommand\books\r1_L-B.swf" CRC="abe975bf" KB="317" />
+  <File Name="fscommand\books\r1_L-C.swf" CRC="66a19768" KB="745" />
+  <File Name="fscommand\books\r1_L-D.swf" CRC="05f0eabc" KB="2099" />
+  <File Name="fscommand\books\r2_L-A.swf" CRC="881729c3" KB="395" />
+  <File Name="fscommand\books\r2_L-B.swf" CRC="6a23e53e" KB="72" />
+  <File Name="fscommand\books\r2_L-C.swf" CRC="0ce03447" KB="395" />
+  <File Name="fscommand\books\r2_L-D.swf" CRC="76e74fe9" KB="524" />
+  <File Name="fscommand\books\r2_L-E.swf" CRC="18fb8e64" KB="1513" />
+  <File Name="fscommand\books\r3_L-A.swf" CRC="3d5c49e4" KB="18" />
+  <File Name="fscommand\books\r3_L-B.swf" CRC="8de5d316" KB="224" />
+  <File Name="fscommand\books\r3_L-C.swf" CRC="6782e5bd" KB="293" />
+  <File Name="fscommand\books\r3_L-D.swf" CRC="49729da8" KB="22" />
+  <File Name="fscommand\books\r3_L-E.swf" CRC="4a9d2b1e" KB="324" />
+  <File Name="fscommand\books\readingandwritingpratice.swf" CRC="f8da64d8" KB="634" />
+  <File Name="fscommand\common\end.swf" CRC="057e16d3" KB="628" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\GameChooser.swf" CRC="9b957572" KB="32" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\GameDice.swf" CRC="701d8615" KB="27" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\GameScoreboard.swf" CRC="4005d61c" KB="18" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\GameTimer.swf" CRC="5f630509" KB="79" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\Roulette.exe" CRC="a1b111b5" KB="17252" />
+  <File Name="fscommand\fscommand\NXiDEAEXE\Roulette.swf" CRC="f8492bf9" KB="78" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 65.jpg" CRC="1e486d46" KB="524" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 66-67.jpg" CRC="ae5112b0" KB="907" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-1.jpg" CRC="d688d5cc" KB="155" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-Chinese New Years Eve.jpg" CRC="8e29efd1" KB="280" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-dragon dance.jpg" CRC="594de4c8" KB="239" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-dumpling(s).jpg" CRC="cc945a54" KB="159" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-firecrackers.jpg" CRC="f5c6444a" KB="168" />
+  <File Name="fscommand\fscommand\pic\Culture &amp; Festivals\CU_p. 68-red envelope(s).jpg" CRC="f0d5a601" KB="163" />
+  <File Name="fscommand\fscommand\pic\Review 1\R1_p. 31-1.jpg" CRC="17db7fb0" KB="205" />
+  <File Name="fscommand\fscommand\pic\Review 1\R1_p. 31-2.jpg" CRC="7df7c2c0" KB="211" />
+  <File Name="fscommand\fscommand\pic\Review 1\R1_p. 31-3.jpg" CRC="0b06adfd" KB="195" />
+  <File Name="fscommand\fscommand\pic\Review 1\R1_p. 31-4.jpg" CRC="e5df666c" KB="287" />
+  <File Name="fscommand\fscommand\pic\Review 2\R2_p. 63-1.jpg" CRC="dee8cabb" KB="69" />
+  <File Name="fscommand\fscommand\pic\Review 2\R2_p. 63-2.jpg" CRC="f32be09b" KB="136" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 1.jpg" CRC="1bf9affe" KB="469" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 10-1.jpg" CRC="4764b1d2" KB="90" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 2-3.jpg" CRC="3dd915f2" KB="3180" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 4-5.jpg" CRC="6b93e0ac" KB="3038" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-Japan.JPG" CRC="53de4e35" KB="120" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-Kaohsiung.JPG" CRC="2811b286" KB="125" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-Taipei.JPG" CRC="438c3398" KB="129" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-Taiwan.JPG" CRC="ea394753" KB="134" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-the UK.jpg" CRC="2bb5f48c" KB="162" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 6-the USA.JPG" CRC="ca9e3f5e" KB="138" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-1.JPG" CRC="b34d4220" KB="76" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-10.jpg" CRC="59f74398" KB="119" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-11.jpg" CRC="7ce2df12" KB="107" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-2.JPG" CRC="378d4868" KB="37" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-3.JPG" CRC="b36bb5d5" KB="77" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-4.JPG" CRC="9a957863" KB="35" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-5.JPG" CRC="07f48342" KB="95" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-6.JPG" CRC="4ee8957e" KB="67" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-7.JPG" CRC="2941fc02" KB="68" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-8.JPG" CRC="b1aaa42c" KB="65" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 7-9.jpg" CRC="75119d8a" KB="100" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-cake.JPG" CRC="8a5a2e77" KB="91" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-cent.JPG" CRC="00bd424e" KB="103" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-city.JPG" CRC="602edb0f" KB="151" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-cock.JPG" CRC="8d160452" KB="93" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-cup.JPG" CRC="1881b71c" KB="77" />
+  <File Name="fscommand\fscommand\pic\Unit 1\U1_p. 8-cyclone.JPG" CRC="e8a9237c" KB="65" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 11.jpg" CRC="d1ce0e9b" KB="508" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 12-13.jpg" CRC="4f9a1f58" KB="854" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 14-15.jpg" CRC="710029cc" KB="1012" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-bank.JPG" CRC="f08af4ec" KB="161" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-bookstore.JPG" CRC="44d62438" KB="188" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-flower shop.JPG" CRC="95c7c79f" KB="208" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-hospital.JPG" CRC="8eff2c9a" KB="162" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-library.JPG" CRC="cdd87899" KB="192" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 16-market.jpg" CRC="8a154924" KB="187" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-gate.jpg" CRC="8b393b23" KB="93" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-gem.JPG" CRC="d6985c6b" KB="97" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-giant.JPG" CRC="61a50eb7" KB="86" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-goat.jpg" CRC="0e6b6bde" KB="59" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-gum.jpg" CRC="1049e453" KB="92" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 18-gym.jpg" CRC="485c0dfc" KB="122" />
+  <File Name="fscommand\fscommand\pic\Unit 2\U2_p. 20-1.jpg" CRC="24e0ba30" KB="97" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 21.jpg" CRC="8906d28a" KB="442" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 22-23.jpg" CRC="f26050e5" KB="809" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 24-25.jpg" CRC="c101ba4f" KB="833" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 26-a bag of.jpg" CRC="fc1c9fee" KB="125" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 26-a bottle of.jpg" CRC="8dd6813e" KB="77" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 26-a can of.jpg" CRC="76cf026c" KB="71" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 26-a glass of.jpg" CRC="049f9245" KB="57" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 26-a piece of.jpg" CRC="e09534ee" KB="100" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 27-1.jpg" CRC="134f9c58" KB="36" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 27-2.jpg" CRC="f0565b6a" KB="26" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 27-3.jpg" CRC="ca8d0a10" KB="26" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 27-4.jpg" CRC="85b6bb94" KB="27" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 27-5.jpg" CRC="dff5f866" KB="27" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 28-bank.jpg" CRC="1a5813a3" KB="156" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 28-hang.jpg" CRC="f1be1d92" KB="119" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 28-ink.jpg" CRC="d829f2cd" KB="82" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 28-long.jpg" CRC="ebd9b416" KB="57" />
+  <File Name="fscommand\fscommand\pic\Unit 3\U3_p. 30-1.jpg" CRC="68ce5954" KB="91" />
+  <File Name="fscommand\fscommand\pic\Unit 4\Thumbs.db" CRC="9863e983" KB="63" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 33.jpg" CRC="bb2f9611" KB="487" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 34-35.jpg" CRC="773cf838" KB="1127" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 36-37.jpg" CRC="168ab15e" KB="994" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-arm(s).jpg" CRC="9cf50ca3" KB="102" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-hand(s).jpg" CRC="53e03a3a" KB="97" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-head.jpg" CRC="6d0d6b17" KB="84" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-left.jpg" CRC="753cb040" KB="134" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-leg(s).jpg" CRC="64a96c6c" KB="71" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 38-right.jpg" CRC="0effae64" KB="137" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 40-wreath.jpg" CRC="fc31559e" KB="143" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 40-wrist.jpg" CRC="d441f4ca" KB="99" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 40-write.jpg" CRC="0bea9ed8" KB="120" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 40-wrong.jpg" CRC="c36700b6" KB="54" />
+  <File Name="fscommand\fscommand\pic\Unit 4\U4_p. 42-1.jpg" CRC="adbdf825" KB="94" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 43.jpg" CRC="88b3e47d" KB="549" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 44-45.jpg" CRC="86986719" KB="1122" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 46-47.jpg" CRC="95fbfee1" KB="989" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-excited.jpg" CRC="6dc7b2ad" KB="83" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-good.jpg" CRC="37f7c0aa" KB="73" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-hungry.jpg" CRC="0a96ec2b" KB="90" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-sick.jpg" CRC="ceab8a6a" KB="89" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-thirsty.jpg" CRC="fa6bcc89" KB="92" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 48-tired.jpg" CRC="3859464e" KB="73" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 50-knee.jpg" CRC="51ee2203" KB="80" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 50-knife.jpg" CRC="745291f6" KB="47" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 50-knock.jpg" CRC="df7d1a1c" KB="131" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 50-knot.jpg" CRC="26b9cd73" KB="57" />
+  <File Name="fscommand\fscommand\pic\Unit 5\U5_p. 52-1.jpg" CRC="5150fbc2" KB="89" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 53.jpg" CRC="0a41cf02" KB="550" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 54-55.jpg" CRC="652c65e2" KB="867" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 56-57.jpg" CRC="1bb1741d" KB="942" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-dress.jpg" CRC="43585d8e" KB="95" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-jacket.jpg" CRC="e8306358" KB="102" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-jeans.jpg" CRC="18ea9598" KB="101" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-shirt.jpg" CRC="75874140" KB="124" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-shoes.jpg" CRC="4d863eec" KB="78" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 58-skirt.jpg" CRC="5068e1ce" KB="134" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 60-climb.jpg" CRC="10ab3f3e" KB="175" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 60-comb.jpg" CRC="1ed9b5ab" KB="71" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 60-lamb.jpg" CRC="b6666c56" KB="63" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 60-thumb.jpg" CRC="25118e3e" KB="56" />
+  <File Name="fscommand\fscommand\pic\Unit 6\U6_p. 62-1.jpg" CRC="9f69dd85" KB="88" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vi-1.jpg" CRC="360a0453" KB="172" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vi-2.jpg" CRC="85b5e37d" KB="214" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vi-3.jpg" CRC="ba84dfce" KB="125" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vi-4.jpg" CRC="3a053b42" KB="104" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vii-1.jpg" CRC="e3326d4c" KB="183" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vii-2.jpg" CRC="7f104f23" KB="118" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vii-3.jpg" CRC="4ec001f2" KB="138" />
+  <File Name="fscommand\fscommand\pic\角色介紹\CH_p. vii-4.jpg" CRC="f54b3e38" KB="81" />
+  <File Name="fscommand\fscommand\Question\01.png" CRC="77e1a11d" KB="13" />
+  <File Name="fscommand\fscommand\Question\02.png" CRC="cf526903" KB="17" />
+  <File Name="fscommand\fscommand\Question\03.png" CRC="f5157c05" KB="17" />
+  <File Name="fscommand\fscommand\Question\04.png" CRC="d88282e8" KB="17" />
+  <File Name="fscommand\fscommand\Question\05.png" CRC="ed45823c" KB="20" />
+  <File Name="fscommand\fscommand\Question\06.png" CRC="dc1756ad" KB="19" />
+  <File Name="fscommand\fscommand\Question\07.png" CRC="91b0d40e" KB="20" />
+  <File Name="fscommand\fscommand\Question\08.png" CRC="ca105ed0" KB="19" />
+  <File Name="fscommand\fscommand\Question\09.png" CRC="fc68f88c" KB="19" />
+  <File Name="fscommand\fscommand\Question\10.png" CRC="ea3ae3d5" KB="17" />
+  <File Name="fscommand\fscommand\Question\11.png" CRC="a52fe061" KB="16" />
+  <File Name="fscommand\fscommand\Question\12.png" CRC="490123b0" KB="17" />
+  <File Name="fscommand\fscommand\Question\13.png" CRC="515b78c0" KB="11" />
+  <File Name="fscommand\fscommand\Question\14.png" CRC="9c2242ce" KB="12" />
+  <File Name="fscommand\fscommand\Question\15.png" CRC="db1e7cd8" KB="12" />
+  <File Name="fscommand\fscommand\Question\16.png" CRC="ee5127fe" KB="14" />
+  <File Name="fscommand\fscommand\Question\17.png" CRC="c965494a" KB="15" />
+  <File Name="fscommand\fscommand\Question\18.png" CRC="c6d2d40c" KB="15" />
+  <File Name="fscommand\fscommand\Question\19.png" CRC="54ebbe91" KB="17" />
+  <File Name="fscommand\fscommand\Question\20.png" CRC="986b9cb4" KB="15" />
+  <File Name="fscommand\fscommand\Question\Question.xml" CRC="65082b77" KB="2" />
+  <File Name="fscommand\fscommand\SCREEN2EXE\msvcp60.dll" CRC="749a7d66" KB="393" />
+  <File Name="fscommand\fscommand\SCREEN2EXE\Screen2Exe.exe" CRC="b3b41053" KB="264" />
+  <File Name="fscommand\fscommand\SCREEN2EXE\Screen2Exe.ini" CRC="d555866e" KB="1" />
+  <File Name="fscommand\fscommand\SCREEN2EXE\ScrSelfPlayer.exe" CRC="54cb4515" KB="94" />
+  <File Name="fscommand\fscommand\GamePK.exe" CRC="96a0ddaf" KB="9422" />
+  <File Name="fscommand\fscommand\GameRoulette.exe" CRC="228f1498" KB="42209" />
+  <File Name="fscommand\fscommand\InstallAX.exe" CRC="1696d0ad" KB="2806" />
+  <File Name="fscommand\fscommand\msvcp60.dll" CRC="749a7d66" KB="393" />
+  <File Name="fscommand\fscommand\osk.bat" CRC="ae6d0957" KB="1" />
+  <File Name="fscommand\fscommand\RussianRoulette.xml" CRC="8c2a23c3" KB="9" />
+  <File Name="fscommand\fscommand\Screen2Exe.exe" CRC="b3b41053" KB="264" />
+  <File Name="fscommand\fscommand\Screen2Exe.ini" CRC="d555866e" KB="1" />
+  <File Name="fscommand\fscommand\ScrSelfPlayer.exe" CRC="54cb4515" KB="94" />
+  <File Name="fscommand\games\1_game.exe" CRC="7ed5f293" KB="3196" />
+  <File Name="fscommand\games\2_game.exe" CRC="8b23126d" KB="2956" />
+  <File Name="fscommand\games\3_game.exe" CRC="15598112" KB="3483" />
+  <File Name="fscommand\games\4_game.exe" CRC="ef0fb11b" KB="3431" />
+  <File Name="fscommand\games\5_game.exe" CRC="668acce4" KB="2245" />
+  <File Name="fscommand\games\6_game.exe" CRC="be9a2c04" KB="3083" />
+  <File Name="fscommand\HessMenu\hessMenu.ini" CRC="f07ef399" KB="1" />
+  <File Name="fscommand\HessMenu\relateResource.swf" CRC="880d280d" KB="543" />
+  <File Name="fscommand\HessMenu\teachingResource.swf" CRC="fd2cfa5f" KB="30" />
+  <File Name="fscommand\HESS_DATA\config.xml" CRC="715636a4" KB="1" />
+  <File Name="fscommand\HESS_DATA\v20110125.ver" CRC="00000000" KB="0" />
+  <File Name="fscommand\manuals\HELP.doc" CRC="07da23f6" KB="993" />
+  <File Name="fscommand\movies\flv\001.flv" CRC="59fe0426" KB="5540" />
+  <File Name="fscommand\movies\flv\002.flv" CRC="239b97c5" KB="6080" />
+  <File Name="fscommand\movies\flv\003.flv" CRC="5d346a0e" KB="4866" />
+  <File Name="fscommand\movies\flv\004.flv" CRC="67a952d5" KB="6888" />
+  <File Name="fscommand\movies\flv\005.flv" CRC="5e6ab193" KB="4285" />
+  <File Name="fscommand\movies\flv\006.flv" CRC="59357e9d" KB="4296" />
+  <File Name="fscommand\movies\flv\007.flv" CRC="3065e6f7" KB="6183" />
+  <File Name="fscommand\movies\001_Player.exe" CRC="59696c1c" KB="2398" />
+  <File Name="fscommand\movies\002_Player.exe" CRC="537deb1c" KB="2398" />
+  <File Name="fscommand\movies\003_Player.exe" CRC="08ea9f82" KB="2398" />
+  <File Name="fscommand\movies\004_Player.exe" CRC="759d8540" KB="2398" />
+  <File Name="fscommand\movies\005_Player.exe" CRC="94d3e359" KB="2398" />
+  <File Name="fscommand\movies\006_Player.exe" CRC="b8d294c8" KB="2398" />
+  <File Name="fscommand\movies\007_Player.exe" CRC="acea1674" KB="2398" />
+  <File Name="fscommand\movies\movieMenu.swf" CRC="3c9be720" KB="1369" />
+  <File Name="fscommand\movies\movies.xml" CRC="ea17539d" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759573.png" CRC="967221ea" KB="9" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759594.png" CRC="2373bc04" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759613.png" CRC="d9aad04a" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759630.png" CRC="dacf809a" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759648.png" CRC="b22d5287" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759662.png" CRC="ff553f59" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759677.png" CRC="b43b17c3" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759695.png" CRC="109a4009" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759710.png" CRC="d5f5d1ef" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759727.png" CRC="713d6529" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\-1126759776.png" CRC="9fe54fef" KB="5" />
+  <File Name="fscommand\nxboard\package\default\attached\-1409695067.png" CRC="82e6aaa8" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\1.png" CRC="300b041c" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\2011-6-20 下午 03-04-36.png" CRC="9d701c21" KB="18" />
+  <File Name="fscommand\nxboard\package\default\attached\2011-6-20 下午 03-15-23.png" CRC="c126ea72" KB="11" />
+  <File Name="fscommand\nxboard\package\default\attached\485795682.png" CRC="22dae164" KB="24" />
+  <File Name="fscommand\nxboard\package\default\attached\485795716.png" CRC="518b82ac" KB="30" />
+  <File Name="fscommand\nxboard\package\default\attached\485795755.png" CRC="95a958a1" KB="23" />
+  <File Name="fscommand\nxboard\package\default\attached\485795799.png" CRC="4e4a7a0a" KB="5" />
+  <File Name="fscommand\nxboard\package\default\attached\485795806.png" CRC="e92b0d28" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\485795816.png" CRC="694f607b" KB="25" />
+  <File Name="fscommand\nxboard\package\default\attached\487114931.png" CRC="990e2496" KB="73" />
+  <File Name="fscommand\nxboard\package\default\attached\487115009.png" CRC="9c39d1a0" KB="62" />
+  <File Name="fscommand\nxboard\package\default\attached\487115080.png" CRC="364e7e84" KB="62" />
+  <File Name="fscommand\nxboard\package\default\attached\487115148.png" CRC="f10b76c9" KB="59" />
+  <File Name="fscommand\nxboard\package\default\attached\487115219.png" CRC="8ee93eda" KB="63" />
+  <File Name="fscommand\nxboard\package\default\attached\487115286.png" CRC="8ed21ad7" KB="72" />
+  <File Name="fscommand\nxboard\package\default\attached\487115355.png" CRC="ddc260e2" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\487115361.png" CRC="8df87a01" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\487115367.png" CRC="b1132a21" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\487115373.png" CRC="e737517c" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\487115381.png" CRC="ac6bb458" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\487115387.png" CRC="2168b6c3" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\488839195.png" CRC="da941ff2" KB="59" />
+  <File Name="fscommand\nxboard\package\default\attached\488839252.png" CRC="45d68bef" KB="80" />
+  <File Name="fscommand\nxboard\package\default\attached\488839431.png" CRC="7165ad90" KB="76" />
+  <File Name="fscommand\nxboard\package\default\attached\488839510.png" CRC="acff75e6" KB="82" />
+  <File Name="fscommand\nxboard\package\default\attached\488839586.png" CRC="025c61a8" KB="81" />
+  <File Name="fscommand\nxboard\package\default\attached\488839664.png" CRC="357feb9d" KB="71" />
+  <File Name="fscommand\nxboard\package\default\attached\488839733.png" CRC="94f4a7ef" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\488839738.png" CRC="2c5cbe0d" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\488839743.png" CRC="423162ee" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\488839750.png" CRC="248546e7" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\488839757.png" CRC="95f32bb0" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\488839763.png" CRC="41cefd27" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\491658745.png" CRC="3c3fa945" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658751.png" CRC="9a9f1a0f" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658757.png" CRC="ef8cc15f" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658763.png" CRC="fe8be02f" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658768.png" CRC="6ff2f6a0" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658774.png" CRC="7e6be688" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658780.png" CRC="826b0d1e" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658787.png" CRC="e47bab89" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658792.png" CRC="d975f294" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658799.png" CRC="24479f18" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658805.png" CRC="b8884186" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658812.png" CRC="2eea4d39" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658818.png" CRC="dd298a3a" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\491658825.png" CRC="73167d39" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\549620208.png" CRC="8f6a638c" KB="5" />
+  <File Name="fscommand\nxboard\package\default\attached\551989225.png" CRC="14bb1d1e" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989230.png" CRC="bff22fbd" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989261.png" CRC="ce9065d4" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989268.png" CRC="ba8f3384" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989273.png" CRC="a6726beb" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989278.png" CRC="fd6e2b9f" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989284.png" CRC="2b7131b9" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989290.png" CRC="9d2b34f4" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989297.png" CRC="309e70b9" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989302.png" CRC="39da9449" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989308.png" CRC="8373d5dc" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989315.png" CRC="ec3a7199" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989321.png" CRC="08cf2571" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989327.png" CRC="edc9e81e" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989335.png" CRC="bff22fbd" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\551989343.png" CRC="14bb1d1e" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\555750787.png" CRC="3f285128" KB="38" />
+  <File Name="fscommand\nxboard\package\default\attached\555750830.png" CRC="526cc1b6" KB="35" />
+  <File Name="fscommand\nxboard\package\default\attached\555750870.png" CRC="276d716a" KB="25" />
+  <File Name="fscommand\nxboard\package\default\attached\555750902.png" CRC="c4552755" KB="24" />
+  <File Name="fscommand\nxboard\package\default\attached\555750931.png" CRC="20c25f67" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\555750938.png" CRC="f77192ee" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\555750945.png" CRC="832fdcd5" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\555750953.png" CRC="399832f5" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\555750962.png" CRC="f8b560db" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\555750971.png" CRC="6b5d7a23" KB="19" />
+  <File Name="fscommand\nxboard\package\default\attached\558749414.png" CRC="da161741" KB="25" />
+  <File Name="fscommand\nxboard\package\default\attached\558749439.png" CRC="355dc0df" KB="23" />
+  <File Name="fscommand\nxboard\package\default\attached\558749463.png" CRC="f824493a" KB="20" />
+  <File Name="fscommand\nxboard\package\default\attached\558749485.png" CRC="cf03a10f" KB="21" />
+  <File Name="fscommand\nxboard\package\default\attached\558749508.png" CRC="0b559a35" KB="19" />
+  <File Name="fscommand\nxboard\package\default\attached\558749529.png" CRC="88d10ff8" KB="11" />
+  <File Name="fscommand\nxboard\package\default\attached\558749541.png" CRC="e834d8c1" KB="10" />
+  <File Name="fscommand\nxboard\package\default\attached\558749553.png" CRC="da583906" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749575.png" CRC="62ec58ed" KB="9" />
+  <File Name="fscommand\nxboard\package\default\attached\558749587.png" CRC="b99ce133" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749597.png" CRC="695a3869" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\558749601.png" CRC="88d10ff8" KB="11" />
+  <File Name="fscommand\nxboard\package\default\attached\558749614.png" CRC="e834d8c1" KB="10" />
+  <File Name="fscommand\nxboard\package\default\attached\558749627.png" CRC="da583906" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749637.png" CRC="62ec58ed" KB="9" />
+  <File Name="fscommand\nxboard\package\default\attached\558749649.png" CRC="b99ce133" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749661.png" CRC="88d10ff8" KB="11" />
+  <File Name="fscommand\nxboard\package\default\attached\558749673.png" CRC="e834d8c1" KB="10" />
+  <File Name="fscommand\nxboard\package\default\attached\558749684.png" CRC="da583906" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749696.png" CRC="62ec58ed" KB="9" />
+  <File Name="fscommand\nxboard\package\default\attached\558749709.png" CRC="b99ce133" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\558749720.png" CRC="87804624" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\558749723.png" CRC="87804624" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\558749726.png" CRC="87804624" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\560629204.png" CRC="40d0c8e6" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\560629244.png" CRC="b357f73b" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\560629245.png" CRC="c9c3c513" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\560629261.png" CRC="d917af6c" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\560629270.png" CRC="b357f73b" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\561394017.png" CRC="fa6e256f" KB="288" />
+  <File Name="fscommand\nxboard\package\default\attached\566879342.png" CRC="385cf04d" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879347.png" CRC="7ed6c152" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879353.png" CRC="198a3a9c" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879359.png" CRC="c0f69218" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879366.png" CRC="d8eb7b90" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879373.png" CRC="8e718ea7" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879380.png" CRC="3deddac6" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879386.png" CRC="fc4c8136" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879393.png" CRC="d4b25e2d" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\566879398.png" CRC="19af0631" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674344.png" CRC="4efa7d52" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674349.png" CRC="d05cdba0" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674356.png" CRC="9db237f8" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674360.png" CRC="886e9bcc" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674366.png" CRC="b6eb918a" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674373.png" CRC="482f3014" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674378.png" CRC="356c3f46" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674385.png" CRC="3df161fc" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674392.png" CRC="1bd76f52" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674397.png" CRC="b216912d" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674402.png" CRC="261ff50b" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674409.png" CRC="a28eaadc" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674415.png" CRC="431418c5" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674418.png" CRC="3e76e37c" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674428.png" CRC="2a7a335d" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674433.png" CRC="33b9b542" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674437.png" CRC="5f169db3" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674441.png" CRC="1ccbe1d7" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674448.png" CRC="5933eee3" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674452.png" CRC="d0352437" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674457.png" CRC="86f06339" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674463.png" CRC="67a23d75" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\569674469.png" CRC="13d8c7a0" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\569674473.png" CRC="d6d5580a" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\570764366.png" CRC="c9d9e585" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\570764369.png" CRC="0145ef13" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\570764372.png" CRC="720e94b8" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\570764398.png" CRC="e0b49b7b" KB="5" />
+  <File Name="fscommand\nxboard\package\default\attached\572856183.png" CRC="460b3871" KB="25" />
+  <File Name="fscommand\nxboard\package\default\attached\572856222.png" CRC="0f85c0e3" KB="23" />
+  <File Name="fscommand\nxboard\package\default\attached\572856264.png" CRC="672d1b06" KB="20" />
+  <File Name="fscommand\nxboard\package\default\attached\572856292.png" CRC="e0d52240" KB="20" />
+  <File Name="fscommand\nxboard\package\default\attached\572856324.png" CRC="fe193d8a" KB="27" />
+  <File Name="fscommand\nxboard\package\default\attached\572856359.png" CRC="085ab04f" KB="23" />
+  <File Name="fscommand\nxboard\package\default\attached\572856391.png" CRC="7433a270" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\572856396.png" CRC="1340dffe" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\572856402.png" CRC="02e36340" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\572856409.png" CRC="dde41c4c" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\572856415.png" CRC="df1993c4" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\572856420.png" CRC="515dd5bf" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\575787227.png" CRC="f49a50a9" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\575787240.png" CRC="6826a42b" KB="65" />
+  <File Name="fscommand\nxboard\package\default\attached\575787307.png" CRC="e89cb7b1" KB="52" />
+  <File Name="fscommand\nxboard\package\default\attached\575787363.png" CRC="7c68c384" KB="43" />
+  <File Name="fscommand\nxboard\package\default\attached\575787414.png" CRC="b40653ed" KB="45" />
+  <File Name="fscommand\nxboard\package\default\attached\575787469.png" CRC="f76e134c" KB="44" />
+  <File Name="fscommand\nxboard\package\default\attached\575787521.png" CRC="95794596" KB="47" />
+  <File Name="fscommand\nxboard\package\default\attached\6343044938959616935761.png" CRC="ec28a6be" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\723888392.png" CRC="4d79c9d8" KB="19" />
+  <File Name="fscommand\nxboard\package\default\attached\742566626.png" CRC="80556af7" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\743551878.png" CRC="53c973a7" KB="3" />
+  <File Name="fscommand\nxboard\package\default\attached\743551894.png" CRC="7815cbc3" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551904.png" CRC="9ddd2741" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551916.png" CRC="baa999ae" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551931.png" CRC="5c26261c" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551943.png" CRC="76f2f4ec" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551955.png" CRC="8f8c428e" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551967.png" CRC="cb012600" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551979.png" CRC="63257099" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743551991.png" CRC="35a260a4" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743552003.png" CRC="8608dff4" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743552013.png" CRC="dc693c6a" KB="2" />
+  <File Name="fscommand\nxboard\package\default\attached\743552024.png" CRC="c69cfeef" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\743552045.png" CRC="be10bab4" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\click.png" CRC="e956977f" KB="7" />
+  <File Name="fscommand\nxboard\package\default\attached\hint (2).png" CRC="5ca8b714" KB="1" />
+  <File Name="fscommand\nxboard\package\default\attached\say it.png" CRC="6e81b8a9" KB="599" />
+  <File Name="fscommand\nxboard\package\default\attached\sysBlackBoard.png" CRC="21adfac3" KB="33" />
+  <File Name="fscommand\nxboard\package\default\attached\team_01.png" CRC="635c22b2" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\team_02.png" CRC="b36ad81d" KB="4" />
+  <File Name="fscommand\nxboard\package\default\attached\U1-2.png" CRC="c4e2fc42" KB="12" />
+  <File Name="fscommand\nxboard\package\default\attached\U1-3.png" CRC="d11fe601" KB="13" />
+  <File Name="fscommand\nxboard\package\default\attached\U2-1.png" CRC="e8d4330a" KB="6" />
+  <File Name="fscommand\nxboard\package\default\attached\U3-1.png" CRC="c0ef80c0" KB="12" />
+  <File Name="fscommand\nxboard\package\default\attached\U3-2.png" CRC="e3c47809" KB="17" />
+  <File Name="fscommand\nxboard\package\default\attached\U4-1.png" CRC="fbba745d" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\U4-2.png" CRC="70b187af" KB="10" />
+  <File Name="fscommand\nxboard\package\default\attached\U6-1.png" CRC="f248598c" KB="8" />
+  <File Name="fscommand\nxboard\package\default\attached\Unit1_1.png" CRC="84ec61ed" KB="14" />
+  <File Name="fscommand\nxboard\package\default\attached\Unit2_2.png" CRC="e1cde1a9" KB="11" />
+  <File Name="fscommand\nxboard\package\default\attached\計分板.swf" CRC="6a20c586" KB="9" />
+  <File Name="fscommand\nxboard\package\default\books\Board20.xml" CRC="7a3486c9" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board22.xml" CRC="4bdd6f02" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board23.xml" CRC="123e24f8" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board27.xml" CRC="d4cd80d9" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board35.xml" CRC="91205fdd" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board36.xml" CRC="5f31b0f2" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board5.xml" CRC="4c97efe4" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board55.xml" CRC="b8c1c6cb" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board6.xml" CRC="fa8bf311" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board63.xml" CRC="9dc12ba6" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board68.xml" CRC="4d2da4cc" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board7.xml" CRC="eea4e010" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board70.xml" CRC="bfa48229" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board83.xml" CRC="2c843bb6" KB="1" />
+  <File Name="fscommand\nxboard\package\default\books\Board90.xml" CRC="37a80a06" KB="1" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board1.png" CRC="6e46b838" KB="2" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board1.xml" CRC="30d4a1cb" KB="1" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board10.png" CRC="f2bf7dc0" KB="29" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board10.xml" CRC="dade7f0c" KB="32" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board11.png" CRC="8ce62315" KB="41" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board11.xml" CRC="55d00797" KB="31" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board12.png" CRC="d2adee09" KB="18" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board12.xml" CRC="c104ad23" KB="30" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board13.png" CRC="13755ecd" KB="15" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board13.xml" CRC="091d88f6" KB="19" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board14.png" CRC="415b8cac" KB="36" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board14.xml" CRC="f3d4d46c" KB="15" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board15.png" CRC="c7760709" KB="7" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board15.xml" CRC="1c52dffd" KB="20" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board17.png" CRC="1ba55503" KB="11" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board17.xml" CRC="bae60ff9" KB="11" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board2.png" CRC="53f05b53" KB="57" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board2.xml" CRC="80eba753" KB="19" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board3.png" CRC="9eae4664" KB="15" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board3.xml" CRC="7cae85a0" KB="16" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board4.png" CRC="9ff3f919" KB="61" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board4.xml" CRC="7c8a71b6" KB="15" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board5.png" CRC="d6e9ce32" KB="12" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board5.xml" CRC="7682a463" KB="29" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board6.png" CRC="a9576cdd" KB="13" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board6.xml" CRC="d14f73a3" KB="37" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board7.png" CRC="6e46b838" KB="2" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board7.xml" CRC="9417ab85" KB="1" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board8.png" CRC="da7a7f5c" KB="13" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board8.xml" CRC="f60e8bfb" KB="56" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board9.png" CRC="e45354ed" KB="11" />
+  <File Name="fscommand\nxboard\package\default\nxboard\Board9.xml" CRC="a8c30b9d" KB="24" />
+  <File Name="fscommand\nxboard\package\default.nxproj" CRC="c158a8ca" KB="24" />
+  <File Name="fscommand\nxboard\tools\metadata\亂數板.dat.png" CRC="73ef5ffb" KB="2" />
+  <File Name="fscommand\nxboard\tools\metadata\捲簾.dat.png" CRC="73ef5ffb" KB="2" />
+  <File Name="fscommand\nxboard\tools\metadata\聚光燈板.dat.png" CRC="73ef5ffb" KB="2" />
+  <File Name="fscommand\nxboard\tools\metadata\計分板.swf.png" CRC="1697c0a6" KB="8" />
+  <File Name="fscommand\nxboard\tools\metadata\計時器.swf.png" CRC="122d8c7f" KB="8" />
+  <File Name="fscommand\nxboard\tools\metadata\透明板.dat.png" CRC="73ef5ffb" KB="2" />
+  <File Name="fscommand\nxboard\tools\metadata\選號器.swf.png" CRC="0a02d184" KB="4" />
+  <File Name="fscommand\nxboard\tools\metadata\骰子遊戲.swf.png" CRC="92dafea8" KB="11" />
+  <File Name="fscommand\nxboard\tools\tools.xml" CRC="b3c3783a" KB="1" />
+  <File Name="fscommand\nxboard\tools\亂數板.dat" CRC="4bf9feab" KB="1" />
+  <File Name="fscommand\nxboard\tools\捲簾.dat" CRC="62240fbc" KB="1" />
+  <File Name="fscommand\nxboard\tools\聚光燈板.dat" CRC="f02fa552" KB="1" />
+  <File Name="fscommand\nxboard\tools\計分板.swf" CRC="6a20c586" KB="9" />
+  <File Name="fscommand\nxboard\tools\計時器.swf" CRC="07b856a5" KB="72" />
+  <File Name="fscommand\nxboard\tools\透明板.dat" CRC="1dda490b" KB="1" />
+  <File Name="fscommand\nxboard\tools\選號器.swf" CRC="261428e0" KB="28" />
+  <File Name="fscommand\nxboard\tools\骰子遊戲.swf" CRC="bf97b9e6" KB="19" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vi-1.jpg" CRC="360a0453" KB="172" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vi-2.jpg" CRC="85b5e37d" KB="214" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vi-3.jpg" CRC="ba84dfce" KB="125" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vi-4.jpg" CRC="3a053b42" KB="104" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vii-1.jpg" CRC="e3326d4c" KB="183" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vii-2.jpg" CRC="7f104f23" KB="118" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vii-3.jpg" CRC="4ec001f2" KB="138" />
+  <File Name="fscommand\pictures\彩圖\juese\CH_p. vii-4.jpg" CRC="f54b3e38" KB="81" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 1.jpg" CRC="1bf9affe" KB="469" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 10-1.jpg" CRC="4764b1d2" KB="90" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 2-3.jpg" CRC="3dd915f2" KB="3180" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 4-5.jpg" CRC="6b93e0ac" KB="3038" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-Japan.JPG" CRC="53de4e35" KB="120" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-Kaohsiung.JPG" CRC="2811b286" KB="125" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-Taipei.JPG" CRC="438c3398" KB="129" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-Taiwan.JPG" CRC="ea394753" KB="134" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-the UK.jpg" CRC="2bb5f48c" KB="162" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 6-the USA.JPG" CRC="ca9e3f5e" KB="138" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-1.JPG" CRC="b34d4220" KB="76" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-10.jpg" CRC="59f74398" KB="119" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-11.jpg" CRC="7ce2df12" KB="107" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-2.JPG" CRC="378d4868" KB="37" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-3.JPG" CRC="b36bb5d5" KB="77" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-4.JPG" CRC="9a957863" KB="35" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-5.JPG" CRC="07f48342" KB="95" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-6.JPG" CRC="4ee8957e" KB="67" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-7.JPG" CRC="2941fc02" KB="68" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-8.JPG" CRC="b1aaa42c" KB="65" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 7-9.jpg" CRC="75119d8a" KB="100" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-cake.JPG" CRC="8a5a2e77" KB="91" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-cent.JPG" CRC="00bd424e" KB="103" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-city.JPG" CRC="602edb0f" KB="151" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-cock.JPG" CRC="8d160452" KB="93" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-cup.JPG" CRC="1881b71c" KB="77" />
+  <File Name="fscommand\pictures\彩圖\unit1\U1_p. 8-cyclone.JPG" CRC="e8a9237c" KB="65" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 11.jpg" CRC="d1ce0e9b" KB="508" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 12-13.jpg" CRC="4f9a1f58" KB="854" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 14-15.jpg" CRC="710029cc" KB="1012" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-bank.JPG" CRC="f08af4ec" KB="161" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-bookstore.JPG" CRC="44d62438" KB="188" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-flower shop.JPG" CRC="95c7c79f" KB="208" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-hospital.JPG" CRC="8eff2c9a" KB="162" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-library.JPG" CRC="cdd87899" KB="192" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 16-market.jpg" CRC="8a154924" KB="187" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-gate.jpg" CRC="8b393b23" KB="93" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-gem.JPG" CRC="d6985c6b" KB="97" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-giant.JPG" CRC="61a50eb7" KB="86" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-goat.jpg" CRC="0e6b6bde" KB="59" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-gum.jpg" CRC="1049e453" KB="92" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 18-gym.jpg" CRC="485c0dfc" KB="122" />
+  <File Name="fscommand\pictures\彩圖\unit2\U2_p. 20-1.jpg" CRC="24e0ba30" KB="97" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 21.jpg" CRC="8906d28a" KB="442" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 22-23.jpg" CRC="f26050e5" KB="809" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 24-25.jpg" CRC="c101ba4f" KB="833" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 26-a bag of.jpg" CRC="fc1c9fee" KB="125" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 26-a bottle of.jpg" CRC="8dd6813e" KB="77" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 26-a can of.jpg" CRC="76cf026c" KB="71" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 26-a glass of.jpg" CRC="049f9245" KB="57" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 26-a piece of.jpg" CRC="e09534ee" KB="100" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 27-1.jpg" CRC="134f9c58" KB="36" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 27-2.jpg" CRC="f0565b6a" KB="26" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 27-3.jpg" CRC="ca8d0a10" KB="26" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 27-4.jpg" CRC="85b6bb94" KB="27" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 27-5.jpg" CRC="dff5f866" KB="27" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 28-bank.jpg" CRC="1a5813a3" KB="156" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 28-hang.jpg" CRC="f1be1d92" KB="119" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 28-ink.jpg" CRC="d829f2cd" KB="82" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 28-long.jpg" CRC="ebd9b416" KB="57" />
+  <File Name="fscommand\pictures\彩圖\unit3\U3_p. 30-1.jpg" CRC="68ce5954" KB="91" />
+  <File Name="fscommand\pictures\彩圖\unit4\Thumbs.db" CRC="9863e983" KB="63" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 33.jpg" CRC="bb2f9611" KB="487" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 34-35.jpg" CRC="773cf838" KB="1127" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 36-37.jpg" CRC="168ab15e" KB="994" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-arm(s).jpg" CRC="9cf50ca3" KB="102" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-hand(s).jpg" CRC="53e03a3a" KB="97" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-head.jpg" CRC="6d0d6b17" KB="84" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-left.jpg" CRC="753cb040" KB="134" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-leg(s).jpg" CRC="64a96c6c" KB="71" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 38-right.jpg" CRC="0effae64" KB="137" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 40-wreath.jpg" CRC="fc31559e" KB="143" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 40-wrist.jpg" CRC="d441f4ca" KB="99" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 40-write.jpg" CRC="0bea9ed8" KB="120" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 40-wrong.jpg" CRC="c36700b6" KB="54" />
+  <File Name="fscommand\pictures\彩圖\unit4\U4_p. 42-1.jpg" CRC="adbdf825" KB="94" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 43.jpg" CRC="88b3e47d" KB="549" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 44-45.jpg" CRC="86986719" KB="1122" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 46-47.jpg" CRC="95fbfee1" KB="989" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-excited.jpg" CRC="6dc7b2ad" KB="83" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-good.jpg" CRC="37f7c0aa" KB="73" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-hungry.jpg" CRC="0a96ec2b" KB="90" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-sick.jpg" CRC="ceab8a6a" KB="89" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-thirsty.jpg" CRC="fa6bcc89" KB="92" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 48-tired.jpg" CRC="3859464e" KB="73" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 50-knee.jpg" CRC="51ee2203" KB="80" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 50-knife.jpg" CRC="745291f6" KB="47" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 50-knock.jpg" CRC="df7d1a1c" KB="131" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 50-knot.jpg" CRC="26b9cd73" KB="57" />
+  <File Name="fscommand\pictures\彩圖\unit5\U5_p. 52-1.jpg" CRC="5150fbc2" KB="89" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 53.jpg" CRC="0a41cf02" KB="550" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 54-55.jpg" CRC="652c65e2" KB="867" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 56-57.jpg" CRC="1bb1741d" KB="942" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-dress.jpg" CRC="43585d8e" KB="95" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-jacket.jpg" CRC="e8306358" KB="102" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-jeans.jpg" CRC="18ea9598" KB="101" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-shirt.jpg" CRC="75874140" KB="124" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-shoes.jpg" CRC="4d863eec" KB="78" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 58-skirt.jpg" CRC="5068e1ce" KB="134" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 60-climb.jpg" CRC="10ab3f3e" KB="175" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 60-comb.jpg" CRC="1ed9b5ab" KB="71" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 60-lamb.jpg" CRC="b6666c56" KB="63" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 60-thumb.jpg" CRC="25118e3e" KB="56" />
+  <File Name="fscommand\pictures\彩圖\unit6\U6_p. 62-1.jpg" CRC="9f69dd85" KB="88" />
+  <File Name="fscommand\pictures\彩圖\unit7\R1_p. 31-1.jpg" CRC="17db7fb0" KB="205" />
+  <File Name="fscommand\pictures\彩圖\unit7\R1_p. 31-2.jpg" CRC="7df7c2c0" KB="211" />
+  <File Name="fscommand\pictures\彩圖\unit7\R1_p. 31-3.jpg" CRC="0b06adfd" KB="195" />
+  <File Name="fscommand\pictures\彩圖\unit7\R1_p. 31-4.jpg" CRC="e5df666c" KB="287" />
+  <File Name="fscommand\pictures\彩圖\unit8\R2_p. 63-1.jpg" CRC="dee8cabb" KB="69" />
+  <File Name="fscommand\pictures\彩圖\unit8\R2_p. 63-2.jpg" CRC="f32be09b" KB="136" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 65.jpg" CRC="1e486d46" KB="524" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 66-67.jpg" CRC="ae5112b0" KB="907" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-1.jpg" CRC="d688d5cc" KB="155" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-Chinese New Year's Eve.jpg" CRC="8e29efd1" KB="280" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-dragon dance.jpg" CRC="594de4c8" KB="239" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-dumpling(s).jpg" CRC="cc945a54" KB="159" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-firecrackers.jpg" CRC="f5c6444a" KB="168" />
+  <File Name="fscommand\pictures\彩圖\unit9\CU_p. 68-red envelope(s).jpg" CRC="f0d5a601" KB="163" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vi-1.jpg" CRC="31457b8a" KB="107" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vi-2.jpg" CRC="28c07b37" KB="133" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vi-3.jpg" CRC="0547b696" KB="83" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vi-4.jpg" CRC="e0454bef" KB="69" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vii-1.jpg" CRC="a0ddd029" KB="118" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vii-2.jpg" CRC="e2455e22" KB="80" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vii-3.jpg" CRC="55059cc8" KB="87" />
+  <File Name="fscommand\pictures\線稿\juese\CH_p. vii-4.jpg" CRC="8abd6f4f" KB="55" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 1.jpg" CRC="e2b774bb" KB="258" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 10-1.jpg" CRC="aa77af0f" KB="58" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 2-3.jpg" CRC="a514fbf8" KB="1889" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 4-5.jpg" CRC="26d515bc" KB="1781" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-Japan.jpg" CRC="5996cc5b" KB="46" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-Kaohsiung.jpg" CRC="85d92c92" KB="49" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-Taipei.jpg" CRC="bd1a4083" KB="51" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-Taiwan.jpg" CRC="772e505a" KB="64" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-the UK.jpg" CRC="a1f0f6fa" KB="75" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 6-the USA.jpg" CRC="ef0bdc87" KB="57" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-1.JPG" CRC="54e1a445" KB="53" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-10.jpg" CRC="153087a3" KB="75" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-11.jpg" CRC="3fbb2735" KB="73" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-2.JPG" CRC="9c5cb91d" KB="30" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-3.JPG" CRC="80e87574" KB="56" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-4.JPG" CRC="2b3a519a" KB="29" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-5.JPG" CRC="d5c49ed4" KB="70" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-6.JPG" CRC="f01d3401" KB="47" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-7.JPG" CRC="b70a24a7" KB="46" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-8.JPG" CRC="390c57ad" KB="43" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 7-9.jpg" CRC="50ae5c04" KB="71" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-cake.jpg" CRC="41407639" KB="13" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-cent.jpg" CRC="49c1b0d2" KB="19" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-city.jpg" CRC="9d683264" KB="71" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-cock.jpg" CRC="da98de2d" KB="15" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-cup.jpg" CRC="8a0ac219" KB="17" />
+  <File Name="fscommand\pictures\線稿\unit1\U1_p. 8-cyclone.jpg" CRC="a99a90b4" KB="15" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 11.jpg" CRC="b2fd9e77" KB="273" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 12-13.jpg" CRC="20e74e47" KB="497" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 14-15.jpg" CRC="83bbf577" KB="567" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-bank.jpg" CRC="4d7599d2" KB="92" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-bookstore.jpg" CRC="f0930648" KB="88" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-flower shop.jpg" CRC="f1b7822d" KB="106" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-hospital.jpg" CRC="d0033e71" KB="93" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-library.jpg" CRC="89df8503" KB="98" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 16-market.jpg" CRC="488da9a0" KB="98" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-gate.jpg" CRC="3ebaa542" KB="14" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-gem.jpg" CRC="69cc87e7" KB="160" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-giant.jpg" CRC="5d8cf871" KB="10" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-goat.jpg" CRC="b409f33f" KB="12" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-gum.jpg" CRC="965e2bdf" KB="15" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 18-gym.jpg" CRC="90416887" KB="21" />
+  <File Name="fscommand\pictures\線稿\unit2\U2_p. 20-1.jpg" CRC="459df6f3" KB="58" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 21.jpg" CRC="e4648e10" KB="235" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 22-23.jpg" CRC="fa3f9647" KB="481" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 24-25.jpg" CRC="13e3a25d" KB="501" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 26-a bag of.jpg" CRC="be12ac07" KB="243" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 26-a bottle of.jpg" CRC="61f10bb8" KB="42" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 26-a can of.jpg" CRC="339ee826" KB="31" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 26-a glass of.jpg" CRC="05a31fb9" KB="38" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 26-a piece of.jpg" CRC="afd1f7ea" KB="51" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 27-1.jpg" CRC="65885cd6" KB="27" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 27-2.jpg" CRC="b5cde203" KB="22" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 27-3.jpg" CRC="e380519d" KB="22" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 27-4.jpg" CRC="1bc5d434" KB="23" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 27-5.jpg" CRC="61d36857" KB="23" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 28-bank.jpg" CRC="8f7917d8" KB="17" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 28-hang.jpg" CRC="953926d7" KB="44" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 28-ink.jpg" CRC="20659604" KB="35" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 28-long.jpg" CRC="874bde44" KB="37" />
+  <File Name="fscommand\pictures\線稿\unit3\U3_p. 30-1.jpg" CRC="c74accf5" KB="61" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 33.jpg" CRC="01578930" KB="254" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 34-35.jpg" CRC="c794bfa0" KB="631" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 36-37.jpg" CRC="b80e3254" KB="583" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-arm(s).jpg" CRC="24402b08" KB="60" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-hand(s).jpg" CRC="33b62df1" KB="59" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-head.jpg" CRC="bee4478f" KB="50" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-left.jpg" CRC="6b97d0f3" KB="53" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-leg(s).jpg" CRC="661dbc35" KB="54" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 38-right.jpg" CRC="f1a8b0f8" KB="51" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 40-wreath.jpg" CRC="017a79e0" KB="70" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 40-wrist.jpg" CRC="f9909d0a" KB="39" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 40-write.jpg" CRC="6378ee85" KB="45" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 40-wrong.jpg" CRC="81aa18a4" KB="26" />
+  <File Name="fscommand\pictures\線稿\unit4\U4_p. 42-1.jpg" CRC="ee1cb68c" KB="56" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 43.jpg" CRC="93c18e93" KB="288" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 44-45.jpg" CRC="9651e768" KB="654" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 46-47.jpg" CRC="330cfe60" KB="578" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-excited.jpg" CRC="61020707" KB="41" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-good.jpg" CRC="14e3ed98" KB="38" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-hungry.jpg" CRC="95715303" KB="43" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-sick.jpg" CRC="23ad3516" KB="46" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-thirsty.jpg" CRC="e1e40e56" KB="45" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 48-tired.jpg" CRC="3745ff54" KB="36" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 50-knee.jpg" CRC="265dde5f" KB="41" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 50-knife.jpg" CRC="fbbfa19c" KB="33" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 50-knock.jpg" CRC="fc4fa441" KB="37" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 50-knot.jpg" CRC="147a0b89" KB="37" />
+  <File Name="fscommand\pictures\線稿\unit5\U5_p. 52-1.jpg" CRC="58e3d90c" KB="58" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 53.jpg" CRC="f6f64169" KB="306" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 54-55.jpg" CRC="fd03c70f" KB="522" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 56-57.jpg" CRC="581cdf8c" KB="519" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-dress.jpg" CRC="d8e435d2" KB="39" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-jacket.jpg" CRC="d1c68dfd" KB="49" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-jeans.jpg" CRC="082308f7" KB="49" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-shirt.jpg" CRC="c6bd78e4" KB="60" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-shoes.jpg" CRC="99b6bee7" KB="35" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 58-skirt.jpg" CRC="fcd326a4" KB="53" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 60-climb.jpg" CRC="bf6266a1" KB="18" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 60-comb.jpg" CRC="c5897d44" KB="11" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 60-lamb.jpg" CRC="9f2340ea" KB="10" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 60-thumb.jpg" CRC="305ba227" KB="9" />
+  <File Name="fscommand\pictures\線稿\unit6\U6_p. 62-1.jpg" CRC="691c3a68" KB="59" />
+  <File Name="fscommand\pictures\線稿\unit7\R1_p. 31-1.jpg" CRC="c805d150" KB="141" />
+  <File Name="fscommand\pictures\線稿\unit7\R1_p. 31-2.jpg" CRC="9f081f71" KB="150" />
+  <File Name="fscommand\pictures\線稿\unit7\R1_p. 31-3.jpg" CRC="fd855dbb" KB="139" />
+  <File Name="fscommand\pictures\線稿\unit7\R1_p. 31-4.jpg" CRC="f7a7af19" KB="203" />
+  <File Name="fscommand\pictures\線稿\unit8\R2_p. 63-1.jpg" CRC="a3f2c170" KB="48" />
+  <File Name="fscommand\pictures\線稿\unit8\R2_p. 63-2.jpg" CRC="8b749541" KB="98" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 65.jpg" CRC="ed560793" KB="302" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 66-67.jpg" CRC="ba882afb" KB="532" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-1.jpg" CRC="c685b08f" KB="90" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-Chinese New Year's Eve.jpg" CRC="b16ca705" KB="68" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-Chinese New Year’s Eve.jpg" CRC="e696dda0" KB="177" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-dragon dance.jpg" CRC="e4b55ade" KB="67" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-dumpling(s).jpg" CRC="66f0a56b" KB="56" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-firecrackers.jpg" CRC="c958b934" KB="51" />
+  <File Name="fscommand\pictures\線稿\unit9\CU_p. 68-red envelope(s).jpg" CRC="418832e4" KB="59" />
+  <File Name="fscommand\pictures\pictureMenu.swf" CRC="d6e55787" KB="1348" />
+  <File Name="fscommand\pictures\pictures.xml" CRC="09da3e97" KB="1" />
+  <File Name="fscommand\relatedResources\mothersday\flv\001.flv" CRC="2e101ee9" KB="28236" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節學習單\母親節學習單-A.jpg" CRC="76dadef2" KB="601" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節學習單\母親節學習單-B.jpg" CRC="224d1a97" KB="936" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節學習單\母親節學習單-C.jpg" CRC="f29c7c03" KB="703" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\FAMIM023.WMF" CRC="46d1d4a8" KB="31" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\FAMIM034.WMF" CRC="41f773f8" KB="33" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\FAMIM038.WMF" CRC="653e6125" KB="33" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\FAMIM056.WMF" CRC="c6edd1e7" KB="44" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\FAMIM059.WMF" CRC="1860a532" KB="26" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\HOLMT005.WMF" CRC="6cabfc4b" KB="22" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\HOLMT006.WMF" CRC="23698a10" KB="82" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\HOLMT007.WMF" CRC="8290282d" KB="12" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\HOLVT258.WMF" CRC="7726d9ca" KB="10" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節教室佈置圖\HOLVT281.WMF" CRC="7b74ed7e" KB="4" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\歌謠海報.jpg" CRC="d7079dba" KB="6634" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節DIY-創意母親卡.pdf" CRC="b916dfe2" KB="2604" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節句型條.jpg" CRC="02cb81d6" KB="6773" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節情境海報.eps" CRC="5e4c438a" KB="11964" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\圖檔\母親節愛的小語.jpg" CRC="e3bf15bc" KB="6945" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\音檔\01.Skidarmarink.mp3" CRC="ef68168f" KB="2282" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\音檔\02.Skidarmarink (Kala).mp3" CRC="49a17733" KB="2280" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\音檔\03.Sometimes My Mom Says .mp3" CRC="d707be62" KB="797" />
+  <File Name="fscommand\relatedResources\mothersday\其他資源\音檔\04.Sometimes My Mom Says (Kala).mp3" CRC="155047d4" KB="797" />
+  <File Name="fscommand\relatedResources\mothersday\hessMenu.ini" CRC="ca3b966d" KB="1" />
+  <File Name="fscommand\relatedResources\mothersday\mother_1.swf" CRC="782d12bb" KB="4614" />
+  <File Name="fscommand\relatedResources\mothersday\mother_2.swf" CRC="8fcf2bb6" KB="7402" />
+  <File Name="fscommand\relatedResources\mothersday\母親節教學手冊.pdf" CRC="e7e7acb6" KB="13360" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考A卷 B大題.mp3" CRC="b410556b" KB="1917" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考A卷 D大題.mp3" CRC="f9e68f10" KB="750" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考A卷 E大題.mp3" CRC="867e2a8a" KB="413" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考B卷 A大題.mp3" CRC="1bf4cb7f" KB="805" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考B卷 C大題.mp3" CRC="5cd526ab" KB="1158" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考B卷 D大題.mp3" CRC="d1794472" KB="741" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期中段考B卷 E大題.mp3" CRC="42a2fe88" KB="402" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考A卷 B大題.mp3" CRC="dd9c765f" KB="832" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考A卷 C大題.mp3" CRC="bd6c7aae" KB="952" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考A卷 D大題.mp3" CRC="255a12e5" KB="733" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考B卷 A大題.mp3" CRC="ee775c8a" KB="787" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考B卷 D大題.mp3" CRC="945c76b2" KB="1033" />
+  <File Name="fscommand\resources\mp3\段考樣卷音檔\期末段考B卷 E大題.mp3" CRC="3cb15d3c" KB="387" />
+  <File Name="fscommand\resources\word\students\Culture Unit(解答).doc" CRC="58d57caa" KB="30" />
+  <File Name="fscommand\resources\word\students\Culture Unit.doc" CRC="474264ed" KB="29" />
+  <File Name="fscommand\resources\word\students\Unit 1(解答).doc" CRC="192945fc" KB="226" />
+  <File Name="fscommand\resources\word\students\Unit 1.doc" CRC="db11e251" KB="226" />
+  <File Name="fscommand\resources\word\students\Unit 2(解答).doc" CRC="c5c5c996" KB="42" />
+  <File Name="fscommand\resources\word\students\Unit 2.doc" CRC="d43835d8" KB="40" />
+  <File Name="fscommand\resources\word\students\Unit 3(解答).doc" CRC="112a87b3" KB="352" />
+  <File Name="fscommand\resources\word\students\Unit 3.doc" CRC="92d73679" KB="346" />
+  <File Name="fscommand\resources\word\students\Unit 4(解答).doc" CRC="ee66c581" KB="593" />
+  <File Name="fscommand\resources\word\students\Unit 4.doc" CRC="33ddb4de" KB="589" />
+  <File Name="fscommand\resources\word\students\Unit 5(解答).doc" CRC="19b613ec" KB="82" />
+  <File Name="fscommand\resources\word\students\Unit 5.doc" CRC="5000d2b7" KB="79" />
+  <File Name="fscommand\resources\word\students\Unit 6(解答).doc" CRC="834af488" KB="342" />
+  <File Name="fscommand\resources\word\students\Unit 6.doc" CRC="0279b56f" KB="339" />
+  <File Name="fscommand\resources\word\991 Happy Story 7 課程計劃書 (北縣學期版).doc" CRC="a45c6ae1" KB="141" />
+  <File Name="fscommand\resources\word\991通用學期版HS7.doc" CRC="43de1654" KB="179" />
+  <File Name="fscommand\resources\word\Happy Story 7 教學進度表.doc" CRC="aa16ebff" KB="63" />
+  <File Name="fscommand\resources\word\HS7 期中段考A卷(解答).doc" CRC="9b688d2c" KB="447" />
+  <File Name="fscommand\resources\word\HS7 期中段考A卷.doc" CRC="f3df8360" KB="440" />
+  <File Name="fscommand\resources\word\HS7 期中段考B卷(解答).doc" CRC="a7098b0c" KB="362" />
+  <File Name="fscommand\resources\word\HS7 期中段考B卷.doc" CRC="8327d2ca" KB="355" />
+  <File Name="fscommand\resources\word\HS7 期末段考A卷(解答).doc" CRC="f23f1050" KB="171" />
+  <File Name="fscommand\resources\word\HS7 期末段考A卷.doc" CRC="25edd725" KB="165" />
+  <File Name="fscommand\resources\word\HS7 期末段考B卷(解答).doc" CRC="a574ad2c" KB="254" />
+  <File Name="fscommand\resources\word\HS7 期末段考B卷.doc" CRC="af5234bb" KB="247" />
+  <File Name="fscommand\resources\word\HS7 課程大綱.doc" CRC="984dd043" KB="41" />
+  <File Name="fscommand\resources\resourceMenu.swf" CRC="2538d9b1" KB="1368" />
+  <File Name="fscommand\resources\resources.xml" CRC="b846381f" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_1.jpg" CRC="6f8529cd" KB="32" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_1.png" CRC="130ff312" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_1.xml" CRC="51c20149" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_2.jpg" CRC="34780d34" KB="29" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_2.png" CRC="ef17c675" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_2.xml" CRC="5a713423" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_3.jpg" CRC="a8db1c17" KB="28" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_3.png" CRC="bc204102" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_3.xml" CRC="bb20b663" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_4.jpg" CRC="5457b477" KB="29" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_4.png" CRC="2c6a7aff" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_4.xml" CRC="59c91f2c" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_5.jpg" CRC="1d8f3235" KB="33" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_5.png" CRC="9cdfe7a1" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_5.xml" CRC="8e19126c" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_6.jpg" CRC="5b0dea54" KB="32" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_6.png" CRC="582ec614" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_6.xml" CRC="4fb3ae46" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_7.jpg" CRC="44a49c68" KB="31" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_7.png" CRC="bf50708f" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_7.xml" CRC="af28455d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_8.jpg" CRC="479f3148" KB="28" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_8.png" CRC="1fa767d9" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_8.xml" CRC="d0168302" KB="1" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_9.jpg" CRC="ded863bd" KB="25" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_9.png" CRC="c3d29708" KB="2" />
+  <File Name="fscommand\workbooks\metadata\1_L-P_9.xml" CRC="d2c43f69" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_1.jpg" CRC="848c3b54" KB="35" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_1.png" CRC="f1129e97" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_1.xml" CRC="c4ae9e44" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_2.jpg" CRC="5c96447a" KB="34" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_2.png" CRC="b3d5a9e8" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_2.xml" CRC="34affe7d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_3.jpg" CRC="8bd43101" KB="31" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_3.png" CRC="609be82d" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_3.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_4.jpg" CRC="05d49939" KB="30" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_4.png" CRC="64d42b84" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_4.xml" CRC="9eaf9fae" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_5.jpg" CRC="e0d82779" KB="30" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_5.png" CRC="39742426" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_5.xml" CRC="162f2a98" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_6.jpg" CRC="5113bd47" KB="25" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_6.png" CRC="867a37c4" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_6.xml" CRC="eea870ff" KB="1" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_7.jpg" CRC="09eab566" KB="30" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_7.png" CRC="f0ce5742" KB="2" />
+  <File Name="fscommand\workbooks\metadata\2_L-P_7.xml" CRC="f0d2ef3d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_1.jpg" CRC="0578d90f" KB="29" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_1.png" CRC="be3f8078" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_1.xml" CRC="fc571606" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_10.jpg" CRC="f0a53200" KB="27" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_10.png" CRC="8167db1c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_10.xml" CRC="528f9555" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_2.jpg" CRC="9aa1e427" KB="26" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_2.png" CRC="d498f13e" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_2.xml" CRC="0daf5851" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_3.jpg" CRC="77bac786" KB="27" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_3.png" CRC="129520e3" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_3.xml" CRC="01b139bb" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_4.jpg" CRC="96a06943" KB="26" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_4.png" CRC="687b054c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_4.xml" CRC="4af970cb" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_5.jpg" CRC="19f5797e" KB="24" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_5.png" CRC="34b0e322" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_5.xml" CRC="c941c4b8" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_6.jpg" CRC="055207f9" KB="29" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_6.png" CRC="1ba34641" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_6.xml" CRC="4bc5db9d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_7.jpg" CRC="acec2cd3" KB="31" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_7.png" CRC="e1482796" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_7.xml" CRC="d2977790" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_8.jpg" CRC="41cc0340" KB="26" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_8.png" CRC="889cdbd2" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_8.xml" CRC="34551f5e" KB="1" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_9.jpg" CRC="fab13578" KB="28" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_9.png" CRC="4a05258c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\3_L-P_9.xml" CRC="675d41b9" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_1.jpg" CRC="5dc6dac3" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_1.png" CRC="d270e098" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_1.xml" CRC="216a7321" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_10.jpg" CRC="d27029e2" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_10.png" CRC="7d063ad6" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_10.xml" CRC="85a31a05" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_2.jpg" CRC="a222ba89" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_2.png" CRC="50d83466" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_2.xml" CRC="f053deb0" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_3.jpg" CRC="89078e6e" KB="26" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_3.png" CRC="6a648dec" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_3.xml" CRC="461da8d5" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_4.jpg" CRC="2b5cce74" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_4.png" CRC="c639dc1c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_4.xml" CRC="5bc8489d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_5.jpg" CRC="30c69b79" KB="26" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_5.png" CRC="d5836da5" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_5.xml" CRC="cce63ae3" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_6.jpg" CRC="474e3371" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_6.png" CRC="32a736eb" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_6.xml" CRC="fcbbe763" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_7.jpg" CRC="0bd97669" KB="27" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_7.png" CRC="1b42c709" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_7.xml" CRC="05f8a798" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_8.jpg" CRC="932c1196" KB="32" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_8.png" CRC="1a26b339" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_8.xml" CRC="46b139c8" KB="1" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_9.jpg" CRC="2e9ca7a8" KB="25" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_9.png" CRC="e68c83b4" KB="2" />
+  <File Name="fscommand\workbooks\metadata\5_L-P_9.xml" CRC="cd677a54" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_1.jpg" CRC="f22c970c" KB="30" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_1.png" CRC="fcdd6a22" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_1.xml" CRC="e79fb207" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_2.jpg" CRC="00e88f1c" KB="29" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_2.png" CRC="1949b857" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_2.xml" CRC="869f8773" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_3.jpg" CRC="37e34132" KB="36" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_3.png" CRC="be13fd4e" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_3.xml" CRC="1461330a" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_4.jpg" CRC="7b12ff50" KB="35" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_4.png" CRC="b6664f0a" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_4.xml" CRC="eebc3d74" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_5.jpg" CRC="06f9a2d1" KB="33" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_5.png" CRC="16ae1ad6" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_5.xml" CRC="b322a27a" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_6.jpg" CRC="7b5b9c40" KB="37" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_6.png" CRC="405cd144" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_6.xml" CRC="3d0933ce" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_7.jpg" CRC="0e04b517" KB="37" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_7.png" CRC="a1a7217c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_7.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_8.jpg" CRC="b6ddf45c" KB="31" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_8.png" CRC="48623434" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_8.xml" CRC="4e721bc2" KB="1" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_9.jpg" CRC="bed0f437" KB="29" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_9.png" CRC="a4ea72c6" KB="2" />
+  <File Name="fscommand\workbooks\metadata\6_L-P_9.xml" CRC="eae91f88" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_1.jpg" CRC="5e2f7c4c" KB="33" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_1.png" CRC="f1a40ef8" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_1.xml" CRC="e3b03178" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_2.jpg" CRC="ec65ffad" KB="29" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_2.png" CRC="8a78a8c3" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_2.xml" CRC="d2814396" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_3.jpg" CRC="5eeff013" KB="28" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_3.png" CRC="4bf6039a" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_3.xml" CRC="94cc3c04" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_4.jpg" CRC="cbb1719c" KB="29" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_4.png" CRC="59e56b14" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_4.xml" CRC="7cede608" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_5.jpg" CRC="d505b2b0" KB="29" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_5.png" CRC="3401eaa8" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_5.xml" CRC="89da2d65" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_6.jpg" CRC="3e841312" KB="27" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_6.png" CRC="4dc935ad" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_6.xml" CRC="0cbc37d8" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_7.jpg" CRC="840292a7" KB="28" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_7.png" CRC="a6467b25" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_7.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_8.jpg" CRC="0b6a89f4" KB="28" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_8.png" CRC="a771acd0" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_8.xml" CRC="c718c3ed" KB="1" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_9.jpg" CRC="7a990b88" KB="28" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_9.png" CRC="3ea06b78" KB="2" />
+  <File Name="fscommand\workbooks\metadata\7_L-P_9.xml" CRC="04b9aaf3" KB="1" />
+  <File Name="fscommand\workbooks\metadata\BoardIndex.jpg" CRC="b54d5908" KB="43" />
+  <File Name="fscommand\workbooks\metadata\BoardIndex.png" CRC="aaac8696" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_1.jpg" CRC="0a24da88" KB="34" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_1.png" CRC="8f165bf1" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_1.xml" CRC="7e2da1a3" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_2.jpg" CRC="26b873cc" KB="35" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_2.png" CRC="17086e3b" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_2.xml" CRC="cac3418a" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_3.jpg" CRC="b5db0ddd" KB="35" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_3.png" CRC="ad50ce10" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_3.xml" CRC="cac3418a" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_4.jpg" CRC="f7788e36" KB="25" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_4.png" CRC="655b28de" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_4.xml" CRC="6095ead7" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_5.jpg" CRC="cf326e18" KB="37" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_5.png" CRC="d1b09361" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r1_L-D_5.xml" CRC="287d5b73" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_1.jpg" CRC="c87b85ab" KB="26" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_1.png" CRC="43de81e7" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_1.xml" CRC="31ae4a9d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_2.jpg" CRC="5e680785" KB="26" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_2.png" CRC="ba26151c" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_2.xml" CRC="be08e1e6" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_3.jpg" CRC="d13a7212" KB="25" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_3.png" CRC="5c144b04" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_3.xml" CRC="a2722a2d" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_4.jpg" CRC="76c6b81a" KB="26" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_4.png" CRC="99f02ce2" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_4.xml" CRC="f404a539" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_5.jpg" CRC="4dab3e6e" KB="32" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_5.png" CRC="760c8f0f" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r2_L-E_5.xml" CRC="051a9286" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_1.jpg" CRC="beb67858" KB="43" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_1.png" CRC="d903de6f" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_1.xml" CRC="f93bf560" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_2.jpg" CRC="8acd2a4d" KB="44" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_2.png" CRC="565984c4" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_2.xml" CRC="d38cf502" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_3.jpg" CRC="e89cf4cd" KB="44" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_3.png" CRC="7ef42f53" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_3.xml" CRC="67f3a4c8" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_4.jpg" CRC="f9f2d0d2" KB="44" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_4.png" CRC="85ef3feb" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_4.xml" CRC="39d4ff74" KB="1" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_5.jpg" CRC="f9a43221" KB="44" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_5.png" CRC="e36eeff3" KB="2" />
+  <File Name="fscommand\workbooks\metadata\r3_L-E_5.xml" CRC="3c4a75cb" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_1.jpg" CRC="bb7ef17c" KB="31" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_1.png" CRC="d00c5442" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_1.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_2.jpg" CRC="614f3e4d" KB="31" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_2.png" CRC="69636686" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_2.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_3.jpg" CRC="59747ecc" KB="32" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_3.png" CRC="4ef7abb8" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_3.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_4.jpg" CRC="ff9423e9" KB="33" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_4.png" CRC="31d6701d" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_4.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_5.jpg" CRC="f95d6044" KB="33" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_5.png" CRC="4885f8a1" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_5.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_6.jpg" CRC="d2f7396a" KB="32" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_6.png" CRC="3f432738" KB="2" />
+  <File Name="fscommand\workbooks\metadata\readingandwritingpractice_6.xml" CRC="5f8f92ad" KB="1" />
+  <File Name="fscommand\workbooks\1_L-P_1.swf" CRC="38b66aff" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_2.swf" CRC="ecfc32d8" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_3.swf" CRC="d65b721d" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_4.swf" CRC="209c0fc5" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_5.swf" CRC="07099530" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_6.swf" CRC="993f6972" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_7.swf" CRC="e02e6d6d" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_8.swf" CRC="cddef96a" KB="41" />
+  <File Name="fscommand\workbooks\1_L-P_9.swf" CRC="2b00172e" KB="41" />
+  <File Name="fscommand\workbooks\1_Loader.fla" CRC="3478d329" KB="1362" />
+  <File Name="fscommand\workbooks\2_L-P_1.swf" CRC="2e71cb48" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_2.swf" CRC="ffab6f77" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_3.swf" CRC="eb997485" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_4.swf" CRC="779c9774" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_5.swf" CRC="57b10f4c" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_6.swf" CRC="cb60ad88" KB="41" />
+  <File Name="fscommand\workbooks\2_L-P_7.swf" CRC="15e212b5" KB="41" />
+  <File Name="fscommand\workbooks\2_Loader.fla" CRC="c8ee2e7f" KB="1438" />
+  <File Name="fscommand\workbooks\3_L-P_1.swf" CRC="43bbcf7c" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_10.swf" CRC="cc3405f4" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_2.swf" CRC="2d05de64" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_3.swf" CRC="cbdb0131" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_4.swf" CRC="4ee1a44f" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_5.swf" CRC="6c81e484" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_6.swf" CRC="9c6133a8" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_7.swf" CRC="1c4c6222" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_8.swf" CRC="c9d70893" KB="41" />
+  <File Name="fscommand\workbooks\3_L-P_9.swf" CRC="60faa57d" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_1.swf" CRC="1915cce4" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_10.swf" CRC="c6ee4b65" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_2.swf" CRC="7111cd80" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_3.swf" CRC="4c1bff72" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_4.swf" CRC="c677e420" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_5.swf" CRC="21f2be8c" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_6.swf" CRC="3e4576c3" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_7.swf" CRC="e5c6b623" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_8.swf" CRC="c193436c" KB="41" />
+  <File Name="fscommand\workbooks\5_L-P_9.swf" CRC="90690a54" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_1.swf" CRC="403d3c55" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_2.swf" CRC="8d776fbb" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_3.swf" CRC="d3094753" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_4.swf" CRC="9e67d95e" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_5.swf" CRC="2e564ead" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_6.swf" CRC="60cff69b" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_7.swf" CRC="a3bccf17" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_8.swf" CRC="7964330c" KB="41" />
+  <File Name="fscommand\workbooks\6_L-P_9.swf" CRC="1bdd122c" KB="41" />
+  <File Name="fscommand\workbooks\7_L-P_1.swf" CRC="07a7e92d" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_2.swf" CRC="189a7caf" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_3.swf" CRC="a177d66a" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_4.swf" CRC="21e80c23" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_5.swf" CRC="38378a20" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_6.swf" CRC="f76c775a" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_7.swf" CRC="cf52c7ae" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_8.swf" CRC="26c35e18" KB="123" />
+  <File Name="fscommand\workbooks\7_L-P_9.swf" CRC="405bbab1" KB="123" />
+  <File Name="fscommand\workbooks\7_Loader.fla" CRC="8e6427dd" KB="1690" />
+  <File Name="fscommand\workbooks\book.ini" CRC="1829ae11" KB="1" />
+  <File Name="fscommand\workbooks\r1_L-D_1.swf" CRC="96d955b0" KB="41" />
+  <File Name="fscommand\workbooks\r1_L-D_2.swf" CRC="e62a75df" KB="41" />
+  <File Name="fscommand\workbooks\r1_L-D_3.swf" CRC="671b3760" KB="41" />
+  <File Name="fscommand\workbooks\r1_L-D_4.swf" CRC="6e17486e" KB="41" />
+  <File Name="fscommand\workbooks\r1_L-D_5.swf" CRC="d832119a" KB="41" />
+  <File Name="fscommand\workbooks\r2_L-E_1.swf" CRC="e2831ce9" KB="41" />
+  <File Name="fscommand\workbooks\r2_L-E_2.swf" CRC="fc1805c5" KB="41" />
+  <File Name="fscommand\workbooks\r2_L-E_3.swf" CRC="49c231d5" KB="41" />
+  <File Name="fscommand\workbooks\r2_L-E_4.swf" CRC="436b7c54" KB="41" />
+  <File Name="fscommand\workbooks\r2_L-E_5.swf" CRC="cc0dcd4f" KB="41" />
+  <File Name="fscommand\workbooks\r3_L-E.swf" CRC="4a9d2b1e" KB="324" />
+  <File Name="fscommand\workbooks\r3_L-E_1.swf" CRC="a1aa8d93" KB="41" />
+  <File Name="fscommand\workbooks\r3_L-E_2.swf" CRC="a5c43cde" KB="41" />
+  <File Name="fscommand\workbooks\r3_L-E_3.swf" CRC="db978d40" KB="41" />
+  <File Name="fscommand\workbooks\r3_L-E_4.swf" CRC="e8ffbde1" KB="41" />
+  <File Name="fscommand\workbooks\r3_L-E_5.swf" CRC="81e4d5d6" KB="41" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_1.swf" CRC="e77adeff" KB="52" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_2.swf" CRC="7e7e9eac" KB="52" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_3.swf" CRC="ca4137b3" KB="52" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_4.swf" CRC="3c20f519" KB="52" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_5.swf" CRC="ace809df" KB="52" />
+  <File Name="fscommand\workbooks\readingandwritingpractice_6.swf" CRC="80185db4" KB="52" />
+  <File Name="fscommand\workbooks\workbookMenu.swf" CRC="ec15116e" KB="1372" />
+  <File Name="fscommand\workbooks\workbooks.xml" CRC="66a7e585" KB="10" />
+  <File Name="fscommand\AxInterop.ShockwaveFlashObjects.dll" CRC="0a6b5a45" KB="28" />
+  <File Name="fscommand\book.ini" CRC="3fcfa6aa" KB="1" />
+  <File Name="fscommand\CloudPaper.swf" CRC="979efe90" KB="2492" />
+  <File Name="fscommand\CloudPaperApp.exe" CRC="594eabef" KB="59985" />
+  <File Name="fscommand\CloudPlus.dll" CRC="ef34d076" KB="152" />
+  <File Name="fscommand\FisheyeMenu.swf" CRC="62ffbae7" KB="555" />
+  <File Name="fscommand\f_in_box.dll" CRC="5a3a1ddf" KB="180" />
+  <File Name="fscommand\f_in_box__lib.dll" CRC="a0c929c1" KB="244" />
+  <File Name="fscommand\gallery.xml" CRC="74619f7d" KB="73" />
+  <File Name="fscommand\hessMenu.ini" CRC="f07ef399" KB="1" />
+  <File Name="fscommand\icon.png" CRC="f723c815" KB="18" />
+  <File Name="fscommand\ICSharpCode.SharpZipLib.dll" CRC="81e3794f" KB="184" />
+  <File Name="fscommand\IndexWizard-HS7.xls" CRC="7820083d" KB="80" />
+  <File Name="fscommand\Interop.PowerPoint.dll" CRC="0582cf16" KB="212" />
+  <File Name="fscommand\Interop.ShockwaveFlashObjects.dll" CRC="4d32bf2e" KB="32" />
+  <File Name="fscommand\lame_enc.dll" CRC="add7f730" KB="512" />
+  <File Name="fscommand\Microsoft.Office.Interop.Excel.dll" CRC="0debd8cd" KB="1247" />
+  <File Name="fscommand\Microsoft.Office.Interop.PowerPoint.dll" CRC="0d8de8a6" KB="243" />
+  <File Name="fscommand\Office.dll" CRC="b1bddf09" KB="407" />
+  <File Name="fscommand\Runtime.xml" CRC="5837b4bc" KB="1" />
+  <File Name="fscommand\SFXLib.dll" CRC="452c11c8" KB="2260" />
+  <File Name="fscommand\SFXLoader.exe" CRC="3b74bf86" KB="3012" />
+  <File Name="cover.jpg" CRC="41e70f81" KB="13" />
+  <File Name="HESS.ico" CRC="1e9bbdaf" KB="4" />
+  <File Name="HessMain.exe" CRC="9c47877f" KB="4138" />
+  <File Name="intro.swf" CRC="b1ba378b" KB="57" />
+</Files>

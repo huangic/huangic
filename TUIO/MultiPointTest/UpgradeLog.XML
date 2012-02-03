@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ViviTeachApp">
+</Property><Property Name="方案檔" Value="C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\ViviTeachApp.sln">
+</Property><Property Name="使用者選項檔" Value="C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\ViviTeachApp.suo">
+</Property><Property Name="Date" Value="2012年2月3日">
+</Property><Property Name="Time" Value="下午 17:05">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ViviTeachApp.sln" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ViviTeachApp.suo" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp.suo">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="專案檔已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\ViviTeachApp.csproj">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj.user" Description="專案使用者檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\ViviTeachApp.csproj.user">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\API.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\API.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\AudioRecord.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\AudioRecord.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\CINI.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\CINI.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Core.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Core.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\CZip.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\CZip.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Debug.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Debug.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Debug.Designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Debug.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmViviTeach.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmViviTeach.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmViviTeach.Designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmViviTeach.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\CV.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\CV.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmHttpDialog.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmHttpDialog.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmHttpDialog.designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmHttpDialog.designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmSplashScreen.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmSplashScreen.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\GlobalKeyboardHook.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\GlobalKeyboardHook.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\IViewObject.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\IViewObject.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\OSInfo.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\OSInfo.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\PerPixelAlphaForm.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\PerPixelAlphaForm.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Program.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Program.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Properties\AssemblyInfo.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Properties\Resources.Designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Properties\Settings.Designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\EnumAudioDevice.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\EnumAudioDevice.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\FifoStream.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\FifoStream.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\AudioWriters.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\AudioWriters.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\EditWaveWriter.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\EditWaveWriter.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\InFormatEdit.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\InFormatEdit.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\NumericTextBox.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\NumericTextBox.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\WaveIn.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\WaveIn.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\WaveNative.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\WaveNative.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\WaveStream.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\WaveStream.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\WaveWriter.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\WaveWriter.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\Win32Functions.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\Win32Functions.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\WriterConfig.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\WriterConfig.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mp3\EditMp3Writer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mp3\EditMp3Writer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mp3\Lame.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mp3\Lame.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mp3\Mp3Writer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mp3\Mp3Writer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mp3\Mp3WriterConfig.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mp3\Mp3WriterConfig.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\SFXWrapper.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\SFXWrapper.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\TempMemoryVariable.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\TempMemoryVariable.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\utils.Designer.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\utils.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Utilities.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Utilities.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachFlashCall.cs" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\ViviTeachFlashCall.cs">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Properties\Settings.settings" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\app.manifest" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\app.manifest">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\CloudPaperApp.pfx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\CloudPaperApp.pfx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\res\utils\SplashForm.png" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\res\utils\SplashForm.png">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\res\utils\internet.png" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\res\utils\internet.png">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\icon.ico" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\icon.ico">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Debug.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Debug.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmViviTeach.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmViviTeach.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\frmHttpDialog.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\frmHttpDialog.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Properties\Resources.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\EditWaveWriter.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\EditWaveWriter.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\InFormatEdit.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\InFormatEdit.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mmedia\NumericTextBox.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mmedia\NumericTextBox.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\Recorder\yeti.mp3\EditMp3Writer.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\Recorder\yeti.mp3\EditMp3Writer.resx">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\utils.resx" Description="檔案已成功備份為 C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\Backup\ViviTeachApp\utils.resx">
+</Event><Event ErrorLevel="1" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="您的專案是以 .NET Framework 2.0 或 3.0 為目標。如果您的專案使用需要較新版 .NET Framework 的組件，專案建置將會失敗。您可以變更 .NET Framework 版本，方法是按一下專案功能表上的 [屬性]，然後在 [.NET Framework] 下拉式方塊中選取新的版本 (在 Visual Basic 中，它的位置是在按一下 [進階編譯選項...] 按鈕時顯示的 [編譯] 索引標籤上)。">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="專案轉換成功">
+</Event><Event ErrorLevel="3" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ViviTeachApp.sln" Description="方案轉換成功">
+</Event><Event ErrorLevel="3" Project="" Source="ViviTeachApp.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="掃描完成: 專案檔不需要升級。">
+</Event><Event ErrorLevel="1" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="找不到在 CodeAnalysisRuleAssemblies 中為 &quot;Release (x86)&quot; 組態定義的規則組件或目錄 &quot;D:\Program Files\Microsoft Visual Studio 8\Team Tools\Static Analysis Tools\FxCop\\rules&quot;。有些規則可能不會移轉至規則集。">
+</Event><Event ErrorLevel="0" Project="ViviTeachApp" Source="ViviTeachApp\ViviTeachApp.csproj" Description="已建立 &quot;Release (x86)&quot; 組態的規則集檔案 &quot;C:\Users\Nxidea-Ethan\Desktop\MultiPointTest\ViviTeachApp\Migrated rules for ViviTeachApp.ruleset&quot;。">
+</Event></UpgradeLog>

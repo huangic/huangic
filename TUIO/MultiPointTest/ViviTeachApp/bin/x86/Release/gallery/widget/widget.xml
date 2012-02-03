@@ -1,0 +1,12 @@
+﻿<NXiDEA>
+  <Files>
+    <File src="亂數板.dat" />
+    <File src="透明板.dat" />
+    <File src="捲簾.dat" />
+    <File src="聚光燈板.dat" />
+    <File src="骰子遊戲.swf"  />
+    <File src="計分板.swf"    />
+    <File src="計時器.swf"   />
+    <File src="選號器.swf"   />
+  </Files>
+</NXiDEA>
