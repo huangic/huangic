@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NXiDEA>
+  <DiskInfo>
+    <DiskName>ViviTek Interactive Whiteboard</DiskName>
+    <DiskIcon>icon.png</DiskIcon>
+    <DiskData>C:\\CHWA_DATA</DiskData>
+  </DiskInfo>
+
+  <Options>
+    <UsingJpeg>True</UsingJpeg>
+    <Language>zhtw</Language>
+  </Options>
+ <DroidBook>
+    <Platform>PC</Platform>
+    <ServerIP>192.168.1.8</ServerIP>
+    <ServerPort>54672</ServerPort>
+ </DroidBook>
+  <Password>RmlsZVNpemU9MTI0MzY3NDIwfERpc2tUcmlhbD18RGlza1Bhc3N3b3JkPQ==</Password>
+  <Version>v20110125.ver</Version>
+ <Settings><Debug>false</Debug></Settings>
+</NXiDEA>

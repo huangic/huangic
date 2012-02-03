@@ -1,0 +1,15 @@
+﻿<NXiDEA>
+  <Files>
+    <File src="白板.png" param="Command=BackgroundColor&Color=0xffffff" />
+    <File src="灰板.png" param="Command=BackgroundColor&Color=0x333333" />
+    <File src="綠板.png" param="Command=BackgroundColor&Color=0x003300" />
+    <File src="藍板.png" param="Command=BackgroundColor&Color=0x000080" />
+    <File src="紅板.png" param="Command=BackgroundColor&Color=0xFF0000" />
+    <File src="粉紅板.png" param="Command=BackgroundColor&Color=0xFF99CC" />
+    <File src="紫板.png" param="Command=BackgroundColor&Color=0xCC99FF" />
+    <File src="橘板.png" param="Command=BackgroundColor&Color=0x993300" />
+    <File src="BackgroundStyleGrid01.swf" title="格子線" param="Command=BackgroundStyle&StyleName=Grid01" />
+    <File src="BackgroundStyleGrid02.swf" title="英文格線" param="Command=BackgroundStyle&StyleName=Grid02" />
+    <File src="CaptureDesktop.png"  title="擷取桌面" param="Command=CaptureDesktop" />
+  </Files>
+</NXiDEA>

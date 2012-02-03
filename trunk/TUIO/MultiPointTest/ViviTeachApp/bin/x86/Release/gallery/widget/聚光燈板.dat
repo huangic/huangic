@@ -1,0 +1,18 @@
+<NXiDEA>
+  <ID>p759307425</ID>
+  <Bound>66.60000000000002,237.40000000000003,500,400</Bound>
+  <Alpha>0.2</Alpha>
+  <Rotation>0</Rotation>
+  <TypeName>CPolygon</TypeName>
+  <Selected>true</Selected>
+  <LockStatus>0</LockStatus>
+  <FlipStatus>1,1</FlipStatus>
+  <InfiniteStatus>false</InfiniteStatus>
+  <ScriptID>spotboard</ScriptID>
+  <PolygonName>Rectangle</PolygonName>
+  <PolygonBorderColor>1</PolygonBorderColor>
+  <PolygonFillColor>8421504</PolygonFillColor>
+  <PolygonBoldSize>4</PolygonBoldSize>
+  <PolygonGridRow>2</PolygonGridRow>
+  <PolygonGridColumn>2</PolygonGridColumn>
+</NXiDEA>
